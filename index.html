@@ -1743,11 +1743,11 @@ var animes = [{
                 <!-- ========================================== -->
                 <!-- ENLACE AL REPRODUCTOR CON SVG              -->
                 <!-- ========================================== -->
-                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                </a>
+                <a href="https://frame-perdido.github.io/Frame-perdido/watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+    </svg>
+</a>
                 <div class="card-vibes">
                     ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
                 </div>
