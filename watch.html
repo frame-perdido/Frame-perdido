@@ -83,15 +83,11 @@
            PLYR REPRODUCTOR
            ============================================================ */
         .plyr-container {
-    position: relative;
-    aspect-ratio: 16/9;
-    background: #000;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
         .plyr--video {
             border-radius: 16px;
         }
@@ -183,7 +179,7 @@
         }
 
         /* ============================================================
-           ERROR Y CARGA
+           ERROR
            ============================================================ */
         .error-box {
             background: var(--bg-card);
@@ -214,28 +210,6 @@
             font-family: 'Space Grotesk', monospace;
             margin: 12px 0;
         }
-        .loading-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-        .loading-box .spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--border);
-            border-top: 3px solid var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 16px;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
 
         /* ============================================================
            RESPONSIVE
@@ -254,17 +228,12 @@
     </style>
 </head>
 <body>
-    <div class="player-page" id="app">
-        <div class="loading-box">
-            <div class="spinner"></div>
-            <p>Cargando expediente...</p>
-        </div>
-    </div>
+    <div class="player-page" id="app"></div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
         // ============================================================
-        // BASE DE DATOS DE VIDEOS (CORREGIDA)
+        // BASE DE DATOS DE VIDEOS
         // ============================================================
         const videos = {
             // ============================================================
@@ -493,226 +462,197 @@
         // ============================================================
         // LEER PARÁMETROS DE LA URL
         // ============================================================
-        try {
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-            const ep = parseInt(params.get('ep')) || 1;
-            const version = params.get('version') || null;
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const ep = parseInt(params.get('ep')) || 1;
+        const version = params.get('version') || null;
 
-            const app = document.getElementById('app');
+        const app = document.getElementById('app');
 
-            // ============================================================
-            // FUNCIÓN PARA DETECTAR TIPO DE VIDEO
-            // ============================================================
-            function esVideoMega(url) {
-                return url && url.includes('mega.nz/embed');
-            }
+        // ============================================================
+        // FUNCIÓN PARA DETECTAR TIPO DE VIDEO
+        // ============================================================
+        function esVideoMega(url) {
+            return url && url.includes('mega.nz/embed');
+        }
 
-            function esVideoYouTube(url) {
-                return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
-            }
+        function esVideoYouTube(url) {
+            return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
+        }
 
-            function esVideoOk(url) {
-                return url && url.includes('ok.ru/videoembed');
-            }
+        function obtenerUrlClean(url) {
+            if (!url) return '';
 
-            function obtenerUrlClean(url) {
-                if (!url) return '';
-
-                // Mega: no necesita parámetros extras
-                if (esVideoMega(url)) {
-                    return url;
-                }
-
-                // YouTube: agregar parámetros para ocultar logo
-                if (esVideoYouTube(url)) {
-                    const separator = url.includes('?') ? '&' : '?';
-                    return url + separator + 'rel=0&modestbranding=1&iv_load_policy=3&origin=' + encodeURIComponent(window.location.origin);
-                }
-
-                // OK.ru: asegurar que tenga nochat
-                if (esVideoOk(url)) {
-                    const separator = url.includes('?') ? '&' : '?';
-                    return url + separator + 'nochat=1';
-                }
-
-                // Otros: devolver como está
+            // Mega: no necesita parámetros extras
+            if (esVideoMega(url)) {
                 return url;
             }
 
-            // ============================================================
-            // BUSCAR EL ANIME Y EL EPISODIO
-            // ============================================================
-            if (id && videos[id]) {
-                const v = videos[id];
-                const episodios = v.episodios;
+            // YouTube: agregar parámetros para ocultar logo
+            if (esVideoYouTube(url)) {
+                const separator = url.includes('?') ? '&' : '?';
+                return url + separator + 'rel=0&modestbranding=1&iv_load_policy=3&origin=' + encodeURIComponent(window.location.origin);
+            }
 
-                // Buscar el episodio solicitado
-                let episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
-                if (!episodioActual) {
-                    episodioActual = episodios[0];
+            // Otros: devolver como está
+            return url;
+        }
+
+        // ============================================================
+        // BUSCAR EL ANIME Y EL EPISODIO
+        // ============================================================
+        if (id && videos[id]) {
+            const v = videos[id];
+            const episodios = v.episodios;
+
+            // Buscar el episodio solicitado
+            let episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
+            if (!episodioActual) {
+                episodioActual = episodios[0];
+            }
+
+            // ============================================================
+            // GENERAR BOTONES CON SEPARADOR ENTRE VERSIONES
+            // ============================================================
+            let botonesHtml = '';
+            let ultimaVersion = '';
+            let primerBoton = true;
+
+            episodios.forEach(e => {
+                // Si cambia la versión y no es el primer botón, agregar separador
+                if (!primerBoton && e.version !== ultimaVersion) {
+                    botonesHtml += `<span class="version-separator">|</span>`;
                 }
+                primerBoton = false;
+                ultimaVersion = e.version;
 
-                // ============================================================
-                // GENERAR BOTONES CON SEPARADOR ENTRE VERSIONES
-                // ============================================================
-                let botonesHtml = '';
-                let ultimaVersion = '';
-                let primerBoton = true;
+                const isActive = (e.num === episodioActual.num && e.version === episodioActual.version);
+                const activeClass = isActive ? 'active' : '';
+                let label = e.version ? `${e.version}${e.num}` : `Ep. ${e.num}`;
 
-                episodios.forEach(e => {
-                    // Si cambia la versión y no es el primer botón, agregar separador
-                    if (!primerBoton && e.version !== ultimaVersion) {
-                        botonesHtml += `<span class="version-separator">|</span>`;
+                botonesHtml += `
+                    <button class="episode-btn ${activeClass}" 
+                            onclick="cambiarEpisodio(${id}, ${e.num}, '${e.version}')">
+                        ${label}
+                    </button>
+                `;
+            });
+
+            const mostrarSelector = episodios.length > 1;
+
+            // ============================================================
+            // TÍTULO CON EPISODIO
+            // ============================================================
+            let titleSuffix = '';
+            if (episodioActual.version) {
+                titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
+            } else if (episodios.length > 1) {
+                titleSuffix = ` — Episodio ${episodioActual.num}`;
+            }
+
+            // ============================================================
+            // URL LIMPIA
+            // ============================================================
+            const cleanUrl = obtenerUrlClean(episodioActual.url);
+
+            // ============================================================
+            // RENDERIZAR
+            // ============================================================
+            app.innerHTML = `
+                <div class="video-header">
+                    <div>
+                        <h1 class="video-title">${v.title}${titleSuffix}</h1>
+                        <span class="video-meta">${v.year} · ${v.studio} · ${v.director}</span>
+                    </div>
+                    <a href="index.html" class="back-btn">← Volver</a>
+                </div>
+
+                <div class="plyr-container">
+                    <div class="plyr__video-embed" id="player">
+                        <iframe
+                            src="${cleanUrl}"
+                            allowfullscreen
+                            allowtransparency
+                            allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
+                        ></iframe>
+                    </div>
+                </div>
+
+                ${mostrarSelector ? `<div class="episode-selector">${botonesHtml}</div>` : ''}
+
+                <div class="expediente-info">
+                    <h3>📁 Sobre este expediente</h3>
+                    <p>${v.desc}</p>
+                    <div class="expediente-tags">
+                        ${v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            document.title = v.title + titleSuffix + " — Frame Perdido";
+
+            // ============================================================
+            // INICIAR PLYR
+            // ============================================================
+            if (document.getElementById('player')) {
+                const player = new Plyr('#player', {
+                    youtube: {
+                        noCookie: false,
+                        rel: 0,
+                        modestbranding: 1,
+                        iv_load_policy: 3
+                    },
+                    tooltips: { controls: true, seek: true },
+                    keyboard: { focused: true, global: true },
+                    fullscreen: {
+                        enabled: true,
+                        fallback: true,
+                        iosNative: true
+                    },
+                    controls: [
+                        'play-large',
+                        'play',
+                        'progress',
+                        'current-time',
+                        'mute',
+                        'volume',
+                        'captions',
+                        'settings',
+                        'pip',
+                        'fullscreen'
+                    ],
+                    settings: ['captions', 'quality', 'speed'],
+                    quality: {
+                        default: 720,
+                        options: [1080, 720, 480, 360]
                     }
-                    primerBoton = false;
-                    ultimaVersion = e.version;
-
-                    const isActive = (e.num === episodioActual.num && e.version === episodioActual.version);
-                    const activeClass = isActive ? 'active' : '';
-                    let label = e.version ? `${e.version}${e.num}` : `Ep. ${e.num}`;
-
-                    botonesHtml += `
-                        <button class="episode-btn ${activeClass}" 
-                                onclick="cambiarEpisodio(${id}, ${e.num}, '${e.version || ''}')">
-                            ${label}
-                        </button>
-                    `;
                 });
-
-                const mostrarSelector = episodios.length > 1;
-
-                // ============================================================
-                // TÍTULO CON EPISODIO
-                // ============================================================
-                let titleSuffix = '';
-                if (episodioActual.version) {
-                    titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
-                } else if (episodios.length > 1) {
-                    titleSuffix = ` — Episodio ${episodioActual.num}`;
-                }
-
-                // ============================================================
-                // URL LIMPIA
-                // ============================================================
-                const cleanUrl = obtenerUrlClean(episodioActual.url);
-
-                // ============================================================
-                // RENDERIZAR
-                // ============================================================
-                app.innerHTML = `
-                    <div class="video-header">
-                        <div>
-                            <h1 class="video-title">${v.title}${titleSuffix}</h1>
-                            <span class="video-meta">${v.year} · ${v.studio} · ${v.director}</span>
-                        </div>
-                        <a href="index.html" class="back-btn">← Volver</a>
-                    </div>
-
-                    <div class="plyr-container">
-                        <div class="plyr__video-embed" id="player">
-                            <iframe
-                                src="${cleanUrl}"
-                                allowfullscreen
-                                allowtransparency
-                                allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
-                            ></iframe>
-                        </div>
-                    </div>
-
-                    ${mostrarSelector ? `<div class="episode-selector">${botonesHtml}</div>` : ''}
-
-                    <div class="expediente-info">
-                        <h3>📁 Sobre este expediente</h3>
-                        <p>${v.desc}</p>
-                        <div class="expediente-tags">
-                            ${v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-
-                document.title = v.title + titleSuffix + " — Frame Perdido";
-
- // ============================================================
-// INICIAR PLYR
-// ============================================================
-try {
-    if (document.getElementById('player')) {
-        const player = new Plyr('#player', {
-            youtube: {
-                noCookie: false,
-                rel: 0,
-                modestbranding: 1,
-                iv_load_policy: 3
-            },
-            tooltips: { controls: true, seek: true },
-            keyboard: { focused: true, global: true },
-            fullscreen: {
-                enabled: true,
-                fallback: true,
-                iosNative: true
-            },
-            controls: [
-                'play-large',
-                'play',
-                'progress',
-                'current-time',
-                'mute',
-                'volume',
-                'captions',
-                'settings',
-                'pip',
-                'fullscreen'
-            ],
-            settings: ['captions', 'quality', 'speed'],
-            quality: {
-                default: 720,
-                options: [1080, 720, 480, 360]
-            }
-        });
-    }
-} catch (e) {
-    console.warn('Error al inicializar Plyr:', e);
-}
-} catch (e) {
-    console.warn('Error al inicializar Plyr:', e);
-}
-            } else {
-                // ============================================================
-                // ERROR: CONTENIDO NO DISPONIBLE
-                // ============================================================
-                app.innerHTML = `
-                    <div class="error-box">
-                        <h2>🔒 Contenido no disponible</h2>
-                        <p>Este expediente aún no tiene video en nuestro archivo.</p>
-                        <span class="id-received">ID: ${id || 'ninguno'}</span>
-                        <a href="index.html" class="back-btn" style="margin-top:20px;display:inline-block;">← Volver al catálogo</a>
-                    </div>
-                `;
-                document.title = "No disponible — Frame Perdido";
             }
 
+        } else {
             // ============================================================
-            // FUNCIÓN PARA CAMBIAR DE EPISODIO
+            // ERROR: CONTENIDO NO DISPONIBLE
             // ============================================================
-            window.cambiarEpisodio = function(id, num, version) {
-                let url = `watch.html?id=${id}&ep=${num}`;
-                if (version) {
-                    url += `&version=${version}`;
-                }
-                window.location.href = url;
-            };
-
-        } catch (error) {
-            console.error('Error en la aplicación:', error);
-            document.getElementById('app').innerHTML = `
+            app.innerHTML = `
                 <div class="error-box">
-                    <h2>⚠️ Error</h2>
-                    <p>Hubo un problema al cargar el reproductor.</p>
-                    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:10px;">${error.message}</p>
+                    <h2>🔒 Contenido no disponible</h2>
+                    <p>Este expediente aún no tiene video en nuestro archivo.</p>
+                    <span class="id-received">ID: ${id || 'ninguno'}</span>
                     <a href="index.html" class="back-btn" style="margin-top:20px;display:inline-block;">← Volver al catálogo</a>
                 </div>
             `;
+            document.title = "No disponible — Frame Perdido";
+        }
+
+        // ============================================================
+        // FUNCIÓN PARA CAMBIAR DE EPISODIO
+        // ============================================================
+        function cambiarEpisodio(id, num, version) {
+            let url = `watch.html?id=${id}&ep=${num}`;
+            if (version) {
+                url += `&version=${version}`;
+            }
+            window.location.href = url;
         }
     </script>
 </body>
