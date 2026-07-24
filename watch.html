@@ -480,23 +480,31 @@
             return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
         }
 
-        function obtenerUrlClean(url) {
-            if (!url) return '';
+       function obtenerUrlClean(url) {
+    if (!url) return '';
 
-            // Mega: no necesita parámetros extras
-            if (esVideoMega(url)) {
-                return url;
-            }
+    // Mega: no necesita parámetros extras
+    if (esVideoMega(url)) {
+        return url;
+    }
 
-            // YouTube: agregar parámetros para ocultar logo
-            if (esVideoYouTube(url)) {
-                const separator = url.includes('?') ? '&' : '?';
-                return url + separator + 'rel=0&modestbranding=1&iv_load_policy=3&origin=' + encodeURIComponent(window.location.origin);
-            }
-
-            // Otros: devolver como está
-            return url;
+    // YouTube: limpiar URL y agregar parámetros
+    if (esVideoYouTube(url)) {
+        // Extraer solo el ID del video (eliminar todos los parámetros)
+        let cleanUrl = url;
+        
+        // Si tiene ? o &, tomar solo la parte antes del primer ?
+        if (url.includes('?')) {
+            cleanUrl = url.split('?')[0];
         }
+        
+        // Agregar parámetros necesarios
+        return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
+    }
+
+    // Otros: devolver como está
+    return url;
+}
 
         // ============================================================
         // BUSCAR EL ANIME Y EL EPISODIO
