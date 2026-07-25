@@ -10,6 +10,9 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <style>
+        /* ============================================================
+           TODOS TUS ESTILOS (igual que antes)
+           ============================================================ */
         :root {
             --bg: #0a0a0f;
             --bg-card: #12121a;
@@ -1117,13 +1120,15 @@
         </div>
     </footer>
 
-    <script>
-        // ============================================================
-        // BASE DE DATOS - CARGADA DESDE ARCHIVO EXTERNO
-        // ============================================================
-        // La variable 'animes' se carga desde data.js
-        // Asegúrate de tener el archivo data.js en la misma carpeta
+    <!-- ============================================================ -->
+    <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
+    <!-- ============================================================ -->
+    <script src="data.js"></script>
 
+    <!-- ============================================================ -->
+    <!-- CÓDIGO PRINCIPAL                                             -->
+    <!-- ============================================================ -->
+    <script>
         // ============================================================
         // SISTEMA DE VIBES AUTOMÁTICO
         // ============================================================
@@ -1242,42 +1247,39 @@
         let featuredId = null;
 
         function renderCards() {
-    const grid = document.getElementById('animeGrid');
-    if (!animes || animes.length === 0) {
-        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
-        return;
-    }
+            const grid = document.getElementById('animeGrid');
+            if (!animes || animes.length === 0) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
+                return;
+            }
 
-    grid.innerHTML = animes.map(anime => `
-        <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
-            <div class="card-image">
-                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                <span class="card-year">${anime.year}</span>
-            </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="card-tag">${anime.type}</span>
-                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+            grid.innerHTML = animes.map(anime => `
+                <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
+                    <div class="card-image">
+                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">${anime.type}</span>
+                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                        <div class="card-vibes">
+                            ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                        </div>
+                    </div>
                 </div>
-                <h3>${anime.title}</h3>
-                <p>${anime.description}</p>
-            </div>
-           <div class="card-footer">
-                <!-- ========================================== -->
-                <!-- ENLACE AL REPRODUCTOR CON SVG              -->
-                <!-- ========================================== -->
-                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                </a>
-                <div class="card-vibes">
-                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
+            `).join('');
+        }
 
         function updateStats() {
             const total = animes.length;
@@ -1552,6 +1554,19 @@
         // INICIALIZACIÓN
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
+            // Verificar que la base de datos se cargó
+            if (typeof animes === 'undefined') {
+                console.error('❌ Error: No se encontró la variable "animes". Asegúrate de que data.js está en la misma carpeta.');
+                document.getElementById('animeGrid').innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
+                        <p style="font-size:1.2rem;margin-bottom:8px;">⚠️ Error al cargar la base de datos</p>
+                        <p style="font-size:0.9rem;">Asegúrate de que el archivo data.js existe en la misma carpeta que index.html</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            console.log(`✅ Base de datos cargada: ${animes.length} obras`);
             renderCards();
             updateStats();
             setupFeatured();
