@@ -1246,39 +1246,40 @@
         // ============================================================
         let featuredId = null;
 
-        function renderCards() {
-            const grid = document.getElementById('animeGrid');
-            if (!animes || animes.length === 0) {
-                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
-                return;
-            }
+       function renderCards() {
+    const grid = document.getElementById('animeGrid');
+    if (!animes || animes.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
+        return;
+    }
 
-           grid.innerHTML = animes.map(anime => `
-    <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
-        <div class="card-image">
-            <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-            <span class="card-year">${anime.year}</span>
-        </div>
-        <div class="card-body">
-            <div class="card-tags">
-                <span class="card-tag">${anime.type}</span>
-                ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+    grid.innerHTML = animes.map(anime => `
+        <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
+            <div class="card-image">
+                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                <span class="card-year">${anime.year}</span>
             </div>
-            <h3>${anime.title}</h3>
-            <p>${anime.description}</p>
-        </div>
-        <div class="card-footer">
-            <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-            </a>
-            <div class="card-vibes">
-                ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="card-tag">${anime.type}</span>
+                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                </div>
+                <h3>${anime.title}</h3>
+                <p>${anime.description}</p>
+            </div>
+            <div class="card-footer">
+                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                </a>
+                <div class="card-vibes">
+                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                </div>
             </div>
         </div>
-    </div>
-`).join('');
+    `).join('');
+} 
         function updateStats() {
             const total = animes.length;
             const ovas = animes.filter(a => a.type === 'OVA').length;
