@@ -1268,7 +1268,7 @@
                         <p>${anime.description}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                        <a href="?expediente=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
                             </svg>
@@ -1445,6 +1445,22 @@
             const anime = animes.find(a => a.id === id);
             if (!anime) return;
 
+            // Cambiar el título de la página
+            document.title = `${anime.title} — Frame Perdido`;
+            
+            // Cambiar la URL sin recargar la página
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                url.searchParams.set('expediente', id);
+                window.history.pushState({ expediente: id }, '', url);
+            }
+
+            // Actualizar meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 150)}`;
+            }
+
             document.getElementById('modalImage').src = anime.cover;
             document.getElementById('modalImage').alt = anime.title;
             document.getElementById('modalTitle').textContent = anime.title;
@@ -1507,6 +1523,13 @@
                 e.target !== document.querySelector('.modal-close')) return;
             document.getElementById('modalOverlay').classList.remove('active');
             document.body.style.overflow = '';
+            
+            // Restaurar título y descripción al cerrar
+            document.title = 'Frame Perdido — Archivo de anime clásico';
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
+            }
         }
 
         function randomAnime() {
@@ -1551,6 +1574,27 @@
         });
 
         // ============================================================
+        // DETECTAR EXPEDIENTE EN LA URL AL CARGAR
+        // ============================================================
+        function checkUrlForExpediente() {
+            const params = new URLSearchParams(window.location.search);
+            const expedienteId = params.get('expediente');
+            
+            if (expedienteId !== null) {
+                const id = parseInt(expedienteId);
+                const anime = animes.find(a => a.id === id);
+                if (anime) {
+                    // Esperar a que la página cargue completamente
+                    setTimeout(() => {
+                        openModal(id);
+                        // Scroll al modal
+                        document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            }
+        }
+
+        // ============================================================
         // INICIALIZACIÓN
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
@@ -1576,6 +1620,9 @@
             setupListas();
             setupScrollSpy();
             setupSmoothScroll();
+            
+            // Verificar si hay un expediente en la URL
+            checkUrlForExpediente();
         });
     </script>
 </body>
