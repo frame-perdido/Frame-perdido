@@ -1517,21 +1517,27 @@
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
-        function closeModal(e) {
-            if (e && e.target !== document.getElementById('modalOverlay') &&
-                e.target !== document.querySelector('.modal-close')) return;
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-            
-            // Restaurar título y descripción al cerrar
-            document.title = 'Frame Perdido — Archivo de anime clásico';
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) {
-                metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
-            }
-        }
-
+function closeModal(e) {
+    if (e && e.target !== document.getElementById('modalOverlay') &&
+        e.target !== document.querySelector('.modal-close')) return;
+    
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // Restaurar título y descripción al cerrar
+    document.title = 'Frame Perdido — Archivo de anime clásico';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
+    }
+    
+    // LIMPIAR LA URL - Eliminar el parámetro "expediente"
+    if (window.history.pushState) {
+        const url = new URL(window.location);
+        url.searchParams.delete('expediente');
+        window.history.replaceState({}, '', url);
+    }
+}
         function randomAnime() {
             if (!animes || animes.length === 0) return;
             const randomId = animes[Math.floor(Math.random() * animes.length)].id;
