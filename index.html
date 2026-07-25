@@ -1573,26 +1573,33 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL AL CARGAR
-        // ============================================================
-        function checkUrlForExpediente() {
-            const params = new URLSearchParams(window.location.search);
-            const expedienteId = params.get('expediente');
-            
-            if (expedienteId !== null) {
-                const id = parseInt(expedienteId);
-                const anime = animes.find(a => a.id === id);
-                if (anime) {
-                    // Esperar a que la página cargue completamente
-                    setTimeout(() => {
-                        openModal(id);
-                        // Scroll al modal
-                        document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
-                }
-            }
+// ============================================================
+// DETECTAR EXPEDIENTE EN LA URL AL CARGAR
+// ============================================================
+function checkUrlForExpediente() {
+    const params = new URLSearchParams(window.location.search);
+    const expedienteId = params.get('expediente');
+    
+    if (expedienteId !== null) {
+        const id = parseInt(expedienteId);
+        const anime = animes.find(a => a.id === id);
+        if (anime) {
+            // Esperar a que la página cargue completamente
+            setTimeout(() => {
+                openModal(id);
+                // Scroll al modal
+                document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
         }
+    } else {
+        // Si no hay expediente en la URL, asegurar que la URL sea limpia
+        if (window.history.pushState) {
+            const url = new URL(window.location);
+            url.search = ''; // Eliminar todos los parámetros
+            window.history.replaceState({}, '', url);
+        }
+    }
+}
 
         // ============================================================
         // INICIALIZACIÓN
