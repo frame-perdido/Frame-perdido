@@ -207,21 +207,26 @@ var animes = [{
     related: [10, 12, 14]
 }, {
     id: 12,
-    title: "Fatal Fury: Legend of the Hungry Wolf",
+    title: "Fatal Fury (Películas)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhspOEcRcXEF6nNBS76BiZIwT6kvUqh2T4pcK-dboEEzu6moEIgF9knk1z6uRtutYjMbxpzrQ1eaOUgR20T1LzZ3TYvV32VYZrBd5cHuVVnIUox24ZyVoqwFfCvan4r5VER5AOwYTQqCjPRjft2bUrq6v1vNnpmBiVzFXYiKswmgX0Hg_6xChhZhKYGweAh=w270-h400",
-    year: 1992,
-    type: "Película",
-    duration: "45 min",
+    year: "1992-1994",
+    type: "Películas",
+    duration: "45 min / 65 min / 90 min",
     studio: "Studio Comet",
     director: "Kazuhiro Furuhashi",
     genre: ["Acción", "Artes marciales", "Videojuego"],
     tags: ["acción", "artes-marciales", "videojuego", "violento"],
-    description: "Terry y Andy Bogard buscan venganza contra Geese Howard. Pero antes tienen que ganar el torneo King of Fighters. Y eso no va a ser fácil.",
-    plot: "Los hermanos Bogard se inscriben en el torneo King of Fighters para enfrentarse a Geese Howard, el asesino de su padre. Pero el torneo es solo el principio: Geese tiene un imperio criminal que proteger, y no dudará en usar todo su poder para detenerlos.",
-    analysis: "Fatal Fury es una adaptación del famoso videojuego de SNK. La animación es decente, y las escenas de lucha son fieles al juego. Pero la historia es corta y los personajes son planos. Es una película para fans del videojuego, pero para el público general es una curiosidad.",
-    forgotten: "Su corta duración y lanzamiento directo en VHS la convirtieron en un producto de nicho. Nunca llegó a tener el éxito de otras adaptaciones de videojuegos, y hoy es una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
+    description: "Las tres películas de Fatal Fury: Legend of the Hungry Wolf (1992), The New Battle (1993) y The Motion Picture (1994). Terry y Andy Bogard buscan venganza contra Geese Howard, luego enfrentan a Krauser y finalmente viajan por el mundo para detener a Laocorn.",
+    plot: "La saga de Fatal Fury sigue a los hermanos Bogard en su lucha contra el crimen organizado y guerreros legendarios. Desde el torneo King of Fighters hasta batallas épicas contra poderosos enemigos.",
+    analysis: "Fatal Fury es una adaptación del famoso videojuego de SNK. La trilogía muestra la evolución de la animación y las historias, desde la venganza contra Geese Howard hasta aventuras más ambiciosas.",
+    forgotten: "Su corta duración y lanzamiento directo en VHS las convirtieron en un producto de nicho. Hoy son una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
     reel: "",
-    related: [13, 8, 10]
+    related: [8, 10],
+    episodios: [
+        { num: 1, title: "Legend of the Hungry Wolf", year: 1992, desc: "Terry y Andy Bogard buscan venganza contra Geese Howard en el torneo King of Fighters." },
+        { num: 2, title: "The New Battle", year: 1993, desc: "Terry es derrotado por Krauser y cae en el alcoholismo." },
+        { num: 3, title: "The Motion Picture", year: 1994, desc: "Terry, Andy y Joe viajan por el mundo para detener a Laocorn." }
+    ]
 }, {
     id: 13,
     title: "Fatal Fury: The Motion Picture",
