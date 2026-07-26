@@ -6,7 +6,19 @@
     <title>Frame Perdido — Reproductor</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    
+    <!-- ============================================================ -->
+    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
+    <!-- ============================================================ -->
     <style>
+        .adsterra-mobile { display: none; }
+        .adsterra-desktop { display: block; }
+
+        @media only screen and (max-width: 768px) {
+            .adsterra-mobile { display: block; }
+            .adsterra-desktop { display: none; }
+        }
+
         /* ============================================================
            VARIABLES Y RESET
            ============================================================ */
@@ -228,6 +240,11 @@
     </style>
 </head>
 <body>
+    <!-- ============================================================ -->
+    <!-- POPUNDER (invisible, solo script)                             -->
+    <!-- ============================================================ -->
+    <script src="https://dischargeconceiteffort.com/47/28/84/47288442ce2f3464b32b32f915235990.js"></script>
+
     <div class="player-page" id="app"></div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
@@ -716,6 +733,20 @@
                     <a href="index.html" class="back-btn">← Volver</a>
                 </div>
 
+                <!-- ==================================================== -->
+                <!-- BANNER ENCIMA DEL REPRODUCTOR (728×90 / 320×50)     -->
+                <!-- ==================================================== -->
+                <div style="text-align:center; margin: 12px 0;">
+                    <div class="adsterra-desktop">
+                        <script>atOptions={'key':'2d24803022ac8ea2c0f5629bb6e94501','format':'iframe','height':90,'width':728,'params':{}};</script>
+                        <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
+                    </div>
+                    <div class="adsterra-mobile">
+                        <script>atOptions={'key':'f609722253730b0dda3e6b83efb17a18','format':'iframe','height':50,'width':320,'params':{}};</script>
+                        <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
+                    </div>
+                </div>
+
                 <div class="plyr-container">
                     <div class="plyr__video-embed" id="player">
                         <iframe
@@ -725,6 +756,14 @@
                             allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
                         ></iframe>
                     </div>
+                </div>
+
+                <!-- ==================================================== -->
+                <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR                 -->
+                <!-- ==================================================== -->
+                <div style="margin: 20px auto; max-width: 100%;">
+                    <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
+                    <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
                 </div>
 
                 ${mostrarSelector ? `<div class="episode-selector">${botonesHtml}</div>` : ''}
@@ -804,5 +843,11 @@
             window.location.href = url;
         }
     </script>
+
+    <!-- ============================================================ -->
+    <!-- SOCIAL BAR - justo antes de cerrar </body>                    -->
+    <!-- ============================================================ -->
+    <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
+    
 </body>
 </html>
