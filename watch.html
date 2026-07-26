@@ -1,9 +1,24 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frame Perdido — Reproductor</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    
+    <!-- ============================================================ -->
+    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
+    <!-- ============================================================ -->
     <style>
+        .adsterra-mobile { display: none; }
+        .adsterra-desktop { display: block; }
+
+        @media only screen and (max-width: 768px) {
+            .adsterra-mobile { display: block; }
+            .adsterra-desktop { display: none; }
+        }
+
         /* ============================================================
            VARIABLES Y RESET
            ============================================================ */
@@ -47,9 +62,6 @@
             width: 100%;
         }
 
-        /* ============================================================
-           HEADER
-           ============================================================ */
         .video-header {
             display: flex;
             justify-content: space-between;
@@ -76,9 +88,6 @@
         }
         .back-btn:hover { opacity: 0.7; }
 
-        /* ============================================================
-           PLYR REPRODUCTOR
-           ============================================================ */
         .plyr-container {
             border-radius: 16px;
             overflow: hidden;
@@ -91,8 +100,6 @@
         .plyr--video .plyr__controls {
             padding: 16px 20px;
         }
-
-        /* Forzar rotación en pantalla completa */
         .plyr--fullscreen {
             width: 100vw !important;
             height: 100vh !important;
@@ -100,9 +107,6 @@
             max-height: 100vh !important;
         }
 
-        /* ============================================================
-           SELECTOR DE EPISODIOS
-           ============================================================ */
         .episode-selector {
             display: flex;
             justify-content: center;
@@ -139,9 +143,6 @@
             user-select: none;
         }
 
-        /* ============================================================
-           INFO DEL EXPEDIENTE
-           ============================================================ */
         .expediente-info {
             margin-top: 24px;
             background: var(--bg-card);
@@ -175,9 +176,6 @@
             border: 1px solid var(--border);
         }
 
-        /* ============================================================
-           ERROR
-           ============================================================ */
         .error-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -208,9 +206,6 @@
             margin: 12px 0;
         }
 
-        /* ============================================================
-           RESPONSIVE
-           ============================================================ */
         @media (max-width: 768px) {
             .video-title { font-size: 1.1rem; }
             body { padding: 10px; }
@@ -225,6 +220,11 @@
     </style>
 </head>
 <body>
+    <!-- ============================================================ -->
+    <!-- POPUNDER (SOLO AGREGADO)                                      -->
+    <!-- ============================================================ -->
+    <script src="https://dischargeconceiteffort.com/47/28/84/47288442ce2f3464b32b32f915235990.js"></script>
+
     <div class="player-page" id="app"></div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
@@ -233,9 +233,6 @@
         // BASE DE DATOS DE VIDEOS
         // ============================================================
         const videos = {
-            // ============================================================
-            // CALL ME TONIGHT (1 episodio)
-            // ============================================================
             26: {
                 title: "Call Me Tonight",
                 year: 1986,
@@ -247,10 +244,6 @@
                     { num: 1, version: "", url: "https://www.youtube.com/embed/VoPvrHkgzZQ" }
                 ]
             },
-
-            // ============================================================
-            // RECORD OF LODOSS WAR (13 episodios Sub + Doblado)
-            // ============================================================
             27: {
                 title: "Record of Lodoss War (OVA)",
                 year: 1990,
@@ -259,7 +252,6 @@
                 desc: "Un grupo de héroes debe enfrentar las fuerzas del mal que amenazan el continente de Lodoss. Una de las obras más influyentes del anime de fantasía.",
                 tags: ["OVA", "Fantasía", "Aventura", "Épico"],
                 episodios: [
-                    // ====== SUB (13 episodios) ======
                     { num: 1, version: "Sub", url: "https://mega.nz/embed/H4Qz0QJa#NFe01m2kAcc73tn43vuRneq7khd2zado6XhgZbAPdP0" },
                     { num: 2, version: "Sub", url: "https://mega.nz/embed/C5YmGB4T#l3rEEJTPu4wClKjHCysh8dlh0E4XSZGizTMElwy5M8c" },
                     { num: 3, version: "Sub", url: "https://mega.nz/embed/LtghHTKS#7yCZNvmDMYWAtsE-7HVhN2qJgVYo-doCHk2cfYQBv3Y" },
@@ -273,7 +265,6 @@
                     { num: 11, version: "Sub", url: "https://mega.nz/embed/D1hFCDjB#IzwvHgxyLeFMOQSbgLgQ8YwivZzUBhKAbsh1kH7JsIE" },
                     { num: 12, version: "Sub", url: "https://mega.nz/embed/mowVGKrQ#DSYWB56S2fFpCFIxnDC1f-Rd_In9AlMnTkTDxowXYD4" },
                     { num: 13, version: "Sub", url: "https://mega.nz/embed/qpgjlLoZ#9Y_BwY2zCfunzZe-oejVrQ-h7XCSn48rdDhDOOp6cqw" },
-                    // ====== DOBLADO (13 episodios) ======
                     { num: 1, version: "Dob", url: "https://mega.nz/embed/bxYgGaqS#UN4wKAaD6QYYwfWdLeEt4LAC0cE0jtD1IssdZsO4shQ" },
                     { num: 2, version: "Dob", url: "https://mega.nz/embed/mhw0FRRY#voYJxiLwzZmUf9CjyMpKY-_P0GnhNpjmMYSNcdV_E2E" },
                     { num: 3, version: "Dob", url: "https://mega.nz/embed/awZSxJrZ#rv3ybYXuoPVSK8uVwLVYBdCoRvRdF-4A1yBW9aLFVL8" },
@@ -289,10 +280,6 @@
                     { num: 13, version: "Dob", url: "https://mega.nz/embed/jhoknazR#fql2It9Q1pZy-wOy1qT9AJSVNU0JNc0ISgGRAc_9AjM" }
                 ]
             },
-
-            // ============================================================
-            // MIDORI (1 episodio)
-            // ============================================================
             7: {
                 title: "Midori: La Niña de las Camelias",
                 year: 1992,
@@ -304,10 +291,6 @@
                     { num: 1, version: "", url: "https://q8y5z.com/s51l/gvl0qllv2dlp" }
                 ]
             },
-
-            // ============================================================
-            // ARMITAGE III (4 episodios Sub + Doblado)
-            // ============================================================
             24: {
                 title: "Armitage III",
                 year: 1995,
@@ -316,22 +299,16 @@
                 desc: "En el Marte del futuro, el detective Ross Sylibus y la androide Naomi Armitage investigan una serie de asesinatos que desatan una conspiración sobre los androides 'Tercera Generación'. Un clásico del cyberpunk de los 90.",
                 tags: ["OVA", "Cyberpunk", "Ciencia Ficción", "Acción", "Androides"],
                 episodios: [
-                    // ====== SUB (4 episodios) ======
                     { num: 1, version: "Sub", url: "https://mega.nz/embed/bCwDDQoC#Zixy-nKpGBRwPSbLo-k6l5JRVugdSzjeM2ClPwiCNZQ" },
                     { num: 2, version: "Sub", url: "https://mega.nz/embed/OeRXWAaZ#Kq9Xzcwlbut_15YjkAzpId028wabaMO5cHnnqUfKJak" },
                     { num: 3, version: "Sub", url: "https://mega.nz/embed/uLpXSbCa#PSGaYc_FYBtrsEASWx2hTz0SdOXmT9EHqGUv77JxsRU" },
                     { num: 4, version: "Sub", url: "https://mega.nz/embed/HWR0FRbb#k8zDc0lur4LygkMqGYPcImqnNZ3aDFofcToI2uPYKWk" },
-                    // ====== DOBLADO (4 episodios) ======
                     { num: 1, version: "Dob", url: "https://mega.nz/embed/Ujsn3DAB#b1mLvzvtlotHN-dWeMUkx1DTvwOEjtRiXMVXkz45rgM" },
                     { num: 2, version: "Dob", url: "https://mega.nz/embed/J6UgWZTb#BgKKCXCF0616bAkWj-StJ5UraTmRGNBJrZvJ91QN3MI" },
                     { num: 3, version: "Dob", url: "https://mega.nz/embed/IiFwDQ7T#93RBnqb90dFXEnYnyx5zNPcGbS-R2TCyD6Fs-I_XgNY" },
                     { num: 4, version: "Dob", url: "https://mega.nz/embed/czFimbCZ#luPSEv8O6yN_uCdDhARPXm7gRO6Nih1aZ6mXIkMYMhI" }
                 ]
             },
-
-            // ============================================================
-            // LILY C.A.T. 
-            // ============================================================
             5: {
                 title: "Lily C.A.T.",
                 year: 1987,
@@ -343,10 +320,6 @@
                     { num: 1, version: "", url: "https://ok.ru/videoembed/2885176789548?nochat=1" }
                 ]
             },
-
-            // ============================================================
-            // BAREFOOT GEN (2 versiones: Sub y Doblado)
-            // ============================================================
             0: {
                 title: "Barefoot Gen",
                 year: 1983,
@@ -359,10 +332,6 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/2986566486648?nochat=1" }
                 ]
             },
-
-            // ============================================================
-            // MD GEIST (2 OVAs - Sub)
-            // ============================================================
             8: {
                 title: "MD Geist",
                 year: 1986,
@@ -376,10 +345,6 @@
                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/2062181075669?nochat=1" }
                 ]
             },
-
-            // ============================================================
-            // ONIKIRIMARU (Ogre Slayer) - 4 OVAs (Sub)
-            // ============================================================
             20: {
                 title: "Onikirimaru (Ogre Slayer)",
                 year: 1994,
@@ -394,10 +359,6 @@
                     { num: 4, version: "Sub", url: "https://ok.ru/videoembed/10284844649134?nochat=1" }
                 ]
             },
-
-            // ============================================================
-            // BLACK MAGIC M-66 (1 episodio - Sub)
-            // ============================================================
             23: {
                 title: "Black Magic M-66",
                 year: 1987,
@@ -409,10 +370,6 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996683799255?nochat=1" }
                 ]
             },
-
-            // ============================================================
-            // PLASTIC LITTLE (1 episodio)
-            // ============================================================
             2: {
                 title: "Plastic Little",
                 year: 1994,
@@ -424,10 +381,6 @@
                     { num: 1, version: "", url: "https://ok.ru/videoembed/11179925244657?nochat=1" }
                 ]
             },
-
-            // ============================================================
-            // ROOTS SEARCH (1 episodio - Sub)
-            // ============================================================
             6: {
                 title: "Roots Search: Shokushin Buttai X",
                 year: 1986,
@@ -440,10 +393,6 @@
                     { num: 1, version: "Dob", url: "https://www.youtube.com/embed/zPNrY-jf5mQ?=L8olPYfH3MvjdiGd" }
                 ]
             },
-
-            // ============================================================
-            // BATTLE ROYAL HIGH SCHOOL (1 episodio - Sub)
-            // ============================================================
             11: {
                 title: "Battle Royal High School",
                 year: 1987,
@@ -455,146 +404,116 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7943725976305?nochat=1" }
                 ]
             },
-            
-// ============================================================
-// BAREFOOT GEN 2 (Película - Sub)
-// ============================================================
-1: {
-    title: "Barefoot Gen 2",
-    year: 1986,
-    studio: "Madhouse",
-    director: "Toshio Hirata",
-    desc: "Tres años después del bombardeo atómico, Gen sigue luchando por sobrevivir en un Hiroshima devastado. La secuela de la obra maestra antibélica.",
-    tags: ["Película", "Drama", "Histórico", "Bélico", "Melancólico", "Violento"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
-    ]
-},  
-      // ============================================================
-// NINJA RESURRECTION (OVA - Dob)
-// ============================================================
-10: {
-    title: "Ninja Resurrection",
-    year: 1997,
-    studio: "J.C.Staff",
-    director: "Yasunori Urata",
-    desc: "El líder de una rebelión cristiana resucita con poderes sobrenaturales para enfrentarse a los samuráis. Acción, samuráis, magia y una historia de venganza.",
-    tags: ["OVA", "Acción", "Fantasía oscura", "Histórico", "Violento", "Samurái"],
-    episodios: [
-        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3043419556593?nochat=1" }
-    ]
-},
-
-// ============================================================
-// MEGAZONE 23 (OVA - Sub)
-// ============================================================
-17: {
-    title: "Megazone 23",
-    year: 1985,
-    studio: "AIC / Artmic",
-    director: "Noboru Ishiguro",
-    desc: "En el año 2023, un joven llamado Shogo descubre que su realidad es una simulación y que el mundo real es muy diferente. Se convierte en el piloto de una poderosa moto transformable, la Garland. Uno de los OVAs más influyentes, inspiración para 'The Matrix' y 'Akira'.",
-    tags: ["OVA", "Ciencia ficción", "Cyberpunk", "Mecha", "Experimental"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/1892565584597?nochat=1" },
-        { num: 2, version: "Sub", url: "https://ok.ru/videoembed/1892565060309?nochat=1" },
-        { num: 3, version: "Sub - Parte 1", url: "https://ok.ru/videoembed/1892525345493?nochat=1" },
-        { num: 3, version: "Sub - Parte 2", url: "https://ok.ru/videoembed/1892564929237?nochat=1" }
-    ]
-},
-// ============================================================
-// VIDEO GIRL AI (OVA - Dob)
-// ============================================================
-19: {
-    title: "Video Girl Ai",
-    year: 1992,
-    studio: "Production I.G",
-    director: "Mitsuo Hashimoto",
-    desc: "Yota, un chico de instituto, alquila un video de una chica llamada Ai. Para su sorpresa, Ai cobra vida y sale de la pantalla. Su misión es ayudar a Yota a conquistar a la chica que le gusta, Moemi. Una historia de amor tierna y con personajes carismáticos.",
-    tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico", "Melancólico"],
-    episodios: [
-        { num: 1, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+01+by+Dark.mp4" },
-        { num: 2, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+02+by+Dark.mp4" },
-        { num: 3, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+03+by+Dark.mp4" },
-        { num: 4, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+04+by+Dark.mp4" },
-        { num: 5, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+05+by+Dark.mp4" },
-        { num: 6, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+06+by+Dark.mp4" }
-    ]
-},
-
-// ============================================================
-// BIG WARS (OVA - Sub)
-// ============================================================
-3: {
-    title: "Big Wars",
-    year: 1993,
-    studio: "Magic Bus",
-    director: "Toshifumi Takizawa",
-    desc: "En el futuro, la humanidad ha colonizado Marte. Una raza alienígena que se autodenomina 'Dioses' ataca la colonia, y la humanidad entra en guerra con ellos. El capitán Akuh y la nave Aoba son la última esperanza para detener el avance alienígena.",
-    tags: ["OVA", "Ciencia ficción", "Mecha", "Espacial", "Acción"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996628945623?nochat=1" }
-    ]
-},
-            // ============================================================
-// WINDARIA (Película - Sub y Dob)
-// ============================================================
-21: {
-    title: "Windaria",
-    year: 1986,
-    studio: "Kaname Productions",
-    director: "Kunihiko Yuyama",
-    desc: "En un mundo fantástico, dos reinos, Saki e Isma, están en guerra. Un joven granjero llamado Izu se ve envuelto en el conflicto cuando su prometida, la princesa de Saki, es secuestrada. Una historia de amor y guerra entre dos reinos.",
-    tags: ["Película", "Fantasía", "Aventura", "Romance", "Melancólico", "Nostálgico"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10723156757166?nochat=1" },
-        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10718103800564?nochat=1" }
-    ]
-},
-            // ============================================================
-// RIKI-OH (OVA - Sub)
-// ============================================================
-15: {
-    title: "Riki-Oh: The Wall of Hell",
-    year: 1989,
-    studio: "J.C.Staff",
-    director: "Satoshi Dezaki",
-    desc: "Riki-Oh es un hombre con una fuerza sobrehumana que es enviado a una prisión privada. Allí, deberá enfrentarse a los guardias y a los criminales más peligrosos, usando sus habilidades marciales para sobrevivir. Una historia de violencia extrema y venganza.",
-    tags: ["OVA", "Acción", "Artes marciales", "Violento", "Gore", "Experimental"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993643977431?nochat=1" },
-        { num: 2, version: "Sub", url: "https://ok.ru/videoembed/3993654594263?nochat=1" }
-    ]
-},
-            // ============================================================
-// HELL TARGET (OVA - Sub)
-// ============================================================
-9: {
-    title: "Hell Target",
-    year: 1986,
-    studio: "Nakamura Production",
-    director: "Keizo Nakamura",
-    desc: "En el planeta Inferno II, el primer equipo de exploración ha desaparecido. Un segundo equipo es enviado para investigar, y pronto descubren el horrible secreto que se esconde en el planeta: una amenaza alienígena que convierte el lugar en un infierno.",
-    tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial", "Nocturno", "Claustrofóbico"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3238568987154?nochat=1" }
-    ]
-},
-            // ============================================================
-// ROUJIN Z (Película - Sub y Dob)
-// ============================================================
-16: {
-    title: "Roujin Z",
-    year: 1991,
-    studio: "A.P.P.P.",
-    director: "Hiroyuki Kitakubo",
-    desc: "El gobierno japonés crea un robot de última generación para cuidar a los ancianos. El problema es que el robot, la Z-001, es una máquina militar reconvertida. Cuando la conexión con el anciano que cuida se vuelve demasiado fuerte, el robot se vuelve loco y decide llevárselo. Una sátira divertidísima sobre el envejecimiento, la burocracia y la tecnología.",
-    tags: ["Película", "Ciencia ficción", "Comedia", "Sátira", "Robot", "Nostálgico"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/4250607946343?nochat=1" },
-        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
-    ]
-}
+            1: {
+                title: "Barefoot Gen 2",
+                year: 1986,
+                studio: "Madhouse",
+                director: "Toshio Hirata",
+                desc: "Tres años después del bombardeo atómico, Gen sigue luchando por sobrevivir en un Hiroshima devastado. La secuela de la obra maestra antibélica.",
+                tags: ["Película", "Drama", "Histórico", "Bélico", "Melancólico", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
+                ]
+            },
+            10: {
+                title: "Ninja Resurrection",
+                year: 1997,
+                studio: "J.C.Staff",
+                director: "Yasunori Urata",
+                desc: "El líder de una rebelión cristiana resucita con poderes sobrenaturales para enfrentarse a los samuráis. Acción, samuráis, magia y una historia de venganza.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Histórico", "Violento", "Samurái"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3043419556593?nochat=1" }
+                ]
+            },
+            17: {
+                title: "Megazone 23",
+                year: 1985,
+                studio: "AIC / Artmic",
+                director: "Noboru Ishiguro",
+                desc: "En el año 2023, un joven llamado Shogo descubre que su realidad es una simulación y que el mundo real es muy diferente. Se convierte en el piloto de una poderosa moto transformable, la Garland. Uno de los OVAs más influyentes, inspiración para 'The Matrix' y 'Akira'.",
+                tags: ["OVA", "Ciencia ficción", "Cyberpunk", "Mecha", "Experimental"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/1892565584597?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/1892565060309?nochat=1" },
+                    { num: 3, version: "Sub - Parte 1", url: "https://ok.ru/videoembed/1892525345493?nochat=1" },
+                    { num: 3, version: "Sub - Parte 2", url: "https://ok.ru/videoembed/1892564929237?nochat=1" }
+                ]
+            },
+            19: {
+                title: "Video Girl Ai",
+                year: 1992,
+                studio: "Production I.G",
+                director: "Mitsuo Hashimoto",
+                desc: "Yota, un chico de instituto, alquila un video de una chica llamada Ai. Para su sorpresa, Ai cobra vida y sale de la pantalla. Su misión es ayudar a Yota a conquistar a la chica que le gusta, Moemi. Una historia de amor tierna y con personajes carismáticos.",
+                tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico", "Melancólico"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+01+by+Dark.mp4" },
+                    { num: 2, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+02+by+Dark.mp4" },
+                    { num: 3, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+03+by+Dark.mp4" },
+                    { num: 4, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+04+by+Dark.mp4" },
+                    { num: 5, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+05+by+Dark.mp4" },
+                    { num: 6, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+06+by+Dark.mp4" }
+                ]
+            },
+            3: {
+                title: "Big Wars",
+                year: 1993,
+                studio: "Magic Bus",
+                director: "Toshifumi Takizawa",
+                desc: "En el futuro, la humanidad ha colonizado Marte. Una raza alienígena que se autodenomina 'Dioses' ataca la colonia, y la humanidad entra en guerra con ellos. El capitán Akuh y la nave Aoba son la última esperanza para detener el avance alienígena.",
+                tags: ["OVA", "Ciencia ficción", "Mecha", "Espacial", "Acción"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996628945623?nochat=1" }
+                ]
+            },
+            21: {
+                title: "Windaria",
+                year: 1986,
+                studio: "Kaname Productions",
+                director: "Kunihiko Yuyama",
+                desc: "En un mundo fantástico, dos reinos, Saki e Isma, están en guerra. Un joven granjero llamado Izu se ve envuelto en el conflicto cuando su prometida, la princesa de Saki, es secuestrada. Una historia de amor y guerra entre dos reinos.",
+                tags: ["Película", "Fantasía", "Aventura", "Romance", "Melancólico", "Nostálgico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10723156757166?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10718103800564?nochat=1" }
+                ]
+            },
+            15: {
+                title: "Riki-Oh: The Wall of Hell",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Satoshi Dezaki",
+                desc: "Riki-Oh es un hombre con una fuerza sobrehumana que es enviado a una prisión privada. Allí, deberá enfrentarse a los guardias y a los criminales más peligrosos, usando sus habilidades marciales para sobrevivir. Una historia de violencia extrema y venganza.",
+                tags: ["OVA", "Acción", "Artes marciales", "Violento", "Gore", "Experimental"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993643977431?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/3993654594263?nochat=1" }
+                ]
+            },
+            9: {
+                title: "Hell Target",
+                year: 1986,
+                studio: "Nakamura Production",
+                director: "Keizo Nakamura",
+                desc: "En el planeta Inferno II, el primer equipo de exploración ha desaparecido. Un segundo equipo es enviado para investigar, y pronto descubren el horrible secreto que se esconde en el planeta: una amenaza alienígena que convierte el lugar en un infierno.",
+                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial", "Nocturno", "Claustrofóbico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3238568987154?nochat=1" }
+                ]
+            },
+            16: {
+                title: "Roujin Z",
+                year: 1991,
+                studio: "A.P.P.P.",
+                director: "Hiroyuki Kitakubo",
+                desc: "El gobierno japonés crea un robot de última generación para cuidar a los ancianos. El problema es que el robot, la Z-001, es una máquina militar reconvertida. Cuando la conexión con el anciano que cuida se vuelve demasiado fuerte, el robot se vuelve loco y decide llevárselo. Una sátira divertidísima sobre el envejecimiento, la burocracia y la tecnología.",
+                tags: ["Película", "Ciencia ficción", "Comedia", "Sátira", "Robot", "Nostálgico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/4250607946343?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
+                ]
+            }
         };
 
         // ============================================================
@@ -607,9 +526,6 @@
 
         const app = document.getElementById('app');
 
-        // ============================================================
-        // FUNCIÓN PARA DETECTAR TIPO DE VIDEO
-        // ============================================================
         function esVideoMega(url) {
             return url && url.includes('mega.nz/embed');
         }
@@ -618,31 +534,20 @@
             return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
         }
 
-       function obtenerUrlClean(url) {
-    if (!url) return '';
-
-    // Mega: no necesita parámetros extras
-    if (esVideoMega(url)) {
-        return url;
-    }
-
-    // YouTube: limpiar URL y agregar parámetros
-    if (esVideoYouTube(url)) {
-        // Extraer solo el ID del video (eliminar todos los parámetros)
-        let cleanUrl = url;
-        
-        // Si tiene ? o &, tomar solo la parte antes del primer ?
-        if (url.includes('?')) {
-            cleanUrl = url.split('?')[0];
+        function obtenerUrlClean(url) {
+            if (!url) return '';
+            if (esVideoMega(url)) {
+                return url;
+            }
+            if (esVideoYouTube(url)) {
+                let cleanUrl = url;
+                if (url.includes('?')) {
+                    cleanUrl = url.split('?')[0];
+                }
+                return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
+            }
+            return url;
         }
-        
-        // Agregar parámetros necesarios
-        return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
-    }
-
-    // Otros: devolver como está
-    return url;
-}
 
         // ============================================================
         // BUSCAR EL ANIME Y EL EPISODIO
@@ -651,21 +556,16 @@
             const v = videos[id];
             const episodios = v.episodios;
 
-            // Buscar el episodio solicitado
             let episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
             if (!episodioActual) {
                 episodioActual = episodios[0];
             }
 
-            // ============================================================
-            // GENERAR BOTONES CON SEPARADOR ENTRE VERSIONES
-            // ============================================================
             let botonesHtml = '';
             let ultimaVersion = '';
             let primerBoton = true;
 
             episodios.forEach(e => {
-                // Si cambia la versión y no es el primer botón, agregar separador
                 if (!primerBoton && e.version !== ultimaVersion) {
                     botonesHtml += `<span class="version-separator">|</span>`;
                 }
@@ -686,9 +586,6 @@
 
             const mostrarSelector = episodios.length > 1;
 
-            // ============================================================
-            // TÍTULO CON EPISODIO
-            // ============================================================
             let titleSuffix = '';
             if (episodioActual.version) {
                 titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
@@ -696,13 +593,10 @@
                 titleSuffix = ` — Episodio ${episodioActual.num}`;
             }
 
-            // ============================================================
-            // URL LIMPIA
-            // ============================================================
             const cleanUrl = obtenerUrlClean(episodioActual.url);
 
             // ============================================================
-            // RENDERIZAR
+            // RENDERIZAR - CON ANUNCIOS INTEGRADOS
             // ============================================================
             app.innerHTML = `
                 <div class="video-header">
@@ -711,6 +605,34 @@
                         <span class="video-meta">${v.year} · ${v.studio} · ${v.director}</span>
                     </div>
                     <a href="index.html" class="back-btn">← Volver</a>
+                </div>
+
+                <!-- BANNER ENCIMA DEL REPRODUCTOR -->
+                <div style="text-align:center; margin: 12px 0;">
+                    <div class="adsterra-desktop">
+                        <script>
+                            atOptions = {
+                                'key' : '2d24803022ac8ea2c0f5629bb6e94501',
+                                'format' : 'iframe',
+                                'height' : 90,
+                                'width' : 728,
+                                'params' : {}
+                            };
+                        <\/script>
+                        <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"><\/script>
+                    </div>
+                    <div class="adsterra-mobile">
+                        <script>
+                            atOptions = {
+                                'key' : 'f609722253730b0dda3e6b83efb17a18',
+                                'format' : 'iframe',
+                                'height' : 50,
+                                'width' : 320,
+                                'params' : {}
+                            };
+                        <\/script>
+                        <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"><\/script>
+                    </div>
                 </div>
 
                 <div class="plyr-container">
@@ -722,6 +644,12 @@
                             allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
                         ></iframe>
                     </div>
+                </div>
+
+                <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR -->
+                <div style="margin: 20px auto; max-width: 100%;">
+                    <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"><\/script>
+                    <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
                 </div>
 
                 ${mostrarSelector ? `<div class="episode-selector">${botonesHtml}</div>` : ''}
@@ -737,9 +665,6 @@
 
             document.title = v.title + titleSuffix + " — Frame Perdido";
 
-            // ============================================================
-            // INICIAR PLYR
-            // ============================================================
             if (document.getElementById('player')) {
                 const player = new Plyr('#player', {
                     youtube: {
@@ -776,9 +701,6 @@
             }
 
         } else {
-            // ============================================================
-            // ERROR: CONTENIDO NO DISPONIBLE
-            // ============================================================
             app.innerHTML = `
                 <div class="error-box">
                     <h2>🔒 Contenido no disponible</h2>
@@ -790,9 +712,6 @@
             document.title = "No disponible — Frame Perdido";
         }
 
-        // ============================================================
-        // FUNCIÓN PARA CAMBIAR DE EPISODIO
-        // ============================================================
         function cambiarEpisodio(id, num, version) {
             let url = `watch.html?id=${id}&ep=${num}`;
             if (version) {
@@ -801,5 +720,11 @@
             window.location.href = url;
         }
     </script>
+
+    <!-- ============================================================ -->
+    <!-- SOCIAL BAR                                                    -->
+    <!-- ============================================================ -->
+    <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
+    
 </body>
 </html>
