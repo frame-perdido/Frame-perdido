@@ -10,7 +10,17 @@
     <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8"/>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- CSS para responsividad de anuncios Adsterra -->
     <style>
+        .adsterra-mobile { display: none; }
+        .adsterra-desktop { display: block; }
+
+        @media only screen and (max-width: 768px) {
+            .adsterra-mobile { display: block; }
+            .adsterra-desktop { display: none; }
+        }
+
         /* ============================================================
            TODOS TUS ESTILOS (igual que antes)
            ============================================================ */
@@ -906,6 +916,15 @@
             .modal-content { padding: 16px; }
             #modalReelContainer { max-width: 240px; }
         }
+
+        /* Estilo para separar anuncios */
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .ad-container iframe {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -927,6 +946,38 @@
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </header>
 
+    <!-- ============================================================ -->
+    <!-- BANNER HEADER - 728×90 (desktop) / 320×50 (móvil)            -->
+    <!-- ============================================================ -->
+    <div style="text-align: center; margin: 12px 0; padding: 0 20px;">
+        <!-- Desktop: 728×90 -->
+        <div class="adsterra-desktop">
+            <script>
+                atOptions = {
+                    'key' : '2d24803022ac8ea2c0f5629bb6e94501',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
+        </div>
+        <!-- Mobile: 320×50 -->
+        <div class="adsterra-mobile">
+            <script>
+                atOptions = {
+                    'key' : 'f609722253730b0dda3e6b83efb17a18',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
+        </div>
+    </div>
+
     <section class="hero" id="inicio">
         <h1>Rescatando clásicos<br /><span class="highlight">Compartiendo historias</span></h1>
         <p>Explora OVAs, películas y especiales que dejaron huella, aunque nunca alcanzaran la fama de los grandes clásicos</p>
@@ -936,6 +987,14 @@
             <button class="btn btn-random" onclick="randomAnime()">🎲 Anime aleatorio</button>
         </div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- NATIVE BANNER (responsivo nativo)                             -->
+    <!-- ============================================================ -->
+    <div style="margin: 24px auto; max-width: 100%; padding: 0 20px;">
+        <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
+        <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
+    </div>
 
     <div class="stats-bar">
         <div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">Expedientes</div></div>
@@ -1004,6 +1063,22 @@
         </div>
         <div class="grid" id="animeGrid"></div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- BANNER MID-CONTENT 300×250 (entre tarjetas)                   -->
+    <!-- ============================================================ -->
+    <div style="text-align: center; margin: 32px 0; padding: 0 20px;">
+        <script>
+            atOptions = {
+                'key' : '87a06576574ce7684612c64a5ebfe421',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
+    </div>
 
     <section class="section" id="listas">
         <div class="section-header">
@@ -1077,50 +1152,49 @@
     </div>
 
     <footer>
-    <div class="footer-content">
-        <div class="footer-brand">
-            <div class="logo-text">Frame <span>Perdido</span></div>
-            <p>El archivo del anime que el tiempo olvidó. OVAs, películas independientes y animación clásica seleccionadas con criterio, sin algoritmos.</p>
-            <div class="footer-socials">
-                <a href="https://www.facebook.com/share/1Hz9NsDpvD/">📘</a>
-                <a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR">🎵</a>
-                <a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5">📷</a>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-text">Frame <span>Perdido</span></div>
+                <p>El archivo del anime que el tiempo olvidó. OVAs, películas independientes y animación clásica seleccionadas con criterio, sin algoritmos.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">📘</a>
+                    <a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">🎵</a>
+                    <a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">📷</a>
+                </div>
             </div>
-        </div>  <!-- Cierra footer-brand -->
 
-        <!-- LAS COLUMNAS VAN FUERA DE footer-brand -->
-        <div class="footer-col">
-            <h4>Explorar</h4>
-            <ul>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#vibes">Buscar por vibe</a></li>
-                <li><a href="#featured">Expediente del Día</a></li>
-                <li><a href="#listas">Listas</a></li>
-            </ul>
+            <div class="footer-col">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#vibes">Buscar por vibe</a></li>
+                    <li><a href="#featured">Expediente del Día</a></li>
+                    <li><a href="#listas">Listas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Comunidad</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                    <li><a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://frame-perdido.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a></li>
+                    <li><a href="https://frame-perdido.github.io/Frame-perdido/privacidad.html" target="_blank" rel="noopener noreferrer">Privacidad</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-col">
-            <h4>Comunidad</h4>
-            <ul>
-                <li><a href="https://www.facebook.com/share/1Hz9NsDpvD/">Facebook</a></li>
-                <li><a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR">TikTok</a></li>
-                <li><a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5">Instagram</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="https://frame-perdido.github.io/Frame-perdido/acerca-de.html">Acerca de</a></li>
-                <li><a href="https://frame-perdido.github.io/Frame-perdido/privacidad.html">Privacidad</a></li>
-            </ul>
-        </div>
-    </div>  <!-- Cierra footer-content -->
 
-    <div class="footer-bottom">
-        <span>© 2026 Frame Perdido</span>
-        <a href="https://tecnocurioso.github.io/Frame-perdido/acerca-de.html">Acerca de</a>
-        <a href="https://tecnocurioso.github.io/Frame-perdido/privacidad.html">Privacidad</a>
-    </div>
-</footer>
+        <div class="footer-bottom">
+            <span>© 2026 Frame Perdido</span>
+            <a href="https://tecnocurioso.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a>
+            <a href="https://tecnocurioso.github.io/Frame-perdido/privacidad.html" target="_blank" rel="noopener noreferrer">Privacidad</a>
+        </div>
+    </footer>
 
     <!-- ============================================================ -->
     <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
@@ -1640,6 +1714,9 @@ function checkUrlForExpediente() {
         });
     </script>
 
+    <!-- ============================================================ -->
+    <!-- SOCIAL BAR (flotante) - justo antes de cerrar </body>         -->
+    <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
     
 </body>
