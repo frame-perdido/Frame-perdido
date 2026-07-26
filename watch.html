@@ -608,9 +608,11 @@
             if (!episodioActual) {
                 episodioActual = episodios[0];
             }
-
-            let botonesHtml = '';
-           onst agrupados = {};
+// ============================================================
+// GENERAR BOTONES AGRUPADOS POR EPISODIO
+// ============================================================
+let botonesHtml = '';
+const agrupados = {};  // <-- CORREGIDO
 
 // Agrupar episodios por número
 episodios.forEach(e => {
@@ -638,16 +640,17 @@ Object.keys(agrupados).forEach(num => {
     if (botonesHtml) botonesHtml += ' <span class="version-separator">|</span> ';
     botonesHtml += versionesHtml;
 });
-            const mostrarSelector = episodios.length > 1;
 
-            let titleSuffix = '';
-            if (episodioActual.version) {
-                titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
-            } else if (episodios.length > 1) {
-                titleSuffix = ` — Episodio ${episodioActual.num}`;
-            }
+const mostrarSelector = episodios.length > 1;
 
-            const cleanUrl = obtenerUrlClean(episodioActual.url);
+let titleSuffix = '';
+if (episodioActual.version) {
+    titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
+} else if (episodios.length > 1) {
+    titleSuffix = ` — Episodio ${episodioActual.num}`;
+}
+
+const cleanUrl = obtenerUrlClean(episodioActual.url);
 
             // ============================================================
             // RENDERIZAR - CON ANUNCIOS INTEGRADOS
