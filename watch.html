@@ -610,28 +610,34 @@
             }
 
             let botonesHtml = '';
-            let ultimaVersion = '';
-            let primerBoton = true;
+           onst agrupados = {};
 
-            episodios.forEach(e => {
-                if (!primerBoton && e.version !== ultimaVersion) {
-                    botonesHtml += `<span class="version-separator">|</span>`;
-                }
-                primerBoton = false;
-                ultimaVersion = e.version;
+// Agrupar episodios por número
+episodios.forEach(e => {
+    if (!agrupados[e.num]) agrupados[e.num] = [];
+    agrupados[e.num].push(e);
+});
 
-                const isActive = (e.num === episodioActual.num && e.version === episodioActual.version);
-                const activeClass = isActive ? 'active' : '';
-                let label = e.version ? `${e.version}${e.num}` : `Ep. ${e.num}`;
+// Generar botones por grupo
+Object.keys(agrupados).forEach(num => {
+    const grupo = agrupados[num];
+    const versionesHtml = grupo.map(e => {
+        const isActive = (e.num === episodioActual.num && e.version === episodioActual.version);
+        const activeClass = isActive ? 'active' : '';
+        const label = e.version ? `${e.version}${e.num}` : `Ep. ${e.num}`;
+        
+        return `
+            <button class="episode-btn ${activeClass}" 
+                    onclick="cambiarEpisodio(${id}, ${e.num}, '${e.version}')">
+                ${label}
+            </button>
+        `;
+    }).join('');
 
-                botonesHtml += `
-                    <button class="episode-btn ${activeClass}" 
-                            onclick="cambiarEpisodio(${id}, ${e.num}, '${e.version}')">
-                        ${label}
-                    </button>
-                `;
-            });
-
+    // Añadir separador entre grupos
+    if (botonesHtml) botonesHtml += ' <span class="version-separator">|</span> ';
+    botonesHtml += versionesHtml;
+});
             const mostrarSelector = episodios.length > 1;
 
             let titleSuffix = '';
