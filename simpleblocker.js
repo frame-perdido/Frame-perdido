@@ -1,7 +1,4 @@
-// ---
-// Coded by: https://odd.rip
-// Get it now: https://github.com/OddDevelopment/Simple-Adblock-Detector
-// ---
+
 
 const outbrainErrorCheck = async () => {
     try {
@@ -136,6 +133,6 @@ const detectedAdblock = async () => {
 
 detectedAdblock().then(result => {
     if (result) {
-        window.location.href = "./disable-adblock";
+        window.location.href = "disable-adblock.html";
     }
 });
