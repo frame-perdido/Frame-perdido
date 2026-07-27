@@ -41,8 +41,7 @@ var animes = [{
     forgotten: "Como tantas OVAs de los 90, Dark Cat quedó sepultada bajo el aluvión de títulos que llegaban en VHS. Nunca tuvo una distribución masiva fuera de Japón, y hoy es una rareza que solo los coleccionistas más acérrimos buscan. Los fans del anime de la época lo conocen más por su reputación (buena o mala) que por haberlo visto realmente.",
     reel: "",
     related: [23, 9, 11],
-    episodios: [
-        { num: 1, version: "", url: "https://www.youtube.com/embed/VIDEO_ID_AQUI" }
+   
     ]
 }, {
     id: 2,
