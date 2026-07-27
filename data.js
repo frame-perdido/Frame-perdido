@@ -2,7 +2,7 @@
 // BASE DE DATOS - FRAME PERDIDO
 // ============================================================
 var animes = [{
-   {
+   
     id: 0,
     title: "Barefoot Gen (Películas)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjMF-TZtwO2Jyhp2R3PKzwiJ0nQYuR6tI-QE3eyCdLjo1S8GFlm9GTw9UbqhVL1ZAX5L8JOPk31BtoJbEAVbpRzmYC9kEEMQfnL_KTX3IlqkcWO9VvDjw57rs1Jc9qrrShj9rSrjfbzSlHxntenQ1l1_bKLU5uHaPDXUGZqTEHpiGz4DYfNBblSahFT1CHf=w267-h400",
