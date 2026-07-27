@@ -484,4 +484,24 @@ var animes = [{
     episodios: 13,
     reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQPrWZ_Lbxzkpwz35yEtc0_QFItiT9BKAddekxcER7XojKQCCh_TyXFabTy8mLEz6FiH1F4JCApNJD4IE_m2uICGZ3j7fMeOELetkmI42Q.mp4?_nc_cat=101&_nc_oc=AdqbyHi7FTbOl1sdS0IkuDnnCAQ98ybXydll6zIZn8SpvCwHWHLntxEvurcK3xLasls&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=0rOQR2goAFYQ7kNvwGTAasP&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTM1MjU2MTI1MDM1MDQ4NiwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMjQsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=h9U5Ck6r5aUmb_-pomtfvA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAv3hhD1JfpD8GRMull01O9on9CUCKDnY8LManRUHbKZA&oe=6A672819&bitrate=388270&tag=sve_sd",
     related: [14, 21, 22]
-}];
+},
+      {
+    id: 28, 
+    title: "Giant Robo: The Day the Earth Stood Still",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhbTVaOwQ0Rt8ihB-zHlp36b7x3zNOLmT1DKz7jsm4gNnioHU-F-g1JgOWdz2UGZdCkpJMd5qdRwZOKAzQWs2u6XWPixjWgswOZFb044aA9uuPlgHeJeDFZTKK6Syy01EIq6EvCmBZrzwkppHnpbt-0qg9kS_XpIsdNJ5EuRBoPX62tdkXstqbAhoLMJyEi=w400-h400",  
+    year: "1992-1998",
+    type: "OVA",
+    duration: "7 episodios (~45 min c/u)",
+    studio: "Mu Animation Studio / Phoenix Entertainment",
+    director: "Yasuhiro Imagawa",
+    genre: ["Ciencia ficción", "Mecha", "Acción", "Atompunk"],
+    tags: ["mecha", "acción", "ciencia-ficción", "épico", "nostálgico", "robot", "artes-marciales"],
+    description: "En un futuro cercano, la humanidad disfruta de una nueva era de prosperidad gracias al Shizuma Drive, una fuente de energía revolucionaria. Pero esta paz se ve amenazada por Big Fire, una organización secreta que busca la dominación mundial. Contra ellos, la Organización Internacional de Policía (IPO) despliega a los 'Expertos de la Justicia', un grupo de guerreros con habilidades sobrehumanas. Junto a ellos está Daisaku Kusama, el joven maestro del robot más poderoso de la Tierra: Giant Robo.",
+    plot: "Daisaku Kusama, el joven maestro de Giant Robo, se une a la Organización Internacional de Policía (IPO) para enfrentar a la organización criminal Big Fire. Junto a los 'Expertos de la Justicia', un grupo de guerreros con habilidades sobrehumanas, deberá detener los planes de Big Fire para dominar el mundo usando el poder del Shizuma Drive. Pero la verdad sobre el Shizuma Drive y la guerra entre la IPO y Big Fire es más compleja de lo que parece.",
+    analysis: "Giant Robo es una obra maestra del mecha que combina el estilo retro de los años 60 con una animación espectacular de los 90. Yasuhiro Imagawa crea un universo lleno de personajes carismáticos, acción trepidante y una banda sonora operística que eleva cada escena. Es un homenaje a la obra de Mitsuteru Yokoyama, pero con una historia original que se sostiene por sí misma. Una serie que todo amante del mecha debería ver.",
+    forgotten: "A pesar de ser una obra maestra, su lanzamiento durante 6 años (1992-1998) y su distribución limitada fuera de Japón la convirtieron en una joya oculta. Muchos fans del mecha no la conocen, y hoy es una rareza que solo los coleccionistas más acérrimos recuerdan.",
+    episodios: 7,
+    reel: "",  
+    related: [17, 18, 23, 25]  
+}        
+             ];
