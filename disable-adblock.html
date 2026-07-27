@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdBlock Detectado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0f;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .ad-block-container {
+            max-width: 520px;
+            width: 100%;
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            padding: 50px 40px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .icon-container {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 24px;
+            background: rgba(255, 77, 77, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-container svg {
+            width: 48px;
+            height: 48px;
+            fill: #ff4d4d;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span {
+            color: #ff4d4d;
+        }
+
+        .subtitle {
+            color: #aab;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .subtitle strong {
+            color: #fff;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0 28px;
+            border-left: 3px solid #ff4d4d;
+        }
+
+        .message-box p {
+            color: #aab;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #e63e3e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 77, 77, 0.35);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: #aab;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .footer-text {
+            margin-top: 24px;
+            color: #556;
+            font-size: 13px;
+        }
+
+        .footer-text a {
+            color: #778;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            color: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .ad-block-container {
+                padding: 35px 24px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .subtitle {
+                font-size: 14px;
+            }
+            .btn-primary,
+            .btn-secondary {
+                padding: 14px 24px;
+                font-size: 14px;
+                width: 100%;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+            .icon-container {
+                width: 70px;
+                height: 70px;
+            }
+            .icon-container svg {
+                width: 38px;
+                height: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ad-block-container">
+        <!-- Icono -->
+        <div class="icon-container">
+            <svg viewBox="0 0 24 24">
+                <path d="M12.2 9L10.2 7H13C14.1 7 15 7.9 15 9V11.8L13 9.8V9H12.2M23 9V7H19C17.9 7 17 7.9 17 9V11C17 12.1 17.9 13 19 13H21V15H18.2L20.2 17H21C22.1 17 23 16.1 23 15V13C23 11.9 22.1 11 21 11H19V9H23M22.1 21.5L20.8 22.8L14.4 16.4C14.1 16.7 13.6 17 13 17H9V10.9L7 8.9V17H5V13H3V17H1V9C1 7.9 1.9 7 3 7H5.1L1.1 3L2.4 1.7L22.1 21.5M5 9H3V11H5V9M13 14.9L11 12.9V15H13V14.9Z"/>
+            </svg>
+        </div>
+
+        <!-- Título -->
+        <h1>🚫 <span>AdBlock</span> Detectado</h1>
+
+        <!-- Subtítulo -->
+        <p class="subtitle">
+            Estás usando un bloqueador de anuncios.<br>
+            <strong>La publicidad mantiene este sitio activo.</strong>
+        </p>
+
+        <!-- Mensaje -->
+        <div class="message-box">
+            <p>
+                Por favor, <strong>desactiva tu AdBlock</strong> para acceder al contenido.
+                Sin anuncios, este sitio no puede seguir funcionando.
+            </p>
+        </div>
+
+        <!-- Botones -->
+        <div class="buttons">
+            <a href="javascript:location.reload()" class="btn-primary">
+                🔄 Ya lo desactivé
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn-secondary" target="_blank">
+                ✕ Cerrar
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <p class="footer-text">
+            ¿Problemas? <a href="#">Contáctanos</a>
+        </p>
+    </div>
+
+</body>
+</html>
