@@ -27,7 +27,7 @@ var animes = [{
 }, {
     id: 1,
     title: "Dark Cat",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjaXWf0PJ6DqzgnRs9qN0DGafTjD30f3k5GfNlNBlvckhJpIMiVhRwckqEQLhw2mQYEaDO1t2VU9OnC7h6k8svDKK6i34DLBxr0JtOVdR6aXDHKXikWZfZ2Y-6O95apSdCb_Aw6nO-8HPFEMZdzC8NEXCCT7eB9E8R2IUB_-qUf6YgVQ8F8B0s7Yw=w267-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEg4AFtj8EakCxf-enZTzpMcFFgTf8dt-jDrCN8oNeIk6imCE-l7Q2wK3e0tIpV9IDLu8pQPDs3w4Fn4HkwombO2ZtoRQtLH1ohTUCqgGnNrs407SD646tJpJy00bZxVAfxX9kfoH3K-iOsn20HEYPxCmFHnYkoClJDBDk1RJUuAy1KsgQ6M0aclkAmOMOpq=w232-h400",
     year: 1991,
     type: "OVA",
     duration: "50 min",
