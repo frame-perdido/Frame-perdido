@@ -221,11 +221,89 @@
 </head>
 <body>
     <!-- ============================================================ -->
-    <!-- POPUNDER (SOLO AGREGADO)                                      -->
+    <!-- POPUNDER                                                     -->
     <!-- ============================================================ -->
     <script src="https://dischargeconceiteffort.com/47/28/84/47288442ce2f3464b32b32f915235990.js"></script>
 
-    <div class="player-page" id="app"></div>
+    <div class="player-page">
+        <!-- ============================================================ -->
+        <!-- HEADER FIJO                                                    -->
+        <!-- ============================================================ -->
+        <div class="video-header" id="videoHeader">
+            <div>
+                <h1 class="video-title" id="videoTitle">Cargando...</h1>
+                <span class="video-meta" id="videoMeta"></span>
+            </div>
+            <a href="index.html" class="back-btn">← Volver</a>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- BANNER ENCIMA DEL REPRODUCTOR (FIJO)                         -->
+        <!-- ============================================================ -->
+        <div style="text-align:center; margin: 12px 0;">
+            <div class="adsterra-desktop">
+                <script>
+                    atOptions = {
+                        'key' : '2d24803022ac8ea2c0f5629bb6e94501',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
+            </div>
+            <div class="adsterra-mobile">
+                <script>
+                    atOptions = {
+                        'key' : 'f609722253730b0dda3e6b83efb17a18',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- REPRODUCTOR                                                   -->
+        <!-- ============================================================ -->
+        <div class="plyr-container">
+            <div class="plyr__video-embed" id="player">
+                <iframe
+                    id="videoFrame"
+                    src=""
+                    allowfullscreen
+                    allowtransparency
+                    allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
+                ></iframe>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR (FIJO)                  -->
+        <!-- ============================================================ -->
+        <div style="margin: 20px auto; max-width: 100%;">
+            <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
+            <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SELECTOR DE EPISODIOS (dinámico)                             -->
+        <!-- ============================================================ -->
+        <div class="episode-selector" id="episodeSelector"></div>
+
+        <!-- ============================================================ -->
+        <!-- INFO DEL EXPEDIENTE (dinámico)                                -->
+        <!-- ============================================================ -->
+        <div class="expediente-info" id="expedienteInfo">
+            <h3>📁 Sobre este expediente</h3>
+            <p id="expedienteDesc">Cargando...</p>
+            <div class="expediente-tags" id="expedienteTags"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
@@ -514,125 +592,93 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
                 ]
             },
+            14: {
+                title: "Angel's Egg",
+                year: 1985,
+                studio: "Studio Deen",
+                director: "Mamoru Oshii",
+                desc: "En un mundo sombrío y desolado, una niña protege un misterioso huevo en una ciudad gótica. Un soldado errante la sigue. Juntos, emprenden un viaje simbólico en busca de respuestas. Una obra de arte abstracta con casi sin diálogos.",
+                tags: ["OVA", "Fantasía", "Ciencia ficción", "Experimental", "Melancólico", "Nocturno"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8337781033598?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10139166378734?nochat=1" }
+                ]
+            },
+            22: {
+                title: "Arion",
+                year: 1986,
+                studio: "Sunrise",
+                director: "Yoshikazu Yasuhiko",
+                desc: "Arion es un joven criado por los dioses. Cuando descubre que su madre fue asesinada, emprende un viaje para vengarse. Su camino lo llevará a enfrentarse a los dioses del Olimpo. Una epopeya de fantasía basada en la mitología griega.",
+                tags: ["Película", "Fantasía", "Aventura", "Mitología", "Épico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10744783178478?nochat=1" }
+                ]
+            },
+            12: {
+                title: "Fatal Fury (Películas)",
+                year: "1992-1994",
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "Las tres películas de Fatal Fury: Legend of the Hungry Wolf (1992), The New Battle (1993) y The Motion Picture (1994). Terry y Andy Bogard buscan venganza contra Geese Howard, luego enfrentan a Krauser y finalmente viajan por el mundo para detener a Laocorn.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/9545577597505?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/1904521185836?nochat=1" },
+                    { num: 2, version: "Dob", url: "https://ok.ru/videoembed/14313388771905?nochat=1" },
+                    { num: 3, version: "Dob", url: "https://ok.ru/videoembed/7013340809793?nochat=1" }
+                ]
+            },
+            13: {
+                title: "Blood Reign: La Maldición de los Yoma",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Takashi Anno",
+                desc: "Un ninja llamado Hikage debe detener a su antiguo amigo, ahora poseído por un demonio, antes de que destruya el mundo. Una historia de violencia, amistad y demonios.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Terror", "Samurái", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11180024793841?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/11180161305329?nochat=1" }
+                ]
+            },
+            18: {
+                title: "The Big O",
+                year: 1999,
+                studio: "Sunrise",
+                director: "Kazuyoshi Katayama",
+                desc: "En una ciudad sin memoria, los habitantes han perdido todos los recuerdos de hace 40 años. Roger Smith, un negociador profesional, se encarga de resolver los conflictos de la ciudad. Cuando la situación se complica, pilota a Big O, un robot gigante. Una serie que combina cine negro, mecha y misterio.",
+                tags: ["Serie", "Ciencia ficción", "Mecha", "Misterio", "Nocturno", "Robot"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/77IxXYCS#98WupS3iyMbxyPw3ZqsG9oP2Zvj3ncmthvaLlWnfvtE" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/q6oQCDzJ#kO8uYspIAnGPG_dn9BFJr4FyCSga1X06XKYfSWmkm2M" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/X7hBxJBb#zeDaWf_C4fc_wnXyfMbjJZvQVPBtOV4u4ukb27_Q00w" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/evx02bgJ#ZvS2nr44t3qg9Bb-NYrJonnLe0NsjGjZxFIAsHm1YBo" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/au4THA4Z#qeWN3Z-WdZqlsx9b5jlTxtJ2KvlCl5O6CKH6Y0X3iIg" },
+                    { num: 6, version: "Sub", url: "https://mega.nz/embed/GjIxxbpI#Q-Wriu6WU9anUHiZXo5t3CVGY8rN5KaCXq0QBHwh7A0" },
+                    { num: 7, version: "Sub", url: "https://mega.nz/embed/nm4n2TKT#X3TJHuYaVaT8FwuwzTRUqZ3kJ2R18k3E0tY53MrXEvE" },
+                    { num: 8, version: "Sub", url: "https://mega.nz/embed/juASzDIT#TuBtCp6hw09KpWg_8_G1JVgOWdXsJKikLyQwJZi7sl8" },
+                    { num: 9, version: "Sub", url: "https://mega.nz/embed/P2YGmL5a#ffkPzt0VxT-dF-sdIxESjrNjlhlCjMQ013nSI_IzOfE" },
+                    { num: 10, version: "Sub", url: "https://mega.nz/embed/O2pzmRSJ#KU3U9U2KapZDghdpX0RWXEgt0OJBve8Z1EaFKFaqAHM" },
+                    { num: 11, version: "Sub", url: "https://mega.nz/embed/r34SARAB#oK_qNEjoI_C2m_-pb7pwiLAOhls_9Xi1XcLaT6cExzg" },
+                    { num: 12, version: "Sub", url: "https://mega.nz/embed/Ov5HyKxY#M2Zs1Otxt3GjCsRjoniFoYBbiWXpqE5nvm_g08qOddY" },
+                    { num: 13, version: "Sub", url: "https://mega.nz/embed/mixhRTpD#iWAVIRKMhu1wMTbgMymsjRpXjDhoynEUp3kv5h8gL2Y" },
+                    { num: 14, version: "Sub", url: "https://mega.nz/embed/jiZATB7a#X4NXADPRXvp8_KO0ZwzLmAqbgzK6NpYHpmIHiS_VgiE" },
+                    { num: 15, version: "Sub", url: "https://mega.nz/embed/324lQRoY#zoRlUr_n0OBiyo0AwI22GXYmtSztwIZqMZE5CkmOnRU" },
+                    { num: 16, version: "Sub", url: "https://mega.nz/embed/HzAiXKwD#aP5EUbJOJgsGTuAhxjHTrk8QI9GYgxrGvW0JfKFYI1E" },
+                    { num: 17, version: "Sub", url: "https://mega.nz/embed/Oq4jwQxQ#cIX0o6iaD3E4KmVFUiFBsewgfmcR8j52XbtjNTeqBpE" },
+                    { num: 18, version: "Sub", url: "https://mega.nz/embed/X6IBgSAY#nryGajXnE6GCWhUrix0AZbHiAInX1a-6GNBVP9qTJXc" },
+                    { num: 19, version: "Sub", url: "https://mega.nz/embed/OjAjVJhb#54_QBe-5wGS-hDWgGlK0XAVqID0h5xSDhCcCuNQ1D_w" },
+                    { num: 20, version: "Sub", url: "https://mega.nz/embed/mjwRQazC#Hzmd2BMg0NbQuQeNBYsHNdNE9bAgJ0ACJk6qbIIu2yM" },
+                    { num: 21, version: "Sub", url: "https://mega.nz/embed/a6gT2AiA#a1uAZ4wMFKntwAihhUM3Qlak_o_2urHh8Oa-r8O-7Pc" },
+                    { num: 22, version: "Sub", url: "https://mega.nz/embed/2r4xgD7a#WXG5p6nkQv63MIrYfUa54Ge6ZSjB6chO7GKg4EW83cE" },
+                    { num: 23, version: "Sub", url: "https://mega.nz/embed/G2ZngDJC#qy_gc6xDQK9fcC9OCHaKMcaFGg6RJUFgppM2Xo7QetE" },
+                    { num: 24, version: "Sub", url: "https://mega.nz/embed/H7pVzSAT#-awCN78wGWC4_f_BIFJ8D2sW497bCj26ybFrrp9YMoE" },
+                    { num: 25, version: "Sub", url: "https://mega.nz/embed/f7hzgDSL#1SNB5TDH-V1q7OQshYlzB85Oe8bOF7RqZXiKkwgUtUI" },
+                    { num: 26, version: "Sub", url: "https://mega.nz/embed/W6ZyXa5R#-HZW1Y1qMYDqKR_x5uy1UM1CY5RFV6B3hS1pE-4lF50" }
+                ]
+            }
+        };
 
-// ============================================================
-// ANGEL'S EGG (OVA - Sub y Dob)
-// ============================================================
-14: {
-    title: "Angel's Egg",
-    year: 1985,
-    studio: "Studio Deen",
-    director: "Mamoru Oshii",
-    desc: "En un mundo sombrío y desolado, una niña protege un misterioso huevo en una ciudad gótica. Un soldado errante la sigue. Juntos, emprenden un viaje simbólico en busca de respuestas. Una obra de arte abstracta con casi sin diálogos. Visualmente impresionante.",
-    tags: ["OVA", "Fantasía", "Ciencia ficción", "Experimental", "Melancólico", "Nocturno", "Silencio"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8337781033598?nochat=1" },
-        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10139166378734?nochat=1" }
-    ]
-},
-            
-// ============================================================
-// ARION (Película - Sub)
-// ============================================================
-22: {
-    title: "Arion",
-    year: 1986,
-    studio: "Sunrise",
-    director: "Yoshikazu Yasuhiko",
-    desc: "Arion es un joven criado por los dioses. Cuando descubre que su madre fue asesinada, emprende un viaje para vengarse. Su camino lo llevará a enfrentarse a los dioses del Olimpo. Una epopeya de fantasía basada en la mitología griega.",
-    tags: ["Película", "Fantasía", "Aventura", "Mitología", "Épico", "Color"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10744783178478?nochat=1" }
-    ]
-},
-
-// ============================================================
-// FATAL FURY (Películas - Sub y Dob)
-// ============================================================
-12: {
-    title: "Fatal Fury (Películas)",
-    year: "1992-1994",
-    studio: "Studio Comet",
-    director: "Kazuhiro Furuhashi",
-    desc: "Las tres películas de Fatal Fury: Legend of the Hungry Wolf (1992), The New Battle (1993) y The Motion Picture (1994). Terry y Andy Bogard buscan venganza contra Geese Howard, luego enfrentan a Krauser y finalmente viajan por el mundo para detener a Laocorn.",
-    tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
-    episodios: [
-        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/9545577597505?nochat=1" },
-        { num: 2, version: "Sub", url: "https://ok.ru/videoembed/1904521185836?nochat=1" },
-        { num: 2, version: "Dob", url: "https://ok.ru/videoembed/14313388771905?nochat=1" },
-        { num: 3, version: "Dob", url: "https://ok.ru/videoembed/7013340809793?nochat=1" }
-    ]
-},
- // ============================================================
-// BLOOD REIGN: LA MALDICIÓN DE LOS YOMA (OVA - Sub)
-// ============================================================
-13: {
-    title: "Blood Reign: La Maldición de los Yoma",
-    year: 1989,
-    studio: "J.C.Staff",
-    director: "Takashi Anno",
-    desc: "Un ninja llamado Hikage debe detener a su antiguo amigo, ahora poseído por un demonio, antes de que destruya el mundo. Una historia de violencia, amistad y demonios.",
-    tags: ["OVA", "Acción", "Fantasía oscura", "Terror", "Samurái", "Violento"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11180024793841?nochat=1" },
-        { num: 2, version: "Sub", url: "https://ok.ru/videoembed/11180161305329?nochat=1" }
-    ]
-},
-            // ============================================================
-// THE BIG O (Serie - Sub)
-// ============================================================
-18: {
-    title: "The Big O",
-    year: 1999,
-    studio: "Sunrise",
-    director: "Kazuyoshi Katayama",
-    desc: "En una ciudad sin memoria, los habitantes han perdido todos los recuerdos de hace 40 años. Roger Smith, un negociador profesional, se encarga de resolver los conflictos de la ciudad. Cuando la situación se complica, pilota a Big O, un robot gigante. Una serie que combina cine negro, mecha y misterio.",
-    tags: ["Serie", "Ciencia ficción", "Mecha", "Misterio", "Nocturno", "Robot"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://mega.nz/embed/77IxXYCS#98WupS3iyMbxyPw3ZqsG9oP2Zvj3ncmthvaLlWnfvtE" },
-        { num: 2, version: "Sub", url: "https://mega.nz/embed/q6oQCDzJ#kO8uYspIAnGPG_dn9BFJr4FyCSga1X06XKYfSWmkm2M" },
-        { num: 3, version: "Sub", url: "https://mega.nz/embed/X7hBxJBb#zeDaWf_C4fc_wnXyfMbjJZvQVPBtOV4u4ukb27_Q00w" },
-        { num: 4, version: "Sub", url: "https://mega.nz/embed/evx02bgJ#ZvS2nr44t3qg9Bb-NYrJonnLe0NsjGjZxFIAsHm1YBo" },
-        { num: 5, version: "Sub", url: "https://mega.nz/embed/au4THA4Z#qeWN3Z-WdZqlsx9b5jlTxtJ2KvlCl5O6CKH6Y0X3iIg" },
-        { num: 6, version: "Sub", url: "https://mega.nz/embed/GjIxxbpI#Q-Wriu6WU9anUHiZXo5t3CVGY8rN5KaCXq0QBHwh7A0" },
-        { num: 7, version: "Sub", url: "https://mega.nz/embed/nm4n2TKT#X3TJHuYaVaT8FwuwzTRUqZ3kJ2R18k3E0tY53MrXEvE" },
-        { num: 8, version: "Sub", url: "https://mega.nz/embed/juASzDIT#TuBtCp6hw09KpWg_8_G1JVgOWdXsJKikLyQwJZi7sl8" },
-        { num: 9, version: "Sub", url: "https://mega.nz/embed/P2YGmL5a#ffkPzt0VxT-dF-sdIxESjrNjlhlCjMQ013nSI_IzOfE" },
-        { num: 10, version: "Sub", url: "https://mega.nz/embed/O2pzmRSJ#KU3U9U2KapZDghdpX0RWXEgt0OJBve8Z1EaFKFaqAHM" },
-        { num: 11, version: "Sub", url: "https://mega.nz/embed/r34SARAB#oK_qNEjoI_C2m_-pb7pwiLAOhls_9Xi1XcLaT6cExzg" },
-        { num: 12, version: "Sub", url: "https://mega.nz/embed/Ov5HyKxY#M2Zs1Otxt3GjCsRjoniFoYBbiWXpqE5nvm_g08qOddY" },
-        { num: 13, version: "Sub", url: "https://mega.nz/embed/mixhRTpD#iWAVIRKMhu1wMTbgMymsjRpXjDhoynEUp3kv5h8gL2Y" },
-        { num: 14, version: "Sub", url: "https://mega.nz/embed/jiZATB7a#X4NXADPRXvp8_KO0ZwzLmAqbgzK6NpYHpmIHiS_VgiE" },
-        { num: 15, version: "Sub", url: "https://mega.nz/embed/324lQRoY#zoRlUr_n0OBiyo0AwI22GXYmtSztwIZqMZE5CkmOnRU" },
-        { num: 16, version: "Sub", url: "https://mega.nz/embed/HzAiXKwD#aP5EUbJOJgsGTuAhxjHTrk8QI9GYgxrGvW0JfKFYI1E" },
-        { num: 17, version: "Sub", url: "https://mega.nz/embed/Oq4jwQxQ#cIX0o6iaD3E4KmVFUiFBsewgfmcR8j52XbtjNTeqBpE" },
-        { num: 18, version: "Sub", url: "https://mega.nz/embed/X6IBgSAY#nryGajXnE6GCWhUrix0AZbHiAInX1a-6GNBVP9qTJXc" },
-        { num: 19, version: "Sub", url: "https://mega.nz/embed/OjAjVJhb#54_QBe-5wGS-hDWgGlK0XAVqID0h5xSDhCcCuNQ1D_w" },
-        { num: 20, version: "Sub", url: "https://mega.nz/embed/mjwRQazC#Hzmd2BMg0NbQuQeNBYsHNdNE9bAgJ0ACJk6qbIIu2yM" },
-        { num: 21, version: "Sub", url: "https://mega.nz/embed/a6gT2AiA#a1uAZ4wMFKntwAihhUM3Qlak_o_2urHh8Oa-r8O-7Pc" },
-        { num: 22, version: "Sub", url: "https://mega.nz/embed/2r4xgD7a#WXG5p6nkQv63MIrYfUa54Ge6ZSjB6chO7GKg4EW83cE" },
-        { num: 23, version: "Sub", url: "https://mega.nz/embed/G2ZngDJC#qy_gc6xDQK9fcC9OCHaKMcaFGg6RJUFgppM2Xo7QetE" },
-        { num: 24, version: "Sub", url: "https://mega.nz/embed/H7pVzSAT#-awCN78wGWC4_f_BIFJ8D2sW497bCj26ybFrrp9YMoE" },
-        { num: 25, version: "Sub", url: "https://mega.nz/embed/f7hzgDSL#1SNB5TDH-V1q7OQshYlzB85Oe8bOF7RqZXiKkwgUtUI" },
-        { num: 26, version: "Sub", url: "https://mega.nz/embed/W6ZyXa5R#-HZW1Y1qMYDqKR_x5uy1UM1CY5RFV6B3hS1pE-4lF50" }
-    ]
-},
-
-// ============================================================
-// MIDORI: LA NIÑA DE LAS CAMELIAS (Película - Sub)
-// ============================================================
-7: {
-    title: "Midori: La Niña de las Camelias",
-    year: 1992,
-    studio: "Harada Production",
-    director: "Hiroshi Harada",
-    desc: "Una niña huérfana cae en un circo de fenómenos. Experiencia visual extrema. Una obra de arte perturbadora con animación bellísima y historia cruel.",
-    tags: ["Película", "Drama", "Terror", "Psicológico", "Ero-guro", "Violento", "Experimental"],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10060123409134?nochat=1" }
-    ]
-}
-  };
         // ============================================================
         // LEER PARÁMETROS DE LA URL
         // ============================================================
@@ -641,8 +687,9 @@
         const ep = parseInt(params.get('ep')) || 1;
         const version = params.get('version') || null;
 
-        const app = document.getElementById('app');
-
+        // ============================================================
+        // FUNCIONES
+        // ============================================================
         function esVideoMega(url) {
             return url && url.includes('mega.nz/embed');
         }
@@ -653,197 +700,92 @@
 
         function obtenerUrlClean(url) {
             if (!url) return '';
-            if (esVideoMega(url)) {
-                return url;
-            }
+            if (esVideoMega(url)) return url;
             if (esVideoYouTube(url)) {
                 let cleanUrl = url;
-                if (url.includes('?')) {
-                    cleanUrl = url.split('?')[0];
-                }
+                if (url.includes('?')) cleanUrl = url.split('?')[0];
                 return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
             }
             return url;
         }
 
+        function cambiarEpisodio(id, num, version) {
+            let url = `watch.html?id=${id}&ep=${num}`;
+            if (version) url += `&version=${version}`;
+            window.location.href = url;
+        }
+
         // ============================================================
-        // BUSCAR EL ANIME Y EL EPISODIO
+        // CARGAR CONTENIDO
         // ============================================================
         if (id && videos[id]) {
             const v = videos[id];
             const episodios = v.episodios;
 
             let episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
-            if (!episodioActual) {
-                episodioActual = episodios[0];
+            if (!episodioActual) episodioActual = episodios[0];
+
+            // Actualizar header
+            let titleSuffix = '';
+            if (episodioActual.version) {
+                titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
+            } else if (episodios.length > 1) {
+                titleSuffix = ` — Episodio ${episodioActual.num}`;
             }
-// ============================================================
-// GENERAR BOTONES AGRUPADOS POR EPISODIO
-// ============================================================
-let botonesHtml = '';
-const agrupados = {};  // <-- CORREGIDO
-
-// Agrupar episodios por número
-episodios.forEach(e => {
-    if (!agrupados[e.num]) agrupados[e.num] = [];
-    agrupados[e.num].push(e);
-});
-
-// Generar botones por grupo
-Object.keys(agrupados).forEach(num => {
-    const grupo = agrupados[num];
-    const versionesHtml = grupo.map(e => {
-        const isActive = (e.num === episodioActual.num && e.version === episodioActual.version);
-        const activeClass = isActive ? 'active' : '';
-        const label = e.version ? `${e.version}${e.num}` : `Ep. ${e.num}`;
-        
-        return `
-            <button class="episode-btn ${activeClass}" 
-                    onclick="cambiarEpisodio(${id}, ${e.num}, '${e.version}')">
-                ${label}
-            </button>
-        `;
-    }).join('');
-
-    // Añadir separador entre grupos
-    if (botonesHtml) botonesHtml += ' <span class="version-separator">|</span> ';
-    botonesHtml += versionesHtml;
-});
-
-const mostrarSelector = episodios.length > 1;
-
-let titleSuffix = '';
-if (episodioActual.version) {
-    titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
-} else if (episodios.length > 1) {
-    titleSuffix = ` — Episodio ${episodioActual.num}`;
-}
-
-const cleanUrl = obtenerUrlClean(episodioActual.url);
-
-            // ============================================================
-            // RENDERIZAR - CON ANUNCIOS INTEGRADOS
-            // ============================================================
-            app.innerHTML = `
-                <div class="video-header">
-                    <div>
-                        <h1 class="video-title">${v.title}${titleSuffix}</h1>
-                        <span class="video-meta">${v.year} · ${v.studio} · ${v.director}</span>
-                    </div>
-                    <a href="index.html" class="back-btn">← Volver</a>
-                </div>
-
-                <!-- BANNER ENCIMA DEL REPRODUCTOR -->
-                <div style="text-align:center; margin: 12px 0;">
-                    <div class="adsterra-desktop">
-                        <script>
-                            atOptions = {
-                                'key' : '2d24803022ac8ea2c0f5629bb6e94501',
-                                'format' : 'iframe',
-                                'height' : 90,
-                                'width' : 728,
-                                'params' : {}
-                            };
-                        <\/script>
-                        <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"><\/script>
-                    </div>
-                    <div class="adsterra-mobile">
-                        <script>
-                            atOptions = {
-                                'key' : 'f609722253730b0dda3e6b83efb17a18',
-                                'format' : 'iframe',
-                                'height' : 50,
-                                'width' : 320,
-                                'params' : {}
-                            };
-                        <\/script>
-                        <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"><\/script>
-                    </div>
-                </div>
-
-                <div class="plyr-container">
-                    <div class="plyr__video-embed" id="player">
-                        <iframe
-                            src="${cleanUrl}"
-                            allowfullscreen
-                            allowtransparency
-                            allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
-                        ></iframe>
-                    </div>
-                </div>
-
-                <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR -->
-                <div style="margin: 20px auto; max-width: 100%;">
-                    <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"><\/script>
-                    <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
-                </div>
-
-                ${mostrarSelector ? `<div class="episode-selector">${botonesHtml}</div>` : ''}
-
-                <div class="expediente-info">
-                    <h3>📁 Sobre este expediente</h3>
-                    <p>${v.desc}</p>
-                    <div class="expediente-tags">
-                        ${v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-
+            document.getElementById('videoTitle').textContent = v.title + titleSuffix;
+            document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
             document.title = v.title + titleSuffix + " — Frame Perdido";
 
+            // Actualizar reproductor
+            const cleanUrl = obtenerUrlClean(episodioActual.url);
+            document.getElementById('videoFrame').src = cleanUrl;
+
+            // Actualizar selector de episodios
+            const agrupados = {};
+            episodios.forEach(e => {
+                if (!agrupados[e.num]) agrupados[e.num] = [];
+                agrupados[e.num].push(e);
+            });
+
+            let botonesHtml = '';
+            Object.keys(agrupados).forEach(num => {
+                const grupo = agrupados[num];
+                const versionesHtml = grupo.map(e => {
+                    const isActive = (e.num === episodioActual.num && e.version === episodioActual.version);
+                    const activeClass = isActive ? 'active' : '';
+                    const label = e.version ? `${e.version}${e.num}` : `Ep. ${e.num}`;
+                    return `<button class="episode-btn ${activeClass}" onclick="cambiarEpisodio(${id}, ${e.num}, '${e.version}')">${label}</button>`;
+                }).join('');
+                if (botonesHtml) botonesHtml += ' <span class="version-separator">|</span> ';
+                botonesHtml += versionesHtml;
+            });
+
+            document.getElementById('episodeSelector').innerHTML = botonesHtml;
+
+            // Actualizar info
+            document.getElementById('expedienteDesc').textContent = v.desc;
+            document.getElementById('expedienteTags').innerHTML = v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('');
+
+            // Iniciar Plyr
             if (document.getElementById('player')) {
                 const player = new Plyr('#player', {
-                    youtube: {
-                        noCookie: false,
-                        rel: 0,
-                        modestbranding: 1,
-                        iv_load_policy: 3
-                    },
+                    youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
                     tooltips: { controls: true, seek: true },
                     keyboard: { focused: true, global: true },
-                    fullscreen: {
-                        enabled: true,
-                        fallback: true,
-                        iosNative: true
-                    },
-                    controls: [
-                        'play-large',
-                        'play',
-                        'progress',
-                        'current-time',
-                        'mute',
-                        'volume',
-                        'captions',
-                        'settings',
-                        'pip',
-                        'fullscreen'
-                    ],
+                    fullscreen: { enabled: true, fallback: true, iosNative: true },
+                    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
                     settings: ['captions', 'quality', 'speed'],
-                    quality: {
-                        default: 720,
-                        options: [1080, 720, 480, 360]
-                    }
+                    quality: { default: 720, options: [1080, 720, 480, 360] }
                 });
             }
 
         } else {
-            app.innerHTML = `
-                <div class="error-box">
-                    <h2>🔒 Contenido no disponible</h2>
-                    <p>Este expediente aún no tiene video en nuestro archivo.</p>
-                    <span class="id-received">ID: ${id || 'ninguno'}</span>
-                    <a href="index.html" class="back-btn" style="margin-top:20px;display:inline-block;">← Volver al catálogo</a>
-                </div>
-            `;
+            // Error
+            document.getElementById('videoTitle').textContent = 'Contenido no disponible';
+            document.getElementById('episodeSelector').innerHTML = '';
+            document.getElementById('expedienteDesc').textContent = 'Este expediente aún no tiene video en nuestro archivo.';
+            document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
             document.title = "No disponible — Frame Perdido";
-        }
-
-        function cambiarEpisodio(id, num, version) {
-            let url = `watch.html?id=${id}&ep=${num}`;
-            if (version) {
-                url += `&version=${version}`;
-            }
-            window.location.href = url;
         }
     </script>
 
