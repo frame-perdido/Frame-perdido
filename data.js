@@ -2,39 +2,48 @@
 // BASE DE DATOS - FRAME PERDIDO
 // ============================================================
 var animes = [{
+   {
     id: 0,
-    title: "Barefoot Gen",
+    title: "Barefoot Gen (Películas)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjMF-TZtwO2Jyhp2R3PKzwiJ0nQYuR6tI-QE3eyCdLjo1S8GFlm9GTw9UbqhVL1ZAX5L8JOPk31BtoJbEAVbpRzmYC9kEEMQfnL_KTX3IlqkcWO9VvDjw57rs1Jc9qrrShj9rSrjfbzSlHxntenQ1l1_bKLU5uHaPDXUGZqTEHpiGz4DYfNBblSahFT1CHf=w267-h400",
-    year: 1983,
+    year: "1983-1986",
     type: "Película",
-    duration: "85 min",
+    duration: "170 min (2 películas)",
     studio: "Madhouse",
-    director: "Mori Masaki",
+    director: "Mori Masaki / Toshio Hirata",
     genre: ["Drama", "Histórico", "Bélico"],
     tags: ["drama", "histórico", "bélico", "melancólico", "violento"],
-    description: "La historia de un niño que sobrevive al bombardeo atómico de Hiroshima. No es una película fácil de ver: es cruda, dolorosa y te deja sin aliento. Pero es necesaria.",
-    plot: "Gen vive con su familia en Hiroshima durante los últimos días de la Segunda Guerra Mundial. El 6 de agosto de 1945, su vida cambia para siempre cuando la bomba atómica destruye todo lo que conoce. La película sigue su lucha por sobrevivir en un infierno de cenizas, cadáveres y radiación, mientras intenta encontrar a los pocos familiares que aún pueden estar vivos.",
-    analysis: "Basada en el manga autobiográfico de Keiji Nakazawa, que perdió a su familia en el bombardeo. La animación de Madhouse es sencilla pero efectiva, y la historia te agarra del cuello y no te suelta. No es entretenimiento: es un testimonio. Una de las pocas películas de anime que debería ser de visionado obligatorio.",
-    forgotten: "A pesar de ser una obra maestra, hoy es más conocida por su reputación que por haber sido vista. Su crudeza la ha convertido en una película que muchos evitan, y su distribución fuera de Japón fue limitada durante años. Es una de esas obras que todo el mundo conoce de nombre, pero pocos han tenido el valor de sentarse a ver.",
+    description: "La historia de un niño que sobrevive al bombardeo atómico de Hiroshima. Dos películas que muestran el horror de la guerra y la lucha por sobrevivir en sus secuelas.",
+    plot: "La primera película (1983) sigue a Gen y su familia durante los últimos días de la Segunda Guerra Mundial. El 6 de agosto de 1945, su vida cambia para siempre cuando la bomba atómica destruye todo lo que conoce. La película sigue su lucha por sobrevivir en un infierno de cenizas, cadáveres y radiación. La secuela (1986) muestra a Gen tres años después, sobreviviendo con su madre y su hermano adoptivo en una chabola, enfrentando el hambre, la enfermedad y la discriminación.",
+    analysis: "Basadas en el manga autobiográfico de Keiji Nakazawa, que perdió a su familia en el bombardeo. La primera película es cruda y directa: te agarra del cuello y no te suelta. La segunda es más silenciosa pero igual de desgarradora, mostrando las secuelas a largo plazo de la guerra. Ambas son testimonios necesarios que deberían ser de visionado obligatorio.",
+    forgotten: "A pesar de ser obras maestras, hoy son más conocidas por su reputación que por haber sido vistas. Su crudeza las ha convertido en películas que muchos evitan. La primera tiene el impacto del bombardeo, pero la segunda es igual de importante para entender el verdadero horror de la guerra. Pasó desapercibida en su momento y hoy es una rareza incluso entre los fans del anime más clásico.",
     reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
-    related: [1, 16, 18]
+    related: [16, 23],
+    episodios: [
+        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8034325564013?nochat=1" },
+        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/2986566486648?nochat=1" },
+        { num: 2, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
+    ]
 }, {
     id: 1,
-    title: "Barefoot Gen 2",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjRwJcTh3oV7wpGSoRxUW_GJgtoiMc7_wx_r7RHjjVpQFS7PHX6ioqI0HuxiUkFWfklaKH76yWnlXOdUz8MMbE7i3RMGXHoTgf2Zbveakpfy3HEjav5Ck8mCoCjQEhsjEmG3p6BB5zZYQkall9MkxTfUn45mvMOSTNbjWlbaWks8hODUri9D0CUqsK1I-p9=w238-h400",
-    year: 1986,
-    type: "Película",
-    duration: "85 min",
-    studio: "Madhouse",
-    director: "Toshio Hirata",
-    genre: ["Drama", "Histórico", "Bélico"],
-    tags: ["drama", "histórico", "bélico", "melancólico"],
-    description: "Tres años después de la bomba, Gen sigue luchando por sobrevivir. Pero la guerra ha terminado, y ahora el enemigo es la miseria.",
-    plot: "Han pasado tres años desde el bombardeo de Hiroshima. Gen vive con su madre y su hermano adoptivo en una chabola, sobreviviendo como puede. La película muestra las secuelas de la guerra: el hambre, la enfermedad, la discriminación a los supervivientes de la bomba (los 'hibakusha'), y la dificultad de reconstruir una vida cuando lo has perdido todo.",
-    analysis: "Mientras la primera película muestra el impacto inmediato de la bomba, esta secuela se centra en sus consecuencias a largo plazo. Es igual de dura, pero de una manera más silenciosa y desgarradora. La animación es mejor que en la primera entrega, y la historia de Gen sigue siendo tan relevante como siempre.",
-    forgotten: "Mucho menos conocida que su predecesora. La primera película tiene el impacto de mostrar el bombardeo, pero esta secuela es igual de importante para entender el verdadero horror de la guerra. Pasó desapercibida en su momento y hoy es una rareza incluso entre los fans del anime más clásico.",
+    title: "Dark Cat",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjaXWf0PJ6DqzgnRs9qN0DGafTjD30f3k5GfNlNBlvckhJpIMiVhRwckqEQLhw2mQYEaDO1t2VU9OnC7h6k8svDKK6i34DLBxr0JtOVdR6aXDHKXikWZfZ2Y-6O95apSdCb_Aw6nO-8HPFEMZdzC8NEXCCT7eB9E8R2IUB_-qUf6YgVQ8F8B0s7Yw=w267-h400",
+    year: 1991,
+    type: "OVA",
+    duration: "50 min",
+    studio: "Agent 21",
+    director: "Takeshi Watanabe",
+    genre: ["Terror", "Acción", "Sobrenatural"],
+    tags: ["terror", "acción", "sobrenatural", "nocturno", "violento", "experimental"],
+    description: "Dos hermanos con el poder de transformarse en gatos deben detener una plaga demoníaca que convierte estudiantes en monstruos. Una rareza de los 90 que es tan mala que se convierte en arte.",
+    plot: "Hyoi y Ryoi son dos hermanos con la habilidad de transformarse en gatos (los llamados 'Dark Cats'). Cuando una misteriosa plaga demoníaca comienza a convertir a los estudiantes de su instituto en criaturas tentaculares, los hermanos deben investigar el origen del mal. Su misión los lleva a enfrentarse a su antiguo maestro, el malvado Jukokubo, que ha desatado el caos para obtener poder. Entre batallas con monstruos y una subtrama romántica que no aporta nada hasta el final, los Dark Cats descubren que el amor de dos estudiantes es la clave para derrotar al villano. Sí, así de absurdo es.",
+    analysis: "Dark Cat es la definición de OVA de culto: animación irregular, doblaje en inglés que es tan malo que resulta hilarante, y una historia que va de un lado a otro sin mucho sentido. La banda sonora (con J-pop de los 80) es el punto más destacado. Es de esas obras que no sabes si odiar o amar, pero que nunca olvidas. El 'deus ex machina' del amor al final es tan ridículo que se convierte en legendario.",
+    forgotten: "Como tantas OVAs de los 90, Dark Cat quedó sepultada bajo el aluvión de títulos que llegaban en VHS. Nunca tuvo una distribución masiva fuera de Japón, y hoy es una rareza que solo los coleccionistas más acérrimos buscan. Los fans del anime de la época lo conocen más por su reputación (buena o mala) que por haberlo visto realmente.",
     reel: "",
-    related: [0, 16, 23]
+    related: [23, 9, 11],
+    episodios: [
+        { num: 1, version: "", url: "https://www.youtube.com/embed/VIDEO_ID_AQUI" }
+    ]
 }, {
     id: 2,
     title: "Plastic Little",
