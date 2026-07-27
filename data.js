@@ -50,7 +50,7 @@ var animes = [{
     plot: "Tita es la capitana de la nave 'Cha Cha Maru' y se gana la vida cazando bichos espaciales. Cuando rescata a Elysse, una fugitiva con un secreto, se ve envuelta en una conspiración que involucra a una secta religiosa, un dictador loco y un montón de naves con forma de... ¿pescado?",
     analysis: "Plastic Little es puro entretenimiento ochentero- noventero: acción, comedia, diseños de Satoshi Urushihara (con esos ojos y curvas que tanto le gustan) y una trama que no se toma en serio a sí misma. Es ligera, divertida y visualmente espectacular. La escena de la persecución en el mercado flotante es una joya de animación.",
     forgotten: "Nunca llegó a tener una gran franquicia. Es un clásico de culto para los que crecieron alquilando VHS en el videoclub. Su distribución fue limitada y, hoy en día, es una rareza que solo los coleccionistas más acérrimos buscan. Una pena, porque es de las OVAs más divertidas de los 90.",
-    reel: "",
+    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQN3s8eVhDPiX2AhdkesQbDSJmFZxZed2cacdgfsDkp-cPmfdAX9VIZYfbrS4Yt9sYWFxYzI2-nY1NR1_z_oYJeoHr1ZF7CHGMm14V8PrA.mp4?_nc_cat=111&_nc_oc=AdriFoRFZMOtBxpHMUvndy5tI-nyyl8eS7uoi36_CvyncecS1W85J6pBNgCZdQ5qUJo&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=sjjkF60ysfYQ7kNvwELIP-c&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTQ3Mzc5OTcxNDc4NDE5NCwiYXNzZXRfYWdlX2RheXMiOjIwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTA0LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=iNyviZN-04fDcScitk41lg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQBuskxasAHZqmv0RsTIhiQSm5QcvPTsVQ-Ay4gAI1_Xnw&oe=6A6C683B&bitrate=333189&tag=sve_sd",
     related: [5, 20, 21]
 }, {
     id: 3,
@@ -118,7 +118,7 @@ var animes = [{
     plot: "Un equipo de investigación espacial encuentra una nave desierta. Pero no está vacía: algo se ha quedado dentro, y ahora ha viajado con ellos. La tripulación empieza a morir de manera extraña, y el horror se apodera de la nave. ¿Qué es lo que han traído a bordo? ¿Y cómo pueden detenerlo antes de que sea demasiado tarde?",
     analysis: "Roots Search es el ejemplo perfecto de OVA de terror espacial de serie B. Tiene el encanto de las películas de terror de los 80: efectos especiales cutres, una trama que no se toma demasiado en serio, y una atmósfera de claustrofobia que te atrapa. La animación es limitada, pero la historia tiene un ritmo ágil que te mantiene pegado a la pantalla.",
     forgotten: "Roots Search es el ejemplo perfecto de OVA que pasó sin pena ni gloria. Nunca tuvo una distribución internacional decente, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Su título genérico y su portada cutre no ayudan a que la gente la recuerde. Una joya oculta del terror espacial.",
-    reel: "",
+    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPneRMDn0kq0cLHSlrEJtcpKhHlqNEtcpk8-jKAZWvDWHhBm6x3ely93NSw7XKmTgFDOBEjYWi6ekG8skiHMGoFUCnahhJeIgOHZM0KOQ.mp4?_nc_cat=107&_nc_oc=Adqg-hYKZ-rmcKuP6eCJGNjYqEtBI6E3V9h36ODvyfjn22_XUeKBBr54V-hFkBAkhYg&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=CYKInaDPl2cQ7kNvwFWduc2&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTYyODcyODAzNDY0MDAxLCJhc3NldF9hZ2VfZGF5cyI6MjYsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMDksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=8NfziTJ2q30M5nzZBWRcyQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQA7kRiZB6i4A74DerS6sybrE7EtQxgmJm82z_Amu4fNcQ&oe=6A6C8583&bitrate=201906&tag=sve_sd",
     related: [5, 11, 7]
 }, {
     id: 7,
@@ -220,7 +220,7 @@ var animes = [{
     plot: "La saga de Fatal Fury sigue a los hermanos Bogard en su lucha contra el crimen organizado y guerreros legendarios. Desde el torneo King of Fighters hasta batallas épicas contra poderosos enemigos.",
     analysis: "Fatal Fury es una adaptación del famoso videojuego de SNK. La trilogía muestra la evolución de la animación y las historias, desde la venganza contra Geese Howard hasta aventuras más ambiciosas.",
     forgotten: "Su corta duración y lanzamiento directo en VHS las convirtieron en un producto de nicho. Hoy son una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
-    reel: "",
+    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQMmQ4KZKxrtXvZJdJ9NhswL-OCsRszZV0LfWZvUwth6qpk7thzVJadY_GaWyRjFzAaJOO-Grl-hLRHQfNmd4bc07QEZ4-OVD4H_Svy1Mg.mp4?_nc_cat=109&_nc_oc=AdprWjSaGNOvHqCy5yyyDuUGId2Yu1j-uBXwmAWXUewiRttE3hq_K9NS-Tzki5P1zvw&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=S9eFahubvwIQ7kNvwFzyM0N&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTI3MDMwMjM5ODQyNDI2NywiYXNzZXRfYWdlX2RheXMiOjY1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzYsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=1JM75uOR74jO5n5w-Pb8ZA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQChplbPAtpkH21oYEHFl0JAE_Ki3QYxyQkZO74Z62ZW-A&oe=6A6C6D61&bitrate=249689&tag=sve_sd",
     related: [8, 10],
     episodios: [
         { num: 1, title: "Legend of the Hungry Wolf", year: 1992, desc: "Terry y Andy Bogard buscan venganza contra Geese Howard en el torneo King of Fighters." },
@@ -242,7 +242,7 @@ var animes = [{
     plot: "Hikage es un ninja que debe enfrentarse a su antiguo amigo, que ha sido poseído por un demonio. La batalla se intensifica cuando otros demonios comienzan a aparecer, y Hikage descubre que la única forma de salvar a su amigo es viajar al mundo de los muertos. Pero el viaje será más peligroso de lo que imagina.",
     analysis: "Blood Reign es una OVA de horror y acción de los 90. La animación es oscura y gore, y la historia es una mezcla de tragedia y violencia. Es una obra que muestra lo mejor del anime de terror de la época.",
     forgotten: "Es una OVA que pasó desapercibida en su momento. Su distribución fuera de Japón fue limitada, y hoy es una joya oculta para los amantes del horror y la fantasía oscura.",
-    reel: "",
+    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQM9_KH-CT48gRwEx9Csn4tdL74QSb0Kr9QkekyWMW4skVWSjWaiH7DIq95js1Cuh0it6WiI9hOwQ0Z0ZRvaZU56sVZrI8retn5I-dUdYA.mp4?_nc_cat=101&_nc_oc=AdqT6IBJ607xEt--thG4EnddWcebrV_ITmnYkB5d8LgLj9-BHxSeXeO5IKTSwspxS9o&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=LGBEVua3vjIQ7kNvwFvPi9h&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyMzI4Nzc0Mzc0NTI0NCwiYXNzZXRfYWdlX2RheXMiOjIsInZpX3VzZWNhc2VfaWQiOjEwMTIwLCJkdXJhdGlvbl9zIjo5MCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=Bak08fRFB88QGaY_XeIFOg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQD8Wnglfh6rRSmHUDe72Ec5Rl5jlcJF2JXTS_raoUlXMg&oe=6A6C755D&bitrate=361939&tag=sve_sd",
     related: [8, 10, 15, 20]
 }, {
     id: 14,
