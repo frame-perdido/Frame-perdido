@@ -2,7 +2,6 @@
 // BASE DE DATOS - FRAME PERDIDO
 // ============================================================
 var animes = [{
-   
     id: 0,
     title: "Barefoot Gen (Películas)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjMF-TZtwO2Jyhp2R3PKzwiJ0nQYuR6tI-QE3eyCdLjo1S8GFlm9GTw9UbqhVL1ZAX5L8JOPk31BtoJbEAVbpRzmYC9kEEMQfnL_KTX3IlqkcWO9VvDjw57rs1Jc9qrrShj9rSrjfbzSlHxntenQ1l1_bKLU5uHaPDXUGZqTEHpiGz4DYfNBblSahFT1CHf=w267-h400",
@@ -18,12 +17,7 @@ var animes = [{
     analysis: "Basadas en el manga autobiográfico de Keiji Nakazawa, que perdió a su familia en el bombardeo. La primera película es cruda y directa: te agarra del cuello y no te suelta. La segunda es más silenciosa pero igual de desgarradora, mostrando las secuelas a largo plazo de la guerra. Ambas son testimonios necesarios que deberían ser de visionado obligatorio.",
     forgotten: "A pesar de ser obras maestras, hoy son más conocidas por su reputación que por haber sido vistas. Su crudeza las ha convertido en películas que muchos evitan. La primera tiene el impacto del bombardeo, pero la segunda es igual de importante para entender el verdadero horror de la guerra. Pasó desapercibida en su momento y hoy es una rareza incluso entre los fans del anime más clásico.",
     reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
-    related: [16, 23],
-    episodios: [
-        { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8034325564013?nochat=1" },
-        { num: 1, version: "Dob", url: "https://ok.ru/videoembed/2986566486648?nochat=1" },
-        { num: 2, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
-    ]
+    related: [16, 23]
 },
 {
     id: 1,
@@ -42,7 +36,7 @@ var animes = [{
     forgotten: "Como tantas OVAs de los 90, Dark Cat quedó sepultada bajo el aluvión de títulos que llegaban en VHS. Nunca tuvo una distribución masiva fuera de Japón, y hoy es una rareza que solo los coleccionistas más acérrimos buscan. Los fans del anime de la época lo conocen más por su reputación (buena o mala) que por haberlo visto realmente.",
     reel: "",
     related: [23, 9, 11]
-},{
+}{
     id: 2,
     title: "Plastic Little",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjDUAulBCVMTe7LK9nyBH-dtlaccK8gIPNkDAOJxlVeJCPVyxUt0QTX4jVvUUTJYPotrW6GUIvph9ysjv7joc7Ktvg3fFwExVOUPCSvB3AAImyAd5ER701FtZzuoyYviZcqJFTbqujSs93JuCZITP-1_JaZnd71mVAguD3cUyN8j6SQL0HczIYjtiJ54H4F=w288-h400",
