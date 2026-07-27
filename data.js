@@ -503,5 +503,4 @@ var animes = [{
     episodios: 7,
     reel: "",  
     related: [17, 18, 23, 25]  
-}        
-             ];
+}];
