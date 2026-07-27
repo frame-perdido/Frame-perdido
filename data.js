@@ -503,4 +503,45 @@ var animes = [{
     episodios: 7,
     reel: "",  
     related: [17, 18, 23, 25]  
-}];
+},
+              {
+    id: 29,
+    title: "The Curse of Kazuo Umezu",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEj3tyhorhoRXYAorKhZ9gt63DbWhLzwiGuxEd9L7cCs8lLI7GgUFMr9Z-TIDBy6R5kT7f2f_Vjva8SwyLhhY8Z8516cz1cSe6H5TCobmKF_8MfB2M5lUiFJhH7TVb1MV-D09eWZ_jfYeOXoQu-DzKhIjFCm69YmfqxDFaHc2F0U-wSDQJjCOa-P35j_sUGc=w267-h400",
+    year: 1990,
+    type: "OVA",
+    duration: "2 episodios (43 min total)",
+    studio: "Takahashi Studio",
+    director: "Naoko Omi",
+    genre: ["Terror", "Sobrenatural", "Misterio", "Antología"],
+    tags: ["terror", "sobrenatural", "misterio", "antología", "nocturno", "violento", "claustrofóbico"],
+    description: "Dos historias de terror: una chica descubre un secreto aterrador sobre su propio cuerpo al investigar a una nueva estudiante; y cuatro amigas se adentran en una mansión embrujada que guarda horrores inimaginables.",
+    plot: "El OVA se divide en dos segmentos. En el primero, 'What Will the Video Camera Reveal?', Masami, una estudiante tímida, se obsesiona con Rima, una nueva alumna de México. Tras desarrollar extrañas heridas en el cuello durante la noche, Masami sospecha que Rima es una vampira. Con la ayuda de una amiga, graba sus noches para descubrir la verdad, pero la grabación revela un horror inimaginable: el monstruo no es Rima, sino algo que habita dentro de la propia Masami. En el segundo segmento, 'The Haunted Mansion', cuatro chicas exploran una mansión abandonada y pronto descubren que está llena de trampas mortales y secretos sobrenaturales que ponen a prueba su coraje y su cordura.",
+    analysis: "The Curse of Kazuo Umezu es un clásico de culto del terror anime, que captura la esencia del J-Horror de finales de los 80 y principios de los 90. La obra destaca por su atmósfera inquietante, sus giros argumentales y su estilo visual único, que mezcla el horror corporal con el suspense psicológico. Es una adaptación fiel del estilo de Umezu, conocido por su habilidad para crear historias perturbadoras y personajes atormentados.",
+    forgotten: "A pesar de ser una obra maestra del terror anime, es un título poco conocido que no ha recibido una distribución amplia fuera de Japón más allá de su lanzamiento original en VHS y LaserDisc. Esto la ha convertido en una joya oculta para los coleccionistas y los amantes del horror.",
+    episodios: [
+        { num: 1, title: "What Will the Video Camera Reveal?", version: "Sub", url: "URL_EPISODIO_1" },
+        { num: 2, title: "The Haunted Mansion", version: "Sub", url: "URL_EPISODIO_2" }
+    ],
+    reel: "",
+    related: [7, 9, 11]
+},
+              {
+    id: 30,
+    title: "Shadow Skill",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiW_88L2rwA-bZiJoih45ZsG4JtUQ-nXTMul8m59ULGJQL44JEDOmkVcXmEm5RdCpZ8sGcadn5GDQ9YMEMt_JiDQYMRbFpfEDctUfQ6Da-j6_qsO8zWcbLXA--nPDfJ4leG-ZUPT2756KT-yF0kppWmQQNLKtOvmzqIYksy9Gur3g5ZHbM4cnnQxoKjmpWo=w267-h400",
+    year: "1995-1998",
+    type: "OVA / Serie",
+    duration: "31 episodios (4 OVAs + 26 TV + 1 Especial)",
+    studio: "Zero-G Room / Studio Deen",
+    director: "Hiroshi Negishi / Yasuhiro Kuroda / Tsukasa Sunaga",
+    genre: ["Artes marciales", "Acción", "Fantasía", "Comedia"],
+    tags: ["artes-marciales", "acción", "fantasía", "comedia", "violento", "nostálgico", "superpoderes"],
+    description: "En el reino de Kuruda, Elle Ragu, apodada Shadow Skill, entrena a su hermano adoptivo Gau Ban en el arte marcial definitivo. Juntos enfrentan enemigos poderosos, bestias demoníacas y conspiraciones que amenazan el reino. La franquicia incluye OVAs de tono serio y una serie de TV más cómica.",
+    plot: "Elle Ragu, la 59ª Sevaar del reino de Kuruda, viaja con su hermano adoptivo Gau Ban para visitar la tumba de sus padres. Gau entrena para convertirse en un guerrero tan poderoso como Elle, pero su viaje se ve interrumpido por ataques de asesinos, bestias demoníacas y conspiraciones políticas. La historia explora el vínculo entre los hermanos, el significado del honor y la verdad detrás del arte marcial llamado Shadow Skill. En la serie de TV, el tono se vuelve más ligero y cómico, con Elle lidiando con sus deudas y su adicción al alcohol.",
+    analysis: "Shadow Skill es un clásico de las artes marciales en anime. Las OVAs de los 90 destacan por su animación dinámica, violencia gráfica y un tono serio, mientras que la serie de TV de 1998 (Shadow Skill: Eigi) es un remake con un enfoque más cómico y ligero, similar a Slayers. Ambas versiones tienen su propio encanto, y la franquicia en su conjunto ofrece una mezcla única de acción, humor y personajes carismáticos.",
+    forgotten: "A pesar de ser popular en los 90, Shadow Skill nunca alcanzó el estatus de culto de otras series de artes marciales. La serie de TV de 1998 pasó desapercibida para muchos, y las OVAs originales son hoy una rareza que solo los coleccionistas recuerdan. Sin embargo, la franquicia sigue siendo un ejemplo interesante de cómo una misma historia puede ser contada con tonos muy diferentes.",
+    reel: "",
+    related: [8, 11, 17]
+}
+ ];
