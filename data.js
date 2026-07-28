@@ -543,5 +543,23 @@ var animes = [{
     forgotten: "A pesar de ser popular en los 90, Shadow Skill nunca alcanzó el estatus de culto de otras series de artes marciales. La serie de TV de 1998 pasó desapercibida para muchos, y las OVAs originales son hoy una rareza que solo los coleccionistas recuerdan. Sin embargo, la franquicia sigue siendo un ejemplo interesante de cómo una misma historia puede ser contada con tonos muy diferentes.",
     reel: "",
     related: [8, 11, 17]
+},
+ {
+    id: 31, 
+    title: "Fire and Ice",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh7YwYCTOFdIw38S9q2Y3PFbS40-DuOKaoJqR3cZ-GyxZUw1TfY9LRFwgAXCP7Gp-MrshnGjpJXcUPKrG_TyLmQCpO4EgeEtX7_i0e4OgvuYQOUm1cSX9HE8ZI_UYtRZeiiHORpriJGgIpts30-SBDq1Slc2wCtgK0ncpVL0wzSTA88Kl4ikRhEo-ygYzc1=w267-h400",
+    year: 1983,
+    type: "Película",
+    duration: "81 min",
+    studio: "Aspen Productions / Film Finance Group",
+    director: "Ralph Bakshi",
+    genre: ["Fantasía", "Aventura", "Acción"],
+    tags: ["fantasía", "aventura", "acción", "épico", "animación", "rotoscopia", "clásico"],
+    description: "En un mundo de hielo y fuego, un joven guerrero llamado Larn se une al misterioso Darkwolf para rescatar a la princesa Teegra de las garras de la malvada reina Juliana y su hijo Nekron. Una épica batalla entre el bien y el mal con el impresionante arte de Frank Frazetta.",
+    plot: "Desde su fortaleza de hielo, la malvada Reina Juliana y su hijo Nekron envían una ola de glaciares para conquistar el mundo, forzando a la humanidad a retroceder. El rey Jarol, desde su reino de fuego, es el siguiente en su lista. Para doblegarlo, secuestran a su hija, la princesa Teegra. La princesa escapa y se encuentra con Larn, el único superviviente de una aldea destruida por el hielo. Juntos emprenden un viaje, pero son separados y Teegra es recapturada. Larn se alía entonces con Darkwolf, un enigmático y poderoso guerrero enmascarado con una venganza personal contra Nekron. Juntos, asaltan el pico de hielo para rescatar a la princesa y detener el avance del hielo antes de que destruya Firekeep, el reino del fuego [citation:1][citation:3][citation:6].",
+    analysis: "Fire and Ice es el sueño húmedo de cualquier fan de la fantasía de los 80 hecho realidad. Es una colaboración entre dos titanes: Ralph Bakshi, el director animador más transgresor de su época, y Frank Frazetta, el ilustrador de fantasía más influyente [citation:1][citation:9]. La película es un festín visual para los ojos, con fondos pintados a mano que parecen sacados de los lienzos de Frazetta y personajes rotoscopiados que se mueven con una fluidez y realismo poco comunes en la animación de la época [citation:4][citation:5]. La trama es un clásico 'sword and sorcery' simple y directo, que no busca más que ser un vehículo para la acción y el arte. Es pura fantasía ochentera, con un toque de violencia y una estética 'heavy metal' que la convierten en un objeto de culto [citation:5][citation:8][citation:9].",
+    forgotten: "A pesar de ser un proyecto de ensueño, Fire and Ice no fue un éxito en taquilla [citation:10]. Su lanzamiento fue limitado y no logró captar la atención del público masivo, quedando eclipsada por otras películas de la época como Conan el Bárbaro [citation:7]. Con el tiempo, se ha convertido en una película de culto, apreciada por los fans de Bakshi, Frazetta y la animación adulta. Sin embargo, sigue siendo una rareza para el gran público, una joya perdida en el tiempo que los amantes del género deberían descubrir [citation:5][citation:9].",
+    reel: "", // Puedes agregar un reel si encuentras uno
+    related: [5, 14, 17]
 }
  ];
