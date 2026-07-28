@@ -220,7 +220,8 @@
 
         <!-- Botones -->
         <div class="buttons">
-            <a href="index.html" class="btn-primary">
+            <!-- CAMBIO AQUÍ: Uso JavaScript para redirigir a la página anterior -->
+            <a href="#" id="btnVolver" class="btn-primary">
                 🔄 Ya lo desactivé
             </a>
             <a href="https://www.google.com/" class="btn-secondary" target="_blank">
@@ -233,6 +234,24 @@
             ¿Problemas? <a href="#">Contáctanos</a>
         </p>
     </div>
+
+    <script>
+        // SOLUCIÓN: Redirigir a la página de donde vino el usuario
+        document.getElementById('btnVolver').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Intentar obtener la URL de la página anterior
+            let urlAnterior = document.referrer;
+            
+            // Si no hay URL anterior, ir al index
+            if (!urlAnterior) {
+                urlAnterior = 'index.html';
+            }
+            
+            // Redirigir
+            window.location.href = urlAnterior;
+        });
+    </script>
 
 </body>
 </html>
