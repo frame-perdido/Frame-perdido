@@ -545,7 +545,7 @@ var animes = [{
     related: [8, 11, 17]
 },
 {
-    id: 29, // Asegúrate de usar un ID que no esté ocupado
+    id: 31, 
     title: "Fire and Ice",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh7YwYCTOFdIw38S9q2Y3PFbS40-DuOKaoJqR3cZ-GyxZUw1TfY9LRFwgAXCP7Gp-MrshnGjpJXcUPKrG_TyLmQCpO4EgeEtX7_i0e4OgvuYQOUm1cSX9HE8ZI_UYtRZeiiHORpriJGgIpts30-SBDq1Slc2wCtgK0ncpVL0wzSTA88Kl4ikRhEo-ygYzc1", 
     year: 1983,
