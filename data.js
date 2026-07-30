@@ -560,5 +560,23 @@ var animes = [{
     forgotten: "A pesar de ser un proyecto de ensueño, Fire and Ice no fue un éxito en taquilla [citation:3][citation:6]. Su lanzamiento fue limitado y no logró captar la atención del público masivo, quedando eclipsada por otras películas de la época como Conan el Bárbaro [citation:10]. Con el tiempo, se ha convertido en una película de culto, apreciada por los fans de Bakshi, Frazetta y la animación adulta. En 2003, la Online Film Critics Society la incluyó en el puesto 99 de su lista de 'Mejores películas animadas de todos los tiempos' [citation:3][citation:10]. Sin embargo, sigue siendo una rareza para el gran público, una joya perdida en el tiempo que los amantes del género deberían descubrir [citation:6][citation:9].",
     reel: "", // Puedes agregar un reel si encuentras uno
     related: [5, 14, 17] 
+},
+              {
+    id: 32,
+    title: "Golden Boy",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiVIMigDyqNdsm80OiRQG83i1ZG-EIEqELG_g6B4lJ794W4ZrPyLpe23gvQAlzDz_Pg4Gja884DFq9_v9-xHVRZSi5jqblYiTeicBK8xBEXqYFVaSR_0j3Liuu5-OtWvHqhRivdoQ-Kwj_fEdnnU8adGCuCuGMiDAICw9PW_l58EWDlpYrWsyGRmw9_uhXF=w267-h400",
+    year: 1995,
+    type: "OVA",
+    duration: "6 episodios",
+    studio: "AIC / APPP",
+    director: "Hiroyuki Kitakubo",
+    genre: ["Comedia", "Recuentos de la vida", "Ecchi"],
+    tags: ["comedia", "recuentos", "ecchi", "nostálgico", "aventura", "trabajo"],
+    description: "Kintaro Oe es un estudiante que abandona la universidad para recorrer Japón en bicicleta. Donde sea que vaya, encuentra trabajo y mujeres hermosas, pero siempre termina huyendo. Una comedia absurda y erótica que es puro culto.",
+    plot: "Kintaro Oe es un genio que abandonó la universidad porque no podía aprender más. Ahora viaja por Japón en su bicicleta, trabajando en empleos temporales para ganar dinero y seguir su viaje. En cada trabajo, conoce a una mujer increíble (una política, una programadora, una salvavidas, una actriz porno) y termina enamorándose de ella, pero siempre huye antes de comprometerse. Mientras tanto, esconde su verdadera identidad: es un genio de la programación que creó un sistema operativo revolucionario.",
+    analysis: "Golden Boy es la comedia perfecta de los 90. Kintaro es un personaje absurdo, entrañable y ridículo, que combina la inocencia de un niño con la lujuria de un adolescente. La animación es espectacular para su época, especialmente en las escenas de acción y comedia física. La serie es famosa por su humor adulto, su doblaje en inglés legendario (donde Kintaro grita cosas como 'This is the best day of my life!') y su capacidad para mezclar el erotismo con la comedia sin ser vulgar.",
+    forgotten: "A pesar de ser una de las comedias más queridas de los 90, Golden Boy es hoy una rareza. Solo tuvo 6 episodios y nunca se hizo una segunda temporada. Su distribución en Occidente fue limitada, y aunque es un clásico de culto, muchos fans nuevos no la han visto. Sin embargo, los que la vieron la llevan en el corazón.",
+    reel: "",
+    related: [4, 19, 21]
 }
  ];
