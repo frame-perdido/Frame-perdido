@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frame Perdido | Link in Bio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+     body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 50%, #0f0f23 100%);
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* CRT Scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.15) 2px,
+        rgba(0,0,0,0.15) 4px
+      );
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+    }
+
+    /* Main Card */
+    .card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      z-index: 10;
+    }
+
+    .card-glow {
+      position: absolute;
+      inset: -2px;
+      border-radius: 24px;
+      background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #ff006e);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      filter: blur(4px);
+      opacity: 0.75;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      position: relative;
+      background: rgba(20, 10, 40, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    /* Avatar */
+    .avatar-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
+    }
+
+    .avatar-glow {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff006e, #8338ec);
+      filter: blur(8px);
+      opacity: 0.6;
+    }
+
+    .avatar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2d1b4e, #1a0b2e);
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar svg {
+      width: 70%;
+      height: 70%;
+    }
+
+    .badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 36px;
+      height: 36px;
+      background: #ff006e;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      border: 2px solid rgba(20, 10, 40, 0.95);
+    }
+
+    /* Title */
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffbe0b;
+      text-shadow: 0 0 20px rgba(255,190,11,0.5);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 32px;
+    }
+
+    /* Link Buttons */
+    .link-btn {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .link-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .link-btn-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .link-btn:hover .link-btn-bg {
+      opacity: 1;
+    }
+
+    .link-btn-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+
+    .link-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .link-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .link-text {
+      text-align: left;
+    }
+
+    .link-name {
+      display: block;
+      font-weight: 600;
+      color: white;
+      font-size: 15px;
+    }
+
+    .link-handle {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .link-arrow {
+      width: 20px;
+      height: 20px;
+      color: white;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .link-btn:hover .link-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Button Themes */
+    .btn-web {
+      background: linear-gradient(90deg, rgba(58,134,255,0.2), rgba(131,56,236,0.2));
+      border: 1px solid rgba(58,134,255,0.4);
+    }
+    .btn-web .link-btn-bg {
+      background: linear-gradient(90deg, rgba(58,134,255,0.4), rgba(131,56,236,0.4));
+    }
+    .btn-web .link-icon { background: rgba(58,134,255,0.2); }
+
+    .btn-ig {
+      background: linear-gradient(90deg, rgba(225,48,108,0.2), rgba(245,133,41,0.2));
+      border: 1px solid rgba(225,48,108,0.4);
+    }
+    .btn-ig .link-btn-bg {
+      background: linear-gradient(90deg, rgba(225,48,108,0.4), rgba(245,133,41,0.4));
+    }
+    .btn-ig .link-icon { background: rgba(225,48,108,0.2); }
+
+    .btn-tiktok {
+      background: linear-gradient(90deg, rgba(6,255,165,0.2), rgba(255,0,110,0.2));
+      border: 1px solid rgba(6,255,165,0.4);
+    }
+    .btn-tiktok .link-btn-bg {
+      background: linear-gradient(90deg, rgba(6,255,165,0.4), rgba(255,0,110,0.4));
+    }
+    .btn-tiktok .link-icon { background: rgba(6,255,165,0.2); }
+
+    .btn-fb {
+      background: linear-gradient(90deg, rgba(24,119,242,0.2), rgba(0,164,255,0.2));
+      border: 1px solid rgba(24,119,242,0.4);
+    }
+    .btn-fb .link-btn-bg {
+      background: linear-gradient(90deg, rgba(24,119,242,0.4), rgba(0,164,255,0.4));
+    }
+    .btn-fb .link-icon { background: rgba(24,119,242,0.2); }
+
+    /* Footer */
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .card { padding: 32px 20px; }
+      .title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Main Card -->
+  <div class="card-wrapper">
+    <div class="card-glow"></div>
+    <div class="card">
+
+      <!-- Avatar -->
+      <div class="avatar-wrapper">
+        <div class="avatar-glow"></div>
+        <div class="avatar">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#ff006e" stroke-width="2.5">
+            <circle cx="50" cy="35" r="18"/>
+            <path d="M20 85 Q50 55 80 85"/>
+            <path d="M30 40 L40 50 M70 40 L60 50" stroke-linecap="round"/>
+            <circle cx="42" cy="33" r="3" fill="#ff006e"/>
+            <circle cx="58" cy="33" r="3" fill="#ff006e"/>
+          </svg>
+        </div>
+        <div class="badge">90s</div>
+      </div>
+
+      <!-- Title -->
+      <h1 class="title">FRAME PERDIDO</h1>
+      <p class="subtitle">Animes clásicos que el tiempo no borró</p>
+
+      <!-- Links -->
+      <a href="https://frame-perdido.github.io/Frame-perdido" target="_blank" class="link-btn btn-web">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="none" stroke="#3a86ff" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">Página Web</span>
+              <span class="link-handle">frameperdido.com</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" class="link-btn btn-ig">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="none" stroke="#e1306c" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">Instagram</span>
+              <span class="link-handle">@frameperdido</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://www.tiktok.com/@frameperdido1?_r=1&_t=ZP-98SBODVBG9v" target="_blank" class="link-btn btn-tiktok">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="#06ffa5" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.89 2.89 2.89 0 0 1 2.88-2.89c.3 0 .6.05.88.14v-3.5a6.37 6.37 0 0 0-.88-.07A6.34 6.34 0 0 0 3.15 15.6a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.91a8.16 8.16 0 0 0 4.76 1.54V8.01a4.83 4.83 0 0 1-1-.32z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">TikTok</span>
+              <span class="link-handle">@frameperdido</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/share/18CN8ySgVR/" target="_blank" class="link-btn btn-fb">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="#1877f2" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">Facebook</span>
+              <span class="link-handle">Frame Perdido</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Footer -->
+      <div class="footer">✦ Hecho con nostalgia ✦</div>
+
+    </div>
+  </div>
+
+  <script>
+    // Generate floating particles
+    const particlesContainer = document.getElementById('particles');
+    const colors = ['#ff006e', '#8338ec', '#3a86ff', '#06ffa5', '#ffbe0b'];
+
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      const size = Math.random() * 6 + 2;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff006e, #8338ec);
+      filter: blur(8px);
+      opacity: 0.6;
+    }
+
+    .avatar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2d1b4e, #1a0b2e);
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar svg {
+      width: 70%;
+      height: 70%;
+    }
+
+    .badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 36px;
+      height: 36px;
+      background: #ff006e;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      border: 2px solid rgba(20, 10, 40, 0.95);
+    }
+
+    /* Title */
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffbe0b;
+      text-shadow: 0 0 20px rgba(255,190,11,0.5);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 32px;
+    }
+
+    /* Link Buttons */
+    .link-btn {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .link-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .link-btn-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .link-btn:hover .link-btn-bg {
+      opacity: 1;
+    }
+
+    .link-btn-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+
+    .link-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .link-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .link-text {
+      text-align: left;
+    }
+
+    .link-name {
+      display: block;
+      font-weight: 600;
+      color: white;
+      font-size: 15px;
+    }
+
+    .link-handle {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .link-arrow {
+      width: 20px;
+      height: 20px;
+      color: white;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .link-btn:hover .link-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Button Themes */
+    .btn-web {
+      background: linear-gradient(90deg, rgba(58,134,255,0.2), rgba(131,56,236,0.2));
+      border: 1px solid rgba(58,134,255,0.4);
+    }
+    .btn-web .link-btn-bg {
+      background: linear-gradient(90deg, rgba(58,134,255,0.4), rgba(131,56,236,0.4));
+    }
+    .btn-web .link-icon { background: rgba(58,134,255,0.2); }
+
+    .btn-ig {
+      background: linear-gradient(90deg, rgba(225,48,108,0.2), rgba(245,133,41,0.2));
+      border: 1px solid rgba(225,48,108,0.4);
+    }
+    .btn-ig .link-btn-bg {
+      background: linear-gradient(90deg, rgba(225,48,108,0.4), rgba(245,133,41,0.4));
+    }
+    .btn-ig .link-icon { background: rgba(225,48,108,0.2); }
+
+    .btn-tiktok {
+      background: linear-gradient(90deg, rgba(6,255,165,0.2), rgba(255,0,110,0.2));
+      border: 1px solid rgba(6,255,165,0.4);
+    }
+    .btn-tiktok .link-btn-bg {
+      background: linear-gradient(90deg, rgba(6,255,165,0.4), rgba(255,0,110,0.4));
+    }
+    .btn-tiktok .link-icon { background: rgba(6,255,165,0.2); }
+
+    .btn-fb {
+      background: linear-gradient(90deg, rgba(24,119,242,0.2), rgba(0,164,255,0.2));
+      border: 1px solid rgba(24,119,242,0.4);
+    }
+    .btn-fb .link-btn-bg {
+      background: linear-gradient(90deg, rgba(24,119,242,0.4), rgba(0,164,255,0.4));
+    }
+    .btn-fb .link-icon { background: rgba(24,119,242,0.2); }
+
+    /* Footer */
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .card { padding: 32px 20px; }
+      .title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Main Card -->
+  <div class="card-wrapper">
+    <div class="card-glow"></div>
+    <div class="card">
+
+      <!-- Avatar -->
+      <div class="avatar-wrapper">
+        <div class="avatar-glow"></div>
+        <div class="avatar">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#ff006e" stroke-width="2.5">
+            <circle cx="50" cy="35" r="18"/>
+            <path d="M20 85 Q50 55 80 85"/>
+            <path d="M30 40 L40 50 M70 40 L60 50" stroke-linecap="round"/>
+            <circle cx="42" cy="33" r="3" fill="#ff006e"/>
+            <circle cx="58" cy="33" r="3" fill="#ff006e"/>
+          </svg>
+        </div>
+        <div class="badge">90s</div>
+      </div>
+
+      <!-- Title -->
+      <h1 class="title">FRAME PERDIDO</h1>
+      <p class="subtitle">Animes clásicos que el tiempo no borró</p>
+
+      <!-- Links -->
+      <a href="https://tusitioweb.com" target="_blank" class="link-btn btn-web">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="none" stroke="#3a86ff" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">Página Web</span>
+              <span class="link-handle">frameperdido.com</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://instagram.com/tuusuario" target="_blank" class="link-btn btn-ig">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="none" stroke="#e1306c" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">Instagram</span>
+              <span class="link-handle">@frameperdido</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://tiktok.com/@tuusuario" target="_blank" class="link-btn btn-tiktok">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="#06ffa5" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.89 2.89 2.89 0 0 1 2.88-2.89c.3 0 .6.05.88.14v-3.5a6.37 6.37 0 0 0-.88-.07A6.34 6.34 0 0 0 3.15 15.6a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.91a8.16 8.16 0 0 0 4.76 1.54V8.01a4.83 4.83 0 0 1-1-.32z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">TikTok</span>
+              <span class="link-handle">@frameperdido</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://facebook.com/tupagina" target="_blank" class="link-btn btn-fb">
+        <div class="link-btn-bg"></div>
+        <div class="link-btn-inner">
+          <div class="link-btn-left">
+            <div class="link-icon">
+              <svg fill="#1877f2" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="link-text">
+              <span class="link-name">Facebook</span>
+              <span class="link-handle">Frame Perdido</span>
+            </div>
+          </div>
+          <svg class="link-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Footer -->
+      <div class="footer">✦ Hecho con nostalgia ✦</div>
+
+    </div>
+  </div>
+
+  <script>
+    // Generate floating particles
+    const particlesContainer = document.getElementById('particles');
+    const colors = ['#ff006e', '#8338ec', '#3a86ff', '#06ffa5', '#ffbe0b'];
+
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      const size = Math.random() * 6 + 2;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particle.className = 'particle';
+      particle.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 4 + 3}s;
+        animation-delay: ${Math.random() * 3}s;
+        box-shadow: 0 0 ${size * 2}px ${color};
+      `;
+      particlesContainer.appendChild(particle);
+    }
+  </script>
+
+</body>
+</html>
