@@ -9,21 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     
-    <!-- ============================================================ -->
-    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
-    <!-- ============================================================ -->
     <style>
-        .adsterra-mobile { display: none; }
-        .adsterra-desktop { display: block; }
-
-        @media only screen and (max-width: 768px) {
-            .adsterra-mobile { display: block; }
-            .adsterra-desktop { display: none; }
-        }
-
-        /* ============================================================
-           VARIABLES Y RESET
-           ============================================================ */
+        /* ============================================================ */
+        /* VARIABLES Y RESET                                            */
+        /* ============================================================ */
         :root {
             --bg: #0a0a0f;
             --bg-card: #12121a;
@@ -64,6 +53,61 @@
             width: 100%;
         }
 
+        /* ============================================================ */
+        /* BANNER HEADER - HORIZONTAL QUE SE ESCALA EN MÓVIL           */
+        /* ============================================================ */
+        .banner-container {
+            text-align: center;
+            margin: 12px auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px; /* Evita saltos al cargar */
+            overflow: hidden;
+        }
+
+        /* Banner de escritorio - visible en todos los dispositivos */
+        .adsterra-desktop {
+            display: block;
+            width: 728px;
+            height: 90px;
+            transform-origin: center center;
+        }
+
+        /* En móvil se escala manteniendo forma horizontal */
+        @media only screen and (max-width: 768px) {
+            .adsterra-desktop {
+                transform: scale(0.5);
+                width: 728px;
+                height: 90px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .adsterra-desktop {
+                transform: scale(0.38);
+                width: 728px;
+                height: 90px;
+            }
+        }
+
+        @media only screen and (max-width: 360px) {
+            .adsterra-desktop {
+                transform: scale(0.30);
+                width: 728px;
+                height: 90px;
+            }
+        }
+
+        /* Ocultamos el banner móvil (no lo necesitamos) */
+        .adsterra-mobile {
+            display: none !important;
+        }
+
+        /* ============================================================ */
+        /* RESTO DE ESTILOS                                             */
+        /* ============================================================ */
         .video-header {
             display: flex;
             justify-content: space-between;
@@ -222,7 +266,7 @@
     </style>
 </head>
 <body>
-     <script src="=anti-adblocker.js"></script>
+    <script src="=anti-adblocker.js"></script>
     
     <!-- ============================================================ -->
     <!-- POPUNDER                                                     -->
@@ -242,9 +286,9 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- BANNER ENCIMA DEL REPRODUCTOR (FIJO)                         -->
+        <!-- BANNER ENCIMA DEL REPRODUCTOR (HORIZONTAL Y ESCALABLE)       -->
         <!-- ============================================================ -->
-        <div style="text-align:center; margin: 12px 0;">
+        <div class="banner-container">
             <div class="adsterra-desktop">
                 <script>
                     atOptions = {
@@ -256,18 +300,6 @@
                     };
                 </script>
                 <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
-            </div>
-            <div class="adsterra-mobile">
-                <script>
-                    atOptions = {
-                        'key' : 'f609722253730b0dda3e6b83efb17a18',
-                        'format' : 'iframe',
-                        'height' : 50,
-                        'width' : 320,
-                        'params' : {}
-                    };
-                </script>
-                <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
             </div>
         </div>
 
@@ -287,7 +319,7 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR (FIJO)                  -->
+        <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR                         -->
         <!-- ============================================================ -->
         <div style="margin: 20px auto; max-width: 100%;">
             <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
@@ -295,12 +327,12 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- SELECTOR DE EPISODIOS (dinámico)                             -->
+        <!-- SELECTOR DE EPISODIOS                                        -->
         <!-- ============================================================ -->
         <div class="episode-selector" id="episodeSelector"></div>
 
         <!-- ============================================================ -->
-        <!-- INFO DEL EXPEDIENTE (dinámico)                                -->
+        <!-- INFO DEL EXPEDIENTE                                          -->
         <!-- ============================================================ -->
         <div class="expediente-info" id="expedienteInfo">
             <h3>📁 Sobre este expediente</h3>
@@ -682,122 +714,119 @@
                     { num: 26, version: "Sub", url: "https://mega.nz/embed/W6ZyXa5R#-HZW1Y1qMYDqKR_x5uy1UM1CY5RFV6B3hS1pE-4lF50" },
                 ]
             },
-
-// ============================================================
-// DARK CAT (1 episodio - Sub)
-// ============================================================
-1: {
-    title: "Dark Cat",
-    year: 1991,
-    studio: "Agent 21",
-    director: "Takeshi Watanabe",
-    desc: "Dos hermanos con el poder de transformarse en gatos deben detener una plaga demoníaca que convierte estudiantes en monstruos. Una rareza de los 90 que es tan mala que se convierte en arte.",
-    tags: ["OVA", "Terror", "Acción", "Sobrenatural", "Nocturno", "Violento"],
-    episodios: [
-        { num: 1, version: "Sub", url: "//ok.ru/videoembed/3397672634924?nochat=1" }
-    ]
-},
-// ============================================================
-// DRAGON'S HEAVEN (1 episodio - Sub)
-// ============================================================
-25: {
-    title: "Dragon's Heaven",
-    year: 1988,
-    studio: "AIC",
-    director: "Makoto Kobayashi",
-    desc: "Una armadura robótica consciente despierta tras mil años. Y su única misión es proteger a su creador de un enemigo que no descansa. Una obra maestra visual influenciada por el estilo de Moebius.",
-    tags: ["OVA", "Ciencia Ficción", "Mecha", "Post-apocalíptico", "Experimental", "Color"],
-    episodios: [
-        { num: 1, version: "", url: "https://www.youtube.com/embed/5ktDpZQlrC4?si=oKgXA0NZFE384nvz" }
-    ]
-},
-// ============================================================
-// THE CURSE OF UMEZU KAZUO (1 episodio - Sub)
-// ============================================================
-29: {
-    title: "The Curse of Umezu Kazuo",
-    year: 1990,
-    studio: "Takahashi Studio y Yûwa",
-    director: "Kazuo Umezu",
-    desc: "Una adaptación del legendario mangaka de terror Kazuo Umezu. Dos historias de horror que te pondrán los pelos de punta. El maestro del terror japonés en estado puro.",
-    tags: ["OVA", "Terror", "Antología", "Horror", "Nocturno", "Psicológico"],
-    episodios: [
-        { num: 1, version: "Sub", url: "//ok.ru/videoembed/3627019995674?nochat=1" }
-    ]
-},
-// ============================================================
-// FIRE AND ICE (Película)
-// ============================================================
-31: {
-    title: "Fire and Ice",
-    year: 1983,
-    studio: "Aspen Productions",
-    director: "Ralph Bakshi",
-    desc: "En un mundo de hielo y fuego, el joven guerrero Larn se une al misterioso Darkwolf para rescatar a la princesa Teegra de las garras de la malvada reina Juliana y su hijo Nekron. Una épica batalla entre el bien y el mal con el impresionante arte de Frank Frazetta.",
-    tags: ["Película", "Fantasía", "Aventura", "Acción", "Épico", "Animación", "Clásico", "Rotoscopia"],
-    episodios: [
-        { num: 1, version: "Dob", url: "//ok.ru/videoembed/2397592619717?nochat=1" }
-    ]
-},
-
-// ============================================================
-// GOLDEN BOY (6 episodios)
-// ============================================================
-32: {
-    title: "Golden Boy",
-    year: 1995,
-    studio: "AIC / APPP",
-    director: "Hiroyuki Kitakubo",
-    desc: "Kintaro Oe es un estudiante que abandona la universidad para recorrer Japón en bicicleta. Donde sea que vaya, encuentra trabajo y mujeres hermosas, pero siempre termina huyendo. Una comedia absurda y erótica que es puro culto.",
-    tags: ["OVA", "Comedia", "Recuentos de la vida", "Ecchi", "Nostálgico", "Aventura"],
-    episodios: [
-        // DOBLADO - TODOS los episodios en un solo video
-        { num: 1, version: "Dob", url: "//ok.ru/videoembed/9370714049277?nochat=1" },
-        
-        // SUBTITULADO - 6 episodios separados
-        { num: 1, version: "Sub", url: "//ok.ru/videoembed/1954576271895?nochat=1" },
-        { num: 2, version: "Sub", url: "//ok.ru/videoembed/1954576337431?nochat=1" },
-        { num: 3, version: "Sub", url: "//ok.ru/videoembed/1958618335767?nochat=1" },
-        { num: 4, version: "Sub", url: "//ok.ru/videoembed/1958618270231?nochat=1" },
-        { num: 5, version: "Sub", url: "//ok.ru/videoembed/1958720047639?nochat=1" },
-        { num: 6, version: "Sub", url: "//ok.ru/videoembed/1958720113175?nochat=1" }
-    ]
-},
-
-// ============================================================
-// A.D. POLICE FILES (OVA - 3 episodios)
-// ============================================================
-28: {
-    title: "A.D. Police Files",
-    year: 1990,
-    studio: "AIC / Artmic",
-    director: "Takamasa Ikegami",
-    desc: "En el Mega-Tokio de 2027, los Boomers (androides) se vuelven locos y la división A.D. Police está encargada de detenerlos. El oficial Leon McNichol y su compañera Gina Marceau se enfrentan a casos que ponen a prueba la delgada línea que separa a los humanos de las máquinas.",
-    tags: ["OVA", "Cyberpunk", "Ciencia ficción", "Acción", "Policíaco", "Nocturno", "Violento"],
-    episodios: [
-        { num: 1, version: "Dob", url: "//ok.ru/videoembed/11423781030638?nochat=1" },
-        { num: 1, version: "Sub", url: "//ok.ru/videoembed/3990598060759?nochat=1" },
-        { num: 2, version: "Sub", url: "//ok.ru/videoembed/3990602123991?nochat=1" },
-        { num: 3, version: "Sub", url: "//ok.ru/videoembed/3990604483287?nochat=1" }
-    ]
-},
-// ============================================================
-// MALICE@DOLL (OVA - 3 episodios)
-// ============================================================
-30: {
-    title: "Malice@Doll",
-    year: 2001,
-    studio: "GAGA Communications / Soeishinsha",
-    director: "Keitaro Motonaga",
-    desc: "En un mundo post-apocalíptico, Malice, un robot prostituta, es atacada por una criatura y se convierte en humana. Con el poder de transmitir su humanidad a otros robots a través de un beso, su don se convierte en una maldición.",
-    tags: ["OVA", "Horror", "Ciencia ficción", "Psicológico", "Experimental", "Cyberpunk"],
-    episodios: [
-        { num: 1, version: "Sub", url: "//ok.ru/videoembed/10536472742614?nochat=1" },
-        { num: 2, version: "Sub", url: "//ok.ru/videoembed/10536472873686?nochat=1" },
-        { num: 3, version: "Sub", url: "//ok.ru/videoembed/1021877422669?nochat=1" }
-    ]
-}
-      };
+            // ============================================================
+            // DARK CAT (1 episodio - Sub)
+            // ============================================================
+            1: {
+                title: "Dark Cat",
+                year: 1991,
+                studio: "Agent 21",
+                director: "Takeshi Watanabe",
+                desc: "Dos hermanos con el poder de transformarse en gatos deben detener una plaga demoníaca que convierte estudiantes en monstruos. Una rareza de los 90 que es tan mala que se convierte en arte.",
+                tags: ["OVA", "Terror", "Acción", "Sobrenatural", "Nocturno", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3397672634924?nochat=1" }
+                ]
+            },
+            // ============================================================
+            // DRAGON'S HEAVEN (1 episodio - Sub)
+            // ============================================================
+            25: {
+                title: "Dragon's Heaven",
+                year: 1988,
+                studio: "AIC",
+                director: "Makoto Kobayashi",
+                desc: "Una armadura robótica consciente despierta tras mil años. Y su única misión es proteger a su creador de un enemigo que no descansa. Una obra maestra visual influenciada por el estilo de Moebius.",
+                tags: ["OVA", "Ciencia Ficción", "Mecha", "Post-apocalíptico", "Experimental", "Color"],
+                episodios: [
+                    { num: 1, version: "", url: "https://www.youtube.com/embed/5ktDpZQlrC4?si=oKgXA0NZFE384nvz" }
+                ]
+            },
+            // ============================================================
+            // THE CURSE OF UMEZU KAZUO (1 episodio - Sub)
+            // ============================================================
+            29: {
+                title: "The Curse of Umezu Kazuo",
+                year: 1990,
+                studio: "Takahashi Studio y Yûwa",
+                director: "Kazuo Umezu",
+                desc: "Una adaptación del legendario mangaka de terror Kazuo Umezu. Dos historias de horror que te pondrán los pelos de punta. El maestro del terror japonés en estado puro.",
+                tags: ["OVA", "Terror", "Antología", "Horror", "Nocturno", "Psicológico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3627019995674?nochat=1" }
+                ]
+            },
+            // ============================================================
+            // FIRE AND ICE (Película)
+            // ============================================================
+            31: {
+                title: "Fire and Ice",
+                year: 1983,
+                studio: "Aspen Productions",
+                director: "Ralph Bakshi",
+                desc: "En un mundo de hielo y fuego, el joven guerrero Larn se une al misterioso Darkwolf para rescatar a la princesa Teegra de las garras de la malvada reina Juliana y su hijo Nekron. Una épica batalla entre el bien y el mal con el impresionante arte de Frank Frazetta.",
+                tags: ["Película", "Fantasía", "Aventura", "Acción", "Épico", "Animación", "Clásico", "Rotoscopia"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/2397592619717?nochat=1" }
+                ]
+            },
+            // ============================================================
+            // GOLDEN BOY (6 episodios)
+            // ============================================================
+            32: {
+                title: "Golden Boy",
+                year: 1995,
+                studio: "AIC / APPP",
+                director: "Hiroyuki Kitakubo",
+                desc: "Kintaro Oe es un estudiante que abandona la universidad para recorrer Japón en bicicleta. Donde sea que vaya, encuentra trabajo y mujeres hermosas, pero siempre termina huyendo. Una comedia absurda y erótica que es puro culto.",
+                tags: ["OVA", "Comedia", "Recuentos de la vida", "Ecchi", "Nostálgico", "Aventura"],
+                episodios: [
+                    // DOBLADO - TODOS los episodios en un solo video
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/9370714049277?nochat=1" },
+                    
+                    // SUBTITULADO - 6 episodios separados
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1954576271895?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/1954576337431?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1958618335767?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/1958618270231?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/1958720047639?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/1958720113175?nochat=1" }
+                ]
+            },
+            // ============================================================
+            // A.D. POLICE FILES (OVA - 3 episodios)
+            // ============================================================
+            28: {
+                title: "A.D. Police Files",
+                year: 1990,
+                studio: "AIC / Artmic",
+                director: "Takamasa Ikegami",
+                desc: "En el Mega-Tokio de 2027, los Boomers (androides) se vuelven locos y la división A.D. Police está encargada de detenerlos. El oficial Leon McNichol y su compañera Gina Marceau se enfrentan a casos que ponen a prueba la delgada línea que separa a los humanos de las máquinas.",
+                tags: ["OVA", "Cyberpunk", "Ciencia ficción", "Acción", "Policíaco", "Nocturno", "Violento"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/11423781030638?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3990598060759?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/3990602123991?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/3990604483287?nochat=1" }
+                ]
+            },
+            // ============================================================
+            // MALICE@DOLL (OVA - 3 episodios)
+            // ============================================================
+            30: {
+                title: "Malice@Doll",
+                year: 2001,
+                studio: "GAGA Communications / Soeishinsha",
+                director: "Keitaro Motonaga",
+                desc: "En un mundo post-apocalíptico, Malice, un robot prostituta, es atacada por una criatura y se convierte en humana. Con el poder de transmitir su humanidad a otros robots a través de un beso, su don se convierte en una maldición.",
+                tags: ["OVA", "Horror", "Ciencia ficción", "Psicológico", "Experimental", "Cyberpunk"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10536472742614?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/10536472873686?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1021877422669?nochat=1" }
+                ]
+            }
+        };
 
         // ============================================================
         // LEER PARÁMETROS DE LA URL
@@ -913,6 +942,6 @@
     <!-- SOCIAL BAR                                                    -->
     <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
-<script src="simpleblocker.js"></script>
+    <script src="simpleblocker.js"></script>
 </body>
 </html>
