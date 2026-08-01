@@ -598,23 +598,21 @@ id: 30,
 },
               ```js
 {
-    id: 34,
+    id: 35,
     title: "Crying Freeman",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjmlRQ5A80m4spch2Ad_N9XTseyiNGm0RUjRHGhWoBdjQqB_ZzrJkPa-fa59sVTxHgNjkqJD9YT6J9WIL07tKixNMf2FMb7HF0Ok7bBtfIg3prYiqQjK1Q-tvCS8UXqyF3tq7F1k7d3vC7r9RJg-Yzw8o8Q3PVzwvWKSLs7M4t4w7_WdZO6TfSk-thCCtz0=w267-h400",
     year: "1988-1994",
     type: "OVA",
     duration: "6 episodios (~50 min c/u)",
     studio: "Toei Animation",
-    director: "Daisuke Nishio / Shigeyasu Yamauchi",
+    director: "Daisuke Nishio / Nobutaka Nishizawa / Teiichi Matsuura / Shigeyasu Yamauchi",
     genre: ["Acción", "Drama", "Artes marciales", "Crimen", "Romance"],
     tags: ["acción", "drama", "artes-marciales", "violento", "crimen", "asesinos", "organizaciones-criminales", "romance"],
     description: "Yo Hinomura, un joven ceramista japonés, es capturado por la organización criminal china de los 108 Dragones y sometido a hipnosis para convertirse en un asesino a sueldo. Después de cada asesinato derrama lágrimas de culpa, ganándose el nombre de 'Crying Freeman'. Su vida cambia cuando Emu Hino, una artista que presencia uno de sus crímenes, descubre la humanidad que aún queda en él.",
-    plot: "Yo Hinomura se convierte en el ejecutor de los 108 Dragones tras ser sometido a un proceso de condicionamiento mental. Cuando conoce a Emu Hino, la mujer que debería eliminar después de presenciar un asesinato, ambos desarrollan una relación mientras intentan escapar de la organización criminal y de sus enemigos.",
+    plot: "Yo Hinomura se convierte en el ejecutor de los 108 Dragones tras ser sometido a un proceso de condicionamiento mental. Cuando conoce a Emu Hino, la mujer que debería eliminar después de presenciar un asesinato, ambos desarrollan una relación mientras intentan escapar de la organización criminal. A lo largo de los episodios, Freeman (ahora llamado Ron Tayan) lidera a los 108 Dragones y enfrenta enemigos como African Tusk, el culto del Gran Dios Oso y la mafia de Los Ángeles.",
     analysis: "Crying Freeman es la adaptación OVA del manga creado por Kazuo Koike y Ryoichi Ikegami. La obra combina crimen organizado, artes marciales, erotismo y un romance trágico con la estética adulta característica de las OVAs de finales de los 80 y principios de los 90. Destaca por su atmósfera elegante, sus escenas de acción y el conflicto interno de un asesino que lucha contra su propio destino.",
     forgotten: "Aunque fue conocida entre los seguidores del anime adulto y tuvo distribución internacional, con el paso del tiempo quedó como una obra menos recordada fuera del público especializado. Su mezcla de violencia, crimen y romance la convierte en una de las OVAs más representativas de una época más arriesgada del anime.",
     reel: "",
     related: [23, 17, 8]
-}
-
-
+ }
  ];
