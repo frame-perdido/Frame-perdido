@@ -577,5 +577,23 @@ id: 30,
     forgotten: "A pesar de ser una de las comedias más queridas de los 90, Golden Boy es hoy una rareza. Solo tuvo 6 episodios y nunca se hizo una segunda temporada. Su distribución en Occidente fue limitada, y aunque es un clásico de culto, muchos fans nuevos no la han visto. Sin embargo, los que la vieron la llevan en el corazón.",
     reel: "",
     related: [4, 19, 21]
-}
+},
+      {
+    id: 33,
+    title: "The Guyver (Kyoushoku Soukou Guyver)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgs-Vp8Ubph11RLZ8Cp9u2pEGg2QY3_LBR2snONUbc8pumelHL7VBkiqFTbE1bueqPpdyLImb6-fWMv8msFYadEbYoyzIIOR2Pq9cFryvH_PBRLS_-SAB2XMjMo-lwk_E-SfAY0HcLddViGlspX-mqBjKqP0kX0ZY5Fes9q597PA57clhHAghdCRAVZFG_T=w258-h400",
+    year: "1986-1992",
+    type: "OVA",
+    duration: "1 episodio (1986) + 12 episodios (1989-1992)",
+    studio: "Visual 80 / Animate Film",
+    director: "Koichi Ishiguro / Masahiro Otani",
+    genre: ["Ciencia ficción", "Acción", "Horror", "Superpoderes", "Cyberpunk"],
+    tags: ["cyberpunk", "ciencia-ficción", "acción", "mecha", "biopunk", "gore", "violento", "superpoderes"],
+    description: "Sho Fukamachi se fusiona accidentalmente con una armadura alienígena llamada Guyver, convirtiéndose en un arma viviente. La franquicia incluye dos adaptaciones OVA: una versión alternativa de 1986 (Out of Control) y una serie de 12 episodios (1989-1992) más fiel al manga. Ambas exploran la lucha de Sho contra la organización Chronos y sus mutantes Zoanoids.",
+    plot: "**OVA 1986 (Out of Control):** Una adaptación oscura y libre que presenta una versión femenina de Guyver II (Valcuria) y excluye a Tetsuro. La trama se centra en una batalla más directa contra Chronos, con un tono extremadamente violento.\n\n**OVA 1989-1992 (Bio-Booster Armor):** Adaptación más fiel al manga. Sho y su amigo Tetsuro descubren el artefacto Guyver. Sho se fusiona con él y debe enfrentar a Chronos, una corporación que busca dominar el mundo mediante la mutación genética. La serie sigue su lucha mientras descubre los secretos de su poder y el origen de los Zoanoids.",
+    analysis: "The Guyver es una franquicia icónica del anime de los 80 y 90, conocida por su mezcla de ciencia ficción, biopunk y violencia extrema. La OVA de 1986 es una rareza que se toma muchas libertades creativas, convirtiéndola en una curiosidad para los fans. La serie de 12 episodios es considerada la mejor adaptación animada del manga, con un equilibrio entre acción, historia y fidelidad al material original. Ambas versiones ofrecen perspectivas diferentes de la misma historia, lo que las hace valiosas para cualquier amante del género.",
+    forgotten: "A pesar de su influencia, The Guyver ha quedado un poco olvidada. La OVA de 1986 tuvo un lanzamiento limitado y la serie de 12 episodios, aunque completa, sufrió una distribución irregular. La aparición de adaptaciones posteriores (como la serie de TV de 2005) ha hecho que estas versiones originales pasen desapercibidas. Sin embargo, para los fans del cyberpunk y el anime de acción de los 90, sigue siendo una obra fundamental.",
+    reel: "",
+    related: [23, 17, 25]
+}        
  ];
