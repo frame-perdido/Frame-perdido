@@ -596,7 +596,7 @@ id: 30,
     reel: "",
     related: [23, 17, 25]
 },
-              ```js
+            
 {
     id: 35,
     title: "Crying Freeman",
