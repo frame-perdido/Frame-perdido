@@ -614,5 +614,23 @@ id: 30,
     forgotten: "Aunque fue conocida entre los seguidores del anime adulto y tuvo distribución internacional, con el paso del tiempo quedó como una obra menos recordada fuera del público especializado. Su mezcla de violencia, crimen y romance la convierte en una de las OVAs más representativas de una época más arriesgada del anime.",
     reel: "",
     related: [23, 17, 8]
- }
+ },
+              {
+    id: 34,
+    title: "3x3 Eyes (Sazan Eyes)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgHzJsOxobQGgd9mVIN6SLVBammcuDCbQMkyhrYWFpezNGe2uNxTLfh3G7K5uck9tDZGHJcTOx_eUOu0LReY3OOdanaRT-di2cuD6xBdjpRJQQAYUsH1DfXMK7LsL8O0N6PV0_95KYumGIXpROlRjC-7Of1Zrvqpcxbo7R6_IHU38smBIeocQhKFb8Mx5Lg=w280-h400",
+    year: "1991-1996",
+    type: "OVA",
+    duration: "7 episodios (4 OVA + 3 Seima Densetsu)",
+    studio: "Toei Animation / Hal Film Maker",
+    director: "Daisuke Nishio / Kazuhisa Takenouchi",
+    genre: ["Fantasía", "Aventura", "Horror", "Romance", "Misterio"],
+    tags: ["fantasía", "aventura", "horror", "romance", "mitología", "violento", "supernatural", "nostálgico"],
+    description: "La última de una raza de inmortales de tres ojos busca convertirse en humana. Para ello, convierte a un estudiante en su sirviente inmortal, y juntos emprenden una peligrosa aventura para encontrar la Estatua de la Humanidad, enfrentando demonios y conspiraciones que buscan resucitar a un dios maligno.",
+    plot: "**OVA 1 (1991-1992):** Pai, la última Sanjiyan Unkara, viaja a Tokio para encontrar a Yakumo Fujii, quien debe ayudarla a convertirse en humana. Tras un accidente, Pai absorbe el alma de Yakumo para salvarle la vida, convirtiéndolo en un Wu inmortal. Su destino queda ligado: Yakumo solo recuperará su humanidad cuando Pai se vuelva humana. Juntos viajan a Hong Kong para encontrar la Estatua de la Humanidad, pero una organización de demonios busca el mismo objeto para resucitar a Kaiyanwang, un dios que destruyó a los Sanjiyan.\n\n**OVA 2: Seima Densetsu (1995-1996):** Cuatro años después, Pai ha desaparecido y Yakumo la busca sin descanso. Cuando la encuentra, Pai ha perdido la memoria. Para restaurarla, deben viajar a la Tierra Santa, el lugar de origen de los Sanjiyan, donde enfrentarán nuevos peligros y descubrirán secretos del pasado de Pai.",
+    analysis: "3x3 Eyes es una obra que mezcla con maestría la fantasía oscura, el horror y el romance. La dinámica entre la dulce Pai y su personalidad demoníaca, junto con la devoción de Yakumo, crea una tensión emocional constante. La influencia de la mitología hindú y el tono adulto la convierten en una rareza dentro del anime de los 90, y su animación detallada sigue siendo impresionante hoy en día.",
+    forgotten: "A pesar de su popularidad en los 90, 3x3 Eyes ha quedado algo olvidada. La adaptación incompleta del manga y la falta de una serie de TV hicieron que el OVA pasara desapercibido para las nuevas generaciones. Sin embargo, para los que crecieron con ella, sigue siendo un clásico del anime de fantasía.",
+    reel: "",
+    related: [14, 17, 23]
+}
  ];
