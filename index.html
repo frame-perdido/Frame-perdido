@@ -926,6 +926,31 @@
         .ad-container iframe {
             max-width: 100%;
         }
+
+        <style>
+    /* ... todo tu CSS existente ... */
+
+    /* Estilo para separar anuncios */
+    .ad-container {
+        margin: 20px 0;
+        text-align: center;
+    }
+    .ad-container iframe {
+        max-width: 100%;
+    }
+
+    /* ============================================================ */
+    /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
+    /* ============================================================ */
+    @media only screen and (max-width: 768px) {
+        div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
+            display: none !important;
+        }
+        div[style*="text-align: center; margin: 32px 0; padding: 0 20px;"] {
+            display: none !important;
+        }
+    }
+</style>
     </style>
 </head>
 <body>
