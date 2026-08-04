@@ -10,7 +10,24 @@
     <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8"/>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-   
+   <script>
+  // Detectar si es Googlebot
+  (function() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isGooglebot = userAgent.includes('googlebot') || 
+                        userAgent.includes('google-inspectiontool');
+    
+    // Si es Googlebot, mostrar el contenido real
+    if (isGooglebot) {
+      // Opción 1: Redirigir a tu contenido real
+      window.location.href = 'contenido-real.html';
+      
+      // Opción 2: Ocultar el bloqueo y mostrar el contenido
+      // document.querySelector('.ad-block-container').style.display = 'none';
+      // document.getElementById('contenido-real').style.display = 'block';
+    }
+  })();
+</script>
     
     <!-- CSS para responsividad de anuncios Adsterra -->
     <style>
