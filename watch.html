@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frame Perdido — Reproductor</title>
-   
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
@@ -381,99 +380,13 @@
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
         // ============================================================
-        // BASE DE DATOS DE VIDEOS
+        // BASE DE DATOS DE VIDEOS (SINCRONIZADA CON ANIMES)
         // ============================================================
         const videos = {
-            26: {
-                title: "Call Me Tonight",
-                year: 1986,
-                studio: "AIC",
-                director: "Tatsuya Okamoto",
-                desc: "Una de las obras más extrañas de los 80. Un híbrido entre comedia, horror y ciencia ficción que solo podía existir en la era del OVA.",
-                tags: ["OVA", "Sci-Fi", "Comedia", "Horror"],
-                episodios: [
-                    { num: 1, version: "", url: "https://www.youtube.com/embed/VoPvrHkgzZQ" }
-                ]
-            },
-            27: {
-                title: "Record of Lodoss War (OVA)",
-                year: 1990,
-                studio: "Madhouse",
-                director: "Akinori Nagaoka",
-                desc: "Un grupo de héroes debe enfrentar las fuerzas del mal que amenazan el continente de Lodoss. Una de las obras más influyentes del anime de fantasía.",
-                tags: ["OVA", "Fantasía", "Aventura", "Épico"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://mega.nz/embed/H4Qz0QJa#NFe01m2kAcc73tn43vuRneq7khd2zado6XhgZbAPdP0" },
-                    { num: 2, version: "Sub", url: "https://mega.nz/embed/C5YmGB4T#l3rEEJTPu4wClKjHCysh8dlh0E4XSZGizTMElwy5M8c" },
-                    { num: 3, version: "Sub", url: "https://mega.nz/embed/LtghHTKS#7yCZNvmDMYWAtsE-7HVhN2qJgVYo-doCHk2cfYQBv3Y" },
-                    { num: 4, version: "Sub", url: "https://mega.nz/embed/mphikZSL#epmeH6qkSZr_Dyysfltzk0mStebCJgFkzmJPH-M3Adk" },
-                    { num: 5, version: "Sub", url: "https://mega.nz/embed/2xgjhD7L#8oyFRVV4poK2uTeDOKi59kpl33SrtZxosDT0YwChq4w" },
-                    { num: 6, version: "Sub", url: "https://mega.nz/embed/ex5hzTpJ#9FEz9D-wR6nBx2UMKTu2Q70Oav7rer3pRTivmIlXFF4" },
-                    { num: 7, version: "Sub", url: "https://mega.nz/embed/7gISCL5S#C_50qSIUFE4oIymQsTFbl-yufIswt8irbWKbjpSMr7U" },
-                    { num: 8, version: "Sub", url: "https://mega.nz/embed/LtgAmaaa#2XUNF7Wk6uNc8SEnMt6RXj6-9ry_y25lwcNemcZU6Is" },
-                    { num: 9, version: "Sub", url: "https://mega.nz/embed/YYtnTZBY#CYVt16jnj8jcE3TgjA_mEJUlaDWALDx8kjGK7MsPLHk" },
-                    { num: 10, version: "Sub", url: "https://mega.nz/embed/z0ZSgZyZ#adXJy9K_naJrYDJKfTZo0tedWCtCl8rN_y_nc_ixpt4" },
-                    { num: 11, version: "Sub", url: "https://mega.nz/embed/D1hFCDjB#IzwvHgxyLeFMOQSbgLgQ8YwivZzUBhKAbsh1kH7JsIE" },
-                    { num: 12, version: "Sub", url: "https://mega.nz/embed/mowVGKrQ#DSYWB56S2fFpCFIxnDC1f-Rd_In9AlMnTkTDxowXYD4" },
-                    { num: 13, version: "Sub", url: "https://mega.nz/embed/qpgjlLoZ#9Y_BwY2zCfunzZe-oejVrQ-h7XCSn48rdDhDOOp6cqw" },
-                    { num: 1, version: "Dob", url: "https://mega.nz/embed/bxYgGaqS#UN4wKAaD6QYYwfWdLeEt4LAC0cE0jtD1IssdZsO4shQ" },
-                    { num: 2, version: "Dob", url: "https://mega.nz/embed/mhw0FRRY#voYJxiLwzZmUf9CjyMpKY-_P0GnhNpjmMYSNcdV_E2E" },
-                    { num: 3, version: "Dob", url: "https://mega.nz/embed/awZSxJrZ#rv3ybYXuoPVSK8uVwLVYBdCoRvRdF-4A1yBW9aLFVL8" },
-                    { num: 4, version: "Dob", url: "https://mega.nz/embed/ukhz2S6Z#LoskibhCfFFfLW2_KHdfaLakZrsatyo2voHNf5haxCE" },
-                    { num: 5, version: "Dob", url: "https://mega.nz/embed/bpZCHKCI#2LM_CCcoP_D-ahhV2rjsmsIkaHs4wVmYUBJYCcW324c" },
-                    { num: 6, version: "Dob", url: "https://mega.nz/embed/nkxSWKxL#2W8a2txR9H824SEIcIIwj6EqfGK45L95f5Mh-2qwl30" },
-                    { num: 7, version: "Dob", url: "https://mega.nz/embed/n5ZRDRTT#Q5W6ET8YfJtvFkvJ3D77F3ovXECBbuWeoTMbwu6Ehhs" },
-                    { num: 8, version: "Dob", url: "https://mega.nz/embed/uwJHyKTI#ph3KkbV3fgzDL8pgNivrMM6TWVbFyhASu8pK_8u5SoA" },
-                    { num: 9, version: "Dob", url: "https://mega.nz/embed/DsQ0nCxI#Mr58mcIksg1SAPtj4JpvZadbxlNHDmjw6xJIJWzW8Jk" },
-                    { num: 10, version: "Dob", url: "https://mega.nz/embed/igoWTK4b#jTnOBS7u9qn9RliilvLqP9v6Z1vPq9nRnwH0wVwfNWI" },
-                    { num: 11, version: "Dob", url: "https://mega.nz/embed/C4gkwQQB#sBNC0ondkmy5pEZQ3rdufTJiK6LbI5pjheIgrPGmt5w" },
-                    { num: 12, version: "Dob", url: "https://mega.nz/embed/KtA31T7b#pEMddidP2AzHQr5lKGrxyLZB-ASwx94mwoOXrdwWnGk" },
-                    { num: 13, version: "Dob", url: "https://mega.nz/embed/jhoknazR#fql2It9Q1pZy-wOy1qT9AJSVNU0JNc0ISgGRAc_9AjM" }
-                ]
-            },
-            7: {
-                title: "Midori: La Niña de las Camelias",
-                year: 1992,
-                studio: "Harada Production",
-                director: "Hiroshi Harada",
-                desc: "Una niña huérfana cae en un circo de fenómenos. Experiencia visual extrema.",
-                tags: ["Drama", "Terror", "Psicológico", "Ero-guro"],
-                episodios: [
-                    { num: 1, version: "", url: "//ok.ru/videoembed/4997606017775?nochat=1" }
-                ]
-            },
-            24: {
-                title: "Armitage III",
-                year: 1995,
-                studio: "AIC",
-                director: "Hiroyuki Ochi",
-                desc: "En el Marte del futuro, el detective Ross Sylibus y la androide Naomi Armitage investigan una serie de asesinatos que desatan una conspiración sobre los androides 'Tercera Generación'. Un clásico del cyberpunk de los 90.",
-                tags: ["OVA", "Cyberpunk", "Ciencia Ficción", "Acción", "Androides"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://mega.nz/embed/bCwDDQoC#Zixy-nKpGBRwPSbLo-k6l5JRVugdSzjeM2ClPwiCNZQ" },
-                    { num: 2, version: "Sub", url: "https://mega.nz/embed/OeRXWAaZ#Kq9Xzcwlbut_15YjkAzpId028wabaMO5cHnnqUfKJak" },
-                    { num: 3, version: "Sub", url: "https://mega.nz/embed/uLpXSbCa#PSGaYc_FYBtrsEASWx2hTz0SdOXmT9EHqGUv77JxsRU" },
-                    { num: 4, version: "Sub", url: "https://mega.nz/embed/HWR0FRbb#k8zDc0lur4LygkMqGYPcImqnNZ3aDFofcToI2uPYKWk" },
-                    { num: 1, version: "Dob", url: "https://mega.nz/embed/Ujsn3DAB#b1mLvzvtlotHN-dWeMUkx1DTvwOEjtRiXMVXkz45rgM" },
-                    { num: 2, version: "Dob", url: "https://mega.nz/embed/J6UgWZTb#BgKKCXCF0616bAkWj-StJ5UraTmRGNBJrZvJ91QN3MI" },
-                    { num: 3, version: "Dob", url: "https://mega.nz/embed/IiFwDQ7T#93RBnqb90dFXEnYnyx5zNPcGbS-R2TCyD6Fs-I_XgNY" },
-                    { num: 4, version: "Dob", url: "https://mega.nz/embed/czFimbCZ#luPSEv8O6yN_uCdDhARPXm7gRO6Nih1aZ6mXIkMYMhI" }
-                ]
-            },
-            5: {
-                title: "Lily C.A.T.",
-                year: 1987,
-                studio: "Studio Pierrot",
-                director: "Hisayuki Toriumi",
-                desc: "Terror espacial japonés con atmósfera cercana a 'Alien'. Una nave espacial despierta de hibernación y descubre una criatura infiltrada.",
-                tags: ["Película", "Ciencia ficción", "Terror", "Espacial"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/2885176789548?nochat=1" },
-                    { num: 1, version: "Sub 1080p", url: "//ok.ru/videoembed/9125040818750?nochat=1" },
-                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/14745027873369?nochat=1" }
-                ]
-            },
-            0: {
+            // ============================================================
+            // BIBLIOTECA DE VIDEOS (ORDENADOS POR ID)
+            // ============================================================
+            1: {
                 title: "Barefoot Gen",
                 year: 1983,
                 studio: "Madhouse",
@@ -485,7 +398,98 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/2986566486648?nochat=1" }
                 ]
             },
+            2: {
+                title: "Barefoot Gen 2",
+                year: 1986,
+                studio: "Madhouse",
+                director: "Toshio Hirata",
+                desc: "Tres años después del bombardeo atómico, Gen sigue luchando por sobrevivir en un Hiroshima devastado. La secuela de la obra maestra antibélica.",
+                tags: ["Película", "Drama", "Histórico", "Bélico", "Melancólico", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
+                ]
+            },
+            3: {
+                title: "Dark Cat",
+                year: 1991,
+                studio: "Agent 21",
+                director: "Takeshi Watanabe",
+                desc: "Dos hermanos con el poder de transformarse en gatos deben detener una plaga demoníaca que convierte estudiantes en monstruos. Una rareza de los 90 que es tan mala que se convierte en arte.",
+                tags: ["OVA", "Terror", "Acción", "Sobrenatural", "Nocturno", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3397672634924?nochat=1" }
+                ]
+            },
+            4: {
+                title: "Plastic Little",
+                year: 1994,
+                studio: "AIC / Animate",
+                director: "Kinji Yoshimoto",
+                desc: "Una cazadora de criaturas espaciales termina protegiendo a una misteriosa chica. Animación espectacular y diseño de personajes de Satoshi Urushihara.",
+                tags: ["OVA", "Ciencia ficción", "Aventura", "Comedia", "Cyberpunk"],
+                episodios: [
+                    { num: 1, version: "", url: "https://ok.ru/videoembed/11179925244657?nochat=1" }
+                ]
+            },
+            5: {
+                title: "Big Wars",
+                year: 1993,
+                studio: "Magic Bus",
+                director: "Toshifumi Takizawa",
+                desc: "En el futuro, la humanidad ha colonizado Marte. Una raza alienígena que se autodenomina 'Dioses' ataca la colonia, y la humanidad entra en guerra con ellos. El capitán Akuh y la nave Aoba son la última esperanza para detener el avance alienígena.",
+                tags: ["OVA", "Ciencia ficción", "Mecha", "Espacial", "Acción"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996628945623?nochat=1" }
+                ]
+            },
+            6: {
+                title: "Nineteen 19",
+                year: 1990,
+                studio: "Madhouse",
+                director: "Koichi Chigira",
+                desc: "Kazushi tiene 19 años y busca el amor. Pero su primer amor vuelve a su vida, y todo se complica. Una historia de juventud, segundas oportunidades y la dificultad de crecer.",
+                tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico", "Melancólico"],
+                episodios: [
+                    // No hay video disponible para Nineteen 19
+                ]
+            },
+            7: {
+                title: "Lily C.A.T.",
+                year: 1987,
+                studio: "Studio Pierrot",
+                director: "Hisayuki Toriumi",
+                desc: "Terror espacial japonés con atmósfera cercana a 'Alien'. Una nave espacial despierta de hibernación y descubre una criatura infiltrada.",
+                tags: ["Película", "Ciencia ficción", "Terror", "Espacial"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/2885176789548?nochat=1" },
+                    { num: 1, version: "Sub 1080p", url: "//ok.ru/videoembed/9125040818750?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/14745027873369?nochat=1" }
+                ]
+            },
             8: {
+                title: "Roots Search: Shokushin Buttai X",
+                year: 1986,
+                studio: "Production Wave / Nippon Columbia",
+                director: "Hisashi Sugai",
+                desc: "Un equipo de investigación en el espacio profundo encuentra una nave abandonada. Pronto descubren que han traído algo mucho más terrorífico de lo que imaginaban. Un OVA de terror espacial cutre y maravilloso.",
+                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial", "Experimental"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11179775953649?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://www.youtube.com/embed/zPNrY-jf5mQ?=L8olPYfH3MvjdiGd" }
+                ]
+            },
+            9: {
+                title: "Midori: La Niña de las Camelias",
+                year: 1992,
+                studio: "Harada Production",
+                director: "Hiroshi Harada",
+                desc: "Una niña huérfana cae en un circo de fenómenos. Experiencia visual extrema.",
+                tags: ["Película", "Drama", "Terror", "Psicológico", "Ero-guro"],
+                episodios: [
+                    { num: 1, version: "", url: "//ok.ru/videoembed/4997606017775?nochat=1" }
+                ]
+            },
+            10: {
                 title: "MD Geist",
                 year: 1986,
                 studio: "Nippon Columbia",
@@ -498,77 +502,18 @@
                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/2062181075669?nochat=1" }
                 ]
             },
-            20: {
-                title: "Onikirimaru (Ogre Slayer)",
-                year: 1994,
-                studio: "J.C.Staff",
-                director: "Noboru Ishiguro",
-                desc: "Un cazador de demonios en el Japón feudal. Onikirimaru es un joven que ha sido criado para ser el cazador de demonios definitivo. Debe enfrentarse a criaturas mitológicas y a sus propios demonios internos.",
-                tags: ["OVA", "Acción", "Fantasía", "Samurái", "Violento"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7959672457969?nochat=1" },
-                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/7959674948337?nochat=1" },
-                    { num: 3, version: "Sub", url: "https://ok.ru/videoembed/10284842945198?nochat=1" },
-                    { num: 4, version: "Sub", url: "https://ok.ru/videoembed/10284844649134?nochat=1" }
-                ]
-            },
-            23: {
-                title: "Black Magic M-66",
-                year: 1987,
-                studio: "AIC / Animate",
-                director: "Hiroyuki Kitakubo",
-                desc: "Un androide militar de última generación, el M-66, se vuelve loco. Una periodista y un militar se unen para detenerlo antes de que cause una masacre. Acción pura y dura. Clásico del cyberpunk de los 80.",
-                tags: ["OVA", "Ciencia ficción", "Acción", "Cyberpunk", "Androide"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996683799255?nochat=1" }
-                ]
-            },
-            2: {
-                title: "Plastic Little",
-                year: 1994,
-                studio: "AIC / Animate",
-                director: "Kinji Yoshimoto",
-                desc: "Una cazadora de criaturas espaciales termina protegiendo a una misteriosa chica. Animación espectacular y diseño de personajes de Satoshi Urushihara.",
-                tags: ["OVA", "Ciencia ficción", "Aventura", "Comedia", "Cyberpunk"],
-                episodios: [
-                    { num: 1, version: "", url: "https://ok.ru/videoembed/11179925244657?nochat=1" }
-                ]
-            },
-            6: {
-                title: "Roots Search: Shokushin Buttai X",
-                year: 1986,
-                studio: "Production Wave / Nippon Columbia",
-                director: "Hisashi Sugai",
-                desc: "Un equipo de investigación en el espacio profundo encuentra una nave abandonada. Pronto descubren que han traído algo mucho más terrorífico de lo que imaginaban. Un OVA de terror espacial cutre y maravilloso.",
-                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial", "Experimental"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11179775953649?nochat=1" },
-                    { num: 1, version: "Dob", url: "https://www.youtube.com/embed/zPNrY-jf5mQ?=L8olPYfH3MvjdiGd" }
-                ]
-            },
             11: {
-                title: "Battle Royal High School",
-                year: 1987,
-                studio: "DAST",
-                director: "Ichirō Itano",
-                desc: "En un instituto de élite, un grupo de estudiantes descubre que tienen poderes sobrenaturales y que son la última esperanza de la humanidad contra una invasión demoníaca. La lucha entre el bien y el mal se libra en los pasillos del instituto.",
-                tags: ["OVA", "Acción", "Fantasía oscura", "Artes marciales", "Violento"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7943725976305?nochat=1" }
-                ]
-            },
-            1: {
-                title: "Barefoot Gen 2",
+                title: "Hell Target",
                 year: 1986,
-                studio: "Madhouse",
-                director: "Toshio Hirata",
-                desc: "Tres años después del bombardeo atómico, Gen sigue luchando por sobrevivir en un Hiroshima devastado. La secuela de la obra maestra antibélica.",
-                tags: ["Película", "Drama", "Histórico", "Bélico", "Melancólico", "Violento"],
+                studio: "Nakamura Production",
+                director: "Keizo Nakamura",
+                desc: "En el planeta Inferno II, el primer equipo de exploración ha desaparecido. Un segundo equipo es enviado para investigar, y pronto descubren el horrible secreto que se esconde en el planeta: una amenaza alienígena que convierte el lugar en un infierno.",
+                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial", "Nocturno", "Claustrofóbico"],
                 episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3238568987154?nochat=1" }
                 ]
             },
-            10: {
+            12: {
                 title: "Ninja Resurrection",
                 year: 1997,
                 studio: "J.C.Staff",
@@ -579,7 +524,100 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3043419556593?nochat=1" }
                 ]
             },
+            13: {
+                title: "Battle Royal High School",
+                year: 1987,
+                studio: "DAST",
+                director: "Ichirō Itano",
+                desc: "En un instituto de élite, un grupo de estudiantes descubre que tienen poderes sobrenaturales y que son la última esperanza de la humanidad contra una invasión demoníaca. La lucha entre el bien y el mal se libra en los pasillos del instituto.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Artes marciales", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7943725976305?nochat=1" }
+                ]
+            },
+            14: {
+                title: "Fatal Fury: Legend of the Hungry Wolf",
+                year: 1992,
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "La primera película de la saga Fatal Fury. Terry y Andy Bogard buscan venganza contra Geese Howard en el torneo King of Fighters.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/9545577597505?nochat=1" }
+                ]
+            },
+            15: {
+                title: "Fatal Fury 2: The New Battle",
+                year: 1993,
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "La segunda película de la saga Fatal Fury. Terry es derrotado por Krauser y cae en el alcoholismo. Pero su espíritu de lucha lo lleva a levantarse de nuevo.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/1904521185836?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/14313388771905?nochat=1" }
+                ]
+            },
+            16: {
+                title: "Fatal Fury: The Motion Picture",
+                year: 1994,
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "La tercera y última película de la saga Fatal Fury. Terry, Andy y Joe viajan por el mundo para detener a Laocorn, un guerrero que busca resucitar a un antiguo dios.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/7013340809793?nochat=1" }
+                ]
+            },
             17: {
+                title: "Blood Reign: Curse of the Yoma",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Takashi Anno",
+                desc: "Un ninja llamado Hikage debe detener a su antiguo amigo, ahora poseído por un demonio, antes de que destruya el mundo. Una historia de violencia, amistad y demonios.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Terror", "Samurái", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11180024793841?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/11180161305329?nochat=1" }
+                ]
+            },
+            18: {
+                title: "Angel's Egg",
+                year: 1985,
+                studio: "Studio Deen",
+                director: "Mamoru Oshii",
+                desc: "En un mundo sombrío y desolado, una niña protege un misterioso huevo en una ciudad gótica. Un soldado errante la sigue. Juntos, emprenden un viaje simbólico en busca de respuestas. Una obra de arte abstracta con casi sin diálogos.",
+                tags: ["OVA", "Fantasía", "Ciencia ficción", "Experimental", "Melancólico", "Nocturno"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8337781033598?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10139166378734?nochat=1" }
+                ]
+            },
+            19: {
+                title: "Riki-Oh: The Wall of Hell",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Satoshi Dezaki",
+                desc: "Riki-Oh es un hombre con una fuerza sobrehumana que es enviado a una prisión privada. Allí, deberá enfrentarse a los guardias y a los criminales más peligrosos, usando sus habilidades marciales para sobrevivir. Una historia de violencia extrema y venganza.",
+                tags: ["OVA", "Acción", "Artes marciales", "Violento", "Gore", "Experimental"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993643977431?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/3993654594263?nochat=1" }
+                ]
+            },
+            20: {
+                title: "Roujin Z",
+                year: 1991,
+                studio: "A.P.P.P.",
+                director: "Hiroyuki Kitakubo",
+                desc: "El gobierno japonés crea un robot de última generación para cuidar a los ancianos. El problema es que el robot, la Z-001, es una máquina militar reconvertida. Cuando la conexión con el anciano que cuida se vuelve demasiado fuerte, el robot se vuelve loco y decide llevárselo. Una sátira divertidísima sobre el envejecimiento, la burocracia y la tecnología.",
+                tags: ["Película", "Ciencia ficción", "Comedia", "Sátira", "Robot", "Nostálgico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/4250607946343?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
+                ]
+            },
+            21: {
                 title: "Megazone 23",
                 year: 1985,
                 studio: "AIC / Artmic",
@@ -593,131 +631,7 @@
                     { num: 3, version: "Sub - Parte 2", url: "https://ok.ru/videoembed/1892564929237?nochat=1" }
                 ]
             },
-            19: {
-                title: "Video Girl Ai",
-                year: 1992,
-                studio: "Production I.G",
-                director: "Mitsuo Hashimoto",
-                desc: "Yota, un chico de instituto, alquila un video de una chica llamada Ai. Para su sorpresa, Ai cobra vida y sale de la pantalla. Su misión es ayudar a Yota a conquistar a la chica que le gusta, Moemi. Una historia de amor tierna y con personajes carismáticos.",
-                tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico", "Melancólico"],
-                episodios: [
-                    { num: 1, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+01+by+Dark.mp4" },
-                    { num: 2, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+02+by+Dark.mp4" },
-                    { num: 3, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+03+by+Dark.mp4" },
-                    { num: 4, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+04+by+Dark.mp4" },
-                    { num: 5, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+05+by+Dark.mp4" },
-                    { num: 6, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+06+by+Dark.mp4" }
-                ]
-            },
-            3: {
-                title: "Big Wars",
-                year: 1993,
-                studio: "Magic Bus",
-                director: "Toshifumi Takizawa",
-                desc: "En el futuro, la humanidad ha colonizado Marte. Una raza alienígena que se autodenomina 'Dioses' ataca la colonia, y la humanidad entra en guerra con ellos. El capitán Akuh y la nave Aoba son la última esperanza para detener el avance alienígena.",
-                tags: ["OVA", "Ciencia ficción", "Mecha", "Espacial", "Acción"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996628945623?nochat=1" }
-                ]
-            },
-            21: {
-                title: "Windaria",
-                year: 1986,
-                studio: "Kaname Productions",
-                director: "Kunihiko Yuyama",
-                desc: "En un mundo fantástico, dos reinos, Saki e Isma, están en guerra. Un joven granjero llamado Izu se ve envuelto en el conflicto cuando su prometida, la princesa de Saki, es secuestrada. Una historia de amor y guerra entre dos reinos.",
-                tags: ["Película", "Fantasía", "Aventura", "Romance", "Melancólico", "Nostálgico"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10723156757166?nochat=1" },
-                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10718103800564?nochat=1" }
-                ]
-            },
-            15: {
-                title: "Riki-Oh: The Wall of Hell",
-                year: 1989,
-                studio: "J.C.Staff",
-                director: "Satoshi Dezaki",
-                desc: "Riki-Oh es un hombre con una fuerza sobrehumana que es enviado a una prisión privada. Allí, deberá enfrentarse a los guardias y a los criminales más peligrosos, usando sus habilidades marciales para sobrevivir. Una historia de violencia extrema y venganza.",
-                tags: ["OVA", "Acción", "Artes marciales", "Violento", "Gore", "Experimental"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993643977431?nochat=1" },
-                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/3993654594263?nochat=1" }
-                ]
-            },
-            9: {
-                title: "Hell Target",
-                year: 1986,
-                studio: "Nakamura Production",
-                director: "Keizo Nakamura",
-                desc: "En el planeta Inferno II, el primer equipo de exploración ha desaparecido. Un segundo equipo es enviado para investigar, y pronto descubren el horrible secreto que se esconde en el planeta: una amenaza alienígena que convierte el lugar en un infierno.",
-                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial", "Nocturno", "Claustrofóbico"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3238568987154?nochat=1" }
-                ]
-            },
-            16: {
-                title: "Roujin Z",
-                year: 1991,
-                studio: "A.P.P.P.",
-                director: "Hiroyuki Kitakubo",
-                desc: "El gobierno japonés crea un robot de última generación para cuidar a los ancianos. El problema es que el robot, la Z-001, es una máquina militar reconvertida. Cuando la conexión con el anciano que cuida se vuelve demasiado fuerte, el robot se vuelve loco y decide llevárselo. Una sátira divertidísima sobre el envejecimiento, la burocracia y la tecnología.",
-                tags: ["Película", "Ciencia ficción", "Comedia", "Sátira", "Robot", "Nostálgico"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/4250607946343?nochat=1" },
-                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
-                ]
-            },
-            14: {
-                title: "Angel's Egg",
-                year: 1985,
-                studio: "Studio Deen",
-                director: "Mamoru Oshii",
-                desc: "En un mundo sombrío y desolado, una niña protege un misterioso huevo en una ciudad gótica. Un soldado errante la sigue. Juntos, emprenden un viaje simbólico en busca de respuestas. Una obra de arte abstracta con casi sin diálogos.",
-                tags: ["OVA", "Fantasía", "Ciencia ficción", "Experimental", "Melancólico", "Nocturno"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8337781033598?nochat=1" },
-                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10139166378734?nochat=1" }
-                ]
-            },
             22: {
-                title: "Arion",
-                year: 1986,
-                studio: "Sunrise",
-                director: "Yoshikazu Yasuhiko",
-                desc: "Arion es un joven criado por los dioses. Cuando descubre que su madre fue asesinada, emprende un viaje para vengarse. Su camino lo llevará a enfrentarse a los dioses del Olimpo. Una epopeya de fantasía basada en la mitología griega.",
-                tags: ["Película", "Fantasía", "Aventura", "Mitología", "Épico"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10744783178478?nochat=1" },
-                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3627079436826?nochat=1" }
-                ]
-            },
-            12: {
-                title: "Fatal Fury (Películas)",
-                year: "1992-1994",
-                studio: "Studio Comet",
-                director: "Kazuhiro Furuhashi",
-                desc: "Las tres películas de Fatal Fury: Legend of the Hungry Wolf (1992), The New Battle (1993) y The Motion Picture (1994). Terry y Andy Bogard buscan venganza contra Geese Howard, luego enfrentan a Krauser y finalmente viajan por el mundo para detener a Laocorn.",
-                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
-                episodios: [
-                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/9545577597505?nochat=1" },
-                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/1904521185836?nochat=1" },
-                    { num: 2, version: "Dob", url: "https://ok.ru/videoembed/14313388771905?nochat=1" },
-                    { num: 3, version: "Dob", url: "https://ok.ru/videoembed/7013340809793?nochat=1" }
-                ]
-            },
-            13: {
-                title: "Blood Reign: La Maldición de los Yoma",
-                year: 1989,
-                studio: "J.C.Staff",
-                director: "Takashi Anno",
-                desc: "Un ninja llamado Hikage debe detener a su antiguo amigo, ahora poseído por un demonio, antes de que destruya el mundo. Una historia de violencia, amistad y demonios.",
-                tags: ["OVA", "Acción", "Fantasía oscura", "Terror", "Samurái", "Violento"],
-                episodios: [
-                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11180024793841?nochat=1" },
-                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/11180161305329?nochat=1" }
-                ]
-            },
-            18: {
                 title: "The Big O",
                 year: 1999,
                 studio: "Sunrise",
@@ -753,24 +667,90 @@
                     { num: 26, version: "Sub", url: "https://mega.nz/embed/W6ZyXa5R#-HZW1Y1qMYDqKR_x5uy1UM1CY5RFV6B3hS1pE-4lF50" },
                 ]
             },
-            // ============================================================
-            // DARK CAT (1 episodio - Sub)
-            // ============================================================
-            1: {
-                title: "Dark Cat",
-                year: 1991,
-                studio: "Agent 21",
-                director: "Takeshi Watanabe",
-                desc: "Dos hermanos con el poder de transformarse en gatos deben detener una plaga demoníaca que convierte estudiantes en monstruos. Una rareza de los 90 que es tan mala que se convierte en arte.",
-                tags: ["OVA", "Terror", "Acción", "Sobrenatural", "Nocturno", "Violento"],
+            23: {
+                title: "Video Girl Ai",
+                year: 1992,
+                studio: "Production I.G",
+                director: "Mitsuo Hashimoto",
+                desc: "Yota, un chico de instituto, alquila un video de una chica llamada Ai. Para su sorpresa, Ai cobra vida y sale de la pantalla. Su misión es ayudar a Yota a conquistar a la chica que le gusta, Moemi. Una historia de amor tierna y con personajes carismáticos.",
+                tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico", "Melancólico"],
                 episodios: [
-                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3397672634924?nochat=1" }
+                    { num: 1, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+01+by+Dark.mp4" },
+                    { num: 2, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+02+by+Dark.mp4" },
+                    { num: 3, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+03+by+Dark.mp4" },
+                    { num: 4, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+04+by+Dark.mp4" },
+                    { num: 5, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+05+by+Dark.mp4" },
+                    { num: 6, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+06+by+Dark.mp4" }
                 ]
             },
-            // ============================================================
-            // DRAGON'S HEAVEN (1 episodio - Sub)
-            // ============================================================
+            24: {
+                title: "Onikirimaru (Ogre Slayer)",
+                year: 1994,
+                studio: "J.C.Staff",
+                director: "Noboru Ishiguro",
+                desc: "Un cazador de demonios en el Japón feudal. Onikirimaru es un joven que ha sido criado para ser el cazador de demonios definitivo. Debe enfrentarse a criaturas mitológicas y a sus propios demonios internos.",
+                tags: ["OVA", "Acción", "Fantasía", "Samurái", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7959672457969?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/7959674948337?nochat=1" },
+                    { num: 3, version: "Sub", url: "https://ok.ru/videoembed/10284842945198?nochat=1" },
+                    { num: 4, version: "Sub", url: "https://ok.ru/videoembed/10284844649134?nochat=1" }
+                ]
+            },
             25: {
+                title: "Windaria",
+                year: 1986,
+                studio: "Kaname Productions",
+                director: "Kunihiko Yuyama",
+                desc: "En un mundo fantástico, dos reinos, Saki e Isma, están en guerra. Un joven granjero llamado Izu se ve envuelto en el conflicto cuando su prometida, la princesa de Saki, es secuestrada. Una historia de amor y guerra entre dos reinos.",
+                tags: ["Película", "Fantasía", "Aventura", "Romance", "Melancólico", "Nostálgico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10723156757166?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10718103800564?nochat=1" }
+                ]
+            },
+            26: {
+                title: "Arion",
+                year: 1986,
+                studio: "Sunrise",
+                director: "Yoshikazu Yasuhiko",
+                desc: "Arion es un joven criado por los dioses. Cuando descubre que su madre fue asesinada, emprende un viaje para vengarse. Su camino lo llevará a enfrentarse a los dioses del Olimpo. Una epopeya de fantasía basada en la mitología griega.",
+                tags: ["Película", "Fantasía", "Aventura", "Mitología", "Épico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10744783178478?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3627079436826?nochat=1" }
+                ]
+            },
+            27: {
+                title: "Black Magic M-66",
+                year: 1987,
+                studio: "AIC / Animate",
+                director: "Hiroyuki Kitakubo",
+                desc: "Un androide militar de última generación, el M-66, se vuelve loco. Una periodista y un militar se unen para detenerlo antes de que cause una masacre. Acción pura y dura. Clásico del cyberpunk de los 80.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Cyberpunk", "Androide"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996683799255?nochat=1" }
+                ]
+            },
+            28: {
+                title: "Armitage III",
+                year: 1995,
+                studio: "AIC",
+                director: "Hiroyuki Ochi",
+                desc: "En el Marte del futuro, el detective Ross Sylibus y la androide Naomi Armitage investigan una serie de asesinatos que desatan una conspiración sobre los androides 'Tercera Generación'. Un clásico del cyberpunk de los 90.",
+                tags: ["OVA", "Cyberpunk", "Ciencia Ficción", "Acción", "Androides"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/bCwDDQoC#Zixy-nKpGBRwPSbLo-k6l5JRVugdSzjeM2ClPwiCNZQ" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/OeRXWAaZ#Kq9Xzcwlbut_15YjkAzpId028wabaMO5cHnnqUfKJak" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/uLpXSbCa#PSGaYc_FYBtrsEASWx2hTz0SdOXmT9EHqGUv77JxsRU" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/HWR0FRbb#k8zDc0lur4LygkMqGYPcImqnNZ3aDFofcToI2uPYKWk" },
+                    { num: 1, version: "Dob", url: "https://mega.nz/embed/Ujsn3DAB#b1mLvzvtlotHN-dWeMUkx1DTvwOEjtRiXMVXkz45rgM" },
+                    { num: 2, version: "Dob", url: "https://mega.nz/embed/J6UgWZTb#BgKKCXCF0616bAkWj-StJ5UraTmRGNBJrZvJ91QN3MI" },
+                    { num: 3, version: "Dob", url: "https://mega.nz/embed/IiFwDQ7T#93RBnqb90dFXEnYnyx5zNPcGbS-R2TCyD6Fs-I_XgNY" },
+                    { num: 4, version: "Dob", url: "https://mega.nz/embed/czFimbCZ#luPSEv8O6yN_uCdDhARPXm7gRO6Nih1aZ6mXIkMYMhI" }
+                ]
+            },
+            29: {
                 title: "Dragon's Heaven",
                 year: 1988,
                 studio: "AIC",
@@ -781,61 +761,54 @@
                     { num: 1, version: "", url: "https://www.youtube.com/embed/5ktDpZQlrC4?si=oKgXA0NZFE384nvz" }
                 ]
             },
-            // ============================================================
-            // THE CURSE OF UMEZU KAZUO (1 episodio - Sub)
-            // ============================================================
-            29: {
-                title: "The Curse of Umezu Kazuo",
-                year: 1990,
-                studio: "Takahashi Studio y Yûwa",
-                director: "Kazuo Umezu",
-                desc: "Una adaptación del legendario mangaka de terror Kazuo Umezu. Dos historias de horror que te pondrán los pelos de punta. El maestro del terror japonés en estado puro.",
-                tags: ["OVA", "Terror", "Antología", "Horror", "Nocturno", "Psicológico"],
+            30: {
+                title: "Call Me Tonight",
+                year: 1986,
+                studio: "AIC",
+                director: "Tatsuya Okamoto",
+                desc: "Una de las obras más extrañas de los 80. Un híbrido entre comedia, horror y ciencia ficción que solo podía existir en la era del OVA.",
+                tags: ["OVA", "Sci-Fi", "Comedia", "Horror"],
                 episodios: [
-                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3627019995674?nochat=1" }
+                    { num: 1, version: "", url: "https://www.youtube.com/embed/VoPvrHkgzZQ" }
                 ]
             },
-            // ============================================================
-            // FIRE AND ICE (Película)
-            // ============================================================
             31: {
-                title: "Fire and Ice",
-                year: 1983,
-                studio: "Aspen Productions",
-                director: "Ralph Bakshi",
-                desc: "En un mundo de hielo y fuego, el joven guerrero Larn se une al misterioso Darkwolf para rescatar a la princesa Teegra de las garras de la malvada reina Juliana y su hijo Nekron. Una épica batalla entre el bien y el mal con el impresionante arte de Frank Frazetta.",
-                tags: ["Película", "Fantasía", "Aventura", "Acción", "Épico", "Animación", "Clásico", "Rotoscopia"],
+                title: "Record of Lodoss War (OVA)",
+                year: 1990,
+                studio: "Madhouse",
+                director: "Akinori Nagaoka",
+                desc: "Un grupo de héroes debe enfrentar las fuerzas del mal que amenazan el continente de Lodoss. Una de las obras más influyentes del anime de fantasía.",
+                tags: ["OVA", "Fantasía", "Aventura", "Épico"],
                 episodios: [
-                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/2397592619717?nochat=1" }
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/H4Qz0QJa#NFe01m2kAcc73tn43vuRneq7khd2zado6XhgZbAPdP0" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/C5YmGB4T#l3rEEJTPu4wClKjHCysh8dlh0E4XSZGizTMElwy5M8c" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/LtghHTKS#7yCZNvmDMYWAtsE-7HVhN2qJgVYo-doCHk2cfYQBv3Y" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/mphikZSL#epmeH6qkSZr_Dyysfltzk0mStebCJgFkzmJPH-M3Adk" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/2xgjhD7L#8oyFRVV4poK2uTeDOKi59kpl33SrtZxosDT0YwChq4w" },
+                    { num: 6, version: "Sub", url: "https://mega.nz/embed/ex5hzTpJ#9FEz9D-wR6nBx2UMKTu2Q70Oav7rer3pRTivmIlXFF4" },
+                    { num: 7, version: "Sub", url: "https://mega.nz/embed/7gISCL5S#C_50qSIUFE4oIymQsTFbl-yufIswt8irbWKbjpSMr7U" },
+                    { num: 8, version: "Sub", url: "https://mega.nz/embed/LtgAmaaa#2XUNF7Wk6uNc8SEnMt6RXj6-9ry_y25lwcNemcZU6Is" },
+                    { num: 9, version: "Sub", url: "https://mega.nz/embed/YYtnTZBY#CYVt16jnj8jcE3TgjA_mEJUlaDWALDx8kjGK7MsPLHk" },
+                    { num: 10, version: "Sub", url: "https://mega.nz/embed/z0ZSgZyZ#adXJy9K_naJrYDJKfTZo0tedWCtCl8rN_y_nc_ixpt4" },
+                    { num: 11, version: "Sub", url: "https://mega.nz/embed/D1hFCDjB#IzwvHgxyLeFMOQSbgLgQ8YwivZzUBhKAbsh1kH7JsIE" },
+                    { num: 12, version: "Sub", url: "https://mega.nz/embed/mowVGKrQ#DSYWB56S2fFpCFIxnDC1f-Rd_In9AlMnTkTDxowXYD4" },
+                    { num: 13, version: "Sub", url: "https://mega.nz/embed/qpgjlLoZ#9Y_BwY2zCfunzZe-oejVrQ-h7XCSn48rdDhDOOp6cqw" },
+                    { num: 1, version: "Dob", url: "https://mega.nz/embed/bxYgGaqS#UN4wKAaD6QYYwfWdLeEt4LAC0cE0jtD1IssdZsO4shQ" },
+                    { num: 2, version: "Dob", url: "https://mega.nz/embed/mhw0FRRY#voYJxiLwzZmUf9CjyMpKY-_P0GnhNpjmMYSNcdV_E2E" },
+                    { num: 3, version: "Dob", url: "https://mega.nz/embed/awZSxJrZ#rv3ybYXuoPVSK8uVwLVYBdCoRvRdF-4A1yBW9aLFVL8" },
+                    { num: 4, version: "Dob", url: "https://mega.nz/embed/ukhz2S6Z#LoskibhCfFFfLW2_KHdfaLakZrsatyo2voHNf5haxCE" },
+                    { num: 5, version: "Dob", url: "https://mega.nz/embed/bpZCHKCI#2LM_CCcoP_D-ahhV2rjsmsIkaHs4wVmYUBJYCcW324c" },
+                    { num: 6, version: "Dob", url: "https://mega.nz/embed/nkxSWKxL#2W8a2txR9H824SEIcIIwj6EqfGK45L95f5Mh-2qwl30" },
+                    { num: 7, version: "Dob", url: "https://mega.nz/embed/n5ZRDRTT#Q5W6ET8YfJtvFkvJ3D77F3ovXECBbuWeoTMbwu6Ehhs" },
+                    { num: 8, version: "Dob", url: "https://mega.nz/embed/uwJHyKTI#ph3KkbV3fgzDL8pgNivrMM6TWVbFyhASu8pK_8u5SoA" },
+                    { num: 9, version: "Dob", url: "https://mega.nz/embed/DsQ0nCxI#Mr58mcIksg1SAPtj4JpvZadbxlNHDmjw6xJIJWzW8Jk" },
+                    { num: 10, version: "Dob", url: "https://mega.nz/embed/igoWTK4b#jTnOBS7u9qn9RliilvLqP9v6Z1vPq9nRnwH0wVwfNWI" },
+                    { num: 11, version: "Dob", url: "https://mega.nz/embed/C4gkwQQB#sBNC0ondkmy5pEZQ3rdufTJiK6LbI5pjheIgrPGmt5w" },
+                    { num: 12, version: "Dob", url: "https://mega.nz/embed/KtA31T7b#pEMddidP2AzHQr5lKGrxyLZB-ASwx94mwoOXrdwWnGk" },
+                    { num: 13, version: "Dob", url: "https://mega.nz/embed/jhoknazR#fql2It9Q1pZy-wOy1qT9AJSVNU0JNc0ISgGRAc_9AjM" }
                 ]
             },
-            // ============================================================
-            // GOLDEN BOY (6 episodios)
-            // ============================================================
             32: {
-                title: "Golden Boy",
-                year: 1995,
-                studio: "AIC / APPP",
-                director: "Hiroyuki Kitakubo",
-                desc: "Kintaro Oe es un estudiante que abandona la universidad para recorrer Japón en bicicleta. Donde sea que vaya, encuentra trabajo y mujeres hermosas, pero siempre termina huyendo. Una comedia absurda y erótica que es puro culto.",
-                tags: ["OVA", "Comedia", "Recuentos de la vida", "Ecchi", "Nostálgico", "Aventura"],
-                episodios: [
-                    // DOBLADO - TODOS los episodios en un solo video
-                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/9370714049277?nochat=1" },
-                    
-                    // SUBTITULADO - 6 episodios separados
-                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1954576271895?nochat=1" },
-                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/1954576337431?nochat=1" },
-                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1958618335767?nochat=1" },
-                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/1958618270231?nochat=1" },
-                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/1958720047639?nochat=1" },
-                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/1958720113175?nochat=1" }
-                ]
-            },
-            // ============================================================
-            // A.D. POLICE FILES (OVA - 3 episodios)
-            // ============================================================
-            28: {
                 title: "A.D. Police Files",
                 year: 1990,
                 studio: "AIC / Artmic",
@@ -849,10 +822,18 @@
                     { num: 3, version: "Sub", url: "//ok.ru/videoembed/3990604483287?nochat=1" }
                 ]
             },
-            // ============================================================
-            // MALICE@DOLL (OVA - 3 episodios)
-            // ============================================================
-            30: {
+            33: {
+                title: "The Curse of Kazuo Umezu",
+                year: 1990,
+                studio: "Takahashi Studio y Yûwa",
+                director: "Kazuo Umezu",
+                desc: "Una adaptación del legendario mangaka de terror Kazuo Umezu. Dos historias de horror que te pondrán los pelos de punta. El maestro del terror japonés en estado puro.",
+                tags: ["OVA", "Terror", "Antología", "Horror", "Nocturno", "Psicológico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3627019995674?nochat=1" }
+                ]
+            },
+            34: {
                 title: "Malice@Doll",
                 year: 2001,
                 studio: "GAGA Communications / Soeishinsha",
@@ -865,21 +846,53 @@
                     { num: 3, version: "Sub", url: "//ok.ru/videoembed/1021877422669?nochat=1" }
                 ]
             },
-            // ============================================================
-            // THE GUYVER (OVA 1986 + 1989-1992)
-            // ============================================================
-            33: {
-                title: "The Guyver (Kyoushoku Soukou Guyver)",
-                year: "1986-1992",
-                studio: "Visual 80 / Animate Film",
-                director: "Koichi Ishiguro / Masahiro Otani",
-                desc: "Sho Fukamachi se fusiona con la armadura Guyver y lucha contra la organización Chronos. Incluye la OVA alternativa de 1986 (Out of Control) y la serie de 12 episodios (1989-1992).",
+            35: {
+                title: "Fire and Ice",
+                year: 1983,
+                studio: "Aspen Productions",
+                director: "Ralph Bakshi",
+                desc: "En un mundo de hielo y fuego, el joven guerrero Larn se une al misterioso Darkwolf para rescatar a la princesa Teegra de las garras de la malvada reina Juliana y su hijo Nekron. Una épica batalla entre el bien y el mal con el impresionante arte de Frank Frazetta.",
+                tags: ["Película", "Fantasía", "Aventura", "Acción", "Épico", "Animación", "Clásico", "Rotoscopia"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/2397592619717?nochat=1" }
+                ]
+            },
+            36: {
+                title: "Golden Boy",
+                year: 1995,
+                studio: "AIC / APPP",
+                director: "Hiroyuki Kitakubo",
+                desc: "Kintaro Oe es un estudiante que abandona la universidad para recorrer Japón en bicicleta. Donde sea que vaya, encuentra trabajo y mujeres hermosas, pero siempre termina huyendo. Una comedia absurda y erótica que es puro culto.",
+                tags: ["OVA", "Comedia", "Recuentos de la vida", "Ecchi", "Nostálgico", "Aventura"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/9370714049277?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1954576271895?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/1954576337431?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1958618335767?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/1958618270231?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/1958720047639?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/1958720113175?nochat=1" }
+                ]
+            },
+            37: {
+                title: "The Guyver (OVA 1986)",
+                year: 1986,
+                studio: "Visual 80",
+                director: "Koichi Ishiguro",
+                desc: "Una adaptación oscura y alternativa de The Guyver, con una versión femenina de Guyver II (Valcuria) y una trama más violenta y directa.",
                 tags: ["OVA", "Ciencia ficción", "Acción", "Horror", "Cyberpunk", "Biopunk", "Gore", "Mecha"],
                 episodios: [
-                    // OVA 1986 - 1 episodio
-                    { num: 1, version: "OVA-1986-Ep", url: "https://mega.nz/embed/HxpUgb6b#DyRjDx6AcfXsYMhZGJDHo_Ra_f9e-bCVN0u67UcjamM" },
-                    
-                    // OVA 1989-1992 - 12 episodios
+                    { num: 1, version: "", url: "https://mega.nz/embed/HxpUgb6b#DyRjDx6AcfXsYMhZGJDHo_Ra_f9e-bCVN0u67UcjamM" }
+                ]
+            },
+            38: {
+                title: "The Guyver: Bio-Booster Armor",
+                year: 1989,
+                studio: "Animate Film",
+                director: "Masahiro Otani",
+                desc: "La adaptación más fiel al manga de The Guyver. Sho Fukamachi se fusiona con la armadura Guyver y lucha contra la organización Chronos y sus mutantes Zoanoids.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Horror", "Cyberpunk", "Biopunk", "Gore", "Mecha"],
+                episodios: [
                     { num: 1, version: "Ep.", url: "https://mega.nz/embed/duRxgCoZ#-yqmKMVMa2rLPnCzsNKHNzDGAxUGo13r1dPaFJsjxUk" },
                     { num: 2, version: "Ep.", url: "https://mega.nz/embed/U3pS3SKL#99n-RwKw-_osjJ6nauMIgyk7fyr5TpaPFyEHGiV3oB0" },
                     { num: 3, version: "Ep.", url: "https://mega.nz/embed/hjISHIaY#L6U8BDNmb7nNyBPslkTbwCQ0Ifa3pJj0jNufGDOb5WI" },
@@ -893,13 +906,10 @@
                     { num: 11, version: "Ep.", url: "https://mega.nz/embed/1vl12ayb#9k7lDsyQ_gHg0z498FIR6nemiWIT2faUZO2vCNXCNTk" },
                     { num: 12, version: "Ep.", url: "https://mega.nz/embed/MmFTlKAK#uLfBIq6jZrZ5t5dmB9TU7Oi5jzNwmPCkJludcrKsFk8" }
                 ]
-            }, 
-            // ============================================================
-            // CRYING FREEMAN (OVA - 6 episodios)
-            // ============================================================
-            35: {
+            },
+            39: {
                 title: "Crying Freeman",
-                year: "1988-1994",
+                year: 1988,
                 studio: "Toei Animation",
                 director: "Daisuke Nishio / Nobutaka Nishizawa / Teiichi Matsuura / Shigeyasu Yamauchi",
                 desc: "Yo Hinomura, un joven ceramista japonés, es capturado por la organización criminal china de los 108 Dragones y sometido a hipnosis para convertirse en un asesino a sueldo que llora por sus víctimas. Su vida cambia cuando Emu Hino, una artista que presencia uno de sus crímenes, descubre la humanidad que aún queda en él.",
@@ -913,54 +923,57 @@
                     { num: 6, version: "Sub", url: "//ok.ru/videoembed/2061167626965?nochat=1" }
                 ]
             },
-            // ============================================================
-            // 3x3 EYES (OVA 1991 + Seima Densetsu 1995)
-            // ============================================================
-            34: {
+            40: {
                 title: "3x3 Eyes (Sazan Eyes)",
-                year: "1991-1996",
-                studio: "Toei Animation / Hal Film Maker",
-                director: "Daisuke Nishio / Kazuhisa Takenouchi",
+                year: 1991,
+                studio: "Toei Animation",
+                director: "Daisuke Nishio",
                 desc: "La última de una raza de inmortales de tres ojos busca convertirse en humana. Para ello, convierte a un estudiante en su sirviente inmortal, y juntos emprenden una peligrosa aventura para encontrar la Estatua de la Humanidad.",
                 tags: ["OVA", "Fantasía", "Aventura", "Horror", "Romance", "Misterio", "Mitología", "Violento"],
                 episodios: [
-                    // ============================================================
-                    // OVA 1991 - 4 episodios (Subtitulado)
-                    // ============================================================
                     { num: 1, version: "Sub", url: "//ok.ru/videoembed/1929895938773?nochat=1" },
                     { num: 2, version: "Sub", url: "//ok.ru/videoembed/1929896004309?nochat=1" },
                     { num: 3, version: "Sub", url: "//ok.ru/videoembed/1929897183957?nochat=1" },
                     { num: 4, version: "Sub", url: "//ok.ru/videoembed/1929921497813?nochat=1" },
-                    
-                    // ============================================================
-                    // OVA 1991 - 4 episodios (Doblado)
-                    // ============================================================
                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/7954491181807?nochat=1" },
                     { num: 2, version: "Dob", url: "//ok.ru/videoembed/7954494851823?nochat=1" },
                     { num: 3, version: "Dob", url: "//ok.ru/videoembed/7966390946543?nochat=1" },
-                    { num: 4, version: "Dob", url: "//ok.ru/videoembed/7966409558767?nochat=1" },
-                    
-                    // ============================================================
-                    // OVA 1995: Seima Densetsu - 3 episodios sub
-                    // ============================================================
+                    { num: 4, version: "Dob", url: "//ok.ru/videoembed/7966409558767?nochat=1" }
+                ]
+            },
+            41: {
+                title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
+                year: 1995,
+                studio: "Hal Film Maker",
+                director: "Kazuhisa Takenouchi",
+                desc: "La secuela de 3x3 Eyes. Cuatro años después, Pai ha desaparecido y Yakumo la busca sin descanso. Cuando la encuentra, Pai ha perdido la memoria. Para restaurarla, deben viajar a la Tierra Santa, el lugar de origen de los Sanjiyan.",
+                tags: ["OVA", "Fantasía", "Aventura", "Horror", "Romance", "Misterio", "Mitología", "Violento"],
+                episodios: [
                     { num: 1, version: "Seima Sub", url: "https://mega.nz/embed/SjBGSIID#5p2FUZoXa_bRmQZ2vKYjPHvKOQhWqJ3323GpK_dvLlk" },
                     { num: 2, version: "Seima Sub", url: "//ok.ru/videoembed/1929922677461?nochat=1" },
                     { num: 3, version: "Seima Sub", url: "//ok.ru/videoembed/1929922874069?nochat=1" },
-                    
-                    // ============================================================
-                    // OVA 1995: Seima Densetsu - 2 episodios dob (solo existen 2)
-                    // ============================================================
                     { num: 1, version: "Seima Dob", url: "//ok.ru/videoembed/7966427056879?nochat=1" },
                     { num: 2, version: "Seima Dob", url: "//ok.ru/videoembed/7966451174127?nochat=1" }
                 ]
+            },
+            42: {
+                title: "Paprika",
+                year: 2006,
+                studio: "Madhouse",
+                director: "Satoshi Kon",
+                desc: "Una terapeuta utiliza un dispositivo para entrar en los sueños de sus pacientes, pero cuando es robado, los sueños comienzan a invadir la realidad. Solo su alter ego onírico, Paprika, puede detener el caos.",
+                tags: ["Película", "Ciencia ficción", "Suspenso", "Psicológico", "Surrealista", "Experimental", "Cyberpunk"],
+                episodios: [
+                    // No hay video disponible para Paprika en este momento
+                ]
             }
-        }; 
+        };
 
         // ============================================================
         // LEER PARÁMETROS DE LA URL
         // ============================================================
         const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
+        const id = parseInt(params.get('id'));
         const ep = parseInt(params.get('ep')) || 1;
         const version = params.get('version') || null;
 
@@ -998,7 +1011,6 @@
         function agruparEpisodios(episodios) {
             const grupos = {};
             episodios.forEach(ep => {
-                // Si la versión está vacía, la llamamos "Episodio"
                 const version = ep.version || "Episodio";
                 if (!grupos[version]) {
                     grupos[version] = [];
@@ -1012,7 +1024,7 @@
             const grupos = agruparEpisodios(episodios);
             const versiones = Object.keys(grupos);
             
-            // Si solo hay una versión y es "Episodio", mostrar botones sueltos
+            // Si solo hay una versión y es "Episodio" o no hay versión, mostrar botones sueltos
             if (versiones.length === 1 && versiones[0] === "Episodio") {
                 return episodios.map(ep => {
                     const label = `Ep. ${ep.num}`;
@@ -1025,7 +1037,6 @@
             versiones.forEach(version => {
                 const eps = grupos[version];
                 const count = eps.length;
-                // Generar ID único para este grupo
                 const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
                 
                 html += `
@@ -1065,33 +1076,56 @@
             const v = videos[id];
             const episodios = v.episodios;
 
-            let episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
-            if (!episodioActual) episodioActual = episodios[0];
+            let episodioActual = null;
+            if (episodios && episodios.length > 0) {
+                episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
+                if (!episodioActual) episodioActual = episodios[0];
+            }
 
             // Actualizar header
             let titleSuffix = '';
-            if (episodioActual.version) {
-                titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
-            } else if (episodios.length > 1) {
-                titleSuffix = ` — Episodio ${episodioActual.num}`;
+            if (episodioActual) {
+                if (episodioActual.version && episodioActual.version !== "Episodio") {
+                    titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
+                } else if (episodios.length > 1) {
+                    titleSuffix = ` — Episodio ${episodioActual.num}`;
+                }
             }
             document.getElementById('videoTitle').textContent = v.title + titleSuffix;
             document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
             document.title = v.title + titleSuffix + " — Frame Perdido";
 
             // Actualizar reproductor
-            const cleanUrl = obtenerUrlClean(episodioActual.url);
-            document.getElementById('videoFrame').src = cleanUrl;
+            if (episodioActual && episodioActual.url) {
+                const cleanUrl = obtenerUrlClean(episodioActual.url);
+                document.getElementById('videoFrame').src = cleanUrl;
+            } else {
+                document.getElementById('videoFrame').src = '';
+                document.getElementById('videoFrame').style.display = 'none';
+                // Mostrar mensaje de que no hay video disponible
+                const playerContainer = document.querySelector('.plyr-container');
+                const noVideoMsg = document.createElement('div');
+                noVideoMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
+                noVideoMsg.innerHTML = `
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">🎬 No hay video disponible</h3>
+                    <p style="font-size: 0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>
+                `;
+                playerContainer.appendChild(noVideoMsg);
+            }
 
             // Actualizar selector de episodios con agrupación por versión
-            document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
+            if (episodios && episodios.length > 0) {
+                document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
+            } else {
+                document.getElementById('episodeSelector').innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>`;
+            }
 
             // Actualizar info
             document.getElementById('expedienteDesc').textContent = v.desc;
             document.getElementById('expedienteTags').innerHTML = v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('');
 
             // Iniciar Plyr
-            if (document.getElementById('player')) {
+            if (document.getElementById('player') && episodioActual && episodioActual.url) {
                 const player = new Plyr('#player', {
                     youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
                     tooltips: { controls: true, seek: true },
@@ -1104,12 +1138,24 @@
             }
 
         } else {
-            // Error
+            // Error: no se encontró el ID
             document.getElementById('videoTitle').textContent = 'Contenido no disponible';
+            document.getElementById('videoMeta').textContent = '';
             document.getElementById('episodeSelector').innerHTML = '';
-            document.getElementById('expedienteDesc').textContent = 'Este expediente aún no tiene video en nuestro archivo.';
+            document.getElementById('expedienteDesc').textContent = 'Este expediente no existe en nuestro archivo o no tiene video asociado.';
             document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
             document.title = "No disponible — Frame Perdido";
+            
+            // Mostrar mensaje en el reproductor
+            const playerContainer = document.querySelector('.plyr-container');
+            const errorMsg = document.createElement('div');
+            errorMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
+            errorMsg.innerHTML = `
+                <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">⚠️ Expediente no encontrado</h3>
+                <p style="font-size: 0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p>
+                <a href="index.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 500;">← Volver al archivo</a>
+            `;
+            playerContainer.appendChild(errorMsg);
         }
     </script>
 
