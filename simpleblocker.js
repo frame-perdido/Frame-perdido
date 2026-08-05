@@ -1,5 +1,33 @@
+// ==========================================
+// 1. DETECCIÓN DE BOTS Y CRAWLERS
+// ==========================================
+const isCrawler = () => {
+    const ua = navigator.userAgent.toLowerCase();
 
+    const bots = [
+        "googlebot",
+        "google-inspectiontool",
+        "adsbot-google",
+        "apis-google",
+        "mediapartners-google",
+        "bingbot",
+        "duckduckbot",
+        "slurp",
+        "baiduspider",
+        "yandexbot",
+        "facebookexternalhit",
+        "twitterbot",
+        "linkedinbot",
+        "applebot",
+        "petalbot"
+    ];
 
+    return bots.some(bot => ua.includes(bot));
+};
+
+// ==========================================
+// 2. FUNCIONES DE DETECCIÓN DE ADBLOCK (TAL CUAL ESTÁN)
+// ==========================================
 const outbrainErrorCheck = async () => {
     try {
         const resp = await fetch("https://widgets.outbrain.com/outbrain.js");
@@ -131,8 +159,14 @@ const detectedAdblock = async () => {
     return !isNotUsingAdblocker;
 };
 
-detectedAdblock().then(result => {
-    if (result) {
-        window.location.href = "disable-adblock.html";
-    }
-});
+// ==========================================
+// 3. EJECUCIÓN CON DETECCIÓN DE BOTS
+// ==========================================
+// 🔥 SOLO EJECUTAR SI NO ES UN BOT/CRAWLER
+if (!isCrawler()) {
+    detectedAdblock().then(result => {
+        if (result) {
+            window.location.href = "disable-adblock.html";
+        }
+    });
+}
