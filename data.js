@@ -1,5 +1,5 @@
 // ============================================================
-// BASE DE DATOS - FRAME PERDIDO (VERSIÓN PROFESIONAL)
+// BASE DE DATOS - FRAME PERDIDO (VERSIÓN PROFESIONAL CORREGIDA)
 // ============================================================
 var animes = [{
     // ============================================================
@@ -23,11 +23,11 @@ var animes = [{
     saga: "Barefoot Gen",
     sagaOrder: 1,
     related: [2, 16, 23],
-    next: 2 // Enlace a la secuela
+    next: 2
 }, {
     id: 2,
     title: "Barefoot Gen 2",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjMF-TZtwO2Jyhp2R3PKzwiJ0nQYuR6tI-QE3eyCdLjo1S8GFlm9GTw9UbqhVL1ZAX5L8JOPk31BtoJbEAVbpRzmYC9kEEMQfnL_KTX3IlqkcWO9VvDjw57rs1Jc9qrrShj9rSrjfbzSlHxntenQ1l1_bKLU5uHaPDXUGZqTEHpiGz4DYfNBblSahFT1CHf=w267-h400", // Misma imagen o una específica
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjMF-TZtwO2Jyhp2R3PKzwiJ0nQYuR6tI-QE3eyCdLjo1S8GFlm9GTw9UbqhVL1ZAX5L8JOPk31BtoJbEAVbpRzmYC9kEEMQfnL_KTX3IlqkcWO9VvDjw57rs1Jc9qrrShj9rSrjfbzSlHxntenQ1l1_bKLU5uHaPDXUGZqTEHpiGz4DYfNBblSahFT1CHf=w267-h400",
     year: 1986,
     type: "Película",
     duration: "85 min",
@@ -39,11 +39,11 @@ var animes = [{
     plot: "La secuela (1986) muestra a Gen tres años después del bombardeo, sobreviviendo con su madre y su hermano adoptivo en una chabola, enfrentando el hambre, la enfermedad y la discriminación.",
     analysis: "La segunda película es más silenciosa pero igual de desgarradora, mostrando las secuelas a largo plazo de la guerra. Es igual de importante que la primera para entender el verdadero horror de la guerra.",
     forgotten: "La segunda película es una rareza incluso entre los fans del anime más clásico. Pasó desapercibida en su momento y no tuvo la misma repercusión que la primera.",
-    reel: "", // Si tienes un reel específico, ponlo aquí
+    reel: "",
     saga: "Barefoot Gen",
     sagaOrder: 2,
     related: [1, 16, 23],
-    prev: 1 // Enlace a la precuela
+    prev: 1
 }, {
     id: 3,
     title: "Dark Cat",
@@ -288,7 +288,7 @@ var animes = [{
     plot: "Terry Bogard es derrotado por Wolfgang Krauser en una pelea brutal. Humillado y sin fuerzas, cae en el alcoholismo y la depresión. Pero cuando descubre que Krauser planea conquistar el mundo de las artes marciales, Terry decide levantarse de nuevo y entrenar para derrotarlo.",
     analysis: "The New Battle es una película más oscura que su predecesora, con un tono más dramático y un protagonista que debe superar sus demonios personales. La animación es mejorada, y las escenas de lucha son más espectaculares. Es una secuela que supera a la primera en muchos aspectos.",
     forgotten: "Al igual que la primera, su lanzamiento en VHS la limitó a un público de nicho. Hoy es una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
-    reel: "", // Si tienes un reel específico, ponlo aquí
+    reel: "",
     saga: "Fatal Fury",
     sagaOrder: 2,
     related: [8, 10],
@@ -309,7 +309,7 @@ var animes = [{
     plot: "Laocorn, un guerrero con poderes sobrenaturales, viaja por el mundo en busca de las armaduras de los dioses. Terry, Andy y Joe se unen para detenerlo, viajando a diferentes países para enfrentarlo. Pero Laocorn es más poderoso de lo que imaginan, y su objetivo es resucitar a un antiguo dios para destruir el mundo.",
     analysis: "The Motion Picture es la película más ambiciosa de la saga, con una animación espectacular y una historia que abarca todo el mundo. Es una película de aventuras que combina artes marciales, fantasía y acción. Es la mejor película de la saga, y un clásico del anime de los 90.",
     forgotten: "A pesar de ser la mejor película de la saga, su lanzamiento en VHS la limitó a un público de nicho. Hoy es una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
-    reel: "", // Si tienes un reel específico, ponlo aquí
+    reel: "",
     saga: "Fatal Fury",
     sagaOrder: 3,
     related: [8, 10],
@@ -358,7 +358,7 @@ var animes = [{
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiORmSHwWGi3oHEFUMWIPqTD3U5fmIaA2TKUBNrafC-9oz4wHNVtIZfbtElebq7duDfo8JgV5DFLiXexpxKv_xmmF4ILY41KHs2DA2n3S-5jPryyIKFKYy-jCwBRE6LTtjZeHfSQtYVwMXTt2lykggD6f0XL-xkIrFu7E8tyJnbq_NHBtDQQ-AgXj3pqb2S=w300-h400",
     year: 1989,
     type: "OVA",
-    duration: "50 min",
+    duration: "2 episodios (50 min c/u)",
     studio: "J.C.Staff",
     director: "Satoshi Dezaki",
     genre: ["Acción", "Artes marciales", "Violencia"],
@@ -396,7 +396,7 @@ var animes = [{
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjOR_8j-P8IlQtxomqCMf5JP1EMHHJre7Y4uLBmEGvibVE_K97A1xKWatKAhpXE5BtOwohTxHcqZhcw3czuywc-dUfVh-Eo-E5yFdvU1Ki71rNs8YOIt_oZ7lisf89pO1YWd7Nas1Wv1FRargMKN4Pkh6Y5xKS0gOmprS2Bq7wDHACPb47bouFj-9SiEbsM=w282-h400",
     year: 1985,
     type: "OVA",
-    duration: "80 min (Parte 1)",
+    duration: "4 episodios",
     studio: "AIC / Artmic",
     director: "Noboru Ishiguro",
     genre: ["Ciencia ficción", "Cyberpunk", "Mecha"],
@@ -453,7 +453,7 @@ var animes = [{
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhfRTGVWMNjNA8FpktX5T-wcvHs_U4-3tNWudg5ZVTucAIWuQ-gLW5yBHzMSr_zUA2s7hV-cDX6LkmqQ_cDe_hjOU_SJvUpO4KQoUFXXUb8yOAGilBwEJ_dIHL6txNsaj77OzYV72uXNvMxkqKZTamI-ToIE4UkChVUoJuOkbsW-r-SUwr_8b-RdO31MN8N=w298-h400",
     year: 1994,
     type: "OVA",
-    duration: "2 episodios",
+    duration: "4 episodios",
     studio: "J.C.Staff",
     director: "Noboru Ishiguro",
     genre: ["Acción", "Fantasía oscura", "Samurái"],
@@ -510,7 +510,7 @@ var animes = [{
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEj_JQF1VKs7ohoOf9H-qOwE-MKNgYMiviWa4RQ-9dHElRvKqhO_vtxU6pX3INQZWyqKWI9bX6ukJKQq0LbB3M-ij4a6u2eMvIc_rEPQJh9Ay928mZtwW8n9QK_5iJARujrlj9iAuiV2_BZswrQYJKDi4N-fwXTpPIhjeDgRTLFX6SGP3LWK_ESTi4oVru9G=w288-h400",
     year: 1987,
     type: "OVA",
-    duration: "50 min",
+    duration: "1 episodio (50 min)",
     studio: "AIC / Animate",
     director: "Hiroyuki Kitakubo",
     genre: ["Ciencia ficción", "Acción", "Cyberpunk"],
