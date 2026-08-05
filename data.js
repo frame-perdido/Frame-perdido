@@ -27,7 +27,7 @@ var animes = [{
 }, {
     id: 2,
     title: "Barefoot Gen 2",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjMF-TZtwO2Jyhp2R3PKzwiJ0nQYuR6tI-QE3eyCdLjo1S8GFlm9GTw9UbqhVL1ZAX5L8JOPk31BtoJbEAVbpRzmYC9kEEMQfnL_KTX3IlqkcWO9VvDjw57rs1Jc9qrrShj9rSrjfbzSlHxntenQ1l1_bKLU5uHaPDXUGZqTEHpiGz4DYfNBblSahFT1CHf=w267-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjRwJcTh3oV7wpGSoRxUW_GJgtoiMc7_wx_r7RHjjVpQFS7PHX6ioqI0HuxiUkFWfklaKH76yWnlXOdUz8MMbE7i3RMGXHoTgf2Zbveakpfy3HEjav5Ck8mCoCjQEhsjEmG3p6BB5zZYQkall9MkxTfUn45mvMOSTNbjWlbaWks8hODUri9D0CUqsK1I-p9=w238-h400",
     year: 1986,
     type: "Película",
     duration: "85 min",
@@ -276,7 +276,7 @@ var animes = [{
 }, {
     id: 15,
     title: "Fatal Fury 2: The New Battle",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjrEuTeh3tVg9ryum6QeQkJN6xazYf89Z7oNK-eBajqyKP0uNIJMGj1uwonOZDa6JYh-TqhXU5ClWjL9Y_tffLnvpaY8WW_d9KljrTH3FXDFpQ8yIpm0VNLtT-SJdSWNe-kRvCYGZjdyeJo2FGeywatI9dtyXE9e2v3UDEU31HBmJbZmgPiI3NDg5RyN9Rn=w267-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEg4P0ffBHDoYqHNr9b4zP3OLzQ80FWV7aE5XfSsqieafuTneRE8_ehsxncFEXKEyGMRpUgivQgf6IYvztPhc_YrlDJ0lD7r-0ZKm0CkJdKvLyT2v9g18zmQ2p4CjnpxVmB0Ma6Ps9ExcoDmAFL0yTtqSfP4cD5ozs2ZO_IuIIhbdRcMOiHokotXCTJs73Sh=w220-h400",
     year: 1993,
     type: "Película",
     duration: "65 min",
