@@ -632,5 +632,23 @@ id: 30,
     forgotten: "A pesar de su popularidad en los 90, 3x3 Eyes ha quedado algo olvidada. La adaptación incompleta del manga y la falta de una serie de TV hicieron que el OVA pasara desapercibido para las nuevas generaciones. Sin embargo, para los que crecieron con ella, sigue siendo un clásico del anime de fantasía.",
     reel: "",
     related: [14, 17, 23]
+},
+              {
+    id: 36,
+    title: "Paprika",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjAKsRnw7CmQzyG0f-RtjgC9Cp9wL4TuTVr99QNYFqBhoPMQq4Eo0I2i0EuczSBjCDVyQ4XkwPI0ZtTm8NXafhUCHy4gONELqRR2j_xzAEzD-LI_Uz_9e8ZZPDNO8u2GCGeje95NMQkVGuo5YHihf2BjxgQBWhY2pj1NdQwquokVYSB9tTBqagJe4nbzBwX=w267-h400",
+    year: 2006,
+    type: "Película",
+    duration: "90 min",
+    studio: "Madhouse",
+    director: "Satoshi Kon",
+    genre: ["Ciencia ficción", "Suspenso", "Psicológico", "Fantasía", "Misterio"],
+    tags: ["ciencia-ficción", "suspenso", "psicológico", "surrealista", "experimental", "dreams", "cyberpunk"],
+    description: "Una terapeuta utiliza un dispositivo para entrar en los sueños de sus pacientes, pero cuando es robado, los sueños comienzan a invadir la realidad. Solo su alter ego onírico, Paprika, puede detener el caos.",
+    plot: "La Dra. Atsuko Chiba utiliza el DC Mini, un dispositivo experimental que permite a los terapeutas entrar en los sueños de sus pacientes para tratarlos. Cuando es robado, un terrorista de los sueños lo usa para corromper las mentes de las personas y hacer que sus pesadillas se vuelvan reales. Chiba, en su forma de sueño como la enérgica Paprika, se une al detective Konakawa y a sus colegas para investigar el misterio. La búsqueda las lleva a un viaje a través de un mundo surrealista donde la línea entre los sueños y la realidad se desvanece.",
+    analysis: "Paprika es la obra cumbre de Satoshi Kon, un viaje psicodélico y una reflexión profunda sobre el cine, la identidad y el subconsciente. La película es un festín visual con una animación espectacular de Madhouse y una banda sonora inolvidable de Susumu Hirasawa. La película explora temas como la tecnología como extensión de la mente, el poder de los sueños y la naturaleza de la realidad, todo envuelto en una narrativa laberíntica que se disfruta más en cada visionado.",
+    forgotten: "Aunque es muy celebrada en los círculos de anime, Paprika sigue siendo una película de culto que merece ser más conocida por el público general. Su estreno fue limitado y, a menudo, se la menciona como 'el anime que inspiró Origen', lo que la reduce a una curiosidad en lugar de apreciarla como la obra maestra que es.",
+    reel: "",
+    related: [14, 17, 24]
 }
  ];
