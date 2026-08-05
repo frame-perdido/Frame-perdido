@@ -701,8 +701,8 @@ var animes = [{
     related: [4, 19, 21]
 }, {
     id: 37,
-    title: "The Guyver (OVA 1986)",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgs-Vp8Ubph11RLZ8Cp9u2pEGg2QY3_LBR2snONUbc8pumelHL7VBkiqFTbE1bueqPpdyLImb6-fWMv8msFYadEbYoyzIIOR2Pq9cFryvH_PBRLS_-SAB2XMjMo-lwk_E-SfAY0HcLddViGlspX-mqBjKqP0kX0ZY5Fes9q597PA57clhHAghdCRAVZFG_T=w258-h400",
+    title: "Guyver: Out of Control",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjT2uNC1yyJbyO4uBXltQxT8H4VDPTq8P77yldt3RpsgfgFx-bLAjAT4sRqVPCyviQqPvDychhaAwBcA52BERf5q4IBBzkn4ZFdEvmZdXZSewhpxxA0XdFcGOlD91b2x8-5nGjYlzsO_XcOOA1AiulyCtvEznle50Qsy7n3XqxX2WPtMXMemYTNzmw6etNm=w268-h400",
     year: 1986,
     type: "OVA",
     duration: "1 episodio",
@@ -722,7 +722,7 @@ var animes = [{
 }, {
     id: 38,
     title: "The Guyver: Bio-Booster Armor",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgs-Vp8Ubph11RLZ8Cp9u2pEGg2QY3_LBR2snONUbc8pumelHL7VBkiqFTbE1bueqPpdyLImb6-fWMv8msFYadEbYoyzIIOR2Pq9cFryvH_PBRLS_-SAB2XMjMo-lwk_E-SfAY0HcLddViGlspX-mqBjKqP0kX0ZY5Fes9q597PA57clhHAghdCRAVZFG_T=w258-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjLwj_r0xjfNa_Pzip4WN2_V9B-UXcqvZ4x7Fr0Mgx6-4SUE-4vGOYo6fBQADJ6nsnhQClgZjI5UuDc56kZfA2VHWuRFuRegjOVdwGOJjLhvERWKtunXBrn2Mgyx0ubJgj8BfooLMl5QbfFsXM7JURLKLPVzlZGeR-sU2oq5DZWiwIBHXkQYO0ahGUGIT4T=w267-h400",
     year: 1989,
     type: "OVA",
     duration: "12 episodios",
@@ -781,7 +781,7 @@ var animes = [{
 }, {
     id: 41,
     title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgHzJsOxobQGgd9mVIN6SLVBammcuDCbQMkyhrYWFpezNGe2uNxTLfh3G7K5uck9tDZGHJcTOx_eUOu0LReY3OOdanaRT-di2cuD6xBdjpRJQQAYUsH1DfXMK7LsL8O0N6PV0_95KYumGIXpROlRjC-7Of1Zrvqpcxbo7R6_IHU38smBIeocQhKFb8Mx5Lg=w280-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEimLWUddtgZVZ2JLtKf6EgPIyWRkz__leGlT-BHjG7XnGBghqoz7iMENWJYq_2i3VRp3sEQyjGuidDsK5Y_V5l3_hhXkzFTx6aNyjcAL5nE2Y3udzJlzQCRGiOfA3fpbG72_xRYK9sL-cNDzLkcFJEQUAQWJ1P3jpNlZEWkXMjqI5-LuduIW8zy1hFHPsIA=w257-h400",
     year: 1995,
     type: "OVA",
     duration: "3 episodios",
