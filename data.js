@@ -817,4 +817,23 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 17, 24]
-}];
+},
+              {
+    id: 43, 
+    title: "Parasite Dolls",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEizcZPyv93aNPUuZZ_IVuYiAC8KIRO0AuTcUptdrucqHoelUqFPBReZqHeWOER1g7EFfrWPnB6PPiEfUXq9PzhaG4TFGfoXHl1GDq8oBn7GOA8wS2eJ9v9IcdGPoKqqjnJqENzgdFVAagbcSRehEcJlVLMMzHjX4xHDs2IZJHrUDEl57o2EtlqtbkGHkjlT=w275-h400",
+    year: 2003,
+    type: "OVA",
+    duration: "3 episodios (~30 min c/u)",
+    studio: "AIC",
+    director: "Naoyuki Yoshinaga / Kazuto Nakazawa",
+    genre: ["Ciencia ficción", "Cyberpunk", "Policíaco", "Acción"],
+    tags: ["cyberpunk", "ciencia-ficción", "policíaco", "violento", "nocturno", "androides", "adulto"],
+    description: "En el Mega-Tokio de 2034, la división 'Branch' de la AD Police investiga crímenes relacionados con los Boomers (androides). Una serie de casos violentos revelan una conspiración que difumina la línea entre humanos y máquinas.",
+    plot: "La unidad especial 'Branch' de la AD Police se enfrenta a una ola de crímenes cometidos por Boomers. Mientras el oficial Buzz lidia con su desconfianza hacia los androides y su compañero Boomer, la sargento Reiko investiga una red de corrupción en la industria sexual. Cada episodio descubre una pieza de un rompecabezas que apunta a una conspiración política y a la verdadera naturaleza de los Boomers. [citation:2][citation:3]",
+    analysis: "Parasite Dolls es una pieza oscura y adulta del universo Bubblegum Crisis. Destaca por su atmósfera ciberpunk, su narrativa fragmentada y una animación que mezcla calidad con un estilo crudo. El guion de Chiaki J. Konaka aporta una reflexión sobre la humanidad y la tecnología, aunque su desarrollo puede resultar desigual. [citation:4][citation:12]",
+    forgotten: "A pesar de ser un spin-off interesante y bien valorado por los fans del cyberpunk, Parasite Dolls quedó eclipsado por la propia franquicia de Bubblegum Crisis. Su estreno limitado y su contenido adulto lo convirtieron en una rareza, y hoy en día es un título de culto difícil de encontrar. [citation:12]",
+    reel: "",
+    related: [23, 28, 17] // Relacionado con A.D. Police Files, Bubblegum Crisis, etc.
+}
+             ];
