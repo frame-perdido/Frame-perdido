@@ -7,29 +7,12 @@
     <link rel="canonical" href="https://frame-perdido.github.io/Frame-perdido/">
     <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8" />
     <meta name="description" content="Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas." />
-    <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8"/>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-   <script>
-  // Detectar si es Googlebot
-  (function() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isGooglebot = userAgent.includes('googlebot') || 
-                        userAgent.includes('google-inspectiontool');
     
-    // Si es Googlebot, mostrar el contenido real
-    if (isGooglebot) {
-      // Opción 1: Redirigir a tu contenido real
-      window.location.href = 'contenido-real.html';
-      
-      // Opción 2: Ocultar el bloqueo y mostrar el contenido
-      // document.querySelector('.ad-block-container').style.display = 'none';
-      // document.getElementById('contenido-real').style.display = 'block';
-    }
-  })();
-</script>
-    
-    <!-- CSS para responsividad de anuncios Adsterra -->
+    <!-- ============================================================ -->
+    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
+    <!-- ============================================================ -->
     <style>
         .adsterra-mobile { display: none; }
         .adsterra-desktop { display: block; }
@@ -39,9 +22,9 @@
             .adsterra-desktop { display: none; }
         }
 
-        /* ============================================================
-           TODOS TUS ESTILOS (igual que antes)
-           ============================================================ */
+        /* ============================================================ */
+        /* TODOS TUS ESTILOS EXISTENTES                                 */
+        /* ============================================================ */
         :root {
             --bg: #0a0a0f;
             --bg-card: #12121a;
@@ -944,30 +927,17 @@
             max-width: 100%;
         }
 
-        <style>
-    /* ... todo tu CSS existente ... */
-
-    /* Estilo para separar anuncios */
-    .ad-container {
-        margin: 20px 0;
-        text-align: center;
-    }
-    .ad-container iframe {
-        max-width: 100%;
-    }
-
-    /* ============================================================ */
-    /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
-    /* ============================================================ */
-    @media only screen and (max-width: 768px) {
-        div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
-            display: none !important;
+        /* ============================================================ */
+        /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
+        /* ============================================================ */
+        @media only screen and (max-width: 768px) {
+            div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
+                display: none !important;
+            }
+            div[style*="text-align: center; margin: 32px 0; padding: 0 20px;"] {
+                display: none !important;
+            }
         }
-        div[style*="text-align: center; margin: 32px 0; padding: 0 20px;"] {
-            display: none !important;
-        }
-    }
-</style>
     </style>
 </head>
 <body>
@@ -1242,11 +1212,11 @@
     <!-- ============================================================ -->
     <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
     <!-- ============================================================ -->
-      <script src="data.js"></script>
+    <script src="data.js"></script>
     <!-- ============================================================ -->
     <!-- CÓDIGO PRINCIPAL                                             -->
     <!-- ============================================================ -->
-    <script src=" age-verify.js"></script>
+    <script src="age-verify.js"></script>
     <script>
         // ============================================================
         // SISTEMA DE VIBES AUTOMÁTICO
@@ -1365,40 +1335,41 @@
         // ============================================================
         let featuredId = null;
 
-       function renderCards() {
-    const grid = document.getElementById('animeGrid');
-    if (!animes || animes.length === 0) {
-        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
-        return;
-    }
+        function renderCards() {
+            const grid = document.getElementById('animeGrid');
+            if (!animes || animes.length === 0) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
+                return;
+            }
 
-    grid.innerHTML = animes.map(anime => `
-        <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
-            <div class="card-image">
-                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                <span class="card-year">${anime.year}</span>
-            </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="card-tag">${anime.type}</span>
-                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+            grid.innerHTML = animes.map(anime => `
+                <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
+                    <div class="card-image">
+                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">${anime.type}</span>
+                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                        <div class="card-vibes">
+                            ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                        </div>
+                    </div>
                 </div>
-                <h3>${anime.title}</h3>
-                <p>${anime.description}</p>
-            </div>
-            <div class="card-footer">
-                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                </a>
-                <div class="card-vibes">
-                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-} 
+            `).join('');
+        }
+
         function updateStats() {
             const total = animes.length;
             const ovas = animes.filter(a => a.type === 'OVA').length;
@@ -1635,27 +1606,29 @@
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-function closeModal(e) {
-    if (e && e.target !== document.getElementById('modalOverlay') &&
-        e.target !== document.querySelector('.modal-close')) return;
-    
-    document.getElementById('modalOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-    
-    // Restaurar título y descripción al cerrar
-    document.title = 'Frame Perdido — Archivo de anime clásico';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-        metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
-    }
-    
-    // LIMPIAR LA URL - Eliminar el parámetro "expediente"
-    if (window.history.pushState) {
-        const url = new URL(window.location);
-        url.searchParams.delete('expediente');
-        window.history.replaceState({}, '', url);
-    }
-}
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modalOverlay') &&
+                e.target !== document.querySelector('.modal-close')) return;
+            
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Restaurar título y descripción al cerrar
+            document.title = 'Frame Perdido — Archivo de anime clásico';
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
+            }
+            
+            // LIMPIAR LA URL - Eliminar el parámetro "expediente"
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                url.searchParams.delete('expediente');
+                window.history.replaceState({}, '', url);
+            }
+        }
+
         function randomAnime() {
             if (!animes || animes.length === 0) return;
             const randomId = animes[Math.floor(Math.random() * animes.length)].id;
@@ -1697,33 +1670,33 @@ function closeModal(e) {
             if (e.key === 'Escape') closeModal();
         });
 
-// ============================================================
-// DETECTAR EXPEDIENTE EN LA URL AL CARGAR
-// ============================================================
-function checkUrlForExpediente() {
-    const params = new URLSearchParams(window.location.search);
-    const expedienteId = params.get('expediente');
-    
-    if (expedienteId !== null) {
-        const id = parseInt(expedienteId);
-        const anime = animes.find(a => a.id === id);
-        if (anime) {
-            // Esperar a que la página cargue completamente
-            setTimeout(() => {
-                openModal(id);
-                // Scroll al modal
-                document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
-            }, 500);
+        // ============================================================
+        // DETECTAR EXPEDIENTE EN LA URL AL CARGAR
+        // ============================================================
+        function checkUrlForExpediente() {
+            const params = new URLSearchParams(window.location.search);
+            const expedienteId = params.get('expediente');
+            
+            if (expedienteId !== null) {
+                const id = parseInt(expedienteId);
+                const anime = animes.find(a => a.id === id);
+                if (anime) {
+                    // Esperar a que la página cargue completamente
+                    setTimeout(() => {
+                        openModal(id);
+                        // Scroll al modal
+                        document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            } else {
+                // Si no hay expediente en la URL, asegurar que la URL sea limpia
+                if (window.history.pushState) {
+                    const url = new URL(window.location);
+                    url.search = ''; // Eliminar todos los parámetros
+                    window.history.replaceState({}, '', url);
+                }
+            }
         }
-    } else {
-        // Si no hay expediente en la URL, asegurar que la URL sea limpia
-        if (window.history.pushState) {
-            const url = new URL(window.location);
-            url.search = ''; // Eliminar todos los parámetros
-            window.history.replaceState({}, '', url);
-        }
-    }
-}
 
         // ============================================================
         // INICIALIZACIÓN
@@ -1757,12 +1730,180 @@ function checkUrlForExpediente() {
         });
     </script>
 
-    
     <!-- ============================================================ -->
     <!-- SOCIAL BAR (flotante) - justo antes de cerrar </body>         -->
     <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
 
-    <script src="simpleblocker.js"></script>
+    <!-- ============================================================ -->
+    <!-- DETECTOR DE ADBLOCK - AHORA CON DETECCIÓN DE BOTS            -->
+    <!-- ============================================================ -->
+    <script>
+        // ==========================================
+        // 1. DETECCIÓN DE BOTS Y CRAWLERS
+        // ==========================================
+        const isCrawler = () => {
+            const ua = navigator.userAgent.toLowerCase();
+
+            const bots = [
+                "googlebot",
+                "google-inspectiontool",
+                "adsbot-google",
+                "apis-google",
+                "mediapartners-google",
+                "bingbot",
+                "duckduckbot",
+                "slurp",
+                "baiduspider",
+                "yandexbot",
+                "facebookexternalhit",
+                "twitterbot",
+                "linkedinbot",
+                "applebot",
+                "petalbot"
+            ];
+
+            return bots.some(bot => ua.includes(bot));
+        };
+
+        // ==========================================
+        // 2. FUNCIONES DE DETECCIÓN DE ADBLOCK
+        // ==========================================
+        const outbrainErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://widgets.outbrain.com/outbrain.js");
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const adligatureErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://adligature.com/", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const quantserveErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://secure.quantserve.com/quant.js", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const adligatureCssErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const srvtrackErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://srvtrck.com/assets/css/LineIcons.css", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const yieldkitCheck = async () => {
+            try {
+                const resp = await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const setIntervalCheck = () => {
+            return new Promise((resolve) => {
+                const timeout = setTimeout(() => {
+                    resolve(true);
+                }, 2000);
+
+                const interval = setInterval(() => {
+                    const a0b = "a0b";
+                    if (a0b == "a0b") {
+                        clearInterval(interval);
+                        clearTimeout(timeout);
+                        resolve(false);
+                    }
+                }, 100);
+            });
+        }
+
+        const idCheck = async () => {
+            const bannerIds = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead'];
+            const bannerString = bannerIds.map((bannerId) => `<div id="${bannerId}">&nbsp;</div>`).join('');
+            const dataContainer = document.createElement("div");
+
+            dataContainer.innerHTML = bannerString;
+            document.body.append(dataContainer);
+
+            let adblocker = false;
+            bannerIds.forEach(id => {
+                const elem = document.getElementById(id);
+
+                if (!elem || elem.offsetHeight == 0) {
+                    adblocker = true;
+                }
+
+                elem?.remove();
+            })
+
+            return adblocker;
+        }
+
+        const detectedAdblock = async () => {
+            const resp = await Promise.all([
+                outbrainErrorCheck(),
+                adligatureErrorCheck(),
+                quantserveErrorCheck(),
+                adligatureCssErrorCheck(),
+                srvtrackErrorCheck(),
+                setIntervalCheck(),
+                yieldkitCheck()
+            ]);
+
+            const isNotUsingAdblocker = resp.every(r => r == false);
+
+            return !isNotUsingAdblocker;
+        };
+
+        // ==========================================
+        // 3. EJECUCIÓN SOLO PARA HUMANOS
+        // ==========================================
+        if (!isCrawler()) {
+            detectedAdblock().then(result => {
+                if (result) {
+                    window.location.href = "disable-adblock.html";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
