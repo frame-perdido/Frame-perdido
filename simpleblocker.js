@@ -1,12 +1,11 @@
+// ==========================================
+// DETECTOR DE ADBLOCK - VERSIÓN ORIGINAL
+// ==========================================
 
-// ==========================================
-// 2. FUNCIONES DE DETECCIÓN DE ADBLOCK (TAL CUAL ESTÁN)
-// ==========================================
 const outbrainErrorCheck = async () => {
     try {
         const resp = await fetch("https://widgets.outbrain.com/outbrain.js");
         const text = await resp.text();
-
         return false;
     } catch (e) {
         return true;
@@ -19,7 +18,6 @@ const adligatureErrorCheck = async () => {
             mode: "no-cors"
         });
         const text = await resp.text();
-
         return false;
     } catch (e) {
         return true;
@@ -32,7 +30,6 @@ const quantserveErrorCheck = async () => {
             mode: "no-cors"
         });
         const text = await resp.text();
-
         return false;
     } catch (e) {
         return true;
@@ -45,7 +42,6 @@ const adligatureCssErrorCheck = async () => {
             mode: "no-cors"
         });
         const text = await resp.text();
-
         return false;
     } catch (e) {
         return true;
@@ -58,7 +54,6 @@ const srvtrackErrorCheck = async () => {
             mode: "no-cors"
         });
         const text = await resp.text();
-
         return false;
     } catch (e) {
         return true;
@@ -71,7 +66,6 @@ const yieldkitCheck = async () => {
             mode: "no-cors"
         });
         const text = await resp.text();
-
         return false;
     } catch (e) {
         return true;
@@ -133,14 +127,8 @@ const detectedAdblock = async () => {
     return !isNotUsingAdblocker;
 };
 
-// ==========================================
-// 3. EJECUCIÓN CON DETECCIÓN DE BOTS
-// ==========================================
-// 🔥 SOLO EJECUTAR SI NO ES UN BOT/CRAWLER
-if (!isCrawler()) {
-    detectedAdblock().then(result => {
-        if (result) {
-            window.location.href = "disable-adblock.html";
-        }
-    });
-}
+detectedAdblock().then(result => {
+    if (result) {
+        window.location.href = "disable-adblock.html";
+    }
+});
