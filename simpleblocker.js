@@ -1,29 +1,3 @@
-// ==========================================
-// 1. DETECCIÓN DE BOTS Y CRAWLERS
-// ==========================================
-const isCrawler = () => {
-    const ua = navigator.userAgent.toLowerCase();
-
-    const bots = [
-        "googlebot",
-        "google-inspectiontool",
-        "adsbot-google",
-        "apis-google",
-        "mediapartners-google",
-        "bingbot",
-        "duckduckbot",
-        "slurp",
-        "baiduspider",
-        "yandexbot",
-        "facebookexternalhit",
-        "twitterbot",
-        "linkedinbot",
-        "applebot",
-        "petalbot"
-    ];
-
-    return bots.some(bot => ua.includes(bot));
-};
 
 // ==========================================
 // 2. FUNCIONES DE DETECCIÓN DE ADBLOCK (TAL CUAL ESTÁN)
