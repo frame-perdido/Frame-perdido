@@ -835,5 +835,41 @@ var animes = [{
     forgotten: "A pesar de ser un spin-off interesante y bien valorado por los fans del cyberpunk, Parasite Dolls quedó eclipsado por la propia franquicia de Bubblegum Crisis. Su estreno limitado y su contenido adulto lo convirtieron en una rareza, y hoy en día es un título de culto difícil de encontrar. [citation:12]",
     reel: "",
     related: [23, 28, 17] // Relacionado con A.D. Police Files, Bubblegum Crisis, etc.
+},
+              {
+    id: 44,
+    title: "The Vision of Escaflowne",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjUHSRxMXYmvVO-GriD4UlOAVEPy4a4QFp5t39AkG07EmGghbMqjypcEoG6WNQTnMvSkT2JW2AoJkcXd_tfwAveWSvrOrQHiCz5DJYTPcH7o8LAONTHbx_rieO896IyEO7NcB92Oge3eWOJy-ElKX9Hth3erYTULmDremd9jr-9RQkxWNIEm5UpFgqZCMUP=w267-h400",
+    year: 1996,
+    type: "Serie TV",
+    duration: "26 episodios (~25 min c/u)",
+    studio: "Sunrise",
+    director: "Kazuki Akane",
+    genre: ["Fantasía", "Mecha", "Romance", "Aventura", "Drama"],
+    tags: ["fantasía", "mecha", "romance", "aventura", "isekai", "nostálgico", "épico", "música"],
+    description: "Hitomi Kanzaki, una chica de instituto con poderes psíquicos, es transportada al mundo de Gaea, donde se ve envuelta en una guerra entre reinos. Junto al príncipe Van Fanel, debe pilotar el legendario Guymelef Escaflowne para detener al imperio Zaibach.",
+    plot: "Hitomi Kanzaki es una estudiante de secundaria atrapada en sus problemas. Un día es transportada al mundo de Gaea, una tierra donde el destino de la gente está controlado por la magia y la tecnología. Allí conoce al príncipe Van Fanel, quien pilota el Escaflowne, un poderoso Guymelef (robot). Juntos, deben enfrentar al imperio Zaibach, que busca dominar Gaea. Hitomi descubre que sus poderes psíquicos pueden ver el futuro, lo que la convierte en una pieza clave en la guerra.",
+    analysis: "Escaflowne es considerada una de las mejores series de anime de los 90. Combina fantasía, mecha y romance con una historia épica. La banda sonora de Yoko Kanno y Hajime Mizoguchi es legendaria, y la animación de Sunrise es espectacular. La serie explora temas como el destino, el libre albedrío y el poder de los sueños. Aunque fue editada en occidente, su versión original es una obra maestra del género isekai.",
+    forgotten: "A pesar de su calidad, Escaflowne sufrió una mala distribución en occidente. Fue editada y censurada para su emisión en Fox Kids, lo que arruinó su reputación. Con los años, ha recuperado su estatus de culto, pero sigue siendo menos conocida que otras series de la época como Evangelion o Cowboy Bebop.",
+    reel: "",
+    related: [17, 14, 24]
+},
+              {
+    id: 45,
+    title: "Escaflowne (Película)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEijndSj8XiWVuNd8t_FpXZ5AFr5ltJqXyUTjKa-nMssshFaCAZs6BQZNFukHqgfbK-pkIkV4jSPlknLzE6HLjR5fR85VJ54jKmXDIKki6EUAPxpPfdlocewOQ3eZwZ1uZ-473VPBJDij5ncjLvDZrMTrevD_Zh334Mxfbzot7H3eivoGu9pYgErHWD4eHO2=w267-h400",
+    year: 2000,
+    type: "Película",
+    duration: "98 min",
+    studio: "Sunrise / Bones",
+    director: "Kazuki Akane",
+    genre: ["Fantasía", "Aventura", "Drama", "Romance", "Acción"],
+    tags: ["fantasía", "aventura", "drama", "romance", "dark fantasy", "película", "nostálgico"],
+    description: "Hitomi Kanzaki, una estudiante deprimida que desea desaparecer, es transportada a un mundo llamado Gaea. Allí descubre que es la 'diosa alada' profetizada que despertará al arma definitiva: Escaflowne. Una historia de autodescubrimiento y aceptación con un tono más oscuro que la serie.",
+    plot: "En la Tierra, Hitomi Kanzaki está sumida en una profunda depresión, sintiéndose aislada y deseando desaparecer. Es entonces cuando es invocada al mundo de Gaea, que está al borde de la guerra total. Los rebeldes creen que Hitomi es la 'diosa alada' que revivirá a Escaflowne, un arma capaz de destruir el mundo. Hitomi se ve envuelta en el conflicto entre el Lord Van, líder de la resistencia, y su hermano Lord Folken, que busca el poder absoluto. A diferencia de la serie, la película presenta una historia más oscura y centrada en los conflictos internos de sus personajes, especialmente en la tristeza de Hitomi y la soledad de Van.",
+    analysis: "La película de Escaflowne es un reimagining de la serie, con un tono más oscuro y serio. La animación de Bones es impresionante, y la banda sonora de Yoko Kanno es igualmente memorable. A diferencia de la serie, que tiene un tono más aventurero, la película se enfoca en la psicología de los personajes. Es una obra para quienes buscan una experiencia más adulta y melancólica.",
+    forgotten: "La película, aunque aclamada por la crítica, no tuvo un gran éxito comercial fuera de Japón. Su lanzamiento fue limitado y a menudo se la considera una rareza en comparación con la serie. Sin embargo, es una obra que ha ganado un estatus de culto con el tiempo.",
+    reel: "",
+    related: [14, 17, 39]
 }
              ];
