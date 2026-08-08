@@ -19,11 +19,12 @@ var animes = [{
     plot: "La primera película (1983) sigue a Gen y su familia durante los últimos días de la Segunda Guerra Mundial. El 6 de agosto de 1945, su vida cambia para siempre cuando la bomba atómica destruye todo lo que conoce. La película sigue su lucha por sobrevivir en un infierno de cenizas, cadáveres y radiación.",
     analysis: "Basada en el manga autobiográfico de Keiji Nakazawa, que perdió a su familia en el bombardeo. La película es cruda y directa: te agarra del cuello y no te suelta. Es un testimonio necesario que debería ser de visionado obligatorio.",
     forgotten: "A pesar de ser una obra maestra, hoy es más conocida por su reputación que por haber sido vista. Su crudeza la ha convertido en una película que muchos evitan. Pasó desapercibida en su momento y hoy es una rareza incluso entre los fans del anime más clásico.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
     saga: "Barefoot Gen",
     sagaOrder: 1,
     related: [2, 16, 23],
-    next: 2
+    next: 2,
+    category: "anime"
 }, {
     id: 2,
     title: "Barefoot Gen 2",
@@ -39,11 +40,12 @@ var animes = [{
     plot: "La secuela (1986) muestra a Gen tres años después del bombardeo, sobreviviendo con su madre y su hermano adoptivo en una chabola, enfrentando el hambre, la enfermedad y la discriminación.",
     analysis: "La segunda película es más silenciosa pero igual de desgarradora, mostrando las secuelas a largo plazo de la guerra. Es igual de importante que la primera para entender el verdadero horror de la guerra.",
     forgotten: "La segunda película es una rareza incluso entre los fans del anime más clásico. Pasó desapercibida en su momento y no tuvo la misma repercusión que la primera.",
-    reel: "",
+    trailer: "",
     saga: "Barefoot Gen",
     sagaOrder: 2,
     related: [1, 16, 23],
-    prev: 1
+    prev: 1,
+    category: "anime"
 }, {
     id: 3,
     title: "Dark Cat",
@@ -59,10 +61,11 @@ var animes = [{
     plot: "Hyoi y Ryoi son dos hermanos con la habilidad de transformarse en gatos (los llamados 'Dark Cats'). Cuando una misteriosa plaga demoníaca comienza a convertir a los estudiantes de su instituto en criaturas tentaculares, los hermanos deben investigar el origen del mal. Su misión los lleva a enfrentarse a su antiguo maestro, el malvado Jukokubo, que ha desatado el caos para obtener poder. Entre batallas con monstruos y una subtrama romántica que no aporta nada hasta el final, los Dark Cats descubren que el amor de dos estudiantes es la clave para derrotar al villano. Sí, así de absurdo es.",
     analysis: "Dark Cat es la definición de OVA de culto: animación irregular, doblaje en inglés que es tan malo que resulta hilarante, y una historia que va de un lado a otro sin mucho sentido. La banda sonora (con J-pop de los 80) es el punto más destacado. Es de esas obras que no sabes si odiar o amar, pero que nunca olvidas. El 'deus ex machina' del amor al final es tan ridículo que se convierte en legendario.",
     forgotten: "Como tantas OVAs de los 90, Dark Cat quedó sepultada bajo el aluvión de títulos que llegaban en VHS. Nunca tuvo una distribución masiva fuera de Japón, y hoy es una rareza que solo los coleccionistas más acérrimos buscan. Los fans del anime de la época lo conocen más por su reputación (buena o mala) que por haberlo visto realmente.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [23, 9, 11]
+    related: [23, 9, 11],
+    category: "anime"
 }, {
     id: 4,
     title: "Plastic Little",
@@ -78,10 +81,11 @@ var animes = [{
     plot: "Tita es la capitana de la nave 'Cha Cha Maru' y se gana la vida cazando bichos espaciales. Cuando rescata a Elysse, una fugitiva con un secreto, se ve envuelta en una conspiración que involucra a una secta religiosa, un dictador loco y un montón de naves con forma de... ¿pescado?",
     analysis: "Plastic Little es puro entretenimiento ochentero- noventero: acción, comedia, diseños de Satoshi Urushihara (con esos ojos y curvas que tanto le gustan) y una trama que no se toma en serio a sí misma. Es ligera, divertida y visualmente espectacular. La escena de la persecución en el mercado flotante es una joya de animación.",
     forgotten: "Nunca llegó a tener una gran franquicia. Es un clásico de culto para los que crecieron alquilando VHS en el videoclub. Su distribución fue limitada y, hoy en día, es una rareza que solo los coleccionistas más acérrimos buscan. Una pena, porque es de las OVAs más divertidas de los 90.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQN3s8eVhDPiX2AhdkesQbDSJmFZxZed2cacdgfsDkp-cPmfdAX9VIZYfbrS4Yt9sYWFxYzI2-nY1NR1_z_oYJeoHr1ZF7CHGMm14V8PrA.mp4?_nc_cat=111&_nc_oc=AdriFoRFZMOtBxpHMUvndy5tI-nyyl8eS7uoi36_CvyncecS1W85J6pBNgCZdQ5qUJo&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=sjjkF60ysfYQ7kNvwELIP-c&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTQ3Mzc5OTcxNDc4NDE5NCwiYXNzZXRfYWdlX2RheXMiOjIwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTA0LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=iNyviZN-04fDcScitk41lg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQBuskxasAHZqmv0RsTIhiQSm5QcvPTsVQ-Ay4gAI1_Xnw&oe=6A6C683B&bitrate=333189&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQN3s8eVhDPiX2AhdkesQbDSJmFZxZed2cacdgfsDkp-cPmfdAX9VIZYfbrS4Yt9sYWFxYzI2-nY1NR1_z_oYJeoHr1ZF7CHGMm14V8PrA.mp4?_nc_cat=111&_nc_oc=AdriFoRFZMOtBxpHMUvndy5tI-nyyl8eS7uoi36_CvyncecS1W85J6pBNgCZdQ5qUJo&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=sjjkF60ysfYQ7kNvwELIP-c&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTQ3Mzc5OTcxNDc4NDE5NCwiYXNzZXRfYWdlX2RheXMiOjIwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTA0LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=iNyviZN-04fDcScitk41lg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQBuskxasAHZqmv0RsTIhiQSm5QcvPTsVQ-Ay4gAI1_Xnw&oe=6A6C683B&bitrate=333189&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [5, 20, 21]
+    related: [5, 20, 21],
+    category: "anime"
 }, {
     id: 5,
     title: "Big Wars",
@@ -97,10 +101,11 @@ var animes = [{
     plot: "En un futuro lejano, la humanidad ha colonizado Marte. Pero no están solos: una raza alienígena llamada 'Akushu' (que significa 'Dioses' en su idioma) los está atacando. La guerra espacial está servida, y el único hombre que puede detenerla es un piloto con más cojones que cerebro.",
     analysis: "Big Wars es pura ciencia ficción espacial de los 90: naves enormes, batallas épicas y una trama que intenta ser profunda pero se queda en el camino. La animación es decente, el diseño de mechas es chulo, y la música te pone en situación. No es una obra maestra, pero si te gustan las batallas espaciales, te va a encantar.",
     forgotten: "Su distribución fuera de Japón fue casi nula. Llegó en VHS a Estados Unidos de la mano de alguna distribuidora menor y desapareció. Es una de esas OVAs que solo los fans más hardcore del mecha conocen. Una joya oculta para los amantes de la ciencia ficción.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQNuz_c6QMsBEEMKx3z6AspoWoFWkLYQOATxV9oFBw2v1F5Nz0PyiU_9w7lQ1zeXkVudMYjwtTb9bTSDJ1w0s2E02XoEI9xZxHEgE23rNQ.mp4?_nc_cat=110&_nc_oc=AdrxD5ol7Pd1nh_CWYdyWj7uq0baAwinlmhH0dDEIpJ2UYWMoF6V1DFDaTCHWKNwkhM&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=DCkW_WUAQv0Q7kNvwGrPfSf&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTUxMDg4MTc1MzMzMDI5NCwiYXNzZXRfYWdlX2RheXMiOjE3LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=Tx8Kff8pv4nuF1OzsGbToQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQB37Jt3Yo_uCUDBSB15-BiVwxnI3V2wPb8m5o_zXQVi9g&oe=6A657748&bitrate=305927&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQNuz_c6QMsBEEMKx3z6AspoWoFWkLYQOATxV9oFBw2v1F5Nz0PyiU_9w7lQ1zeXkVudMYjwtTb9bTSDJ1w0s2E02XoEI9xZxHEgE23rNQ.mp4?_nc_cat=110&_nc_oc=AdrxD5ol7Pd1nh_CWYdyWj7uq0baAwinlmhH0dDEIpJ2UYWMoF6V1DFDaTCHWKNwkhM&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=DCkW_WUAQv0Q7kNvwGrPfSf&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTUxMDg4MTc1MzMzMDI5NCwiYXNzZXRfYWdlX2RheXMiOjE3LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=Tx8Kff8pv4nuF1OzsGbToQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQB37Jt3Yo_uCUDBSB15-BiVwxnI3V2wPb8m5o_zXQVi9g&oe=6A657748&bitrate=305927&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [5, 19, 20]
+    related: [5, 19, 20],
+    category: "anime"
 }, {
     id: 6,
     title: "Nineteen 19",
@@ -116,10 +121,11 @@ var animes = [{
     plot: "Kazushi es un estudiante universitario de 19 años que no tiene novia. Sus amigos le animan a encontrar una, pero él no tiene suerte. Cuando su primer amor de la infancia, Megumi, aparece de repente en su club, todo se revoluciona. Pero Megumi no es la misma chica que él recordaba, y Kazushi tendrá que enfrentarse a sus propios sentimientos.",
     analysis: "Nineteen 19 es un OVA romántico y melancólico de los que ya no se hacen. Madhouse demuestra que sabe hacer algo más que acción y violencia, con una historia sencilla pero bien contada. La animación es bonita, los personajes son creíbles y la música te atrapa. Ideal para una noche de domingo con una manta y una taza de té.",
     forgotten: "Es un OVA de romance puro, fácil de pasar por alto en una época dominada por el sci-fi y la acción. Además, su título genérico no ayuda a que la gente lo recuerde. Una joya escondida para los amantes del anime romántico.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQNbobnd3IGEr5M1rC4Y8DyZBetg7Zpm5l_Ca112HSu_vuGURW4KfWikvcB8WjZoi5IlA32QqPcVb-tz646eXy4Psyj2x4X4eZnWIUFIoA.mp4?_nc_cat=103&_nc_oc=Adr2MUV6Hg8V2IZv08R3agK-M985CG67cTqEXcjohrKY1LjE2PHgC0H6J1ymbt8-Lng&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=uD9ocIOI68IQ7kNvwFsR_Ti&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjAxMDU4NDk3MzE3OTMxNywiYXNzZXRfYWdlX2RheXMiOjE5LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6ODAsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=QMAilHvybEn_6EnJkSBIxQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQDP0YnDgkXbLR7dZQAZy2OzJyiZ7Cs5oSVpc-AkwRihdg&oe=6A656FEB&bitrate=174224&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQNbobnd3IGEr5M1rC4Y8DyZBetg7Zpm5l_Ca112HSu_vuGURW4KfWikvcB8WjZoi5IlA32QqPcVb-tz646eXy4Psyj2x4X4eZnWIUFIoA.mp4?_nc_cat=103&_nc_oc=Adr2MUV6Hg8V2IZv08R3agK-M985CG67cTqEXcjohrKY1LjE2PHgC0H6J1ymbt8-Lng&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=uD9ocIOI68IQ7kNvwFsR_Ti&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjAxMDU4NDk3MzE3OTMxNywiYXNzZXRfYWdlX2RheXMiOjE5LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6ODAsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=QMAilHvybEn_6EnJkSBIxQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQDP0YnDgkXbLR7dZQAZy2OzJyiZ7Cs5oSVpc-AkwRihdg&oe=6A656FEB&bitrate=174224&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [21, 16]
+    related: [21, 16],
+    category: "anime"
 }, {
     id: 7,
     title: "Lily C.A.T.",
@@ -135,10 +141,11 @@ var animes = [{
     plot: "En el siglo XXIII, la nave Saldes viaja con una tripulación mixta de personal de la compañía Syncam y oficiales de la nave. Cuando el ordenador detecta desechos espaciales y los recoge, una bacteria extraterrestre se libera. Los pasajeros empiezan a morir de una infección misteriosa que disuelve sus cuerpos pero deja la ropa intacta. Pronto descubren que la bacteria evoluciona rápidamente y puede imitar la forma de sus víctimas. Mientras los supervivientes luchan por mantenerse con vida, se revela que dos de los pasajeros son impostores: un asesino y un detective que lo persigue. Pero el verdadero enemigo es Lily C.A.T., un robot con forma de gato que ha tomado el control de la nave.",
     analysis: "Lily C.A.T. es una carta de amor al terror espacial de los 80, con claras influencias de Alien y La Cosa de John Carpenter. La animación es tosca pero efectiva, y el diseño de la criatura es obra de Yoshitaka Amano, el legendario artista de Vampire Hunter D y Final Fantasy. Tiene un toque de serie B que le da encanto, y la trama, aunque predecible, se sigue con interés. La banda sonora de Akira Inoue crea una atmósfera opresiva que te atrapa desde el primer minuto.",
     forgotten: "Lily C.A.T. fue víctima de su título extraño y su distribución limitada. La versión en inglés fue producida por Carl Macek (el responsable de Robotech) y distribuida por Streamline Pictures, pero la compañía quebró y los derechos quedaron en el limbo. Hoy es un objeto de culto para los coleccionistas de OVAs de terror espacial, pero el público general ni siquiera sabe que existe. Una joya oculta que merece ser rescatada.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQOLANgIVFHntlbrwUjArmXNh-D-NzfA2bKRTDwxtBy2AzXYBgT2k5hTiRsySLbo28U4QRl0kq3OTmG8mzCcbYId-6eFnMVGA7DLhwVdig.mp4?_nc_cat=111&_nc_oc=AdohpFc-ESsIchkW1JAeSzTVAtunPtaCOFab0LCfZsBo28WgVnBe2nWM_slDxlZKd1o&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=ay_sY3jbeCIQ7kNvwHi0bb5&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjA4ODcwMTAxMjUyNzA5NCwiYXNzZXRfYWdlX2RheXMiOjE5LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=EN7YQAP3vhRjGmjrsqUkFQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCPqoiiciUrazn35BoXMKxguqaQ0dMiDdLK983EQL1caQ&oe=6A657C8F&bitrate=275515&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQOLANgIVFHntlbrwUjArmXNh-D-NzfA2bKRTDwxtBy2AzXYBgT2k5hTiRsySLbo28U4QRl0kq3OTmG8mzCcbYId-6eFnMVGA7DLhwVdig.mp4?_nc_cat=111&_nc_oc=AdohpFc-ESsIchkW1JAeSzTVAtunPtaCOFab0LCfZsBo28WgVnBe2nWM_slDxlZKd1o&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=ay_sY3jbeCIQ7kNvwHi0bb5&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjA4ODcwMTAxMjUyNzA5NCwiYXNzZXRfYWdlX2RheXMiOjE5LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=EN7YQAP3vhRjGmjrsqUkFQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCPqoiiciUrazn35BoXMKxguqaQ0dMiDdLK983EQL1caQ&oe=6A657C8F&bitrate=275515&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [8, 11, 3]
+    related: [8, 11, 3],
+    category: "anime"
 }, {
     id: 8,
     title: "Roots Search",
@@ -154,10 +161,11 @@ var animes = [{
     plot: "Un equipo de investigación espacial encuentra una nave desierta. Pero no está vacía: algo se ha quedado dentro, y ahora ha viajado con ellos. La tripulación empieza a morir de manera extraña, y el horror se apodera de la nave. ¿Qué es lo que han traído a bordo? ¿Y cómo pueden detenerlo antes de que sea demasiado tarde?",
     analysis: "Roots Search es el ejemplo perfecto de OVA de terror espacial de serie B. Tiene el encanto de las películas de terror de los 80: efectos especiales cutres, una trama que no se toma demasiado en serio, y una atmósfera de claustrofobia que te atrapa. La animación es limitada, pero la historia tiene un ritmo ágil que te mantiene pegado a la pantalla.",
     forgotten: "Roots Search es el ejemplo perfecto de OVA que pasó sin pena ni gloria. Nunca tuvo una distribución internacional decente, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Su título genérico y su portada cutre no ayudan a que la gente la recuerde. Una joya oculta del terror espacial.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPneRMDn0kq0cLHSlrEJtcpKhHlqNEtcpk8-jKAZWvDWHhBm6x3ely93NSw7XKmTgFDOBEjYWi6ekG8skiHMGoFUCnahhJeIgOHZM0KOQ.mp4?_nc_cat=107&_nc_oc=Adqg-hYKZ-rmcKuP6eCJGNjYqEtBI6E3V9h36ODvyfjn22_XUeKBBr54V-hFkBAkhYg&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=CYKInaDPl2cQ7kNvwFWduc2&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTYyODcyODAzNDY0MDAxLCJhc3NldF9hZ2VfZGF5cyI6MjYsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMDksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=8NfziTJ2q30M5nzZBWRcyQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQA7kRiZB6i4A74DerS6sybrE7EtQxgmJm82z_Amu4fNcQ&oe=6A6C8583&bitrate=201906&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPneRMDn0kq0cLHSlrEJtcpKhHlqNEtcpk8-jKAZWvDWHhBm6x3ely93NSw7XKmTgFDOBEjYWi6ekG8skiHMGoFUCnahhJeIgOHZM0KOQ.mp4?_nc_cat=107&_nc_oc=Adqg-hYKZ-rmcKuP6eCJGNjYqEtBI6E3V9h36ODvyfjn22_XUeKBBr54V-hFkBAkhYg&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=CYKInaDPl2cQ7kNvwFWduc2&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTYyODcyODAzNDY0MDAxLCJhc3NldF9hZ2VfZGF5cyI6MjYsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMDksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=8NfziTJ2q30M5nzZBWRcyQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQA7kRiZB6i4A74DerS6sybrE7EtQxgmJm82z_Amu4fNcQ&oe=6A6C8583&bitrate=201906&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [5, 11, 7]
+    related: [5, 11, 7],
+    category: "anime"
 }, {
     id: 9,
     title: "Midori: La Niña de las Camelias",
@@ -173,10 +181,11 @@ var animes = [{
     plot: "En el Japón de la posguerra, Midori queda huérfana y es acogida por el dueño de un circo ambulante. Pronto descubre que el circo no es más que una fachada: sus integrantes son fenómenos de feria, marginados y sádicos, que la someten a todo tipo de abusos. Midori busca desesperadamente una salida, pero el circo es un laberinto sin puertas. Su única aliada es una enana que también sufre, pero incluso la amistad es frágil en este mundo de pesadilla. El final es uno de los momentos más perturbadores de la historia del anime.",
     analysis: "Midori es una obra que no debería existir. Y sin embargo, existe, y es una maldita obra maestra. Hiroshi Harada pasó 5 años dibujando a mano cada fotograma, con un nivel de detalle que duele. La animación es hipnótica, los colores son vibrantes y la banda sonora es de una belleza cruel. Pero la historia es un puñetazo en el estómago: abuso, degradación, violencia, y un final que te deja con el alma en carne viva. No es para estómagos sensibles, pero es una obra de arte que no se puede ignorar. Es el 'Saló' del anime.",
     forgotten: "Midori fue censurada en Japón antes de su lanzamiento. El gobierno consideró que era 'peligrosa para la moral pública' y ordenó destruir las copias. Harada la proyectó en un solo cine durante una semana antes de que la prohibieran. Pero la historia es aún más oscura: algunas personas entraron en su casa, robaron parte del metraje y destruyeron escenas, por lo que Harada tuvo que reemplazar algunas con fotos y acortar la película. Las copias que sobrevivieron circularon en el circuito underground durante décadas. Hoy es un objeto de culto, pero también un recordatorio de que el anime puede ser tan oscuro como el alma humana.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQPV9akZDJposK44RAQaTSFKAfmd1PX8h_jEuG-bnYcUXGEY5hTdn7tJKhwdoQ3-SsuZP6CN5Go9-eBcbeKPTfgqYACh2qMGwGiNc1x_-g.mp4?_nc_cat=105&_nc_oc=AdpUgbz488xblZ2orq-ymb09P39tHeK9JudPqz0rfdXXpHvPXGErb-ANKcvNXkBWOfg&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=R2KLDoJ10usQ7kNvwG9_66-&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTc0MzQ4OTQyMjcwNjYzLCJhc3NldF9hZ2VfZGF5cyI6MjQsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMDMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=27osSeu5750_FRxBuuKc7w&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQDXyWs_H5Ru_5RBd8W_Amvrwu63pgMvyJ8LNr6oQQDZtA&oe=6A6579B1&bitrate=302525&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQPV9akZDJposK44RAQaTSFKAfmd1PX8h_jEuG-bnYcUXGEY5hTdn7tJKhwdoQ3-SsuZP6CN5Go9-eBcbeKPTfgqYACh2qMGwGiNc1x_-g.mp4?_nc_cat=105&_nc_oc=AdpUgbz488xblZ2orq-ymb09P39tHeK9JudPqz0rfdXXpHvPXGErb-ANKcvNXkBWOfg&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=R2KLDoJ10usQ7kNvwG9_66-&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTc0MzQ4OTQyMjcwNjYzLCJhc3NldF9hZ2VfZGF5cyI6MjQsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMDMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=27osSeu5750_FRxBuuKc7w&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQDXyWs_H5Ru_5RBd8W_Amvrwu63pgMvyJ8LNr6oQQDZtA&oe=6A6579B1&bitrate=302525&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [10, 9]
+    related: [10, 9],
+    category: "anime"
 }, {
     id: 10,
     title: "MD Geist",
@@ -192,10 +201,11 @@ var animes = [{
     plot: "En un futuro post-apocalíptico, el soldado Geist despierta de su congelación criogénica. Es un M.D.S. (Most Dangerous Soldier), una máquina de matar creada para la guerra. Pero la guerra ha terminado, y ahora Geist no tiene propósito. Hasta que descubre que el planeta está bajo el control de un dictador loco, y decide que la única solución es... más guerra.",
     analysis: "MD Geist es el prototipo de OVA de acción de los 80: violencia sin concesiones, un protagonista que es más bestia que persona, y una trama que apenas se sostiene. Pero es tan exagerado, tan ridículo y tan violento que resulta entretenido. Es la versión anime de las películas de acción de los 80, con todo lo bueno y lo malo que eso conlleva.",
     forgotten: "Nunca llegó a ser tan popular como otras series del género. Su protagonista es un psicópata, la violencia es excesiva y la trama es casi inexistente. Es una OVA de culto para los que buscan acción pura y dura, pero el público general la ha olvidado. Una rareza que solo los fans del mecha más hardcore recuerdan.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPDdpaug0HJypGQVzQiGz2HvW6FOklWlmE0TEMIWEBKUCh_wuOI06m0Akp2f539eEJl7dgK-uiwR6s0k_uyIb0tRPR276hcBI4zt4IK-w.mp4?_nc_cat=110&_nc_oc=AdpMHL2mAdZz-MJbzLHsboTKcafVTu2IBBk2BPqFUux3bWejksoHc9h-HG88BKuOf70&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=loXPRiSxBCsQ7kNvwHoKFDI&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjcyNDMzNTA5OTUzMDY1MjcsImFzc2V0X2FnZV9kYXlzIjoyNSwidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjE0MSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=FNP8kHOoUN54s6VnPGqnZA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCO-Y3g2ciNUn42TTDb3_wA9h0LD9gxKnXEFiKp1Da_ig&oe=6A657738&bitrate=274037&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPDdpaug0HJypGQVzQiGz2HvW6FOklWlmE0TEMIWEBKUCh_wuOI06m0Akp2f539eEJl7dgK-uiwR6s0k_uyIb0tRPR276hcBI4zt4IK-w.mp4?_nc_cat=110&_nc_oc=AdpMHL2mAdZz-MJbzLHsboTKcafVTu2IBBk2BPqFUux3bWejksoHc9h-HG88BKuOf70&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=loXPRiSxBCsQ7kNvwHoKFDI&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjcyNDMzNTA5OTUzMDY1MjcsImFzc2V0X2FnZV9kYXlzIjoyNSwidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjE0MSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=FNP8kHOoUN54s6VnPGqnZA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCO-Y3g2ciNUn42TTDb3_wA9h0LD9gxKnXEFiKp1Da_ig&oe=6A657738&bitrate=274037&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [10, 12, 20]
+    related: [10, 12, 20],
+    category: "anime"
 }, {
     id: 11,
     title: "Hell Target",
@@ -211,10 +221,11 @@ var animes = [{
     plot: "En el planeta Inferno II, un equipo de exploración encuentra una nave abandonada. Pero no está vacía. Una amenaza alienígena se despierta y empieza a matar a la tripulación uno por uno. La única esperanza es descubrir qué es lo que están enfrentando antes de que sea demasiado tarde.",
     analysis: "Hell Target es otra OVA de terror espacial de los 80, con el mismo ADN que Lily C.A.T. y Roots Search. Tiene el encanto de las películas de terror de serie B, con una animación limitada pero efectiva, y una trama que no se toma demasiado en serio. Es el tipo de OVA que veías a las 2 de la madrugada en el videoclub y no podías parar de ver.",
     forgotten: "Es una de esas OVAs que solo existieron en VHS. Nunca tuvo una distribución internacional decente, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Una joya oculta del terror espacial que merece ser rescatada.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMX6_MKhmByEXhLUWv04le_sQPqA91OQ4k0QAPDVQDQXbXrYPpGU3On4iV8ebsdLTvNHNilVwGtaEkHrdDrZNr8BX2eVQoQlWhwKacmbg.mp4?_nc_cat=104&_nc_oc=AdrWEqRvvdPsw0D0tHrBvn3yS9ysPOwDScB3ksa7P5mN9n-MVaCVp_mRdtV-yjHhmTk&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=PMOIXvxtWGMQ7kNvwHIujAt&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTkyNzI3MDIwMDcxNDYxLCJhc3NldF9hZ2VfZGF5cyI6NDksInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjo2NCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=vzQXnmo2whrS2IpO0pf2tg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAf3nL66BlPq_q3PhJGbPLM3qfxGQLzNSrkAjBC9WeSOA&oe=6A659892&bitrate=213483&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMX6_MKhmByEXhLUWv04le_sQPqA91OQ4k0QAPDVQDQXbXrYPpGU3On4iV8ebsdLTvNHNilVwGtaEkHrdDrZNr8BX2eVQoQlWhwKacmbg.mp4?_nc_cat=104&_nc_oc=AdrWEqRvvdPsw0D0tHrBvn3yS9ysPOwDScB3ksa7P5mN9n-MVaCVp_mRdtV-yjHhmTk&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=PMOIXvxtWGMQ7kNvwHIujAt&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTkyNzI3MDIwMDcxNDYxLCJhc3NldF9hZ2VfZGF5cyI6NDksInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjo2NCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=vzQXnmo2whrS2IpO0pf2tg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAf3nL66BlPq_q3PhJGbPLM3qfxGQLzNSrkAjBC9WeSOA&oe=6A659892&bitrate=213483&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [5, 6, 8]
+    related: [5, 6, 8],
+    category: "anime"
 }, {
     id: 12,
     title: "Ninja Resurrection",
@@ -230,10 +241,11 @@ var animes = [{
     plot: "En el Japón del siglo XVII, Amakusa Shiro lidera una rebelión cristiana contra el shogunato. Es derrotado y ejecutado. Pero no muere. Resucita con poderes demoníacos, y su venganza es más aterradora que su vida. Ninjas, samuráis y monjes se enfrentan a una amenaza sobrenatural que podría destruir Japón.",
     analysis: "Ninja Resurrection es pura acción de los 90: violencia exagerada, un protagonista que es más bestia que humano, y una trama que apenas se sostiene. La animación es decente, y las escenas de lucha son coreografiadas con un ritmo trepidante. Pero la historia es confusa y los personajes son planos. Es el tipo de OVA que ves por la acción, no por la historia.",
     forgotten: "Solo se hicieron dos episodios de los cuatro planeados. La serie fue cancelada por bajo presupuesto o falta de interés, y nunca se completó. Es una rareza para los fans del anime de acción, pero el público general la ha olvidado. Una OVA que prometía y no cumplió.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMuCfABFaWNYtEq1SXTt6H1GxlRyQWWGGggx2TCS9dyebfSoOeUmGZEiHldxjrjFAI0bDRbMtl2LYaNATM_zU29gl54u1BJXfCVvZJy4g.mp4?_nc_cat=102&_nc_oc=AdrCzSDg8fwcxeqK15jYCTQZguCpTQ7-VfeLX1vSpmecIDczQVkzsY4vXr0VY8CC5IE&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=iYpGWUW47SgQ7kNvwGj1cMk&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjIzMjg1MzAxMDg2Mzg5MCwiYXNzZXRfYWdlX2RheXMiOjUwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzcsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=NKB7KFDnrHaoZwGjIOvjeA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQD6VRWrHwenwPSGDdymRFF8fIFKyydCsEf18ObyPnZO9Q&oe=6A658574&bitrate=222128&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMuCfABFaWNYtEq1SXTt6H1GxlRyQWWGGggx2TCS9dyebfSoOeUmGZEiHldxjrjFAI0bDRbMtl2LYaNATM_zU29gl54u1BJXfCVvZJy4g.mp4?_nc_cat=102&_nc_oc=AdrCzSDg8fwcxeqK15jYCTQZguCpTQ7-VfeLX1vSpmecIDczQVkzsY4vXr0VY8CC5IE&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=iYpGWUW47SgQ7kNvwGj1cMk&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjIzMjg1MzAxMDg2Mzg5MCwiYXNzZXRfYWdlX2RheXMiOjUwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzcsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=NKB7KFDnrHaoZwGjIOvjeA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQD6VRWrHwenwPSGDdymRFF8fIFKyydCsEf18ObyPnZO9Q&oe=6A658574&bitrate=222128&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [8, 12, 13]
+    related: [8, 12, 13],
+    category: "anime"
 }, {
     id: 13,
     title: "Battle Royal High School",
@@ -249,10 +261,11 @@ var animes = [{
     plot: "En el instituto de la ciudad de Tokio, los estudiantes son entrenados en artes marciales para defenderse de los demonios que acechan en las sombras. Pero cuando una invasión demoníaca amenaza la ciudad, los estudiantes se convierten en la última línea de defensa. El problema es que algunos de ellos no son tan humanos como parecen.",
     analysis: "Battle Royal High School es pura acción de los 80: artes marciales, demonios, estudiantes y una trama que apenas se sostiene. La animación es decente, y las escenas de lucha son coreografiadas con un ritmo trepidante. Es el tipo de OVA que ves por la acción, no por la historia. Un clásico de culto para los fans del anime de acción.",
     forgotten: "Su distribución fuera de Japón fue muy limitada. Nunca llegó a tener el éxito de otras series del género, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Una joya oculta para los amantes de la acción.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPOTQ3McHbjlDIMgPNmFirizkaQMNyGCL31scwXPQpoi9B5cMB3UbeaOsv5uZPKZN2puVvOVywks5WrOgFlb3E7MfwC2z0VksPywxe-DA.mp4?_nc_cat=109&_nc_oc=AdqVb88xTCPGk9skUCvZPuosv7MT_dYJE8BoFe5_MqLk-91hy_EeW0rG_7TiEFjEKt4&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=QXgWq3gLUmsQ7kNvwFiPW7Q&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjA0NzA5NTEzOTI0OTYyOSwiYXNzZXRfYWdlX2RheXMiOjU1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=5P9lkars0hoVf119K__3yQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCeazsoZaE6m_FVu_Ngil_D94hHzj-lMdnlj4vNGaxcgQ&oe=6A6579E5&bitrate=302968&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPOTQ3McHbjlDIMgPNmFirizkaQMNyGCL31scwXPQpoi9B5cMB3UbeaOsv5uZPKZN2puVvOVywks5WrOgFlb3E7MfwC2z0VksPywxe-DA.mp4?_nc_cat=109&_nc_oc=AdqVb88xTCPGk9skUCvZPuosv7MT_dYJE8BoFe5_MqLk-91hy_EeW0rG_7TiEFjEKt4&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=QXgWq3gLUmsQ7kNvwFiPW7Q&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjA0NzA5NTEzOTI0OTYyOSwiYXNzZXRfYWdlX2RheXMiOjU1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=5P9lkars0hoVf119K__3yQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCeazsoZaE6m_FVu_Ngil_D94hHzj-lMdnlj4vNGaxcgQ&oe=6A6579E5&bitrate=302968&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [10, 12, 14]
+    related: [10, 12, 14],
+    category: "anime"
 }, {
     id: 14,
     title: "Fatal Fury: Legend of the Hungry Wolf",
@@ -268,11 +281,12 @@ var animes = [{
     plot: "Terry y Andy Bogard son dos hermanos que buscan venganza contra Geese Howard, el hombre que asesinó a su padre adoptivo. Para ello, participan en el torneo King of Fighters, donde se enfrentarán a los mejores luchadores del mundo. Pero Geese no es un rival cualquiera, y la venganza no será tan fácil como esperaban.",
     analysis: "Legend of the Hungry Wolf es la primera adaptación animada del famoso videojuego de SNK. La película es fiel al material original, con escenas de lucha coreografiadas y un ritmo trepidante. Es una obra de culto para los fans de Fatal Fury, pero también una buena introducción para los que no conocen la saga.",
     forgotten: "Su corta duración y lanzamiento directo en VHS la convirtieron en un producto de nicho. Hoy es una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQMmQ4KZKxrtXvZJdJ9NhswL-OCsRszZV0LfWZvUwth6qpk7thzVJadY_GaWyRjFzAaJOO-Grl-hLRHQfNmd4bc07QEZ4-OVD4H_Svy1Mg.mp4?_nc_cat=109&_nc_oc=AdprWjSaGNOvHqCy5yyyDuUGId2Yu1j-uBXwmAWXUewiRttE3hq_K9NS-Tzki5P1zvw&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=S9eFahubvwIQ7kNvwFzyM0N&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTI3MDMwMjM5ODQyNDI2NywiYXNzZXRfYWdlX2RheXMiOjY1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzYsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=1JM75uOR74jO5n5w-Pb8ZA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQChplbPAtpkH21oYEHFl0JAE_Ki3QYxyQkZO74Z62ZW-A&oe=6A6C6D61&bitrate=249689&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQMmQ4KZKxrtXvZJdJ9NhswL-OCsRszZV0LfWZvUwth6qpk7thzVJadY_GaWyRjFzAaJOO-Grl-hLRHQfNmd4bc07QEZ4-OVD4H_Svy1Mg.mp4?_nc_cat=109&_nc_oc=AdprWjSaGNOvHqCy5yyyDuUGId2Yu1j-uBXwmAWXUewiRttE3hq_K9NS-Tzki5P1zvw&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=S9eFahubvwIQ7kNvwFzyM0N&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTI3MDMwMjM5ODQyNDI2NywiYXNzZXRfYWdlX2RheXMiOjY1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzYsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=1JM75uOR74jO5n5w-Pb8ZA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQChplbPAtpkH21oYEHFl0JAE_Ki3QYxyQkZO74Z62ZW-A&oe=6A6C6D61&bitrate=249689&tag=sve_sd",
     saga: "Fatal Fury",
     sagaOrder: 1,
     related: [8, 10],
-    next: 15
+    next: 15,
+    category: "anime"
 }, {
     id: 15,
     title: "Fatal Fury 2: The New Battle",
@@ -288,12 +302,13 @@ var animes = [{
     plot: "Terry Bogard es derrotado por Wolfgang Krauser en una pelea brutal. Humillado y sin fuerzas, cae en el alcoholismo y la depresión. Pero cuando descubre que Krauser planea conquistar el mundo de las artes marciales, Terry decide levantarse de nuevo y entrenar para derrotarlo.",
     analysis: "The New Battle es una película más oscura que su predecesora, con un tono más dramático y un protagonista que debe superar sus demonios personales. La animación es mejorada, y las escenas de lucha son más espectaculares. Es una secuela que supera a la primera en muchos aspectos.",
     forgotten: "Al igual que la primera, su lanzamiento en VHS la limitó a un público de nicho. Hoy es una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
-    reel: "",
+    trailer: "",
     saga: "Fatal Fury",
     sagaOrder: 2,
     related: [8, 10],
     prev: 14,
-    next: 16
+    next: 16,
+    category: "anime"
 }, {
     id: 16,
     title: "Fatal Fury: The Motion Picture",
@@ -309,11 +324,12 @@ var animes = [{
     plot: "Laocorn, un guerrero con poderes sobrenaturales, viaja por el mundo en busca de las armaduras de los dioses. Terry, Andy y Joe se unen para detenerlo, viajando a diferentes países para enfrentarlo. Pero Laocorn es más poderoso de lo que imaginan, y su objetivo es resucitar a un antiguo dios para destruir el mundo.",
     analysis: "The Motion Picture es la película más ambiciosa de la saga, con una animación espectacular y una historia que abarca todo el mundo. Es una película de aventuras que combina artes marciales, fantasía y acción. Es la mejor película de la saga, y un clásico del anime de los 90.",
     forgotten: "A pesar de ser la mejor película de la saga, su lanzamiento en VHS la limitó a un público de nicho. Hoy es una rareza que solo los fans más acérrimos de Fatal Fury recuerdan.",
-    reel: "",
+    trailer: "",
     saga: "Fatal Fury",
     sagaOrder: 3,
     related: [8, 10],
-    prev: 15
+    prev: 15,
+    category: "anime"
 }, {
     id: 17,
     title: "Blood Reign: Curse of the Yoma",
@@ -329,10 +345,11 @@ var animes = [{
     plot: "Hikage es un ninja que debe enfrentarse a su antiguo amigo, que ha sido poseído por un demonio. La batalla se intensifica cuando otros demonios comienzan a aparecer, y Hikage descubre que la única forma de salvar a su amigo es viajar al mundo de los muertos. Pero el viaje será más peligroso de lo que imagina.",
     analysis: "Blood Reign es una OVA de horror y acción de los 90. La animación es oscura y gore, y la historia es una mezcla de tragedia y violencia. Es una obra que muestra lo mejor del anime de terror de la época.",
     forgotten: "Es una OVA que pasó desapercibida en su momento. Su distribución fuera de Japón fue limitada, y hoy es una joya oculta para los amantes del horror y la fantasía oscura.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQM9_KH-CT48gRwEx9Csn4tdL74QSb0Kr9QkekyWMW4skVWSjWaiH7DIq95js1Cuh0it6WiI9hOwQ0Z0ZRvaZU56sVZrI8retn5I-dUdYA.mp4?_nc_cat=101&_nc_oc=AdqT6IBJ607xEt--thG4EnddWcebrV_ITmnYkB5d8LgLj9-BHxSeXeO5IKTSwspxS9o&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=LGBEVua3vjIQ7kNvwFvPi9h&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyMzI4Nzc0Mzc0NTI0NCwiYXNzZXRfYWdlX2RheXMiOjIsInZpX3VzZWNhc2VfaWQiOjEwMTIwLCJkdXJhdGlvbl9zIjo5MCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=Bak08fRFB88QGaY_XeIFOg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQD8Wnglfh6rRSmHUDe72Ec5Rl5jlcJF2JXTS_raoUlXMg&oe=6A6C755D&bitrate=361939&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQM9_KH-CT48gRwEx9Csn4tdL74QSb0Kr9QkekyWMW4skVWSjWaiH7DIq95js1Cuh0it6WiI9hOwQ0Z0ZRvaZU56sVZrI8retn5I-dUdYA.mp4?_nc_cat=101&_nc_oc=AdqT6IBJ607xEt--thG4EnddWcebrV_ITmnYkB5d8LgLj9-BHxSeXeO5IKTSwspxS9o&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=LGBEVua3vjIQ7kNvwFvPi9h&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyMzI4Nzc0Mzc0NTI0NCwiYXNzZXRfYWdlX2RheXMiOjIsInZpX3VzZWNhc2VfaWQiOjEwMTIwLCJkdXJhdGlvbl9zIjo5MCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=Bak08fRFB88QGaY_XeIFOg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQD8Wnglfh6rRSmHUDe72Ec5Rl5jlcJF2JXTS_raoUlXMg&oe=6A6C755D&bitrate=361939&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [8, 10, 15, 20]
+    related: [8, 10, 15, 20],
+    category: "anime"
 }, {
     id: 18,
     title: "Angel's Egg",
@@ -348,10 +365,11 @@ var animes = [{
     plot: "Una niña anónima protege un huevo enorme en un mundo sombrío y devastado. Un soldado con una cruz en la espalda la encuentra y decide seguirla. Juntos recorren una ciudad en ruinas, un mar de piedra y árboles petrificados. Mientras ella protege su huevo, él busca respuestas que nunca llegan. El final te dejará sin aliento.",
     analysis: "Angel's Egg es lo que pasaría si Tarkovsky hiciera anime. Mamoru Oshii (Ghost in the Shell) se alió con Yoshitaka Amano (Final Fantasy) para crear una obra que desafía toda lógica narrativa. No hay diálogos importantes, no hay explicaciones, solo imágenes que te perforan la retina: peces gigantes volando, sombras que caminan solas, una niña que no habla y un huevo que podría serlo todo o nada. Es una experiencia religiosa, onírica, y profundamente melancólica. La banda sonora de Yoshihiro Kanno te atrapa y no te suelta hasta que los créditos pasan. No es para todos, pero los que la entienden la llevan tatuada en el alma.",
     forgotten: "Angel's Egg nació muerta comercialmente. Oshii la hizo como un experimento personal, sin pensar en el público. En Japón se proyectó en una sola sala de cine y desapareció. Nunca tuvo lanzamiento en VHS en Occidente, solo circuló en copias piratas y grabaciones de televisión. Su rareza la convirtió en leyenda entre coleccionistas, pero el público general ni siquiera sabe que existe. Hoy es un fantasma que algunos buscan con desesperación.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [16, 18, 24]
+    related: [16, 18, 24],
+    category: "anime"
 }, {
     id: 19,
     title: "Riki-Oh: The Wall of Hell",
@@ -367,10 +385,11 @@ var animes = [{
     plot: "Riki-Oh es un artista marcial con fuerza sobrehumana. Tras ser encarcelado injustamente en una prisión privada, descubre que los guardias y los presos están controlados por la mafia. Riki-Oh decide tomarse la justicia por su mano, usando sus habilidades para sobrevivir y enfrentarse a los criminales que lo rodean.",
     analysis: "Riki-Oh es la adaptación del manga más violento. La violencia es exagerada hasta el absurdo: Riki-Oh arranca cabezas, parte cuerpos y destroza todo a su paso. Es una obra de culto para los amantes del gore, pero no es para todos los públicos. La animación es limitada, pero las escenas de lucha son coreografiadas con un ritmo trepidante.",
     forgotten: "Fue tan extremo que su distribución fue muy limitada. La censura y la violencia excesiva la convirtieron en un producto de nicho, y hoy es una rareza que solo los fans más hardcore del gore conocen. Una joya oculta para los amantes de la violencia.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [8, 10, 12]
+    related: [8, 10, 12],
+    category: "anime"
 }, {
     id: 20,
     title: "Roujin Z",
@@ -386,10 +405,11 @@ var animes = [{
     plot: "El robot Z-001 es un androide diseñado para cuidar de ancianos. Pero cuando se vuelve loco, decide que el mejor cuidado para su anciano es... llevárselo a la playa. Mientras el gobierno intenta detenerlo, una estudiante de enfermería y un grupo de ancianos se unen para proteger al robot. Una comedia de ciencia ficción que no te dejará indiferente.",
     analysis: "Roujin Z es una sátira divertidísima sobre el envejecimiento, la burocracia y la tecnología. La animación es excelente, y la historia está llena de momentos hilarantes y otros más emotivos. Es una película que te hará reír y reflexionar a partes iguales. Una joya del anime de los 90.",
     forgotten: "No tuvo el éxito que merecía. Pasó desapercibida en su momento, y hoy es una rareza que solo los fans del anime más nostálgico recuerdan. Una película que merece ser redescubierta.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [14, 18, 24]
+    related: [14, 18, 24],
+    category: "anime"
 }, {
     id: 21,
     title: "Megazone 23",
@@ -405,10 +425,11 @@ var animes = [{
     plot: "En el Tokio de 1985, Shogo es un joven biker que recibe una misteriosa motocicleta llamada Garland. Pronto descubre que la moto es en realidad un sistema de armas robótico, y que su mundo no es lo que parece. Perseguido por el ejército, Shogo se ve envuelto en una conspiración que lo llevará a descubrir la verdad sobre su realidad: vive en una simulación, y el mundo real está a punto de ser destruido.",
     analysis: "Megazone 23 es uno de los OVAs más influyentes de la historia. Su premisa (un mundo que resulta ser una simulación) fue la inspiración directa para 'The Matrix'. La animación es excelente, con diseños de personajes de Haruhiko Mikimoto (Macross) y una banda sonora de Shiro Sagisu (Evangelion). La historia es confusa y a veces incoherente, pero su estilo visual y su premisa la convierten en una obra imprescindible del cyberpunk.",
     forgotten: "Megazone 23 fue víctima de su propia ambición. Originalmente planeada como una serie de 26 episodios, fue cancelada y reducida a una OVA de 4 episodios. Además, su distribución internacional fue un desastre: Carl Macek la editó y la convirtió en 'Robotech: The Movie', un fracaso que apenas llegó a los cines. Solo una década después, Streamline Pictures la lanzó semi-propiamente, pero ya era demasiado tarde. Hoy es un clásico de culto, pero el público general la ha olvidado.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [5, 19, 20]
+    related: [5, 19, 20],
+    category: "anime"
 }, {
     id: 22,
     title: "The Big O",
@@ -424,10 +445,11 @@ var animes = [{
     plot: "En una ciudad donde nadie recuerda el pasado, Roger Smith se dedica a resolver conflictos como negociador. Pero cuando un nuevo misterio amenaza la ciudad, Roger debe pilotar a Big O para proteger a sus habitantes. La serie combina cine negro, mecha y misterio en una mezcla única.",
     analysis: "The Big O es una serie que combina cine negro, mecha y misterio en una mezcla única. La animación de Sunrise es excelente, y el diseño de personajes y escenarios es espectacular. La banda sonora de jazz y la ambientación art deco le dan un estilo inconfundible. Es una serie que merece ser vista por cualquier amante del anime.",
     forgotten: "Fue un fracaso en Japón, pero tuvo éxito moderado en Estados Unidos. Su cancelación tras la primera temporada fue un golpe duro para los fans, que lucharon por su regreso. La segunda temporada se produjo gracias a la presión de los fans estadounidenses, pero ya era demasiado tarde. Hoy es una serie de culto para los amantes del mecha y el misterio.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [17, 19, 20]
+    related: [17, 19, 20],
+    category: "anime"
 }, {
     id: 23,
     title: "Video Girl Ai",
@@ -443,10 +465,11 @@ var animes = [{
     plot: "Yota es un chico tímido que no sabe cómo declararse a su crush. Cuando alquila un video, la chica de la pantalla cobra vida. Ai es una chica virtual, diseñada para ayudar a los chicos a conquistar a sus amadas. Pero Ai también se enamora de Yota, y su misión se complica. Una historia de amor que trasciende la pantalla.",
     analysis: "Video Girl Ai es un OVA romántico con toque de fantasía. Production I.G demostró su maestría en la animación, con personajes que parecen cobrar vida. La historia es tierna y melancólica, y la música te atrapa desde el primer minuto. Es un clásico del anime romántico que merece ser redescubierto.",
     forgotten: "Es uno de esos OVAs que solo los más nostálgicos recuerdan. Su distribución fue limitada, y hoy es una rareza para los amantes del anime romántico. Una joya oculta que merece ser rescatada.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [4, 16, 21]
+    related: [4, 16, 21],
+    category: "anime"
 }, {
     id: 24,
     title: "Onikirimaru (Ogre Slayer)",
@@ -462,10 +485,11 @@ var animes = [{
     plot: "Onikirimaru es un cazador de demonios que viaja por el Japón feudal enfrentándose a criaturas mitológicas. Su misión es destruir a todos los demonios que amenazan a la humanidad. Pero su propia naturaleza es un misterio: ¿es humano, demonio o algo más?",
     analysis: "Onikirimaru es un OVA de acción con un protagonista estoico y violencia coreografiada. La animación es decente, y las escenas de lucha son trepidantes. Es una obra de culto para los amantes del anime de samuráis y fantasía oscura. Una joya oculta que merece ser redescubierta.",
     forgotten: "Su distribución fue muy limitada. Es una joya oculta para coleccionistas, pero el público general la ha olvidado. Una rareza que solo los fans más hardcore del anime de acción conocen.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [10, 12, 17]
+    related: [10, 12, 17],
+    category: "anime"
 }, {
     id: 25,
     title: "Windaria",
@@ -481,10 +505,11 @@ var animes = [{
     plot: "En un reino de fantasía, un granjero llamado Izu se ve envuelto en una guerra cuando su prometida, Marin, es secuestrada. Izu se une al ejército para salvarla, pero pronto descubre que la guerra no es tan simple como parece. Los reinos están en conflicto, y la paz solo se logrará con un sacrificio.",
     analysis: "Windaria es una película de fantasía que mezcla romance, guerra y política. La animación es preciosa, y la historia está llena de momentos emotivos y épicos. Es una obra de culto para los amantes de la fantasía, pero el público general la ha olvidado.",
     forgotten: "Pasó sin pena ni gloria en su época. Su distribución fue limitada, y hoy es una joya oculta para los amantes de la fantasía. Una película que merece ser redescubierta.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [1, 14, 24]
+    related: [1, 14, 24],
+    category: "anime"
 }, {
     id: 26,
     title: "Arion",
@@ -500,10 +525,11 @@ var animes = [{
     plot: "Arion es un joven criado por los dioses griegos. Su madre fue asesinada por los dioses, y Arion busca venganza. Emprende un viaje épico para enfrentarse a los dioses y descubrir la verdad sobre su origen. Una historia de mitología griega como nunca antes la habías visto.",
     analysis: "Arion es una epopeya de fantasía basada en la mitología griega. Sunrise demostró su maestría en la animación, con escenas de acción espectaculares y una historia épica. Es una obra de culto para los amantes de la mitología, pero el público general la ha olvidado.",
     forgotten: "Una de las películas más caras de su época, pero no tuvo éxito. Su distribución fue limitada, y hoy es una joya oculta para los amantes de la fantasía. Una película que merece ser redescubierta.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [14, 21, 24]
+    related: [14, 21, 24],
+    category: "anime"
 }, {
     id: 27,
     title: "Black Magic M-66",
@@ -519,10 +545,11 @@ var animes = [{
     plot: "El androide militar M-66 se vuelve loco y empieza a matar a todo lo que se mueve. Una periodista, que investigaba al ejército, se ve envuelta en la persecución. Su única esperanza es detener al androide antes de que cause más daños.",
     analysis: "Black Magic M-66 es pura acción cyberpunk de los 80. La animación es excelente, y las escenas de acción son trepidantes. Es una obra de culto para los amantes del cyberpunk, pero el público general la ha olvidado.",
     forgotten: "OVA que pasó desapercibido. Su distribución fue limitada, y hoy es una rareza para los amantes del cyberpunk. Una joya oculta que merece ser rescatada.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [17, 19, 25]
+    related: [17, 19, 25],
+    category: "anime"
 }, {
     id: 28,
     title: "Armitage III",
@@ -538,10 +565,11 @@ var animes = [{
     plot: "Naomi Armitage es una androide de tercera generación que trabaja como policía en Marte. Junto a su nuevo compañero humano, Ross Sylibus, investiga una serie de asesinatos de Terceros. Pronto descubren que el gobierno marciano está ocultando un oscuro secreto: los Terceros son mucho más que simples máquinas. Su creador, el doctor Asakura, buscaba crear el 'siguiente paso en la evolución humana', y Armitage es la pieza clave de su plan.",
     analysis: "Armitage III es el puente perfecto entre el cyberpunk de los 80 y el anime de acción de los 90. Chiaki J. Konaka (Serial Experiments Lain) escribió una historia que cuestiona qué significa ser humano, pero sin perder nunca el ritmo trepidante. La animación de AIC es de primera categoría, con diseños de personajes de Satoshi Urushihara que han envejecido como buen vino. Pero lo que la hace especial es su tono: es dura, cínica, pero con un corazón que late bajo el metal. Una joya que merece ser recordada.",
     forgotten: "Armitage III fue víctima de su propio éxito parcial: llegó a Occidente en una época en la que el cyberpunk ya estaba saturado (Ghost in the Shell, Akira, Bubblegum Crisis). Además, su OVA original de 4 episodios fue reeditada en dos películas que cambiaron su estructura, confundiendo a los fans. Su secuela 'Dual Matrix' fue un fracaso que manchó su reputación. Hoy es recordada solo por los que estábamos allí, pero los nuevos fans la ignoran.",
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [23, 25, 17]
+    related: [23, 25, 17],
+    category: "anime"
 }, {
     id: 29,
     title: "Dragon's Heaven",
@@ -557,10 +585,11 @@ var animes = [{
     plot: "La armadura Shaian despierta tras mil años de sueño. Su misión es proteger a su creador de Elmadine, un enemigo que ha esperado mil años para destruirlo. Una historia de ciencia ficción post-apocalíptica con un diseño visual espectacular.",
     analysis: "Dragon's Heaven es una obra maestra visual influenciada por el estilo de Moebius. Mezcla animación tradicional con maquetas y efectos especiales que te dejarán sin aliento. Es una de las mayores rarezas ocultas del anime de los 80, y una obra que merece ser vista por cualquier amante del anime.",
     forgotten: "Una de las mayores rarezas ocultas del anime de los 80. Su distribución fue limitadísima, y hoy es una joya oculta para coleccionistas. Una obra que merece ser redescubierta.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [22, 24, 21]
+    related: [22, 24, 21],
+    category: "anime"
 }, {
     id: 30,
     title: "Call Me Tonight",
@@ -576,10 +605,11 @@ var animes = [{
     plot: "Rumi trabaja en una agencia de acompañantes, pero en realidad es una succubus. Su trabajo consiste en extraer energía masculina de sus clientes. Todo va bien hasta que conoce a Akira, un oficinista que no se deja seducir fácilmente y que guarda un oscuro secreto.",
     analysis: "Call Me Tonight es una comedia romántica con toques sobrenaturales y ecchi. Mezcla el humor con situaciones absurdas y algo picantes. Tiene un ritmo ágil, diálogos ingeniosos y un diseño de personajes carismático. Es una rareza de los 80 que merece ser redescubierta.",
     forgotten: "Es una de esas OVAs que nunca tuvieron distribución internacional y hoy es prácticamente desconocida. Su temática y su estética la convierten en una joya oculta para los amantes del anime ochentero con humor adulto.",
-    reel: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQOw9D9C6CsmaXB7pu7kd3hGj_R7iQJezgBcqQKJYFhOAHHfO4sFeXykzBMWwJFrkT40fntqMqNzDzvTZfkAmBzrOzbk4_lY_LCYjUHgmw.mp4?_nc_cat=110&_nc_oc=AdqGRIckt0dcNQcdMk1-liSc8-AN5DMSKBL6YGeQ9mKm6qHF2UPK4zTpT-rSOos20ks&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=HjNI4oQWijwQ7kNvwG8efHv&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTMzODQ1NTU4MTA3MTc4NSwiYXNzZXRfYWdlX2RheXMiOjE3LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NjgsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=cVLzrqJ3V16UykojMenGTQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCpmZ6CY1u6NwJhDcyp2I296uQy_8lA2aPplJppOhOAJA&oe=6A66DBE4&bitrate=322490&tag=sve_sd",
+    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQOw9D9C6CsmaXB7pu7kd3hGj_R7iQJezgBcqQKJYFhOAHHfO4sFeXykzBMWwJFrkT40fntqMqNzDzvTZfkAmBzrOzbk4_lY_LCYjUHgmw.mp4?_nc_cat=110&_nc_oc=AdqGRIckt0dcNQcdMk1-liSc8-AN5DMSKBL6YGeQ9mKm6qHF2UPK4zTpT-rSOos20ks&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=HjNI4oQWijwQ7kNvwG8efHv&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTMzODQ1NTU4MTA3MTc4NSwiYXNzZXRfYWdlX2RheXMiOjE3LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NjgsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=cVLzrqJ3V16UykojMenGTQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCpmZ6CY1u6NwJhDcyp2I296uQy_8lA2aPplJppOhOAJA&oe=6A66DBE4&bitrate=322490&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [21, 16, 4]
+    related: [21, 16, 4],
+    category: "anime"
 }, {
     id: 31,
     title: "Record of Lodoss War (OVA)",
@@ -596,10 +626,11 @@ var animes = [{
     analysis: "Record of Lodoss War es una de las obras más influyentes del anime de fantasía. Madhouse demostró su maestría en la animación, con personajes inolvidables y una historia épica. La banda sonora y el diseño de personajes son espectaculares, y la serie es un clásico que todo amante de la fantasía debería ver.",
     forgotten: "Aunque es famosa en el anime de los 90, muchos fans nuevos no la conocen. Su distribución fue limitada fuera de Japón, y hoy es una joya para los amantes de la fantasía. Una serie que merece ser redescubierta por las nuevas generaciones.",
     episodios: 13,
-    reel: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQPrWZ_Lbxzkpwz35yEtc0_QFItiT9BKAddekxcER7XojKQCCh_TyXFabTy8mLEz6FiH1F4JCApNJD4IE_m2uICGZ3j7fMeOELetkmI42Q.mp4?_nc_cat=101&_nc_oc=AdqbyHi7FTbOl1sdS0IkuDnnCAQ98ybXydll6zIZn8SpvCwHWHLntxEvurcK3xLasls&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=0rOQR2goAFYQ7kNvwGTAasP&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTM1MjU2MTI1MDM1MDQ4NiwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMjQsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=h9U5Ck6r5aUmb_-pomtfvA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAv3hhD1JfpD8GRMull01O9on9CUCKDnY8LManRUHbKZA&oe=6A672819&bitrate=388270&tag=sve_sd",
+    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQPrWZ_Lbxzkpwz35yEtc0_QFItiT9BKAddekxcER7XojKQCCh_TyXFabTy8mLEz6FiH1F4JCApNJD4IE_m2uICGZ3j7fMeOELetkmI42Q.mp4?_nc_cat=101&_nc_oc=AdqbyHi7FTbOl1sdS0IkuDnnCAQ98ybXydll6zIZn8SpvCwHWHLntxEvurcK3xLasls&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=0rOQR2goAFYQ7kNvwGTAasP&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTM1MjU2MTI1MDM1MDQ4NiwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMjQsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=h9U5Ck6r5aUmb_-pomtfvA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAv3hhD1JfpD8GRMull01O9on9CUCKDnY8LManRUHbKZA&oe=6A672819&bitrate=388270&tag=sve_sd",
     saga: null,
     sagaOrder: null,
-    related: [14, 21, 22]
+    related: [14, 21, 22],
+    category: "anime"
 }, {
     id: 32,
     title: "A.D. Police Files (OVA)",
@@ -615,10 +646,11 @@ var animes = [{
     plot: "Tres casos independientes: 1) Un Boomer asesino que aterroriza a la policía y una conspiración de seguros. 2) Una serie de asesinatos en el distrito Paradise Loop, cometidos por una mujer con implantes cibernéticos que enloqueció por infidelidad. 3) Billy Fanword, capitán de la AD Police, es trasplantado a un cuerpo cyborg experimental y comienza a perder su humanidad.",
     analysis: "A.D. Police Files es un OVA oscuro y adulto, ambientado en el universo de Bubblegum Crisis. Su tono es más violento y sexual que su serie hermana, con una animación detallada pero una narrativa que prioriza la acción y el fanservice por encima del desarrollo de personajes. Es una obra para fans del cyberpunk ochentero que buscan una experiencia cruda y sin concesiones.",
     forgotten: "El OVA sufrió problemas legales entre Artmic y Youmex que truncaron su producción, dejándolo con solo 3 episodios de los planeados. Su distribución en Occidente fue limitada y hoy es una rareza que solo los coleccionistas recuerdan.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [23, 17, 25]
+    related: [23, 17, 25],
+    category: "anime"
 }, {
     id: 33,
     title: "The Curse of Kazuo Umezu",
@@ -638,10 +670,11 @@ var animes = [{
         { num: 1, title: "What Will the Video Camera Reveal?", version: "Sub", url: "URL_EPISODIO_1" },
         { num: 2, title: "The Haunted Mansion", version: "Sub", url: "URL_EPISODIO_2" }
     ],
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [7, 9, 11]
+    related: [7, 9, 11],
+    category: "anime"
 }, {
     id: 34,
     title: "Malice@Doll",
@@ -657,10 +690,11 @@ var animes = [{
     plot: "Tras un apocalipsis que erradicó a la humanidad, los robots continúan con sus tareas programadas en un mundo en ruinas. Malice, una Doll (robot prostituta), vive en un distrito rojo abandonado buscando clientes inexistentes. Tras ser atacada brutalmente por una criatura con tentáculos, despierta convertida en humana. Descubre que puede transmitir su humanidad a otros robots a través de un beso, pero el don se convierte en maldición cuando los robots se descontrolan.",
     analysis: "Escrita por Chiaki Konaka (Serial Experiments Lain), es una obra surrealista y perturbadora que explora la identidad y la humanidad en la era posthumana. Con CGI de baja fidelidad y atmósfera onírica, es una experiencia única para quienes buscan algo diferente.",
     forgotten: "Distribución limitada y a menudo confundida con hentai. Su estilo CGI envejeció rápido y no tuvo apoyo de grandes estudios. Solo 3 episodios sin continuación.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [23, 17, 25]
+    related: [23, 17, 25],
+    category: "anime"
 }, {
     id: 35,
     title: "Fire and Ice",
@@ -676,10 +710,11 @@ var animes = [{
     plot: "Desde su fortaleza de hielo Icepeak, la malvada Reina Juliana y su hijo Nekron envían una ola de glaciares para conquistar el mundo, forzando a la humanidad a retroceder. El rey Jarol, desde su reino de fuego Firekeep, es el siguiente en su lista. Para doblegarlo, los subhumanos de Nekron secuestran a su hija, la princesa Teegra. Teegra escapa y se encuentra con Larn, el único superviviente de una aldea destruida por el hielo. Juntos emprenden un viaje, pero son separados y Teegra es recapturada. Larn se alía entonces con Darkwolf, un enigmático y poderoso guerrero enmascarado con una venganza personal contra Nekron. Mientras tanto, el rey Jarol envía a su hijo, el príncipe Taro, a negociar, pero Nekron lo asesina usando su magia. Finalmente, Larn y Darkwolf asaltan Icepeak. Darkwolf mata a Nekron, y Jarol libera la lava del volcán para destruir el glaciar y el ejército de subhumanos. Larn y Teegra sobreviven y se besan, observados por un Darkwolf que sonríe y desaparece.",
     analysis: "Fire and Ice es el sueño húmedo de cualquier fan de la fantasía de los 80 hecho realidad. Es una colaboración entre dos titanes: Ralph Bakshi, el director animador más transgresor de su época, y Frank Frazetta, el ilustrador de fantasía más influyente. La película es un festín visual para los ojos, con fondos pintados a mano que parecen sacados de los lienzos de Frazetta y personajes rotoscopiados que se mueven con una fluidez y realismo poco comunes en la animación de la época. La trama es un clásico 'sword and sorcery' simple y directo, que no busca más que ser un vehículo para la acción y el arte. Es pura fantasía ochentera, con un toque de violencia y una estética 'heavy metal' que la convierten en un objeto de culto.",
     forgotten: "A pesar de ser un proyecto de ensueño, Fire and Ice no fue un éxito en taquilla. Su lanzamiento fue limitado y no logró captar la atención del público masivo, quedando eclipsada por otras películas de la época como Conan el Bárbaro. Con el tiempo, se ha convertido en una película de culto, apreciada por los fans de Bakshi, Frazetta y la animación adulta. En 2003, la Online Film Critics Society la incluyó en el puesto 99 de su lista de 'Mejores películas animadas de todos los tiempos'. Sin embargo, sigue siendo una rareza para el gran público, una joya perdida en el tiempo que los amantes del género deberían descubrir.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [5, 14, 17]
+    related: [5, 14, 17],
+    category: "anime"
 }, {
     id: 36,
     title: "Golden Boy",
@@ -695,10 +730,11 @@ var animes = [{
     plot: "Kintaro Oe es un genio que abandonó la universidad porque no podía aprender más. Ahora viaja por Japón en su bicicleta, trabajando en empleos temporales para ganar dinero y seguir su viaje. En cada trabajo, conoce a una mujer increíble (una política, una programadora, una salvavidas, una actriz porno) y termina enamorándose de ella, pero siempre huye antes de comprometerse. Mientras tanto, esconde su verdadera identidad: es un genio de la programación que creó un sistema operativo revolucionario.",
     analysis: "Golden Boy es la comedia perfecta de los 90. Kintaro es un personaje absurdo, entrañable y ridículo, que combina la inocencia de un niño con la lujuria de un adolescente. La animación es espectacular para su época, especialmente en las escenas de acción y comedia física. La serie es famosa por su humor adulto, su doblaje en inglés legendario (donde Kintaro grita cosas como 'This is the best day of my life!') y su capacidad para mezclar el erotismo con la comedia sin ser vulgar.",
     forgotten: "A pesar de ser una de las comedias más queridas de los 90, Golden Boy es hoy una rareza. Solo tuvo 6 episodios y nunca se hizo una segunda temporada. Su distribución en Occidente fue limitada, y aunque es un clásico de culto, muchos fans nuevos no la han visto. Sin embargo, los que la vieron la llevan en el corazón.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [4, 19, 21]
+    related: [4, 19, 21],
+    category: "anime"
 }, {
     id: 37,
     title: "Guyver: Out of Control",
@@ -714,11 +750,12 @@ var animes = [{
     plot: "Una adaptación que se toma muchas libertades creativas, presentando una historia más oscura y con un enfoque diferente al manga original. Sho Fukamachi se fusiona con la armadura Guyver, pero la trama se centra en una batalla más directa y violenta contra la organización Chronos.",
     analysis: "Esta OVA es una rareza dentro de la franquicia, ya que presenta una versión alternativa de la historia con cambios significativos en los personajes y la trama. Es una curiosidad para los fans que quieren ver una interpretación diferente de The Guyver.",
     forgotten: "Su lanzamiento fue limitado y quedó eclipsada por la serie de 12 episodios que se estrenó unos años después. Hoy es una rareza para coleccionistas.",
-    reel: "",
+    trailer: "",
     saga: "The Guyver",
     sagaOrder: 1,
     related: [23, 17, 25],
-    next: 38
+    next: 38,
+    category: "anime"
 }, {
     id: 38,
     title: "The Guyver: Bio-Booster Armor",
@@ -734,11 +771,12 @@ var animes = [{
     plot: "Sho y su amigo Tetsuro descubren el artefacto Guyver. Sho se fusiona con él y debe enfrentar a Chronos, una corporación que busca dominar el mundo mediante la mutación genética. La serie sigue su lucha mientras descubre los secretos de su poder y el origen de los Zoanoids. Con una historia más elaborada y un desarrollo de personajes más profundo, esta es la adaptación definitiva de The Guyver.",
     analysis: "Considerada la mejor adaptación animada del manga, esta serie de 12 episodios equilibra a la perfección la acción, la historia y la fidelidad al material original. La animación es de alta calidad y las escenas de lucha son espectaculares. Es una obra fundamental para los amantes del cyberpunk y el anime de acción de los 90.",
     forgotten: "A pesar de su calidad, sufrió una distribución irregular y fue eclipsada por adaptaciones posteriores. Sin embargo, para los fans de la saga, sigue siendo la mejor versión animada de The Guyver.",
-    reel: "",
+    trailer: "",
     saga: "The Guyver",
     sagaOrder: 2,
     related: [23, 17, 25],
-    prev: 37
+    prev: 37,
+    category: "anime"
 }, {
     id: 39,
     title: "Crying Freeman",
@@ -754,10 +792,11 @@ var animes = [{
     plot: "Yo Hinomura se convierte en el ejecutor de los 108 Dragones tras ser sometido a un proceso de condicionamiento mental. Cuando conoce a Emu Hino, la mujer que debería eliminar después de presenciar un asesinato, ambos desarrollan una relación mientras intentan escapar de la organización criminal. A lo largo de los episodios, Freeman (ahora llamado Ron Tayan) lidera a los 108 Dragones y enfrenta enemigos como African Tusk, el culto del Gran Dios Oso y la mafia de Los Ángeles.",
     analysis: "Crying Freeman es la adaptación OVA del manga creado por Kazuo Koike y Ryoichi Ikegami. La obra combina crimen organizado, artes marciales, erotismo y un romance trágico con la estética adulta característica de las OVAs de finales de los 80 y principios de los 90. Destaca por su atmósfera elegante, sus escenas de acción y el conflicto interno de un asesino que lucha contra su propio destino.",
     forgotten: "Aunque fue conocida entre los seguidores del anime adulto y tuvo distribución internacional, con el paso del tiempo quedó como una obra menos recordada fuera del público especializado. Su mezcla de violencia, crimen y romance la convierte en una de las OVAs más representativas de una época más arriesgada del anime.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [23, 17, 8]
+    related: [23, 17, 8],
+    category: "anime"
 }, {
     id: 40,
     title: "3x3 Eyes (Sazan Eyes)",
@@ -773,11 +812,12 @@ var animes = [{
     plot: "Pai, la última Sanjiyan Unkara, viaja a Tokio para encontrar a Yakumo Fujii, quien debe ayudarla a convertirse en humana. Tras un accidente, Pai absorbe el alma de Yakumo para salvarle la vida, convirtiéndolo en un Wu inmortal. Su destino queda ligado: Yakumo solo recuperará su humanidad cuando Pai se vuelva humana. Juntos viajan a Hong Kong para encontrar la Estatua de la Humanidad, pero una organización de demonios busca el mismo objeto para resucitar a Kaiyanwang, un dios que destruyó a los Sanjiyan.",
     analysis: "3x3 Eyes es una obra que mezcla con maestría la fantasía oscura, el horror y el romance. La dinámica entre la dulce Pai y su personalidad demoníaca, junto con la devoción de Yakumo, crea una tensión emocional constante. La influencia de la mitología hindú y el tono adulto la convierten en una rareza dentro del anime de los 90, y su animación detallada sigue siendo impresionante hoy en día.",
     forgotten: "A pesar de su popularidad en los 90, 3x3 Eyes ha quedado algo olvidada. La adaptación incompleta del manga y la falta de una serie de TV hicieron que el OVA pasara desapercibido para las nuevas generaciones. Sin embargo, para los que crecieron con ella, sigue siendo un clásico del anime de fantasía.",
-    reel: "",
+    trailer: "",
     saga: "3x3 Eyes",
     sagaOrder: 1,
     related: [14, 17, 23],
-    next: 41
+    next: 41,
+    category: "anime"
 }, {
     id: 41,
     title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
@@ -793,11 +833,12 @@ var animes = [{
     plot: "Cuatro años después de los eventos de la primera serie, Pai ha desaparecido y Yakumo la busca sin descanso. Cuando la encuentra, Pai ha perdido la memoria. Para restaurarla, deben viajar a la Tierra Santa, el lugar de origen de los Sanjiyan, donde enfrentarán nuevos peligros y descubrirán secretos del pasado de Pai.",
     analysis: "Esta secuela profundiza en la mitología de los Sanjiyan y explora el pasado de Pai. La animación es incluso más detallada que en la primera serie, y la historia tiene un tono más oscuro y melancólico. Es una conclusión satisfactoria para los fans que esperaban una continuación.",
     forgotten: "Al igual que la primera serie, esta secuela ha quedado algo olvidada. Su lanzamiento fue limitado y no tuvo el impacto de otras obras de la época. Sin embargo, para los fans de 3x3 Eyes, es una parte esencial de la historia.",
-    reel: "",
+    trailer: "",
     saga: "3x3 Eyes",
     sagaOrder: 2,
     related: [14, 17, 23],
-    prev: 40
+    prev: 40,
+    category: "anime"
 }, {
     id: 42,
     title: "Paprika",
@@ -813,10 +854,11 @@ var animes = [{
     plot: "La Dra. Atsuko Chiba utiliza el DC Mini, un dispositivo experimental que permite a los terapeutas entrar en los sueños de sus pacientes para tratarlos. Cuando es robado, un terrorista de los sueños lo usa para corromper las mentes de las personas y hacer que sus pesadillas se vuelvan reales. Chiba, en su forma de sueño como la enérgica Paprika, se une al detective Konakawa y a sus colegas para investigar el misterio. La búsqueda las lleva a un viaje a través de un mundo surrealista donde la línea entre los sueños y la realidad se desvanece.",
     analysis: "Paprika es la obra cumbre de Satoshi Kon, un viaje psicodélico y una reflexión profunda sobre el cine, la identidad y el subconsciente. La película es un festín visual con una animación espectacular de Madhouse y una banda sonora inolvidable de Susumu Hirasawa. La película explora temas como la tecnología como extensión de la mente, el poder de los sueños y la naturaleza de la realidad, todo envuelto en una narrativa laberíntica que se disfruta más en cada visionado.",
     forgotten: "Aunque es muy celebrada en los círculos de anime, Paprika sigue siendo una película de culto que merece ser más conocida por el público general. Su estreno fue limitado y, a menudo, se la menciona como 'el anime que inspiró Origen', lo que la reduce a una curiosidad en lugar de apreciarla como la obra maestra que es.",
-    reel: "",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [14, 17, 24]
+    related: [14, 17, 24],
+    category: "anime"
 },
               {
     id: 43, 
@@ -830,11 +872,12 @@ var animes = [{
     genre: ["Ciencia ficción", "Cyberpunk", "Policíaco", "Acción"],
     tags: ["cyberpunk", "ciencia-ficción", "policíaco", "violento", "nocturno", "androides", "adulto"],
     description: "En el Mega-Tokio de 2034, la división 'Branch' de la AD Police investiga crímenes relacionados con los Boomers (androides). Una serie de casos violentos revelan una conspiración que difumina la línea entre humanos y máquinas.",
-    plot: "La unidad especial 'Branch' de la AD Police se enfrenta a una ola de crímenes cometidos por Boomers. Mientras el oficial Buzz lidia con su desconfianza hacia los androides y su compañero Boomer, la sargento Reiko investiga una red de corrupción en la industria sexual. Cada episodio descubre una pieza de un rompecabezas que apunta a una conspiración política y a la verdadera naturaleza de los Boomers. [citation:2][citation:3]",
-    analysis: "Parasite Dolls es una pieza oscura y adulta del universo Bubblegum Crisis. Destaca por su atmósfera ciberpunk, su narrativa fragmentada y una animación que mezcla calidad con un estilo crudo. El guion de Chiaki J. Konaka aporta una reflexión sobre la humanidad y la tecnología, aunque su desarrollo puede resultar desigual. [citation:4][citation:12]",
-    forgotten: "A pesar de ser un spin-off interesante y bien valorado por los fans del cyberpunk, Parasite Dolls quedó eclipsado por la propia franquicia de Bubblegum Crisis. Su estreno limitado y su contenido adulto lo convirtieron en una rareza, y hoy en día es un título de culto difícil de encontrar. [citation:12]",
-    reel: "",
-    related: [23, 28, 17] // Relacionado con A.D. Police Files, Bubblegum Crisis, etc.
+    plot: "La unidad especial 'Branch' de la AD Police se enfrenta a una ola de crímenes cometidos por Boomers. Mientras el oficial Buzz lidia con su desconfianza hacia los androides y su compañero Boomer, la sargento Reiko investiga una red de corrupción en la industria sexual. Cada episodio descubre una pieza de un rompecabezas que apunta a una conspiración política y a la verdadera naturaleza de los Boomers.",
+    analysis: "Parasite Dolls es una pieza oscura y adulta del universo Bubblegum Crisis. Destaca por su atmósfera ciberpunk, su narrativa fragmentada y una animación que mezcla calidad con un estilo crudo. El guion de Chiaki J. Konaka aporta una reflexión sobre la humanidad y la tecnología, aunque su desarrollo puede resultar desigual.",
+    forgotten: "A pesar de ser un spin-off interesante y bien valorado por los fans del cyberpunk, Parasite Dolls quedó eclipsado por la propia franquicia de Bubblegum Crisis. Su estreno limitado y su contenido adulto lo convirtieron en una rareza, y hoy en día es un título de culto difícil de encontrar.",
+    trailer: "",
+    related: [23, 28, 17],
+    category: "anime"
 },
               {
     id: 44,
@@ -851,8 +894,9 @@ var animes = [{
     plot: "Hitomi Kanzaki es una estudiante de secundaria atrapada en sus problemas. Un día es transportada al mundo de Gaea, una tierra donde el destino de la gente está controlado por la magia y la tecnología. Allí conoce al príncipe Van Fanel, quien pilota el Escaflowne, un poderoso Guymelef (robot). Juntos, deben enfrentar al imperio Zaibach, que busca dominar Gaea. Hitomi descubre que sus poderes psíquicos pueden ver el futuro, lo que la convierte en una pieza clave en la guerra.",
     analysis: "Escaflowne es considerada una de las mejores series de anime de los 90. Combina fantasía, mecha y romance con una historia épica. La banda sonora de Yoko Kanno y Hajime Mizoguchi es legendaria, y la animación de Sunrise es espectacular. La serie explora temas como el destino, el libre albedrío y el poder de los sueños. Aunque fue editada en occidente, su versión original es una obra maestra del género isekai.",
     forgotten: "A pesar de su calidad, Escaflowne sufrió una mala distribución en occidente. Fue editada y censurada para su emisión en Fox Kids, lo que arruinó su reputación. Con los años, ha recuperado su estatus de culto, pero sigue siendo menos conocida que otras series de la época como Evangelion o Cowboy Bebop.",
-    reel: "",
-    related: [17, 14, 24]
+    trailer: "",
+    related: [17, 14, 24],
+    category: "anime"
 },
               {
     id: 45,
@@ -869,7 +913,8 @@ var animes = [{
     plot: "En la Tierra, Hitomi Kanzaki está sumida en una profunda depresión, sintiéndose aislada y deseando desaparecer. Es entonces cuando es invocada al mundo de Gaea, que está al borde de la guerra total. Los rebeldes creen que Hitomi es la 'diosa alada' que revivirá a Escaflowne, un arma capaz de destruir el mundo. Hitomi se ve envuelta en el conflicto entre el Lord Van, líder de la resistencia, y su hermano Lord Folken, que busca el poder absoluto. A diferencia de la serie, la película presenta una historia más oscura y centrada en los conflictos internos de sus personajes, especialmente en la tristeza de Hitomi y la soledad de Van.",
     analysis: "La película de Escaflowne es un reimagining de la serie, con un tono más oscuro y serio. La animación de Bones es impresionante, y la banda sonora de Yoko Kanno es igualmente memorable. A diferencia de la serie, que tiene un tono más aventurero, la película se enfoca en la psicología de los personajes. Es una obra para quienes buscan una experiencia más adulta y melancólica.",
     forgotten: "La película, aunque aclamada por la crítica, no tuvo un gran éxito comercial fuera de Japón. Su lanzamiento fue limitado y a menudo se la considera una rareza en comparación con la serie. Sin embargo, es una obra que ha ganado un estatus de culto con el tiempo.",
-    reel: "",
-    related: [14, 17, 39]
+    trailer: "",
+    related: [14, 17, 39],
+    category: "anime"
 }
-             ];
+];
