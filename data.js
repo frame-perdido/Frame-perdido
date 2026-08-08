@@ -932,10 +932,31 @@ var animes = [{
     plot: "En un futuro distópico, Ricky Ho es encarcelado en una prisión privada administrada por un warden corrupto. Su fuerza sobrehumana lo convierte en un objetivo para los guardias y otros reclusos. A medida que enfrenta cada desafío, Ricky se convierte en el líder de una revuelta que podría derribar todo el sistema. Basada en el manga de Masayoshi Tagaya, la película es una adaptación de culto que combina violencia extrema con un mensaje de resistencia.",
     analysis: "Riki-Oh: The Story of Ricky es la adaptación live action del manga de culto de Masayoshi Tagaya. La película es conocida por su violencia exagerada y sus efectos prácticos, que la han convertido en un clásico de culto. La trama es una crítica social que aborda temas como la corrupción, la opresión y la lucha por la justicia. Aunque la actuación y el doblaje pueden ser cuestionables, la película ha ganado un estatus de culto por su estilo único y su violencia extrema.",
     forgotten: "A pesar de ser una adaptación de culto, la película no tuvo un gran éxito comercial. Su distribución fue limitada y su violencia extrema la convirtió en un producto de nicho. Hoy es una joya oculta para los amantes de las películas de artes marciales y el gore.",
-    trailer: "",
+    trailer: "https://www.youtube.com/embed/8YgiYySosFQ?si=MGydAd6LrQwzfC0Q",
     saga: null,
     sagaOrder: null,
     related: [15, 19, 12],
+    category: "live-action"
+},
+              {
+    id: 47, 
+    title: "Midori: La Niña de las Camelias (Live Action)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh89pWhQvpTscGKYxUj4FSRXrEfDrQRx__6C6164qey3iiFJPjPMKkE2FwsWSvnXjekVZUADst92jOPzGLLt3pIKNsrgNS568f5DP5EBnIw0esd58IMm73OdBHV7efawshd0b54a_ePlDHrhGdknvpgDJx2zGtnSEzpWzYv_J1W46KPzT85F8tXWSZRuP_8=w283-h400", // Busca una imagen del póster de la película de 2016
+    year: 2016,
+    type: "Película",
+    duration: "~90 min", // La duración no está especificada en las fuentes, es una estimación.
+    studio: "Desconocido",
+    director: "TORICO",
+    genre: ["Drama", "Terror", "Psicológico", "Ero-guro"],
+    tags: ["live-action", "terror", "psicológico", "violento", "experimental", "nocturno", "culto"],
+    description: "Una adaptación en imagen real del manga ero-guro de Suehiro Maruo y la película de culto de Hiroshi Harada. Midori, una joven huérfana, es vendida a un circo de fenómenos donde sufre todo tipo de abusos, pero encuentra un posible rayo de esperanza en un misterioso mago enano.",
+    plot: "Midori, una niña que ha quedado huérfana y en la más absoluta pobreza, es vendida a un circo ambulante. Allí, es sometida a constantes abusos físicos y psicológicos por parte de los fenómenos que trabajan en él. Su vida da un giro cuando el circo contrata a un enano mago, llamado Wonder Masamitsu, que se siente atraído por Midori [citation:5]. La película explora la violencia y la crueldad de este mundo, y si el mago se convertirá en su salvador o en una nueva capa de su tormento.",
+    analysis: "Esta adaptación live-action de TORICO se basa en la controvertida obra de Suehiro Maruo, que ya había sido adaptada al anime por Hiroshi Harada en una película de culto [citation:1][citation:4]. La película es famosa por su tono oscuro y su representación gráfica de la violencia y el abuso, y se presenta como una experiencia visual y emocional extrema que no dejará indiferente a nadie [citation:5][citation:7]. Incluye segmentos de animación que conectan con la versión anime original [citation:4].",
+    forgotten: "A pesar de la notoriedad de la obra original, esta adaptación live-action de 2016 tuvo un lanzamiento limitado y ha pasado relativamente desapercibida fuera de los círculos más especializados [citation:1]. Es una rareza para coleccionistas y amantes del cine extremo, que a menudo se siente eclipsada por la fama de la película de anime de 1992 [citation:11].",
+    trailer: "", // Si encuentras un tráiler, puedes agregar la URL aquí.
+    saga: null,
+    sagaOrder: null,
+    related: [9, 13, 11], // Relacionada con otros títulos de terror o ero-guro
     category: "live-action"
 }
 ];
