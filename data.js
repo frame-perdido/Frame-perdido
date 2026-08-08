@@ -981,7 +981,7 @@ var animes = [{
     category: "live-action"
 },
               {
-    id: 47,
+    id: 49,
     title: "Guyver: Dark Hero",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEi-9VSXARe5ZY-6pQ9sCQ9j_qSHCZ4hkrtvh657knVs29PDT2rwqYQ05DWKgNOoKglVOsW77M40N8z3i048TCPf9qtBg-JwSYRQgpmscJKFxa56uFYXXNn9cekKi_Kh6oXhjkxvOSqPjhzPfw4QbArNNe-UMszd_6XLlCvDaB795ahTo2g_v4YBFBO3ppIm=w267-h400",
     year: 1994,
