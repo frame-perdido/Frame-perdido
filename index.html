@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -10,21 +10,13 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     
-    <!-- ============================================================ -->
-    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
-    <!-- ============================================================ -->
     <style>
         .adsterra-mobile { display: none; }
         .adsterra-desktop { display: block; }
-
         @media only screen and (max-width: 768px) {
             .adsterra-mobile { display: block; }
             .adsterra-desktop { display: none; }
         }
-
-        /* ============================================================ */
-        /* TODOS TUS ESTILOS EXISTENTES                                 */
-        /* ============================================================ */
         :root {
             --bg: #0a0a0f;
             --bg-card: #12121a;
@@ -102,6 +94,7 @@
         nav {
             display: flex;
             gap: 6px;
+            flex-wrap: wrap;
         }
         nav a {
             color: var(--text-muted);
@@ -111,6 +104,7 @@
             font-size: 0.85rem;
             font-weight: 500;
             transition: all 0.3s;
+            cursor: pointer;
         }
         nav a:hover, nav a.active {
             color: var(--text);
@@ -291,6 +285,9 @@
         .section-meta {
             color: var(--text-muted);
             font-size: 0.8rem;
+        }
+        .seccion-contenido {
+            display: none;
         }
         .featured-card {
             background: var(--bg-card);
@@ -616,9 +613,6 @@
         .sobre-text ul { margin-left: 20px; margin-bottom: 16px; }
         .sobre-text li { margin-bottom: 5px; }
         
-        /* ============================================ */
-        /* MODAL CON REEL TAMAÑO CORRECTO 9:16          */
-        /* ============================================ */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -731,7 +725,6 @@
         .modal-section ul { padding-left: 18px; }
         .modal-section li { margin-bottom: 5px; }
         
-        /* REEL CONTAINER - TAMAÑO 9:16 */
         #modalReelContainer {
             position: relative;
             padding-bottom: 177.77%;
@@ -870,9 +863,6 @@
         }
         ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
         
-        /* ============================================ */
-        /* RESPONSIVE - TABLETS Y MÓVILES               */
-        /* ============================================ */
         @media (max-width: 1024px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
             #modalReelContainer { max-width: 300px; }
@@ -918,7 +908,6 @@
             #modalReelContainer { max-width: 240px; }
         }
 
-        /* Estilo para separar anuncios */
         .ad-container {
             margin: 20px 0;
             text-align: center;
@@ -927,9 +916,6 @@
             max-width: 100%;
         }
 
-        /* ============================================================ */
-        /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
-        /* ============================================================ */
         @media only screen and (max-width: 768px) {
             div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
                 display: none !important;
@@ -950,20 +936,18 @@
             <div class="logo-text">Frame <span>Perdido</span></div>
         </a>
         <nav id="mainNav">
-            <a href="#inicio" class="active">Inicio</a>
-            <a href="#catalogo">Catálogo</a>
-            <a href="#listas">Listas</a>
-            <a href="#vibes">Vibes</a>
-            <a href="#sobre">Sobre</a>
+            <a href="#inicio" class="active" onclick="cambiarSeccion('inicio')">🏠 Inicio</a>
+            <a href="#catalogo" onclick="cambiarSeccion('catalogo')">📼 Catálogo</a>
+            <a href="#live-action" onclick="cambiarSeccion('live-action')">🎬 Live Action</a>
+            <a href="#adultos" onclick="cambiarSeccion('adultos')">🔞 +18</a>
+            <a href="#listas" onclick="cambiarSeccion('listas')">📑 Listas</a>
+            <a href="#vibes" onclick="cambiarSeccion('vibes')">🎨 Vibes</a>
+            <a href="#sobre" onclick="cambiarSeccion('sobre')">📋 Sobre</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </header>
 
-    <!-- ============================================================ -->
-    <!-- BANNER HEADER - 728×90 (desktop) / 320×50 (móvil)            -->
-    <!-- ============================================================ -->
     <div style="text-align: center; margin: 12px 0; padding: 0 20px;">
-        <!-- Desktop: 728×90 -->
         <div class="adsterra-desktop">
             <script>
                 atOptions = {
@@ -976,7 +960,6 @@
             </script>
             <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
         </div>
-        <!-- Mobile: 320×50 -->
         <div class="adsterra-mobile">
             <script>
                 atOptions = {
@@ -995,15 +978,12 @@
         <h1>Rescatando clásicos<br /><span class="highlight">Compartiendo historias</span></h1>
         <p>Explora OVAs, películas y especiales que dejaron huella, aunque nunca alcanzaran la fama de los grandes clásicos</p>
         <div class="hero-cta">
-            <a href="#catalogo" class="btn btn-primary">Explorar catálogo</a>
-            <a href="#vibes" class="btn btn-secondary">Buscar por vibe</a>
+            <a href="#catalogo" class="btn btn-primary" onclick="cambiarSeccion('catalogo')">Explorar catálogo</a>
+            <a href="#vibes" class="btn btn-secondary" onclick="cambiarSeccion('vibes')">Buscar por vibe</a>
             <button class="btn btn-random" onclick="randomAnime()">🎲 Anime aleatorio</button>
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- NATIVE BANNER (responsivo nativo)                             -->
-    <!-- ============================================================ -->
     <div style="margin: 24px auto; max-width: 100%; padding: 0 20px;">
         <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
         <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
@@ -1052,9 +1032,10 @@
         </div>
     </section>
 
-    <section class="section" id="catalogo">
+    <!-- SECCIÓN CLÁSICOS -->
+    <section class="section seccion-contenido" id="catalogo" style="display:block;">
         <div class="section-header">
-            <h2 class="section-title"><span class="icon">◈</span>Catálogo</h2>
+            <h2 class="section-title"><span class="icon">◈</span>Catálogo Clásico</h2>
             <div class="filters" id="filterContainer">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="ova">OVAs</button>
@@ -1077,9 +1058,31 @@
         <div class="grid" id="animeGrid"></div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BANNER MID-CONTENT 300×250 (entre tarjetas)                   -->
-    <!-- ============================================================ -->
+    <!-- SECCIÓN LIVE ACTION -->
+    <section class="section seccion-contenido" id="live-action" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🎬</span>Live Action</h2>
+            <span class="section-meta">Adaptaciones de imagen real</span>
+        </div>
+        <div class="grid" id="liveActionGrid"></div>
+    </section>
+
+    <!-- SECCIÓN +18 -->
+    <section class="section seccion-contenido" id="adultos" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🔞</span>Animes +18</h2>
+            <span class="section-meta">Contenido para adultos</span>
+        </div>
+        <div id="adultGate" style="text-align:center;padding:40px 20px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);margin-bottom:20px;">
+            <p style="font-size:1.5rem;margin-bottom:12px;">🔞</p>
+            <p style="color:var(--text-muted);margin-bottom:20px;">Contenido solo para mayores de 18 años.</p>
+            <button class="btn btn-primary" onclick="verificarEdad()">Verificar edad (18+)</button>
+        </div>
+        <div id="adultContent" style="display:none;">
+            <div class="grid" id="adultGrid"></div>
+        </div>
+    </section>
+
     <div style="text-align: center; margin: 32px 0; padding: 0 20px;">
         <script>
             atOptions = {
@@ -1093,7 +1096,7 @@
         <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
     </div>
 
-    <section class="section" id="listas">
+    <section class="section seccion-contenido" id="listas" style="display:none;">
         <div class="section-header">
             <h2 class="section-title"><span class="icon">📑</span>Listas</h2>
             <span class="section-meta">Colecciones curadas</span>
@@ -1101,13 +1104,13 @@
         <div class="listas-grid" id="listasGrid"></div>
     </section>
 
-    <section class="section vibes-section" id="vibes">
+    <section class="section seccion-contenido vibes-section" id="vibes" style="display:none;">
         <h2 class="section-title" style="margin-bottom:8px;">¿Qué buscas hoy?</h2>
         <p style="color:var(--text-muted);margin-bottom:32px;">No por género. Por sensación.</p>
         <div class="vibes-cloud" id="vibesCloud"></div>
     </section>
 
-    <section class="section" id="sobre">
+    <section class="section seccion-contenido" id="sobre" style="display:none;">
         <div class="section-header">
             <h2 class="section-title"><span class="icon">📋</span>Sobre Frame Perdido</h2>
         </div>
@@ -1126,9 +1129,7 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- MODAL CON REEL TAMAÑO 9:16                   -->
-    <!-- ============================================ -->
+    <!-- MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1148,7 +1149,6 @@
                 <div class="modal-section"><h4>🕰️ ¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
                 <div class="modal-section"><h4>📋 Ficha técnica</h4><ul id="modalTech"></ul></div>
                 
-                <!-- REEL - TAMAÑO 9:16 (320px max) -->
                 <div class="modal-section" id="modalReelSection">
                     <h4>🎬 Ver Reel</h4>
                     <div id="modalReelContainer">
@@ -1179,10 +1179,12 @@
             <div class="footer-col">
                 <h4>Explorar</h4>
                 <ul>
-                    <li><a href="#catalogo">Catálogo</a></li>
-                    <li><a href="#vibes">Buscar por vibe</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('catalogo')">Catálogo Clásico</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('live-action')">Live Action</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('adultos')">+18</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('vibes')">Buscar por vibe</a></li>
                     <li><a href="#featured">Expediente del Día</a></li>
-                    <li><a href="#listas">Listas</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('listas')">Listas</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1209,139 +1211,41 @@
         </div>
     </footer>
 
-    <!-- ============================================================ -->
-    <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
-    <!-- ============================================================ -->
+    <!-- SCRIPTS -->
     <script src="data.js"></script>
-    <!-- ============================================================ -->
-    <!-- CÓDIGO PRINCIPAL                                             -->
-    <!-- ============================================================ -->
-    <script src="age-verify.js"></script>
+   <script src="frame-perdido-live-action.js"></script>
+<script src="frame-perdido-adultos.js"></script>
+
     <script>
         // ============================================================
-        // SISTEMA DE VIBES AUTOMÁTICO
-        // ============================================================
-        function generarVibesAutomaticos() {
-            const vibesSet = new Set();
-            animes.forEach(anime => {
-                if (anime.tags && Array.isArray(anime.tags)) {
-                    anime.tags.forEach(tag => {
-                        vibesSet.add(tag.toLowerCase().trim());
-                    });
-                }
-            });
-            const vibesBase = [
-                'melancólico', 'cyberpunk', 'nocturno', 'violento',
-                'comedia', 'experimental', 'nostálgico', 'musical',
-                'robot', 'terror', 'color', 'silencio',
-                'acción', 'aventura', 'drama', 'romance',
-                'fantasía', 'ciencia-ficción', 'histórico', 'espacial'
-            ];
-            vibesBase.forEach(v => vibesSet.add(v));
-            return Array.from(vibesSet).sort();
-        }
-
-        function buscarPorVibe(vibe) {
-            const vibeBusqueda = vibe.toLowerCase().trim();
-            const sinonimos = {
-                'robot': ['mecha', 'androide', 'cyborg', 'máquina', 'robótico', 'armadura'],
-                'terror': ['horror', 'espacial', 'paranormal', 'sobrenatural', 'claustrofóbico'],
-                'cyberpunk': ['cibernético', 'futurista', 'distópico', 'digital'],
-                'nocturno': ['oscuro', 'sombra', 'noche', 'tenebroso'],
-                'violento': ['gore', 'sangre', 'brutal', 'sádico'],
-                'melancólico': ['triste', 'nostálgico', 'depresivo', 'sombrío'],
-                'acción': ['pelea', 'combate', 'batalla', 'guerra'],
-                'fantasía': ['mágico', 'mitológico', 'épico', 'legendario'],
-                'ciencia-ficción': ['sci-fi', 'futurista', 'espacial', 'tecnológico']
-            };
-            const palabrasBuscar = [vibeBusqueda];
-            if (sinonimos[vibeBusqueda]) {
-                palabrasBuscar.push(...sinonimos[vibeBusqueda]);
-            }
-            const resultados = [];
-            animes.forEach(anime => {
-                let coincide = false;
-                if (anime.tags) {
-                    for (const tag of anime.tags) {
-                        const tagLower = tag.toLowerCase();
-                        for (const palabra of palabrasBuscar) {
-                            if (tagLower.includes(palabra) || palabra.includes(tagLower)) {
-                                coincide = true;
-                                break;
-                            }
-                        }
-                        if (coincide) break;
-                    }
-                }
-                if (!coincide && anime.genre) {
-                    for (const gen of anime.genre) {
-                        const genLower = gen.toLowerCase();
-                        for (const palabra of palabrasBuscar) {
-                            if (genLower.includes(palabra) || palabra.includes(genLower)) {
-                                coincide = true;
-                                break;
-                            }
-                        }
-                        if (coincide) break;
-                    }
-                }
-                if (!coincide) {
-                    const textoCompleto = `${anime.title} ${anime.description} ${anime.plot || ''}`.toLowerCase();
-                    for (const palabra of palabrasBuscar) {
-                        if (textoCompleto.includes(palabra)) {
-                            coincide = true;
-                            break;
-                        }
-                    }
-                }
-                if (coincide) {
-                    resultados.push(anime);
-                }
-            });
-            return resultados;
-        }
-
-        function renderizarVibes() {
-            const vibesCloud = document.getElementById('vibesCloud');
-            const vibes = generarVibesAutomaticos();
-            const vibesRelevantes = vibes.filter(v => 
-                !['película', 'ova', 'serie', '80s', '90s'].includes(v) && v.length > 2
-            );
-            const vibesMostrar = vibesRelevantes.slice(0, 24);
-            vibesCloud.innerHTML = vibesMostrar.map(vibe =>
-                `<button class="vibe-btn" data-vibe="${vibe}" onclick="filtrarPorVibe('${vibe}')">
-                    ${vibe.charAt(0).toUpperCase() + vibe.slice(1)}
-                    <span style="font-size:0.6rem;opacity:0.5;margin-left:4px;">
-                        (${buscarPorVibe(vibe).length})
-                    </span>
-                </button>`
-            ).join('');
-        }
-
-        function filtrarPorVibe(vibe) {
-            const searchInput = document.getElementById('searchInput');
-            const resultados = buscarPorVibe(vibe);
-            if (resultados.length > 0) {
-                searchInput.value = vibe;
-                searchInput.dispatchEvent(new Event('input'));
-                document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert(`No se encontraron obras con el vibe "${vibe}"`);
-            }
-        }
-
-        // ============================================================
-        // FUNCIONES PRINCIPALES
+        // VARIABLES GLOBALES
         // ============================================================
         let featuredId = null;
 
+        // ============================================================
+        // VERIFICACIÓN DE EDAD
+        // ============================================================
+        function verificarEdad() {
+            const edad = prompt("🔞 Ingresa tu edad:");
+            if (parseInt(edad) >= 18) {
+                document.getElementById('adultGate').style.display = 'none';
+                document.getElementById('adultContent').style.display = 'block';
+                sessionStorage.setItem('frame_perdido_adult_verified', 'true');
+                renderAdultos();
+            } else {
+                alert("Contenido solo para mayores de 18 años.");
+            }
+        }
+
+        // ============================================================
+        // RENDERIZAR TARJETAS - CLÁSICOS
+        // ============================================================
         function renderCards() {
             const grid = document.getElementById('animeGrid');
             if (!animes || animes.length === 0) {
                 grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
                 return;
             }
-
             grid.innerHTML = animes.map(anime => `
                 <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
                     <div class="card-image">
@@ -1358,22 +1262,192 @@
                     </div>
                     <div class="card-footer">
                         <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                         </a>
-                        <div class="card-vibes">
-                            ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                        <div class="card-vibes">${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}</div>
+                    </div>
+                </div>
+            `).join('');
+            updateStats();
+        }
+
+        // ============================================================
+        // RENDERIZAR LIVE ACTION
+        // ============================================================
+        function renderLiveAction() {
+            const grid = document.getElementById('liveActionGrid');
+            if (!grid) return;
+            if (typeof liveActions === 'undefined' || liveActions.length === 0) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p>📭 No hay Live Action</p></div>';
+                return;
+            }
+            grid.innerHTML = liveActions.map(anime => `
+                <div class="card" onclick="openModalLA(${anime.id})">
+                    <div class="card-image">
+                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year}</span>
+                        <span style="position:absolute;top:12px;right:12px;background:#3b82f6;color:#fff;padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;z-index:2;">🎬</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">Live Action</span>
+                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
                         </div>
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="watch-live-18.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </a>
                     </div>
                 </div>
             `).join('');
         }
 
+        // ============================================================
+        // RENDERIZAR +18
+        // ============================================================
+        function renderAdultos() {
+            const grid = document.getElementById('adultGrid');
+            if (!grid) return;
+            if (typeof animesAdultos === 'undefined' || animesAdultos.length === 0) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p>📭 No hay contenido +18</p></div>';
+                return;
+            }
+            grid.innerHTML = animesAdultos.map(anime => `
+                <div class="card" onclick="openModalAdult(${anime.id})">
+                    <div class="card-image">
+                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year}</span>
+                        <span style="position:absolute;bottom:12px;left:12px;background:#ef4444;color:#fff;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;z-index:2;">🔞 +18</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">${anime.type}</span>
+                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="watch-live-18.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================================
+        // FUNCIONES PARA ABRIR MODAL
+        // ============================================================
+        function openModal(id) {
+            const anime = animes.find(a => a.id === id);
+            if (!anime) return;
+            abrirModalGenerico(anime);
+        }
+
+        function openModalLA(id) {
+            const anime = liveActions.find(a => a.id === id);
+            if (!anime) return;
+            abrirModalGenerico(anime);
+        }
+
+        function openModalAdult(id) {
+            const anime = animesAdultos.find(a => a.id === id);
+            if (!anime) return;
+            if (!sessionStorage.getItem('frame_perdido_adult_verified')) {
+                if (!confirm('🔞 Contenido para adultos. ¿Deseas continuar?')) return;
+            }
+            abrirModalGenerico(anime);
+        }
+
+        function abrirModalGenerico(anime) {
+            document.title = `${anime.title} — Frame Perdido`;
+            document.getElementById('modalImage').src = anime.cover;
+            document.getElementById('modalImage').alt = anime.title;
+            document.getElementById('modalTitle').textContent = anime.title;
+            document.getElementById('modalExpId').textContent = '#' + String(anime.id + 1).padStart(3, '0');
+            document.getElementById('modalMeta').innerHTML =
+                `<span>📅 ${anime.year}</span><span>🎬 ${anime.studio}</span><span>👤 ${anime.director}</span><span>⏱️ ${anime.duration || '---'}</span>`;
+            document.getElementById('modalTags').innerHTML =
+                anime.genre.map(g => `<span class="tag accent">${g}</span>`).join('');
+            document.getElementById('modalDesc').textContent = anime.description;
+            document.getElementById('modalPlot').textContent = anime.plot || 'Sin información.';
+            document.getElementById('modalAnalysis').textContent = anime.analysis || 'Sin información.';
+            document.getElementById('modalForgotten').textContent = anime.forgotten || 'Sin información.';
+            document.getElementById('modalTech').innerHTML = [
+                `Estudio: ${anime.studio}`,
+                `Director: ${anime.director}`,
+                `Año: ${anime.year}`,
+                `Duración: ${anime.duration || '---'}`
+            ].map(t => `<li>${t}</li>`).join('');
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modalOverlay') && e.target !== document.querySelector('.modal-close')) return;
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            document.title = 'Frame Perdido — Archivo de anime clásico';
+        }
+
+        // ============================================================
+        // CAMBIAR SECCIÓN
+        // ============================================================
+        function cambiarSeccion(seccion) {
+            document.querySelectorAll('.seccion-contenido').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            const mapa = {
+                'inicio': 'catalogo',
+                'catalogo': 'catalogo',
+                'live-action': 'live-action',
+                'adultos': 'adultos',
+                'listas': 'listas',
+                'vibes': 'vibes',
+                'sobre': 'sobre'
+            };
+            
+            const id = mapa[seccion] || 'catalogo';
+            const contenedor = document.getElementById(id);
+            if (contenedor) contenedor.style.display = 'block';
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.includes('Inicio') && seccion === 'inicio') link.classList.add('active');
+                if (link.textContent.includes('Catálogo') && seccion === 'catalogo') link.classList.add('active');
+                if (link.textContent.includes('Live Action') && seccion === 'live-action') link.classList.add('active');
+                if (link.textContent.includes('+18') && seccion === 'adultos') link.classList.add('active');
+                if (link.textContent.includes('Listas') && seccion === 'listas') link.classList.add('active');
+                if (link.textContent.includes('Vibes') && seccion === 'vibes') link.classList.add('active');
+                if (link.textContent.includes('Sobre') && seccion === 'sobre') link.classList.add('active');
+            });
+            
+            if (seccion === 'live-action') renderLiveAction();
+            if (seccion === 'adultos') {
+                if (document.getElementById('adultGate').style.display !== 'none') {
+                    document.getElementById('adultGate').style.display = 'block';
+                    document.getElementById('adultContent').style.display = 'none';
+                } else {
+                    renderAdultos();
+                }
+            }
+            if (seccion === 'catalogo' || seccion === 'inicio') renderCards();
+        }
+
+        // ============================================================
+        // OTRAS FUNCIONES
+        // ============================================================
         function updateStats() {
-            const total = animes.length;
-            const ovas = animes.filter(a => a.type === 'OVA').length;
-            const pelis = animes.filter(a => a.type === 'Película').length;
+            let total = animes.length;
+            let ovas = animes.filter(a => a.type === 'OVA').length;
+            let pelis = animes.filter(a => a.type === 'Película').length;
+            if (typeof liveActions !== 'undefined') total += liveActions.length;
+            if (typeof animesAdultos !== 'undefined') total += animesAdultos.length;
             animateCounter('statTotal', total);
             animateCounter('statOVAs', ovas);
             animateCounter('statPelis', pelis);
@@ -1497,14 +1571,11 @@
                     });
                 }
             });
-            const tagsPopulares = Object.entries(tagsCount)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 6)
-                .map(([tag, count]) => ({
-                    tag: tag,
-                    count: count,
-                    icon: getIconForTag(tag)
-                }));
+            const tagsPopulares = Object.entries(tagsCount).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([tag, count]) => ({
+                tag: tag,
+                count: count,
+                icon: getIconForTag(tag)
+            }));
             container.innerHTML = tagsPopulares.map(t =>
                 `<div class="lista-card" onclick="filtrarPorVibe('${t.tag}')">
                     <div class="lista-icon">${t.icon}</div>
@@ -1525,108 +1596,6 @@
                 'aventura': '🗺️', 'histórico': '🏯', 'ciencia-ficción': '🔬'
             };
             return icons[tag] || '📁';
-        }
-
-        // ============================================================
-        // MODAL CON REEL
-        // ============================================================
-        function openModal(id) {
-            const anime = animes.find(a => a.id === id);
-            if (!anime) return;
-
-            // Cambiar el título de la página
-            document.title = `${anime.title} — Frame Perdido`;
-            
-            // Cambiar la URL sin recargar la página
-            if (window.history.pushState) {
-                const url = new URL(window.location);
-                url.searchParams.set('expediente', id);
-                window.history.pushState({ expediente: id }, '', url);
-            }
-
-            // Actualizar meta description
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) {
-                metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 150)}`;
-            }
-
-            document.getElementById('modalImage').src = anime.cover;
-            document.getElementById('modalImage').alt = anime.title;
-            document.getElementById('modalTitle').textContent = anime.title;
-            document.getElementById('modalExpId').textContent = '#' + String(anime.id + 1).padStart(3, '0');
-            document.getElementById('modalMeta').innerHTML =
-                `<span>📅 ${anime.year}</span><span>🎬 ${anime.studio}</span><span>👤 ${anime.director}</span><span>⏱️ ${anime.duration}</span>`;
-            document.getElementById('modalTags').innerHTML =
-                anime.genre.map(g => `<span class="tag accent">${g}</span>`).join('');
-            document.getElementById('modalDesc').textContent = anime.description;
-            document.getElementById('modalPlot').textContent = anime.plot || 'Sin información disponible.';
-            document.getElementById('modalAnalysis').textContent = anime.analysis || 'Sin información disponible.';
-            document.getElementById('modalForgotten').textContent = anime.forgotten || 'Sin información disponible.';
-
-            const techList = [
-                `Estudio: ${anime.studio}`,
-                `Director: ${anime.director}`,
-                `Año: ${anime.year}`,
-                `Duración: ${anime.duration}`
-            ];
-            document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
-
-            // ============================================
-            // REEL - Configuración 9:16
-            // ============================================
-            const reelContainer = document.getElementById('modalReelContainer');
-            const reelFrame = document.getElementById('modalReelFrame');
-            if (anime.reel && anime.reel.trim() !== '') {
-                reelContainer.style.display = 'block';
-                let videoUrl = anime.reel;
-                // Soporte para YouTube
-                if (videoUrl.includes('youtube.com/watch?v=')) {
-                    const videoId = videoUrl.split('v=')[1].split('&')[0];
-                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
-                }
-                reelFrame.src = videoUrl;
-            } else {
-                reelContainer.style.display = 'none';
-                reelFrame.src = '';
-            }
-
-            const relatedGrid = document.getElementById('relatedGrid');
-            if (anime.related && anime.related.length > 0) {
-                const relatedAnimes = animes.filter(a => anime.related.includes(a.id)).slice(0, 4);
-                relatedGrid.innerHTML = relatedAnimes.map(r =>
-                    `<div class="related-card" onclick="openModal(${r.id})">
-                        <h5>${r.title}</h5>
-                        <span>${r.year} · ${r.type}</span>
-                    </div>`
-                ).join('');
-            } else {
-                relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No hay obras relacionadas.</p>';
-            }
-
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(e) {
-            if (e && e.target !== document.getElementById('modalOverlay') &&
-                e.target !== document.querySelector('.modal-close')) return;
-            
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-            
-            // Restaurar título y descripción al cerrar
-            document.title = 'Frame Perdido — Archivo de anime clásico';
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) {
-                metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
-            }
-            
-            // LIMPIAR LA URL - Eliminar el parámetro "expediente"
-            if (window.history.pushState) {
-                const url = new URL(window.location);
-                url.searchParams.delete('expediente');
-                window.history.replaceState({}, '', url);
-            }
         }
 
         function randomAnime() {
@@ -1671,232 +1640,52 @@
         });
 
         // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL AL CARGAR
-        // ============================================================
-        function checkUrlForExpediente() {
-            const params = new URLSearchParams(window.location.search);
-            const expedienteId = params.get('expediente');
-            
-            if (expedienteId !== null) {
-                const id = parseInt(expedienteId);
-                const anime = animes.find(a => a.id === id);
-                if (anime) {
-                    // Esperar a que la página cargue completamente
-                    setTimeout(() => {
-                        openModal(id);
-                        // Scroll al modal
-                        document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
-                }
-            } else {
-                // Si no hay expediente en la URL, asegurar que la URL sea limpia
-                if (window.history.pushState) {
-                    const url = new URL(window.location);
-                    url.search = ''; // Eliminar todos los parámetros
-                    window.history.replaceState({}, '', url);
-                }
-            }
-        }
-
-        // ============================================================
         // INICIALIZACIÓN
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Verificar que la base de datos se cargó
             if (typeof animes === 'undefined') {
-                console.error('❌ Error: No se encontró la variable "animes". Asegúrate de que data.js está en la misma carpeta.');
+                console.error('❌ Error: No se encontró la variable "animes"');
                 document.getElementById('animeGrid').innerHTML = `
                     <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
                         <p style="font-size:1.2rem;margin-bottom:8px;">⚠️ Error al cargar la base de datos</p>
-                        <p style="font-size:0.9rem;">Asegúrate de que el archivo data.js existe en la misma carpeta que index.html</p>
+                        <p style="font-size:0.9rem;">Asegúrate de que el archivo data.js existe</p>
                     </div>
                 `;
                 return;
             }
-            
             console.log(`✅ Base de datos cargada: ${animes.length} obras`);
             renderCards();
-            updateStats();
             setupFeatured();
             setupSearch();
             setupFilters();
-            renderizarVibes();
             setupListas();
             setupScrollSpy();
             setupSmoothScroll();
             
-            // Verificar si hay un expediente en la URL
-            checkUrlForExpediente();
+            // Iniciar en la sección de inicio
+            cambiarSeccion('inicio');
         });
     </script>
 
-    <!-- ============================================================ -->
-    <!-- SOCIAL BAR (flotante) - justo antes de cerrar </body>         -->
-    <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
 
-    <!-- ============================================================ -->
-    <!-- DETECTOR DE ADBLOCK - AHORA CON DETECCIÓN DE BOTS            -->
-    <!-- ============================================================ -->
     <script>
-        // ==========================================
-        // 1. DETECCIÓN DE BOTS Y CRAWLERS
-        // ==========================================
         const isCrawler = () => {
             const ua = navigator.userAgent.toLowerCase();
-
-            const bots = [
-                "googlebot",
-                "google-inspectiontool",
-                "adsbot-google",
-                "apis-google",
-                "mediapartners-google",
-                "bingbot",
-                "duckduckbot",
-                "slurp",
-                "baiduspider",
-                "yandexbot",
-                "facebookexternalhit",
-                "twitterbot",
-                "linkedinbot",
-                "applebot",
-                "petalbot"
-            ];
-
+            const bots = ["googlebot", "google-inspectiontool", "adsbot-google", "apis-google", "mediapartners-google", "bingbot", "duckduckbot", "slurp", "baiduspider", "yandexbot", "facebookexternalhit", "twitterbot", "linkedinbot", "applebot", "petalbot"];
             return bots.some(bot => ua.includes(bot));
         };
 
-        // ==========================================
-        // 2. FUNCIONES DE DETECCIÓN DE ADBLOCK
-        // ==========================================
-        const outbrainErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://widgets.outbrain.com/outbrain.js");
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
+        const outbrainErrorCheck = async () => { try { const resp = await fetch("https://widgets.outbrain.com/outbrain.js"); return false; } catch (e) { return true; } }
+        const adligatureErrorCheck = async () => { try { const resp = await fetch("https://adligature.com/", { mode: "no-cors" }); return false; } catch (e) { return true; } }
+        const quantserveErrorCheck = async () => { try { const resp = await fetch("https://secure.quantserve.com/quant.js", { mode: "no-cors" }); return false; } catch (e) { return true; } }
+        const adligatureCssErrorCheck = async () => { try { const resp = await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", { mode: "no-cors" }); return false; } catch (e) { return true; } }
+        const srvtrackErrorCheck = async () => { try { const resp = await fetch("https://srvtrck.com/assets/css/LineIcons.css", { mode: "no-cors" }); return false; } catch (e) { return true; } }
+        const yieldkitCheck = async () => { try { const resp = await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", { mode: "no-cors" }); return false; } catch (e) { return true; } }
+        const setIntervalCheck = () => { return new Promise((resolve) => { const timeout = setTimeout(() => { resolve(true); }, 2000); const interval = setInterval(() => { const a0b = "a0b"; if (a0b == "a0b") { clearInterval(interval); clearTimeout(timeout); resolve(false); } }, 100); }); }
+        const idCheck = async () => { const bannerIds = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead']; const bannerString = bannerIds.map((bannerId) => `<div id="${bannerId}">&nbsp;</div>`).join(''); const dataContainer = document.createElement("div"); dataContainer.innerHTML = bannerString; document.body.append(dataContainer); let adblocker = false; bannerIds.forEach(id => { const elem = document.getElementById(id); if (!elem || elem.offsetHeight == 0) { adblocker = true; } elem?.remove(); }) return adblocker; }
+        const detectedAdblock = async () => { const resp = await Promise.all([outbrainErrorCheck(), adligatureErrorCheck(), quantserveErrorCheck(), adligatureCssErrorCheck(), srvtrackErrorCheck(), setIntervalCheck(), yieldkitCheck()]); const isNotUsingAdblocker = resp.every(r => r == false); return !isNotUsingAdblocker; };
 
-        const adligatureErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://adligature.com/", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
-        const quantserveErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://secure.quantserve.com/quant.js", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
-        const adligatureCssErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
-        const srvtrackErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://srvtrck.com/assets/css/LineIcons.css", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
-        const yieldkitCheck = async () => {
-            try {
-                const resp = await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
-        const setIntervalCheck = () => {
-            return new Promise((resolve) => {
-                const timeout = setTimeout(() => {
-                    resolve(true);
-                }, 2000);
-
-                const interval = setInterval(() => {
-                    const a0b = "a0b";
-                    if (a0b == "a0b") {
-                        clearInterval(interval);
-                        clearTimeout(timeout);
-                        resolve(false);
-                    }
-                }, 100);
-            });
-        }
-
-        const idCheck = async () => {
-            const bannerIds = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead'];
-            const bannerString = bannerIds.map((bannerId) => `<div id="${bannerId}">&nbsp;</div>`).join('');
-            const dataContainer = document.createElement("div");
-
-            dataContainer.innerHTML = bannerString;
-            document.body.append(dataContainer);
-
-            let adblocker = false;
-            bannerIds.forEach(id => {
-                const elem = document.getElementById(id);
-
-                if (!elem || elem.offsetHeight == 0) {
-                    adblocker = true;
-                }
-
-                elem?.remove();
-            })
-
-            return adblocker;
-        }
-
-        const detectedAdblock = async () => {
-            const resp = await Promise.all([
-                outbrainErrorCheck(),
-                adligatureErrorCheck(),
-                quantserveErrorCheck(),
-                adligatureCssErrorCheck(),
-                srvtrackErrorCheck(),
-                setIntervalCheck(),
-                yieldkitCheck()
-            ]);
-
-            const isNotUsingAdblocker = resp.every(r => r == false);
-
-            return !isNotUsingAdblocker;
-        };
-
-        // ==========================================
-        // 3. EJECUCIÓN SOLO PARA HUMANOS
-        // ==========================================
         if (!isCrawler()) {
             detectedAdblock().then(result => {
                 if (result) {
