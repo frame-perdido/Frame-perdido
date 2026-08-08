@@ -920,7 +920,7 @@ var animes = [{
               {
     id: 46,
     title: "Riki-Oh: The Story of Ricky",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEic7cXtHlRDfR6ABFJtE9bC-F-HK0LRL49hDkq5GVo-VQ7pn1-1hqprp1DtaPHNW7JzQ9TE9Haf5DEk_SN3ZIZAJCpY5gqtHY8W9pyY_B2NIlG0lp8ATed0zCMbKONN6wLx7k5csSnJziCqT2tW8nWrVv_i5sPpAIVinR0o1_3bJsnH9dAJ2JQGEOL_=w267-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh4fgc9IC7Bw546by6ZDeE46s05d4xpegdnBDs51QBL7YeRLGfYB5sFKDJUxcswTt2zN_ZB2W40eiKw4Cfg9s8WEBBQJCinFlhMla4sKSHEmUQUlMDfAVq4JS4A-4t_m6sSgUzFH2sway0mOAYu6aa2jo5pXUbCqysRIN9V1sjTE_el5B9TbtFOffqpGAaS=w277-h400",
     year: 1991,
     type: "Película",
     duration: "92 min",
