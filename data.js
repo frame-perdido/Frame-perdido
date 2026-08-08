@@ -979,5 +979,26 @@ var animes = [{
     sagaOrder: 1,
     related: [38, 33, 10],
     category: "live-action"
+},
+              {
+    id: 47,
+    title: "Guyver: Dark Hero",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEi-9VSXARe5ZY-6pQ9sCQ9j_qSHCZ4hkrtvh657knVs29PDT2rwqYQ05DWKgNOoKglVOsW77M40N8z3i048TCPf9qtBg-JwSYRQgpmscJKFxa56uFYXXNn9cekKi_Kh6oXhjkxvOSqPjhzPfw4QbArNNe-UMszd_6XLlCvDaB795ahTo2g_v4YBFBO3ppIm=w267-h400",
+    year: 1994,
+    type: "Película",
+    duration: "127 min",
+    studio: "New Line Cinema",
+    director: "Steve Wang",
+    genre: ["Ciencia ficción", "Acción", "Superhéroes", "Terror"],
+    tags: ["live-action", "ciencia-ficción", "acción", "culto", "90s", "monstruos", "superhéroes", "violento"],
+    description: "Sean Barker sigue siendo el huésped de la armadura Guyver, luchando por controlar su poder. Su búsqueda de respuestas sobre el origen de la armadura lo lleva a un yacimiento arqueológico en Utah, donde se enfrenta a nuevos Zoanoids y descubre la verdadera naturaleza del Guyver.",
+    plot: "Dos años después de los eventos de la primera película [citation:12], Sean Barker sigue atormentado por el poder del Guyver, que tiene una voluntad propia y lo obliga a luchar y matar [citation:10]. Atraído por un yacimiento arqueológico en Utah donde se reportan ataques de 'hombres lobo', Sean descubre una conspiración de la corporación Chronos para desenterrar los secretos del origen de los Guyvers. Con la ayuda de la arqueóloga Cori y del agente encubierto Atkins, debe enfrentarse a una nueva ola de Zoanoids mientras lucha por mantener el control de su propia transformación.",
+    analysis: "Guyver: Dark Hero es una mejora significativa respecto a su predecesora [citation:1][citation:5]. Steve Wang, co-director de la primera, toma las riendas y dirige una película más oscura, violenta y fiel al manga original [citation:3][citation:4][citation:5]. David Hayter (futura voz de Solid Snake en Metal Gear Solid) reemplaza a Jack Armstrong como Sean Barker y aporta un carisma muy superior [citation:5][citation:8]. Las coreografías de lucha, a cargo de Koichi Sakamoto, son brutales y espectaculares, con efectos prácticos de monstruos que siguen impresionando hoy en día [citation:3][citation:11]. Es un clásico de culto del cine de serie B y una de las mejores adaptaciones de anime a live action [citation:11].",
+    forgotten: "A pesar de ser considerada una de las mejores secuelas directas a VHS, nunca tuvo un gran éxito comercial y su distribución fue limitada [citation:3][citation:8]. Para muchos fans, ha quedado eclipsada por la primera película o por el anime original, pero los que la han visto la consideran una joya oculta del género [citation:11].",
+    trailer: "",
+    saga: "The Guyver",
+    sagaOrder: 2,
+    related: [46, 38, 33],
+    category: "live-action"
 }
 ];
