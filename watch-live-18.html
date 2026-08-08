@@ -1,60 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Frame Perdido — Reproductor</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame Perdido — Archivo de anime clásico</title>
+    <link rel="canonical" href="https://frame-perdido.github.io/Frame-perdido/">
+    <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8" />
+    <meta name="description" content="Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     
+    <!-- ============================================================ -->
+    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
+    <!-- ============================================================ -->
     <style>
-        /* ============================================================ */
-        /* VARIABLES Y RESET                                            */
-        /* ============================================================ */
-        :root {
-            --bg: #0a0a0f;
-            --bg-card: #12121a;
-            --bg-elevated: #1a1a25;
-            --text: #e8e8f0;
-            --text-muted: #8a8a9a;
-            --text-dim: #5a5a6a;
-            --accent: #ff6b35;
-            --accent-soft: #ff6b3520;
-            --accent-glow: #ff6b3560;
-            --border: #2a2a3a;
-            --border-hover: #3a3a50;
-            --plyr-color-main: #ff6b35;
-            --plyr-video-control-color: #e8e8f0;
-            --plyr-video-control-color-hover: #ffffff;
-            --plyr-video-control-background-hover: rgba(255,107,53,0.2);
-            --plyr-range-fill-background: #ff6b35;
-            --plyr-range-thumb-background: #ff6b35;
-            --plyr-range-thumb-shadow: 0 0 10px rgba(255,107,53,0.5);
-            --plyr-menu-background: #12121a;
-            --plyr-menu-color: #e8e8f0;
-            --plyr-tooltip-background: #1a1a25;
-            --plyr-tooltip-color: #e8e8f0;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .player-page {
-            max-width: 1100px;
-            width: 100%;
-        }
-
-        /* ============================================================ */
-        /* BANNERS - RESPONSIVE                                         */
-        /* ============================================================ */
         .adsterra-mobile { display: none; }
         .adsterra-desktop { display: block; }
 
@@ -64,527 +23,2218 @@
         }
 
         /* ============================================================ */
-        /* OCULTAR BANNER NATIVE EN MÓVIL (EL DE ABAJO)                */
+        /* TODOS TUS ESTILOS EXISTENTES                                 */
         /* ============================================================ */
-        @media only screen and (max-width: 768px) {
-            div[style*="margin: 20px auto; max-width: 100%;"] {
-                display: none !important;
-            }
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-elevated: #1a1a25;
+            --bg-hover: #222230;
+            --text: #e8e8f0;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --accent: #ff6b35;
+            --accent-soft: #ff6b3520;
+            --accent-glow: #ff6b3560;
+            --border: #2a2a3a;
+            --border-hover: #3a3a50;
+            --warning: #fbbf24;
+            --danger: #ef4444;
         }
-
-        /* ============================================================ */
-        /* RESTO DE ESTILOS                                             */
-        /* ============================================================ */
-        .video-header {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 80%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #6366f120 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, #1a1a2e 0%, var(--bg) 70%);
+        }
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        header {
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 36px; height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .logo-text span { color: var(--accent); }
+        nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        nav a:hover, nav a.active {
+            color: var(--text);
+            background: var(--bg-elevated);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+        .hero {
+            padding: 80px 24px 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
             margin-bottom: 16px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 11px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        .btn-secondary {
+            background: var(--bg-elevated);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { border-color: var(--border-hover); }
+        .btn-random {
+            background: var(--bg-elevated);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+        .btn-random:hover { background: rgba(251, 191, 36, 0.1); }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 24px 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .search-section {
+            max-width: 560px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .search-box input::placeholder { color: var(--text-muted); }
+        .search-box input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .search-box .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+        .search-clear {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: none;
+        }
+        .search-clear.visible { display: block; }
+        .search-results-count {
+            text-align: center;
+            margin-top: 10px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            min-height: 20px;
+        }
+        .section {
+            padding: 50px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
             flex-wrap: wrap;
             gap: 10px;
         }
-        .video-title {
+        .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
         }
-        .video-meta {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .back-btn {
+        .section-title .icon {
             color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: opacity 0.3s;
+            margin-right: 6px;
         }
-        .back-btn:hover { opacity: 0.7; }
-
-        .plyr-container {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        .section-meta {
+            color: var(--text-muted);
+            font-size: 0.8rem;
         }
-        .plyr--video {
-            border-radius: 16px;
+        .seccion-contenido {
+            display: none;
         }
-        .plyr--video .plyr__controls {
-            padding: 16px 20px;
-        }
-        .plyr--fullscreen {
-            width: 100vw !important;
-            height: 100vh !important;
-            max-width: 100vw !important;
-            max-height: 100vh !important;
-        }
-
-        .episode-selector {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin: 16px 0;
-        }
-        .episode-btn {
-            padding: 5px 12px;
+        .featured-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-muted);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            transition: all 0.4s;
             cursor: pointer;
-            font-size: 0.75rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
         }
-        .episode-btn:hover {
-            border-color: var(--accent);
-            color: var(--text);
+        .featured-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
         }
-        .episode-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
+        .featured-image {
+            position: relative;
+            min-height: 380px;
+            overflow: hidden;
         }
-        .version-separator {
-            color: var(--text-muted);
-            padding: 0 10px;
-            font-size: 0.9rem;
-            opacity: 0.4;
-            user-select: none;
-        }
-
-        .version-group {
-            margin: 4px 0;
+        .featured-image img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
         }
-
-        .version-btn {
+        .featured-card:hover .featured-image img { transform: scale(1.05); }
+        .year-badge {
+            position: absolute;
+            top: 16px; left: 16px;
+            background: var(--accent);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        .rarity-badge {
+            position: absolute;
+            bottom: 16px; left: 16px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            color: var(--warning);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid var(--warning);
+            z-index: 2;
+        }
+        .featured-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .expediente-block {
             background: var(--bg-elevated);
             border: 1px solid var(--border);
-            color: var(--text);
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.85rem;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .exp-label {
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .exp-value {
+            color: var(--accent);
             font-weight: 600;
-            width: 100%;
-            text-align: left;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+        .exp-status {
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .version-btn:hover {
-            background: var(--bg-hover);
-            border-color: var(--accent);
-        }
-
-        .version-btn .count {
-            color: var(--text-muted);
-            font-weight: 400;
-            font-size: 0.75rem;
-            margin-left: auto;
-        }
-
-        .episode-list {
-            display: none;
-            flex-wrap: wrap;
             gap: 6px;
-            padding: 8px 0 8px 16px;
-            border-left: 2px solid var(--border);
-            margin: 4px 0 8px 8px;
+            margin-top: 6px;
         }
-
-        .episode-list.open {
+        .exp-status-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+        .featured-tags {
             display: flex;
+            gap: 6px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
         }
-
-        @media (max-width: 480px) {
-            .episode-list .episode-btn {
-                font-size: 0.7rem;
-                padding: 4px 10px;
-            }
-            .version-btn {
-                font-size: 0.8rem;
-                padding: 8px 12px;
-            }
+        .tag {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
         }
-
-        .expediente-info {
-            margin-top: 24px;
+        .tag.accent {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent-glow);
+        }
+        .featured-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .featured-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+        .featured-meta span { margin-right: 14px; }
+        .featured-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .featured-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 7px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent-glow);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+        }
+        .card.hidden { display: none; }
+        .card-image {
+            height: 380px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .card:hover .card-image img { transform: scale(1.06); }
+        .card-year {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .card-body { padding: 18px; }
+        .card-tags {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .card-tag {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+        }
+        .card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-footer {
+            padding: 0 18px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-vibes {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .vibe-tag {
+            font-size: 0.7rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-muted);
+            display: none;
+        }
+        .no-results.visible { display: block; }
+        .listas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 18px;
+        }
+        .lista-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 24px;
+            transition: all 0.3s;
+            cursor: pointer;
         }
-        .expediente-info h3 {
+        .lista-card:hover {
+            border-color: var(--accent-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+        }
+        .lista-card .lista-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .lista-card h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .lista-card p {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        .lista-card .lista-count {
             color: var(--accent);
-            margin-bottom: 12px;
-        }
-        .expediente-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .expediente-tags {
-            display: flex;
-            gap: 8px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-        .exp-tag {
-            background: #1a1a25;
-            color: var(--text-muted);
-            padding: 4px 12px;
-            border-radius: 6px;
             font-size: 0.75rem;
-            border: 1px solid var(--border);
+            font-weight: 600;
+            margin-top: 10px;
         }
-
-        .error-box {
+        .vibes-section { text-align: center; }
+        .vibes-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .vibe-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 9px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .vibe-btn:hover, .vibe-btn.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent-glow);
+            transform: scale(1.05);
+        }
+        .sobre-text {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .sobre-text p { margin-bottom: 16px; }
+        .sobre-text ul { margin-left: 20px; margin-bottom: 16px; }
+        .sobre-text li { margin-bottom: 5px; }
+        
+        /* ============================================ */
+        /* MODAL CON REEL TAMAÑO CORRECTO 9:16          */
+        /* ============================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            overflow-y: auto;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            max-width: 480px;
-            margin: 0 auto;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.92);
+            transition: transform 0.3s;
         }
-        .error-box h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-        .error-box p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .error-box .id-received {
-            display: inline-block;
-            background: #1a1a25;
+        .modal-overlay.active .modal { transform: scale(1); }
+        .modal-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 36px; height: 36px;
+            background: var(--bg-elevated);
             border: 1px solid var(--border);
-            color: #5a5a6a;
-            padding: 6px 14px;
+            border-radius: 50%;
+            color: var(--text);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .modal-close:hover {
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+        .modal-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+        .modal-content { padding: 28px; }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .modal-meta {
+            display: flex;
+            gap: 14px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .modal-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .modal-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .modal-section { margin-bottom: 20px; }
+        .modal-section h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .modal-section p, .modal-section ul {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+        .modal-section ul { padding-left: 18px; }
+        .modal-section li { margin-bottom: 5px; }
+        
+        /* REEL CONTAINER - TAMAÑO 9:16 */
+        #modalReelContainer {
+            position: relative;
+            padding-bottom: 177.77%;
+            height: 0;
+            overflow: hidden;
+            max-width: 320px;
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+        #modalReelFrame {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        
+        .modal-related {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .modal-related h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+        }
+        .related-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: var(--accent-glow);
+            background: var(--bg-hover);
+        }
+        .related-card h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        .related-card span {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-top: 40px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 24px 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+        .footer-brand .logo-text {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+        }
+        .footer-socials a {
+            width: 36px; height: 36px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 0.8rem;
-            font-family: 'Space Grotesk', monospace;
-            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .footer-socials a:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding: 20px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .footer-bottom a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .footer-bottom a:hover { color: var(--accent); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+        
+        /* ============================================ */
+        /* RESPONSIVE - TABLETS Y MÓVILES               */
+        /* ============================================ */
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+            #modalReelContainer { max-width: 300px; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 50px 20px 30px; }
+            .hero h1 { font-size: 2rem; }
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-image { min-height: 300px; }
+            .featured-content { padding: 24px; }
+            .card-image { height: 320px; }
+            header { padding: 14px 16px; }
+            .section { padding: 36px 16px; }
+            nav {
+                display: none;
+                position: absolute;
+                top: 65px; left: 0; right: 0;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 16px;
+                border-bottom: 1px solid var(--border);
+                z-index: 99;
+            }
+            nav.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .footer-content { grid-template-columns: 1fr; gap: 28px; }
+            .modal-content { padding: 20px; }
+            .modal-image { height: 200px; }
+            .stats-bar { gap: 24px; }
+            .stat-number { font-size: 1.5rem; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+            #modalReelContainer { max-width: 280px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.7rem; }
+            .card-image { height: 280px; }
+            .grid { grid-template-columns: 1fr; }
+            .listas-grid { grid-template-columns: 1fr; }
+            .filters { gap: 5px; }
+            .filter-btn { padding: 6px 12px; font-size: 0.75rem; }
+            .modal-image { height: 160px; }
+            .modal-content { padding: 16px; }
+            #modalReelContainer { max-width: 240px; }
         }
 
-        @media (max-width: 768px) {
-            .video-title { font-size: 1.1rem; }
-            body { padding: 10px; }
-            .plyr-container { border-radius: 12px; }
-            .expediente-info { padding: 16px; }
+        /* Estilo para separar anuncios */
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
         }
-        @media (orientation: portrait) {
-            .plyr--fullscreen video {
-                transform: rotate(0deg) !important;
+        .ad-container iframe {
+            max-width: 100%;
+        }
+
+        /* ============================================================ */
+        /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
+        /* ============================================================ */
+        @media only screen and (max-width: 768px) {
+            div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
+                display: none !important;
+            }
+            div[style*="text-align: center; margin: 32px 0; padding: 0 20px;"] {
+                display: none !important;
             }
         }
     </style>
 </head>
 <body>
-    <script src="=anti-adblocker.js"></script>
-    
+    <div class="bg-animation"></div>
+    <div class="noise"></div>
+
+    <header>
+        <a href="#inicio" class="logo">
+            <div class="logo-icon">🎞️</div>
+            <div class="logo-text">Frame <span>Perdido</span></div>
+        </a>
+        <nav id="mainNav">
+            <a href="#inicio" class="active" onclick="cambiarSeccion('inicio')">🏠 Inicio</a>
+            <a href="#clasicos" onclick="cambiarSeccion('clasicos')">📼 Clásicos</a>
+            <a href="#live-action" onclick="cambiarSeccion('live-action')">🎬 Live Action</a>
+            <a href="#adultos" onclick="cambiarSeccion('adultos')">🔞 +18</a>
+            <a href="#listas" onclick="cambiarSeccion('listas')">📑 Listas</a>
+            <a href="#vibes" onclick="cambiarSeccion('vibes')">🎨 Vibes</a>
+            <a href="#sobre" onclick="cambiarSeccion('sobre')">📋 Sobre</a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </header>
+
     <!-- ============================================================ -->
-    <!-- POPUNDER                                                     -->
+    <!-- BANNER HEADER - 728×90 (desktop) / 320×50 (móvil)            -->
     <!-- ============================================================ -->
-    <script src="https://dischargeconceiteffort.com/47/28/84/47288442ce2f3464b32b32f915235990.js"></script>
-
-    <div class="player-page">
-        <!-- ============================================================ -->
-        <!-- HEADER FIJO                                                    -->
-        <!-- ============================================================ -->
-        <div class="video-header" id="videoHeader">
-            <div>
-                <h1 class="video-title" id="videoTitle">Cargando...</h1>
-                <span class="video-meta" id="videoMeta"></span>
-            </div>
-            <a href="index.html" class="back-btn">← Volver</a>
+    <div style="text-align: center; margin: 12px 0; padding: 0 20px;">
+        <div class="adsterra-desktop">
+            <script>
+                atOptions = {
+                    'key' : '2d24803022ac8ea2c0f5629bb6e94501',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
         </div>
-
-        <!-- ============================================================ -->
-        <!-- BANNER ENCIMA DEL REPRODUCTOR (FIJO)                         -->
-        <!-- ============================================================ -->
-        <div style="text-align:center; margin: 12px 0;">
-            <div class="adsterra-desktop">
-                <script>
-                    atOptions = {
-                        'key' : '2d24803022ac8ea2c0f5629bb6e94501',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
-                </script>
-                <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
-            </div>
-            <div class="adsterra-mobile">
-                <script>
-                    atOptions = {
-                        'key' : 'f609722253730b0dda3e6b83efb17a18',
-                        'format' : 'iframe',
-                        'height' : 50,
-                        'width' : 320,
-                        'params' : {}
-                    };
-                </script>
-                <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
-            </div>
-        </div>
-
-        <!-- ============================================================ -->
-        <!-- REPRODUCTOR                                                   -->
-        <!-- ============================================================ -->
-        <div class="plyr-container">
-            <div class="plyr__video-embed" id="player">
-                <iframe
-                    id="videoFrame"
-                    src=""
-                    allowfullscreen
-                    allowtransparency
-                    allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
-                ></iframe>
-            </div>
-        </div>
-
-        <!-- ============================================================ -->
-        <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR (FIJO)                  -->
-        <!-- ============================================================ -->
-        <div style="margin: 20px auto; max-width: 100%;">
-            <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
-            <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
-        </div>
-
-        <!-- ============================================================ -->
-        <!-- SELECTOR DE EPISODIOS (dinámico)                             -->
-        <!-- ============================================================ -->
-        <div class="episode-selector" id="episodeSelector"></div>
-
-        <!-- ============================================================ -->
-        <!-- INFO DEL EXPEDIENTE (dinámico)                                -->
-        <!-- ============================================================ -->
-        <div class="expediente-info" id="expedienteInfo">
-            <h3>📁 Sobre este expediente</h3>
-            <p id="expedienteDesc">Cargando...</p>
-            <div class="expediente-tags" id="expedienteTags"></div>
+        <div class="adsterra-mobile">
+            <script>
+                atOptions = {
+                    'key' : 'f609722253730b0dda3e6b83efb17a18',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
         </div>
     </div>
 
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <section class="hero" id="inicio">
+        <h1>Rescatando clásicos<br /><span class="highlight">Compartiendo historias</span></h1>
+        <p>Explora OVAs, películas y especiales que dejaron huella, aunque nunca alcanzaran la fama de los grandes clásicos</p>
+        <div class="hero-cta">
+            <a href="#catalogo" class="btn btn-primary" onclick="cambiarSeccion('clasicos')">Explorar catálogo</a>
+            <a href="#vibes" class="btn btn-secondary" onclick="cambiarSeccion('vibes')">Buscar por vibe</a>
+            <button class="btn btn-random" onclick="randomAnime()">🎲 Anime aleatorio</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- NATIVE BANNER (responsivo nativo)                             -->
+    <!-- ============================================================ -->
+    <div style="margin: 24px auto; max-width: 100%; padding: 0 20px;">
+        <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
+        <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">Expedientes</div></div>
+        <div class="stat-item"><div class="stat-number" id="statOVAs">0</div><div class="stat-label">Series · OVAs</div></div>
+        <div class="stat-item"><div class="stat-number" id="statPelis">0</div><div class="stat-label">Películas</div></div>
+    </div>
+
+    <section class="search-section">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Busca por título, año, estudio, director o género..." />
+            <button class="search-clear" id="searchClear">✕</button>
+        </div>
+        <div class="search-results-count" id="searchResults"></div>
+    </section>
+
+    <section class="section" id="featured">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">✦</span>Expediente del Día</h2>
+            <span class="section-meta">Actualizado cada 24h</span>
+        </div>
+        <div class="featured-card" id="featuredCard">
+            <div class="featured-image">
+                <img src="" alt="" id="featuredImg" />
+                <span class="year-badge" id="featuredYear">----</span>
+                <span class="rarity-badge">⚡ Obra recuperada</span>
+            </div>
+            <div class="featured-content">
+                <div class="expediente-block">
+                    <div class="exp-label">📁 Expediente recuperado</div>
+                    <div class="exp-value" id="featuredExpId">#---</div>
+                    <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.75rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                </div>
+                <div class="featured-tags" id="featuredTags"></div>
+                <h2 id="featuredTitle">---</h2>
+                <div class="featured-meta" id="featuredMeta"></div>
+                <p class="featured-desc" id="featuredDesc">---</p>
+                <div class="featured-actions">
+                    <button class="btn btn-primary" onclick="event.stopPropagation();openModal(featuredId)">Abrir expediente</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN CLÁSICOS                                              -->
+    <!-- ============================================================ -->
+    <section class="section seccion-contenido" id="clasicos" style="display:block;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">◈</span>Catálogo Clásico</h2>
+            <div class="filters" id="filterContainer">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="ova">OVAs</button>
+                <button class="filter-btn" data-filter="pelicula">Películas</button>
+                <button class="filter-btn" data-filter="serie">Series</button>
+                <button class="filter-btn" data-filter="80s">80s</button>
+                <button class="filter-btn" data-filter="90s">90s</button>
+                <button class="filter-btn" data-filter="cyberpunk">Cyberpunk</button>
+                <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
+                <button class="filter-btn" data-filter="drama">Drama</button>
+                <button class="filter-btn" data-filter="accion">Acción</button>
+                <button class="filter-btn" data-filter="horror">Horror</button>
+                <button class="filter-btn" data-filter="mecha">Mecha</button>
+            </div>
+        </div>
+        <div class="no-results" id="noResults">
+            <p style="font-size:1.1rem;margin-bottom:6px;">😕 Nada por aquí</p>
+            <p>Prueba con otros términos o quita los filtros</p>
+        </div>
+        <div class="grid" id="animeGrid"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN LIVE ACTION                                          -->
+    <!-- ============================================================ -->
+    <section class="section seccion-contenido" id="live-action" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🎬</span>Live Action</h2>
+            <span class="section-meta">Adaptaciones de imagen real</span>
+        </div>
+        <div class="no-results" id="noResultsLA">
+            <p style="font-size:1.1rem;margin-bottom:6px;">😕 Nada por aquí</p>
+            <p>Prueba con otros términos o quita los filtros</p>
+        </div>
+        <div class="grid" id="liveActionGrid"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN ANIMES +18                                          -->
+    <!-- ============================================================ -->
+    <section class="section seccion-contenido" id="adultos" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🔞</span>Animes Clásicos +18</h2>
+            <span class="section-meta">Contenido para mayores de edad</span>
+        </div>
+        
+        <div id="adultGate" style="text-align:center;padding:60px 20px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);margin-bottom:20px;">
+            <p style="font-size:2rem;margin-bottom:16px;">🔞</p>
+            <p style="font-size:1.3rem;font-weight:700;margin-bottom:12px;">Contenido para adultos</p>
+            <p style="color:var(--text-muted);margin-bottom:24px;max-width:400px;margin-left:auto;margin-right:auto;">
+                Esta sección contiene obras con temáticas adultas, violencia gráfica y/o contenido sexual explícito.
+                Solo para mayores de 18 años.
+            </p>
+            <button class="btn btn-primary" onclick="verificarEdad()" style="font-size:1.1rem;padding:14px 32px;">
+                🔞 Verificar edad (18+)
+            </button>
+        </div>
+        
+        <div id="adultContent" style="display:none;">
+            <div class="no-results" id="noResultsAdult">
+                <p style="font-size:1.1rem;margin-bottom:6px;">😕 Nada por aquí</p>
+                <p>Prueba con otros términos o quita los filtros</p>
+            </div>
+            <div class="grid" id="adultGrid"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BANNER MID-CONTENT 300×250 (entre tarjetas)                   -->
+    <!-- ============================================================ -->
+    <div style="text-align: center; margin: 32px 0; padding: 0 20px;">
+        <script>
+            atOptions = {
+                'key' : '87a06576574ce7684612c64a5ebfe421',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
+    </div>
+
+    <section class="section seccion-contenido" id="listas" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">📑</span>Listas</h2>
+            <span class="section-meta">Colecciones curadas</span>
+        </div>
+        <div class="listas-grid" id="listasGrid"></div>
+    </section>
+
+    <section class="section seccion-contenido vibes-section" id="vibes" style="display:none;">
+        <h2 class="section-title" style="margin-bottom:8px;">¿Qué buscas hoy?</h2>
+        <p style="color:var(--text-muted);margin-bottom:32px;">No por género. Por sensación.</p>
+        <div class="vibes-cloud" id="vibesCloud"></div>
+    </section>
+
+    <section class="section seccion-contenido" id="sobre" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">📋</span>Sobre Frame Perdido</h2>
+        </div>
+        <div class="sobre-text">
+            <p>Frame Perdido nació de una pregunta simple: <strong style="color:var(--text)">¿Qué pasó con todo ese anime que no aparece en los tops?</strong></p>
+            <p>No hablamos de Evangelion ni de Cowboy Bebop. Hablamos de las OVAs que solo existieron en VHS, de las películas que se proyectaron una vez en un festival y desaparecieron, de los experimentos visuales que los estudios hicieron cuando nadie les decía qué no podían hacer.</p>
+            <p>Cada expediente responde a cinco preguntas:</p>
+            <ul>
+                <li>¿Qué es esta obra?</li>
+                <li>¿Por qué merece ser vista hoy?</li>
+                <li>¿Qué la hace diferente?</li>
+                <li>¿Por qué terminó siendo olvidada?</li>
+                <li>¿Qué otras obras similares recomendarías?</li>
+            </ul>
+            <p>Este archivo crece día a día. Si tienes una recomendación, escríbenos en redes.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MODAL CON REEL TAMAÑO 9:16                   -->
+    <!-- ============================================ -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <img class="modal-image" id="modalImage" src="" alt="" />
+            <div class="modal-content">
+                <div class="expediente-block" style="margin-bottom:16px;">
+                    <div class="exp-label">📁 Expediente recuperado</div>
+                    <div class="exp-value" id="modalExpId"></div>
+                    <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.75rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                </div>
+                <div class="modal-header"><h2 class="modal-title" id="modalTitle"></h2></div>
+                <div class="modal-meta" id="modalMeta"></div>
+                <div class="modal-tags" id="modalTags"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-section"><h4>🎬 ¿De qué trata?</h4><p id="modalPlot"></p></div>
+                <div class="modal-section"><h4>💭 ¿Por qué verla?</h4><p id="modalAnalysis"></p></div>
+                <div class="modal-section"><h4>🕰️ ¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
+                <div class="modal-section"><h4>📋 Ficha técnica</h4><ul id="modalTech"></ul></div>
+                
+                <div class="modal-section" id="modalReelSection">
+                    <h4>🎬 Ver Reel</h4>
+                    <div id="modalReelContainer">
+                        <iframe id="modalReelFrame" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="modal-related" id="modalRelated">
+                    <h4>🎞️ También puedes explorar</h4>
+                    <div class="related-grid" id="relatedGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-text">Frame <span>Perdido</span></div>
+                <p>El archivo del anime que el tiempo olvidó. OVAs, películas independientes y animación clásica seleccionadas con criterio, sin algoritmos.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">📘</a>
+                    <a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">🎵</a>
+                    <a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">📷</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="#" onclick="cambiarSeccion('clasicos')">Catálogo Clásico</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('live-action')">Live Action</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('adultos')">+18</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('vibes')">Buscar por vibe</a></li>
+                    <li><a href="#featured">Expediente del Día</a></li>
+                    <li><a href="#" onclick="cambiarSeccion('listas')">Listas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Comunidad</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                    <li><a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://frame-perdido.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a></li>
+                    <li><a href="https://frame-perdido.github.io/Frame-perdido/privacidad.html" target="_blank" rel="noopener noreferrer">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Frame Perdido</span>
+            <a href="https://tecnocurioso.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a>
+            <a href="https://tecnocurioso.github.io/Frame-perdido/privacidad.html" target="_blank" rel="noopener noreferrer">Privacidad</a>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- CARGA DE BASES DE DATOS DESDE REPOSITORIOS SEPARADOS         -->
+    <!-- ============================================================ -->
+    <script src="data.js"></script>
+    <script src="https://TU-USUARIO.github.io/frame-perdido-live-action/data.js"></script>
+    <script src="https://TU-USUARIO.github.io/frame-perdido-adultos/data.js"></script>
+
+    <!-- ============================================================ -->
+    <!-- CÓDIGO PRINCIPAL                                             -->
+    <!-- ============================================================ -->
     <script>
         // ============================================================
-        // BASE DE DATOS DE VIDEOS - LIVE ACTION + ADULTOS
-        // IDs: Live Action (1000-1999) | Adultos (2000-2999)
+        // VARIABLES GLOBALES
         // ============================================================
-        const videos = {
-            // ============================================================
-            // LIVE ACTION (IDs 1000-1999)
-            // ============================================================
-            1000: {
-                title: "Riki-Oh: The Story of Ricky",
-                year: 1991,
-                studio: "Golden Sun Films",
-                director: "Lam Nai-choi",
-                desc: "Ricky Ho es un joven con fuerza sobrehumana que es encarcelado en una prisión privada en una sociedad distópica. Allí se enfrenta a guardias sádicos y otros reclusos mientras busca la manera de escapar y hacer justicia.",
-                tags: ["Live Action", "Acción", "Artes marciales", "Gore", "Culto"],
-                episodios: [
-            { num: 1, version: "Dob", url: "//ok.ru/videoembed/10465970686515?nochat=1" }
-                ]
+        let seccionActual = 'inicio';
+        let featuredId = null;
+
+        // ============================================================
+        // VERIFICACIÓN DE EDAD
+        // ============================================================
+        function verificarEdad() {
+            const edad = prompt("🔞 Por favor, ingresa tu edad:");
+            
+            if (edad === null) {
+                return false;
             }
             
-        };
-
-        // ============================================================
-        // LEER PARÁMETROS DE LA URL
-        // ============================================================
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get('id'));
-        const ep = parseInt(params.get('ep')) || 1;
-        const version = params.get('version') || null;
-
-        // ============================================================
-        // FUNCIONES
-        // ============================================================
-        function esVideoMega(url) {
-            return url && url.includes('mega.nz/embed');
-        }
-
-        function esVideoYouTube(url) {
-            return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
-        }
-
-        function obtenerUrlClean(url) {
-            if (!url) return '';
-            if (esVideoMega(url)) return url;
-            if (esVideoYouTube(url)) {
-                let cleanUrl = url;
-                if (url.includes('?')) cleanUrl = url.split('?')[0];
-                return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
-            }
-            return url;
-        }
-
-        function cambiarEpisodio(id, num, version) {
-            let url = `watch-live-18.html?id=${id}&ep=${num}`;
-            if (version) url += `&version=${version}`;
-            window.location.href = url;
-        }
-
-        // ============================================================
-        // AGRUPAR EPISODIOS POR VERSIÓN
-        // ============================================================
-        function agruparEpisodios(episodios) {
-            const grupos = {};
-            episodios.forEach(ep => {
-                const version = ep.version || "Episodio";
-                if (!grupos[version]) {
-                    grupos[version] = [];
-                }
-                grupos[version].push(ep);
-            });
-            return grupos;
-        }
-
-        function renderizarSelector(episodios, id) {
-            const grupos = agruparEpisodios(episodios);
-            const versiones = Object.keys(grupos);
+            const edadNum = parseInt(edad);
             
-            if (versiones.length === 1 && versiones[0] === "Episodio") {
-                return episodios.map(ep => {
-                    const label = `Ep. ${ep.num}`;
-                    return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">${label}</button>`;
-                }).join('');
+            if (isNaN(edadNum) || edadNum < 18) {
+                alert("⛔ Lo sentimos, este contenido es solo para mayores de 18 años.");
+                return false;
             }
             
-            let html = '';
-            versiones.forEach(version => {
-                const eps = grupos[version];
-                const count = eps.length;
-                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
-                
-                html += `
-                    <div class="version-group">
-                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
-                            📁 ${version}
-                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
-                        </button>
-                        <div class="episode-list" id="${groupId}">
-                            ${eps.map(ep => {
-                                const label = `Ep. ${ep.num}`;
-                                return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">${label}</button>`;
-                            }).join('')}
-                        </div>
+            document.getElementById('adultGate').style.display = 'none';
+            document.getElementById('adultContent').style.display = 'block';
+            
+            if (document.getElementById('adultGrid').children.length === 0) {
+                renderCards(animesAdultos, 'adultGrid', true);
+            }
+            
+            sessionStorage.setItem('frame_perdido_adult_verified', 'true');
+            return true;
+        }
+
+        function checkAdultVerification() {
+            const verified = sessionStorage.getItem('frame_perdido_adult_verified');
+            
+            if (verified === 'true') {
+                document.getElementById('adultGate').style.display = 'none';
+                document.getElementById('adultContent').style.display = 'block';
+                renderCards(animesAdultos, 'adultGrid', true);
+                return true;
+            }
+            return false;
+        }
+
+        // ============================================================
+        // RENDERIZAR TARJETAS
+        // ============================================================
+        function renderCards(datos, gridId, esAdulto = false) {
+            const grid = document.getElementById(gridId);
+            if (!grid) return;
+            
+            if (!datos || datos.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
+                        <p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en esta sección</p>
+                        <p style="font-size:0.9rem;">Vuelve pronto, estamos ampliando el archivo</p>
                     </div>
                 `;
-            });
-            return html;
-        }
-
-        function toggleVersion(groupId) {
-            const list = document.getElementById(groupId);
-            const btn = list.previousElementSibling;
-            if (list.classList.contains('open')) {
-                list.classList.remove('open');
-                btn.innerHTML = btn.innerHTML.replace('📂', '📁');
-            } else {
-                list.classList.add('open');
-                btn.innerHTML = btn.innerHTML.replace('📁', '📂');
+                return;
             }
+
+            grid.innerHTML = datos.map(anime => {
+                let categoriaTag = '';
+                if (gridId === 'liveActionGrid') {
+                    categoriaTag = '<span class="card-tag" style="background:#3b82f6;color:#fff;">🎬 Live Action</span>';
+                } else if (esAdulto) {
+                    categoriaTag = '<span class="card-tag" style="background:#ef4444;color:#fff;">🔞 +18</span>';
+                }
+                
+                let adultBadge = '';
+                if (esAdulto) {
+                    adultBadge = '<span style="position:absolute;bottom:12px;left:12px;background:#ef4444;color:#fff;padding:4px 12px;border-radius:6px;font-size:0.7rem;font-weight:700;z-index:2;">🔞 +18</span>';
+                }
+                
+                const imgSrc = anime.cover || anime.imagen || 'https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada';
+                const title = anime.title || anime.titulo || 'Sin título';
+                const desc = anime.description || anime.sinopsis || anime.descripcion || 'Sin descripción';
+                const genres = anime.genre || anime.genero || [];
+                const tags = anime.tags || [];
+                
+                // Enlace al reproductor según la sección
+                let watchLink = '';
+                if (gridId === 'liveActionGrid') {
+                    watchLink = `watch-live-18.html?id=${anime.id}`;
+                } else if (esAdulto) {
+                    watchLink = `watch-live-18.html?id=${anime.id}`;
+                } else {
+                    watchLink = `watch.html?id=${anime.id}`;
+                }
+                
+                return `
+                <div class="card" data-id="${anime.id}" onclick="openModal('${anime.id}')">
+                    <div class="card-image">
+                        <img src="${imgSrc}" alt="${title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year || anime.año || '----'}</span>
+                        ${adultBadge}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">${anime.type || anime.tipo || 'Anime'}</span>
+                            ${categoriaTag}
+                            ${genres.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3>${title}</h3>
+                        <p>${desc}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="${watchLink}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                        <div class="card-vibes">
+                            ${tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
         }
 
         // ============================================================
-        // CARGAR CONTENIDO
+        // FUNCIÓN PARA ABRIR MODAL
         // ============================================================
-        if (id && videos[id]) {
-            const v = videos[id];
-            const episodios = v.episodios;
-
-            let episodioActual = null;
-            if (episodios && episodios.length > 0) {
-                episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
-                if (!episodioActual) episodioActual = episodios[0];
+        function openModal(id) {
+            let anime = null;
+            let esAdulto = false;
+            
+            if (typeof animes !== 'undefined') {
+                anime = animes.find(a => a.id == id);
             }
-
-            let titleSuffix = '';
-            if (episodioActual) {
-                if (episodioActual.version && episodioActual.version !== "Episodio") {
-                    titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
-                } else if (episodios.length > 1) {
-                    titleSuffix = ` — Episodio ${episodioActual.num}`;
+            if (!anime && typeof liveActions !== 'undefined') {
+                anime = liveActions.find(a => a.id == id);
+            }
+            if (!anime && typeof animesAdultos !== 'undefined') {
+                anime = animesAdultos.find(a => a.id == id);
+                if (anime) esAdulto = true;
+            }
+            
+            if (!anime) {
+                console.error('Anime no encontrado:', id);
+                return;
+            }
+            
+            if (esAdulto) {
+                const verified = sessionStorage.getItem('frame_perdido_adult_verified');
+                if (verified !== 'true') {
+                    const confirmar = confirm(
+                        '🔞 ADVERTENCIA DE CONTENIDO PARA ADULTOS\n\n' +
+                        'Esta obra contiene material que puede ser inapropiado para menores de 18 años.\n\n' +
+                        '¿Deseas continuar?'
+                    );
+                    if (!confirmar) return;
                 }
             }
-            document.getElementById('videoTitle').textContent = v.title + titleSuffix;
-            document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
-            document.title = v.title + titleSuffix + " — Frame Perdido";
+            
+            document.title = `${anime.title} — Frame Perdido`;
+            
+            const imgSrc = anime.cover || anime.imagen || 'https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada';
+            document.getElementById('modalImage').src = imgSrc;
+            document.getElementById('modalImage').alt = anime.title;
+            document.getElementById('modalTitle').textContent = anime.title || 'Sin título';
+            document.getElementById('modalExpId').textContent = '#' + String(anime.id + 1).padStart(3, '0');
+            
+            const metaHTML = `
+                <span>📅 ${anime.year || anime.año || '----'}</span>
+                <span>🎬 ${anime.studio || anime.estudio || 'Desconocido'}</span>
+                <span>👤 ${anime.director || 'Desconocido'}</span>
+                <span>⏱️ ${anime.duration || anime.duracion || '---'}</span>
+            `;
+            document.getElementById('modalMeta').innerHTML = metaHTML;
+            
+            const genres = anime.genre || anime.genero || [];
+            document.getElementById('modalTags').innerHTML = 
+                genres.map(g => `<span class="tag accent">${g}</span>`).join('');
+            
+            document.getElementById('modalDesc').textContent = anime.description || anime.sinopsis || anime.descripcion || 'Sin descripción.';
+            document.getElementById('modalPlot').textContent = anime.plot || anime.trama || 'Sin información disponible.';
+            document.getElementById('modalAnalysis').textContent = anime.analysis || anime.analisis || 'Sin información disponible.';
+            document.getElementById('modalForgotten').textContent = anime.forgotten || anime.olvidado || 'Sin información disponible.';
 
-            if (episodioActual && episodioActual.url) {
-                const cleanUrl = obtenerUrlClean(episodioActual.url);
-                document.getElementById('videoFrame').src = cleanUrl;
+            const techList = [
+                `Estudio: ${anime.studio || anime.estudio || 'Desconocido'}`,
+                `Director: ${anime.director || 'Desconocido'}`,
+                `Año: ${anime.year || anime.año || '----'}`,
+                `Duración: ${anime.duration || anime.duracion || '---'}`
+            ];
+            document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
+
+            const reelContainer = document.getElementById('modalReelContainer');
+            const reelFrame = document.getElementById('modalReelFrame');
+            if (anime.reel && anime.reel.trim() !== '') {
+                reelContainer.style.display = 'block';
+                let videoUrl = anime.reel;
+                if (videoUrl.includes('youtube.com/watch?v=')) {
+                    const videoId = videoUrl.split('v=')[1].split('&')[0];
+                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+                }
+                reelFrame.src = videoUrl;
             } else {
-                document.getElementById('videoFrame').src = '';
-                document.getElementById('videoFrame').style.display = 'none';
-                const playerContainer = document.querySelector('.plyr-container');
-                const noVideoMsg = document.createElement('div');
-                noVideoMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
-                noVideoMsg.innerHTML = `
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">🎬 No hay video disponible</h3>
-                    <p style="font-size: 0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>
-                `;
-                playerContainer.appendChild(noVideoMsg);
+                reelContainer.style.display = 'none';
+                reelFrame.src = '';
             }
 
-            if (episodios && episodios.length > 0) {
-                document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
+            const relatedGrid = document.getElementById('relatedGrid');
+            let allData = [];
+            if (typeof animes !== 'undefined') allData = [...allData, ...animes];
+            if (typeof liveActions !== 'undefined') allData = [...allData, ...liveActions];
+            if (typeof animesAdultos !== 'undefined') allData = [...allData, ...animesAdultos];
+            
+            if (anime.related && anime.related.length > 0) {
+                const relatedAnimes = allData.filter(a => anime.related.includes(a.id)).slice(0, 4);
+                relatedGrid.innerHTML = relatedAnimes.map(r =>
+                    `<div class="related-card" onclick="openModal('${r.id}')">
+                        <h5>${r.title}</h5>
+                        <span>${r.year || r.año || '----'} · ${r.type || r.tipo || 'Anime'}</span>
+                    </div>`
+                ).join('');
             } else {
-                document.getElementById('episodeSelector').innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>`;
+                relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No hay obras relacionadas.</p>';
             }
 
-            document.getElementById('expedienteDesc').textContent = v.desc;
-            document.getElementById('expedienteTags').innerHTML = v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('');
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            if (document.getElementById('player') && episodioActual && episodioActual.url) {
-                const player = new Plyr('#player', {
-                    youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
-                    tooltips: { controls: true, seek: true },
-                    keyboard: { focused: true, global: true },
-                    fullscreen: { enabled: true, fallback: true, iosNative: true },
-                    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
-                    settings: ['captions', 'quality', 'speed'],
-                    quality: { default: 720, options: [1080, 720, 480, 360] }
+        // ============================================================
+        // FUNCIÓN PARA CERRAR MODAL
+        // ============================================================
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modalOverlay') &&
+                e.target !== document.querySelector('.modal-close')) return;
+            
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            document.title = 'Frame Perdido — Archivo de anime clásico';
+        }
+
+        // ============================================================
+        // FUNCIÓN PARA CAMBIAR DE SECCIÓN (CORREGIDA)
+        // ============================================================
+        function cambiarSeccion(seccion) {
+            seccionActual = seccion;
+            
+            // Ocultar todas las secciones
+            document.querySelectorAll('.seccion-contenido').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Mapeo de secciones a IDs
+            const mapaSecciones = {
+                'inicio': 'clasicos',
+                'clasicos': 'clasicos',
+                'live-action': 'live-action',
+                'adultos': 'adultos',
+                'listas': 'listas',
+                'vibes': 'vibes',
+                'sobre': 'sobre'
+            };
+            
+            const idSeccion = mapaSecciones[seccion] || 'clasicos';
+            const contenedor = document.getElementById(idSeccion);
+            if (contenedor) {
+                contenedor.style.display = 'block';
+            }
+            
+            // Marcar el enlace activo
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.includes(seccion.charAt(0).toUpperCase() + seccion.slice(1)) || 
+                    (seccion === 'inicio' && link.textContent.includes('Inicio'))) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Renderizar según la sección
+            switch(seccion) {
+                case 'inicio':
+                case 'clasicos':
+                    if (typeof animes !== 'undefined') {
+                        renderCards(animes, 'animeGrid', false);
+                    }
+                    break;
+                case 'live-action':
+                    if (typeof liveActions !== 'undefined') {
+                        renderCards(liveActions, 'liveActionGrid', false);
+                    } else {
+                        console.warn('⚠️ liveActions no está definido');
+                    }
+                    break;
+                case 'adultos':
+                    if (!checkAdultVerification()) {
+                        document.getElementById('adultGate').style.display = 'block';
+                        document.getElementById('adultContent').style.display = 'none';
+                    }
+                    break;
+                case 'listas':
+                    setupListas();
+                    break;
+                case 'vibes':
+                    renderizarVibes();
+                    break;
+                case 'sobre':
+                    break;
+            }
+        }
+
+        // ============================================================
+        // SISTEMA DE VIBES
+        // ============================================================
+        function generarVibesAutomaticos() {
+            const vibesSet = new Set();
+            const allData = [];
+            
+            if (typeof animes !== 'undefined') allData.push(...animes);
+            if (typeof liveActions !== 'undefined') allData.push(...liveActions);
+            if (typeof animesAdultos !== 'undefined') allData.push(...animesAdultos);
+            
+            allData.forEach(anime => {
+                if (anime.tags && Array.isArray(anime.tags)) {
+                    anime.tags.forEach(tag => {
+                        vibesSet.add(tag.toLowerCase().trim());
+                    });
+                }
+            });
+            
+            const vibesBase = [
+                'melancólico', 'cyberpunk', 'nocturno', 'violento',
+                'comedia', 'experimental', 'nostálgico', 'musical',
+                'robot', 'terror', 'color', 'silencio',
+                'acción', 'aventura', 'drama', 'romance',
+                'fantasía', 'ciencia-ficción', 'histórico', 'espacial'
+            ];
+            vibesBase.forEach(v => vibesSet.add(v));
+            return Array.from(vibesSet).sort();
+        }
+
+        function buscarPorVibe(vibe) {
+            const vibeBusqueda = vibe.toLowerCase().trim();
+            const sinonimos = {
+                'robot': ['mecha', 'androide', 'cyborg', 'máquina', 'robótico', 'armadura'],
+                'terror': ['horror', 'espacial', 'paranormal', 'sobrenatural', 'claustrofóbico'],
+                'cyberpunk': ['cibernético', 'futurista', 'distópico', 'digital'],
+                'nocturno': ['oscuro', 'sombra', 'noche', 'tenebroso'],
+                'violento': ['gore', 'sangre', 'brutal', 'sádico'],
+                'melancólico': ['triste', 'nostálgico', 'depresivo', 'sombrío'],
+                'acción': ['pelea', 'combate', 'batalla', 'guerra'],
+                'fantasía': ['mágico', 'mitológico', 'épico', 'legendario'],
+                'ciencia-ficción': ['sci-fi', 'futurista', 'espacial', 'tecnológico']
+            };
+            const palabrasBuscar = [vibeBusqueda];
+            if (sinonimos[vibeBusqueda]) {
+                palabrasBuscar.push(...sinonimos[vibeBusqueda]);
+            }
+            
+            const allData = [];
+            if (typeof animes !== 'undefined') allData.push(...animes);
+            if (typeof liveActions !== 'undefined') allData.push(...liveActions);
+            if (typeof animesAdultos !== 'undefined') allData.push(...animesAdultos);
+            
+            const resultados = [];
+            allData.forEach(anime => {
+                let coincide = false;
+                if (anime.tags) {
+                    for (const tag of anime.tags) {
+                        const tagLower = tag.toLowerCase();
+                        for (const palabra of palabrasBuscar) {
+                            if (tagLower.includes(palabra) || palabra.includes(tagLower)) {
+                                coincide = true;
+                                break;
+                            }
+                        }
+                        if (coincide) break;
+                    }
+                }
+                if (!coincide && anime.genre) {
+                    for (const gen of anime.genre) {
+                        const genLower = gen.toLowerCase();
+                        for (const palabra of palabrasBuscar) {
+                            if (genLower.includes(palabra) || palabra.includes(genLower)) {
+                                coincide = true;
+                                break;
+                            }
+                        }
+                        if (coincide) break;
+                    }
+                }
+                if (!coincide) {
+                    const textoCompleto = `${anime.title} ${anime.description} ${anime.plot || ''}`.toLowerCase();
+                    for (const palabra of palabrasBuscar) {
+                        if (textoCompleto.includes(palabra)) {
+                            coincide = true;
+                            break;
+                        }
+                    }
+                }
+                if (coincide) {
+                    resultados.push(anime);
+                }
+            });
+            return resultados;
+        }
+
+        function renderizarVibes() {
+            const vibesCloud = document.getElementById('vibesCloud');
+            const vibes = generarVibesAutomaticos();
+            const vibesRelevantes = vibes.filter(v => 
+                !['película', 'ova', 'serie', '80s', '90s'].includes(v) && v.length > 2
+            );
+            const vibesMostrar = vibesRelevantes.slice(0, 24);
+            vibesCloud.innerHTML = vibesMostrar.map(vibe =>
+                `<button class="vibe-btn" data-vibe="${vibe}" onclick="filtrarPorVibe('${vibe}')">
+                    ${vibe.charAt(0).toUpperCase() + vibe.slice(1)}
+                    <span style="font-size:0.6rem;opacity:0.5;margin-left:4px;">
+                        (${buscarPorVibe(vibe).length})
+                    </span>
+                </button>`
+            ).join('');
+        }
+
+        function filtrarPorVibe(vibe) {
+            const searchInput = document.getElementById('searchInput');
+            const resultados = buscarPorVibe(vibe);
+            if (resultados.length > 0) {
+                searchInput.value = vibe;
+                searchInput.dispatchEvent(new Event('input'));
+                cambiarSeccion('clasicos');
+                document.getElementById('clasicos').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert(`No se encontraron obras con el vibe "${vibe}"`);
+            }
+        }
+
+        // ============================================================
+        // FUNCIONES EXISTENTES
+        // ============================================================
+        function updateStats() {
+            let total = 0;
+            let ovas = 0;
+            let pelis = 0;
+            
+            if (typeof animes !== 'undefined') {
+                total += animes.length;
+                ovas += animes.filter(a => a.type === 'OVA').length;
+                pelis += animes.filter(a => a.type === 'Película').length;
+            }
+            if (typeof liveActions !== 'undefined') {
+                total += liveActions.length;
+                liveActions.forEach(a => {
+                    if (a.type === 'OVA') ovas++;
+                    else if (a.type === 'Película') pelis++;
+                    else pelis++;
                 });
             }
-
-        } else {
-            document.getElementById('videoTitle').textContent = 'Contenido no disponible';
-            document.getElementById('videoMeta').textContent = '';
-            document.getElementById('episodeSelector').innerHTML = '';
-            document.getElementById('expedienteDesc').textContent = 'Este expediente no existe en nuestro archivo o no tiene video asociado.';
-            document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
-            document.title = "No disponible — Frame Perdido";
+            if (typeof animesAdultos !== 'undefined') {
+                total += animesAdultos.length;
+                animesAdultos.forEach(a => {
+                    if (a.type === 'OVA') ovas++;
+                    else if (a.type === 'Película') pelis++;
+                    else pelis++;
+                });
+            }
             
-            const playerContainer = document.querySelector('.plyr-container');
-            const errorMsg = document.createElement('div');
-            errorMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
-            errorMsg.innerHTML = `
-                <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">⚠️ Expediente no encontrado</h3>
-                <p style="font-size: 0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p>
-                <a href="index.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 500;">← Volver al archivo</a>
-            `;
-            playerContainer.appendChild(errorMsg);
+            animateCounter('statTotal', total);
+            animateCounter('statOVAs', ovas);
+            animateCounter('statPelis', pelis);
         }
+
+        function animateCounter(id, target) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            let current = 0;
+            const increment = Math.max(1, target / 30);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) { current = target; clearInterval(timer); }
+                el.textContent = Math.floor(current);
+            }, 30);
+        }
+
+        function setupFeatured() {
+            const allData = [];
+            if (typeof animes !== 'undefined') allData.push(...animes);
+            if (typeof liveActions !== 'undefined') allData.push(...liveActions);
+            if (typeof animesAdultos !== 'undefined') allData.push(...animesAdultos);
+            
+            if (!allData || allData.length === 0) {
+                document.getElementById('featuredTitle').textContent = 'Sin obras';
+                document.getElementById('featuredDesc').textContent = 'Añade obras en los archivos de datos';
+                return;
+            }
+            
+            const today = new Date();
+            const dayIndex = today.getDate() % allData.length;
+            const anime = allData[dayIndex];
+            featuredId = anime.id;
+            
+            document.getElementById('featuredImg').src = anime.cover || anime.imagen || 'https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada';
+            document.getElementById('featuredImg').alt = anime.title;
+            document.getElementById('featuredYear').textContent = anime.year || anime.año || '----';
+            document.getElementById('featuredExpId').textContent = '#' + String(anime.id + 1).padStart(3, '0');
+            document.getElementById('featuredTitle').textContent = anime.title || 'Sin título';
+            document.getElementById('featuredMeta').innerHTML =
+                `<span>📅 ${anime.year || anime.año || '----'}</span><span>🎬 ${anime.studio || anime.estudio || 'Desconocido'}</span><span>👤 ${anime.director || 'Desconocido'}</span>`;
+            document.getElementById('featuredDesc').textContent = anime.description || anime.sinopsis || 'Sin descripción.';
+            
+            const genres = anime.genre || anime.genero || [];
+            document.getElementById('featuredTags').innerHTML =
+                `<span class="tag accent">${anime.type || anime.tipo || 'Anime'}</span>${genres.map(g => `<span class="tag">${g}</span>`).join('')}<span class="tag">${anime.duration || anime.duracion || '---'}</span>`;
+            document.getElementById('featuredCard').onclick = () => openModal(anime.id);
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchClear = document.getElementById('searchClear');
+            const searchResults = document.getElementById('searchResults');
+            const noResults = document.getElementById('noResults');
+
+            function filterCards() {
+                const query = searchInput.value.toLowerCase().trim();
+                searchClear.classList.toggle('visible', query.length > 0);
+                
+                const allCards = document.querySelectorAll('.card');
+                const visibleCards = [];
+                
+                allCards.forEach(card => {
+                    const parentSection = card.closest('.seccion-contenido');
+                    if (parentSection && parentSection.style.display !== 'none') {
+                        visibleCards.push(card);
+                    }
+                });
+                
+                if (query.length === 0) {
+                    searchResults.textContent = '';
+                    visibleCards.forEach(c => c.classList.remove('hidden'));
+                    noResults.classList.remove('visible');
+                    return;
+                }
+                
+                let visibleCount = 0;
+                visibleCards.forEach(card => {
+                    const id = card.dataset.id;
+                    let anime = null;
+                    if (typeof animes !== 'undefined') anime = animes.find(a => a.id == id);
+                    if (!anime && typeof liveActions !== 'undefined') anime = liveActions.find(a => a.id == id);
+                    if (!anime && typeof animesAdultos !== 'undefined') anime = animesAdultos.find(a => a.id == id);
+                    
+                    if (!anime) return;
+                    
+                    const match = anime.title.toLowerCase().includes(query) ||
+                        anime.description?.toLowerCase().includes(query) ||
+                        anime.genre?.some(g => g.toLowerCase().includes(query)) ||
+                        (anime.tags && anime.tags.some(t => t.toLowerCase().includes(query))) ||
+                        anime.studio?.toLowerCase().includes(query) ||
+                        anime.director?.toLowerCase().includes(query) ||
+                        String(anime.year || '').includes(query);
+                    card.classList.toggle('hidden', !match);
+                    if (match) visibleCount++;
+                });
+                
+                searchResults.textContent = visibleCount > 0 ?
+                    `${visibleCount} resultado${visibleCount !== 1 ? 's' : ''} encontrado${visibleCount !== 1 ? 's' : ''}` : '';
+                noResults.classList.toggle('visible', visibleCount === 0);
+            }
+            
+            searchInput.addEventListener('input', filterCards);
+            searchClear.addEventListener('click', function() {
+                searchInput.value = '';
+                filterCards();
+                searchInput.focus();
+            });
+        }
+
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const noResults = document.getElementById('noResults');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const allCards = document.querySelectorAll('.card');
+                    const visibleCards = [];
+                    
+                    allCards.forEach(card => {
+                        const parentSection = card.closest('.seccion-contenido');
+                        if (parentSection && parentSection.style.display !== 'none') {
+                            visibleCards.push(card);
+                        }
+                    });
+                    
+                    let visibleCount = 0;
+                    visibleCards.forEach(card => {
+                        const type = card.dataset.type;
+                        const year = parseInt(card.dataset.year);
+                        const genre = card.dataset.genre;
+                        let match = false;
+                        if (filter === 'all') match = true;
+                        else if (filter === 'ova') match = type === 'ova';
+                        else if (filter === 'pelicula') match = type === 'película';
+                        else if (filter === 'serie') match = type === 'serie';
+                        else if (filter === '80s') match = year >= 1980 && year < 1990;
+                        else if (filter === '90s') match = year >= 1990 && year < 2000;
+                        else match = genre.includes(filter);
+                        card.classList.toggle('hidden', !match);
+                        if (match) visibleCount++;
+                    });
+                    noResults.classList.toggle('visible', visibleCount === 0);
+                });
+            });
+        }
+
+        function setupListas() {
+            const container = document.getElementById('listasGrid');
+            if (!container) return;
+            
+            const allData = [];
+            if (typeof animes !== 'undefined') allData.push(...animes);
+            if (typeof liveActions !== 'undefined') allData.push(...liveActions);
+            if (typeof animesAdultos !== 'undefined') allData.push(...animesAdultos);
+            
+            const tagsCount = {};
+            allData.forEach(anime => {
+                if (anime.tags) {
+                    anime.tags.forEach(tag => {
+                        tagsCount[tag] = (tagsCount[tag] || 0) + 1;
+                    });
+                }
+            });
+            
+            const tagsPopulares = Object.entries(tagsCount)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 6)
+                .map(([tag, count]) => ({
+                    tag: tag,
+                    count: count,
+                    icon: getIconForTag(tag)
+                }));
+                
+            container.innerHTML = tagsPopulares.map(t =>
+                `<div class="lista-card" onclick="filtrarPorVibe('${t.tag}')">
+                    <div class="lista-icon">${t.icon}</div>
+                    <h3>${t.tag.charAt(0).toUpperCase() + t.tag.slice(1)}</h3>
+                    <p>${t.count} obras con esta temática</p>
+                    <div class="lista-count">${t.count} obras</div>
+                </div>`
+            ).join('');
+        }
+
+        function getIconForTag(tag) {
+            const icons = {
+                'robot': '🤖', 'mecha': '🦾', 'cyberpunk': '💻',
+                'terror': '👻', 'drama': '😢', 'acción': '⚔️',
+                'fantasía': '🐉', 'comedia': '😂', 'romance': '❤️',
+                'experimental': '🎨', 'nocturno': '🌙', 'violento': '💀',
+                'melancólico': '😔', 'nostálgico': '📼', 'espacial': '🚀',
+                'aventura': '🗺️', 'histórico': '🏯', 'ciencia-ficción': '🔬'
+            };
+            return icons[tag] || '📁';
+        }
+
+        function randomAnime() {
+            const allData = [];
+            if (typeof animes !== 'undefined') allData.push(...animes);
+            if (typeof liveActions !== 'undefined') allData.push(...liveActions);
+            if (typeof animesAdultos !== 'undefined') allData.push(...animesAdultos);
+            
+            if (!allData || allData.length === 0) return;
+            const randomId = allData[Math.floor(Math.random() * allData.length)].id;
+            openModal(randomId);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mainNav').classList.toggle('active');
+        }
+
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 200) current = section.getAttribute('id');
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+                });
+            });
+        }
+
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('mainNav').classList.remove('active');
+                });
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ============================================================
+        // DETECTAR EXPEDIENTE EN LA URL AL CARGAR
+        // ============================================================
+        function checkUrlForExpediente() {
+            const params = new URLSearchParams(window.location.search);
+            const expedienteId = params.get('expediente');
+            
+            if (expedienteId !== null) {
+                setTimeout(() => {
+                    openModal(expedienteId);
+                    document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            }
+        }
+
+        // ============================================================
+        // VERIFICAR QUE LAS BASES DE DATOS SE CARGARON
+        // ============================================================
+        function verificarDatos() {
+            let cargados = 0;
+            let total = 3;
+            
+            if (typeof animes !== 'undefined') {
+                console.log(`✅ Clásicos: ${animes.length} obras`);
+                cargados++;
+            } else {
+                console.warn('⚠️ No se encontró "animes" (clásicos)');
+            }
+            
+            if (typeof liveActions !== 'undefined') {
+                console.log(`✅ Live Action: ${liveActions.length} obras`);
+                cargados++;
+            } else {
+                console.warn('⚠️ No se encontró "liveActions" (live action)');
+            }
+            
+            if (typeof animesAdultos !== 'undefined') {
+                console.log(`✅ +18: ${animesAdultos.length} obras`);
+                cargados++;
+            } else {
+                console.warn('⚠️ No se encontró "animesAdultos" (+18)');
+            }
+            
+            return cargados === total;
+        }
+
+        // ============================================================
+        // INICIALIZACIÓN
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Frame Perdido - Iniciando...');
+            
+            const datosOk = verificarDatos();
+            
+            if (!datosOk) {
+                console.warn('⚠️ Algunas bases de datos no se cargaron correctamente');
+                document.getElementById('animeGrid').innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
+                        <p style="font-size:1.2rem;margin-bottom:8px;">⚠️ Algunas secciones no están disponibles</p>
+                        <p style="font-size:0.9rem;">Verifica que los archivos de datos estén correctamente configurados</p>
+                    </div>
+                `;
+            }
+            
+            // Inicializar sección
+            cambiarSeccion('inicio');
+            
+            // Actualizar estadísticas
+            updateStats();
+            
+            // Configurar expediente del día
+            setupFeatured();
+            
+            // Configurar búsqueda
+            setupSearch();
+            
+            // Configurar filtros
+            setupFilters();
+            
+            // Configurar listas
+            setupListas();
+            
+            // Configurar vibes
+            renderizarVibes();
+            
+            // Configurar scroll spy
+            setupScrollSpy();
+            
+            // Configurar scroll suave
+            setupSmoothScroll();
+            
+            // Verificar expediente en URL
+            checkUrlForExpediente();
+            
+            console.log('✅ Frame Perdido - Listo!');
+        });
     </script>
 
     <!-- ============================================================ -->
-    <!-- SOCIAL BAR                                                    -->
+    <!-- SOCIAL BAR (flotante)                                         -->
     <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
-    <script src="simpleblocker.js"></script>
+
+    <!-- ============================================================ -->
+    <!-- DETECTOR DE ADBLOCK                                           -->
+    <!-- ============================================================ -->
+    <script>
+        // ==========================================
+        // 1. DETECCIÓN DE BOTS Y CRAWLERS
+        // ==========================================
+        const isCrawler = () => {
+            const ua = navigator.userAgent.toLowerCase();
+            const bots = [
+                "googlebot", "google-inspectiontool", "adsbot-google", "apis-google",
+                "mediapartners-google", "bingbot", "duckduckbot", "slurp",
+                "baiduspider", "yandexbot", "facebookexternalhit", "twitterbot",
+                "linkedinbot", "applebot", "petalbot"
+            ];
+            return bots.some(bot => ua.includes(bot));
+        };
+
+        // ==========================================
+        // 2. FUNCIONES DE DETECCIÓN DE ADBLOCK
+        // ==========================================
+        const outbrainErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://widgets.outbrain.com/outbrain.js");
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const adligatureErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://adligature.com/", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const quantserveErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://secure.quantserve.com/quant.js", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const adligatureCssErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const srvtrackErrorCheck = async () => {
+            try {
+                const resp = await fetch("https://srvtrck.com/assets/css/LineIcons.css", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const yieldkitCheck = async () => {
+            try {
+                const resp = await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", {
+                    mode: "no-cors"
+                });
+                const text = await resp.text();
+                return false;
+            } catch (e) {
+                return true;
+            }
+        }
+
+        const setIntervalCheck = () => {
+            return new Promise((resolve) => {
+                const timeout = setTimeout(() => {
+                    resolve(true);
+                }, 2000);
+                const interval = setInterval(() => {
+                    const a0b = "a0b";
+                    if (a0b == "a0b") {
+                        clearInterval(interval);
+                        clearTimeout(timeout);
+                        resolve(false);
+                    }
+                }, 100);
+            });
+        }
+
+        const idCheck = async () => {
+            const bannerIds = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead'];
+            const bannerString = bannerIds.map((bannerId) => `<div id="${bannerId}">&nbsp;</div>`).join('');
+            const dataContainer = document.createElement("div");
+            dataContainer.innerHTML = bannerString;
+            document.body.append(dataContainer);
+            let adblocker = false;
+            bannerIds.forEach(id => {
+                const elem = document.getElementById(id);
+                if (!elem || elem.offsetHeight == 0) {
+                    adblocker = true;
+                }
+                elem?.remove();
+            })
+            return adblocker;
+        }
+
+        const detectedAdblock = async () => {
+            const resp = await Promise.all([
+                outbrainErrorCheck(),
+                adligatureErrorCheck(),
+                quantserveErrorCheck(),
+                adligatureCssErrorCheck(),
+                srvtrackErrorCheck(),
+                setIntervalCheck(),
+                yieldkitCheck()
+            ]);
+            const isNotUsingAdblocker = resp.every(r => r == false);
+            return !isNotUsingAdblocker;
+        };
+
+        // ==========================================
+        // 3. EJECUCIÓN SOLO PARA HUMANOS
+        // ==========================================
+        if (!isCrawler()) {
+            detectedAdblock().then(result => {
+                if (result) {
+                    window.location.href = "disable-adblock.html";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
