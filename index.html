@@ -1268,7 +1268,8 @@
         // ============================================================
         function generarVibesAutomaticos() {
             const vibesSet = new Set();
-            animes.forEach(anime => {
+            const soloAnime = animes.filter(a => a.category === "anime");
+            soloAnime.forEach(anime => {
                 if (anime.tags && Array.isArray(anime.tags)) {
                     anime.tags.forEach(tag => {
                         vibesSet.add(tag.toLowerCase().trim());
@@ -1304,7 +1305,8 @@
                 palabrasBuscar.push(...sinonimos[vibeBusqueda]);
             }
             const resultados = [];
-            animes.forEach(anime => {
+            const soloAnime = animes.filter(a => a.category === "anime");
+            soloAnime.forEach(anime => {
                 let coincide = false;
                 if (anime.tags) {
                     for (const tag of anime.tags) {
@@ -1382,12 +1384,13 @@
 
         function renderCards() {
             const grid = document.getElementById('animeGrid');
-            if (!animes || animes.length === 0) {
+            const soloAnime = animes.filter(a => a.category === "anime");
+            if (!soloAnime || soloAnime.length === 0) {
                 grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
                 return;
             }
 
-            grid.innerHTML = animes.map(anime => `
+            grid.innerHTML = soloAnime.map(anime => `
                 <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
                     <div class="card-image">
                         <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
@@ -1416,9 +1419,10 @@
         }
 
         function updateStats() {
-            const total = animes.length;
-            const ovas = animes.filter(a => a.type === 'OVA').length;
-            const pelis = animes.filter(a => a.type === 'Película').length;
+            const soloAnime = animes.filter(a => a.category === "anime");
+            const total = soloAnime.length;
+            const ovas = soloAnime.filter(a => a.type === 'OVA').length;
+            const pelis = soloAnime.filter(a => a.type === 'Película').length;
             animateCounter('statTotal', total);
             animateCounter('statOVAs', ovas);
             animateCounter('statPelis', pelis);
@@ -1437,14 +1441,15 @@
         }
 
         function setupFeatured() {
-            if (!animes || animes.length === 0) {
+            const soloAnime = animes.filter(a => a.category === "anime");
+            if (!soloAnime || soloAnime.length === 0) {
                 document.getElementById('featuredTitle').textContent = 'Sin obras';
                 document.getElementById('featuredDesc').textContent = 'Añade obras en data.js';
                 return;
             }
             const today = new Date();
-            const dayIndex = today.getDate() % animes.length;
-            const anime = animes[dayIndex];
+            const dayIndex = today.getDate() % soloAnime.length;
+            const anime = soloAnime[dayIndex];
             featuredId = anime.id;
             document.getElementById('featuredImg').src = anime.cover;
             document.getElementById('featuredImg').alt = anime.title;
@@ -1534,8 +1539,9 @@
         function setupListas() {
             const container = document.getElementById('listasGrid');
             if (!container) return;
+            const soloAnime = animes.filter(a => a.category === "anime");
             const tagsCount = {};
-            animes.forEach(anime => {
+            soloAnime.forEach(anime => {
                 if (anime.tags) {
                     anime.tags.forEach(tag => {
                         tagsCount[tag] = (tagsCount[tag] || 0) + 1;
@@ -1662,13 +1668,13 @@
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
             // ============================================
-            // REEL - Configuración 9:16
+            // TRAILER - Configuración 9:16
             // ============================================
             const reelContainer = document.getElementById('modalReelContainer');
             const reelFrame = document.getElementById('modalReelFrame');
-            if (anime.reel && anime.reel.trim() !== '') {
+            if (anime.trailer && anime.trailer.trim() !== '') {
                 reelContainer.style.display = 'block';
-                let videoUrl = anime.reel;
+                let videoUrl = anime.trailer;
                 // Soporte para YouTube
                 if (videoUrl.includes('youtube.com/watch?v=')) {
                     const videoId = videoUrl.split('v=')[1].split('&')[0];
@@ -1720,8 +1726,9 @@
         }
 
         function randomAnime() {
-            if (!animes || animes.length === 0) return;
-            const randomId = animes[Math.floor(Math.random() * animes.length)].id;
+            const soloAnime = animes.filter(a => a.category === "anime");
+            if (!soloAnime || soloAnime.length === 0) return;
+            const randomId = soloAnime[Math.floor(Math.random() * soloAnime.length)].id;
             openModal(randomId);
         }
 
