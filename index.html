@@ -1464,48 +1464,52 @@
             document.getElementById('featuredCard').onclick = () => openModal(anime.id);
         }
 
-        function setupSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchClear = document.getElementById('searchClear');
-            const searchResults = document.getElementById('searchResults');
-            const cards = document.querySelectorAll('.card');
-            const noResults = document.getElementById('noResults');
+      function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const searchResults = document.getElementById('searchResults');
+    const cards = document.querySelectorAll('.card');
+    const noResults = document.getElementById('noResults');
 
-            function filterCards() {
-                const query = searchInput.value.toLowerCase().trim();
-                searchClear.classList.toggle('visible', query.length > 0);
-                if (query.length === 0) {
-                    searchResults.textContent = '';
-                    cards.forEach(c => c.classList.remove('hidden'));
-                    noResults.classList.remove('visible');
-                    return;
-                }
-                let visibleCount = 0;
-                cards.forEach(card => {
-                    const anime = animes.find(a => a.id == card.dataset.id);
-                    if (!anime) return;
-                    const match = anime.title.toLowerCase().includes(query) ||
-                        anime.description.toLowerCase().includes(query) ||
-                        anime.genre.some(g => g.toLowerCase().includes(query)) ||
-                        (anime.tags && anime.tags.some(t => t.toLowerCase().includes(query))) ||
-                        anime.studio.toLowerCase().includes(query) ||
-                        anime.director.toLowerCase().includes(query) ||
-                        String(anime.year).includes(query);
-                    card.classList.toggle('hidden', !match);
-                    if (match) visibleCount++;
-                });
-                searchResults.textContent = visibleCount > 0 ?
-                    `${visibleCount} resultado${visibleCount !== 1 ? 's' : ''} encontrado${visibleCount !== 1 ? 's' : ''}` : '';
-                noResults.classList.toggle('visible', visibleCount === 0);
-            }
-            searchInput.addEventListener('input', filterCards);
-            searchClear.addEventListener('click', function() {
-                searchInput.value = '';
-                filterCards();
-                searchInput.focus();
-            });
+    function filterCards() {
+        const query = searchInput.value.toLowerCase().trim();
+        searchClear.classList.toggle('visible', query.length > 0);
+        if (query.length === 0) {
+            searchResults.textContent = '';
+            cards.forEach(c => c.classList.remove('hidden'));
+            noResults.classList.remove('visible');
+            return;
         }
-
+        let visibleCount = 0;
+        cards.forEach(card => {
+            const anime = animes.find(a => a.id == card.dataset.id);
+            if (!anime) return;
+            // ✅ SOLO buscar si es category: "anime" (porque solo esas tarjetas existen)
+            if (anime.category !== "anime") {
+                card.classList.add('hidden');
+                return;
+            }
+            const match = anime.title.toLowerCase().includes(query) ||
+                anime.description.toLowerCase().includes(query) ||
+                anime.genre.some(g => g.toLowerCase().includes(query)) ||
+                (anime.tags && anime.tags.some(t => t.toLowerCase().includes(query))) ||
+                anime.studio.toLowerCase().includes(query) ||
+                anime.director.toLowerCase().includes(query) ||
+                String(anime.year).includes(query);
+            card.classList.toggle('hidden', !match);
+            if (match) visibleCount++;
+        });
+        searchResults.textContent = visibleCount > 0 ?
+            `${visibleCount} resultado${visibleCount !== 1 ? 's' : ''} encontrado${visibleCount !== 1 ? 's' : ''}` : '';
+        noResults.classList.toggle('visible', visibleCount === 0);
+    }
+    searchInput.addEventListener('input', filterCards);
+    searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        filterCards();
+        searchInput.focus();
+    });
+}
         function setupFilters() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const cards = document.querySelectorAll('.card');
