@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -102,6 +102,7 @@
         nav {
             display: flex;
             gap: 6px;
+            flex-wrap: wrap;
         }
         nav a {
             color: var(--text-muted);
@@ -938,6 +939,18 @@
                 display: none !important;
             }
         }
+
+        /* ============================================================ */
+        /* SECCIONES ESPECIALES - LIVE ACTION Y ADULTO                  */
+        /* ============================================================ */
+        #live-action .section-title .icon { color: #fbbf24; }
+        #adulto .section-title .icon { color: #ef4444; }
+
+        #live-action .card { border-color: rgba(251, 191, 36, 0.2); }
+        #adulto .card { border-color: rgba(239, 68, 68, 0.2); }
+
+        #live-action .card:hover { border-color: #fbbf24; }
+        #adulto .card:hover { border-color: #ef4444; }
     </style>
 </head>
 <body>
@@ -954,6 +967,8 @@
             <a href="#catalogo">Catálogo</a>
             <a href="#listas">Listas</a>
             <a href="#vibes">Vibes</a>
+            <a href="#live-action">🎬 Live Action</a>
+            <a href="#adulto">🔞 Adulto</a>
             <a href="#sobre">Sobre</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -1107,6 +1122,35 @@
         <div class="vibes-cloud" id="vibesCloud"></div>
     </section>
 
+    <!-- ============================================================ -->
+    <!-- SECCIÓN LIVE ACTION CLÁSICOS                                  -->
+    <!-- ============================================================ -->
+    <section class="section" id="live-action">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🎬</span>Live Action Clásicos</h2>
+            <span class="section-meta">Películas de culto en imagen real</span>
+        </div>
+        <div class="grid" id="liveActionGrid">
+            <!-- Los elementos se cargarán desde data.js -->
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN CONTENIDO ADULTO                                     -->
+    <!-- ============================================================ -->
+    <section class="section" id="adulto">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🔞</span>Contenido Adulto</h2>
+            <span class="section-meta">Obras para público maduro</span>
+        </div>
+        <div class="grid" id="adultoGrid">
+            <!-- Los elementos se cargarán desde data.js -->
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SOBRE FRAME PERDIDO                                          -->
+    <!-- ============================================================ -->
     <section class="section" id="sobre">
         <div class="section-header">
             <h2 class="section-title"><span class="icon">📋</span>Sobre Frame Perdido</h2>
@@ -1529,6 +1573,51 @@
         }
 
         // ============================================================
+        // RENDERIZAR POR CATEGORÍA
+        // ============================================================
+        function renderizarPorCategoria(categoria, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const filtrados = animes.filter(a => a.category === categoria);
+            
+            if (filtrados.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text-muted);">
+                        <p style="font-size:1.1rem;margin-bottom:6px;">📭 No hay obras en esta categoría</p>
+                        <p style="font-size:0.85rem;">Pronto agregaremos más contenido</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = filtrados.map(anime => `
+                <div class="card" onclick="openModal(${anime.id})">
+                    <div class="card-image">
+                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">${anime.type}</span>
+                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================================
+        // INICIALIZAR SECCIONES
+        // ============================================================
+        function inicializarSecciones() {
+            renderizarPorCategoria('live-action', 'liveActionGrid');
+            renderizarPorCategoria('adulto', 'adultoGrid');
+        }
+
+        // ============================================================
         // MODAL CON REEL
         // ============================================================
         function openModal(id) {
@@ -1725,6 +1814,11 @@
             setupListas();
             setupScrollSpy();
             setupSmoothScroll();
+            
+            // ============================================================
+            // RENDERIZAR NUEVAS SECCIONES
+            // ============================================================
+            inicializarSecciones();
             
             // Verificar si hay un expediente en la URL
             checkUrlForExpediente();
