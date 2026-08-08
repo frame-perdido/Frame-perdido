@@ -916,5 +916,26 @@ var animes = [{
     trailer: "",
     related: [14, 17, 39],
     category: "anime"
+},
+              {
+    id: 46,
+    title: "Riki-Oh: The Story of Ricky",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEic7cXtHlRDfR6ABFJtE9bC-F-HK0LRL49hDkq5GVo-VQ7pn1-1hqprp1DtaPHNW7JzQ9TE9Haf5DEk_SN3ZIZAJCpY5gqtHY8W9pyY_B2NIlG0lp8ATed0zCMbKONN6wLx7k5csSnJziCqT2tW8nWrVv_i5sPpAIVinR0o1_3bJsnH9dAJ2JQGEOL_=w267-h400",
+    year: 1991,
+    type: "Película",
+    duration: "92 min",
+    studio: "Golden Sun Films",
+    director: "Lam Nai-choi",
+    genre: ["Acción", "Artes marciales", "Gore", "Crimen"],
+    tags: ["live-action", "acción", "artes-marciales", "gore", "culto", "90s", "violento"],
+    description: "Ricky Ho es un joven con fuerza sobrehumana que es encarcelado en una prisión privada en una sociedad distópica. Allí se enfrenta a guardias sádicos y otros reclusos mientras busca la manera de escapar y hacer justicia.",
+    plot: "En un futuro distópico, Ricky Ho es encarcelado en una prisión privada administrada por un warden corrupto. Su fuerza sobrehumana lo convierte en un objetivo para los guardias y otros reclusos. A medida que enfrenta cada desafío, Ricky se convierte en el líder de una revuelta que podría derribar todo el sistema. Basada en el manga de Masayoshi Tagaya, la película es una adaptación de culto que combina violencia extrema con un mensaje de resistencia.",
+    analysis: "Riki-Oh: The Story of Ricky es la adaptación live action del manga de culto de Masayoshi Tagaya. La película es conocida por su violencia exagerada y sus efectos prácticos, que la han convertido en un clásico de culto. La trama es una crítica social que aborda temas como la corrupción, la opresión y la lucha por la justicia. Aunque la actuación y el doblaje pueden ser cuestionables, la película ha ganado un estatus de culto por su estilo único y su violencia extrema.",
+    forgotten: "A pesar de ser una adaptación de culto, la película no tuvo un gran éxito comercial. Su distribución fue limitada y su violencia extrema la convirtió en un producto de nicho. Hoy es una joya oculta para los amantes de las películas de artes marciales y el gore.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [15, 19, 12],
+    category: "live-action"
 }
 ];
