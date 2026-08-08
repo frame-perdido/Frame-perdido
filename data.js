@@ -944,8 +944,8 @@ var animes = [{
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh89pWhQvpTscGKYxUj4FSRXrEfDrQRx__6C6164qey3iiFJPjPMKkE2FwsWSvnXjekVZUADst92jOPzGLLt3pIKNsrgNS568f5DP5EBnIw0esd58IMm73OdBHV7efawshd0b54a_ePlDHrhGdknvpgDJx2zGtnSEzpWzYv_J1W46KPzT85F8tXWSZRuP_8=w283-h400", // Busca una imagen del póster de la película de 2016
     year: 2016,
     type: "Película",
-    duration: "~90 min", // La duración no está especificada en las fuentes, es una estimación.
-    studio: "Desconocido",
+    duration: "~90 min", 
+    studio: "Link Rights (リンクライツ)",
     director: "TORICO",
     genre: ["Drama", "Terror", "Psicológico", "Ero-guro"],
     tags: ["live-action", "terror", "psicológico", "violento", "experimental", "nocturno", "culto"],
@@ -957,6 +957,27 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 13, 11], // Relacionada con otros títulos de terror o ero-guro
+    category: "live-action"
+},
+              {
+    id: 48,
+    title: "Mutronics (The Guyver)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhFiSQ5DTHSr0coLYIEJ3RFq6Mdsjv6jGaNKqaO7iSuWISrAcsAcMB3l5qvXlXg4-xJ_WqjhsOSbsrG2qn1HqsqKvgcB1FG5tBIQNLHBuDN0QkTqnHsjCqv3lRD6Ei2GhanVQ-cNC1AxvZYzibuMSHM0_X871CV8k4tWg1193hqLJzjowj0m9gLUKOhni5N=w285-h400",
+    year: 1991,
+    type: "Película",
+    duration: "88 min",
+    studio: "New Line Cinema",
+    director: "Screaming Mad George / Steve Wang",
+    genre: ["Ciencia ficción", "Acción", "Comedia", "Superhéroes"],
+    tags: ["live-action", "ciencia-ficción", "acción", "culto", "90s", "monstruos", "superhéroes"],
+    description: "Un joven estudiante de artes marciales encuentra un artefacto alienígena que se fusiona con su cuerpo, convirtiéndolo en el poderoso Guyver. Ahora debe enfrentarse a la corporación Chronos y a sus mutantes Zoanoids para salvar a su novia y al mundo.",
+    plot: "Sean Barker es un estudiante de artes marciales que descubre el 'Guyver Unit', un arma biológica creada por una raza alienígena. Cuando el artefacto se fusiona con su cuerpo, se convierte en un súper soldado cibernético. Perseguido por la corporación Chronos, que quiere recuperar el dispositivo, Sean debe dominar sus nuevos poderes para salvar a su novia Mizky y detener los planes de la organización.[citation:2][citation:14]",
+    analysis: "Mutronics (The Guyver) es la adaptación live action del manga de Yoshiki Takaya. Es famosa por sus efectos prácticos de monstruos, creados por el legendario Screaming Mad George, y por tener a Mark Hamill (Luke Skywalker) en un papel secundario como el agente de la CIA Max Reed.[citation:4][citation:6] La película tiene un tono campy que recuerda a Power Rangers, pero con violencia y gore, lo que la convierte en un objeto de culto.[citation:6][citation:9] A pesar de las críticas mixtas, es una rareza que los fans del manga y del cine de serie B disfrutan.",
+    forgotten: "Considerada una de las mejores adaptaciones de anime a live action de los 90, hoy está olvidada por el público general. Su lanzamiento fue directo a VHS, y aunque tuvo una secuela (Guyver: Dark Hero), nunca logró el éxito comercial. La película es recordada por los efectos prácticos y la presencia de Mark Hamill, pero muchos no saben que existió.[citation:4][citation:9]",
+    trailer: "",
+    saga: "The Guyver",
+    sagaOrder: 1,
+    related: [38, 33, 10],
     category: "live-action"
 }
 ];
