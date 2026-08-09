@@ -1933,7 +1933,7 @@
         }
 
         // ============================================================
-        // MODAL CON TRAILER 16:9 - VERSIÓN ORIGINAL (SIN CAMBIOS DE URL)
+        // MODAL CON TRAILER 16:9 (CON URLS ÚNICAS)
         // ============================================================
         function openModal(id) {
             const anime = animes.find(a => a.id === id);
@@ -1942,13 +1942,18 @@
             // Cambiar el título de la página
             document.title = `${anime.title} — Frame Perdido`;
             
-            // ACTUALIZAR meta description
+            // ✅ CAMBIAR LA URL PARA INDEXAR (ÚNICA POR FICHA)
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                url.searchParams.set('expediente', id);
+                window.history.pushState({ expediente: id }, '', url);
+            }
+
+            // Actualizar meta description
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
                 metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 150)}`;
             }
-
-            // NO CAMBIAMOS LA URL - se mantiene como está
 
             document.getElementById('modalImage').src = anime.cover;
             document.getElementById('modalImage').alt = anime.title;
@@ -2003,7 +2008,7 @@
                 relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No hay obras relacionadas.</p>';
             }
 
-            // URL para compartir (la actual, sin cambios)
+            // URL para compartir
             document.getElementById('shareUrlInput').value = window.location.href;
 
             document.getElementById('modalOverlay').classList.add('active');
@@ -2024,7 +2029,12 @@
                 metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
             }
             
-            // NO HAY URL QUE LIMPIAR - se mantiene como está
+            // ✅ LIMPIAR LA URL - Volver a la home
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                url.searchParams.delete('expediente');
+                window.history.replaceState({}, '', url);
+            }
         }
 
         function randomAnime() {
@@ -2082,11 +2092,11 @@
         });
 
         // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL (SOLO CON PARÁMETROS)
+        // DETECTAR EXPEDIENTE EN LA URL
         // ============================================================
         function checkUrlForExpediente() {
             const params = new URLSearchParams(window.location.search);
-            const expedienteId = params.get('id') || params.get('expediente');
+            const expedienteId = params.get('expediente');
             
             if (expedienteId !== null) {
                 const id = parseInt(expedienteId);
