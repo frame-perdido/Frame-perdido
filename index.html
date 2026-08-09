@@ -9,22 +9,39 @@
     <meta name="description" content="Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas." />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    
+
     <!-- ============================================================ -->
-    <!-- CSS PARA RESPONSIVIDAD DE ANUNCIOS ADSTERRA                   -->
+    <!-- META TAGS DINÁMICOS PARA SEO (se actualizan con JS)          -->
     <!-- ============================================================ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frame-perdido.github.io/Frame-perdido/" />
+    <meta property="og:title" content="Frame Perdido — Archivo de anime clásico" />
+    <meta property="og:description" content="Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas." />
+    <meta property="og:image" content="https://frame-perdido.github.io/Frame-perdido/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Datos estructurados para Google (Schema.org) -->
+    <script type="application/ld+json" id="schemaData">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Frame Perdido — Archivo de anime clásico",
+        "description": "Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.",
+        "url": "https://frame-perdido.github.io/Frame-perdido/"
+    }
+    </script>
+
     <style>
+        /* ============================================================ */
+        /* TODOS TUS ESTILOS EXISTENTES (no cambian)                    */
+        /* ============================================================ */
         .adsterra-mobile { display: none; }
         .adsterra-desktop { display: block; }
-
         @media only screen and (max-width: 768px) {
             .adsterra-mobile { display: block; }
             .adsterra-desktop { display: none; }
         }
 
-        /* ============================================================ */
-        /* TODOS TUS ESTILOS EXISTENTES                                 */
-        /* ============================================================ */
         :root {
             --bg: #0a0a0f;
             --bg-card: #12121a;
@@ -457,12 +474,16 @@
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-            cursor: pointer;
         }
         .card:hover {
             transform: translateY(-6px);
             border-color: var(--border-hover);
             box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+        }
+        .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .card.hidden { display: none; }
         .card-image {
@@ -616,7 +637,7 @@
         .sobre-text p { margin-bottom: 16px; }
         .sobre-text ul { margin-left: 20px; margin-bottom: 16px; }
         .sobre-text li { margin-bottom: 5px; }
-        
+
         /* ============================================ */
         /* MODAL CON REEL TAMAÑO CORRECTO 9:16          */
         /* ============================================ */
@@ -731,7 +752,7 @@
         }
         .modal-section ul { padding-left: 18px; }
         .modal-section li { margin-bottom: 5px; }
-        
+
         /* REEL CONTAINER - TAMAÑO 9:16 */
         #modalReelContainer {
             position: relative;
@@ -750,7 +771,7 @@
             width: 100%; height: 100%;
             border: 0;
         }
-        
+
         .modal-related {
             margin-top: 28px;
             padding-top: 20px;
@@ -870,7 +891,68 @@
             border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
-        
+
+        /* ============================================ */
+        /* PAGINACIÓN - NUEVOS ESTILOS                  */
+        /* ============================================ */
+        #paginationContainer {
+            margin-top: 32px;
+            text-align: center;
+        }
+        #paginationCounter {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+        #loadMoreBtn {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            margin: 0 auto;
+            transition: all 0.3s;
+        }
+        #loadMoreBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        #numericPagination {
+            display: none;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        #numericPagination .btn {
+            min-width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 12px;
+            font-size: 0.85rem;
+        }
+        #numericPagination .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        #numericPagination .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            #numericPagination { display: none !important; }
+            #loadMoreBtn { display: block !important; }
+        }
+        @media (min-width: 769px) {
+            #loadMoreBtn { display: none !important; }
+            #numericPagination { display: flex !important; }
+        }
+
         /* ============================================ */
         /* RESPONSIVE - TABLETS Y MÓVILES               */
         /* ============================================ */
@@ -919,7 +1001,6 @@
             #modalReelContainer { max-width: 240px; }
         }
 
-        /* Estilo para separar anuncios */
         .ad-container {
             margin: 20px 0;
             text-align: center;
@@ -928,9 +1009,6 @@
             max-width: 100%;
         }
 
-        /* ============================================================ */
-        /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
-        /* ============================================================ */
         @media only screen and (max-width: 768px) {
             div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
                 display: none !important;
@@ -940,17 +1018,41 @@
             }
         }
 
-        /* ============================================================ */
-        /* SECCIONES ESPECIALES - LIVE ACTION Y ADULTO                  */
-        /* ============================================================ */
         #live-action .section-title .icon { color: #fbbf24; }
         #adulto .section-title .icon { color: #ef4444; }
-
         #live-action .card { border-color: rgba(251, 191, 36, 0.2); }
         #adulto .card { border-color: rgba(239, 68, 68, 0.2); }
-
         #live-action .card:hover { border-color: #fbbf24; }
         #adulto .card:hover { border-color: #ef4444; }
+
+        /* Compartir en redes */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .share-buttons .btn {
+            font-size: 0.8rem;
+            padding: 8px 14px;
+        }
+        #shareUrlInput {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        #shareUrlInput:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
     </style>
 </head>
 <body>
@@ -958,12 +1060,12 @@
     <div class="noise"></div>
 
     <header>
-        <a href="#inicio" class="logo">
+        <a href="/" class="logo">
             <div class="logo-icon">🎞️</div>
             <div class="logo-text">Frame <span>Perdido</span></div>
         </a>
         <nav id="mainNav">
-            <a href="#inicio" class="active">Inicio</a>
+            <a href="/" class="active">Inicio</a>
             <a href="#catalogo">Catálogo</a>
             <a href="#listas">Listas</a>
             <a href="#vibes">Vibes</a>
@@ -975,10 +1077,9 @@
     </header>
 
     <!-- ============================================================ -->
-    <!-- BANNER HEADER - 728×90 (desktop) / 320×50 (móvil)            -->
+    <!-- BANNER HEADER                                                -->
     <!-- ============================================================ -->
     <div style="text-align: center; margin: 12px 0; padding: 0 20px;">
-        <!-- Desktop: 728×90 -->
         <div class="adsterra-desktop">
             <script>
                 atOptions = {
@@ -991,7 +1092,6 @@
             </script>
             <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
         </div>
-        <!-- Mobile: 320×50 -->
         <div class="adsterra-mobile">
             <script>
                 atOptions = {
@@ -1017,7 +1117,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- NATIVE BANNER (responsivo nativo)                             -->
+    <!-- NATIVE BANNER                                                -->
     <!-- ============================================================ -->
     <div style="margin: 24px auto; max-width: 100%; padding: 0 20px;">
         <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
@@ -1090,10 +1190,21 @@
             <p>Prueba con otros términos o quita los filtros</p>
         </div>
         <div class="grid" id="animeGrid"></div>
+
+        <!-- ============================================================ -->
+        <!-- PAGINACIÓN                                                   -->
+        <!-- ============================================================ -->
+        <div id="paginationContainer">
+            <div id="paginationCounter">
+                Mostrando <span id="showingStart">0</span> - <span id="showingEnd">0</span> de <span id="totalItems">0</span> obras
+            </div>
+            <button id="loadMoreBtn" class="btn btn-primary">🔽 Cargar más obras</button>
+            <div id="numericPagination"></div>
+        </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- BANNER MID-CONTENT 300×250 (entre tarjetas)                   -->
+    <!-- BANNER MID-CONTENT                                           -->
     <!-- ============================================================ -->
     <div style="text-align: center; margin: 32px 0; padding: 0 20px;">
         <script>
@@ -1123,33 +1234,29 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- SECCIÓN LIVE ACTION CLÁSICOS                                  -->
+    <!-- SECCIÓN LIVE ACTION                                           -->
     <!-- ============================================================ -->
     <section class="section" id="live-action">
         <div class="section-header">
             <h2 class="section-title"><span class="icon">🎬</span>Live Action Clásicos</h2>
             <span class="section-meta">Películas de culto en imagen real</span>
         </div>
-        <div class="grid" id="liveActionGrid">
-            <!-- Los elementos se cargarán desde data.js -->
-        </div>
+        <div class="grid" id="liveActionGrid"></div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- SECCIÓN CONTENIDO ADULTO                                     -->
+    <!-- SECCIÓN ADULTO                                                -->
     <!-- ============================================================ -->
     <section class="section" id="adulto">
         <div class="section-header">
             <h2 class="section-title"><span class="icon">🔞</span>Contenido Adulto</h2>
             <span class="section-meta">Obras para público maduro</span>
         </div>
-        <div class="grid" id="adultoGrid">
-            <!-- Los elementos se cargarán desde data.js -->
-        </div>
+        <div class="grid" id="adultoGrid"></div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- SOBRE FRAME PERDIDO                                          -->
+    <!-- SOBRE                                                        -->
     <!-- ============================================================ -->
     <section class="section" id="sobre">
         <div class="section-header">
@@ -1171,7 +1278,7 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- MODAL CON REEL TAMAÑO 9:16                   -->
+    <!-- MODAL                                        -->
     <!-- ============================================ -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
@@ -1191,19 +1298,31 @@
                 <div class="modal-section"><h4>💭 ¿Por qué verla?</h4><p id="modalAnalysis"></p></div>
                 <div class="modal-section"><h4>🕰️ ¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
                 <div class="modal-section"><h4>📋 Ficha técnica</h4><ul id="modalTech"></ul></div>
-                
-                <!-- REEL - TAMAÑO 9:16 (320px max) -->
+
+                <!-- REEL 9:16 -->
                 <div class="modal-section" id="modalReelSection">
                     <h4>🎬 Ver Reel</h4>
                     <div id="modalReelContainer">
                         <iframe id="modalReelFrame" allowfullscreen></iframe>
                     </div>
                 </div>
-                
+
                 <div class="modal-related" id="modalRelated">
                     <h4>🎞️ También puedes explorar</h4>
                     <div class="related-grid" id="relatedGrid"></div>
                 </div>
+
+                <!-- ============================================ -->
+                <!-- COMPARTIR EN REDES SOCIALES                  -->
+                <!-- ============================================ -->
+                <div class="share-buttons">
+                    <button class="btn btn-secondary" onclick="shareOn('twitter')">🐦 Twitter</button>
+                    <button class="btn btn-secondary" onclick="shareOn('facebook')">📘 Facebook</button>
+                    <button class="btn btn-secondary" onclick="shareOn('whatsapp')">💬 WhatsApp</button>
+                    <button class="btn btn-secondary" onclick="shareOn('telegram')">✈️ Telegram</button>
+                    <button class="btn btn-secondary" onclick="copyShareUrl()">📋 Copiar enlace</button>
+                </div>
+                <input type="text" id="shareUrlInput" value="" readonly onclick="this.select(); navigator.clipboard?.writeText(this.value);" />
             </div>
         </div>
     </div>
@@ -1219,7 +1338,6 @@
                     <a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">📷</a>
                 </div>
             </div>
-
             <div class="footer-col">
                 <h4>Explorar</h4>
                 <ul>
@@ -1245,7 +1363,6 @@
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
             <span>© 2026 Frame Perdido</span>
             <a href="https://tecnocurioso.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a>
@@ -1254,17 +1371,35 @@
     </footer>
 
     <!-- ============================================================ -->
-    <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
+    <!-- CARGA DE LA BASE DE DATOS                                     -->
     <!-- ============================================================ -->
     <script src="data.js"></script>
- 
+
     <!-- ============================================================ -->
     <!-- CÓDIGO PRINCIPAL                                             -->
     <!-- ============================================================ -->
-   
     <script>
         // ============================================================
-        // SISTEMA DE VIBES AUTOMÁTICO
+        // FUNCIONES DE UTILIDAD
+        // ============================================================
+        function getAnimeSlug(anime) {
+            return anime.title
+                .toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+        }
+
+        function getAnimeBySlug(slug) {
+            return animes.find(a => getAnimeSlug(a) === slug);
+        }
+
+        function getAnimeById(id) {
+            return animes.find(a => a.id === parseInt(id));
+        }
+
+        // ============================================================
+        // SISTEMA DE VIBES
         // ============================================================
         function generarVibesAutomaticos() {
             const vibesSet = new Set();
@@ -1351,7 +1486,7 @@
         function renderizarVibes() {
             const vibesCloud = document.getElementById('vibesCloud');
             const vibes = generarVibesAutomaticos();
-            const vibesRelevantes = vibes.filter(v => 
+            const vibesRelevantes = vibes.filter(v =>
                 !['película', 'ova', 'serie', '80s', '90s'].includes(v) && v.length > 2
             );
             const vibesMostrar = vibesRelevantes.slice(0, 24);
@@ -1378,44 +1513,205 @@
         }
 
         // ============================================================
+        // PAGINACIÓN
+        // ============================================================
+        let currentPage = 1;
+        const itemsPerPageDesktop = 24;
+        const itemsPerPageMobile = 12;
+        let totalFilteredItems = 0;
+        let currentFilteredAnimes = [];
+        let isMobile = window.innerWidth <= 768;
+
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.innerWidth <= 768;
+            if (newIsMobile !== isMobile) {
+                isMobile = newIsMobile;
+                currentPage = 1;
+                renderPaginatedCards();
+            }
+        });
+
+        function getItemsPerPage() {
+            return isMobile ? itemsPerPageMobile : itemsPerPageDesktop;
+        }
+
+        function getFilteredAnimes() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            const activeFilter = document.querySelector('.filter-btn.active');
+            const filter = activeFilter ? activeFilter.dataset.filter : 'all';
+
+            let filtered = animes.filter(a => a.category === "anime");
+
+            if (searchQuery) {
+                filtered = filtered.filter(anime => {
+                    return anime.title.toLowerCase().includes(searchQuery) ||
+                        anime.description.toLowerCase().includes(searchQuery) ||
+                        anime.genre.some(g => g.toLowerCase().includes(searchQuery)) ||
+                        (anime.tags && anime.tags.some(t => t.toLowerCase().includes(searchQuery))) ||
+                        anime.studio.toLowerCase().includes(searchQuery) ||
+                        anime.director.toLowerCase().includes(searchQuery) ||
+                        String(anime.year).includes(searchQuery);
+                });
+            }
+
+            if (filter !== 'all') {
+                filtered = filtered.filter(anime => {
+                    const type = anime.type.toLowerCase();
+                    const year = parseInt(anime.year);
+                    const genre = anime.genre.join(',').toLowerCase();
+
+                    if (filter === 'ova') return type === 'ova';
+                    if (filter === 'pelicula') return type === 'película';
+                    if (filter === 'serie') return type === 'serie';
+                    if (filter === '80s') return year >= 1980 && year < 1990;
+                    if (filter === '90s') return year >= 1990 && year < 2000;
+                    return genre.includes(filter);
+                });
+            }
+
+            return filtered;
+        }
+
+        function renderPaginatedCards() {
+            const grid = document.getElementById('animeGrid');
+            const itemsPerPage = getItemsPerPage();
+
+            currentFilteredAnimes = getFilteredAnimes();
+            totalFilteredItems = currentFilteredAnimes.length;
+
+            const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
+            const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
+
+            document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
+            document.getElementById('showingEnd').textContent = endIndex;
+            document.getElementById('totalItems').textContent = totalFilteredItems;
+
+            const noResults = document.getElementById('noResults');
+            if (totalFilteredItems === 0) {
+                noResults.classList.add('visible');
+                grid.innerHTML = '';
+            } else {
+                noResults.classList.remove('visible');
+            }
+
+            if (pageItems.length === 0 && currentPage > 1) {
+                currentPage = Math.max(1, currentPage - 1);
+                renderPaginatedCards();
+                return;
+            }
+
+            grid.innerHTML = pageItems.map(anime => {
+                const slug = getAnimeSlug(anime);
+                return `
+                    <div class="card" data-id="${anime.id}">
+                        <a href="/expediente/${slug}">
+                            <div class="card-image">
+                                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                                <span class="card-year">${anime.year}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-tags">
+                                    <span class="card-tag">${anime.type}</span>
+                                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                                </div>
+                                <h3>${anime.title}</h3>
+                                <p>${anime.description}</p>
+                            </div>
+                            <div class="card-footer">
+                                <span style="color:var(--text-muted);font-size:0.8rem;">🔍 Ver expediente</span>
+                                <div class="card-vibes">
+                                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `;
+            }).join('');
+
+            updatePaginationControls(totalPages);
+
+            if (currentPage > 1) {
+                document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function updatePaginationControls(totalPages) {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const numericPagination = document.getElementById('numericPagination');
+            const itemsPerPage = getItemsPerPage();
+
+            if (isMobile) {
+                loadMoreBtn.style.display = 'block';
+                numericPagination.style.display = 'none';
+
+                const hasMore = currentPage < totalPages;
+                if (hasMore) {
+                    loadMoreBtn.textContent = `🔽 Cargar más obras (${itemsPerPage} más)`;
+                    loadMoreBtn.disabled = false;
+                } else {
+                    loadMoreBtn.textContent = totalFilteredItems > 0 ? '✅ Todas las obras cargadas' : '📭 No hay obras';
+                    loadMoreBtn.disabled = true;
+                }
+            } else {
+                loadMoreBtn.style.display = 'none';
+                numericPagination.style.display = 'flex';
+
+                let paginationHTML = '';
+                const maxVisible = 7;
+                let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+                if (endPage - startPage < maxVisible - 1) {
+                    startPage = Math.max(1, endPage - maxVisible + 1);
+                }
+
+                paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(${currentPage - 1})" ${currentPage <= 1 ? 'disabled' : ''}>◀</button>`;
+
+                if (startPage > 1) {
+                    paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(1)">1</button>`;
+                    if (startPage > 2) paginationHTML += `<span style="color:var(--text-muted);padding:0 4px;">…</span>`;
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    paginationHTML += `<button class="btn ${i === currentPage ? 'btn-primary' : 'btn-secondary'}" onclick="goToPage(${i})">${i}</button>`;
+                }
+
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) paginationHTML += `<span style="color:var(--text-muted);padding:0 4px;">…</span>`;
+                    paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(${totalPages})">${totalPages}</button>`;
+                }
+
+                paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled' : ''}>▶</button>`;
+
+                numericPagination.innerHTML = paginationHTML;
+            }
+        }
+
+        function goToPage(page) {
+            const totalPages = Math.ceil(getFilteredAnimes().length / getItemsPerPage());
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderPaginatedCards();
+        }
+
+        function loadMore() {
+            const totalPages = Math.ceil(getFilteredAnimes().length / getItemsPerPage());
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPaginatedCards();
+            }
+        }
+
+        // ============================================================
         // FUNCIONES PRINCIPALES
         // ============================================================
         let featuredId = null;
 
         function renderCards() {
-            const grid = document.getElementById('animeGrid');
-            const soloAnime = animes.filter(a => a.category === "anime");
-            if (!soloAnime || soloAnime.length === 0) {
-                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);"><p style="font-size:1.2rem;margin-bottom:8px;">📭 No hay obras en el archivo</p></div>';
-                return;
-            }
-
-            grid.innerHTML = soloAnime.map(anime => `
-                <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
-                    <div class="card-image">
-                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                        <span class="card-year">${anime.year}</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="card-tag">${anime.type}</span>
-                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
-                        </div>
-                        <h3>${anime.title}</h3>
-                        <p>${anime.description}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </a>
-                        <div class="card-vibes">
-                            ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
+            currentPage = 1;
+            renderPaginatedCards();
         }
 
         function updateStats() {
@@ -1464,78 +1760,39 @@
             document.getElementById('featuredCard').onclick = () => openModal(anime.id);
         }
 
-      function setupSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchClear = document.getElementById('searchClear');
-    const searchResults = document.getElementById('searchResults');
-    const cards = document.querySelectorAll('.card');
-    const noResults = document.getElementById('noResults');
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchClear = document.getElementById('searchClear');
+            const searchResults = document.getElementById('searchResults');
 
-    function filterCards() {
-        const query = searchInput.value.toLowerCase().trim();
-        searchClear.classList.toggle('visible', query.length > 0);
-        if (query.length === 0) {
-            searchResults.textContent = '';
-            cards.forEach(c => c.classList.remove('hidden'));
-            noResults.classList.remove('visible');
-            return;
-        }
-        let visibleCount = 0;
-        cards.forEach(card => {
-            const anime = animes.find(a => a.id == card.dataset.id);
-            if (!anime) return;
-            // ✅ SOLO buscar si es category: "anime" (porque solo esas tarjetas existen)
-            if (anime.category !== "anime") {
-                card.classList.add('hidden');
-                return;
+            function filterCards() {
+                const query = searchInput.value.toLowerCase().trim();
+                searchClear.classList.toggle('visible', query.length > 0);
+                currentPage = 1;
+                renderPaginatedCards();
+
+                const visibleCount = getFilteredAnimes().length;
+                searchResults.textContent = query.length > 0 ?
+                    `${visibleCount} resultado${visibleCount !== 1 ? 's' : ''} encontrado${visibleCount !== 1 ? 's' : ''}` : '';
             }
-            const match = anime.title.toLowerCase().includes(query) ||
-                anime.description.toLowerCase().includes(query) ||
-                anime.genre.some(g => g.toLowerCase().includes(query)) ||
-                (anime.tags && anime.tags.some(t => t.toLowerCase().includes(query))) ||
-                anime.studio.toLowerCase().includes(query) ||
-                anime.director.toLowerCase().includes(query) ||
-                String(anime.year).includes(query);
-            card.classList.toggle('hidden', !match);
-            if (match) visibleCount++;
-        });
-        searchResults.textContent = visibleCount > 0 ?
-            `${visibleCount} resultado${visibleCount !== 1 ? 's' : ''} encontrado${visibleCount !== 1 ? 's' : ''}` : '';
-        noResults.classList.toggle('visible', visibleCount === 0);
-    }
-    searchInput.addEventListener('input', filterCards);
-    searchClear.addEventListener('click', function() {
-        searchInput.value = '';
-        filterCards();
-        searchInput.focus();
-    });
-}
+
+            searchInput.addEventListener('input', filterCards);
+            searchClear.addEventListener('click', function() {
+                searchInput.value = '';
+                filterCards();
+                searchInput.focus();
+            });
+        }
+
         function setupFilters() {
             const filterBtns = document.querySelectorAll('.filter-btn');
-            const cards = document.querySelectorAll('.card');
-            const noResults = document.getElementById('noResults');
+
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const filter = this.dataset.filter;
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    let visibleCount = 0;
-                    cards.forEach(card => {
-                        const type = card.dataset.type;
-                        const year = parseInt(card.dataset.year);
-                        const genre = card.dataset.genre;
-                        let match = false;
-                        if (filter === 'all') match = true;
-                        else if (filter === 'ova') match = type === 'ova';
-                        else if (filter === 'pelicula') match = type === 'película';
-                        else if (filter === 'serie') match = type === 'serie';
-                        else if (filter === '80s') match = year >= 1980 && year < 1990;
-                        else if (filter === '90s') match = year >= 1990 && year < 2000;
-                        else match = genre.includes(filter);
-                        card.classList.toggle('hidden', !match);
-                        if (match) visibleCount++;
-                    });
-                    noResults.classList.toggle('visible', visibleCount === 0);
+                    currentPage = 1;
+                    renderPaginatedCards();
                 });
             });
         }
@@ -1582,78 +1839,192 @@
             return icons[tag] || '📁';
         }
 
-     function renderizarPorCategoria(categoria, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    const filtrados = animes.filter(a => a.category === categoria);
-    
-    if (filtrados.length === 0) {
-        container.innerHTML = `
-            <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text-muted);">
-                <p style="font-size:1.1rem;margin-bottom:6px;">📭 No hay obras en esta categoría</p>
-                <p style="font-size:0.85rem;">Pronto agregaremos más contenido</p>
-            </div>
-        `;
-        return;
-    }
-    
-    container.innerHTML = filtrados.map(anime => `
-        <div class="card" onclick="openModal(${anime.id})">
-            <div class="card-image">
-                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                <span class="card-year">${anime.year}</span>
-            </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="card-tag">${anime.type}</span>
-                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
-                </div>
-                <h3>${anime.title}</h3>
-                <p>${anime.description}</p>
-            </div>
-            <div class="card-footer">
-                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                </a>
-                <div class="card-vibes">
-                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-        // ============================================================
-        // INICIALIZAR SECCIONES
-        // ============================================================
+        function renderizarPorCategoria(categoria, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const filtrados = animes.filter(a => a.category === categoria);
+
+            if (filtrados.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text-muted);">
+                        <p style="font-size:1.1rem;margin-bottom:6px;">📭 No hay obras en esta categoría</p>
+                        <p style="font-size:0.85rem;">Pronto agregaremos más contenido</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtrados.map(anime => {
+                const slug = getAnimeSlug(anime);
+                return `
+                    <div class="card">
+                        <a href="/expediente/${slug}">
+                            <div class="card-image">
+                                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                                <span class="card-year">${anime.year}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-tags">
+                                    <span class="card-tag">${anime.type}</span>
+                                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                                </div>
+                                <h3>${anime.title}</h3>
+                                <p>${anime.description}</p>
+                            </div>
+                            <div class="card-footer">
+                                <span style="color:var(--text-muted);font-size:0.8rem;">🔍 Ver expediente</span>
+                                <div class="card-vibes">
+                                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `;
+            }).join('');
+        }
+
         function inicializarSecciones() {
             renderizarPorCategoria('live-action', 'liveActionGrid');
             renderizarPorCategoria('adulto', 'adultoGrid');
         }
 
         // ============================================================
-        // MODAL CON REEL
+        // SEO - META TAGS DINÁMICOS
         // ============================================================
-        function openModal(id) {
-            const anime = animes.find(a => a.id === id);
+        function updateMetaTags(anime) {
             if (!anime) return;
 
-            // Cambiar el título de la página
-            document.title = `${anime.title} — Frame Perdido`;
-            
-            // Cambiar la URL sin recargar la página
-            if (window.history.pushState) {
-                const url = new URL(window.location);
-                url.searchParams.set('expediente', id);
-                window.history.pushState({ expediente: id }, '', url);
-            }
+            document.title = `${anime.title} (${anime.year}) — Frame Perdido | Anime clásico`;
 
-            // Actualizar meta description
+            let metaDesc = document.querySelector('meta[name="description"]');
+            if (!metaDesc) {
+                metaDesc = document.createElement('meta');
+                metaDesc.name = 'description';
+                document.head.appendChild(metaDesc);
+            }
+            metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 155)}. OVA/película de anime clásico recuperada por Frame Perdido.`;
+
+            let ogTitle = document.querySelector('meta[property="og:title"]');
+            if (!ogTitle) {
+                ogTitle = document.createElement('meta');
+                ogTitle.setAttribute('property', 'og:title');
+                document.head.appendChild(ogTitle);
+            }
+            ogTitle.content = `${anime.title} (${anime.year}) — Frame Perdido`;
+
+            let ogDesc = document.querySelector('meta[property="og:description"]');
+            if (!ogDesc) {
+                ogDesc = document.createElement('meta');
+                ogDesc.setAttribute('property', 'og:description');
+                document.head.appendChild(ogDesc);
+            }
+            ogDesc.content = `${anime.description.slice(0, 200)}. Anime clásico de ${anime.year} dirigido por ${anime.director}.`;
+
+            let ogImage = document.querySelector('meta[property="og:image"]');
+            if (!ogImage) {
+                ogImage = document.createElement('meta');
+                ogImage.setAttribute('property', 'og:image');
+                document.head.appendChild(ogImage);
+            }
+            ogImage.content = anime.cover;
+
+            let ogUrl = document.querySelector('meta[property="og:url"]');
+            if (!ogUrl) {
+                ogUrl = document.createElement('meta');
+                ogUrl.setAttribute('property', 'og:url');
+                document.head.appendChild(ogUrl);
+            }
+            ogUrl.content = window.location.href;
+
+            const schemaScript = document.getElementById('schemaData');
+            if (schemaScript) {
+                const schemaData = {
+                    "@context": "https://schema.org",
+                    "@type": "Movie",
+                    "name": anime.title,
+                    "description": anime.description,
+                    "datePublished": `${anime.year}`,
+                    "director": { "@type": "Person", "name": anime.director },
+                    "productionCompany": { "@type": "Organization", "name": anime.studio },
+                    "duration": anime.duration,
+                    "genre": anime.genre,
+                    "image": anime.cover,
+                    "url": window.location.href
+                };
+                schemaScript.textContent = JSON.stringify(schemaData);
+            }
+        }
+
+        function restoreDefaultMeta() {
+            document.title = 'Frame Perdido — Archivo de anime clásico';
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
-                metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 150)}`;
+                metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
+            }
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) {
+                ogTitle.content = 'Frame Perdido — Archivo de anime clásico';
+            }
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) {
+                ogDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
+            }
+            const schemaScript = document.getElementById('schemaData');
+            if (schemaScript) {
+                const defaultSchema = {
+                    "@context": "https://schema.org",
+                    "@type": "CollectionPage",
+                    "name": "Frame Perdido — Archivo de anime clásico",
+                    "description": "Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.",
+                    "url": "https://frame-perdido.github.io/Frame-perdido/"
+                };
+                schemaScript.textContent = JSON.stringify(defaultSchema);
+            }
+        }
+
+        // ============================================================
+        // COMPARTIR EN REDES SOCIALES
+        // ============================================================
+        function shareOn(platform) {
+            const url = window.location.href;
+            const title = document.title;
+            const text = encodeURIComponent(`🎞️ ${title}`);
+            const encodedUrl = encodeURIComponent(url);
+
+            const links = {
+                twitter: `https://twitter.com/intent/tweet?text=${text}&url=${encodedUrl}`,
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+                whatsapp: `https://api.whatsapp.com/send?text=${text}%20${encodedUrl}`,
+                telegram: `https://t.me/share/url?url=${encodedUrl}&text=${text}`
+            };
+
+            window.open(links[platform], '_blank', 'width=600,height=400');
+        }
+
+        function copyShareUrl() {
+            const input = document.getElementById('shareUrlInput');
+            input.select();
+            navigator.clipboard?.writeText(input.value).then(() => {
+                const original = input.style.borderColor;
+                input.style.borderColor = 'var(--accent)';
+                setTimeout(() => input.style.borderColor = original, 1000);
+            });
+        }
+
+        // ============================================================
+        // MODAL
+        // ============================================================
+        function openModal(id) {
+            const anime = getAnimeById(id);
+            if (!anime) return;
+
+            // SEO
+            updateMetaTags(anime);
+            if (window.history.pushState) {
+                const slug = getAnimeSlug(anime);
+                const newUrl = `${window.location.origin}${window.location.pathname}expediente/${slug}`;
+                window.history.pushState({ animeId: anime.id, slug: slug }, '', newUrl);
             }
 
             document.getElementById('modalImage').src = anime.cover;
@@ -1677,15 +2048,12 @@
             ];
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
-            // ============================================
-            // TRAILER - Configuración 9:16
-            // ============================================
+            // Reel
             const reelContainer = document.getElementById('modalReelContainer');
             const reelFrame = document.getElementById('modalReelFrame');
             if (anime.trailer && anime.trailer.trim() !== '') {
                 reelContainer.style.display = 'block';
                 let videoUrl = anime.trailer;
-                // Soporte para YouTube
                 if (videoUrl.includes('youtube.com/watch?v=')) {
                     const videoId = videoUrl.split('v=')[1].split('&')[0];
                     videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
@@ -1696,6 +2064,7 @@
                 reelFrame.src = '';
             }
 
+            // Relacionados
             const relatedGrid = document.getElementById('relatedGrid');
             if (anime.related && anime.related.length > 0) {
                 const relatedAnimes = animes.filter(a => anime.related.includes(a.id)).slice(0, 4);
@@ -1709,6 +2078,9 @@
                 relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No hay obras relacionadas.</p>';
             }
 
+            // URL para compartir
+            document.getElementById('shareUrlInput').value = window.location.href;
+
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1716,22 +2088,18 @@
         function closeModal(e) {
             if (e && e.target !== document.getElementById('modalOverlay') &&
                 e.target !== document.querySelector('.modal-close')) return;
-            
+
             document.getElementById('modalOverlay').classList.remove('active');
             document.body.style.overflow = '';
-            
-            // Restaurar título y descripción al cerrar
-            document.title = 'Frame Perdido — Archivo de anime clásico';
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) {
-                metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
-            }
-            
-            // LIMPIAR LA URL - Eliminar el parámetro "expediente"
+
+            restoreDefaultMeta();
+
             if (window.history.pushState) {
                 const url = new URL(window.location);
-                url.searchParams.delete('expediente');
-                window.history.replaceState({}, '', url);
+                const path = url.pathname;
+                if (path.includes('/expediente/')) {
+                    window.history.replaceState({}, '', '/');
+                }
             }
         }
 
@@ -1742,6 +2110,92 @@
             openModal(randomId);
         }
 
+        // ============================================================
+        // RUTAS Y NAVEGACIÓN
+        // ============================================================
+        function handleRoute() {
+            const path = window.location.pathname;
+            const pathParts = path.split('/').filter(p => p.length > 0);
+
+            if (pathParts.length >= 1 && pathParts[0] === 'expediente') {
+                const slug = pathParts[1] || '';
+                const anime = getAnimeBySlug(slug);
+
+                if (anime) {
+                    setTimeout(() => {
+                        openModal(anime.id);
+                    }, 300);
+                    return true;
+                } else if (slug) {
+                    // Redirigir a la página principal si no existe
+                    window.location.href = '/';
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.animeId) {
+                const anime = getAnimeById(event.state.animeId);
+                if (anime) {
+                    openModal(anime.id);
+                }
+            } else {
+                restoreDefaultMeta();
+                closeModal();
+            }
+        });
+
+        // ============================================================
+        // SITEMAP
+        // ============================================================
+        function generateSitemap() {
+            const baseUrl = 'https://frame-perdido.github.io/Frame-perdido/';
+            const soloAnime = animes.filter(a => a.category === "anime");
+
+            let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+                <loc>${baseUrl}</loc>
+                <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>1.0</priority>
+            </url>`;
+
+            soloAnime.forEach(anime => {
+                const slug = getAnimeSlug(anime);
+                sitemap += `
+            <url>
+                <loc>${baseUrl}expediente/${slug}</loc>
+                <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>`;
+            });
+
+            sitemap += `
+        </urlset>`;
+
+            return sitemap;
+        }
+
+        function downloadSitemap() {
+            const sitemap = generateSitemap();
+            const blob = new Blob([sitemap], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.xml';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        window.downloadSitemap = downloadSitemap;
+
+        // ============================================================
+        // UTILIDADES
+        // ============================================================
         function toggleMobileMenu() {
             document.getElementById('mainNav').classList.toggle('active');
         }
@@ -1778,40 +2232,11 @@
         });
 
         // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL AL CARGAR
-        // ============================================================
-        function checkUrlForExpediente() {
-            const params = new URLSearchParams(window.location.search);
-            const expedienteId = params.get('expediente');
-            
-            if (expedienteId !== null) {
-                const id = parseInt(expedienteId);
-                const anime = animes.find(a => a.id === id);
-                if (anime) {
-                    // Esperar a que la página cargue completamente
-                    setTimeout(() => {
-                        openModal(id);
-                        // Scroll al modal
-                        document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
-                }
-            } else {
-                // Si no hay expediente en la URL, asegurar que la URL sea limpia
-                if (window.history.pushState) {
-                    const url = new URL(window.location);
-                    url.search = ''; // Eliminar todos los parámetros
-                    window.history.replaceState({}, '', url);
-                }
-            }
-        }
-
-        // ============================================================
         // INICIALIZACIÓN
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Verificar que la base de datos se cargó
             if (typeof animes === 'undefined') {
-                console.error('❌ Error: No se encontró la variable "animes". Asegúrate de que data.js está en la misma carpeta.');
+                console.error('❌ Error: No se encontró la variable "animes".');
                 document.getElementById('animeGrid').innerHTML = `
                     <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
                         <p style="font-size:1.2rem;margin-bottom:8px;">⚠️ Error al cargar la base de datos</p>
@@ -1820,8 +2245,13 @@
                 `;
                 return;
             }
-            
+
             console.log(`✅ Base de datos cargada: ${animes.length} obras`);
+
+            // Paginación
+            document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
+
+            // Renderizar
             renderCards();
             updateStats();
             setupFeatured();
@@ -1831,132 +2261,61 @@
             setupListas();
             setupScrollSpy();
             setupSmoothScroll();
-            
-            // ============================================================
-            // RENDERIZAR NUEVAS SECCIONES
-            // ============================================================
             inicializarSecciones();
-            
-            // Verificar si hay un expediente en la URL
-            checkUrlForExpediente();
+
+            // Manejar rutas
+            const hasRoute = handleRoute();
+            if (!hasRoute) {
+                restoreDefaultMeta();
+                if (window.location.pathname.includes('/expediente/')) {
+                    window.location.href = '/';
+                }
+            }
         });
     </script>
 
     <!-- ============================================================ -->
-    <!-- SOCIAL BAR (flotante) - justo antes de cerrar </body>         -->
+    <!-- SOCIAL BAR                                                   -->
     <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
 
     <!-- ============================================================ -->
-    <!-- DETECTOR DE ADBLOCK - AHORA CON DETECCIÓN DE BOTS            -->
+    <!-- DETECTOR DE ADBLOCK                                          -->
     <!-- ============================================================ -->
     <script>
-        // ==========================================
-        // 1. DETECCIÓN DE BOTS Y CRAWLERS
-        // ==========================================
         const isCrawler = () => {
             const ua = navigator.userAgent.toLowerCase();
-
             const bots = [
-                "googlebot",
-                "google-inspectiontool",
-                "adsbot-google",
-                "apis-google",
-                "mediapartners-google",
-                "bingbot",
-                "duckduckbot",
-                "slurp",
-                "baiduspider",
-                "yandexbot",
-                "facebookexternalhit",
-                "twitterbot",
-                "linkedinbot",
-                "applebot",
-                "petalbot"
+                "googlebot", "google-inspectiontool", "adsbot-google",
+                "apis-google", "mediapartners-google", "bingbot",
+                "duckduckbot", "slurp", "baiduspider", "yandexbot",
+                "facebookexternalhit", "twitterbot", "linkedinbot",
+                "applebot", "petalbot"
             ];
-
             return bots.some(bot => ua.includes(bot));
         };
 
-        // ==========================================
-        // 2. FUNCIONES DE DETECCIÓN DE ADBLOCK
-        // ==========================================
         const outbrainErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://widgets.outbrain.com/outbrain.js");
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
+            try { await fetch("https://widgets.outbrain.com/outbrain.js"); return false; } catch (e) { return true; }
+        };
         const adligatureErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://adligature.com/", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
+            try { await fetch("https://adligature.com/", { mode: "no-cors" }); return false; } catch (e) { return true; }
+        };
         const quantserveErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://secure.quantserve.com/quant.js", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
+            try { await fetch("https://secure.quantserve.com/quant.js", { mode: "no-cors" }); return false; } catch (e) { return true; }
+        };
         const adligatureCssErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
+            try { await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", { mode: "no-cors" }); return false; } catch (e) { return true; }
+        };
         const srvtrackErrorCheck = async () => {
-            try {
-                const resp = await fetch("https://srvtrck.com/assets/css/LineIcons.css", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
+            try { await fetch("https://srvtrck.com/assets/css/LineIcons.css", { mode: "no-cors" }); return false; } catch (e) { return true; }
+        };
         const yieldkitCheck = async () => {
-            try {
-                const resp = await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", {
-                    mode: "no-cors"
-                });
-                const text = await resp.text();
-                return false;
-            } catch (e) {
-                return true;
-            }
-        }
-
+            try { await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", { mode: "no-cors" }); return false; } catch (e) { return true; }
+        };
         const setIntervalCheck = () => {
             return new Promise((resolve) => {
-                const timeout = setTimeout(() => {
-                    resolve(true);
-                }, 2000);
-
+                const timeout = setTimeout(() => resolve(true), 2000);
                 const interval = setInterval(() => {
                     const a0b = "a0b";
                     if (a0b == "a0b") {
@@ -1966,54 +2325,19 @@
                     }
                 }, 100);
             });
-        }
-
-        const idCheck = async () => {
-            const bannerIds = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead'];
-            const bannerString = bannerIds.map((bannerId) => `<div id="${bannerId}">&nbsp;</div>`).join('');
-            const dataContainer = document.createElement("div");
-
-            dataContainer.innerHTML = bannerString;
-            document.body.append(dataContainer);
-
-            let adblocker = false;
-            bannerIds.forEach(id => {
-                const elem = document.getElementById(id);
-
-                if (!elem || elem.offsetHeight == 0) {
-                    adblocker = true;
-                }
-
-                elem?.remove();
-            })
-
-            return adblocker;
-        }
+        };
 
         const detectedAdblock = async () => {
             const resp = await Promise.all([
-                outbrainErrorCheck(),
-                adligatureErrorCheck(),
-                quantserveErrorCheck(),
-                adligatureCssErrorCheck(),
-                srvtrackErrorCheck(),
-                setIntervalCheck(),
-                yieldkitCheck()
+                outbrainErrorCheck(), adligatureErrorCheck(), quantserveErrorCheck(),
+                adligatureCssErrorCheck(), srvtrackErrorCheck(), setIntervalCheck(), yieldkitCheck()
             ]);
-
-            const isNotUsingAdblocker = resp.every(r => r == false);
-
-            return !isNotUsingAdblocker;
+            return !resp.every(r => r == false);
         };
 
-        // ==========================================
-        // 3. EJECUCIÓN SOLO PARA HUMANOS
-        // ==========================================
         if (!isCrawler()) {
             detectedAdblock().then(result => {
-                if (result) {
-                    window.location.href = "disable-adblock.html";
-                }
+                if (result) window.location.href = "disable-adblock.html";
             });
         }
     </script>
