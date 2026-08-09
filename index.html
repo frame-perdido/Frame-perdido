@@ -1587,70 +1587,87 @@
             return filtered;
         }
 
-        function renderPaginatedCards() {
-            const grid = document.getElementById('animeGrid');
-            const itemsPerPage = getItemsPerPage();
-            
-            currentFilteredAnimes = getFilteredAnimes();
-            totalFilteredItems = currentFilteredAnimes.length;
-            
-            const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
-            const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
-            
-            document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
-            document.getElementById('showingEnd').textContent = endIndex;
-            document.getElementById('totalItems').textContent = totalFilteredItems;
-            
-            const noResults = document.getElementById('noResults');
-            if (totalFilteredItems === 0) {
-                noResults.classList.add('visible');
-                grid.innerHTML = '';
-            } else {
-                noResults.classList.remove('visible');
-            }
-            
-            if (pageItems.length === 0 && currentPage > 1) {
-                currentPage = Math.max(1, currentPage - 1);
-                renderPaginatedCards();
-                return;
-            }
-            
-            grid.innerHTML = pageItems.map(anime => `
-                <div class="card" data-id="${anime.id}" data-type="${anime.type.toLowerCase()}" data-year="${anime.year}" data-genre="${anime.genre.join(',').toLowerCase()}" onclick="openModal(${anime.id})">
-                    <div class="card-image">
-                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                        <span class="card-year">${anime.year}</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="card-tag">${anime.type}</span>
-                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
-                        </div>
-                        <h3>${anime.title}</h3>
-                        <p>${anime.description}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </a>
-                        <div class="card-vibes">
-                            ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                        </div>
-                    </div>
+       function renderPaginatedCards() {
+    const grid = document.getElementById('animeGrid');
+    const itemsPerPage = getItemsPerPage();
+    
+    currentFilteredAnimes = getFilteredAnimes();
+    totalFilteredItems = currentFilteredAnimes.length;
+    
+    const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
+    
+    // Si es la primera página, limpiar el grid
+    if (currentPage === 1) {
+        grid.innerHTML = '';
+    }
+    
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
+    const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
+    
+    // Actualizar contador
+    document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
+    document.getElementById('showingEnd').textContent = endIndex;
+    document.getElementById('totalItems').textContent = totalFilteredItems;
+    
+    const noResults = document.getElementById('noResults');
+    if (totalFilteredItems === 0) {
+        noResults.classList.add('visible');
+        grid.innerHTML = '';
+        return;
+    } else {
+        noResults.classList.remove('visible');
+    }
+    
+    // ✅ AÑADIR las nuevas tarjetas (NO reemplazar)
+    pageItems.forEach(anime => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.id = anime.id;
+        card.dataset.type = anime.type.toLowerCase();
+        card.dataset.year = anime.year;
+        card.dataset.genre = anime.genre.join(',').toLowerCase();
+        card.onclick = function() { openModal(anime.id); };
+        
+        card.innerHTML = `
+            <div class="card-image">
+                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                <span class="card-year">${anime.year}</span>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="card-tag">${anime.type}</span>
+                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
                 </div>
-            `).join('');
-            
-            updatePaginationControls(totalPages);
-            
-            if (currentPage > 1) {
-                document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+                <h3>${anime.title}</h3>
+                <p>${anime.description}</p>
+            </div>
+            <div class="card-footer">
+                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                </a>
+                <div class="card-vibes">
+                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+    
+    // ✅ Actualizar controles de paginación (mostrar siempre)
+    updatePaginationControls(totalPages);
+    
+    // ✅ Hacer scroll suave al botón "Cargar más" o al final del grid
+    if (currentPage > 1) {
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        if (loadMoreBtn) {
+            loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-
+    }
+}
         function updatePaginationControls(totalPages) {
             const loadMoreBtn = document.getElementById('loadMoreBtn');
             const numericPagination = document.getElementById('numericPagination');
@@ -1946,7 +1963,7 @@
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
             // ============================================
-            // TRAILER - Configuración 16:9 (YouTube)
+            // TRAILER - Configuración 16:9 
             // ============================================
             const trailerContainer = document.getElementById('modalTrailerContainer');
             const trailerFrame = document.getElementById('modalTrailerFrame');
