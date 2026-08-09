@@ -618,7 +618,7 @@
         .sobre-text li { margin-bottom: 5px; }
         
         /* ============================================ */
-        /* MODAL CON REEL TAMAÑO CORRECTO 9:16          */
+        /* MODAL CON TRAILER TAMAÑO 16:9 (NUEVO)       */
         /* ============================================ */
         .modal-overlay {
             position: fixed;
@@ -732,19 +732,20 @@
         .modal-section ul { padding-left: 18px; }
         .modal-section li { margin-bottom: 5px; }
         
-        /* REEL CONTAINER - TAMAÑO 9:16 */
-        #modalReelContainer {
+        /* TRAILER CONTAINER - TAMAÑO 16:9 (NUEVO) */
+        #modalTrailerContainer {
             position: relative;
-            padding-bottom: 177.77%;
+            padding-bottom: 56.25%; /* 16:9 - YouTube */
             height: 0;
             overflow: hidden;
-            max-width: 320px;
+            width: 100%;
+            max-width: 100%;
             margin: 0 auto;
             border-radius: 12px;
             border: 1px solid var(--border);
             background: var(--bg);
         }
-        #modalReelFrame {
+        #modalTrailerFrame {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
@@ -872,7 +873,7 @@
         ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 
         /* ============================================================ */
-        /* ESTILOS PARA PAGINACIÓN (NUEVO)                              */
+        /* ESTILOS PARA PAGINACIÓN                                      */
         /* ============================================================ */
         #paginationContainer {
             margin-top: 32px;
@@ -937,7 +938,7 @@
         /* ============================================ */
         @media (max-width: 1024px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-            #modalReelContainer { max-width: 300px; }
+            #modalTrailerContainer { max-width: 100%; }
         }
         @media (max-width: 768px) {
             .hero { padding: 50px 20px 30px; }
@@ -966,7 +967,7 @@
             .stats-bar { gap: 24px; }
             .stat-number { font-size: 1.5rem; }
             .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
-            #modalReelContainer { max-width: 280px; }
+            #modalTrailerContainer { max-width: 100%; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.7rem; }
@@ -977,7 +978,7 @@
             .filter-btn { padding: 6px 12px; font-size: 0.75rem; }
             .modal-image { height: 160px; }
             .modal-content { padding: 16px; }
-            #modalReelContainer { max-width: 240px; }
+            #modalTrailerContainer { max-width: 100%; }
         }
 
         /* Estilo para separar anuncios */
@@ -1153,7 +1154,7 @@
         <div class="grid" id="animeGrid"></div>
 
         <!-- ============================================================ -->
-        <!-- PAGINACIÓN (NUEVO)                                           -->
+        <!-- PAGINACIÓN                                                   -->
         <!-- ============================================================ -->
         <div id="paginationContainer">
             <div id="paginationCounter">
@@ -1243,7 +1244,7 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- MODAL CON REEL TAMAÑO 9:16                   -->
+    <!-- MODAL CON TRAILER 16:9                       -->
     <!-- ============================================ -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
@@ -1264,12 +1265,28 @@
                 <div class="modal-section"><h4>🕰️ ¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
                 <div class="modal-section"><h4>📋 Ficha técnica</h4><ul id="modalTech"></ul></div>
                 
-                <!-- REEL - TAMAÑO 9:16 (320px max) -->
-                <div class="modal-section" id="modalReelSection">
-                    <h4>🎬 Ver Reel</h4>
-                    <div id="modalReelContainer">
-                        <iframe id="modalReelFrame" allowfullscreen></iframe>
+                <!-- TRAILER - TAMAÑO 16:9 (YouTube) -->
+                <div class="modal-section" id="modalTrailerSection">
+                    <h4>🎬 Ver Trailer</h4>
+                    <div id="modalTrailerContainer">
+                        <iframe id="modalTrailerFrame" allowfullscreen></iframe>
                     </div>
+                </div>
+                
+                <!-- ============================================================ -->
+                <!-- ANUNCIO 300×250 AL PIE DE LA FICHA                           -->
+                <!-- ============================================================ -->
+                <div style="text-align: center; margin: 20px 0; padding: 15px 0; border-top: 1px solid var(--border);">
+                    <script>
+                        atOptions = {
+                            'key' : '87a06576574ce7684612c64a5ebfe421',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
                 </div>
                 
                 <div class="modal-related" id="modalRelated">
@@ -1278,7 +1295,7 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- COMPARTIR EN REDES SOCIALES (NUEVO)          -->
+                <!-- COMPARTIR EN REDES SOCIALES                  -->
                 <!-- ============================================ -->
                 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
                     <button class="btn btn-secondary" onclick="shareOn('twitter')">🐦 Twitter</button>
@@ -1349,7 +1366,7 @@
     <!-- ============================================================ -->
     <script>
         // ============================================================
-        // FUNCIONES DE UTILIDAD (NUEVO PARA SEO)
+        // FUNCIONES DE UTILIDAD (SEO)
         // ============================================================
         function getAnimeSlug(anime) {
             return anime.title
@@ -1368,7 +1385,7 @@
         }
 
         // ============================================================
-        // COMPARTIR EN REDES (NUEVO)
+        // COMPARTIR EN REDES
         // ============================================================
         function shareOn(platform) {
             const url = window.location.href;
@@ -1511,7 +1528,7 @@
         }
 
         // ============================================================
-        // PAGINACIÓN (NUEVO)
+        // PAGINACIÓN
         // ============================================================
         let currentPage = 1;
         const itemsPerPageDesktop = 24;
@@ -1702,7 +1719,7 @@
         }
 
         // ============================================================
-        // FUNCIONES PRINCIPALES (TAL CUAL ESTABAN - SIN CAMBIOS)
+        // FUNCIONES PRINCIPALES
         // ============================================================
         let featuredId = null;
 
@@ -1886,23 +1903,22 @@
         }
 
         // ============================================================
-        // MODAL CON REEL (TAL CUAL ESTABA - SOLO AÑADIMOS URL AMIGABLE)
+        // MODAL CON TRAILER 16:9
         // ============================================================
         function openModal(id) {
             const anime = animes.find(a => a.id === id);
             if (!anime) return;
 
-            // Cambiar el título de la página
+            // SEO: Cambiar título y URL
             document.title = `${anime.title} — Frame Perdido`;
             
-            // Cambiar la URL a formato amigable (NUEVO)
             if (window.history.pushState) {
                 const slug = getAnimeSlug(anime);
                 const newUrl = `${window.location.origin}${window.location.pathname}expediente/${slug}`;
                 window.history.pushState({ animeId: anime.id, slug: slug }, '', newUrl);
             }
 
-            // Actualizar meta description
+            // Meta description
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
                 metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 150)}`;
@@ -1929,20 +1945,26 @@
             ];
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
-            // TRAILER - Configuración 9:16
-            const reelContainer = document.getElementById('modalReelContainer');
-            const reelFrame = document.getElementById('modalReelFrame');
+            // ============================================
+            // TRAILER - Configuración 16:9 (YouTube)
+            // ============================================
+            const trailerContainer = document.getElementById('modalTrailerContainer');
+            const trailerFrame = document.getElementById('modalTrailerFrame');
             if (anime.trailer && anime.trailer.trim() !== '') {
-                reelContainer.style.display = 'block';
+                trailerContainer.style.display = 'block';
                 let videoUrl = anime.trailer;
+                // Soporte para YouTube
                 if (videoUrl.includes('youtube.com/watch?v=')) {
                     const videoId = videoUrl.split('v=')[1].split('&')[0];
                     videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+                } else if (videoUrl.includes('youtu.be/')) {
+                    const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
                 }
-                reelFrame.src = videoUrl;
+                trailerFrame.src = videoUrl;
             } else {
-                reelContainer.style.display = 'none';
-                reelFrame.src = '';
+                trailerContainer.style.display = 'none';
+                trailerFrame.src = '';
             }
 
             const relatedGrid = document.getElementById('relatedGrid');
@@ -1958,7 +1980,7 @@
                 relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No hay obras relacionadas.</p>';
             }
 
-            // URL para compartir (NUEVO)
+            // URL para compartir
             document.getElementById('shareUrlInput').value = window.location.href;
 
             document.getElementById('modalOverlay').classList.add('active');
@@ -1979,7 +2001,7 @@
                 metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
             }
             
-            // Limpiar la URL amigable (NUEVO)
+            // Limpiar la URL amigable
             if (window.history.pushState) {
                 const url = new URL(window.location);
                 const path = url.pathname;
@@ -2032,13 +2054,13 @@
         });
 
         // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL (AMPLIADO PARA SLUG)
+        // DETECTAR EXPEDIENTE EN LA URL
         // ============================================================
         function checkUrlForExpediente() {
             const path = window.location.pathname;
             const pathParts = path.split('/').filter(p => p.length > 0);
             
-            // Buscar por slug (NUEVO)
+            // Buscar por slug
             if (pathParts.length >= 2 && pathParts[0] === 'expediente') {
                 const slug = pathParts[1];
                 const anime = getAnimeBySlug(slug);
@@ -2052,7 +2074,7 @@
                 }
             }
             
-            // Buscar por ID (como estaba antes)
+            // Buscar por ID (compatibilidad con URLs antiguas)
             const params = new URLSearchParams(window.location.search);
             const expedienteId = params.get('expediente');
             
@@ -2068,7 +2090,7 @@
                 }
             }
             
-            // Si no hay expediente en la URL, asegurar que la URL sea limpia
+            // Limpiar URL si no hay expediente
             if (window.history.pushState) {
                 const url = new URL(window.location);
                 url.search = '';
@@ -2118,7 +2140,7 @@
         });
 
         // ============================================================
-        // NAVEGACIÓN CON HISTORIAL (NUEVO)
+        // NAVEGACIÓN CON HISTORIAL
         // ============================================================
         window.addEventListener('popstate', function(event) {
             if (event.state && event.state.animeId) {
@@ -2132,7 +2154,7 @@
         });
 
         // ============================================================
-        // GENERAR SITEMAP (NUEVO - Ejecutar desde consola)
+        // GENERAR SITEMAP (Ejecutar desde consola: downloadSitemap())
         // ============================================================
         function generateSitemap() {
             const baseUrl = 'https://frame-perdido.github.io/Frame-perdido/';
@@ -2179,12 +2201,12 @@
     </script>
 
     <!-- ============================================================ -->
-    <!-- SOCIAL BAR (flotante) - justo antes de cerrar </body>         -->
+    <!-- SOCIAL BAR (flotante)                                        -->
     <!-- ============================================================ -->
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
 
     <!-- ============================================================ -->
-    <!-- DETECTOR DE ADBLOCK - AHORA CON DETECCIÓN DE BOTS            -->
+    <!-- DETECTOR DE ADBLOCK                                          -->
     <!-- ============================================================ -->
     <script>
         // ==========================================
