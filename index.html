@@ -618,7 +618,7 @@
         .sobre-text li { margin-bottom: 5px; }
         
         /* ============================================ */
-        /* MODAL CON TRAILER TAMAÑO 16:9 (NUEVO)       */
+        /* MODAL CON TRAILER 16:9                      */
         /* ============================================ */
         .modal-overlay {
             position: fixed;
@@ -732,10 +732,10 @@
         .modal-section ul { padding-left: 18px; }
         .modal-section li { margin-bottom: 5px; }
         
-        /* TRAILER CONTAINER - TAMAÑO 16:9 (NUEVO) */
+        /* TRAILER CONTAINER - 16:9 */
         #modalTrailerContainer {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 - YouTube */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             width: 100%;
@@ -1013,6 +1013,30 @@
 
         #live-action .card:hover { border-color: #fbbf24; }
         #adulto .card:hover { border-color: #ef4444; }
+        
+        /* ============================================================ */
+        /* BOTÓN VOLVER ARRIBA                                         */
+        /* ============================================================ */
+        #btnVolverArriba {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            z-index: 999;
+            display: none;
+            transition: all 0.3s;
+        }
+        #btnVolverArriba:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -1020,12 +1044,12 @@
     <div class="noise"></div>
 
     <header>
-        <a href="#inicio" class="logo">
+        <a href="/" class="logo">
             <div class="logo-icon">🎞️</div>
             <div class="logo-text">Frame <span>Perdido</span></div>
         </a>
         <nav id="mainNav">
-            <a href="#inicio" class="active">Inicio</a>
+            <a href="/" class="active">Inicio</a>
             <a href="#catalogo">Catálogo</a>
             <a href="#listas">Listas</a>
             <a href="#vibes">Vibes</a>
@@ -1203,9 +1227,7 @@
             <h2 class="section-title"><span class="icon">🎬</span>Live Action Clásicos</h2>
             <span class="section-meta">Películas de culto en imagen real</span>
         </div>
-        <div class="grid" id="liveActionGrid">
-            <!-- Los elementos se cargarán desde data.js -->
-        </div>
+        <div class="grid" id="liveActionGrid"></div>
     </section>
 
     <!-- ============================================================ -->
@@ -1216,9 +1238,7 @@
             <h2 class="section-title"><span class="icon">🔞</span>Contenido Adulto</h2>
             <span class="section-meta">Obras para público maduro</span>
         </div>
-        <div class="grid" id="adultoGrid">
-            <!-- Los elementos se cargarán desde data.js -->
-        </div>
+        <div class="grid" id="adultoGrid"></div>
     </section>
 
     <!-- ============================================================ -->
@@ -1265,7 +1285,7 @@
                 <div class="modal-section"><h4>🕰️ ¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
                 <div class="modal-section"><h4>📋 Ficha técnica</h4><ul id="modalTech"></ul></div>
                 
-                <!-- TRAILER - TAMAÑO 16:9 (YouTube) -->
+                <!-- TRAILER - 16:9 -->
                 <div class="modal-section" id="modalTrailerSection">
                     <h4>🎬 Ver Trailer</h4>
                     <div id="modalTrailerContainer">
@@ -1357,6 +1377,11 @@
     </footer>
 
     <!-- ============================================================ -->
+    <!-- BOTÓN VOLVER ARRIBA                                           -->
+    <!-- ============================================================ -->
+    <button id="btnVolverArriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- ============================================================ -->
     <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
     <!-- ============================================================ -->
     <script src="data.js"></script>
@@ -1366,20 +1391,8 @@
     <!-- ============================================================ -->
     <script>
         // ============================================================
-        // FUNCIONES DE UTILIDAD (SEO)
+        // FUNCIONES DE UTILIDAD
         // ============================================================
-        function getAnimeSlug(anime) {
-            return anime.title
-                .toLowerCase()
-                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '');
-        }
-
-        function getAnimeBySlug(slug) {
-            return animes.find(a => getAnimeSlug(a) === slug);
-        }
-
         function getAnimeById(id) {
             return animes.find(a => a.id === parseInt(id));
         }
@@ -1587,87 +1600,87 @@
             return filtered;
         }
 
-       function renderPaginatedCards() {
-    const grid = document.getElementById('animeGrid');
-    const itemsPerPage = getItemsPerPage();
-    
-    currentFilteredAnimes = getFilteredAnimes();
-    totalFilteredItems = currentFilteredAnimes.length;
-    
-    const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
-    
-    // Si es la primera página, limpiar el grid
-    if (currentPage === 1) {
-        grid.innerHTML = '';
-    }
-    
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
-    const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
-    
-    // Actualizar contador
-    document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
-    document.getElementById('showingEnd').textContent = endIndex;
-    document.getElementById('totalItems').textContent = totalFilteredItems;
-    
-    const noResults = document.getElementById('noResults');
-    if (totalFilteredItems === 0) {
-        noResults.classList.add('visible');
-        grid.innerHTML = '';
-        return;
-    } else {
-        noResults.classList.remove('visible');
-    }
-    
-    // ✅ AÑADIR las nuevas tarjetas (NO reemplazar)
-    pageItems.forEach(anime => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.dataset.id = anime.id;
-        card.dataset.type = anime.type.toLowerCase();
-        card.dataset.year = anime.year;
-        card.dataset.genre = anime.genre.join(',').toLowerCase();
-        card.onclick = function() { openModal(anime.id); };
-        
-        card.innerHTML = `
-            <div class="card-image">
-                <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                <span class="card-year">${anime.year}</span>
-            </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="card-tag">${anime.type}</span>
-                    ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
-                </div>
-                <h3>${anime.title}</h3>
-                <p>${anime.description}</p>
-            </div>
-            <div class="card-footer">
-                <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                </a>
-                <div class="card-vibes">
-                    ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                </div>
-            </div>
-        `;
-        
-        grid.appendChild(card);
-    });
-    
-    // ✅ Actualizar controles de paginación (mostrar siempre)
-    updatePaginationControls(totalPages);
-    
-    // ✅ Hacer scroll suave al botón "Cargar más" o al final del grid
-    if (currentPage > 1) {
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        if (loadMoreBtn) {
-            loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        function renderPaginatedCards() {
+            const grid = document.getElementById('animeGrid');
+            const itemsPerPage = getItemsPerPage();
+            
+            currentFilteredAnimes = getFilteredAnimes();
+            totalFilteredItems = currentFilteredAnimes.length;
+            
+            const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
+            
+            // Si es la primera página, limpiar el grid
+            if (currentPage === 1) {
+                grid.innerHTML = '';
+            }
+            
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
+            const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
+            
+            document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
+            document.getElementById('showingEnd').textContent = endIndex;
+            document.getElementById('totalItems').textContent = totalFilteredItems;
+            
+            const noResults = document.getElementById('noResults');
+            if (totalFilteredItems === 0) {
+                noResults.classList.add('visible');
+                grid.innerHTML = '';
+                return;
+            } else {
+                noResults.classList.remove('visible');
+            }
+            
+            // AÑADIR las nuevas tarjetas (NO reemplazar)
+            pageItems.forEach(anime => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.id = anime.id;
+                card.dataset.type = anime.type.toLowerCase();
+                card.dataset.year = anime.year;
+                card.dataset.genre = anime.genre.join(',').toLowerCase();
+                card.onclick = function() { openModal(anime.id); };
+                
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <span class="card-year">${anime.year}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag">${anime.type}</span>
+                            ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3>${anime.title}</h3>
+                        <p>${anime.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                        <div class="card-vibes">
+                            ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            // Actualizar controles de paginación
+            updatePaginationControls(totalPages);
+            
+            // Scroll al botón "Cargar más" o al final del grid
+            if (currentPage > 1) {
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                if (loadMoreBtn) {
+                    loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
         }
-    }
-}
+
         function updatePaginationControls(totalPages) {
             const loadMoreBtn = document.getElementById('loadMoreBtn');
             const numericPagination = document.getElementById('numericPagination');
@@ -1920,26 +1933,22 @@
         }
 
         // ============================================================
-        // MODAL CON TRAILER 16:9
+        // MODAL CON TRAILER 16:9 - VERSIÓN ORIGINAL (SIN CAMBIOS DE URL)
         // ============================================================
         function openModal(id) {
             const anime = animes.find(a => a.id === id);
             if (!anime) return;
 
-            // SEO: Cambiar título y URL
+            // Cambiar el título de la página
             document.title = `${anime.title} — Frame Perdido`;
             
-            if (window.history.pushState) {
-                const slug = getAnimeSlug(anime);
-                const newUrl = `${window.location.origin}${window.location.pathname}expediente/${slug}`;
-                window.history.pushState({ animeId: anime.id, slug: slug }, '', newUrl);
-            }
-
-            // Meta description
+            // ACTUALIZAR meta description
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
                 metaDesc.content = `${anime.title} (${anime.year}) - ${anime.description.slice(0, 150)}`;
             }
+
+            // NO CAMBIAMOS LA URL - se mantiene como está
 
             document.getElementById('modalImage').src = anime.cover;
             document.getElementById('modalImage').alt = anime.title;
@@ -1962,15 +1971,12 @@
             ];
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
-            // ============================================
-            // TRAILER - Configuración 16:9 
-            // ============================================
+            // TRAILER - Configuración 16:9
             const trailerContainer = document.getElementById('modalTrailerContainer');
             const trailerFrame = document.getElementById('modalTrailerFrame');
             if (anime.trailer && anime.trailer.trim() !== '') {
                 trailerContainer.style.display = 'block';
                 let videoUrl = anime.trailer;
-                // Soporte para YouTube
                 if (videoUrl.includes('youtube.com/watch?v=')) {
                     const videoId = videoUrl.split('v=')[1].split('&')[0];
                     videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
@@ -1997,7 +2003,7 @@
                 relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No hay obras relacionadas.</p>';
             }
 
-            // URL para compartir
+            // URL para compartir (la actual, sin cambios)
             document.getElementById('shareUrlInput').value = window.location.href;
 
             document.getElementById('modalOverlay').classList.add('active');
@@ -2018,14 +2024,7 @@
                 metaDesc.content = 'Rescatando OVAs, películas y series de anime clásico poco conocidas de los 80s, 90s y mas.';
             }
             
-            // Limpiar la URL amigable
-            if (window.history.pushState) {
-                const url = new URL(window.location);
-                const path = url.pathname;
-                if (path.includes('/expediente/')) {
-                    window.history.replaceState({}, '', '/');
-                }
-            }
+            // NO HAY URL QUE LIMPIAR - se mantiene como está
         }
 
         function randomAnime() {
@@ -2071,29 +2070,23 @@
         });
 
         // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL
+        // BOTÓN VOLVER ARRIBA
+        // ============================================================
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('btnVolverArriba');
+            if (window.scrollY > 600) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // ============================================================
+        // DETECTAR EXPEDIENTE EN LA URL (SOLO CON PARÁMETROS)
         // ============================================================
         function checkUrlForExpediente() {
-            const path = window.location.pathname;
-            const pathParts = path.split('/').filter(p => p.length > 0);
-            
-            // Buscar por slug
-            if (pathParts.length >= 2 && pathParts[0] === 'expediente') {
-                const slug = pathParts[1];
-                const anime = getAnimeBySlug(slug);
-                
-                if (anime) {
-                    setTimeout(() => {
-                        openModal(anime.id);
-                        document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
-                    return true;
-                }
-            }
-            
-            // Buscar por ID (compatibilidad con URLs antiguas)
             const params = new URLSearchParams(window.location.search);
-            const expedienteId = params.get('expediente');
+            const expedienteId = params.get('id') || params.get('expediente');
             
             if (expedienteId !== null) {
                 const id = parseInt(expedienteId);
@@ -2110,11 +2103,9 @@
             // Limpiar URL si no hay expediente
             if (window.history.pushState) {
                 const url = new URL(window.location);
-                url.search = '';
-                if (url.pathname.includes('/expediente/')) {
-                    url.pathname = '/';
+                if (url.search !== '') {
+                    window.history.replaceState({}, '', '/');
                 }
-                window.history.replaceState({}, '', url);
             }
             
             return false;
@@ -2155,66 +2146,6 @@
             // Verificar si hay un expediente en la URL
             checkUrlForExpediente();
         });
-
-        // ============================================================
-        // NAVEGACIÓN CON HISTORIAL
-        // ============================================================
-        window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.animeId) {
-                const anime = getAnimeById(event.state.animeId);
-                if (anime) {
-                    openModal(anime.id);
-                }
-            } else {
-                closeModal();
-            }
-        });
-
-        // ============================================================
-        // GENERAR SITEMAP (Ejecutar desde consola: downloadSitemap())
-        // ============================================================
-        function generateSitemap() {
-            const baseUrl = 'https://frame-perdido.github.io/Frame-perdido/';
-            const soloAnime = animes.filter(a => a.category === "anime");
-            
-            let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            <url>
-                <loc>${baseUrl}</loc>
-                <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
-                <changefreq>daily</changefreq>
-                <priority>1.0</priority>
-            </url>`;
-            
-            soloAnime.forEach(anime => {
-                const slug = getAnimeSlug(anime);
-                sitemap += `
-            <url>
-                <loc>${baseUrl}expediente/${slug}</loc>
-                <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url>`;
-            });
-            
-            sitemap += `
-        </urlset>`;
-            
-            return sitemap;
-        }
-
-        function downloadSitemap() {
-            const sitemap = generateSitemap();
-            const blob = new Blob([sitemap], { type: 'application/xml' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'sitemap.xml';
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        window.downloadSitemap = downloadSitemap;
     </script>
 
     <!-- ============================================================ -->
