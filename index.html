@@ -1750,13 +1750,7 @@
             // Actualizar controles de paginación
             updatePaginationControls(totalPages);
             
-            // Scroll al botón "Cargar más" o al final del grid
-            if (currentPage > 1) {
-                const loadMoreBtn = document.getElementById('loadMoreBtn');
-                if (loadMoreBtn) {
-                    loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
+            // Las nuevas fichas aparecen debajo sin mover la vista del usuario
         }
 
         function updatePaginationControls(totalPages) {
