@@ -125,188 +125,36 @@
             font-size: 1.4rem;
             cursor: pointer;
         }
-        
-        /* ============================================================ */
-        /* HERO V2 - CARTEL DEL DÍA CON TRÁILER                         */
-        /* ============================================================ */
-        .hero-v2 {
-            position: relative;
-            width: 100%;
-            height: 80vh;
-            min-height: 500px;
-            max-height: 800px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 0 60px;
-            margin-bottom: 40px;
+        .hero {
+            padding: 80px 24px 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
         }
-
-        .hero-v2-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .hero-v2-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-v2-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%);
-            z-index: 1;
-        }
-
-        .hero-v2-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            animation: heroFadeIn 0.8s ease;
-        }
-
-        @keyframes heroFadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-v2-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-        }
-
-        .hero-v2-content h1 {
+        .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 16px;
-            color: #fff;
         }
-
-        .hero-v2-content p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
             max-width: 500px;
+            margin: 0 auto 28px;
         }
-
-        .hero-v2-tags {
+        .hero-cta {
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-        }
-
-        .hero-v2-tags .tag {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-        }
-
-        .hero-v2-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .hero-v2 {
-                padding: 0 24px;
-                min-height: 400px;
-                height: 60vh;
-            }
-            .hero-v2-content h1 {
-                font-size: 2rem;
-            }
-            .hero-v2-content p {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* ============================================================ */
-        /* BOTÓN VER TRÁILER                                             */
-        /* ============================================================ */
-        .btn-ver-trailer {
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .btn-ver-trailer:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-
-        .btn-ver-trailer-secondary {
-            background: var(--bg-elevated);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-ver-trailer-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* ============================================================ */
-        /* BOTÓN VER EPISODIO EN MODAL                                   */
-        /* ============================================================ */
-        .btn-watch-episode {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-            width: 100%;
+            gap: 10px;
             justify-content: center;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
+            flex-wrap: wrap;
         }
-
-        .btn-watch-episode:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-glow);
-        }
-
         .btn {
             padding: 11px 24px;
             border-radius: 10px;
@@ -445,12 +293,137 @@
             color: var(--text-muted);
             font-size: 0.8rem;
         }
-        
-        /* Eliminamos featured-card porque ahora usamos Hero V2 */
         .featured-card {
-            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            transition: all 0.4s;
+            cursor: pointer;
         }
-        
+        .featured-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .featured-image {
+            position: relative;
+            min-height: 380px;
+            overflow: hidden;
+        }
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .featured-card:hover .featured-image img { transform: scale(1.05); }
+        .year-badge {
+            position: absolute;
+            top: 16px; left: 16px;
+            background: var(--accent);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        .rarity-badge {
+            position: absolute;
+            bottom: 16px; left: 16px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            color: var(--warning);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid var(--warning);
+            z-index: 2;
+        }
+        .featured-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .expediente-block {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .exp-label {
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .exp-value {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .exp-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .exp-status-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+        .featured-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+        .tag.accent {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent-glow);
+        }
+        .featured-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .featured-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+        .featured-meta span { margin-right: 14px; }
+        .featured-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .featured-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
         .filters {
             display: flex;
             gap: 8px;
@@ -968,9 +941,11 @@
             #modalTrailerContainer { max-width: 100%; }
         }
         @media (max-width: 768px) {
-            .hero-v2 { padding: 0 24px; min-height: 400px; height: 60vh; }
-            .hero-v2-content h1 { font-size: 2rem; }
-            .hero-v2-content p { font-size: 0.95rem; }
+            .hero { padding: 50px 20px 30px; }
+            .hero h1 { font-size: 2rem; }
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-image { min-height: 300px; }
+            .featured-content { padding: 24px; }
             .card-image { height: 320px; }
             header { padding: 14px 16px; }
             .section { padding: 36px 16px; }
@@ -995,7 +970,7 @@
             #modalTrailerContainer { max-width: 100%; }
         }
         @media (max-width: 480px) {
-            .hero-v2-content h1 { font-size: 1.7rem; }
+            .hero h1 { font-size: 1.7rem; }
             .card-image { height: 280px; }
             .grid { grid-template-columns: 1fr; }
             .listas-grid { grid-template-columns: 1fr; }
@@ -1117,23 +1092,13 @@
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- HERO V2: CARTEL DEL DÍA CON TRÁILER AUTOMÁTICO               -->
-    <!-- ============================================================ -->
-    <section class="hero-v2" id="hero">
-        <div class="hero-v2-background" id="heroBackground">
-            <video id="heroTrailer" autoplay muted loop playsinline></video>
-            <div class="hero-v2-overlay"></div>
-        </div>
-        <div class="hero-v2-content">
-            <div class="hero-v2-badge">⚡ Expediente del Día</div>
-            <h1 id="heroTitle">Cargando...</h1>
-            <p id="heroDesc">...</p>
-            <div class="hero-v2-tags" id="heroTags"></div>
-            <div class="hero-v2-actions">
-                <button class="btn btn-primary" id="heroWatchBtn">▶ Ver expediente</button>
-                <button class="btn btn-secondary" id="heroSoundBtn">🔇 Activar sonido</button>
-            </div>
+    <section class="hero" id="inicio">
+        <h1>Rescatando clásicos<br /><span class="highlight">Compartiendo historias</span></h1>
+        <p>Explora OVAs, películas y especiales que dejaron huella, aunque nunca alcanzaran la fama de los grandes clásicos</p>
+        <div class="hero-cta">
+            <a href="#catalogo" class="btn btn-primary">Explorar catálogo</a>
+            <a href="#vibes" class="btn btn-secondary">Buscar por vibe</a>
+            <button class="btn btn-random" onclick="randomAnime()">🎲 Anime aleatorio</button>
         </div>
     </section>
 
@@ -1160,8 +1125,33 @@
         <div class="search-results-count" id="searchResults"></div>
     </section>
 
-    <!-- Eliminamos la sección featured porque ahora usamos Hero V2 -->
-    <!-- <section class="section" id="featured"> ... </section> -->
+    <section class="section" id="featured">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">✦</span>Expediente del Día</h2>
+            <span class="section-meta">Actualizado cada 24h</span>
+        </div>
+        <div class="featured-card" id="featuredCard">
+            <div class="featured-image">
+                <img src="" alt="" id="featuredImg" />
+                <span class="year-badge" id="featuredYear">----</span>
+                <span class="rarity-badge">⚡ Obra recuperada</span>
+            </div>
+            <div class="featured-content">
+                <div class="expediente-block">
+                    <div class="exp-label">📁 Expediente recuperado</div>
+                    <div class="exp-value" id="featuredExpId">#---</div>
+                    <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.75rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                </div>
+                <div class="featured-tags" id="featuredTags"></div>
+                <h2 id="featuredTitle">---</h2>
+                <div class="featured-meta" id="featuredMeta"></div>
+                <p class="featured-desc" id="featuredDesc">---</p>
+                <div class="featured-actions">
+                    <button class="btn btn-primary" onclick="event.stopPropagation();openModal(featuredId)">Abrir expediente</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section" id="catalogo">
         <div class="section-header">
@@ -1301,10 +1291,6 @@
                     <div id="modalTrailerContainer">
                         <iframe id="modalTrailerFrame" allowfullscreen></iframe>
                     </div>
-                    <!-- BOTÓN VER EPISODIO (nuevo) -->
-                    <a href="#" id="modalWatchLink" class="btn-watch-episode" target="_blank">
-                        ▶ Ver episodio
-                    </a>
                 </div>
                 
                 <!-- ============================================================ -->
@@ -1362,6 +1348,7 @@
                 <ul>
                     <li><a href="#catalogo">Catálogo</a></li>
                     <li><a href="#vibes">Buscar por vibe</a></li>
+                    <li><a href="#featured">Expediente del Día</a></li>
                     <li><a href="#listas">Listas</a></li>
                 </ul>
             </div>
@@ -1438,58 +1425,6 @@
                 setTimeout(() => input.style.borderColor = original, 1000);
             });
         }
-
-        // ============================================================
-        // HERO V2: CARTEL DEL DÍA CON TRÁILER
-        // ============================================================
-        let heroTrailerMuted = true;
-
-        function setupHeroV2() {
-            const soloAnime = animes.filter(a => a.category === "anime");
-            if (!soloAnime || soloAnime.length === 0) return;
-            
-            const today = new Date();
-            const dayIndex = today.getDate() % soloAnime.length;
-            const anime = soloAnime[dayIndex];
-            
-            // Actualizar contenido
-            document.getElementById('heroTitle').textContent = anime.title;
-            document.getElementById('heroDesc').textContent = anime.description;
-            document.getElementById('heroTags').innerHTML = anime.genre.map(g => 
-                `<span class="tag">${g}</span>`
-            ).join('');
-            document.getElementById('heroWatchBtn').onclick = () => openModal(anime.id);
-            
-            // Configurar tráiler
-            const video = document.getElementById('heroTrailer');
-            const background = document.getElementById('heroBackground');
-            if (anime.trailer && anime.trailer.trim() !== '') {
-                video.style.display = 'block';
-                video.src = anime.trailer;
-                video.muted = true;
-                video.play().catch(e => console.log('Autoplay bloqueado:', e));
-                background.style.backgroundImage = '';
-            } else {
-                // Si no hay tráiler, usar imagen de portada como fondo
-                video.style.display = 'none';
-                background.style.backgroundImage = `url(${anime.cover})`;
-                background.style.backgroundSize = 'cover';
-                background.style.backgroundPosition = 'center';
-            }
-        }
-
-        // Botón para activar/desactivar sonido
-        document.addEventListener('DOMContentLoaded', function() {
-            const soundBtn = document.getElementById('heroSoundBtn');
-            if (soundBtn) {
-                soundBtn.addEventListener('click', function() {
-                    const video = document.getElementById('heroTrailer');
-                    heroTrailerMuted = !heroTrailerMuted;
-                    video.muted = heroTrailerMuted;
-                    this.textContent = heroTrailerMuted ? '🔇 Activar sonido' : '🔊 Desactivar sonido';
-                });
-            }
-        });
 
         // ============================================================
         // SISTEMA DE VIBES AUTOMÁTICO
@@ -1674,6 +1609,7 @@
             
             const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
             
+            // Si es la primera página, limpiar el grid
             if (currentPage === 1) {
                 grid.innerHTML = '';
             }
@@ -1719,9 +1655,11 @@
                         <p>${anime.description}</p>
                     </div>
                     <div class="card-footer">
-                        <button class="btn-ver-trailer" onclick="event.stopPropagation();openModal(${anime.id})">
-                            🎬 Ver tráiler
-                        </button>
+                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
                         <div class="card-vibes">
                             ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
                         </div>
@@ -1842,6 +1780,30 @@
             }, 30);
         }
 
+        function setupFeatured() {
+            const soloAnime = animes.filter(a => a.category === "anime");
+            if (!soloAnime || soloAnime.length === 0) {
+                document.getElementById('featuredTitle').textContent = 'Sin obras';
+                document.getElementById('featuredDesc').textContent = 'Añade obras en data.js';
+                return;
+            }
+            const today = new Date();
+            const dayIndex = today.getDate() % soloAnime.length;
+            const anime = soloAnime[dayIndex];
+            featuredId = anime.id;
+            document.getElementById('featuredImg').src = anime.cover;
+            document.getElementById('featuredImg').alt = anime.title;
+            document.getElementById('featuredYear').textContent = anime.year;
+            document.getElementById('featuredExpId').textContent = '#' + String(anime.id + 1).padStart(3, '0');
+            document.getElementById('featuredTitle').textContent = anime.title;
+            document.getElementById('featuredMeta').innerHTML =
+                `<span>📅 ${anime.year}</span><span>🎬 ${anime.studio}</span><span>👤 ${anime.director}</span>`;
+            document.getElementById('featuredDesc').textContent = anime.description;
+            document.getElementById('featuredTags').innerHTML =
+                `<span class="tag accent">${anime.type}</span>${anime.genre.map(g => `<span class="tag">${g}</span>`).join('')}<span class="tag">${anime.duration}</span>`;
+            document.getElementById('featuredCard').onclick = () => openModal(anime.id);
+        }
+
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
             const searchClear = document.getElementById('searchClear');
@@ -1952,9 +1914,11 @@
                         <p>${anime.description}</p>
                     </div>
                     <div class="card-footer">
-                        <button class="btn-ver-trailer" onclick="event.stopPropagation();openModal(${anime.id})">
-                            🎬 Ver tráiler
-                        </button>
+                        <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
                         <div class="card-vibes">
                             ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
                         </div>
@@ -1969,7 +1933,7 @@
         }
 
         // ============================================================
-        // MODAL CON TRAILER 16:9 (CON URLS ÚNICAS Y BOTÓN VER EPISODIO)
+        // MODAL CON TRAILER 16:9 (CON URLS ÚNICAS)
         // ============================================================
         function openModal(id) {
             const anime = animes.find(a => a.id === id);
@@ -2012,14 +1976,9 @@
             ];
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
-            // TRAILER - Configuración 16:9 + BOTÓN VER EPISODIO
+            // TRAILER - Configuración 16:9
             const trailerContainer = document.getElementById('modalTrailerContainer');
             const trailerFrame = document.getElementById('modalTrailerFrame');
-            const watchLink = document.getElementById('modalWatchLink');
-            
-            // Configurar botón "Ver episodio"
-            watchLink.href = `watch.html?id=${anime.id}`;
-            
             if (anime.trailer && anime.trailer.trim() !== '') {
                 trailerContainer.style.display = 'block';
                 let videoUrl = anime.trailer;
@@ -2183,9 +2142,9 @@
             document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
             
             // Renderizar
-            setupHeroV2();
             renderCards();
             updateStats();
+            setupFeatured();
             setupSearch();
             setupFilters();
             renderizarVibes();
