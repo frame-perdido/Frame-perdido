@@ -380,11 +380,12 @@
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
         // ============================================================
-        // BASE DE DATOS DE VIDEOS (SINCRONIZADA CON ANIMES - IDs ACTUALIZADOS)
+        // BASE DE DATOS DE VIDEOS (SINCRONIZADA CON DATA.JS)
+        // IDs: 1-57 coinciden exactamente con la base de datos
         // ============================================================
         const videos = {
             // ============================================================
-            // BIBLIOTECA DE VIDEOS (ORDENADOS POR ID)
+            // ID 1: BAKEMONOGATARI - SIN VIDEO
             // ============================================================
             1: {
                 title: "Barefoot Gen",
@@ -501,6 +502,28 @@
                 ]
             },
             11: {
+                title: "The Guyver: Bio-Booster Armor",
+                year: 1989,
+                studio: "Animate Film",
+                director: "Masahiro Otani",
+                desc: "La adaptación más fiel al manga de The Guyver. Sho Fukamachi se fusiona con la armadura Guyver y lucha contra la organización Chronos y sus mutantes Zoanoids.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Horror", "Cyberpunk", "Biopunk", "Gore", "Mecha"],
+                episodios: [
+                    { num: 1, version: "Ep.", url: "https://mega.nz/embed/duRxgCoZ#-yqmKMVMa2rLPnCzsNKHNzDGAxUGo13r1dPaFJsjxUk" },
+                    { num: 2, version: "Ep.", url: "https://mega.nz/embed/U3pS3SKL#99n-RwKw-_osjJ6nauMIgyk7fyr5TpaPFyEHGiV3oB0" },
+                    { num: 3, version: "Ep.", url: "https://mega.nz/embed/hjISHIaY#L6U8BDNmb7nNyBPslkTbwCQ0Ifa3pJj0jNufGDOb5WI" },
+                    { num: 4, version: "Ep.", url: "https://mega.nz/embed/QyRGVZqI#5XzLi9dAA08yPygX9NHiZBJ7fhHgjXJj2AjjUyl80yE" },
+                    { num: 5, version: "Ep.", url: "https://mega.nz/embed/kqZSiZJD#dU6ueFb3UoEd7I6ir-HnpMPbVTauHWb24-CnxmS4edw" },
+                    { num: 6, version: "Ep.", url: "https://mega.nz/embed/pz5QBAhR#Qstm2P5mdgBy9mk-OcGYEoFT0rHg6p8t_ImRfzx6srk" },
+                    { num: 7, version: "Ep.", url: "https://mega.nz/embed/Nmk0lACZ#zK8THm0DU64eoQUkgdxiN-tn8ClqKuKPZHbAHEGZvr0" },
+                    { num: 8, version: "Ep.", url: "https://mega.nz/embed/4vcQhI4T#jHSElBwdgRXkHZm8cTaBKl-nfd8vbhH0Ghj-aWJopQA" },
+                    { num: 9, version: "Ep.", url: "https://mega.nz/embed/0rFGXZ5B#12BM_FIn8HVdp03lR7Si1YoStOg5l5Tf56I0RvDT17M" },
+                    { num: 10, version: "Ep.", url: "https://mega.nz/embed/17khwaDb#sEOEuBqZdspeNwzo56f4uAfvQZU15_hvYBLoG6PEMt4" },
+                    { num: 11, version: "Ep.", url: "https://mega.nz/embed/1vl12ayb#9k7lDsyQ_gHg0z498FIR6nemiWIT2faUZO2vCNXCNTk" },
+                    { num: 12, version: "Ep.", url: "https://mega.nz/embed/MmFTlKAK#uLfBIq6jZrZ5t5dmB9TU7Oi5jzNwmPCkJludcrKsFk8" }
+                ]
+            },
+            12: {
                 title: "Hell Target",
                 year: 1986,
                 studio: "Nakamura Production",
@@ -511,7 +534,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3238568987154?nochat=1" }
                 ]
             },
-            12: {
+            13: {
                 title: "MD Geist",
                 year: 1986,
                 studio: "Nippon Columbia",
@@ -522,7 +545,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/9484172200689?nochat=1" }
                 ]
             },
-            13: {
+            14: {
                 title: "MD Geist 2: Death Force",
                 year: 1996,
                 studio: "Zero-G Room",
@@ -534,7 +557,7 @@
                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/2062181075669?nochat=1" }
                 ]
             },
-            14: {
+            15: {
                 title: "Project A-Ko",
                 year: 1986,
                 studio: "Soeishinsha / Studio A.P.P.P.",
@@ -545,8 +568,52 @@
                     // No hay video disponible para Project A-Ko en este momento
                 ]
             },
-            15: {
-                title: "Roots Search: Shokushin Buttai X",
+            16: {
+                title: "Project A-Ko 2: Plot of the Daitokuji Financial Group",
+                year: 1987,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "La secuela directa de Project A-Ko. B-Ko obtiene la ayuda de su padre y su fortuna para construir un mecha gigante y derrotar a A-Ko. La rivalidad se intensifica con la llegada de un misterioso alienígena.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    // No hay video disponible para Project A-Ko 2 en este momento
+                ]
+            },
+            17: {
+                title: "Project A-Ko 3: Cinderella Rhapsody",
+                year: 1988,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "Un misterioso maestro de artes marciales conocido como 'Kei' llega a Graviton City, atrayendo la atención tanto de A-Ko como de B-Ko. Se forma un triángulo amoroso que complica la rivalidad entre las dos chicas.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    // No hay video disponible para Project A-Ko 3 en este momento
+                ]
+            },
+            18: {
+                title: "Project A-Ko 4: Final",
+                year: 1989,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "La conclusión de la saga principal. La madre de C-Ko, una poderosa reina alienígena, llega a la Tierra para llevarse a su hija. A-Ko y B-Ko deben unir sus fuerzas para detenerla.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    // No hay video disponible para Project A-Ko 4 en este momento
+                ]
+            },
+            19: {
+                title: "Project A-Ko: Uncivil Wars (Vs)",
+                year: 1990,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "Un spin-off de Project A-Ko ambientado en un universo alternativo. A-Ko y B-Ko son cazarrecompensas que viven en un planeta desierto. Cuando C-Ko es secuestrada por piratas espaciales que quieren usar su cuerpo para resucitar a una antigua hechicera, las dos rivales deben unirse para rescatarla, no por amistad, sino por la recompensa.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Spin-off"],
+                episodios: [
+                    // No hay video disponible para Project A-Ko: Uncivil Wars en este momento
+                ]
+            },
+            20: {
+                title: "Roots Search",
                 year: 1986,
                 studio: "Production Wave / Nippon Columbia",
                 director: "Hisashi Sugai",
@@ -557,7 +624,7 @@
                     { num: 1, version: "Dob", url: "https://www.youtube.com/embed/zPNrY-jf5mQ?=L8olPYfH3MvjdiGd" }
                 ]
             },
-            16: {
+            21: {
                 title: "Windaria",
                 year: 1986,
                 studio: "Kaname Productions",
@@ -569,7 +636,7 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10718103800564?nochat=1" }
                 ]
             },
-            17: {
+            22: {
                 title: "Black Magic M-66",
                 year: 1987,
                 studio: "AIC / Animate",
@@ -580,7 +647,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996683799255?nochat=1" }
                 ]
             },
-            18: {
+            23: {
                 title: "Battle Royal High School",
                 year: 1987,
                 studio: "DAST",
@@ -591,7 +658,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7943725976305?nochat=1" }
                 ]
             },
-            19: {
+            24: {
                 title: "Lily C.A.T.",
                 year: 1987,
                 studio: "Studio Pierrot",
@@ -604,18 +671,7 @@
                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/14745027873369?nochat=1" }
                 ]
             },
-            20: {
-                title: "Project A-Ko 2: Plot of the Daitokuji Financial Group",
-                year: 1987,
-                studio: "Studio A.P.P.P.",
-                director: "Yuji Moriyama",
-                desc: "La secuela directa de Project A-Ko. B-Ko obtiene la ayuda de su padre y su fortuna para construir un mecha gigante y derrotar a A-Ko. La rivalidad se intensifica con la llegada de un misterioso alienígena.",
-                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
-                episodios: [
-                    // No hay video disponible para Project A-Ko 2 en este momento
-                ]
-            },
-            21: {
+            25: {
                 title: "Crying Freeman",
                 year: 1988,
                 studio: "Toei Animation",
@@ -631,7 +687,7 @@
                     { num: 6, version: "Sub", url: "//ok.ru/videoembed/2061167626965?nochat=1" }
                 ]
             },
-            22: {
+            26: {
                 title: "Dragon's Heaven",
                 year: 1988,
                 studio: "AIC",
@@ -642,18 +698,7 @@
                     { num: 1, version: "", url: "https://www.youtube.com/embed/5ktDpZQlrC4?si=oKgXA0NZFE384nvz" }
                 ]
             },
-            23: {
-                title: "Project A-Ko 3: Cinderella Rhapsody",
-                year: 1988,
-                studio: "Studio A.P.P.P.",
-                director: "Yuji Moriyama",
-                desc: "Un misterioso maestro de artes marciales conocido como 'Kei' llega a Graviton City, atrayendo la atención tanto de A-Ko como de B-Ko. Se forma un triángulo amoroso que complica la rivalidad entre las dos chicas.",
-                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
-                episodios: [
-                    // No hay video disponible para Project A-Ko 3 en este momento
-                ]
-            },
-            24: {
+            27: {
                 title: "Blood Reign: Curse of the Yoma",
                 year: 1989,
                 studio: "J.C.Staff",
@@ -665,18 +710,7 @@
                     { num: 2, version: "Sub", url: "https://ok.ru/videoembed/11180161305329?nochat=1" }
                 ]
             },
-            25: {
-                title: "Project A-Ko 4: Final",
-                year: 1989,
-                studio: "Studio A.P.P.P.",
-                director: "Yuji Moriyama",
-                desc: "La conclusión de la saga principal. La madre de C-Ko, una poderosa reina alienígena, llega a la Tierra para llevarse a su hija. A-Ko y B-Ko deben unir sus fuerzas para detenerla.",
-                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
-                episodios: [
-                    // No hay video disponible para Project A-Ko 4 en este momento
-                ]
-            },
-            26: {
+            28: {
                 title: "Riki-Oh: The Wall of Hell (OVA 1)",
                 year: 1989,
                 studio: "J.C.Staff",
@@ -687,7 +721,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993643977431?nochat=1" }
                 ]
             },
-            27: {
+            29: {
                 title: "Riki-Oh 2 (OVA 2)",
                 year: 1989,
                 studio: "J.C.Staff",
@@ -698,7 +732,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993654594263?nochat=1" }
                 ]
             },
-            28: {
+            30: {
                 title: "Nineteen 19",
                 year: 1990,
                 studio: "Madhouse",
@@ -709,7 +743,7 @@
                     // No hay video disponible para Nineteen 19
                 ]
             },
-            29: {
+            31: {
                 title: "A.D. Police Files",
                 year: 1990,
                 studio: "AIC / Artmic",
@@ -723,7 +757,7 @@
                     { num: 3, version: "Sub", url: "//ok.ru/videoembed/3990604483287?nochat=1" }
                 ]
             },
-            30: {
+            32: {
                 title: "Record of Lodoss War (OVA)",
                 year: 1990,
                 studio: "Madhouse",
@@ -759,7 +793,7 @@
                     { num: 13, version: "Dob", url: "https://mega.nz/embed/jhoknazR#fql2It9Q1pZy-wOy1qT9AJSVNU0JNc0ISgGRAc_9AjM" }
                 ]
             },
-            31: {
+            33: {
                 title: "The Curse of Kazuo Umezu",
                 year: 1990,
                 studio: "Takahashi Studio y Yûwa",
@@ -770,18 +804,7 @@
                     { num: 1, version: "Sub", url: "//ok.ru/videoembed/3627019995674?nochat=1" }
                 ]
             },
-            32: {
-                title: "Project A-Ko: Uncivil Wars (Vs)",
-                year: 1990,
-                studio: "Studio A.P.P.P.",
-                director: "Yuji Moriyama",
-                desc: "Un spin-off de Project A-Ko ambientado en un universo alternativo. A-Ko y B-Ko son cazarrecompensas que viven en un planeta desierto. Cuando C-Ko es secuestrada por piratas espaciales que quieren usar su cuerpo para resucitar a una antigua hechicera, las dos rivales deben unirse para rescatarla, no por amistad, sino por la recompensa.",
-                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Spin-off"],
-                episodios: [
-                    // No hay video disponible para Project A-Ko: Uncivil Wars en este momento
-                ]
-            },
-            33: {
+            34: {
                 title: "Dark Cat",
                 year: 1991,
                 studio: "Agent 21",
@@ -792,7 +815,7 @@
                     { num: 1, version: "Sub", url: "//ok.ru/videoembed/3397672634924?nochat=1" }
                 ]
             },
-            34: {
+            35: {
                 title: "Roujin Z",
                 year: 1991,
                 studio: "A.P.P.P.",
@@ -804,7 +827,7 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
                 ]
             },
-            35: {
+            36: {
                 title: "3x3 Eyes (Sazan Eyes)",
                 year: 1991,
                 studio: "Toei Animation",
@@ -822,7 +845,22 @@
                     { num: 4, version: "Dob", url: "//ok.ru/videoembed/7966409558767?nochat=1" }
                 ]
             },
-            36: {
+            37: {
+                title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
+                year: 1995,
+                studio: "Hal Film Maker",
+                director: "Kazuhisa Takenouchi",
+                desc: "La secuela de 3x3 Eyes. Cuatro años después, Pai ha desaparecido y Yakumo la busca sin descanso. Cuando la encuentra, Pai ha perdido la memoria. Para restaurarla, deben viajar a la Tierra Santa, el lugar de origen de los Sanjiyan.",
+                tags: ["OVA", "Fantasía", "Aventura", "Horror", "Romance", "Misterio", "Mitología", "Violento"],
+                episodios: [
+                    { num: 1, version: "Seima Sub", url: "https://mega.nz/embed/SjBGSIID#5p2FUZoXa_bRmQZ2vKYjPHvKOQhWqJ3323GpK_dvLlk" },
+                    { num: 2, version: "Seima Sub", url: "//ok.ru/videoembed/1929922677461?nochat=1" },
+                    { num: 3, version: "Seima Sub", url: "//ok.ru/videoembed/1929922874069?nochat=1" },
+                    { num: 1, version: "Seima Dob", url: "//ok.ru/videoembed/7966427056879?nochat=1" },
+                    { num: 2, version: "Seima Dob", url: "//ok.ru/videoembed/7966451174127?nochat=1" }
+                ]
+            },
+            38: {
                 title: "Midori: La Niña de las Camelias",
                 year: 1992,
                 studio: "Harada Production",
@@ -833,7 +871,7 @@
                     { num: 1, version: "", url: "//ok.ru/videoembed/4997606017775?nochat=1" }
                 ]
             },
-            37: {
+            39: {
                 title: "Fatal Fury: Legend of the Hungry Wolf",
                 year: 1992,
                 studio: "Studio Comet",
@@ -844,7 +882,7 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/9545577597505?nochat=1" }
                 ]
             },
-            38: {
+            40: {
                 title: "Video Girl Ai",
                 year: 1992,
                 studio: "Production I.G",
@@ -860,7 +898,7 @@
                     { num: 6, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+06+by+Dark.mp4" }
                 ]
             },
-            39: {
+            41: {
                 title: "Big Wars",
                 year: 1993,
                 studio: "Magic Bus",
@@ -871,7 +909,7 @@
                     { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996628945623?nochat=1" }
                 ]
             },
-            40: {
+            42: {
                 title: "Fatal Fury 2: The New Battle",
                 year: 1993,
                 studio: "Studio Comet",
@@ -883,7 +921,7 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/14313388771905?nochat=1" }
                 ]
             },
-            41: {
+            43: {
                 title: "Fatal Fury: The Motion Picture",
                 year: 1994,
                 studio: "Studio Comet",
@@ -894,7 +932,7 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/7013340809793?nochat=1" }
                 ]
             },
-            42: {
+            44: {
                 title: "Onikirimaru (Ogre Slayer)",
                 year: 1994,
                 studio: "J.C.Staff",
@@ -908,7 +946,7 @@
                     { num: 4, version: "Sub", url: "https://ok.ru/videoembed/10284844649134?nochat=1" }
                 ]
             },
-            43: {
+            45: {
                 title: "Plastic Little",
                 year: 1994,
                 studio: "AIC / Animate",
@@ -919,7 +957,7 @@
                     { num: 1, version: "", url: "https://ok.ru/videoembed/11179925244657?nochat=1" }
                 ]
             },
-            44: {
+            46: {
                 title: "Armitage III",
                 year: 1995,
                 studio: "AIC",
@@ -937,22 +975,7 @@
                     { num: 4, version: "Dob", url: "https://mega.nz/embed/czFimbCZ#luPSEv8O6yN_uCdDhARPXm7gRO6Nih1aZ6mXIkMYMhI" }
                 ]
             },
-            45: {
-                title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
-                year: 1995,
-                studio: "Hal Film Maker",
-                director: "Kazuhisa Takenouchi",
-                desc: "La secuela de 3x3 Eyes. Cuatro años después, Pai ha desaparecido y Yakumo la busca sin descanso. Cuando la encuentra, Pai ha perdido la memoria. Para restaurarla, deben viajar a la Tierra Santa, el lugar de origen de los Sanjiyan.",
-                tags: ["OVA", "Fantasía", "Aventura", "Horror", "Romance", "Misterio", "Mitología", "Violento"],
-                episodios: [
-                    { num: 1, version: "Seima Sub", url: "https://mega.nz/embed/SjBGSIID#5p2FUZoXa_bRmQZ2vKYjPHvKOQhWqJ3323GpK_dvLlk" },
-                    { num: 2, version: "Seima Sub", url: "//ok.ru/videoembed/1929922677461?nochat=1" },
-                    { num: 3, version: "Seima Sub", url: "//ok.ru/videoembed/1929922874069?nochat=1" },
-                    { num: 1, version: "Seima Dob", url: "//ok.ru/videoembed/7966427056879?nochat=1" },
-                    { num: 2, version: "Seima Dob", url: "//ok.ru/videoembed/7966451174127?nochat=1" }
-                ]
-            },
-            46: {
+            47: {
                 title: "Golden Boy",
                 year: 1995,
                 studio: "AIC / APPP",
@@ -969,7 +992,7 @@
                     { num: 6, version: "Sub", url: "//ok.ru/videoembed/1958720113175?nochat=1" }
                 ]
             },
-            47: {
+            48: {
                 title: "The Vision of Escaflowne",
                 year: 1996,
                 studio: "Sunrise",
@@ -1057,7 +1080,7 @@
                     { num: 26, version: "Dob Lat", url: "https://mega.nz/embed/yoAT1aRY#o8k0vFTn_DmW5Xf0OWPJ10Es1VKUzE18OU3JbbG3iBU" }
                 ]
             },
-            48: {
+            49: {
                 title: "Escaflowne (Película)",
                 year: 2000,
                 studio: "Sunrise / Bones",
@@ -1069,7 +1092,7 @@
                     { num: 1, version: "Sub", url: "https://mega.nz/embed/vnBRjT7Y#6m-z7gpZWANdQaqIuA6I-Kf0NNck-7FyMAdVPqy8HGo" }
                 ]
             },
-            49: {
+            50: {
                 title: "Ninja Resurrection",
                 year: 1997,
                 studio: "J.C.Staff",
@@ -1080,7 +1103,7 @@
                     { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3043419556593?nochat=1" }
                 ]
             },
-            50: {
+            51: {
                 title: "The Big O",
                 year: 1999,
                 studio: "Sunrise",
@@ -1116,7 +1139,7 @@
                     { num: 26, version: "Sub", url: "https://mega.nz/embed/W6ZyXa5R#-HZW1Y1qMYDqKR_x5uy1UM1CY5RFV6B3hS1pE-4lF50" }
                 ]
             },
-            51: {
+            52: {
                 title: "Malice@Doll",
                 year: 2001,
                 studio: "GAGA Communications / Soeishinsha",
@@ -1129,7 +1152,7 @@
                     { num: 3, version: "Sub", url: "//ok.ru/videoembed/1021877422669?nochat=1" }
                 ]
             },
-            52: {
+            53: {
                 title: "Parasite Dolls",
                 year: 2003,
                 studio: "AIC",
@@ -1141,7 +1164,7 @@
                     { num: 1, version: "Sub", url: "//ok.ru/videoembed/11067556498161?nochat=1" }
                 ]
             },
-            53: {
+            54: {
                 title: "Paprika",
                 year: 2006,
                 studio: "Madhouse",
@@ -1154,9 +1177,9 @@
                 ]
             },
             // ============================================================
-            // LIVE ACTION
+            // LIVE ACTION - IDs CORREGIDOS (54-57)
             // ============================================================
-            54: {
+            55: {
                 title: "Riki-Oh: The Story of Ricky",
                 year: 1991,
                 studio: "Golden Sun Films",
@@ -1167,7 +1190,7 @@
                     { num: 1, version: "Dob", url: "//ok.ru/videoembed/10465970686515?nochat=1" }
                 ]
             },
-            55: {
+            56: {
                 title: "Mutronics (The Guyver)",
                 year: 1991,
                 studio: "New Line Cinema",
@@ -1179,7 +1202,7 @@
                     { num: 1, version: "Sub", url: "//ok.ru/videoembed/7320502733398?nochat=1" }
                 ]
             },
-            56: {
+            57: {
                 title: "Guyver: Dark Hero",
                 year: 1994,
                 studio: "New Line Cinema",
@@ -1191,7 +1214,7 @@
                     { num: 1, version: "Sub 1080p", url: "//ok.ru/videoembed/7320502798934?nochat=1" }
                 ]
             },
-            57: {
+            58: {
                 title: "Midori: La Niña de las Camelias (Live Action)",
                 year: 2016,
                 studio: "Link Rights",
