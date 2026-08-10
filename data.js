@@ -1113,5 +1113,27 @@ var animes = [{
     related: [13, 18, 30, 50, 51, 52, 53],
     prev: 53,
     category: "anime"
+},
+              {
+    id: 55,
+    title: "MD Geist 2: Death Force",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh7_8PvyA4vPYGr5s-5jhZgWQBV7ID3EmnWrrKptXrJwPlV-wGLHhSs99_kYU658yDvIrPSaJ0ps0EJWhREp27VSbLD8Ao1prqKEk7Rr37NzxICJ2WCNFRQWTK1sYq1ua_LSptxnrQs6QxEI31JAYJXR0KYKI75SaM1JAG99aPqRezpBfXl6ZlnSEz1Gqd8=w298-h400",
+    year: 1996,
+    type: "OVA",
+    duration: "45 min",
+    studio: "Zero-G Room",
+    director: "Hayato Ikeda",
+    genre: ["Ciencia ficción", "Acción", "Mecha"],
+    tags: ["ciencia-ficción", "acción", "mecha", "violento", "guerra"],
+    description: "La secuela de MD Geist. Geist continúa su lucha en un mundo post-apocalíptico, enfrentándose a nuevos enemigos y revelando más sobre su pasado.",
+    plot: "Geist, el soldado mejorado genéticamente, continúa su lucha en un mundo devastado por la guerra. Enfrenta a un nuevo enemigo que busca el control del planeta, mientras descubre secretos sobre su propio origen que cambiarán su percepción de la guerra.",
+    analysis: "MD Geist 2: Death Force es la secuela directa del OVA original. Mantiene el mismo tono violento y exagerado, con una animación mejorada y una trama que profundiza en el conflicto. Es una continuación que los fans de la primera parte disfrutarán.",
+    forgotten: "Al igual que la primera, esta secuela es una rareza que solo los fans más acérrimos del género recuerdan. Su lanzamiento fue limitado y hoy es difícil de encontrar.",
+    trailer: "",
+    saga: "MD Geist",
+    sagaOrder: 2,
+    related: [10, 12, 20],
+    prev: 10,
+    category: "anime"
 }
 ];
