@@ -451,19 +451,52 @@
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
         }
+
+        /* ============================================================ */
+        /* CARGA GRADUAL DE FICHAS - FADE IN / SLIDE UP                 */
+        /* ============================================================ */
         .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.4s,
+                        box-shadow 0.4s;
+        }
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .card:hover {
             transform: translateY(-6px);
             border-color: var(--border-hover);
             box-shadow: 0 16px 32px rgba(0,0,0,0.3);
         }
+        /* Stagger delay para efecto cascada */
+        .card.visible:nth-child(1)  { transition-delay: 0.00s; }
+        .card.visible:nth-child(2)  { transition-delay: 0.05s; }
+        .card.visible:nth-child(3)  { transition-delay: 0.10s; }
+        .card.visible:nth-child(4)  { transition-delay: 0.15s; }
+        .card.visible:nth-child(5)  { transition-delay: 0.20s; }
+        .card.visible:nth-child(6)  { transition-delay: 0.25s; }
+        .card.visible:nth-child(7)  { transition-delay: 0.30s; }
+        .card.visible:nth-child(8)  { transition-delay: 0.35s; }
+        .card.visible:nth-child(9)  { transition-delay: 0.40s; }
+        .card.visible:nth-child(10) { transition-delay: 0.45s; }
+        .card.visible:nth-child(11) { transition-delay: 0.50s; }
+        .card.visible:nth-child(12) { transition-delay: 0.55s; }
+        .card.visible:nth-child(13) { transition-delay: 0.60s; }
+        .card.visible:nth-child(14) { transition-delay: 0.65s; }
+        .card.visible:nth-child(15) { transition-delay: 0.70s; }
+        .card.visible:nth-child(16) { transition-delay: 0.75s; }
+        .card.visible:nth-child(17) { transition-delay: 0.80s; }
+        .card.visible:nth-child(18) { transition-delay: 0.85s; }
+        .card.visible:nth-child(19) { transition-delay: 0.90s; }
+        .card.visible:nth-child(20) { transition-delay: 0.95s; }
+        .card.visible:nth-child(21) { transition-delay: 1.00s; }
+        .card.visible:nth-child(22) { transition-delay: 1.05s; }
+        .card.visible:nth-child(23) { transition-delay: 1.10s; }
+        .card.visible:nth-child(24) { transition-delay: 1.15s; }
         .card.hidden { display: none; }
         .card-image {
             height: 380px;
@@ -752,6 +785,27 @@
             border: 0;
         }
         
+
+        /* ============================================================ */
+        /* TRANSICIÓN SUAVE AL CAMBIAR DE FICHA EN RECOMENDACIONES       */
+        /* ============================================================ */
+        .modal-content {
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .modal-content.swapping-out {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        .modal-content.swapping-in {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        .modal-image {
+            transition: opacity 0.35s ease;
+        }
+        .modal-image.swapping-out {
+            opacity: 0;
+        }
         .modal-related {
             margin-top: 28px;
             padding-top: 20px;
@@ -1038,6 +1092,7 @@
             transform: scale(1.1);
         }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div class="bg-animation"></div>
@@ -1390,6 +1445,29 @@
     <!-- CÓDIGO PRINCIPAL                                             -->
     <!-- ============================================================ -->
     <script>
+
+        // ============================================================
+        // INTERSECTION OBSERVER - CARGA GRADUAL DE FICHAS
+        // ============================================================
+        let cardObserver;
+        function initCardObserver() {
+            if (cardObserver) cardObserver.disconnect();
+            cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            });
+            document.querySelectorAll('.card:not(.visible)').forEach(card => {
+                cardObserver.observe(card);
+            });
+        }
         // ============================================================
         // FUNCIONES DE UTILIDAD
         // ============================================================
@@ -1930,6 +2008,8 @@
         function inicializarSecciones() {
             renderizarPorCategoria('live-action', 'liveActionGrid');
             renderizarPorCategoria('adulto', 'adultoGrid');
+            // Activar animación gradual para secciones especiales
+            setTimeout(() => initCardObserver(), 100);
         }
 
         // ============================================================
@@ -1984,10 +2064,10 @@
                 let videoUrl = anime.trailer;
                 if (videoUrl.includes('youtube.com/watch?v=')) {
                     const videoId = videoUrl.split('v=')[1].split('&')[0];
-                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&mute=1`;
                 } else if (videoUrl.includes('youtu.be/')) {
                     const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
-                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&mute=1`;
                 }
                 trailerFrame.src = videoUrl;
             } else {
@@ -1999,7 +2079,7 @@
             if (anime.related && anime.related.length > 0) {
                 const relatedAnimes = animes.filter(a => anime.related.includes(a.id)).slice(0, 4);
                 relatedGrid.innerHTML = relatedAnimes.map(r =>
-                    `<div class="related-card" onclick="openModal(${r.id})">
+                    `<div class="related-card" onclick="transitionToModal(${r.id})">
                         <h5>${r.title}</h5>
                         <span>${r.year} · ${r.type}</span>
                     </div>`
@@ -2035,6 +2115,39 @@
                 url.searchParams.delete('expediente');
                 window.history.replaceState({}, '', url);
             }
+        }
+
+        // ============================================================
+        // TRANSICIÓN SUAVE AL CAMBIAR DE FICHA (RECOMENDACIONES)
+        // ============================================================
+        function transitionToModal(id) {
+            const modalContent = document.querySelector('.modal-content');
+            const modalImage = document.getElementById('modalImage');
+
+            // 1. Animar salida
+            modalContent.classList.add('swapping-out');
+            modalImage.classList.add('swapping-out');
+
+            // 2. Esperar transición y cargar nueva ficha
+            setTimeout(() => {
+                // Limpiar iframe para evitar audio residual
+                const trailerFrame = document.getElementById('modalTrailerFrame');
+                if (trailerFrame) trailerFrame.src = '';
+
+                openModal(id);
+
+                // 3. Preparar entrada
+                modalContent.classList.remove('swapping-out');
+                modalContent.classList.add('swapping-in');
+                modalImage.classList.remove('swapping-out');
+
+                // 4. Animar entrada
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        modalContent.classList.remove('swapping-in');
+                    }, 50);
+                });
+            }, 350);
         }
 
         function randomAnime() {
