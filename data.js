@@ -953,7 +953,7 @@ var animes = [{
     plot: "Midori, una niña que ha quedado huérfana y en la más absoluta pobreza, es vendida a un circo ambulante. Allí, es sometida a constantes abusos físicos y psicológicos por parte de los fenómenos que trabajan en él. Su vida da un giro cuando el circo contrata a un enano mago, llamado Wonder Masamitsu, que se siente atraído por Midori [citation:5]. La película explora la violencia y la crueldad de este mundo, y si el mago se convertirá en su salvador o en una nueva capa de su tormento.",
     analysis: "Esta adaptación live-action de TORICO se basa en la controvertida obra de Suehiro Maruo, que ya había sido adaptada al anime por Hiroshi Harada en una película de culto [citation:1][citation:4]. La película es famosa por su tono oscuro y su representación gráfica de la violencia y el abuso, y se presenta como una experiencia visual y emocional extrema que no dejará indiferente a nadie [citation:5][citation:7]. Incluye segmentos de animación que conectan con la versión anime original [citation:4].",
     forgotten: "A pesar de la notoriedad de la obra original, esta adaptación live-action de 2016 tuvo un lanzamiento limitado y ha pasado relativamente desapercibida fuera de los círculos más especializados [citation:1]. Es una rareza para coleccionistas y amantes del cine extremo, que a menudo se siente eclipsada por la fama de la película de anime de 1992 [citation:11].",
-    trailer: "", // Si encuentras un tráiler, puedes agregar la URL aquí.
+    trailer: "https://www.youtube.com/embed/8YgiYySosFQ?si=MGydAd6LrQwzfC0Q", 
     saga: null,
     sagaOrder: null,
     related: [9, 13, 11], // Relacionada con otros títulos de terror o ero-guro
