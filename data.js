@@ -110,7 +110,7 @@ var animes = [{
 }, {
     id: 6,
     title: "Megazone 23 Part II",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjOR_8j-P8IlQtxomqCMf5JP1EMHHJre7Y4uLBmEGvibVE_K97A1xKWatKAhpXE5BtOwohTxHcqZhcw3czuywc-dUfVh-Eo-E5yFdvU1Ki71rNs8YOIt_oZ7lisf89pO1YWd7Nas1Wv1FRargMKN4Pkh6Y5xKS0gOmprS2Bq7wDHACPb47bouFj-9SiEbsM=w282-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgkixA8QFK8esAo80MK4-aSHlyelz0m7XTzT_9bh8JCCk8tc6ImWaia6pvLAigFLZyMaYCjzl-0wN35NTY4oNduIgQxF5PWkeRanNoeYu57lCz_CHkhYcNjDvqb5KtS_EB8Xg6tybN2vs2t6obcmr-cAGiDSTI0KyZC-rIoFIBSEB2UDcgzNENCM-Kh9Kal=w283-h400",
     year: 1986,
     type: "OVA",
     duration: "82 min",
@@ -132,7 +132,7 @@ var animes = [{
 }, {
     id: 7,
     title: "Megazone 23 Part III",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjOR_8j-P8IlQtxomqCMf5JP1EMHHJre7Y4uLBmEGvibVE_K97A1xKWatKAhpXE5BtOwohTxHcqZhcw3czuywc-dUfVh-Eo-E5yFdvU1Ki71rNs8YOIt_oZ7lisf89pO1YWd7Nas1Wv1FRargMKN4Pkh6Y5xKS0gOmprS2Bq7wDHACPb47bouFj-9SiEbsM=w282-h400",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjWKM5Ug905dcfOh7xAhl7yHHcvL2QBC0ZuH876GLkx29WxQ991kF8EaO-JEhD6Ccql3yl6CDDI031B9L2OINK83m8Vr5fux3FutCZZuHvtusWYInSbUhdoqtedJV10dLpAOnx9Fn6nHjpZhklYtz3KbGvoyfS9iChG_itbyrGcLoz1if42xJ6F468cWl3S=w280-h400",
     year: 1989,
     type: "OVA",
     duration: "50 min",
@@ -564,7 +564,7 @@ var animes = [{
     category: "anime"
 }, {
     id: 28,
-    title: "Riki-Oh: The Wall of Hell (OVA 1)",
+    title: "Riki-Oh: The Wall of Hell",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiORmSHwWGi3oHEFUMWIPqTD3U5fmIaA2TKUBNrafC-9oz4wHNVtIZfbtElebq7duDfo8JgV5DFLiXexpxKv_xmmF4ILY41KHs2DA2n3S-5jPryyIKFKYy-jCwBRE6LTtjZeHfSQtYVwMXTt2lykggD6f0XL-xkIrFu7E8tyJnbq_NHBtDQQ-AgXj3pqb2S=w300-h400",
     year: 1989,
     type: "OVA",
@@ -585,8 +585,8 @@ var animes = [{
     category: "anime"
 }, {
     id: 29,
-    title: "Riki-Oh 2 (OVA 2)",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiORmSHwWGi3oHEFUMWIPqTD3U5fmIaA2TKUBNrafC-9oz4wHNVtIZfbtElebq7duDfo8JgV5DFLiXexpxKv_xmmF4ILY41KHs2DA2n3S-5jPryyIKFKYy-jCwBRE6LTtjZeHfSQtYVwMXTt2lykggD6f0XL-xkIrFu7E8tyJnbq_NHBtDQQ-AgXj3pqb2S=w300-h400",
+    title: "Riki-Oh 2 Child of Destruction",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhkc9UJrztSbFM1sGcHulXAqla9NMD8JilmGPr6AhECa0nghAg_7AcueQjnF7Nr0ZxHM1ieJ9bX9tkyIS7sF9ZQYgvFqkJq31nXYNPLbQ-RU7QJdzikjXe7CmsEV3tf4HwD7roJLpnqU7IiUBRdQpdr7rYCnjaY8Csrwmx4wFUQ8Su1KnDTN-4M767vz-pr=w257-h400",
     year: 1989,
     type: "OVA",
     duration: "50 min",
@@ -1111,9 +1111,7 @@ var animes = [{
     related: [14, 17, 24],
     category: "anime"
 },
-// ============================================================
-// LIVE ACTION
-// ============================================================
+
 {
     id: 55,
     title: "Riki-Oh: The Story of Ricky",
@@ -1194,4 +1192,26 @@ var animes = [{
     sagaOrder: null,
     related: [9, 13, 11],
     category: "live-action"
-}];
+},
+ 
+{
+    id: 59, // Asegúrate de usar un ID que no esté ocupado
+    title: "Riding Bean",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEidHKFYyOH7xIS_PYn6zz97gB45hlTPnp3TIgFHUnmRxLi3GDfvA3oJCHIKpymFnReb7v81usGXVURudAAsrtfisR37ioei4wEeCFDhBoCFfedGjC_sPHh4j1bLa6nkDOWVh6dHINJ6vb5Ox4V1GymDKgtMZb8Fz2xbvjp9xnoB77nYWMMufz5ze3ZDEECI=w400-h400",
+    year: 1989,
+    type: "OVA",
+    duration: "45 min",
+    studio: "AIC (Anime International Company)",
+    director: "Kenichi Sonoda / Yasuo Hasegawa / Yoshikazu Miura",
+    genre: ["Acción", "Comedia", "Crimen", "Persecuciones"],
+    tags: ["acción", "comedia", "crimen", "autos", "clásico", "80s", "culto", "roadbuster", "getaway-driver"],
+    description: "Bean Bandit, el mejor conductor de fugas de Chicago, es un 'mensajero' que transporta cualquier cosa por el precio adecuado. En un encargo para llevar a una niña secuestrada a casa, él y su socia Rally Vincent son incriminados por el rapto. Ahora, mientras los verdaderos criminales cobran el rescate, Bean debe abrirse paso a tiros y a toda velocidad por la ciudad para limpiar su nombre. Un OVA de culto que es una carta de amor a las películas de acción y persecuciones de los 80 [citation:2][citation:4].",
+    plot: "Bean Bandit y su socia, la armera Rally Vincent, son los mejores 'mensajeros' de la ciudad de Chicago. Tras un encargo rutinario, reciben una misión de rescate: llevar a Chelsea Grimwood, la hija de un millonario, de vuelta a casa con su padre. Lo que no saben es que es una trampa. Son incriminados por el secuestro de la niña y puestos en la mira de la policía, liderada por el obsesivo Inspector Percy. Mientras tanto, los verdaderos culpables, Semmerling y su joven cómplice Carrie, intentan cobrar el rescate y huir. Bean, sin embargo, no es alguien a quien se pueda engañar. Con su coche personalizado, el 'Roadbuster', y su determinación inquebrantable, Bean y Rally se lanzan a una persecución a través de Chicago para atrapar a los responsables, salvar a la niña y demostrar que nadie se burla del 'Road Buster' [citation:2][citation:4][citation:6].",
+    analysis: "Riding Bean es un OVA que destila la esencia del cine de acción estadounidense de los 80, que es precisamente lo que su creador, Kenichi Sonoda, buscaba homenajear [citation:1]. Es una obra que no se toma demasiado en serio a sí misma, pero que mantiene un ritmo frenético de principio a fin [citation:6]. La animación dibujada a mano es de una calidad sobresaliente para su época, y la banda sonora, compuesta en EE. UU., encaja perfectamente con la ambientación callejera de Chicago [citation:1]. El personaje de Bean es un antihéroe carismático, una mezcla entre un Terminator y un Lupin III, un 'duro' con un corazón de oro que lo convierte en un personaje inolvidable [citation:4].",
+    forgotten: "A pesar de su calidad, Riding Bean quedó como un OVA de un solo episodio. La historia de su creación es particular: Sonoda creó el manga para que fuera adaptado, pero debido a su naturaleza como 'one-shot', la serie se canceló [citation:6]. Este hecho llevó a Sonoda a crear su obra más famosa, *Gunsmith Cats*, que comparte personajes con este universo. Por ello, Riding Bean se convirtió en una rareza, un objeto de culto para los amantes del anime de los 80 y los que buscan una obra que captura la esencia de la acción sin concesiones.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [28, 29, 46], 
+    category: "anime"
+}      ];
