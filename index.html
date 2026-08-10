@@ -1633,7 +1633,7 @@
             if (newIsMobile !== isMobile) {
                 isMobile = newIsMobile;
                 currentPage = 1;
-                renderPaginatedCards();
+                renderPaginatedCards(false); // modo reemplazo
             }
         });
 
@@ -1678,39 +1678,46 @@
             return filtered;
         }
 
-        function renderPaginatedCards() {
+        function renderPaginatedCards(appendMode = false) {
             const grid = document.getElementById('animeGrid');
             const itemsPerPage = getItemsPerPage();
-            
+
             currentFilteredAnimes = getFilteredAnimes();
             totalFilteredItems = currentFilteredAnimes.length;
-            
+
             const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
-            
-            // Si es la primera página, limpiar el grid
-            if (currentPage === 1) {
+
+            // Si NO es modo append, limpiar el grid (PC: cambio de página / búsqueda / filtro)
+            if (!appendMode) {
                 grid.innerHTML = '';
             }
-            
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
-            const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
-            
-            document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
-            document.getElementById('showingEnd').textContent = endIndex;
+
+            // Calcular rango de items a mostrar
+            const displayStart = appendMode
+                ? (currentPage - 1) * itemsPerPage
+                : (currentPage - 1) * itemsPerPage;
+            const displayEnd = appendMode
+                ? Math.min(currentPage * itemsPerPage, totalFilteredItems)
+                : Math.min(currentPage * itemsPerPage, totalFilteredItems);
+            const pageItems = currentFilteredAnimes.slice(displayStart, displayEnd);
+
+            document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? displayStart + 1 : 0;
+            document.getElementById('showingEnd').textContent = displayEnd;
             document.getElementById('totalItems').textContent = totalFilteredItems;
-            
+
             const noResults = document.getElementById('noResults');
             if (totalFilteredItems === 0) {
                 noResults.classList.add('visible');
                 grid.innerHTML = '';
+                updatePaginationControls(0);
                 return;
             } else {
                 noResults.classList.remove('visible');
             }
-            
-            // AÑADIR las nuevas tarjetas (NO reemplazar)
-            pageItems.forEach(anime => {
+
+            // Crear tarjetas en fragmento para mejor rendimiento
+            const fragment = document.createDocumentFragment();
+            pageItems.forEach((anime) => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.dataset.id = anime.id;
@@ -1718,7 +1725,7 @@
                 card.dataset.year = anime.year;
                 card.dataset.genre = anime.genre.join(',').toLowerCase();
                 card.onclick = function() { openModal(anime.id); };
-                
+
                 card.innerHTML = `
                     <div class="card-image">
                         <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
@@ -1743,14 +1750,26 @@
                         </div>
                     </div>
                 `;
-                
-                grid.appendChild(card);
+
+                fragment.appendChild(card);
             });
-            
+
+            grid.appendChild(fragment);
+
+            // Activar animación de entrada gradual
+            requestAnimationFrame(() => {
+                initCardObserver();
+                // Forzar visibilidad inmediata de tarjetas ya en viewport
+                document.querySelectorAll('.card:not(.visible)').forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        card.classList.add('visible');
+                    }
+                });
+            });
+
             // Actualizar controles de paginación
             updatePaginationControls(totalPages);
-            
-            // Las nuevas fichas aparecen debajo sin mover la vista del usuario
         }
 
         function updatePaginationControls(totalPages) {
@@ -1809,14 +1828,14 @@
             const totalPages = Math.ceil(getFilteredAnimes().length / getItemsPerPage());
             if (page < 1 || page > totalPages) return;
             currentPage = page;
-            renderPaginatedCards();
+            renderPaginatedCards(false); // modo reemplazo: limpia y muestra página
         }
 
         function loadMore() {
             const totalPages = Math.ceil(getFilteredAnimes().length / getItemsPerPage());
             if (currentPage < totalPages) {
                 currentPage++;
-                renderPaginatedCards();
+                renderPaginatedCards(true); // modo append: añade sin borrar
             }
         }
 
@@ -1827,7 +1846,7 @@
 
         function renderCards() {
             currentPage = 1;
-            renderPaginatedCards();
+            renderPaginatedCards(false); // modo reemplazo
         }
 
         function updateStats() {
@@ -1885,7 +1904,7 @@
                 const query = searchInput.value.toLowerCase().trim();
                 searchClear.classList.toggle('visible', query.length > 0);
                 currentPage = 1;
-                renderPaginatedCards();
+                renderPaginatedCards(false); // modo reemplazo
 
                 const visibleCount = getFilteredAnimes().length;
                 searchResults.textContent = query.length > 0 ?
@@ -1908,7 +1927,7 @@
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentPage = 1;
-                    renderPaginatedCards();
+                    renderPaginatedCards(false); // modo reemplazo
                 });
             });
         }
