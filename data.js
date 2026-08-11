@@ -1278,9 +1278,9 @@ var animes = [{
     related: [9, 11, 13],
     category: "adulto"
 },
-       {
+    {
     id: 63,
-    title: "Ichi the Killer",
+    title: "Ichi the Killer (Película)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiYnr8e55nzwdz_4E72Gig6DNLeJk-bew2kKt-UVPz_Zl7_0-ghju9eFgbHVXIYr4p-Rn5RQhl7GBP3Ds8gmm5PgUwHutWvoKQo1Hf66uhGfIRs2ERow3ciSfQoYnziqXM2H2fb10yDENFVGuArU8AGnJPHzfUGtgWDImC17Pr_Ltu9GRR24qtqU5tULLgv=w267-h400",
     year: 2001,
     type: "Película (Live Action)",
@@ -1288,14 +1288,14 @@ var animes = [{
     studio: "Emperor Motion Pictures",
     director: "Takashi Miike",
     genre: ["Acción", "Crimen", "Terror", "Suspenso", "Yakuza"],
-    tags: ["adulto", "acción", "crimen", "terror", "yakuza", "gore", "violento", "culto", "sadomasoquismo"],
-    description: "Adaptación del manga de Hideo Yamamoto. La historia de Ichi, un joven asesino con un oscuro pasado, y Kakihara, un enforcer yakuza sádico y masoquista. Un descenso al inframundo criminal de Japón que explora los límites de la violencia y la obsesión .",
-    plot: "Tras la desaparición de Anjo, el jefe del clan yakuza Anjo, su teniente, el sádico y masoquista Kakihara, inicia una búsqueda desesperada . Convencido de que su jefe fue asesinado, Kakihara tortura a miembros de clanes rivales en busca de respuestas, mientras es manipulado por Jijii, un ex-policía que maneja a su asesino personal: Ichi . Ichi es un joven aparentemente frágil y tímido que se convierte en un asesino despiadado cuando se enfada, utilizando cuchillas en sus zapatos . Kakihara se obsesiona con Ichi, buscando en él la experiencia de dolor definitiva . Su conflicto y obsesión mutua culminan en un encuentro en una azotea, donde Kakihara, en un delirio, se inflige heridas mortales y cae al vacío, mientras Ichi presencia el suicidio de su némesis .",
-    analysis: "Ichi the Killer es la adaptación cinematográfica de culto del manga de Hideo Yamamoto, que ya era conocido por su violencia extrema . La película de Takashi Miike explora el sadomasoquismo y la violencia, con un estilo visual y narrativo extremo. Es una obra que no se toma a sí misma en serio, sino que se sumerge en la exageración y la locura . La película explora la psicología de sus personajes a través de la violencia, mezclando el gore y el humor negro, usando el sexo y la violencia como una forma de crítica social .",
-    forgotten: "A pesar de ser una de las películas más famosas de Takashi Miike y del cine de culto, su contenido extremo la ha mantenido como una rareza. Su lanzamiento en occidente fue limitado y a menudo censurado, lo que la convierte en una obra para un público muy específico.",
+    tags: ["live-action", "acción", "crimen", "terror", "yakuza", "gore", "violento", "culto", "sadomasoquismo"],
+    description: "Adaptación del manga de Hideo Yamamoto. La historia de Ichi, un joven asesino con un oscuro pasado, y Kakihara, un enforcer yakuza sádico y masoquista. Un descenso al inframundo criminal de Japón que explora los límites de la violencia y la obsesión.",
+    plot: "Tras la desaparición de Anjo, el jefe del clan yakuza Anjo, su teniente, el sádico y masoquista Kakihara, inicia una búsqueda desesperada. Convencido de que su jefe fue asesinado, Kakihara tortura a miembros de clanes rivales en busca de respuestas, mientras es manipulado por Jijii, un ex-policía que maneja a su asesino personal: Ichi. Ichi es un joven aparentemente frágil y tímido que se convierte en un asesino despiadado cuando se enfada, utilizando cuchillas en sus zapatos. Kakihara se obsesiona con Ichi, buscando en él la experiencia de dolor definitiva.",
+    analysis: "Ichi the Killer es la adaptación cinematográfica de culto del manga de Hideo Yamamoto, que ya era conocido por su violencia extrema. La película de Takashi Miike explora el sadomasoquismo y la violencia, con un estilo visual y narrativo extremo. Mezcla el gore y el humor negro, usando el sexo y la violencia como una forma de crítica social.",
+    forgotten: "A pesar de ser una de las películas más famosas de Takashi Miike y del cine de culto, su contenido extremo la ha mantenido como una rareza. Su lanzamiento en occidente fue limitado y a menudo censurado.",
     trailer: "",
     saga: null,
     sagaOrder: null,
     related: [65, 9, 11, 13],
-    category: "adulto"
-}      ];
+    category: "live-action"
+}    ];
