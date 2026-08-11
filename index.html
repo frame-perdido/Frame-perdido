@@ -1046,110 +1046,7 @@
         #searchResultsContainer .card:hover { border-color: #fbbf24; }
 
         /* ============================================================ */
-        /* VERIFICACIÓN DE EDAD (+18) GENERAL                          */
-        /* ============================================================ */
-        #age-verify-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(15px);
-            z-index: 999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Inter', sans-serif;
-            transition: opacity 0.5s ease;
-        }
-        #age-verify-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .age-box {
-            background: var(--bg-card, #12121a);
-            border: 1px solid var(--border, #2a2a3a);
-            border-radius: 24px;
-            padding: 50px 40px;
-            max-width: 480px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
-            animation: ageFadeIn 0.6s ease;
-        }
-        @keyframes ageFadeIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .age-box .age-icon { font-size: 4rem; margin-bottom: 12px; }
-        .age-box h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text, #e8e8f0);
-            margin-bottom: 8px;
-        }
-        .age-box .age-sub {
-            color: var(--text-muted, #8a8a9a);
-            font-size: 0.95rem;
-            margin-bottom: 6px;
-            line-height: 1.6;
-        }
-        .age-box .age-warning {
-            color: #fbbf24;
-            font-size: 0.85rem;
-            background: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.2);
-            padding: 10px 16px;
-            border-radius: 10px;
-            margin: 16px 0 24px;
-            line-height: 1.5;
-        }
-        .age-box .age-warning strong { color: #fbbf24; }
-        .age-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .age-btn {
-            padding: 14px 40px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-            min-width: 120px;
-        }
-        .age-btn-yes {
-            background: var(--accent, #ff6b35);
-            color: #fff;
-            box-shadow: 0 4px 20px var(--accent-glow, rgba(255,107,53,0.4));
-        }
-        .age-btn-yes:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-glow, rgba(255,107,53,0.5));
-        }
-        .age-btn-no {
-            background: var(--bg-elevated, #1a1a25);
-            color: var(--text-muted, #8a8a9a);
-            border: 1px solid var(--border, #2a2a3a);
-        }
-        .age-btn-no:hover {
-            background: var(--border, #2a2a3a);
-            color: var(--text, #e8e8f0);
-        }
-        @media (max-width: 480px) {
-            .age-box { padding: 30px 20px; }
-            .age-box h2 { font-size: 1.4rem; }
-            .age-btn { padding: 12px 24px; min-width: 100px; }
-        }
-
-        /* ============================================================ */
-        /* VERIFICACIÓN ADICIONAL PARA CONTENIDO ADULTO                */
+        /* VERIFICACIÓN DE CONTENIDO ADULTO                            */
         /* ============================================================ */
         #age-verify-adulto {
             position: fixed;
@@ -1163,54 +1060,118 @@
             display: none;
             align-items: center;
             justify-content: center;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
         }
         #age-verify-adulto.active {
             display: flex;
         }
         #age-verify-adulto .age-box {
+            background: #12121a;
+            border: 2px solid #ef4444;
+            border-radius: 24px;
+            padding: 40px 35px;
             max-width: 420px;
-            border-color: #ef4444;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            animation: ageFadeIn 0.6s ease;
         }
-        #age-verify-adulto .age-box .age-icon {
-            font-size: 3.5rem;
-        }
+        #age-verify-adulto .age-box .age-icon { font-size: 3.5rem; margin-bottom: 12px; }
         #age-verify-adulto .age-box h2 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
+            font-weight: 700;
             color: #ef4444;
+            margin-bottom: 8px;
         }
         #age-verify-adulto .age-box .age-sub {
+            color: #8a8a9a;
             font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        #age-verify-adulto .age-box .age-input-group {
+            text-align: left;
+            margin-bottom: 16px;
+        }
+        #age-verify-adulto .age-box .age-input-group label {
+            color: #e8e8f0;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+        #age-verify-adulto .age-box .age-input-group input {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a25;
+            border: 1px solid #2a2a3a;
+            border-radius: 8px;
+            color: #e8e8f0;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #age-verify-adulto .age-box .age-input-group input:focus {
+            border-color: #ef4444;
         }
         #age-verify-adulto .age-box .age-warning {
-            border-color: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            font-size: 0.85rem;
             background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin: 16px 0 24px;
+            line-height: 1.5;
+            display: none;
         }
         #age-verify-adulto .age-box .age-warning strong {
             color: #ef4444;
         }
+        #age-verify-adulto .age-box .age-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #age-verify-adulto .age-box .age-btn {
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            min-width: 120px;
+        }
+        #age-verify-adulto .age-box .age-btn-yes {
+            background: #ef4444;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+        }
+        #age-verify-adulto .age-box .age-btn-yes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(239, 68, 68, 0.5);
+        }
+        #age-verify-adulto .age-box .age-btn-no {
+            background: #1a1a25;
+            color: #8a8a9a;
+            border: 1px solid #2a2a3a;
+        }
+        #age-verify-adulto .age-box .age-btn-no:hover {
+            background: #2a2a3a;
+            color: #e8e8f0;
+        }
+        @media (max-width: 480px) {
+            #age-verify-adulto .age-box { padding: 30px 20px; }
+            #age-verify-adulto .age-box h2 { font-size: 1.3rem; }
+            #age-verify-adulto .age-box .age-btn { padding: 12px 20px; min-width: 100px; }
+        }
     </style>
 </head>
 <body>
-    <!-- ============================================================ -->
-    <!-- VERIFICACIÓN GENERAL DE EDAD (+18)                           -->
-    <!-- ============================================================ -->
-    <div id="age-verify-overlay">
-        <div class="age-box">
-            <div class="age-icon">🔞</div>
-            <h2>Verificación de edad</h2>
-            <p class="age-sub">Este sitio contiene contenido para adultos<br>y anuncios que pueden no ser aptos para menores.</p>
-            <div class="age-warning">
-                ⚠️ <strong>Debes tener 18 años o más</strong> para acceder a Frame Perdido.<br>
-                Al hacer clic en "Soy mayor de edad" aceptas nuestros <a href="https://frame-perdido.github.io/Frame-perdido/privacidad.html" style="color:var(--accent);text-decoration:underline;">términos de privacidad</a>.
-            </div>
-            <div class="age-buttons">
-                <button class="age-btn age-btn-yes" onclick="aceptarEdad()">✔️ Soy mayor de edad</button>
-                <button class="age-btn age-btn-no" onclick="rechazarEdad()">✖️ Salir</button>
-            </div>
-        </div>
-    </div>
-
     <!-- ============================================================ -->
     <!-- VERIFICACIÓN ADICIONAL PARA CONTENIDO ADULTO                -->
     <!-- ============================================================ -->
@@ -1219,12 +1180,15 @@
             <div class="age-icon">🔞</div>
             <h2>⚠️ Contenido para adultos</h2>
             <p class="age-sub">Estás a punto de acceder a una sección con<br>contenido explícito para mayores de 18 años.</p>
-            <div class="age-warning">
-                ⚠️ <strong>Confirma que eres mayor de edad</strong> para continuar.<br>
-                Esta sección contiene material para adultos.
+            <div class="age-input-group">
+                <label>📅 Fecha de nacimiento:</label>
+                <input type="date" id="adultBirthDate" max="2007-08-10" />
+            </div>
+            <div class="age-warning" id="adultAgeError">
+                ⚠️ <strong>Debes tener 18 años o más</strong> para acceder a esta sección.
             </div>
             <div class="age-buttons">
-                <button class="age-btn age-btn-yes" onclick="aceptarAdulto()">✔️ Tengo 18+ años</button>
+                <button class="age-btn age-btn-yes" onclick="verificarEdadAdulto()">✔️ Verificar edad</button>
                 <button class="age-btn age-btn-no" onclick="rechazarAdulto()">✖️ Volver</button>
             </div>
         </div>
@@ -1586,49 +1550,65 @@
     <!-- CARGA DE LA BASE DE DATOS DESDE ARCHIVO EXTERNO              -->
     <!-- ============================================================ -->
     <script src="data.js"></script>
+
+    <!-- ============================================================ -->
+    <!-- VERIFICACIÓN GENERAL DE EDAD (+18)                           -->
+    <!-- ============================================================ -->
+    <script src="age-verify.js"></script>
  
     <!-- ============================================================ -->
     <!-- CÓDIGO PRINCIPAL                                             -->
     <!-- ============================================================ -->
     <script>
         // ============================================================
-        // VERIFICACIÓN DE EDAD - GENERAL
+        // VERIFICACIÓN DE CONTENIDO ADULTO
         // ============================================================
-        function aceptarEdad() {
-            document.getElementById('age-verify-overlay').classList.add('hidden');
-            localStorage.setItem('ageVerified', 'true');
-        }
-
-        function rechazarEdad() {
-            window.location.href = 'https://www.google.com';
-        }
-
-        // ============================================================
-        // VERIFICACIÓN ADICIONAL - CONTENIDO ADULTO
-        // ============================================================
-        let adultoVerificado = false;
-
         function verificarAdulto(e) {
-            // Si el usuario ya verificó para adulto, mostrar la sección directamente
+            e.preventDefault();
+            
+            // Si ya verificó antes, mostrar directamente
             if (localStorage.getItem('adultoVerified') === 'true') {
                 mostrarAdulto();
                 return;
             }
             
-            // Si no ha verificado, mostrar el overlay de adulto
-            e.preventDefault();
+            // Mostrar el overlay de verificación
             document.getElementById('age-verify-adulto').classList.add('active');
         }
 
-        function aceptarAdulto() {
-            document.getElementById('age-verify-adulto').classList.remove('active');
-            localStorage.setItem('adultoVerified', 'true');
-            mostrarAdulto();
+        function verificarEdadAdulto() {
+            const birthDate = document.getElementById('adultBirthDate').value;
+            const errorEl = document.getElementById('adultAgeError');
+            
+            if (!birthDate) {
+                errorEl.style.display = 'block';
+                errorEl.innerHTML = '⚠️ <strong>Por favor, ingresa tu fecha de nacimiento.</strong>';
+                return;
+            }
+            
+            const hoy = new Date();
+            const nacimiento = new Date(birthDate);
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const mes = hoy.getMonth() - nacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+            
+            if (edad >= 18) {
+                document.getElementById('age-verify-adulto').classList.remove('active');
+                localStorage.setItem('adultoVerified', 'true');
+                localStorage.setItem('adultAge', edad);
+                mostrarAdulto();
+            } else {
+                errorEl.style.display = 'block';
+                errorEl.innerHTML = '⚠️ <strong>Debes tener 18 años o más</strong> para acceder a esta sección. Tienes ' + edad + ' años.';
+            }
         }
 
         function rechazarAdulto() {
             document.getElementById('age-verify-adulto').classList.remove('active');
-            // Scroll a la parte superior
+            document.getElementById('adultAgeError').style.display = 'none';
+            document.getElementById('adultBirthDate').value = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1636,11 +1616,22 @@
             const adultoSection = document.getElementById('adulto');
             adultoSection.style.display = 'block';
             adultoSection.scrollIntoView({ behavior: 'smooth' });
-            // Cargar el contenido si no está cargado
-            if (adultoSection.querySelector('.grid').children.length === 0) {
+            
+            // Cargar contenido si no está cargado
+            const grid = document.getElementById('adultoGrid');
+            if (grid.children.length === 0) {
                 renderizarPorCategoria('adulto', 'adultoGrid');
             }
         }
+
+        // Permitir Enter para verificar
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('adultBirthDate').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    verificarEdadAdulto();
+                }
+            });
+        });
 
         // ============================================================
         // FUNCIONES DE UTILIDAD
@@ -1861,7 +1852,6 @@
             
             const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
             
-            // Si es la primera página, limpiar el grid
             if (currentPage === 1) {
                 grid.innerHTML = '';
             }
@@ -1883,7 +1873,6 @@
                 noResults.classList.remove('visible');
             }
             
-            // AÑADIR las nuevas tarjetas (NO reemplazar)
             pageItems.forEach(anime => {
                 const card = document.createElement('div');
                 card.className = 'card';
@@ -1921,10 +1910,8 @@
                 grid.appendChild(card);
             });
             
-            // Actualizar controles de paginación
             updatePaginationControls(totalPages);
             
-            // Scroll al botón "Cargar más" o al final del grid
             if (currentPage > 1) {
                 const loadMoreBtn = document.getElementById('loadMoreBtn');
                 if (loadMoreBtn) {
@@ -2057,7 +2044,7 @@
         }
 
         // ============================================================
-        // BUSCADOR - MODIFICADO PARA MOSTRAR RESULTADOS DEBAJO DEL BUSCADOR
+        // BUSCADOR
         // ============================================================
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
@@ -2073,18 +2060,15 @@
                 searchClear.classList.toggle('visible', query.length > 0);
                 
                 if (query.length === 0) {
-                    // Ocultar resultados y mostrar catálogo normal
                     searchContainer.style.display = 'none';
                     catalogoSection.style.display = 'block';
                     featuredSection.style.display = 'block';
                     searchResults.textContent = '';
-                    // Restaurar paginación
                     document.getElementById('paginationContainer').style.display = 'block';
                     renderPaginatedCards();
                     return;
                 }
                 
-                // Buscar en TODOS los animes (sin filtrar por categoría)
                 const resultados = animes.filter(anime => {
                     return anime.title.toLowerCase().includes(query) ||
                         anime.description.toLowerCase().includes(query) ||
@@ -2095,7 +2079,6 @@
                         String(anime.year).includes(query);
                 });
                 
-                // Ocultar catálogo y mostrar resultados
                 catalogoSection.style.display = 'none';
                 featuredSection.style.display = 'none';
                 document.getElementById('paginationContainer').style.display = 'none';
@@ -2114,7 +2097,6 @@
                     return;
                 }
                 
-                // Renderizar resultados
                 searchGrid.innerHTML = resultados.map(anime => `
                     <div class="card" data-id="${anime.id}" onclick="openModal(${anime.id})">
                         <div class="card-image">
@@ -2252,11 +2234,10 @@
 
         function inicializarSecciones() {
             renderizarPorCategoria('live-action', 'liveActionGrid');
-            // La sección adulto se carga al hacer clic en el enlace
         }
 
         // ============================================================
-        // MODAL CON TRAILER 16:9 (CON URLS ÚNICAS)
+        // MODAL CON TRAILER 16:9
         // ============================================================
         let currentModalId = null;
 
@@ -2306,7 +2287,6 @@
             ];
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
-            // TRAILER - 16:9 con MUTE por defecto
             const trailerContainer = document.getElementById('modalTrailerContainer');
             const trailerFrame = document.getElementById('modalTrailerFrame');
             if (anime.trailer && anime.trailer.trim() !== '') {
@@ -2329,7 +2309,6 @@
                 trailerFrame.src = '';
             }
 
-            // Obras relacionadas
             const relatedGrid = document.getElementById('relatedGrid');
             if (anime.related && anime.related.length > 0) {
                 const relatedAnimes = animes.filter(a => anime.related.includes(a.id)).slice(0, 4);
@@ -2445,16 +2424,14 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModalDirect();
-                // También cerrar el overlay de adulto si está abierto
                 if (document.getElementById('age-verify-adulto').classList.contains('active')) {
                     document.getElementById('age-verify-adulto').classList.remove('active');
+                    document.getElementById('adultAgeError').style.display = 'none';
+                    document.getElementById('adultBirthDate').value = '';
                 }
             }
         });
 
-        // ============================================================
-        // BOTÓN VOLVER ARRIBA
-        // ============================================================
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('btnVolverArriba');
             if (window.scrollY > 600) {
@@ -2464,9 +2441,6 @@
             }
         });
 
-        // ============================================================
-        // DETECTAR EXPEDIENTE EN LA URL
-        // ============================================================
         function checkUrlForExpediente() {
             const params = new URLSearchParams(window.location.search);
             const expedienteId = params.get('expediente');
@@ -2502,11 +2476,6 @@
         // INICIALIZACIÓN
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Verificar edad general
-            if (localStorage.getItem('ageVerified') === 'true') {
-                document.getElementById('age-verify-overlay').classList.add('hidden');
-            }
-
             if (typeof animes === 'undefined') {
                 console.error('❌ Error: No se encontró la variable "animes".');
                 document.getElementById('animeGrid').innerHTML = `
