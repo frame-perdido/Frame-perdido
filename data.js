@@ -1214,4 +1214,25 @@ var animes = [{
     sagaOrder: null,
     related: [28, 29, 46], 
     category: "anime"
-}      ];
+},
+             {
+    id: 60, 
+    title: "Gedou Gakuen (Nightmare Campus)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhSTuEs6nQIF16VN1keyu_TARlC_2abCGKC_h9yM19Eenn9PHVqgLm5b7bURSCeOHZNROQSoj_lE_7ZXrfWDDKYjKwilzJ9ubzgjwLaA64RsEwqBNT_BYc163ISG_kk-icoM2SxyCkohIZK4AUzi_ctVYBVvtsXJ4C-XA7kTvAS_PQchjj9KswRpPGoEyKZ=w282-h400",
+    year: "1994-1996",
+    type: "OVA",
+    duration: "5 episodios (~40 min c/u)",
+    studio: "Phoenix Entertainment",
+    director: "Koji Yoshikawa",
+    genre: ["Fantasía oscura", "Terror", "Sobrenatural", "Apocalíptico", "Acción"],
+    tags: ["adulto", "fantasía", "terror", "demonios", "culto", "90s", "apocalíptico", "horror", "sobrenatural"],
+    description: "Un joven estudiante, Masao Sera, es poseído por el Rey del Inframundo durante una expedición arqueológica al Himalaya. A su regreso al instituto Motomichi, una guerra apocalíptica entre demonios y deidades comienza a gestarse en el campus, mientras las pandillas de estudiantes desarrollan poderes sobrenaturales y apetitos infernales.",
+    plot: "Durante una expedición a un templo prohibido en el Himalaya, el joven Masao Sera presencia un ritual de sacrificio diseñado para abrir las Puertas del Infierno [citation:1][citation:5]. A su regreso al instituto, una oscura fuerza se ha apoderado del campus. Las pandillas estudiantiles se enfrentan en una espiral de violencia y violaciones, y algunas de ellas comienzan a desarrollar poderes sobrenaturales y apetitos demoníacos [citation:1][citation:3]. El conflicto entre facciones demoníacas amenaza con desencadenar el Armagedón, especialmente cuando Masao regresa con el Rey del Inframundo ligado a su alma mortal [citation:1][citation:8]. La serie explora el ascenso al poder de Masao mientras lucha por controlar el demonio que habita en su interior, y la batalla entre demonios y los discípulos de los dioses que buscan detenerlos [citation:7][citation:8].",
+    analysis: "Gedou Gakuen es una obra que, al igual que 'Urotsukidoji', mezcla horror, fantasía y violencia extrema con una trama apocalíptica, pero con un trasfondo de crítica social a través de la alegoría del fascismo y la religión organizada [citation:7]. Aunque la calidad de la animación decrece en sus episodios finales, la serie logra construir un mundo y una premisa absorbente que la distinguen dentro del género [citation:7]. Es una rareza que los amantes del terror y la fantasía oscura de los 90 recordarán, aunque su contenido extremo limitó su distribución.",
+    forgotten: "A pesar de ser una de las OVAs más conocidas del género 'erotic horror' de los 90, su distribución fue limitada y hoy es una rareza. Su temática de violencia y sexo explícito la han mantenido como una obra de culto, eclipsada en popularidad por otras series del mismo creador del manga original, Toshio Maeda.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [9, 11, 13],
+    category: "adulto"
+}];
