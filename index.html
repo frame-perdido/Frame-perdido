@@ -1173,7 +1173,7 @@
 </head>
 <body>
     <!-- ============================================================ -->
-    <!-- VERIFICACIÓN ADICIONAL PARA CONTENIDO ADULTO                -->
+    <!-- VERIFICACIÓN ADICIONAL PARA CONTENIDO ADULTO (PIDE EDAD)    -->
     <!-- ============================================================ -->
     <div id="age-verify-adulto">
         <div class="age-box">
@@ -1181,8 +1181,8 @@
             <h2>⚠️ Contenido para adultos</h2>
             <p class="age-sub">Estás a punto de acceder a una sección con<br>contenido explícito para mayores de 18 años.</p>
             <div class="age-input-group">
-                <label>📅 Fecha de nacimiento:</label>
-                <input type="date" id="adultBirthDate" max="2007-08-10" />
+                <label>🔢 Ingresa tu edad:</label>
+                <input type="number" id="adultAgeInput" min="1" max="120" placeholder="18" />
             </div>
             <div class="age-warning" id="adultAgeError">
                 ⚠️ <strong>Debes tener 18 años o más</strong> para acceder a esta sección.
@@ -1552,7 +1552,7 @@
     <script src="data.js"></script>
 
     <!-- ============================================================ -->
-    <!-- VERIFICACIÓN GENERAL DE EDAD (+18)                           -->
+    <!-- VERIFICACIÓN GENERAL DE EDAD (+18) - SOLO BOTÓN              -->
     <!-- ============================================================ -->
     <script src="age-verify.js"></script>
  
@@ -1561,37 +1561,28 @@
     <!-- ============================================================ -->
     <script>
         // ============================================================
-        // VERIFICACIÓN DE CONTENIDO ADULTO
+        // VERIFICACIÓN DE CONTENIDO ADULTO (PIDE EDAD)
         // ============================================================
         function verificarAdulto(e) {
             e.preventDefault();
             
-            // Si ya verificó antes, mostrar directamente
             if (localStorage.getItem('adultoVerified') === 'true') {
                 mostrarAdulto();
                 return;
             }
             
-            // Mostrar el overlay de verificación
             document.getElementById('age-verify-adulto').classList.add('active');
+            document.getElementById('adultAgeInput').focus();
         }
 
         function verificarEdadAdulto() {
-            const birthDate = document.getElementById('adultBirthDate').value;
+            const edad = parseInt(document.getElementById('adultAgeInput').value);
             const errorEl = document.getElementById('adultAgeError');
             
-            if (!birthDate) {
+            if (!edad || edad < 1) {
                 errorEl.style.display = 'block';
-                errorEl.innerHTML = '⚠️ <strong>Por favor, ingresa tu fecha de nacimiento.</strong>';
+                errorEl.innerHTML = '⚠️ <strong>Por favor, ingresa tu edad.</strong>';
                 return;
-            }
-            
-            const hoy = new Date();
-            const nacimiento = new Date(birthDate);
-            let edad = hoy.getFullYear() - nacimiento.getFullYear();
-            const mes = hoy.getMonth() - nacimiento.getMonth();
-            if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-                edad--;
             }
             
             if (edad >= 18) {
@@ -1608,7 +1599,7 @@
         function rechazarAdulto() {
             document.getElementById('age-verify-adulto').classList.remove('active');
             document.getElementById('adultAgeError').style.display = 'none';
-            document.getElementById('adultBirthDate').value = '';
+            document.getElementById('adultAgeInput').value = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1617,7 +1608,6 @@
             adultoSection.style.display = 'block';
             adultoSection.scrollIntoView({ behavior: 'smooth' });
             
-            // Cargar contenido si no está cargado
             const grid = document.getElementById('adultoGrid');
             if (grid.children.length === 0) {
                 renderizarPorCategoria('adulto', 'adultoGrid');
@@ -1626,7 +1616,7 @@
 
         // Permitir Enter para verificar
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('adultBirthDate').addEventListener('keydown', function(e) {
+            document.getElementById('adultAgeInput').addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     verificarEdadAdulto();
                 }
@@ -2427,7 +2417,7 @@
                 if (document.getElementById('age-verify-adulto').classList.contains('active')) {
                     document.getElementById('age-verify-adulto').classList.remove('active');
                     document.getElementById('adultAgeError').style.display = 'none';
-                    document.getElementById('adultBirthDate').value = '';
+                    document.getElementById('adultAgeInput').value = '';
                 }
             }
         });
