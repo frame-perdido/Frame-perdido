@@ -2036,93 +2036,101 @@
         // ============================================================
         // BUSCADOR
         // ============================================================
-        function setupSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchClear = document.getElementById('searchClear');
-            const searchResults = document.getElementById('searchResults');
-            const searchContainer = document.getElementById('searchResultsContainer');
-            const searchGrid = document.getElementById('searchResultsGrid');
-            const catalogoSection = document.getElementById('catalogo');
-            const featuredSection = document.getElementById('featured');
+      function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const searchResults = document.getElementById('searchResults');
+    const searchContainer = document.getElementById('searchResultsContainer');
+    const searchGrid = document.getElementById('searchResultsGrid');
+    const catalogoSection = document.getElementById('catalogo');
+    const featuredSection = document.getElementById('featured');
 
-            function filterCards() {
-                const query = searchInput.value.toLowerCase().trim();
-                searchClear.classList.toggle('visible', query.length > 0);
-                
-                if (query.length === 0) {
-                    searchContainer.style.display = 'none';
-                    catalogoSection.style.display = 'block';
-                    featuredSection.style.display = 'block';
-                    searchResults.textContent = '';
-                    document.getElementById('paginationContainer').style.display = 'block';
-                    renderPaginatedCards();
-                    return;
-                }
-                
-                const resultados = animes.filter(anime => {
-                    return anime.title.toLowerCase().includes(query) ||
-                        anime.description.toLowerCase().includes(query) ||
-                        anime.genre.some(g => g.toLowerCase().includes(query)) ||
-                        (anime.tags && anime.tags.some(t => t.toLowerCase().includes(query))) ||
-                        anime.studio.toLowerCase().includes(query) ||
-                        anime.director.toLowerCase().includes(query) ||
-                        String(anime.year).includes(query);
-                });
-                
-                catalogoSection.style.display = 'none';
-                featuredSection.style.display = 'none';
-                document.getElementById('paginationContainer').style.display = 'none';
-                
-                searchContainer.style.display = 'block';
-                document.getElementById('searchResultCount').textContent = `${resultados.length} resultado${resultados.length !== 1 ? 's' : ''}`;
-                searchResults.textContent = `${resultados.length} resultado${resultados.length !== 1 ? 's' : ''}`;
-                
-                if (resultados.length === 0) {
-                    searchGrid.innerHTML = `
-                        <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
-                            <p style="font-size:1.1rem;margin-bottom:6px;">😕 No se encontraron resultados</p>
-                            <p style="font-size:0.85rem;">Prueba con otros términos</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                searchGrid.innerHTML = resultados.map(anime => `
-                    <div class="card" data-id="${anime.id}" onclick="openModal(${anime.id})">
-                        <div class="card-image">
-                            <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
-                            <span class="card-year">${anime.year}</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-tags">
-                                <span class="card-tag">${anime.type}</span>
-                                ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
-                            </div>
-                            <h3>${anime.title}</h3>
-                            <p>${anime.description}</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </a>
-                            <div class="card-vibes">
-                                ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            searchInput.addEventListener('input', filterCards);
-            searchClear.addEventListener('click', function() {
-                searchInput.value = '';
-                filterCards();
-                searchInput.focus();
-            });
+    function filterCards() {
+        const query = searchInput.value.toLowerCase().trim();
+        searchClear.classList.toggle('visible', query.length > 0);
+        
+        if (query.length === 0) {
+            searchContainer.style.display = 'none';
+            catalogoSection.style.display = 'block';
+            featuredSection.style.display = 'block';
+            searchResults.textContent = '';
+            document.getElementById('paginationContainer').style.display = 'block';
+            renderPaginatedCards();
+            return;
         }
+        
+        // 🔥 VERIFICAR SI EL USUARIO HA VALIDADO CONTENIDO ADULTO
+        const adultoVerificado = localStorage.getItem('adultoVerified') === 'true';
+        
+        // Buscar en TODOS los animes
+        let resultados = animes.filter(anime => {
+            return anime.title.toLowerCase().includes(query) ||
+                anime.description.toLowerCase().includes(query) ||
+                anime.genre.some(g => g.toLowerCase().includes(query)) ||
+                (anime.tags && anime.tags.some(t => t.toLowerCase().includes(query))) ||
+                anime.studio.toLowerCase().includes(query) ||
+                anime.director.toLowerCase().includes(query) ||
+                String(anime.year).includes(query);
+        });
+        
+        // 🔥 FILTRAR: Si NO ha verificado adulto, ocultar los de category "adulto"
+        if (!adultoVerificado) {
+            resultados = resultados.filter(anime => anime.category !== "adulto");
+        }
+        
+        catalogoSection.style.display = 'none';
+        featuredSection.style.display = 'none';
+        document.getElementById('paginationContainer').style.display = 'none';
+        
+        searchContainer.style.display = 'block';
+        document.getElementById('searchResultCount').textContent = `${resultados.length} resultado${resultados.length !== 1 ? 's' : ''}`;
+        searchResults.textContent = `${resultados.length} resultado${resultados.length !== 1 ? 's' : ''}`;
+        
+        if (resultados.length === 0) {
+            searchGrid.innerHTML = `
+                <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
+                    <p style="font-size:1.1rem;margin-bottom:6px;">😕 No se encontraron resultados</p>
+                    <p style="font-size:0.85rem;">Prueba con otros términos</p>
+                </div>
+            `;
+            return;
+        }
+        
+        searchGrid.innerHTML = resultados.map(anime => `
+            <div class="card" data-id="${anime.id}" onclick="openModal(${anime.id})">
+                <div class="card-image">
+                    <img src="${anime.cover}" alt="${anime.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                    <span class="card-year">${anime.year}</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-tags">
+                        <span class="card-tag">${anime.type}</span>
+                        ${anime.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                    </div>
+                    <h3>${anime.title}</h3>
+                    <p>${anime.description}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="watch.html?id=${anime.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </a>
+                    <div class="card-vibes">
+                        ${anime.tags ? anime.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
 
+    searchInput.addEventListener('input', filterCards);
+    searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        filterCards();
+        searchInput.focus();
+    });
+}
         function setupFilters() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             
