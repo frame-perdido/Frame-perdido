@@ -1298,4 +1298,25 @@ var animes = [{
     sagaOrder: null,
     related: [65, 9, 11, 13],
     category: "live-action"
-}    ];
+},
+      {
+    id: 64,
+    title: "Cat Soup (Nekojiru-sou)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiLIG-25wqw5gPmSpigGKIm6pfx7Cag45Uvsawyog41kYJlXJ3TYk4AMDyD9YOJsDQMuk-wTiH7rucwY4qs-p3eGJzht-N53H4M3nNIpbicoZQATS7YH-vM4dxpKMhN3JC7Whx-133PX7aTHwRQbbOmjKJaAJ6_xb29DSJwQZy1KRRuYp5quR7fdri6RuHb=w300-h400",
+    year: 2001,
+    type: "OVA",
+    duration: "34 min",
+    studio: "J.C.Staff",
+    director: "Tatsuo Satō / Masaaki Yuasa",
+    genre: ["Surrealista", "Drama", "Comedia negra", "Psicológico", "Experimental"],
+    tags: ["surrealista", "experimental", "psicológico", "drama", "melancólico", "culto", "corto", "oscuro", "abstracto"],
+    description: "Un gato llamado Nyatta viaja a través de un mundo surrealista para recuperar la otra mitad del alma de su hermana. Un corto animado sin diálogos que explora el duelo, la muerte y la fragilidad de la existencia.",
+    plot: "Nyatta, un pequeño gato, presencia la muerte de su hermana Nyako. Desesperado, logra arrancarle la mitad de su alma a la muerte, pero Nyako queda en estado vegetativo. Nyatta emprende un viaje a través de un mundo onírico y perturbador para recuperar la otra mitad del alma de su hermana. En su camino, se encuentra con un circo macabro, un diluvio, un cerdo que cocina vivo, un dios que manipula el tiempo, y un hombre que quiere cocinarlos. La historia es una alegoría visual sobre la pérdida, el duelo y la imposibilidad de escapar de la muerte.",
+    analysis: "Cat Soup es una obra maestra del surrealismo animado. Es un homenaje póstumo a la mangaka Chiyomi Hashiguchi (Nekojiru), quien se suicidó en 1998. La falta de diálogo y la animación experimental crean una experiencia hipnótica y perturbadora. La historia explora el duelo y la negación de la muerte a través de un viaje surrealista. La obra es una reflexión sobre la fragilidad de la vida y la inevitabilidad del final. A pesar de su tono oscuro, la película está llena de una belleza extraña y una ternura que la convierten en una experiencia inolvidable.",
+    forgotten: "A pesar de ser un clásico del anime experimental y de culto, Cat Soup es hoy una rareza. Su distribución en occidente fue limitada y su contenido surrealista y perturbador la mantuvo alejada del público general. Es una obra para aquellos que buscan algo más allá del anime convencional.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [9, 18, 38],
+    category: "anime"
+}       ];
