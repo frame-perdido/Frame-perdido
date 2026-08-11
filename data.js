@@ -1235,4 +1235,25 @@ var animes = [{
     sagaOrder: null,
     related: [9, 11, 13],
     category: "adulto"
+},
+ {
+    id: 61,
+    title: "Reyon Densetsu Flair (The Legend of Lyon)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhWSEAqCxRUjf8LTikVxg160iFDpfPwAvWMve5aDXUTPGl3Wy1ETL5_nddjXxQmkaOVp5ONAM-uwq3XMAistHcfI8fG-vtohrIj6twXuiTItGuTSa-Fwfi88oeHSNilP-1_L8qRZk6X4E1c5VyU9swp7GBv5jmAT9a0s_2Zhog3ei6KyW5Q0ZOnaCuSE3Sl=w310-h400",
+    year: "1986-1990",
+    type: "OVA",
+    duration: "2 episodios (~28 min c/u)",
+    studio: "Kusama Art / AIC",
+    director: "Yukihiro Makino / Yorihisa Uchida",
+    genre: ["Fantasía oscura", "Acción", "Ciencia ficción", "Apocalíptico"],
+    tags: ["adulto", "fantasía", "acción", "ciencia-ficción", "alienígenas", "culto", "80s", "90s", "tentáculos"],
+    description: "Una invasión alienígena asola el pacífico mundo de Lyon, donde una raza de seres blindados siembra el caos y la lujuria. La princesa Flair, la espadachina Neris y el príncipe Zeke son la única esperanza contra el sádico Glode. Un OVA de culto que combina fantasía, ciencia ficción y violencia extrema con el inconfundible estilo de Toshiki Hirano.",
+    plot: "Una raza de alienígenas blindados y sádicos invade el pacífico reino de Lyon, masacrando a su población y sometiendo a sus mujeres a todo tipo de vejaciones . Mientras el príncipe Zeke lucha por salvar a su pueblo, la princesa Flair y la espadachina Neris son capturadas y violadas repetidamente . En el segundo episodio, el bosque de Lyon es poseído por una fuerza malévola que devora a todo aquel que se adentra en él. Cuando la Dama Neris y su hermano Eo desaparecen durante una investigación, Flair debe descubrir qué nuevo mal acecha en el corazón de Lyon [citation:1][citation:9]. La historia es un mero pretexto para justificar escenas de violencia y violaciones, pero destaca por sus diseños sensuales y su atmósfera oscura [citation:10].",
+    analysis: "Reyon Densetsu Flair es una de las OVAs históricas del género erótico de los 80, producida en la época dorada de las OVAs [citation:10]. Es conocida por sus diseños de personajes sensuales del legendario Toshiki Hirano (Fight! Iczer-1, Dangaioh) y por su combinación de fantasía, ciencia ficción y violencia extrema [citation:1][citation:10]. Se discute si fue la primera en mostrar los famosos 'violaciones tentaculares' en animación [citation:10]. Su argumento es confuso y la caracterización de los personajes es pobre, pero su estética y su lugar en la historia del anime la convierten en una obra de culto para los amantes del género adulto y la animación ochentera.",
+    forgotten: "A pesar de su notoriedad en su época, Reyon Densetsu Flair es hoy una rareza. Su distribución fue limitada y su contenido extremo la mantuvo fuera del circuito mainstream. Su importancia histórica y sus diseños de Hirano la han convertido en una pieza de colección para los entendidos, pero el público general la ha olvidado.",
+    trailer: "",
+    saga: "Reyon Densetsu",
+    sagaOrder: 1,
+    related: [9, 11, 13],
+    category: "adulto"
 }];
