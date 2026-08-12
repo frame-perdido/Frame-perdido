@@ -1382,4 +1382,25 @@ var animes = [{
     sagaOrder: null,
     related: [68, 70],
     category: "adulto"
-}        ];
+},
+{
+    id: 68, 
+    title: "Kage (Hyper Shinobi Animation: Shadow)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjafUB3_nfh12M6l4hKzsTlt1oMMmsL5SYOqhHhXnMayUAKzw5t1ZkEASIEZ-N03mKSC1J-quCdjloQz4OJbUhpraH2OWeIaVUrErKGrNEVByboOpUtCBKMDGYfanaBuWdT5Rseh-Cn0oqLKMc-_HMQRz_VvqB_m3UwW0pC2-M8RgpXFmnYwBvLPmcriOMf=w275-h400",
+    year: 2004,
+    type: "OVA",
+    duration: "4 episodios (~29 min c/u)",
+    studio: "A.P.P.P.",
+    director: "Masashi Abe",
+    genre: ["Acción", "Histórico", "Artes marciales", "Hentai"],
+    tags: ["adulto", "acción", "artes-marciales", "ninjas", "samurái", "gore", "violento", "culto", "2004"],
+    description: "En el período Edo, dos hábiles kunoichi, Karyu y Uzume, se enfrentan en una sangrienta batalla por la superioridad. Un OVA de acción y contenido adulto con animación de alta calidad y violencia gráfica.",
+    plot: "Es el período pacífico de Edo en Japón, y los ninjas ya no son necesarios. Karyu, una kunoichi particularmente hábil, se ve forzada a trabajar como asesina a sueldo. Se le encarga matar a un mercader, pero al llegar, descubre que su sirviente, Uzume, es en realidad otra kunoichi tan hábil como ella. Karyu y Uzume compiten en una sangrienta batalla por la superioridad, mientras se desvelan secretos y traiciones. La serie explora la rivalidad y la sed de venganza en un Japón feudal, con un tono oscuro y adulto.",
+    analysis: "Kage es un OVA de culto que combina acción violenta y contenido adulto con una animación de alta calidad. La obra es famosa por su representación gráfica de la violencia y el sexo, y ha sido comparada con clásicos como Ninja Scroll. A pesar de su naturaleza explícita, es considerada una obra influyente en el género de acción y artes marciales.",
+    forgotten: "A pesar de su calidad, Kage es una rareza que pocos conocen fuera de los círculos de fans del anime adulto. Su distribución fue limitada y su contenido extremo la mantuvo alejada del público general.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [68, 69, 9],
+    category: "adulto"
+}];
