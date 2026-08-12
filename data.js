@@ -1403,4 +1403,25 @@ var animes = [{
     sagaOrder: null,
     related: [68, 69, 9],
     category: "adulto"
-}];
+},
+     {
+    id: 69,
+    title: "Ayakashi: Japanese Classic Horror",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgt5GzmdDjXd5_orQ1fpf2sfYqYMjoAyiqZPoeHDgTJ0fJCpL_Ov-GemMFLQRAXwZnrKu98GOyX5AAvGDoWiN30pXZLJ259I65cRBq7XEmJusCbZ7bWwvng0fJGM-rKlSxQhWCACLIp4FG4HwA5X2gSsTt_wbrgmxHesEBXd0gRMta7J-NgV16Eyt7-yGC6=w317-h400",
+    year: 2006,
+    type: "Serie TV",
+    duration: "11 episodios (~23 min c/u)",
+    studio: "Toei Animation",
+    director: "Kenji Nakamura / Tetsuo Imazawa / Kouzou Nagayama",
+    genre: ["Horror", "Fantasía", "Sobrenatural", "Antología", "Histórico"],
+    tags: ["terror", "fantasía", "sobrenatural", "antología", "histórico", "clásico", "j-horror", "nocturno"],
+    description: "Una antología de tres historias de terror japonesas: la venganza de Oiwa en Yotsuya Kaidan, el amor prohibido en Tenshu Monogatari, y el misterio del gato demonio en Bakeneko, que dio origen a la serie Mononoke.",
+    plot: "Ayakashi es una antología de tres historias de terror independientes. La primera, Yotsuya Kaidan, sigue la historia de Oiwa, una esposa traicionada que regresa del más allá para vengarse de su marido. La segunda, Tenshu Monogatari, cuenta el amor prohibido entre un humano y la diosa de una torre. La tercera, Bakeneko, presenta a un misterioso vendedor de medicinas que debe enfrentar a un demonio gato en una casa embrujada, resolviendo el misterio antes de poder exorcizarlo.",
+    analysis: "Ayakashi es una antología de terror que se destaca por su estilo visual experimental y su narrativa tradicional japonesa. La serie explora el horror desde diferentes perspectivas, combinando elementos del folclore japonés con una animación de vanguardia. La historia de Bakeneko, en particular, es famosa por su estilo artístico inspirado en el Ukiyo-e y por haber dado origen a la serie de culto Mononoke.",
+    forgotten: "A pesar de ser una serie aclamada, Ayakashi ha quedado algo eclipsada por su spin-off, Mononoke. Su distribución en occidente fue limitada, pero sigue siendo una obra fundamental para entender el terror y la animación experimental japonesa.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [4, 18, 38],
+    category: "anime"
+}        ];
