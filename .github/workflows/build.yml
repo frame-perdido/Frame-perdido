@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,8 +26,8 @@ jobs:
     
     - name: Commit y push de los archivos generados
       run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
         git add expediente/ sitemap.xml robots.txt
         git diff --staged --quiet || git commit -m "📄 Generar fichas automáticamente"
         git push
