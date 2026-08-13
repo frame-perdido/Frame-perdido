@@ -3,26 +3,97 @@ const path = require('path');
 
 console.log('🚀 Generando páginas de fichas...');
 
-// Leer data.js
+// Leer data.js como texto
 const dataContent = fs.readFileSync('./data.js', 'utf8');
-const match = dataContent.match(/const\s+animes\s*=\s*(\[[\s\S]*?\]);/);
-if (!match) {
+
+// Intentar encontrar el array de animes de diferentes formas
+let animes = null;
+
+// Opción 1: const animes = [...]
+const match1 = dataContent.match(/const\s+animes\s*=\s*(\[[\s\S]*?\]);/);
+if (match1) {
+  try {
+    animes = eval(match1[1]);
+    console.log('✅ Array encontrado como const animes');
+  } catch (e) {}
+}
+
+// Opción 2: let animes = [...]
+if (!animes) {
+  const match2 = dataContent.match(/let\s+animes\s*=\s*(\[[\s\S]*?\]);/);
+  if (match2) {
+    try {
+      animes = eval(match2[1]);
+      console.log('✅ Array encontrado como let animes');
+    } catch (e) {}
+  }
+}
+
+// Opción 3: var animes = [...]
+if (!animes) {
+  const match3 = dataContent.match(/var\s+animes\s*=\s*(\[[\s\S]*?\]);/);
+  if (match3) {
+    try {
+      animes = eval(match3[1]);
+      console.log('✅ Array encontrado como var animes');
+    } catch (e) {}
+  }
+}
+
+// Opción 4: module.exports = { animes: [...] }
+if (!animes) {
+  const match4 = dataContent.match(/animes\s*:\s*(\[[\s\S]*?\])/);
+  if (match4) {
+    try {
+      animes = eval(match4[1]);
+      console.log('✅ Array encontrado dentro de module.exports');
+    } catch (e) {}
+  }
+}
+
+// Opción 5: export const animes = [...]
+if (!animes) {
+  const match5 = dataContent.match(/export\s+const\s+animes\s*=\s*(\[[\s\S]*?\]);/);
+  if (match5) {
+    try {
+      animes = eval(match5[1]);
+      console.log('✅ Array encontrado como export const');
+    } catch (e) {}
+  }
+}
+
+// Opción 6: Buscar cualquier array grande
+if (!animes) {
+  const match6 = dataContent.match(/=\s*(\[[\s\S]*?\]);/);
+  if (match6) {
+    try {
+      const possibleArray = eval(match6[1]);
+      if (Array.isArray(possibleArray) && possibleArray.length > 0 && possibleArray[0].title) {
+        animes = possibleArray;
+        console.log('✅ Array encontrado por coincidencia general');
+      }
+    } catch (e) {}
+  }
+}
+
+// Si no se encontró, mostrar el contenido para depuración
+if (!animes) {
   console.error('❌ No se encontró el array "animes" en data.js');
+  console.log('📄 Primeras 200 caracteres del archivo:');
+  console.log(dataContent.substring(0, 200));
   process.exit(1);
 }
-const animes = eval(match[1]);
+
 console.log(`📚 Cargados ${animes.length} animes`);
 
-// Leer template
+// Resto del script (idéntico a antes)
 const template = fs.readFileSync('./template-ficha.html', 'utf8');
 
-// Crear carpeta
 const outputDir = './expediente';
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// Generar páginas
 let sitemapEntries = [];
 
 animes.forEach(anime => {
