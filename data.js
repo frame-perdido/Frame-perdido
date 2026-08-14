@@ -1445,4 +1445,25 @@ var animes = [{
     sagaOrder: null,
     related: [68, 69, 9],
     category: "adulto"
-}        ];
+},
+      {
+    id: 71,
+    title: "Key the Metal Idol",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiMmKke7FAwq1F0UCpayRJKT-e83SgUIP5eGJDPgff9V2FZYdUGcpsUxA8bnprbqbBi7TBTxFS6cVh4ysv2jH1PUeOV3f-0sO1Y2H8gbfVGdBEphWmyV_nTu59U5rjExE5GZcmaTRuAYt6s_PF6_fthLIcZuTJow6QpeD_RxOSRQPalPbtYxuQYN-mKTPHa=w282-h400",
+    year: "1994-1997",
+    type: "OVA",
+    duration: "15 episodios",
+    studio: "Studio Pierrot",
+    director: "Hiroaki Satō",
+    genre: ["Drama", "Ciencia ficción", "Mecha", "Sobrenatural", "Psicológico"],
+    tags: ["drama", "ciencia-ficción", "mecha", "psicológico", "oscuro", "culto", "90s", "experimental", "idols"],
+    description: "Tokiko Mima, apodada 'Key', es un robot con apariencia humana creado por su abuelo. Tras su muerte, descubre que puede convertirse en humana si logra hacer 30,000 amigos. Su viaje la lleva a Tokio, donde se adentra en el oscuro mundo de la industria del entretenimiento y descubre una conspiración que cuestiona su propia identidad.",
+    plot: "Key, un robot creado por el Dr. Murao Mima, recibe un mensaje de su abuelo en su lecho de muerte: puede convertirse en humana si hace 30,000 amigos. Key viaja a Tokio y decide convertirse en una idol para cumplir su misión. Sin embargo, su ascenso se ve envuelto en una red de conspiraciones, abusos y secretos corporativos que la llevan a cuestionar su identidad y su humanidad.",
+    analysis: "Key the Metal Idol es un OVA de culto que subvierte la premisa de Pinocho para crear un drama psicológico y una crítica mordaz a la industria del entretenimiento. Su estilo visual y su narrativa compleja son adelantados a su tiempo.",
+    forgotten: "Key the Metal Idol sufrió un lanzamiento irregular a lo largo de tres años (1994-1997), lo que dificultó que mantuviera el interés del público. Su tono oscuro y anticomercial chocaba con las tendencias de la época, y su distribución en occidente fue limitada. A pesar de su calidad, quedó eclipsada por gigantes como Evangelion y Cowboy Bebop, y nunca generó una franquicia que mantuviera su legado.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [4, 18, 38],
+    category: "anime"
+}       ];
