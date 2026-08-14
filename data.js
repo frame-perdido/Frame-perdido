@@ -1466,4 +1466,25 @@ var animes = [{
     sagaOrder: null,
     related: [4, 18, 38],
     category: "anime"
-}       ];
+},
+             {
+    id: 72,
+    title: "Lady Snowblood",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhpYn9mOS8dC1kh6JyTNT0EzcQvrTD4yxN5WWv6KDqtGG-w7cjQddFwHIUBobBxDjszp0udl1kzd8Ig8hKCiWumjS6Vw7pApgTjvLauTtVNOqrqdpq6QzcrGzwHkkAwh4oPLFl_d7pzJxNKI8OFVG-k5zYeY9lHkEDrtY-yGss1LmswFAtg-3ZJxqTMS9BF=w270-h400",
+    year: 1973,
+    type: "Película (Live Action)",
+    duration: "97 min",
+    studio: "Toho",
+    director: "Toshiya Fujita",
+    genre: ["Acción", "Drama", "Crimen", "Samurái"],
+    tags: ["live-action", "samurái", "venganza", "culto", "70s", "violento", "jidaigeki", "pinky violence"],
+    description: "Yuki, una joven entrenada desde su nacimiento para ser un instrumento de venganza, busca acabar con los tres hombres que asesinaron a su padre y violaron a su madre. Una obra de culto del cine de samuráis que inspiró Kill Bill.",
+    plot: "En el Japón de la era Meiji, una mujer encarcelada da a luz a Yuki, a quien concibe específicamente para llevar a cabo la venganza de su familia. Entrenada desde niña como asesina, Yuki, llamada 'Snowblood', rastrea a los tres hombres que destruyeron a su familia. Su viaje la lleva a través de un Japón en transformación, donde se enfrenta a sus objetivos en una espiral de violencia y sangre, mientras lidia con su propio destino como un arma viviente.",
+    analysis: "Lady Snowblood es una obra maestra del cine de venganza y samuráis. Su estilo visual, su violencia estilizada y la presencia de Meiko Kaji la convierten en una película de culto. Es la influencia directa más clara de Kill Bill, y una adaptación fiel del manga de Kazuo Koike y Kazuo Kamimura. Es una película esencial para cualquier amante del cine de acción y del cine de culto.",
+    forgotten: "A pesar de su estatus de culto y su influencia en el cine moderno, Lady Snowblood sigue siendo una película menos conocida por el público general. Su distribución fuera de Japón fue limitada durante años, aunque ha sido reivindicada por el sello Criterion Collection y su influencia en Tarantino. Sigue siendo una joya para los amantes del cine de culto y el samurái.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [46, 48, 49],
+    category: "live-action"
+}];
