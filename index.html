@@ -8,7 +8,6 @@
     <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8" />
     <meta name="description" content="Rescatando OVAs, películas, series y live action clásicos y poco conocidos de los 80s, 90s y más." />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
-    <!-- FASE 3: Tipografía → Space Mono + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     
     <style>
@@ -385,12 +384,14 @@
         .year-badge {
             position: absolute;
             top: 16px; left: 16px;
-            background: var(--accent);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
             color: #fff;
             padding: 5px 12px;
-            border-radius: 8px;
+            border-radius: 4px;
             font-weight: 700;
             font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
             z-index: 2;
         }
         .rarity-badge {
@@ -400,11 +401,12 @@
             backdrop-filter: blur(10px);
             color: var(--warning);
             padding: 5px 12px;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 600;
             border: 1px solid var(--warning);
             z-index: 2;
+            font-family: 'Space Mono', monospace;
         }
         .featured-content {
             padding: 32px;
@@ -412,6 +414,8 @@
             flex-direction: column;
             justify-content: center;
         }
+
+        /* Expediente block mejorado (más técnico) */
         .expediente-block {
             background: var(--bg-elevated);
             border: 1px solid var(--border);
@@ -419,6 +423,32 @@
             padding: 14px 18px;
             margin-bottom: 16px;
             font-family: 'Space Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .expediente-block::after {
+            content: "ARCHIVO";
+            position: absolute;
+            bottom: 4px;
+            right: 12px;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            letter-spacing: 3px;
+            opacity: 0.3;
+            transform: rotate(-4deg);
+        }
+        .expediente-block .exp-separator {
+            border: 0;
+            border-top: 1px dashed var(--border);
+            margin: 8px 0;
+        }
+        .expediente-block .exp-barcode {
+            font-family: 'Courier New', monospace;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+            text-align: right;
+            margin-top: 4px;
         }
         .exp-label {
             color: var(--text-dim);
@@ -444,6 +474,7 @@
             background: var(--accent);
             box-shadow: 0 0 8px var(--accent-glow);
         }
+
         .featured-tags {
             display: flex;
             gap: 6px;
@@ -539,6 +570,7 @@
             overflow: hidden;
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
         }
         .card:hover {
             transform: translateY(-4px);
@@ -558,16 +590,61 @@
             transition: transform 0.5s;
         }
         .card:hover .card-image img { transform: scale(1.06); }
+        /* Overlay de scanlines en imágenes */
+        .card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
         .card-year {
             position: absolute;
             top: 12px; left: 12px;
             background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(4px);
             color: #fff;
             padding: 4px 10px;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.7rem;
             font-weight: 600;
+            font-family: 'Space Mono', monospace;
+            z-index: 2;
+        }
+        /* Número de expediente en tarjeta */
+        .card-exp-number {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            color: var(--text-dim);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 1px;
+            z-index: 2;
+            border: 1px solid var(--border);
+        }
+        /* Badge de rareza en tarjeta */
+        .card-rarity {
+            position: absolute;
+            bottom: 12px; right: 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: var(--warning);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-family: 'Space Mono', monospace;
+            border: 1px solid var(--warning);
             z-index: 2;
         }
         .card-body { padding: 18px; }
@@ -715,21 +792,21 @@
         .sobre-text li { margin-bottom: 5px; }
 
         /* ============================================================ */
-        /* MODAL (FASE 8 y 10)                                         */
+        /* MODAL (FASE 8, 10 y correcciones)                           */
         /* ============================================================ */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: rgba(0,0,0,0.88);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 20px;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s ease;
             overflow-y: auto;
         }
         .modal-overlay.active {
@@ -745,19 +822,20 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            transform: scale(0.92);
-            transition: transform 0.3s;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
         }
         .modal-overlay.active .modal { transform: scale(1); }
         .modal-close {
             position: absolute;
             top: 16px; right: 16px;
-            width: 36px; height: 36px;
+            width: 40px; height: 40px;
             background: var(--bg-elevated);
             border: 1px solid var(--border);
             border-radius: 4px;
             color: var(--text);
-            font-size: 1.3rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -768,6 +846,7 @@
         .modal-close:hover {
             background: var(--danger);
             border-color: var(--danger);
+            color: #fff;
         }
         .modal-image {
             width: 100%;
@@ -838,7 +917,7 @@
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
-            border-radius: 12px;
+            border-radius: 6px;
             border: 1px solid var(--border);
             background: var(--bg);
         }
@@ -847,6 +926,13 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             border: 0;
+        }
+        .trailer-duration {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-align: right;
+            margin-top: 6px;
         }
 
         /* ============================================================ */
@@ -907,6 +993,7 @@
             border-radius: 4px;
             font-size: 0.6rem;
             font-weight: 600;
+            font-family: 'Space Mono', monospace;
             z-index: 2;
         }
         .related-info {
@@ -1314,18 +1401,6 @@
         }
 
         /* ============================================================ */
-        /* OCULTAR BANNERS NATIVE EN MÓVIL                              */
-        /* ============================================================ */
-        @media only screen and (max-width: 768px) {
-            div[style*="margin: 24px auto; max-width: 100%; padding: 0 20px;"] {
-                display: none !important;
-            }
-            div[style*="text-align: center; margin: 32px 0; padding: 0 20px;"] {
-                display: none !important;
-            }
-        }
-
-        /* ============================================================ */
         /* SECCIONES LIVE ACTION Y ADULTO                              */
         /* ============================================================ */
         #live-action .section-title .icon { color: #fbbf24; }
@@ -1518,7 +1593,9 @@
                 <div class="expediente-block">
                     <div class="exp-label">📁 Expediente recuperado</div>
                     <div class="exp-value" id="featuredExpId">#---</div>
+                    <hr class="exp-separator" />
                     <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.75rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                    <div class="exp-barcode">||| ||| ||| ||| |||</div>
                 </div>
                 <div class="featured-tags" id="featuredTags"></div>
                 <h2 id="featuredTitle">---</h2>
@@ -1648,7 +1725,9 @@
                 <div class="expediente-block" style="margin-bottom:16px;">
                     <div class="exp-label">📁 Expediente recuperado</div>
                     <div class="exp-value" id="modalExpId"></div>
+                    <hr class="exp-separator" />
                     <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.75rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                    <div class="exp-barcode">||| ||| ||| ||| |||</div>
                 </div>
 
                 <!-- Título + meta + tags -->
@@ -1663,9 +1742,7 @@
                     <div id="modalTrailerContainer">
                         <iframe id="modalTrailerFrame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
                     </div>
-                    <div style="margin-top:8px;text-align:right;">
-                        <span style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--text-dim);">⏱️ DURACIÓN DEL TRAILER</span>
-                    </div>
+                    <div class="trailer-duration">⏱️ Duración del trailer: 1:30</div>
                 </div>
 
                 <!-- ¿De qué trata? -->
@@ -2065,10 +2142,15 @@
                 card.onclick = function() { openModal(obra.id); };
                 
                 const typeClass = obra.type.toLowerCase().replace(' ', '-');
+                const rarity = obra.rarity || 'Hallazgo';
+                const expNumber = String(obra.id + 1).padStart(3, '0');
+                
                 card.innerHTML = `
                     <div class="card-image">
                         <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
                         <span class="card-year">${obra.year}</span>
+                        <span class="card-exp-number">#${expNumber}</span>
+                        <span class="card-rarity">⚡ ${rarity}</span>
                     </div>
                     <div class="card-body">
                         <div class="card-tags">
@@ -2226,7 +2308,7 @@
         }
 
         // ============================================================
-        // BÚSQUEDA (FASE 2 y correcciones)
+        // BÚSQUEDA
         // ============================================================
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
@@ -2253,7 +2335,6 @@
                 
                 const adultoVerificado = localStorage.getItem('adultoVerified') === 'true';
                 
-                // Buscar en TODAS las obras
                 let resultados = animes.filter(obra => {
                     return obra.title.toLowerCase().includes(query) ||
                         obra.description.toLowerCase().includes(query) ||
@@ -2288,11 +2369,14 @@
                 
                 searchGrid.innerHTML = resultados.map(obra => {
                     const typeClass = obra.type.toLowerCase().replace(' ', '-');
+                    const expNumber = String(obra.id + 1).padStart(3, '0');
                     return `
                     <div class="card" data-id="${obra.id}" onclick="openModal(${obra.id})">
                         <div class="card-image">
                             <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
                             <span class="card-year">${obra.year}</span>
+                            <span class="card-exp-number">#${expNumber}</span>
+                            <span class="card-rarity">⚡ ${obra.rarity || 'Hallazgo'}</span>
                         </div>
                         <div class="card-body">
                             <div class="card-tags">
@@ -2402,11 +2486,14 @@
             
             container.innerHTML = filtrados.map(obra => {
                 const typeClass = obra.type.toLowerCase().replace(' ', '-');
+                const expNumber = String(obra.id + 1).padStart(3, '0');
                 return `
                 <div class="card" onclick="openModal(${obra.id})">
                     <div class="card-image">
                         <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
                         <span class="card-year">${obra.year}</span>
+                        <span class="card-exp-number">#${expNumber}</span>
+                        <span class="card-rarity">⚡ ${obra.rarity || 'Hallazgo'}</span>
                     </div>
                     <div class="card-body">
                         <div class="card-tags">
@@ -2435,7 +2522,7 @@
         }
 
         // ============================================================
-        // MODAL (FASE 8: recomendaciones con imágenes)
+        // MODAL (con todas las correcciones)
         // ============================================================
         let currentModalId = null;
 
@@ -2503,6 +2590,8 @@
                     }
                 }
                 trailerFrame.src = videoUrl;
+                // Actualizar duración (si está disponible en los datos)
+                document.querySelector('.trailer-duration').textContent = obra.trailer_duration ? `⏱️ Duración del trailer: ${obra.trailer_duration}` : '⏱️ Duración del trailer: 1:30';
             } else {
                 trailerContainer.style.display = 'none';
                 trailerFrame.src = '';
@@ -2611,7 +2700,7 @@
         }
 
         // ============================================================
-        // TRAILER DEL DÍA (FASE 9)
+        // TRAILER DEL DÍA
         // ============================================================
         function setupTrailerDelDia() {
             const obrasPrincipales = animes.filter(a => a.category === "anime");
@@ -2765,7 +2854,7 @@
             setupScrollSpy();
             setupSmoothScroll();
             inicializarSecciones();
-            setupTrailerDelDia();  // FASE 9
+            setupTrailerDelDia();
             
             checkUrlForExpediente();
             
