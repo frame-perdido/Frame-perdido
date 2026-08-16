@@ -21,6 +21,14 @@
             .adsterra-desktop { display: none; }
         }
 
+        /* Ocultar native bar en móviles */
+        @media only screen and (max-width: 768px) {
+            #container-9194bf40864159e5a4b3f23a7e69a1b6,
+            div[id*="container-"] {
+                display: none !important;
+            }
+        }
+
         /* ============================================================ */
         /* TODOS LOS ESTILOS                                            */
         /* ============================================================ */
@@ -164,13 +172,32 @@
         }
 
         /* ============================================================ */
-        /* HERO                                                         */
+        /* HERO (7.2: imagen de fondo tratada)                         */
         /* ============================================================ */
         .hero {
             padding: 80px 24px 40px;
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"%3E%3Crect fill="%231a1a2e" width="800" height="400"/%3E%3Ccircle cx="200" cy="150" r="120" fill="%23ff2a6d20"/%3E%3Ccircle cx="600" cy="250" r="100" fill="%2305d9e820"/%3E%3C/svg%3E');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            border-radius: 0;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.7);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero h1, .hero p, .hero-cta {
+            position: relative;
+            z-index: 2;
         }
         .hero h1 {
             font-family: 'Space Mono', monospace;
@@ -178,6 +205,7 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
         .hero h1 .highlight {
             background: linear-gradient(135deg, var(--accent), var(--cyan));
@@ -189,6 +217,7 @@
             font-size: 1.05rem;
             max-width: 500px;
             margin: 0 auto 28px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
         .hero-cta {
             display: flex;
@@ -237,17 +266,20 @@
         .btn-random:hover { background: rgba(251, 191, 36, 0.1); }
 
         /* ============================================================ */
-        /* STATS                                                        */
+        /* STATS (7.3: estilo panel de control)                         */
         /* ============================================================ */
         .stats-bar {
             display: flex;
             justify-content: center;
             gap: 40px;
-            padding: 24px 20px;
+            padding: 20px 20px;
             max-width: 500px;
             margin: 0 auto;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin-top: 20px;
         }
         .stat-item { text-align: center; }
         .stat-number {
@@ -255,16 +287,18 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
         }
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
         }
 
         /* ============================================================ */
-        /* BÚSQUEDA                                                     */
+        /* BÚSQUEDA (7.4: estilo terminal)                              */
         /* ============================================================ */
         .search-section {
             max-width: 560px;
@@ -280,17 +314,22 @@
             padding: 14px 20px 14px 48px;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 4px;
             color: var(--text);
             font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Mono', monospace;
             outline: none;
             transition: all 0.3s;
+            caret-color: var(--accent);
         }
-        .search-box input::placeholder { color: var(--text-muted); }
+        .search-box input::placeholder {
+            color: var(--text-dim);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
         .search-box input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-soft);
+            box-shadow: 0 0 0 3px var(--accent-soft), 0 0 20px var(--accent-glow);
         }
         .search-box .search-icon {
             position: absolute;
@@ -299,6 +338,7 @@
             transform: translateY(-50%);
             font-size: 1.1rem;
             pointer-events: none;
+            color: var(--text-dim);
         }
         .search-clear {
             position: absolute;
@@ -319,15 +359,30 @@
             color: var(--text-muted);
             font-size: 0.8rem;
             min-height: 20px;
+            font-family: 'Space Mono', monospace;
         }
 
         /* ============================================================ */
-        /* SECCIONES                                                     */
+        /* SECCIONES Y SEPARADORES (7.6)                               */
         /* ============================================================ */
         .section {
             padding: 50px 24px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+        .section:first-of-type::before {
+            display: none;
         }
         .section-header {
             display: flex;
@@ -341,14 +396,18 @@
             font-family: 'Space Mono', monospace;
             font-size: 1.5rem;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .section-title .icon {
             color: var(--accent);
-            margin-right: 6px;
+            font-size: 1.4rem;
         }
         .section-meta {
             color: var(--text-muted);
             font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
         }
 
         /* ============================================================ */
@@ -556,7 +615,7 @@
         }
 
         /* ============================================================ */
-        /* GRID Y TARJETAS (FASE 5)                                     */
+        /* GRID Y TARJETAS                                              */
         /* ============================================================ */
         .grid {
             display: grid;
@@ -590,7 +649,6 @@
             transition: transform 0.5s;
         }
         .card:hover .card-image img { transform: scale(1.06); }
-        /* Overlay de scanlines en imágenes */
         .card-image::after {
             content: '';
             position: absolute;
@@ -618,7 +676,6 @@
             font-family: 'Space Mono', monospace;
             z-index: 2;
         }
-        /* Número de expediente en tarjeta */
         .card-exp-number {
             position: absolute;
             top: 12px; right: 12px;
@@ -633,7 +690,6 @@
             z-index: 2;
             border: 1px solid var(--border);
         }
-        /* Badge de rareza en tarjeta */
         .card-rarity {
             position: absolute;
             bottom: 12px; right: 12px;
@@ -792,7 +848,7 @@
         .sobre-text li { margin-bottom: 5px; }
 
         /* ============================================================ */
-        /* MODAL (FASE 8, 10 y correcciones)                           */
+        /* MODAL                                                        */
         /* ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -908,7 +964,6 @@
         .modal-section ul { padding-left: 18px; }
         .modal-section li { margin-bottom: 5px; }
 
-        /* TRAILER CONTAINER 16:9 */
         #modalTrailerContainer {
             position: relative;
             padding-bottom: 56.25%;
@@ -936,7 +991,7 @@
         }
 
         /* ============================================================ */
-        /* RECOMENDACIONES DEL MODAL (con imágenes)                     */
+        /* RECOMENDACIONES DEL MODAL                                    */
         /* ============================================================ */
         .modal-related {
             margin-top: 28px;
@@ -1037,6 +1092,7 @@
             color: var(--text-muted);
             font-size: 0.85rem;
             margin-bottom: 16px;
+            font-family: 'Space Mono', monospace;
         }
         #loadMoreBtn {
             display: none;
@@ -1045,9 +1101,10 @@
             padding: 16px;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 12px;
+            border-radius: 4px;
             margin: 0 auto;
             transition: all 0.3s;
+            font-family: 'Space Mono', monospace;
         }
         #loadMoreBtn:disabled {
             opacity: 0.5;
@@ -1068,6 +1125,7 @@
             justify-content: center;
             padding: 0 12px;
             font-size: 0.85rem;
+            border-radius: 4px;
         }
         #numericPagination .btn-primary {
             background: var(--accent);
@@ -1418,6 +1476,22 @@
         #searchResultsContainer .card:hover { border-color: #fbbf24; }
 
         /* ============================================================ */
+        /* ESTADOS DE CARGA (7.5)                                       */
+        /* ============================================================ */
+        .loading-message {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            animation: pulseText 1s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ============================================================ */
         /* ANIMACIONES                                                  */
         /* ============================================================ */
         @keyframes ageFadeIn {
@@ -1450,7 +1524,7 @@
         </div>
     </div>
 
-    <!-- FONDOS Y TEXTURAS (FASE 4) -->
+    <!-- FONDOS Y TEXTURAS -->
     <div class="bg-animation"></div>
     <div class="noise"></div>
     <div class="scanlines"></div>
@@ -1475,7 +1549,7 @@
     </header>
 
     <!-- ============================================================ -->
-    <!-- BANNER HEADER (FASE 7: envuelto en .ad-container)            -->
+    <!-- BANNER HEADER (envuelto en .ad-container)                    -->
     <!-- ============================================================ -->
     <div class="ad-container">
         <div class="adsterra-desktop">
@@ -1504,7 +1578,7 @@
         </div>
     </div>
 
-    <!-- HERO -->
+    <!-- HERO (con imagen de fondo tratada) -->
     <section class="hero" id="inicio">
         <h1>Rescatando obras<br /><span class="highlight">Compartiendo historias</span></h1>
         <p>Explora OVAs, películas, series y live action que dejaron huella, aunque nunca alcanzaran la fama de los grandes clásicos</p>
@@ -1516,25 +1590,25 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- NATIVE BANNER (envuelto en .ad-container)                    -->
+    <!-- NATIVE BANNER (se oculta en móviles)                         -->
     <!-- ============================================================ -->
-    <div class="ad-container">
+    <div class="ad-container" id="nativeAdContainer">
         <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
         <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
     </div>
 
-    <!-- STATS -->
+    <!-- STATS (panel de control) -->
     <div class="stats-bar">
         <div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">Expedientes</div></div>
         <div class="stat-item"><div class="stat-number" id="statOVAs">0</div><div class="stat-label">Series · OVAs</div></div>
         <div class="stat-item"><div class="stat-number" id="statPelis">0</div><div class="stat-label">Películas</div></div>
     </div>
 
-    <!-- BÚSQUEDA -->
+    <!-- BÚSQUEDA (estilo terminal) -->
     <section class="search-section">
         <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="¿Qué obra perdiste de vista? Busca por título, año, estudio..." />
+            <span class="search-icon">$</span>
+            <input type="text" id="searchInput" placeholder="buscar obra por título, año, estudio..." />
             <button class="search-clear" id="searchClear">✕</button>
         </div>
         <div class="search-results-count" id="searchResults"></div>
@@ -1550,7 +1624,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- TRAILER DEL DÍA (FASE 9)                                     -->
+    <!-- TRAILER DEL DÍA (7.1)                                        -->
     <!-- ============================================================ -->
     <section id="trailer-del-dia" style="display:none;">
         <div style="max-width: 900px; margin: 0 auto 48px; padding: 0 24px;">
@@ -1714,14 +1788,13 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- MODAL (FASE 10: trailer movido)                              -->
+    <!-- MODAL                                                        -->
     <!-- ============================================================ -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">✕</button>
             <img class="modal-image" id="modalImage" src="" alt="" />
             <div class="modal-content">
-                <!-- Expediente -->
                 <div class="expediente-block" style="margin-bottom:16px;">
                     <div class="exp-label">📁 Expediente recuperado</div>
                     <div class="exp-value" id="modalExpId"></div>
@@ -1729,14 +1802,12 @@
                     <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.75rem;color:var(--text-muted)">Recuperado del archivo</span></div>
                     <div class="exp-barcode">||| ||| ||| ||| |||</div>
                 </div>
-
-                <!-- Título + meta + tags -->
                 <div class="modal-header"><h2 class="modal-title" id="modalTitle"></h2></div>
                 <div class="modal-meta" id="modalMeta"></div>
                 <div class="modal-tags" id="modalTags"></div>
                 <p class="modal-desc" id="modalDesc"></p>
 
-                <!-- 🎬 TRAILER (AQUÍ, después de la descripción) -->
+                <!-- TRAILER -->
                 <div class="modal-section" id="modalTrailerSection">
                     <h4>🎬 Trailer</h4>
                     <div id="modalTrailerContainer">
@@ -1745,16 +1816,11 @@
                     <div class="trailer-duration">⏱️ Duración del trailer: 1:30</div>
                 </div>
 
-                <!-- ¿De qué trata? -->
                 <div class="modal-section"><h4>🎬 ¿De qué trata?</h4><p id="modalPlot"></p></div>
-                <!-- ¿Por qué verla? -->
                 <div class="modal-section"><h4>💭 ¿Por qué verla?</h4><p id="modalAnalysis"></p></div>
-                <!-- ¿Por qué olvidada? -->
                 <div class="modal-section"><h4>🕰️ ¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
-                <!-- Ficha técnica -->
                 <div class="modal-section"><h4>📋 Ficha técnica</h4><ul id="modalTech"></ul></div>
 
-                <!-- ANUNCIO 300×250 (envuelto en ad-container) -->
                 <div class="ad-container" style="margin:20px 0; max-width:100%;">
                     <script>
                         atOptions = {
@@ -1768,13 +1834,11 @@
                     <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
                 </div>
 
-                <!-- Recomendaciones -->
                 <div class="modal-related" id="modalRelated">
                     <h4>🎞️ También puedes explorar</h4>
                     <div class="related-grid" id="relatedGrid"></div>
                 </div>
 
-                <!-- Compartir -->
                 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
                     <button class="btn btn-secondary" onclick="shareOn('twitter')">🐦 Twitter</button>
                     <button class="btn btn-secondary" onclick="shareOn('facebook')">📘 Facebook</button>
@@ -1899,7 +1963,7 @@
         });
 
         // ============================================================
-        // FUNCIONES DE UTILIDAD (renombradas)
+        // FUNCIONES DE UTILIDAD
         // ============================================================
         function getObraById(id) {
             return animes.find(a => a.id === parseInt(id));
@@ -2043,7 +2107,7 @@
         }
 
         // ============================================================
-        // PAGINACIÓN
+        // PAGINACIÓN (con scroll mejorado en móvil)
         // ============================================================
         let currentPage = 1;
         const itemsPerPageDesktop = 24;
@@ -2176,10 +2240,15 @@
             
             updatePaginationControls(totalPages);
             
+            // ============================================================
+            // CORRECCIÓN: scroll suave al inicio de la nueva carga
+            // ============================================================
             if (currentPage > 1) {
                 const loadMoreBtn = document.getElementById('loadMoreBtn');
                 if (loadMoreBtn) {
-                    loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // En lugar de scroll al botón, scroll al grid o al inicio de la sección
+                    const gridTop = grid.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({ top: gridTop, behavior: 'smooth' });
                 }
             }
         }
@@ -2195,7 +2264,9 @@
                 
                 const hasMore = currentPage < totalPages;
                 if (hasMore) {
-                    loadMoreBtn.textContent = `🔽 Cargar más obras (${itemsPerPage} más)`;
+                    const loadingMessages = ['REBOBINANDO...', 'DECODIFICANDO...', 'SINTONIZANDO...', 'BUSCANDO EN EL ARCHIVO...'];
+                    const randomMsg = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+                    loadMoreBtn.innerHTML = `🔽 Cargar más obras <span class="loading-message">${randomMsg}</span>`;
                     loadMoreBtn.disabled = false;
                 } else {
                     loadMoreBtn.textContent = totalFilteredItems > 0 ? '✅ Todas las obras cargadas' : '📭 No hay obras';
@@ -2522,7 +2593,7 @@
         }
 
         // ============================================================
-        // MODAL (con todas las correcciones)
+        // MODAL
         // ============================================================
         let currentModalId = null;
 
@@ -2572,7 +2643,6 @@
             ];
             document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
 
-            // Trailer
             const trailerContainer = document.getElementById('modalTrailerContainer');
             const trailerFrame = document.getElementById('modalTrailerFrame');
             if (obra.trailer && obra.trailer.trim() !== '') {
@@ -2590,14 +2660,12 @@
                     }
                 }
                 trailerFrame.src = videoUrl;
-                // Actualizar duración (si está disponible en los datos)
                 document.querySelector('.trailer-duration').textContent = obra.trailer_duration ? `⏱️ Duración del trailer: ${obra.trailer_duration}` : '⏱️ Duración del trailer: 1:30';
             } else {
                 trailerContainer.style.display = 'none';
                 trailerFrame.src = '';
             }
 
-            // Recomendaciones (con imágenes)
             const relatedGrid = document.getElementById('relatedGrid');
             if (obra.related && obra.related.length > 0) {
                 const relatedObras = animes.filter(a => obra.related.includes(a.id)).slice(0, 4);
@@ -2700,7 +2768,7 @@
         }
 
         // ============================================================
-        // TRAILER DEL DÍA
+        // TRAILER DEL DÍA (7.1)
         // ============================================================
         function setupTrailerDelDia() {
             const obrasPrincipales = animes.filter(a => a.category === "anime");
@@ -2710,13 +2778,24 @@
             const dayIndex = today.getDate() % obrasPrincipales.length;
             const obra = obrasPrincipales[dayIndex];
             
-            if (!obra.trailer || obra.trailer.trim() === '') return;
-            
             const section = document.getElementById('trailer-del-dia');
             const titleEl = document.getElementById('trailerDiaTitle');
             const metaEl = document.getElementById('trailerDiaMeta');
             const tagsEl = document.getElementById('trailerDiaTags');
             const playerEl = document.getElementById('trailerDiaPlayer');
+            
+            if (!obra.trailer || obra.trailer.trim() === '') {
+                // Mostrar mensaje de que no hay trailer
+                section.style.display = 'block';
+                titleEl.textContent = `${obra.title} — ${obra.year}`;
+                metaEl.innerHTML = `🎬 ${obra.studio} · 👤 ${obra.director} · ⏱️ ${obra.duration}`;
+                tagsEl.innerHTML = `
+                    <span class="tag accent">${obra.type}</span>
+                    ${obra.genre.slice(0, 2).map(g => `<span class="tag">${g}</span>`).join('')}
+                `;
+                playerEl.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#000;color:var(--text-muted);font-family:'Space Mono',monospace;font-size:0.9rem;">🎬 Trailer no disponible</div>`;
+                return;
+            }
             
             titleEl.textContent = `${obra.title} — ${obra.year}`;
             metaEl.innerHTML = `🎬 ${obra.studio} · 👤 ${obra.director} · ⏱️ ${obra.duration}`;
