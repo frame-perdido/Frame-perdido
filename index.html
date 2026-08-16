@@ -172,7 +172,7 @@
         }
 
         /* ============================================================ */
-        /* HERO (7.2: imagen de fondo tratada)                         */
+        /* HERO (con imagen de fondo tratada)                           */
         /* ============================================================ */
         .hero {
             padding: 80px 24px 40px;
@@ -265,8 +265,46 @@
         }
         .btn-random:hover { background: rgba(251, 191, 36, 0.1); }
 
+        /* Botón "Cargar más" con diseño consistente */
+        #loadMoreBtn {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            padding: 14px 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 auto;
+        }
+        #loadMoreBtn:hover:not(:disabled) {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        #loadMoreBtn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        #loadMoreBtn .loading-message {
+            display: inline-block;
+            animation: pulseText 1s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         /* ============================================================ */
-        /* STATS (7.3: estilo panel de control)                         */
+        /* STATS (panel de control)                                     */
         /* ============================================================ */
         .stats-bar {
             display: flex;
@@ -298,7 +336,7 @@
         }
 
         /* ============================================================ */
-        /* BÚSQUEDA (7.4: estilo terminal)                              */
+        /* BÚSQUEDA (estilo terminal)                                   */
         /* ============================================================ */
         .search-section {
             max-width: 560px;
@@ -363,7 +401,7 @@
         }
 
         /* ============================================================ */
-        /* SECCIONES Y SEPARADORES (7.6)                               */
+        /* SECCIONES Y SEPARADORES                                      */
         /* ============================================================ */
         .section {
             padding: 50px 24px;
@@ -474,7 +512,6 @@
             justify-content: center;
         }
 
-        /* Expediente block mejorado (más técnico) */
         .expediente-block {
             background: var(--bg-elevated);
             border: 1px solid var(--border);
@@ -555,7 +592,6 @@
             border-color: var(--accent-glow);
         }
 
-        /* Colores por tipo */
         .card-tag[data-type="ova"], .tag.type-ova { color: var(--cyan); border-color: rgba(5,217,232,0.3); }
         .card-tag[data-type="pelicula"], .tag.type-pelicula { color: var(--accent); border-color: rgba(255,42,109,0.3); }
         .card-tag[data-type="serie"], .tag.type-serie { color: var(--amber); border-color: rgba(245,158,11,0.3); }
@@ -1094,22 +1130,6 @@
             margin-bottom: 16px;
             font-family: 'Space Mono', monospace;
         }
-        #loadMoreBtn {
-            display: none;
-            width: 100%;
-            max-width: 400px;
-            padding: 16px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 4px;
-            margin: 0 auto;
-            transition: all 0.3s;
-            font-family: 'Space Mono', monospace;
-        }
-        #loadMoreBtn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
         #numericPagination {
             display: none;
             gap: 8px;
@@ -1126,6 +1146,7 @@
             padding: 0 12px;
             font-size: 0.85rem;
             border-radius: 4px;
+            font-family: 'Space Mono', monospace;
         }
         #numericPagination .btn-primary {
             background: var(--accent);
@@ -1476,22 +1497,6 @@
         #searchResultsContainer .card:hover { border-color: #fbbf24; }
 
         /* ============================================================ */
-        /* ESTADOS DE CARGA (7.5)                                       */
-        /* ============================================================ */
-        .loading-message {
-            display: inline-block;
-            font-family: 'Space Mono', monospace;
-            color: var(--accent);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            animation: pulseText 1s ease-in-out infinite;
-        }
-        @keyframes pulseText {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* ============================================================ */
         /* ANIMACIONES                                                  */
         /* ============================================================ */
         @keyframes ageFadeIn {
@@ -1549,7 +1554,7 @@
     </header>
 
     <!-- ============================================================ -->
-    <!-- BANNER HEADER (envuelto en .ad-container)                    -->
+    <!-- BANNER HEADER                                                -->
     <!-- ============================================================ -->
     <div class="ad-container">
         <div class="adsterra-desktop">
@@ -1578,7 +1583,7 @@
         </div>
     </div>
 
-    <!-- HERO (con imagen de fondo tratada) -->
+    <!-- HERO -->
     <section class="hero" id="inicio">
         <h1>Rescatando obras<br /><span class="highlight">Compartiendo historias</span></h1>
         <p>Explora OVAs, películas, series y live action que dejaron huella, aunque nunca alcanzaran la fama de los grandes clásicos</p>
@@ -1592,19 +1597,19 @@
     <!-- ============================================================ -->
     <!-- NATIVE BANNER (se oculta en móviles)                         -->
     <!-- ============================================================ -->
-    <div class="ad-container" id="nativeAdContainer">
+    <div class="ad-container">
         <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
         <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
     </div>
 
-    <!-- STATS (panel de control) -->
+    <!-- STATS -->
     <div class="stats-bar">
         <div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">Expedientes</div></div>
         <div class="stat-item"><div class="stat-number" id="statOVAs">0</div><div class="stat-label">Series · OVAs</div></div>
         <div class="stat-item"><div class="stat-number" id="statPelis">0</div><div class="stat-label">Películas</div></div>
     </div>
 
-    <!-- BÚSQUEDA (estilo terminal) -->
+    <!-- BÚSQUEDA -->
     <section class="search-section">
         <div class="search-box">
             <span class="search-icon">$</span>
@@ -1624,7 +1629,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- TRAILER DEL DÍA (7.1)                                        -->
+    <!-- TRAILER DEL DÍA                                              -->
     <!-- ============================================================ -->
     <section id="trailer-del-dia" style="display:none;">
         <div style="max-width: 900px; margin: 0 auto 48px; padding: 0 24px;">
@@ -1640,7 +1645,7 @@
                     <button class="btn btn-secondary" onclick="document.getElementById('featuredCard').scrollIntoView({behavior:'smooth'})" style="font-size: 0.75rem; padding: 7px 14px;">📁 Ver expediente</button>
                 </div>
                 <div id="trailerDiaPlayer" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
-                    <!-- iframe se inyecta por JS -->
+                    <!-- iframe inyectado por JS -->
                 </div>
                 <div style="padding: 14px 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
                     <span id="trailerDiaMeta" style="font-size: 0.8rem; color: var(--text-muted);">---</span>
@@ -1712,13 +1717,13 @@
             <div id="paginationCounter">
                 Mostrando <span id="showingStart">0</span> - <span id="showingEnd">0</span> de <span id="totalItems">0</span> obras
             </div>
-            <button id="loadMoreBtn" class="btn btn-primary">🔽 Cargar más obras</button>
+            <button id="loadMoreBtn" class="btn">🔽 Cargar más obras</button>
             <div id="numericPagination"></div>
         </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- BANNER MID-CONTENT (envuelto en .ad-container)               -->
+    <!-- BANNER MID-CONTENT                                           -->
     <!-- ============================================================ -->
     <div class="ad-container">
         <script>
@@ -2107,7 +2112,7 @@
         }
 
         // ============================================================
-        // PAGINACIÓN (con scroll mejorado en móvil)
+        // PAGINACIÓN
         // ============================================================
         let currentPage = 1;
         const itemsPerPageDesktop = 24;
@@ -2196,7 +2201,9 @@
                 noResults.classList.remove('visible');
             }
             
-            pageItems.forEach(obra => {
+            let firstCard = null;
+            
+            pageItems.forEach((obra, index) => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.dataset.id = obra.id;
@@ -2236,20 +2243,19 @@
                     </div>
                 `;
                 grid.appendChild(card);
+                
+                if (index === 0) firstCard = card;
             });
             
             updatePaginationControls(totalPages);
             
-            // ============================================================
-            // CORRECCIÓN: scroll suave al inicio de la nueva carga
-            // ============================================================
-            if (currentPage > 1) {
-                const loadMoreBtn = document.getElementById('loadMoreBtn');
-                if (loadMoreBtn) {
-                    // En lugar de scroll al botón, scroll al grid o al inicio de la sección
-                    const gridTop = grid.getBoundingClientRect().top + window.pageYOffset - 80;
-                    window.scrollTo({ top: gridTop, behavior: 'smooth' });
-                }
+            // Scroll a la primera tarjeta de la nueva página (en móvil y escritorio)
+            if (currentPage > 1 && firstCard) {
+                setTimeout(() => {
+                    const rect = firstCard.getBoundingClientRect();
+                    const top = rect.top + window.pageYOffset - 80;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }, 150);
             }
         }
 
@@ -2768,7 +2774,7 @@
         }
 
         // ============================================================
-        // TRAILER DEL DÍA (7.1)
+        // TRAILER DEL DÍA
         // ============================================================
         function setupTrailerDelDia() {
             const obrasPrincipales = animes.filter(a => a.category === "anime");
@@ -2785,7 +2791,6 @@
             const playerEl = document.getElementById('trailerDiaPlayer');
             
             if (!obra.trailer || obra.trailer.trim() === '') {
-                // Mostrar mensaje de que no hay trailer
                 section.style.display = 'block';
                 titleEl.textContent = `${obra.title} — ${obra.year}`;
                 metaEl.innerHTML = `🎬 ${obra.studio} · 👤 ${obra.director} · ⏱️ ${obra.duration}`;
