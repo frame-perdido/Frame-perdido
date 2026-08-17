@@ -1571,5 +1571,26 @@ var animes = [{
     sagaOrder: 2,
     related: [79, 75, 76],
     category: "live-action"
+},
+              {
+    id: 77,
+    title: "Hanappe Bazooka",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgElCTpiU7szR7YGhOGM7Xgzq3TMVXwZcgRE-rnNuJs34o2JnCAsyA7FvRbnVU2uxeCscHi5Cw0J7lLELF5EcFQzvXJ5ybGei4IQUOsiZ1soUiH0vaoJ2wkb6RzjVBzusTLkTc8Ym2Jr1OUaQXPUhyTwF-ChK-LIjGRpAY7HC9VTpjcJi2qocXxjebCMzOu=w283-h400",
+    year: 1992,
+    type: "OVA",
+    duration: "45 min",
+    studio: "Studio Signal",
+    director: "Yoyu Ikegami",
+    genre: ["Comedia", "Ecchi", "Fantasía", "Ciencia ficción", "Surrealista"],
+    tags: ["adulto", "comedia", "ecchi", "surrealista", "culto", "80s", "go-nagai", "kazuo-koike"],
+    description: "Hanappe, un estudiante pervertido, recibe el poder de disparar un rayo o volver locas de deseo a las mujeres con su dedo índice. Dos demonios se instalan en su casa, convirtiéndola en un burdel demoníaco. Un OVA de culto de Go Nagai y Kazuo Koike, que mezcla humor absurdo, erotismo y un final sorprendentemente trascendental.",
+    plot: "Hanappe Yamada es un adolescente patético y obsesionado con el sexo. Dos demonios, Dance Mephisto y Bazooka Ophisto, aparecen en su televisor y le conceden un poder: disparar un rayo o controlar la mente de las mujeres. Pero hay una trampa: su casa se convierte en el punto de encuentro de los demonios. A medida que la situación se vuelve más caótica, Hanappe se enfrenta a las consecuencias de sus deseos y a una conspiración demoníaca. El OVA culmina con un viaje espacial y un encuentro con una deidad hindú, donde Hanappe debe enfrentar su propia identidad.",
+    analysis: "Hanappe Bazooka es el resultado de la colaboración entre Go Nagai y Kazuo Koike, dos titanes del manga. Es una obra que parodia Urusei Yatsura, pero con un humor mucho más vulgar y extremo [citation:9]. Aunque su contenido explícito la sitúa cerca del hentai, el OVA sorprende por su final surrealista y sus reflexiones sobre la identidad y el libre albedrío [citation:1][citation:10]. La animación es de la época, y el OVA destaca por su atmósfera única y su estilo provocador.",
+    forgotten: "Hanappe Bazooka es una rareza dentro de la obra de Go Nagai. Su distribución fuera de Japón fue limitada, y aunque ha sido editada en Estados Unidos y España, sigue siendo un título de culto para los fans de los OVAs de los 90. Hoy es una joya para los amantes del anime extremo y surrealista.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [9, 30, 36],
+    category: "adulto"
 }
 ];
