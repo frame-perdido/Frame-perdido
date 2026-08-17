@@ -1487,4 +1487,25 @@ var animes = [{
     sagaOrder: null,
     related: [46, 48, 49],
     category: "live-action"
-}];
+},
+      {
+    id: 73,
+    title: "Mushishi (Película)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjngCsMi6jU5tph6qk3cK6UcbE1G6ztHQj-9etLPQr-UZGbf0EH8_nLtjhtN9wWwI2fb4dhnx9-6S6nh_rCm1cDnHtSptuxVWRLvArWLqbM6j7u9j_hT454eX8IuVCLFofWFnOuPDD51qq9aEaAslO_BR_o-6n2hpZ8n_nQRzc7a-5uwLeqvZagVTS0Fd_x=w278-h400",
+    year: 2006,
+    type: "Película (Live Action)",
+    duration: "131 min",
+    studio: "TBS / Hakuhodo DY Media Partners",
+    director: "Katsuhiro Ōtomo",
+    genre: ["Fantasía", "Drama", "Sobrenatural", "Misterio"],
+    tags: ["live-action", "fantasía", "sobrenatural", "misterio", "melancólico", "culto", "2000s", "j-drama"],
+    description: "En un mundo donde existen criaturas primitivas llamadas Mushi, Ginko es un viajero que estudia y ayuda a las personas afectadas por estos seres. La película sigue su viaje a través de paisajes rurales mientras resuelve casos relacionados con los Mushi.",
+    plot: "Ginko es un Mushishi, un maestro de los Mushi, criaturas etéreas que no son plantas ni animales. Viaja por el campo japonés ayudando a personas que han sido afectadas por estos seres, a veces de formas extrañas o peligrosas. En esta historia, Ginko se enfrenta a un caso particularmente misterioso mientras explora la relación entre los humanos y los Mushi. La película es una adaptación fiel del manga original de Yuki Urushibara.",
+    analysis: "Mushishi es una adaptación live-action del famoso manga de Yuki Urushibara, dirigida por el legendario Katsuhiro Ōtomo (Akira). La película captura la atmósfera contemplativa y melancólica de la obra original, con una fotografía impresionante y una banda sonora envolvente. Es una experiencia visual y emocional única, que se mantiene fiel al espíritu del manga y el anime.",
+    forgotten: "A pesar del prestigio de su director y de la calidad de la obra original, esta adaptación live-action ha quedado algo eclipsada por la popularidad de la serie de anime. Su distribución en occidente fue limitada, y es una rareza para los fans de Mushishi y de Katsuhiro Ōtomo.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [4, 18, 38],
+    category: "live-action"
+}       ];
