@@ -1592,5 +1592,26 @@ var animes = [{
     sagaOrder: null,
     related: [9, 30, 36],
     category: "adulto"
+},
+              {
+    id: 78,
+    title: "Dallos",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjUeVYjSy-SZQt-7zQD8Quz9ntMZwnrg0Q8PZvXSQSzO6zPz2nqHKre_GUpJ4ClMiH_tODp0_VsRzqKhY8jIKDDRi2-7GMZ0OTSc5ymfHN18TmL0hqbT9C18v3V7ShRMBN-tPSIOkgx-zgbSqCDU96BR6P4aRy4YYI9tX3pjOPSu9qX4lUubQKI7h4DWBgU=w282-h400",
+    year: "1983-1984",
+    type: "OVA",
+    duration: "4 episodios (~30 min c/u)",
+    studio: "Studio Pierrot",
+    director: "Mamoru Oshii / Hisayuki Toriumi",
+    genre: ["Ciencia ficción", "Acción", "Drama", "Político"],
+    tags: ["ciencia-ficción", "espacial", "mecha", "rebelión", "culto", "80s", "historico", "oshii"],
+    description: "Considerado el primer OVA de la historia. En un futuro donde la Tierra explota los recursos de la Luna, los colonos lunares se rebelan contra el gobierno opresor. La misteriosa estructura alienígena Dallos se convierte en el símbolo de su esperanza. Una obra pionera de ciencia ficción política de Mamoru Oshii.",
+    plot: "A finales del siglo XXI, la humanidad ha agotado los recursos de la Tierra y depende de las colonias mineras en la Luna para sobrevivir. Los colonos, explotados y controlados por la fuerza por la Monopolice, viven en condiciones de opresión. Los jóvenes, que no conocen la Tierra, lideran una rebelión contra el gobierno. En medio del conflicto, la misteriosa estructura lunar conocida como Dallos, de origen alienígena, despierta y se convierte en un símbolo de esperanza para los rebeldes, aunque su verdadera naturaleza y propósito siguen siendo un enigma.",
+    analysis: "Dallos es una pieza fundamental de la historia del anime, ya que fue el primer OVA lanzado directamente a video. Dirigida por Mamoru Oshii, la serie establece los temas que caracterizarían su obra posterior: la crítica social, la reflexión sobre la identidad y el poder de los símbolos. Aunque su narrativa puede resultar algo confusa y la animación es modesta, su importancia histórica y su atmósfera de ciencia ficción ochentera la convierten en una obra imprescindible para entender la evolución del anime.",
+    forgotten: "A pesar de su importancia histórica, Dallos ha quedado eclipsada por las obras posteriores de Mamoru Oshii y por el auge de OVAs más populares. Su distribución en occidente fue limitada, aunque ha sido reeditada en DVD y Blu-ray por Discotek Media. Es una rareza para los fans del anime de ciencia ficción y los historiadores del medio.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [4, 21, 28],
+    category: "anime"
 }
 ];
