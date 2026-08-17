@@ -1508,4 +1508,25 @@ var animes = [{
     sagaOrder: null,
     related: [4, 18, 38],
     category: "live-action"
-}       ];
+},
+             {
+    id: 74,
+    title: "La Tumba de las Luciérnagas (Live Action 2005)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgvm1cK4BH_56UFJZ7jg-tnC57N0y6bQ0ovETgdcxqhVT0Pzo2jBc0iTBcA6inblp_rT19uneNTYm2N5pHAif-WeKh9-5HpUfGo3cd2f_Sv7V4sinlfMwZOY82mIvQzLpnlK_clsLKYjSguhKnnoojgLNTkPmcjt5LFIsFIsU4OGSwlrjSPg6lgauFF1EUl=w267-h400",
+    year: 2005,
+    type: "Película (Live Action)",
+    duration: "148 min",
+    studio: "Nippon Television (NTV)",
+    director: "Tōya Satō",
+    genre: ["Drama", "Histórico", "Bélico"],
+    tags: ["live-action", "drama", "histórico", "bélico", "segunda-guerra-mundial", "japón", "melancólico", "triste", "culto"],
+    description: "Adaptación live-action de la famosa novela de Akiyuki Nosaka. Durante la Segunda Guerra Mundial, dos hermanos, Seita y Setsuko, luchan por sobrevivir en el Japón devastado por la guerra, tras la muerte de su madre. Una historia desgarradora sobre la pérdida, la familia y el horror de la guerra.",
+    plot: "En el Japón de 1945, tras la muerte de su madre en un bombardeo, el joven Seita y su hermana pequeña Setsuko se refugian con su tía. La escasez de alimentos y la tensión familiar hacen que Seita decida mudarse con Setsuko a un refugio abandonado. A pesar de sus esfuerzos, su lucha diaria por sobrevivir se convierte en un viaje desgarrador hacia la tragedia.",
+    analysis: "Esta adaptación live-action de la novela de Akiyuki Nosaka se destaca por su enfoque en la perspectiva de la tía, un personaje clave que en la versión animada de Ghibli tiene menos protagonismo. La película es un drama familiar que retrata la brutalidad de la guerra y las decisiones imposibles que impone a las personas. Es una obra conmovedora y desgarradora que complementa la famosa película de 1988, ofreciendo una visión más amplia de la tragedia.",
+    forgotten: "A pesar de ser una adaptación bien recibida y con un gran elenco, esta versión live-action ha quedado algo eclipsada por la fama de la película animada de Studio Ghibli. Su estreno fue directamente para televisión en Japón, limitando su distribución en occidente. Hoy es una rareza para los fans del drama japonés y una joya oculta para quienes buscan una versión más realista de la historia.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [1, 2, 8],
+    category: "live-action"
+}];
