@@ -1697,5 +1697,26 @@ var animes = [{
     sagaOrder: null,
     related: [3, 8, 32],
     category: "anime"
+},
+         {
+    id: 83,
+    title: "Goddamn",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEg8EFj_wiAyHRMu0KEqhDWEdCrWZ-5WPIaAW6NmNOcmDfUFXQ7V5Cgwb7JlgQ9zNaIgVUtT7acQFnEw4HW0fSEeAoH_AqKObsd6MGQCgZZ8Eni2-XFp-mczE3-QkMKkE0rU6dGBmZqwe0jXfcL_82suFLYuQY_NJCO8WbcrITHIKDEoyGXI8TaEMyG5CC2h=w303-h400",
+    year: 1990,
+    type: "OVA",
+    duration: "2 episodios (~32 min c/u)",
+    studio: "Studio Signal",
+    director: "Noboru Furuse",
+    genre: ["Deportes", "Acción", "Comedia", "Carreras"],
+    tags: ["deportes", "rally", "coches", "culto", "90s", "rareza", "manga", "shintani"],
+    description: "Gen Todoroki es un piloto de rally que ha destrozado todos los coches que ha conducido. Rokkoji, un ejecutivo de la Corporación Seiou, lo recluta para su equipo de rally impresionado por su habilidad para sobrevivir a los accidentes. Adapta el manga de Kaoru Shintani, autor de Area 88.",
+    plot: "Gen Todoroki es un piloto con un historial de destruir coches. En París, tras retirarse del Montecarlo Rally, es reclutado por Tsukasa Rokkoji de la Corporación Seiou para competir en el Safari Rally de Kenia. Gen y su navegante Rov Lowe deben enfrentarse a la dura prueba africana, a sus rivales y a los conflictos internos de la Corporación Seiou. La serie consta de dos episodios y termina sin resolver la historia.",
+    analysis: "Goddamn es un OVA que adapta el manga de Kaoru Shintani. La serie está llena de errores para los aficionados al rally: coches que no deberían estar en la competición, el Safari Rally presentado como la 4ª edición cuando era un evento WRC desde 1973, y un sistema de notas de navegación incomprensible. La animación y el arte son decentes para la época. Los personajes son planos y la historia, que sirve para promocionar el manga, se queda a medias. Tiene momentos de comedia absurda.",
+    forgotten: "Goddamn es una OVA que solo los coleccionistas recuerdan. Su distribución en occidente fue prácticamente nula. Es una rareza para los amantes de las OVAs de los 90, los fans de Kaoru Shintani y los que buscan un anime de rally, un género prácticamente inexistente. Su final abierto la ha condenado al olvido.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 45, 81],
+    category: "anime"
 }
 ];
