@@ -1655,5 +1655,26 @@ var animes = [{
     sagaOrder: 2,
     related: [79, 31],
     category: "anime"
+},
+              {
+    id: 81,
+    title: "Wanna-Be's",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgHRUoFTU_N_BVepRiW3g67iN3OnZRxv6V6eDr1EXHKZGl8JhDe4a8oPEleuGa1mraPEtvNgLFsVSP8h-ydFK4W8Q1NZYyvTL0-VCpNi5QOvprU-9JMBbkG5OYJynY0dTfU5anolXg6diMftSGyWuBzmSblGvP7Qr8MP67VvkB-aLhq6stPxzCKAcvKJOVN=w220-h400",
+    year: 1986,
+    type: "OVA",
+    duration: "45 min",
+    studio: "AIC / Artmic",
+    director: "Yasuo Hasegawa",
+    genre: ["Comedia", "Deportes", "Ciencia ficción"],
+    tags: ["comedia", "lucha-libre", "ciencia-ficción", "culto", "80s", "rareza", "mujeres"],
+    description: "Eri y Miki son dos chicas que forman el equipo de lucha libre Wanna-Be's. Su entrenamiento con la misteriosa Corporación Kidou las llevará a descubrir una conspiración que las convierte en cobayas para un experimento de super-soldados. Un OVA de culto que mezcla deporte, ciencia ficción y un toque de sensualidad.",
+    plot: "Tras presenciar la brutal derrota del Dream Team a manos de las Foxy Ladies, Eri y Miki son llamadas a tomar su lugar como el nuevo equipo de lucha. Comienzan a entrenar con la Corporación Kidou, pero pronto descubren que su entrenamiento esconde un oscuro secreto: están siendo utilizadas como sujetos de prueba para crear super-soldados. La historia combina el entrenamiento deportivo con una conspiración corporativa y una lucha por la libertad.",
+    analysis: "Wanna-Be's es un OVA que refleja la obsesión de los 80 por la cultura física y el deporte, mezclándola con elementos de ciencia ficción. Aunque su trama es sencilla y su animación modesta, destaca por sus diseños de personajes y por ser una rareza en el género de lucha libre. Es una obra de culto para quienes buscan algo diferente, aunque su calidad es irregular.",
+    forgotten: "Wanna-Be's es una de esas OVAs que solo los coleccionistas más acérrimos recuerdan. Su distribución en occidente fue limitada y su estética ochentera la ha condenado al olvido. Es una joya para los amantes del anime de culto y las rarezas de los 80.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [75, 14, 18],
+    category: "anime"
 }
 ];
