@@ -1676,5 +1676,26 @@ var animes = [{
     sagaOrder: null,
     related: [75, 14, 18],
     category: "anime"
+},
+              {
+    id: 82,
+    title: "Legend of Lemnear",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgroe0jR_oZMo-_DFlOQIZljUCTqSxcN_EMfCxWxKirrj-TiHJ_l718b1k3FkbqwzzRfB1HEn8UNYq0zJgt9FWVm7MXV8iY_UcPsrZsPKROBD6rwa5_GCT1VNcENMWdqWlevewVBlOOk5D2L-rjoQGjH9f85wKqjbxBdrcd3GX4lKV2GIGauURj59AZAhZD=w278-h400",
+    year: 1989,
+    type: "OVA",
+    duration: "45 min",
+    studio: "AIC",
+    director: "Kinji Yoshimoto",
+    genre: ["Fantasía", "Acción", "Aventura"],
+    tags: ["fantasía", "espada", "venganza", "culto", "80s", "urushihara", "fan-service", "rareza"],
+    description: "Lemnear, una guerrera de armadura ligera, jura venganza contra el mago que destruyó su aldea. Su viaje la lleva a enfrentarse a criaturas y enemigos en un mundo de fantasía, mientras descubre su papel en una profecía sobre tres campeones. Un OVA de culto que destaca por el arte de Satoshi Urushihara y su estética ochentera.",
+    plot: "La aldea de Lemnear es arrasada por un hechicero. Ella escapa y entrena para convertirse en guerrera con el único objetivo de vengarse. En su búsqueda, se topa con otros personajes y descubre que existe una profecía que habla de tres guerreros: el de Plata, el de Bronce y el de Oro. Su destino parece estar ligado a ella, pero la historia avanza de forma confusa y acelerada, sin desarrollar bien los conflictos ni el mundo.",
+    analysis: "La OVA destaca por el diseño de personajes de Satoshi Urushihara, con su estilo detallado y su marcado uso del fan-service. Sin embargo, su narrativa es muy pobre: el ritmo es frenético, los saltos argumentales son constantes y los personajes apenas tienen desarrollo. Es una obra que se valora más por su estética ochentera y su rareza que por su calidad como historia. Muchos críticos la consideran un desastre narrativo, pero un objeto de culto para los fans de la fantasía de los 80 y del arte de Urushihara.",
+    forgotten: "OVAs como esta rara vez trascendieron fuera de Japón y hoy son difíciles de encontrar. Solo los coleccionistas o los seguidores del anime vintage la recuerdan. Su fama se limita a círculos de culto y a quienes buscan completar la filmografía de Urushihara. Su distribución en occidente fue escasa y hoy es una pieza de culto para los amantes del anime ochentero.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 8, 32],
+    category: "anime"
 }
 ];
