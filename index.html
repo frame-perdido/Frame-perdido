@@ -50,6 +50,9 @@
             --green: #22c55e;
             --paper: #1a1715;
             --ink: #c4b5a0;
+            --gold: #d4a843;
+            --gold-soft: #d4a84320;
+            --gold-glow: #d4a84340;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,7 +72,6 @@
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
             background: 
-                /* Textura de papel antiguo */
                 repeating-linear-gradient(
                     45deg,
                     transparent,
@@ -77,11 +79,9 @@
                     rgba(139,69,19,0.03) 100px,
                     rgba(139,69,19,0.03) 101px
                 ),
-                /* Manchas de humedad */
                 radial-gradient(ellipse at 30% 20%, rgba(139,69,19,0.06) 0%, transparent 60%),
                 radial-gradient(ellipse at 70% 80%, rgba(139,69,19,0.04) 0%, transparent 60%),
                 radial-gradient(ellipse at 50% 50%, rgba(139,69,19,0.02) 0%, transparent 80%),
-                /* Líneas de cinta VHS */
                 repeating-linear-gradient(
                     0deg,
                     transparent,
@@ -89,7 +89,6 @@
                     rgba(255,255,255,0.01) 3px,
                     rgba(255,255,255,0.01) 4px
                 ),
-                /* Base oscura */
                 #0a0a0f;
         }
 
@@ -235,7 +234,6 @@
                 0 0 60px rgba(255,42,109,0.02);
             margin-bottom: 20px;
         }
-        /* Sello de archivo */
         .hero::after {
             content: "CONFIDENCIAL";
             position: absolute;
@@ -376,6 +374,12 @@
             border: 1px solid var(--warning);
         }
         .btn-random:hover { background: rgba(251, 191, 36, 0.1); }
+        .btn-gold {
+            background: var(--gold-soft);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .btn-gold:hover { background: var(--gold); color: var(--bg); }
 
         #loadMoreBtn {
             display: none;
@@ -558,6 +562,148 @@
         }
 
         /* ============================================================ */
+        /* GENERADOR DE EXPEDIENTES                                     */
+        /* ============================================================ */
+        .generador-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .generador-container::before {
+            content: "SISTEMA DE COMBINACIÓN";
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            padding: 0 12px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.5rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+        .gen-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .gen-group label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .gen-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .gen-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.65rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-height: 28px;
+        }
+        .gen-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text);
+        }
+        .gen-btn.active {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        #generarExpedienteBtn {
+            width: 100%;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .generador-resultado {
+            margin-top: 16px;
+            display: none;
+            background: var(--bg-elevated);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            padding: 16px;
+            animation: fadeInUp 0.5s ease;
+        }
+        .generador-resultado.visible { display: block; }
+        .generador-resultado .gen-resultado-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .generador-resultado .gen-resultado-combo {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            margin: 6px 0 10px;
+            color: var(--text);
+        }
+        .gen-resultado-obra {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: var(--bg);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .gen-resultado-obra:hover {
+            border-color: var(--accent-glow);
+            background: var(--bg-hover);
+        }
+        .gen-resultado-obra img {
+            width: 60px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+        .gen-resultado-obra .gen-resultado-titulo {
+            font-weight: 600;
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+        }
+        .gen-resultado-obra .gen-resultado-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================ */
         /* EXPEDIENTE DEL DÍA                                           */
         /* ============================================================ */
         .featured-card {
@@ -700,6 +846,11 @@
             color: var(--accent);
             border-color: var(--accent-glow);
         }
+        .tag.secret {
+            background: var(--gold-soft);
+            color: var(--gold);
+            border-color: var(--gold);
+        }
 
         .card-tag[data-type="ova"], .tag.type-ova { color: var(--cyan); border-color: rgba(5,217,232,0.3); }
         .card-tag[data-type="pelicula"], .tag.type-pelicula { color: var(--accent); border-color: rgba(255,42,109,0.3); }
@@ -784,6 +935,44 @@
             box-shadow: 0 0 20px var(--accent-glow);
         }
         .card.hidden { display: none; }
+        .card.secret-locked {
+            opacity: 0.6;
+            filter: grayscale(0.8);
+            pointer-events: none;
+        }
+        .card.secret-locked::after {
+            content: "🔒 EXPEDIENTE BLOQUEADO";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+        .card.secret-unlocked {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+        .card.secret-unlocked::after {
+            content: "✦ EXPEDIENTE RECUPERADO";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 2px 8px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.5rem;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            z-index: 10;
+        }
         .card-image {
             height: 280px;
             position: relative;
@@ -1115,6 +1304,67 @@
         .modal-section li { margin-bottom: 4px; }
 
         /* ============================================================ */
+        /* HUELLAS DE LA OBRA - LÍNEA DE TIEMPO                        */
+        /* ============================================================ */
+        .huellas-timeline {
+            position: relative;
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        .huellas-timeline::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: var(--border);
+        }
+        .huella-item {
+            position: relative;
+            padding: 6px 0 6px 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-left: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .huella-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+        .huella-item:hover {
+            border-left-color: var(--accent);
+            color: var(--text);
+        }
+        .huella-item:hover::before {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+        .huella-item .huella-fecha {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .huella-item .huella-icon {
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+        .huella-item .huella-desc {
+            display: inline;
+        }
+
+        /* ============================================================ */
         /* RECOMENDACIONES EN MODAL - FORMATO VERTICAL (FICHA DE CINE) */
         /* ============================================================ */
         #modalTrailerContainer {
@@ -1376,6 +1626,7 @@
         @media (max-width: 1024px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
             .related-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+            .gen-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
             header { padding: 10px 16px; }
@@ -1448,6 +1699,9 @@
             .listas-grid { grid-template-columns: 1fr; }
             .vibes-cloud { gap: 6px; }
             .vibe-btn { font-size: 0.7rem; padding: 4px 12px; }
+            
+            .gen-grid { grid-template-columns: 1fr; gap: 12px; }
+            .generador-container { padding: 16px; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.4rem; }
@@ -1661,6 +1915,54 @@
             color: var(--text-dim);
             letter-spacing: 2px;
         }
+
+        /* ============================================================ */
+        /* NOTIFICACIÓN DE DESBLOQUEO                                   */
+        /* ============================================================ */
+        .secret-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 16px 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            animation: slideDown 0.5s ease;
+            max-width: 90%;
+            text-align: center;
+        }
+        .secret-notification.visible { display: flex; }
+        .secret-notification .notif-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        .secret-notification .notif-text {
+            font-family: 'Space Mono', monospace;
+            color: var(--text);
+            font-size: 0.85rem;
+        }
+        .secret-notification .notif-text strong {
+            color: var(--gold);
+        }
+        .secret-notification .notif-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -1687,6 +1989,13 @@
         </div>
     </div>
 
+    <!-- NOTIFICACIÓN DE DESBLOQUEO SECRETO -->
+    <div class="secret-notification" id="secretNotification">
+        <span class="notif-icon">✦</span>
+        <span class="notif-text"><strong>¡EXPEDIENTE RECUPERADO!</strong> Has desbloqueado un archivo secreto. Explora el catálogo para encontrarlo.</span>
+        <button class="notif-close" onclick="document.getElementById('secretNotification').classList.remove('visible')">✕</button>
+    </div>
+
     <!-- FONDOS Y TEXTURAS -->
     <div class="bg-animation"></div>
     <div class="noise"></div>
@@ -1702,6 +2011,7 @@
         <nav id="mainNav">
             <a href="https://frame-perdido.github.io/Frame-perdido/" class="active">Inicio</a>
             <a href="#catalogo">Catálogo</a>
+            <a href="#generador">Generador</a>
             <a href="#etiquetas">Etiquetas</a>
             <a href="#vibes">Vibes</a>
             <a href="#live-action">Live Action</a>
@@ -1764,6 +2074,7 @@
         <div class="hero-cta">
             <a href="#catalogo" class="btn btn-primary">▶ Explorar archivo</a>
             <button class="btn btn-random" onclick="randomObra()">🎲 Expediente aleatorio</button>
+            <button class="btn btn-gold" onclick="document.getElementById('generador').scrollIntoView({behavior:'smooth'})">⚙️ Generador</button>
         </div>
     </section>
 
@@ -1792,13 +2103,57 @@
         <div class="search-results-count" id="searchResults"></div>
     </section>
 
-    <!-- RESULTADOS DE BÚSQUEDA -->
-    <section class="section" id="searchResultsContainer" style="display:none;">
+    <!-- ============================================================ -->
+    <!-- GENERADOR DE EXPEDIENTES (NUEVO)                             -->
+    <!-- ============================================================ -->
+    <section class="section" id="generador">
         <div class="section-header">
-            <h2 class="section-title"><span class="icon">🔍</span>Resultados de búsqueda</h2>
-            <span class="section-meta" id="searchResultCount">0 resultados</span>
+            <h2 class="section-title"><span class="icon">⚙️</span>Generador de Expedientes</h2>
+            <span class="section-meta">Combina y descubre</span>
         </div>
-        <div class="grid" id="searchResultsGrid"></div>
+        <div class="generador-container">
+            <div class="gen-grid">
+                <div class="gen-group">
+                    <label>ÉPOCA</label>
+                    <div class="gen-btns">
+                        <button class="gen-btn" data-gen="80s">80s</button>
+                        <button class="gen-btn" data-gen="90s">90s</button>
+                        <button class="gen-btn" data-gen="2000s">2000s</button>
+                    </div>
+                </div>
+                <div class="gen-group">
+                    <label>SENSACIÓN</label>
+                    <div class="gen-btns">
+                        <button class="gen-btn" data-gen="oscuro">Oscuro</button>
+                        <button class="gen-btn" data-gen="melancólico">Melancólico</button>
+                        <button class="gen-btn" data-gen="violento">Violento</button>
+                        <button class="gen-btn" data-gen="experimental">Experimental</button>
+                    </div>
+                </div>
+                <div class="gen-group">
+                    <label>ELEMENTO</label>
+                    <div class="gen-btns">
+                        <button class="gen-btn" data-gen="cyberpunk">Cyberpunk</button>
+                        <button class="gen-btn" data-gen="mecha">Mecha</button>
+                        <button class="gen-btn" data-gen="horror">Horror</button>
+                        <button class="gen-btn" data-gen="sobrenatural">Sobrenatural</button>
+                    </div>
+                </div>
+            </div>
+            <button id="generarExpedienteBtn" class="btn btn-primary">🔍 ENCONTRAR OBRA</button>
+            <div class="generador-resultado" id="generadorResultado">
+                <div class="gen-resultado-label">✦ TU COMBINACIÓN PRODUJO UN EXPEDIENTE</div>
+                <div class="gen-resultado-combo" id="genResultadoCombo"></div>
+                <div class="gen-resultado-obra" id="genResultadoObra" onclick="abrirObraGenerada()">
+                    <img id="genResultadoImg" src="" alt="" />
+                    <div>
+                        <div class="gen-resultado-titulo" id="genResultadoTitulo"></div>
+                        <div class="gen-resultado-meta" id="genResultadoMeta"></div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" style="margin-top:10px;font-size:0.7rem;padding:6px 12px;min-height:32px;" onclick="cerrarGenerador()">Cerrar</button>
+            </div>
+        </div>
     </section>
 
     <!-- ============================================================ -->
@@ -1854,6 +2209,9 @@
                 <p class="featured-desc" id="featuredDesc">---</p>
                 <div class="featured-actions">
                     <button class="btn btn-primary" onclick="event.stopPropagation();openModal(featuredId)">Abrir expediente</button>
+                    <button class="btn btn-random" onclick="event.stopPropagation();rabbitHole()" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">
+                        🐇 Rabbit Hole
+                    </button>
                 </div>
             </div>
         </div>
@@ -1910,14 +2268,14 @@
         <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
     </div>
 
-  <!-- ETIQUETAS -->
-<section class="section" id="etiquetas">
-    <div class="section-header">
-        <h2 class="section-title"><span class="icon">🏷️</span>Etiquetas</h2>
-        <span class="section-meta">Explorar por etiquetas</span>
-    </div>
-    <div class="listas-grid" id="listasGrid"></div>
-</section>
+    <!-- ETIQUETAS -->
+    <section class="section" id="etiquetas">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🏷️</span>Etiquetas</h2>
+            <span class="section-meta">Explorar por etiquetas</span>
+        </div>
+        <div class="listas-grid" id="listasGrid"></div>
+    </section>
 
     <!-- VIBES -->
     <section class="section vibes-section" id="vibes">
@@ -1996,7 +2354,26 @@
                 <div class="modal-section"><h4>¿De qué trata?</h4><p id="modalPlot"></p></div>
                 <div class="modal-section"><h4>¿Por qué verla?</h4><p id="modalAnalysis"></p></div>
                 <div class="modal-section"><h4>¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
+
+                <!-- ========================================================== -->
+                <!-- HUELLAS DE LA OBRA (NUEVO)                                 -->
+                <!-- ========================================================== -->
+                <div class="modal-section" id="modalHuellasSection">
+                    <h4>📼 Huellas de la obra</h4>
+                    <div class="huellas-timeline" id="modalHuellas"></div>
+                </div>
+
                 <div class="modal-section"><h4>Ficha técnica</h4><ul id="modalTech"></ul></div>
+
+                <!-- BOTÓN RABBIT HOLE EN MODAL -->
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;">
+                    <button class="btn btn-random" onclick="rabbitHole()" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">
+                        🐇 Rabbit Hole
+                    </button>
+                    <button class="btn btn-secondary" onclick="guardarObra(currentModalId)" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">
+                        💾 Guardar expediente
+                    </button>
+                </div>
 
                 <div class="ad-container" style="margin:16px 0; max-width:100%;">
                     <script>
@@ -2046,9 +2423,9 @@
                 <h4>Explorar</h4>
                 <ul>
                     <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#generador">Generador</a></li>
                     <li><a href="#vibes">Buscar por vibe</a></li>
                     <li><a href="#featured">Expediente del Día</a></li>
-                    <li><a href="#listas">Listas</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -2171,6 +2548,119 @@
                 input.style.borderColor = 'var(--accent)';
                 setTimeout(() => input.style.borderColor = original, 1000);
             });
+        }
+
+        // ============================================================
+        // GUARDAR OBRA (LocalStorage)
+        // ============================================================
+        function guardarObra(id) {
+            const guardadas = JSON.parse(localStorage.getItem('obrasGuardadas') || '[]');
+            if (!guardadas.includes(id)) {
+                guardadas.push(id);
+                localStorage.setItem('obrasGuardadas', JSON.stringify(guardadas));
+                alert('✅ Expediente guardado en tu archivo personal.');
+            } else {
+                alert('📁 Esta obra ya está en tu archivo personal.');
+            }
+        }
+
+        // ============================================================
+        // EXPEDIENTES SECRETOS
+        // ============================================================
+        let obrasDescubiertas = JSON.parse(localStorage.getItem('obrasDescubiertas') || '[]');
+        let secretosDesbloqueados = JSON.parse(localStorage.getItem('secretosDesbloqueados') || '[]');
+        let secretNotificationShown = false;
+
+        function registrarDescubrimiento(id) {
+            if (!obrasDescubiertas.includes(id)) {
+                obrasDescubiertas.push(id);
+                localStorage.setItem('obrasDescubiertas', JSON.stringify(obrasDescubiertas));
+                verificarDesbloqueoSecretos();
+            }
+        }
+
+        function verificarDesbloqueoSecretos() {
+            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const secretos = obrasPrincipales.filter(a => a.secret === true);
+            
+            secretos.forEach(secreto => {
+                if (!secretosDesbloqueados.includes(secreto.id) && obrasDescubiertas.length >= 5) {
+                    secretosDesbloqueados.push(secreto.id);
+                    localStorage.setItem('secretosDesbloqueados', JSON.stringify(secretosDesbloqueados));
+                    
+                    // Mostrar notificación
+                    if (!secretNotificationShown) {
+                        secretNotificationShown = true;
+                        const notif = document.getElementById('secretNotification');
+                        notif.classList.add('visible');
+                        setTimeout(() => {
+                            notif.classList.remove('visible');
+                            secretNotificationShown = false;
+                        }, 8000);
+                    }
+                    
+                    // Marcar la tarjeta como desbloqueada
+                    const cards = document.querySelectorAll('.card[data-secret="true"]');
+                    cards.forEach(card => {
+                        if (parseInt(card.dataset.id) === secreto.id) {
+                            card.classList.remove('secret-locked');
+                            card.classList.add('secret-unlocked');
+                        }
+                    });
+                }
+            });
+        }
+
+        function actualizarTarjetasSecretas() {
+            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const secretos = obrasPrincipales.filter(a => a.secret === true);
+            
+            secretos.forEach(secreto => {
+                const cards = document.querySelectorAll(`.card[data-id="${secreto.id}"]`);
+                cards.forEach(card => {
+                    if (secretosDesbloqueados.includes(secreto.id)) {
+                        card.classList.remove('secret-locked');
+                        card.classList.add('secret-unlocked');
+                    } else if (obrasDescubiertas.length < 5) {
+                        card.classList.add('secret-locked');
+                    }
+                });
+            });
+        }
+
+        // ============================================================
+        // RABBIT HOLE
+        // ============================================================
+        function rabbitHole() {
+            const actual = currentModalId ? getObraById(currentModalId) : null;
+            let siguienteId = null;
+            
+            if (actual && actual.related && actual.related.length > 0) {
+                const relacionadas = actual.related.filter(id => {
+                    const obra = getObraById(id);
+                    return obra && obra.category === "anime";
+                });
+                if (relacionadas.length > 0) {
+                    siguienteId = relacionadas[Math.floor(Math.random() * relacionadas.length)];
+                }
+            }
+            
+            if (!siguienteId) {
+                const obrasPrincipales = animes.filter(a => a.category === "anime");
+                if (obrasPrincipales.length === 0) return;
+                const disponibles = obrasPrincipales.filter(a => a.id !== (actual ? actual.id : -1));
+                if (disponibles.length === 0) return;
+                siguienteId = disponibles[Math.floor(Math.random() * disponibles.length)].id;
+            }
+            
+            closeModalDirect();
+            setTimeout(() => {
+                openModal(siguienteId);
+                setTimeout(() => {
+                    const overlay = document.getElementById('modalOverlay');
+                    if (overlay) overlay.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }, 300);
         }
 
         // ============================================================
@@ -2376,17 +2866,31 @@
             let firstCard = null;
             
             pageItems.forEach((obra, index) => {
+                const isSecret = obra.secret === true;
+                const isUnlocked = secretosDesbloqueados.includes(obra.id);
+                const isLocked = isSecret && !isUnlocked && obrasDescubiertas.length < 5;
+                
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.dataset.id = obra.id;
                 card.dataset.type = obra.type.toLowerCase();
                 card.dataset.year = obra.year;
                 card.dataset.genre = obra.genre.join(',').toLowerCase();
-                card.onclick = function() { openModal(obra.id); };
+                if (isSecret) card.dataset.secret = 'true';
+                if (isLocked) card.classList.add('secret-locked');
+                if (isUnlocked) card.classList.add('secret-unlocked');
+                card.onclick = function() {
+                    if (isLocked) {
+                        alert('🔒 Este expediente está bloqueado. Descubre más obras para desbloquearlo.');
+                        return;
+                    }
+                    openModal(obra.id);
+                };
                 
                 const typeClass = obra.type.toLowerCase().replace(' ', '-');
                 const rarity = obra.rarity || 'Hallazgo';
                 const expNumber = String(obra.id + 1).padStart(3, '0');
+                const secretLabel = isUnlocked ? '✦ RECUPERADO' : '';
                 
                 card.innerHTML = `
                     <div class="card-image">
@@ -2394,11 +2898,13 @@
                         <span class="card-year">${obra.year}</span>
                         <span class="card-exp-number">#${expNumber}</span>
                         <span class="card-rarity">⚡ ${rarity}</span>
+                        ${secretLabel ? `<span style="position:absolute;top:10px;right:10px;background:var(--gold);color:var(--bg);padding:2px 6px;font-family:'Space Mono',monospace;font-size:0.45rem;border-radius:2px;z-index:5;">${secretLabel}</span>` : ''}
                     </div>
                     <div class="card-body">
                         <div class="card-tags">
                             <span class="card-tag type-${typeClass}" data-type="${typeClass}">${obra.type}</span>
                             ${obra.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                            ${isSecret ? `<span class="card-tag" style="color:var(--gold);border-color:var(--gold);">SECRETO</span>` : ''}
                         </div>
                         <h3><a href="expediente/${obra.id}.html" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;">${obra.title}</a></h3>
                         <p>${obra.description}</p>
@@ -2503,10 +3009,12 @@
         // FUNCIONES PRINCIPALES
         // ============================================================
         let featuredId = null;
+        let currentModalId = null;
 
         function renderCards() {
             currentPage = 1;
             renderPaginatedCards();
+            setTimeout(actualizarTarjetasSecretas, 100);
         }
 
         function updateStats() {
@@ -2782,13 +3290,110 @@
         }
 
         // ============================================================
+        // GENERADOR DE EXPEDIENTES
+        // ============================================================
+        let seleccionGenerador = { epoca: null, sensacion: null, elemento: null };
+        let obraGenerada = null;
+
+        function setupGenerador() {
+            document.querySelectorAll('.gen-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const grupo = this.closest('.gen-group');
+                    const label = grupo.querySelector('label').textContent.trim();
+                    const valor = this.dataset.gen;
+                    
+                    if (label === 'ÉPOCA') {
+                        grupo.querySelectorAll('.gen-btn').forEach(b => {
+                            if (b !== this) b.classList.remove('active');
+                        });
+                        seleccionGenerador.epoca = this.classList.contains('active') ? valor : null;
+                    } else if (label === 'SENSACIÓN') {
+                        grupo.querySelectorAll('.gen-btn').forEach(b => {
+                            if (b !== this) b.classList.remove('active');
+                        });
+                        seleccionGenerador.sensacion = this.classList.contains('active') ? valor : null;
+                    } else if (label === 'ELEMENTO') {
+                        grupo.querySelectorAll('.gen-btn').forEach(b => {
+                            if (b !== this) b.classList.remove('active');
+                        });
+                        seleccionGenerador.elemento = this.classList.contains('active') ? valor : null;
+                    }
+                });
+            });
+
+            document.getElementById('generarExpedienteBtn').addEventListener('click', function() {
+                const { epoca, sensacion, elemento } = seleccionGenerador;
+                
+                if (!epoca && !sensacion && !elemento) {
+                    alert('Selecciona al menos una opción para generar un expediente.');
+                    return;
+                }
+                
+                let obrasFiltradas = animes.filter(a => a.category === 'anime');
+                
+                if (epoca) {
+                    const yearRange = epoca === '80s' ? [1980, 1989] : epoca === '90s' ? [1990, 1999] : [2000, 2009];
+                    obrasFiltradas = obrasFiltradas.filter(a => a.year >= yearRange[0] && a.year <= yearRange[1]);
+                }
+                
+                if (elemento) {
+                    obrasFiltradas = obrasFiltradas.filter(a => 
+                        a.tags && a.tags.some(t => t.toLowerCase().includes(elemento.toLowerCase()))
+                    );
+                }
+                
+                if (sensacion) {
+                    obrasFiltradas = obrasFiltradas.filter(a => 
+                        (a.tags && a.tags.some(t => t.toLowerCase().includes(sensacion.toLowerCase()))) ||
+                        a.genre.some(g => g.toLowerCase().includes(sensacion.toLowerCase()))
+                    );
+                }
+                
+                if (obrasFiltradas.length === 0) {
+                    alert('No se encontraron obras con esa combinación. Prueba con otros filtros.');
+                    return;
+                }
+                
+                obraGenerada = obrasFiltradas[Math.floor(Math.random() * obrasFiltradas.length)];
+                
+                const combo = [];
+                if (elemento) combo.push(elemento.charAt(0).toUpperCase() + elemento.slice(1));
+                if (epoca) combo.push(epoca);
+                if (sensacion) combo.push(sensacion.charAt(0).toUpperCase() + sensacion.slice(1));
+                
+                document.getElementById('genResultadoCombo').textContent = combo.join(' + ');
+                document.getElementById('genResultadoTitulo').textContent = obraGenerada.title;
+                document.getElementById('genResultadoMeta').textContent = `${obraGenerada.year} · ${obraGenerada.type} · ${obraGenerada.studio}`;
+                document.getElementById('genResultadoImg').src = obraGenerada.cover;
+                document.getElementById('genResultadoObra').onclick = function() {
+                    openModal(obraGenerada.id);
+                };
+                document.getElementById('generadorResultado').classList.add('visible');
+                
+                document.getElementById('generadorResultado').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        function abrirObraGenerada() {
+            if (obraGenerada) openModal(obraGenerada.id);
+        }
+
+        function cerrarGenerador() {
+            document.getElementById('generadorResultado').classList.remove('visible');
+        }
+
+        // ============================================================
         // MODAL
         // ============================================================
-        let currentModalId = null;
-
         function openModal(id) {
             const obra = animes.find(a => a.id === id);
             if (!obra) return;
+
+            // Registrar descubrimiento para secretos
+            if (obra.category === "anime") {
+                registrarDescubrimiento(id);
+            }
 
             if (currentModalId === id && document.getElementById('modalOverlay').classList.contains('active')) {
                 closeModalDirect();
@@ -2823,6 +3428,23 @@
             document.getElementById('modalPlot').textContent = obra.plot || 'Sin información disponible.';
             document.getElementById('modalAnalysis').textContent = obra.analysis || 'Sin información disponible.';
             document.getElementById('modalForgotten').textContent = obra.forgotten || 'Sin información disponible.';
+
+            // ==========================================================
+            // HUELLAS DE LA OBRA
+            // ==========================================================
+            const huellasContainer = document.getElementById('modalHuellas');
+            if (obra.huellas && obra.huellas.length > 0) {
+                huellasContainer.innerHTML = obra.huellas.map(h => `
+                    <div class="huella-item">
+                        <span class="huella-fecha">${h.fecha || ''}</span>
+                        <span class="huella-icon">${h.icono || '📼'}</span>
+                        <span class="huella-desc">${h.descripcion}</span>
+                    </div>
+                `).join('');
+                document.getElementById('modalHuellasSection').style.display = 'block';
+            } else {
+                document.getElementById('modalHuellasSection').style.display = 'none';
+            }
 
             const techList = [
                 `Estudio: ${obra.studio}`,
@@ -3049,6 +3671,7 @@
                     document.getElementById('adultAgeError').style.display = 'none';
                     document.getElementById('adultAgeInput').value = '';
                 }
+                cerrarGenerador();
             }
         });
 
@@ -3108,6 +3731,8 @@
             }
             
             console.log(`✅ Base de datos cargada: ${animes.length} obras`);
+            console.log(`🔒 Secretos desbloqueados: ${secretosDesbloqueados.length}`);
+            console.log(`📁 Obras descubiertas: ${obrasDescubiertas.length}`);
             
             document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
             
@@ -3116,6 +3741,7 @@
             setupFeatured();
             setupSearch();
             setupFilters();
+            setupGenerador();
             renderizarVibes();
             setupListas();
             setupScrollSpy();
@@ -3131,6 +3757,9 @@
                     closeModalDirect();
                 }
             });
+            
+            // Verificar secretos al cargar
+            setTimeout(verificarDesbloqueoSecretos, 500);
         });
     </script>
 
