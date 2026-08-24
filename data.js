@@ -1722,7 +1722,7 @@ var animes = [{
               {
     id: 84,
     title: "Power Dolls",
-    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjemplo",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjRqcPk1gwEOgFQXdzX9rwsSQ0MHBCZ_RHDGoUBJRf3TUCZeNX0RmGn3HTM-gBbSYmc5b2D53xW5gSeNRJlVGqOVAc_D-e_6Mj9ilO1R0IiVv0wvs6RGC-d1hOuN8Yqh4Tv5Vm5MfmJ9EDK18AexayVH-qm7w47v1CDjbDid7tEz5QVQllmuS-4Uu3fOaOG=w282-h400",
     year: 1996,
     type: "OVA",
     duration: "2 episodios (~27 min c/u)",
