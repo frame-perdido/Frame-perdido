@@ -1739,5 +1739,26 @@ var animes = [{
     sagaOrder: null,
     related: [3, 45, 81],
     category: "anime"
+},
+              {
+    id: 85,
+    title: "Detonator Orgun",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgfGISetos8hq_jBVl_o4FroGH2mOW3SHBLfuZ42m5k0CPxn7uYrkx2NZF1X0Zm9ff1XEiuh97HyvC5Zs_KoTUMGUiyfSlxHXJs7im7flsqegyMKKw9lx6ynLxrvz-oolgjKN-lmqs3cn7CG5tH4PkpG-QPsPx-I2QkpDmQK01DATlXfboRLmVXi2uv9hOB=w270-h400",
+    year: "1991-1992",
+    type: "OVA",
+    duration: "3 episodios (~52 min c/u)",
+    studio: "AIC / Artmic",
+    director: "Masami Obari",
+    genre: ["Ciencia ficción", "Acción", "Mecha"],
+    tags: ["mecha", "ciencia-ficción", "culto", "90s", "obari", "aic", "artmic", "evoluders"],
+    description: "Tomoru Shindo tiene sueños con un mecha llamado Orgun que huye de otros seres mecánicos. La científica Michi Kanzaki construye un mecha a partir de datos recibidos desde el espacio. Cuando los Evoluders atacan la Tierra, Orgun despierta y se fusiona con Tomoru para combatirlos.",
+    plot: "Tomoru Shindo sueña con Orgun. Michi Kanzaki recibe datos del espacio y construye un mecha. Los Evoluders atacan. Orgun se fusiona con Tomoru. Se revela que los Evoluders son humanos de una misión del año 2100 que quedó atrapada en un agujero negro y evolucionaron. Orgun desertó al descubrir que la Tierra era su hogar. Zoa, líder de los Evoluders, quiere destruir la Tierra. Orgun se sacrifica para detenerlo.",
+    analysis: "Detonator Orgun es un OVA de mecha de Masami Obari. Tiene animación de calidad y diseños mecánicos con capas y armaduras detalladas. La banda sonora es de Susumu Hirasawa. La trama tiene un giro interesante sobre el origen de los alienígenas, pero el ritmo es acelerado y los personajes están poco desarrollados. Tomoru es un protagonista plano y quejumbroso. El romance con Michi se siente forzado. La serie es valorada por los fans del mecha de los 90 y es considerada influencia para Tekkaman Blade.",
+    forgotten: "Detonator Orgun es una rareza. Su distribución fuera de Japón fue limitada. Es recordada por su animación, su banda sonora y el giro sobre el origen de los Evoluders. Apareció en Super Robot Wars W, pero sigue siendo una obra de culto para los amantes del mecha de los 90.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 45, 78],
+    category: "anime"
 }
 ];
