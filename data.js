@@ -1718,5 +1718,26 @@ var animes = [{
     sagaOrder: null,
     related: [3, 45, 81],
     category: "anime"
+},
+              {
+    id: 84,
+    title: "Power Dolls",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjemplo",
+    year: 1996,
+    type: "OVA",
+    duration: "2 episodios (~27 min c/u)",
+    studio: "OLM / Artmic",
+    director: "Masamitsu Hidaka / Jun Fukuta",
+    genre: ["Ciencia ficción", "Acción", "Mecha", "Militar"],
+    tags: ["mecha", "mujeres", "ciencia-ficción", "culto", "90s", "rareza", "videojuego", "artmic"],
+    description: "En el año 2535, la colonia espacial Omni declara su independencia de la Tierra. Sin ejército profesional, adaptan los Power Loaders, robots de carga espacial, en tanques de combate. Un escuadrón de élite formado exclusivamente por mujeres, conocido como DoLLS (Detachment of Limited Line Service), pilotan estas máquinas. Basado en la saga de videojuegos de estrategia de Kogado Studio.",
+    plot: "El primer episodio sigue a la teniente Yao Fei Lun, miembro del escuadrón DoLLS. Su misión es destruir una presa para detener el avance de las fuerzas terrestres. El problema: su padre fue el ingeniero que diseñó esa presa. Yao debe enfrentarse a su pasado mientras cumple con su deber. En el segundo episodio, cuatro años después de la guerra, un prototipo de Power Loader perdido reaparece en manos de fuerzas rebeldes. El escuadrón DoLLS debe recuperarlo antes de que sea usado contra ellos.",
+    analysis: "Power Dolls es un OVA de culto para fans del mecha y los videojuegos de los 90. Basado en la serie de estrategia de Kogado Studio, la adaptación es irregular: el primer episodio tiene problemas de animación, mientras que el segundo mejora notablemente el apartado visual. Los diseños mecánicos están muy cuidados y la banda sonora incluye temas del juego original. La trama es genérica y los personajes planos, pero funciona como introducción al universo del juego.",
+    forgotten: "Power Dolls es una rareza para coleccionistas. Su distribución en occidente fue limitada y su calidad irregular la ha condenado al olvido. Solo los fans de los juegos de Kogado Studio o los amantes del mecha de los 90 la recuerdan. El cambio de estilo de animación entre episodios y su final abierto la convierten en una curiosidad más que en una obra memorable.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 45, 81],
+    category: "anime"
 }
 ];
