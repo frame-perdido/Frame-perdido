@@ -1760,5 +1760,26 @@ var animes = [{
     sagaOrder: null,
     related: [3, 45, 78],
     category: "anime"
+},
+              {
+    id: 86,
+    title: "Kyou Kara Ore Wa!!",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhS8bu0vG6PmJQb94ixp_nmFik9o2DTd8RZZCgweX8aSRScTD1p5ho9IgA1V599m0p2NRxozLcJsz0ZoC803wSfeV9LqEXWhrmlyr22mr1j-v_HpSspvVrHG0Q1nckJj-0emGfTIsJ1o-gCr25lIryhkRyc6BdI5qCcCb-5Ouj1guDwjOnTbjDTr7rSksMa=w265-h400",
+    year: "1993-1997",
+    type: "OVA",
+    duration: "10 episodios (~43-60 min c/u)",
+    studio: "Studio Pierrot",
+    director: "Takeshi Mori",
+    genre: ["Comedia", "Escolares", "Delincuencia", "Acción"],
+    tags: ["comedia", "delincuencia", "escuela", "culto", "90s", "rareza", "studio pierrot"],
+    description: "Takashi Mitsuhashi y Shinji Itou son dos estudiantes transferidos que deciden aprovechar su nueva escuela para convertirse en los delincuentes más temidos de Japón. Mitsuhashi es un rubio tramposo y cobarde, mientras que Itou es un justiciero de pelo de puercoespín. Juntos forman un equipo imparable que se enfrenta a pandillas, yakuza y cualquier cosa que se cruce en su camino.",
+    plot: "Mitsuhashi y Itou llegan a una nueva escuela y deciden reinventarse como delincuentes. A pesar de sus personalidades opuestas, se hacen amigos y forman un equipo. A lo largo de 10 episodios, se enfrentan a pandillas de otras escuelas, a la yakuza y a todo tipo de situaciones absurdas. La serie mezcla peleas con comedia slapstick y momentos de camaradería masculina. El final es abierto y no cierra las tramas, porque solo adapta una parte del manga.",
+    analysis: "Kyou Kara Ore Wa!! es un clásico de culto del género de delincuentes escolares. El humor es rápido y absurdo, los personajes son carismáticos y el dúo protagonista funciona a la perfección. Se la compara con Slam Dunk por el estilo de dibujo, con GTO por el tono y con Beelzebub por la dinámica de los protagonistas. La animación no es la mejor para la época, los personajes son arquetípicos y el final abierto frustra a algunos espectadores.",
+    forgotten: "Es una rareza porque su distribución fuera de Japón fue limitada y nunca tuvo doblaje en occidente. Es un OVA de 10 episodios, un formato inusual para la época. Solo los fans del anime de los 90 y los amantes del género de delincuentes la recuerdan. Es prácticamente desconocida para el público general.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 45, 81],
+    category: "anime"
 }
 ];
