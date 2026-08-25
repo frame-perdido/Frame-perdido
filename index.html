@@ -1994,10 +1994,10 @@
                 <div class="modal-section"><h4>Ficha técnica</h4><ul id="modalTech"></ul></div>
 
                 <!-- ========================================================== -->
-                <!-- BOTÓN BUSCAR DISPONIBILIDAD                                -->
+                <!-- BOTÓN BUSCAR DISPONIBILIDAD (CORREGIDO)                    -->
                 <!-- ========================================================== -->
                 <div style="margin: 16px 0;">
-                    <button class="btn btn-secondary" onclick="buscarDisponibilidad()" style="width:100%;justify-content:center;font-family:'Space Mono',monospace;">
+                    <button class="btn btn-primary" onclick="buscarDisponibilidad()" style="width:100%;justify-content:center;font-family:'Space Mono',monospace;background:var(--accent);color:#fff;box-shadow:0 4px 20px var(--accent-glow);">
                         📼 Buscar disponibilidad
                     </button>
                 </div>
@@ -2178,31 +2178,14 @@
         }
 
         // ============================================================
-        // BUSCAR DISPONIBILIDAD
+        // BUSCAR DISPONIBILIDAD (CORREGIDO)
         // ============================================================
         function buscarDisponibilidad() {
             const obra = animes.find(a => a.id === currentModalId);
             if (!obra) return;
-
-            const mensaje = `📼 ESTADO DE LA CINTA
-
-Título: ${obra.title}
-Año: ${obra.year}
-
-Esta obra no está disponible en streaming comercial.
-
-Puedes buscarla en:
-• YouTube
-• Archive.org
-• Colecciones privadas
-• Mercado de segunda mano (VHS/DVD)
-
-¿Quieres buscar en Google?`;
-
-            if (confirm(mensaje)) {
-                const query = encodeURIComponent(`${obra.title} ${obra.year} anime ver online`);
-                window.open(`https://www.google.com/search?q=${query}`, '_blank');
-            }
+            
+            // Abre watch.html con el ID de la obra
+            window.location.href = `watch.html?id=${obra.id}`;
         }
 
         // ============================================================
