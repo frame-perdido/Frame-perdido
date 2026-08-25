@@ -69,7 +69,6 @@
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
             background: 
-                /* Textura de papel antiguo */
                 repeating-linear-gradient(
                     45deg,
                     transparent,
@@ -77,11 +76,9 @@
                     rgba(139,69,19,0.03) 100px,
                     rgba(139,69,19,0.03) 101px
                 ),
-                /* Manchas de humedad */
                 radial-gradient(ellipse at 30% 20%, rgba(139,69,19,0.06) 0%, transparent 60%),
                 radial-gradient(ellipse at 70% 80%, rgba(139,69,19,0.04) 0%, transparent 60%),
                 radial-gradient(ellipse at 50% 50%, rgba(139,69,19,0.02) 0%, transparent 80%),
-                /* Líneas de cinta VHS */
                 repeating-linear-gradient(
                     0deg,
                     transparent,
@@ -89,7 +86,6 @@
                     rgba(255,255,255,0.01) 3px,
                     rgba(255,255,255,0.01) 4px
                 ),
-                /* Base oscura */
                 #0a0a0f;
         }
 
@@ -235,7 +231,6 @@
                 0 0 60px rgba(255,42,109,0.02);
             margin-bottom: 20px;
         }
-        /* Sello de archivo */
         .hero::after {
             content: "CONFIDENCIAL";
             position: absolute;
@@ -912,7 +907,7 @@
         .no-results.visible { display: block; }
 
         /* ============================================================ */
-        /* Etiquetas                                                      */
+        /* ETIQUETAS - YA EXISTE                                       */
         /* ============================================================ */
         .listas-grid {
             display: grid;
@@ -1701,7 +1696,7 @@
         </a>
         <nav id="mainNav">
             <a href="https://frame-perdido.github.io/Frame-perdido/" class="active">Inicio</a>
-            <a href="#catalogo">Catálogo</a>
+            <!-- CATÁLOGO ELIMINADO -->
             <a href="#etiquetas">Etiquetas</a>
             <a href="#vibes">Vibes</a>
             <a href="#live-action">Live Action</a>
@@ -1762,7 +1757,7 @@
         </div>
         
         <div class="hero-cta">
-            <a href="#catalogo" class="btn btn-primary">▶ Explorar archivo</a>
+            <a href="#archivo" class="btn btn-primary">▶ Explorar archivo</a>
             <button class="btn btn-random" onclick="randomObra()">🎲 Expediente aleatorio</button>
         </div>
     </section>
@@ -1859,24 +1854,24 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO -->
-    <section class="section" id="catalogo">
-        <div class="section-header">
-            <h2 class="section-title"><span class="icon">◈</span>Catálogo</h2>
-            <div class="filters" id="filterContainer">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="ova">OVAs</button>
-                <button class="filter-btn" data-filter="pelicula">Películas</button>
-                <button class="filter-btn" data-filter="serie">Series</button>
-                <button class="filter-btn" data-filter="80s">80s</button>
-                <button class="filter-btn" data-filter="90s">90s</button>
-                <button class="filter-btn" data-filter="cyberpunk">Cyberpunk</button>
-                <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
-                <button class="filter-btn" data-filter="drama">Drama</button>
-                <button class="filter-btn" data-filter="accion">Acción</button>
-                <button class="filter-btn" data-filter="horror">Horror</button>
-                <button class="filter-btn" data-filter="mecha">Mecha</button>
-            </div>
+    <!-- ============================================================ -->
+    <!-- ARCHIVO (antes CATÁLOGO) - SIN TÍTULO VISIBLE                -->
+    <!-- ============================================================ -->
+    <section class="section" id="archivo">
+        <!-- TÍTULO ELIMINADO -->
+        <div class="filters" id="filterContainer">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ova">OVAs</button>
+            <button class="filter-btn" data-filter="pelicula">Películas</button>
+            <button class="filter-btn" data-filter="serie">Series</button>
+            <button class="filter-btn" data-filter="80s">80s</button>
+            <button class="filter-btn" data-filter="90s">90s</button>
+            <button class="filter-btn" data-filter="cyberpunk">Cyberpunk</button>
+            <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
+            <button class="filter-btn" data-filter="drama">Drama</button>
+            <button class="filter-btn" data-filter="accion">Acción</button>
+            <button class="filter-btn" data-filter="horror">Horror</button>
+            <button class="filter-btn" data-filter="mecha">Mecha</button>
         </div>
         <div class="no-results" id="noResults">
             <p style="font-size:1rem;margin-bottom:4px;">Cinta no encontrada en el archivo</p>
@@ -1910,14 +1905,14 @@
         <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
     </div>
 
-  <!-- ETIQUETAS -->
-<section class="section" id="etiquetas">
-    <div class="section-header">
-        <h2 class="section-title"><span class="icon">🏷️</span>Etiquetas</h2>
-        <span class="section-meta">Explorar por etiquetas</span>
-    </div>
-    <div class="listas-grid" id="listasGrid"></div>
-</section>
+    <!-- ETIQUETAS -->
+    <section class="section" id="etiquetas">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🏷️</span>Etiquetas</h2>
+            <span class="section-meta">Explorar por etiquetas</span>
+        </div>
+        <div class="listas-grid" id="listasGrid"></div>
+    </section>
 
     <!-- VIBES -->
     <section class="section vibes-section" id="vibes">
@@ -1998,6 +1993,15 @@
                 <div class="modal-section"><h4>¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
                 <div class="modal-section"><h4>Ficha técnica</h4><ul id="modalTech"></ul></div>
 
+                <!-- ========================================================== -->
+                <!-- BOTÓN BUSCAR DISPONIBILIDAD                                -->
+                <!-- ========================================================== -->
+                <div style="margin: 16px 0;">
+                    <button class="btn btn-secondary" onclick="buscarDisponibilidad()" style="width:100%;justify-content:center;font-family:'Space Mono',monospace;">
+                        📼 Buscar disponibilidad
+                    </button>
+                </div>
+
                 <div class="ad-container" style="margin:16px 0; max-width:100%;">
                     <script>
                         atOptions = {
@@ -2045,10 +2049,10 @@
             <div class="footer-col">
                 <h4>Explorar</h4>
                 <ul>
-                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#archivo">Archivo</a></li>
                     <li><a href="#vibes">Buscar por vibe</a></li>
                     <li><a href="#featured">Expediente del Día</a></li>
-                    <li><a href="#listas">Listas</a></li>
+                    <li><a href="#etiquetas">Etiquetas</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -2174,6 +2178,34 @@
         }
 
         // ============================================================
+        // BUSCAR DISPONIBILIDAD
+        // ============================================================
+        function buscarDisponibilidad() {
+            const obra = animes.find(a => a.id === currentModalId);
+            if (!obra) return;
+
+            const mensaje = `📼 ESTADO DE LA CINTA
+
+Título: ${obra.title}
+Año: ${obra.year}
+
+Esta obra no está disponible en streaming comercial.
+
+Puedes buscarla en:
+• YouTube
+• Archive.org
+• Colecciones privadas
+• Mercado de segunda mano (VHS/DVD)
+
+¿Quieres buscar en Google?`;
+
+            if (confirm(mensaje)) {
+                const query = encodeURIComponent(`${obra.title} ${obra.year} anime ver online`);
+                window.open(`https://www.google.com/search?q=${query}`, '_blank');
+            }
+        }
+
+        // ============================================================
         // VIBES
         // ============================================================
         function generarVibesAutomaticos() {
@@ -2277,7 +2309,7 @@
             if (resultados.length > 0) {
                 searchInput.value = vibe;
                 searchInput.dispatchEvent(new Event('input'));
-                document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('archivo').scrollIntoView({ behavior: 'smooth' });
             } else {
                 alert(`No se encontraron obras con el vibe "${vibe}"`);
             }
@@ -2576,7 +2608,7 @@
             const searchResults = document.getElementById('searchResults');
             const searchContainer = document.getElementById('searchResultsContainer');
             const searchGrid = document.getElementById('searchResultsGrid');
-            const catalogoSection = document.getElementById('catalogo');
+            const archivoSection = document.getElementById('archivo');
             const featuredSection = document.getElementById('featured');
 
             function filterCards() {
@@ -2585,7 +2617,7 @@
                 
                 if (query.length === 0) {
                     searchContainer.style.display = 'none';
-                    catalogoSection.style.display = 'block';
+                    archivoSection.style.display = 'block';
                     featuredSection.style.display = 'block';
                     searchResults.textContent = '';
                     document.getElementById('paginationContainer').style.display = 'block';
@@ -2609,7 +2641,7 @@
                     resultados = resultados.filter(obra => obra.category !== "adulto");
                 }
                 
-                catalogoSection.style.display = 'none';
+                archivoSection.style.display = 'none';
                 featuredSection.style.display = 'none';
                 document.getElementById('paginationContainer').style.display = 'none';
                 
