@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frame Perdido — Reproductor</title>
@@ -67,8 +67,82 @@
         /* OCULTAR BANNER NATIVE EN MÓVIL (EL DE ABAJO)                */
         /* ============================================================ */
         @media only screen and (max-width: 768px) {
-            div[style*="margin: 20px auto; max-width: 100%;"] {
+            .native-banner-desktop {
                 display: none !important;
+            }
+        }
+
+        /* ============================================================ */
+        /* BARRA DE ACCIÓN (DONAR / APOYAR)                            */
+        /* ============================================================ */
+        .action-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .action-btn.donate {
+            background: #ff6b35;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+        .action-btn.donate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+            background: #ff7a4a;
+        }
+
+        .action-btn.support {
+            background: #2a2a3a;
+            border: 1px solid #3a3a50;
+        }
+        .action-btn.support:hover {
+            background: #3a3a50;
+            border-color: #ff6b35;
+            transform: translateY(-2px);
+        }
+
+        .action-btn .icon {
+            font-size: 1.2rem;
+        }
+
+        /* ============================================================ */
+        /* BANNER MÓVIL (Debajo del reproductor)                        */
+        /* ============================================================ */
+        .adsterra-mobile-banner {
+            display: none;
+            text-align: center;
+            margin: 16px auto;
+            padding: 8px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            max-width: 320px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .adsterra-mobile-banner {
+                display: block;
             }
         }
 
@@ -290,10 +364,6 @@
     </style>
 </head>
 <body>
-    <script src="=anti-adblocker.js"></script>
-    
-   
-
     <div class="player-page">
         <!-- ============================================================ -->
         <!-- HEADER FIJO                                                    -->
@@ -304,6 +374,28 @@
                 <span class="video-meta" id="videoMeta"></span>
             </div>
             <a href="index.html" class="back-btn">← Volver</a>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- BARRA DE ACCIÓN: DONAR Y APOYAR                               -->
+        <!-- ============================================================ -->
+        <div class="action-bar">
+            <!-- Botón Ko-fi -->
+            <div class="action-btn donate" style="background: none; padding: 0; box-shadow: none;">
+                <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                <script type='text/javascript'>
+                    kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'D0U52602EW');
+                    kofiwidget2.draw();
+                </script>
+            </div>
+            
+            <!-- Botón Apoyar viendo anuncios -->
+            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
+               class="action-btn support" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <span class="icon">👁️</span> Apoyar viendo anuncios
+            </a>
         </div>
 
         <!-- ============================================================ -->
@@ -352,9 +444,25 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR (FIJO)                  -->
+        <!-- BANNER MÓVIL DEBAJO DEL REPRODUCTOR (Solo en móvil)          -->
         <!-- ============================================================ -->
-        <div style="margin: 20px auto; max-width: 100%;">
+        <div class="adsterra-mobile-banner">
+            <script>
+                atOptions = {
+                    'key' : '87a06576574ce7684612c64a5ebfe421',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- NATIVE BANNER DEBAJO DEL REPRODUCTOR (Solo Desktop)          -->
+        <!-- ============================================================ -->
+        <div class="native-banner-desktop" style="margin: 20px auto; max-width: 100%;">
             <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
             <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
         </div>
@@ -362,7 +470,9 @@
         <!-- ============================================================ -->
         <!-- SELECTOR DE EPISODIOS (dinámico)                             -->
         <!-- ============================================================ -->
-        <div class="episode-selector" id="episodeSelector"></div>
+        <div class="episode-selector" id="episodeSelector">
+            <p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>
+        </div>
 
         <!-- ============================================================ -->
         <!-- INFO DEL EXPEDIENTE (dinámico)                                -->
@@ -373,9 +483,6 @@
             <div class="expediente-tags" id="expedienteTags"></div>
         </div>
     </div>
-
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script>
         // ============================================================
         // BASE DE DATOS DE VIDEOS (SINCRONIZADA CON DATA.JS)
         // IDs: 1-57 coinciden exactamente con la base de datos
