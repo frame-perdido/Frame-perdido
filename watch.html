@@ -470,9 +470,7 @@
         <!-- ============================================================ -->
         <!-- SELECTOR DE EPISODIOS (dinámico)                             -->
         <!-- ============================================================ -->
-        <div class="episode-selector" id="episodeSelector">
-            <p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>
-        </div>
+        <div class="episode-selector" id="episodeSelector"></div>
 
         <!-- ============================================================ -->
         <!-- INFO DEL EXPEDIENTE (dinámico)                                -->
@@ -483,6 +481,9 @@
             <div class="expediente-tags" id="expedienteTags"></div>
         </div>
     </div>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
         // ============================================================
         // BASE DE DATOS DE VIDEOS (SINCRONIZADA CON DATA.JS)
         // IDs: 1-57 coinciden exactamente con la base de datos
