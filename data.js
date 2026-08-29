@@ -1887,4 +1887,25 @@ var animes = [{
     related: [45, 81, 4],
     category: "adulto"
 }
+              {
+    id: 92,
+    title: "Æon Flux",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgocKUHh0_htkA2ZGi3m7Y_1nQTmLrtHpmTDIU_UCqZ0Owgv_fR0PYi_sHWtbrDV7BhsC6reGJTCWe6vkAsFzS-rPt8TjPQGUNzvG277kGmzH9jsRBKNqFUTuKb1a6ZRCiOJagu4WAheeHZMtqAfgRhhSWheQTi2sbq-7-8Etd29H2sJeBLKyZHDS051kry=w283-h400",
+    year: "1991-1995",
+    type: "Serie TV",
+    duration: "T1: 2 min (6 cortos) / T2: 3-5 min (5 cortos) / T3: 30 min (10 episodios)",
+    studio: "MTV Animation / Klasky Csupo",
+    director: "Peter Chung",
+    genre: ["Ciencia ficción", "Acción", "Experimental", "Cyberpunk"],
+    tags: ["ciencia-ficción", "cyberpunk", "experimental", "culto", "90s", "mtv", "locomotion", "peter-chung"],
+    description: "Æon Flux es una agente secreta de Mónica, una ciudad-estado anarquista en un futuro distópico. Su misión es infiltrar Bregna, una dictadura tecnocrática liderada por Trevor Goodchild, su archienemigo y amante. La serie es conocida por su estilo visual único y su narrativa experimental.",
+    plot: "La serie se divide en tres temporadas. Las dos primeras (1991-1992) son cortos sin diálogos de 2 a 5 minutos emitidos en Liquid Television de MTV. Æon muere al final de cada corto de forma violenta. La tercera temporada (1995) es de media hora con diálogos, con historias independientes. La trama sigue la guerra fría entre Mónica y Bregna, y la relación de amor-odio entre Æon y Trevor.",
+    analysis: "Æon Flux es una obra pionera de la animación experimental para adultos. Creada por Peter Chung, su estilo visual es inconfundible: personajes alargados y angulosos con influencias de Egon Schiele y Moebius. La serie explora temas como el libre albedrío, el poder y la identidad. La banda sonora de Drew Neumann es atmosférica y experimental. Es famosa por su violencia, sexualidad y su protagonista femenina compleja.",
+    forgotten: "Æon Flux nació en MTV Estados Unidos como parte del bloque Liquid Television (1991) y luego como serie propia (1995). En Latinoamérica, la serie se hizo conocida gracias a Locomotion, que la emitió repetidamente entre 1998 y 2003 con un doblaje al español hecho exclusivamente para el canal. Nunca tuvo un lanzamiento oficial en VHS o DVD en la región, y con el cierre de Locomotion y el paso del tiempo, la serie cayó en el olvido. La película de 2005 no ayudó y su creador la odia. Hoy es difícil de encontrar en buena calidad y solo sobrevive en la memoria de los que la vieron en su momento, o en oscuros rincones de internet.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 45, 78],
+    category: "anime"
+}
 ];
