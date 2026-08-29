@@ -1886,7 +1886,7 @@ var animes = [{
     sagaOrder: null,
     related: [45, 81, 4],
     category: "adulto"
-}
+},
               {
     id: 92,
     title: "Æon Flux",
