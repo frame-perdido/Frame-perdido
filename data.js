@@ -1761,7 +1761,7 @@ var animes = [{
     related: [3, 45, 78],
     category: "anime"
 },
-              {
+ {
     id: 86,
     title: "Kyou Kara Ore Wa!!",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhS8bu0vG6PmJQb94ixp_nmFik9o2DTd8RZZCgweX8aSRScTD1p5ho9IgA1V599m0p2NRxozLcJsz0ZoC803wSfeV9LqEXWhrmlyr22mr1j-v_HpSspvVrHG0Q1nckJj-0emGfTIsJ1o-gCr25lIryhkRyc6BdI5qCcCb-5Ouj1guDwjOnTbjDTr7rSksMa=w265-h400",
@@ -1782,7 +1782,7 @@ var animes = [{
     related: [3, 45, 81],
     category: "anime"
 },
-              {
+ {
     id: 87,
     title: "Ninja Scroll",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh516pJ4QT5LmY1jo9cbOU3FUIWx_oWUkL0ZfYkNlKbzKBTV010gpNUCUxYayOgjlvhK53cPdSE2bzVggblNpnKmwp2Dxxt1OtSlWmi7ayiFpmsrMTZAzpIKRkoBhs44G-WyZEmg6aVBn7nfi-Eh7bE2Y4wFZRCIk6p2hO-3aEP6VdIwE0yDjxQRJDAxElw=w283-h400",
@@ -1803,7 +1803,7 @@ var animes = [{
     related: [88, 45, 78],
     category: "anime"
 },
-              {
+ {
     id: 88,
     title: "Ninja Scroll: La Serie",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhVzbd0cB4kJIXsEkrAn5vUhem6cJNWoKODWbAv0XBTMVA7ery9NZVdZIvTFWKtBRLLd7TtFAmq76YZCX6qMZTheIL-w-18t4HkNRnA3gCa5kXSmEqxCL8c9Fi_YrOim5uzj1LVc3-KnmROkSj_1DrMUcyB3aAcTPkVgbdronckG4CfD_OHIZ2VKZIpOeto=w280-h400",
@@ -1887,7 +1887,7 @@ var animes = [{
     related: [45, 81, 4],
     category: "adulto"
 },
-              {
+{
     id: 92,
     title: "Æon Flux",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgocKUHh0_htkA2ZGi3m7Y_1nQTmLrtHpmTDIU_UCqZ0Owgv_fR0PYi_sHWtbrDV7BhsC6reGJTCWe6vkAsFzS-rPt8TjPQGUNzvG277kGmzH9jsRBKNqFUTuKb1a6ZRCiOJagu4WAheeHZMtqAfgRhhSWheQTi2sbq-7-8Etd29H2sJeBLKyZHDS051kry=w283-h400",
@@ -1907,4 +1907,7 @@ var animes = [{
     sagaOrder: null,
     related: [3, 45, 78],
     category: "anime"
-}
+    
+   }];
+              
+            
