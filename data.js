@@ -646,7 +646,7 @@ var animes = [{
     category: "anime"
 }, {
     id: 32,
-    title: "Record of Lodoss War (OVA)",
+    title: "Record of Lodoss War",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhhViUktWqdMaH5IAy6mezha9dtNknBVGllR1FuQ4cbZXNTx0oB2iwem4A8b0QgyLizNV-YtiXvGPBW6UNr35a79gF6vWV5KrGVRg631qxTWX0wGsdPmZO34deUfWJ5f4ymaCYtRVlqDpHN6yG33z3qJw9y-SUWs7bf1jrlWRYch24A-fTxYHQVdqOVZ0sQ=w280-h400",
     year: 1990,
     type: "OVA",
@@ -659,7 +659,7 @@ var animes = [{
     plot: "Parn es un joven guerrero que sueña con ser un caballero. Cuando el continente de Lodoss se ve amenazado por las fuerzas del mal, Parn y sus amigos se embarcan en una aventura para salvar su mundo.",
     analysis: "Record of Lodoss War es una de las obras más influyentes del anime de fantasía. Madhouse demostró su maestría en la animación, con personajes inolvidables y una historia épica.",
     forgotten: "Aunque es famosa en el anime de los 90, muchos fans nuevos no la conocen. Su distribución fue limitada fuera de Japón, y hoy es una joya para los amantes de la fantasía.",
-    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQPrWZ_Lbxzkpwz35yEtc0_QFItiT9BKAddekxcER7XojKQCCh_TyXFabTy8mLEz6FiH1F4JCApNJD4IE_m2uICGZ3j7fMeOELetkmI42Q.mp4?_nc_cat=101&_nc_oc=AdqbyHi7FTbOl1sdS0IkuDnnCAQ98ybXydll6zIZn8SpvCwHWHLntxEvurcK3xLasls&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=0rOQR2goAFYQ7kNvwGTAasP&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTM1MjU2MTI1MDM1MDQ4NiwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMjQsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=h9U5Ck6r5aUmb_-pomtfvA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAv3hhD1JfpD8GRMull01O9on9CUCKDnY8LManRUHbKZA&oe=6A672819&bitrate=388270&tag=sve_sd",
+    trailer: "https://www.youtube.com/embed/IRIhBoM-f7Y?si=dzdUNbgO1qQ4AENe",
     saga: null,
     sagaOrder: null,
     related: [14, 21, 22],
@@ -1902,12 +1902,33 @@ var animes = [{
     plot: "La serie se divide en tres temporadas. Las dos primeras (1991-1992) son cortos sin diálogos de 2 a 5 minutos emitidos en Liquid Television de MTV. Æon muere al final de cada corto de forma violenta. La tercera temporada (1995) es de media hora con diálogos, con historias independientes. La trama sigue la guerra fría entre Mónica y Bregna, y la relación de amor-odio entre Æon y Trevor.",
     analysis: "Æon Flux es una obra pionera de la animación experimental para adultos. Creada por Peter Chung, su estilo visual es inconfundible: personajes alargados y angulosos con influencias de Egon Schiele y Moebius. La serie explora temas como el libre albedrío, el poder y la identidad. La banda sonora de Drew Neumann es atmosférica y experimental. Es famosa por su violencia, sexualidad y su protagonista femenina compleja.",
     forgotten: "Æon Flux nació en MTV Estados Unidos como parte del bloque Liquid Television (1991) y luego como serie propia (1995). En Latinoamérica, la serie se hizo conocida gracias a Locomotion, que la emitió repetidamente entre 1998 y 2003 con un doblaje al español hecho exclusivamente para el canal. Nunca tuvo un lanzamiento oficial en VHS o DVD en la región, y con el cierre de Locomotion y el paso del tiempo, la serie cayó en el olvido. La película de 2005 no ayudó y su creador la odia. Hoy es difícil de encontrar en buena calidad y solo sobrevive en la memoria de los que la vieron en su momento, o en oscuros rincones de internet.",
-    trailer: "",
+    trailer: "https://www.youtube.com/embed/7z8pkBod2kY?si=seBcdCJeeYSXgf20",
     saga: null,
     sagaOrder: null,
     related: [3, 45, 78],
     category: "anime"
     
-   }];
+   }
+        {
+    id: 93,
+    title: "Variable Geo",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjXVCPp_8LphmsIC1nEgkahBWjsXr4CAlRzlQ2cRP3GVAQEdvTskoMCItcPIvjCBZMOmYtl7XyBxQh2VT687JgfTASiXBXt2nSAKEK-Wt494liRPyft6Cs8N1bv-Md64tXo8tY5AQK5zOJwLkSL1biTCGfbaTdKMbKsokPNbPgdT9wIm86upM8FfZEbqR29=w267-h400",
+    year: "1996-1997",
+    type: "OVA",
+    duration: "3 episodios (~27 min c/u)",
+    studio: "KSS",
+    director: "Tōru Yoshida",
+    genre: ["Acción", "Artes marciales", "Ecchi"],
+    tags: ["videojuego", "lucha", "ecchi", "culto", "90s", "rareza", "adulto", "camareras"],
+    description: "Yuka Takeuchi es una camarera que entra al torneo Variable Geo para medirse contra luchadoras fuertes. El torneo lo organizan restaurantes familiares como promoción, y las participantes luchan por un premio millonario, pero las perdedoras deben desnudarse. Detrás del torneo, la Corporación Jahana busca un cuerpo huésped para la conciencia de su líder fallecida.",
+    plot: "Yuka Takeuchi trabaja como camarera en el restaurante Hannah Millers. Entra al torneo V.G. para enfrentarse a rivales poderosas. Su amiga de la infancia, Satomi Yajima, también participa, pero la Corporación Jahana la usa para su proyecto 'Black Goddess': quieren transferir la conciencia de su líder fallecida, Miranda Jahana, al cuerpo de Satomi. Yuka descubre la conspiración y lucha por salvar a su amiga. El OVA termina con Yuka y Satomi a punto de pelear, sin resolver quién gana el torneo.",
+    analysis: "La OVA de Variable Geo es una adaptación muy libre del juego de lucha. Los juegos originales eran eroge con penalizaciones de violación pública para las perdedoras. La OVA suaviza eso: las perdedoras solo se desnudan en peleas de Nivel 3 o superior, y en Nivel 1 deben masturbarse para el público. El torneo lo organizan restaurantes, y las participantes son sus camareras, lo que explica los uniformes. La animación es decente, obra de Takahiro Kimura (diseñador de Code Geass y Gaogaigar). El problema es que la historia intenta ser seria pero choca con su origen eroge. El final es un cliffhanger, dejando la pelea final sin resolver.",
+    forgotten: "Variable Geo tuvo cierta distribución en occidente gracias a ADV Films, que la lanzó en VHS y DVD en 1998 y 2003. Pero nunca fue popular. Hoy es una rareza para coleccionistas y fans de juegos de lucha de los 90. En 2004 salió una secuela hentai llamada V.G. Neo The Animation, producida por Milky Studio, que sí recuperó las penalizaciones de violación pública del juego original.",
+    trailer: "https://www.youtube.com/embed/ADMbmMbXuWs?si=dh2altxeve8XsIo3",
+    saga: null,
+    sagaOrder: null,
+    related: [],
+    category: "anime"
+}     ];
               
             
