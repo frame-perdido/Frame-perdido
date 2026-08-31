@@ -1908,7 +1908,7 @@ var animes = [{
     related: [3, 45, 78],
     category: "anime"
     
-   }
+   },
         {
     id: 93,
     title: "Variable Geo",
