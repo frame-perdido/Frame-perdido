@@ -1929,6 +1929,27 @@ var animes = [{
     sagaOrder: null,
     related: [],
     category: "anime"
-}     ];
+}  
+      {
+    id: 94,
+    title: "Yoiko",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgd3NL_Es2Is95EB5GIqXU3SYapC8NYqYUxAwy5P7phlMSrgCXH4jkat7uVu1RTN2CdoRLeGbHYddlo-oBnOILgmatQWZhzXFX5Azd5tla_qo_Kjv1Ni0eqTI0K9xdIGrRgE5mcDAFDLOX_l5Rs7TV16v47JTbwLxmAfm4bQSam-m4rhi6eNFQqaBHELZpV=w328-h400",
+    year: 1998,
+    type: "Serie TV",
+    duration: "20 episodios (~12 min c/u)",
+    studio: "Studio Pierrot",
+    director: "Takahiro Omori",
+    genre: ["Comedia", "Ecchi", "Recuentos de la vida", "Escolares"],
+    tags: ["comedia", "ecchi", "escuela", "culto", "90s", "rareza", "seinen", "estudio-pierrot"],
+    description: "Fūka Esumi es una estudiante de primaria que mide 163 cm y tiene cuerpo de adulta, pero su mentalidad sigue siendo la de una niña. Al mudarse con sus familiares e inscribirse en una nueva escuela, su apariencia provoca todo tipo de malentendidos con profesores, compañeros y adultos que la confunden con una universitaria. Basado en el manga de Yūgo Ishikawa.",
+    plot: "Fūka Esumi tiene el cuerpo y la apariencia de una adulta, pero en realidad es una niña de primaria. Se muda con sus familiares y se inscribe en una escuela local, donde su físico llama la atención de todos. Profesores y estudiantes la confunden con una universitaria, lo que genera situaciones cómicas y malentendidos. Su primo Jirō, con quien comparte habitación, sufre las consecuencias de tener a una niña con cuerpo de adulta en casa. La serie sigue las desventuras de Fūka mientras intenta vivir su vida escolar como una niña normal, pero su apariencia siempre termina causando problemas.",
+    analysis: "Yoiko es una comedia ecchi de culto de los 90, comparada con Golden Boy por su humor absurdo y adulto. Es considerada una de las primeras series de fanservice televisivas, pero a diferencia de otras, sus desnudos y chistes sexuales son más 'inocentes y humorísticos, circunstanciales en lugar de provocativos'. La serie tiene 20 episodios de 12 minutos, un formato poco común para la época. La animación es básica y la comedia es irregular, con críticas que señalan que el ritmo es inconsistente y los personajes planos. Sin embargo, su premisa absurda y su rareza la convierten en una obra de culto para los amantes del anime ochentero-noventero.",
+    forgotten: "Yoiko es una rareza de los 90. Nunca tuvo un lanzamiento oficial en occidente y su distribución fuera de Japón fue nula. Solo los fans del anime de la época y los que buscan rarezas de culto la recuerdan. Aunque es mencionada ocasionalmente como una de las primeras series de fanservice, hoy es prácticamente desconocida para el público general. Su puntuación en MyAnimeList es de 6.08, reflejando su calidad irregular y su naturaleza de nicho.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [45, 81, 4],
+    category: "anime"
+}       ];
               
             
