@@ -1930,7 +1930,7 @@ var animes = [{
     related: [],
     category: "anime"
 },  
-      {
+    {
     id: 94,
     title: "Yoiko",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgd3NL_Es2Is95EB5GIqXU3SYapC8NYqYUxAwy5P7phlMSrgCXH4jkat7uVu1RTN2CdoRLeGbHYddlo-oBnOILgmatQWZhzXFX5Azd5tla_qo_Kjv1Ni0eqTI0K9xdIGrRgE5mcDAFDLOX_l5Rs7TV16v47JTbwLxmAfm4bQSam-m4rhi6eNFQqaBHELZpV=w328-h400",
@@ -1950,6 +1950,6 @@ var animes = [{
     sagaOrder: null,
     related: [45, 81, 4],
     category: "anime"
-}       ];
+},       ];
               
             
