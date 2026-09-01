@@ -755,6 +755,15 @@
             border-color: var(--accent);
             box-shadow: 0 0 12px var(--accent-glow);
         }
+        .filter-btn .count {
+            font-size: 0.6rem;
+            opacity: 0.6;
+            margin-left: 2px;
+        }
+        .filter-btn.active .count {
+            opacity: 1;
+            color: var(--bg);
+        }
 
         /* ============================================================ */
         /* GRID - 2 COLUMNAS EN MÓVIL                                  */
@@ -780,15 +789,18 @@
         }
         .card.hidden { display: none; }
         .card-image {
-            height: 280px;
             position: relative;
             overflow: hidden;
+            aspect-ratio: 2 / 3;
+            width: 100%;
+            background: var(--bg-elevated);
         }
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
+            display: block;
         }
         .card:hover .card-image img { transform: scale(1.06); }
         .card-image::after {
@@ -1051,9 +1063,10 @@
         }
         .modal-image {
             width: 100%;
-            height: 260px;
+            aspect-ratio: 2 / 3;
             object-fit: cover;
             border-radius: 6px 6px 0 0;
+            display: block;
         }
         .modal-content { padding: 24px; }
         .modal-header {
@@ -1168,9 +1181,10 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
         .related-thumb {
-            height: 80px;
             position: relative;
             overflow: hidden;
+            aspect-ratio: 2 / 3;
+            width: 100%;
             background: linear-gradient(135deg, var(--bg-elevated), var(--bg));
         }
         .related-thumb img {
@@ -1178,6 +1192,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s;
+            display: block;
         }
         .related-card:hover .related-thumb img {
             transform: scale(1.08);
@@ -1407,14 +1422,38 @@
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 10px;
             }
-            .card-image { height: 180px; }
+            
+            .card-image {
+                aspect-ratio: 2 / 3;
+            }
+            
+            .card-image img {
+                object-fit: cover;
+            }
+            
             .card-body { padding: 10px; }
-            .card h3 { font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .card h3 { 
+                font-size: 0.75rem; 
+                white-space: nowrap; 
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                line-height: 1.3;
+            }
             .card p { display: none; }
-            .card-tags { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .card-tags::-webkit-scrollbar { height: 0; }
+            .card-tags { 
+                flex-wrap: nowrap; 
+                overflow-x: auto; 
+                -webkit-overflow-scrolling: touch;
+                gap: 3px;
+                padding-bottom: 2px;
+            }
+            .card-tags::-webkit-scrollbar { height: 0; display: none; }
             .card-footer .card-vibes { display: none; }
             .card-footer { padding: 0 10px 10px; }
+            .card-year { font-size: 0.55rem; padding: 2px 6px; }
+            .card-exp-number { font-size: 0.45rem; padding: 1px 4px; }
+            .card-rarity { font-size: 0.45rem; padding: 1px 5px; bottom: 6px; right: 6px; }
+            .card-tag { font-size: 0.5rem; padding: 1px 5px; }
             
             .filters { 
                 flex-wrap: nowrap; 
@@ -1426,12 +1465,36 @@
             .filter-btn { font-size: 0.6rem; padding: 4px 10px; flex-shrink: 0; }
             
             .modal-content { padding: 16px; }
-            .modal-image { height: 180px; }
+            .modal-image {
+                aspect-ratio: 2 / 3;
+                height: auto;
+                max-height: 50vh;
+            }
             .modal-title { font-size: 1.1rem; }
             
-            .related-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .related-thumb { height: 60px; }
-            .related-info h5 { font-size: 0.65rem; }
+            .related-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 8px;
+            }
+            .related-thumb {
+                aspect-ratio: 2 / 3;
+            }
+            .related-card {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            .related-info {
+                padding: 6px 8px 8px;
+                flex: 1;
+            }
+            .related-info h5 { 
+                font-size: 0.65rem; 
+                white-space: nowrap; 
+                overflow: hidden; 
+                text-overflow: ellipsis;
+            }
+            .related-type { font-size: 0.5rem; }
             
             .stats-bar { gap: 20px; padding: 12px 16px; }
             .stat-number { font-size: 1.3rem; }
@@ -1446,22 +1509,28 @@
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.4rem; }
-            .grid { gap: 8px; }
-            .card-image { height: 140px; }
-            .card h3 { font-size: 0.7rem; }
-            .card-body { padding: 8px; }
-            .card-year { font-size: 0.55rem; padding: 2px 6px; }
-            .card-exp-number { font-size: 0.45rem; }
-            .card-rarity { font-size: 0.45rem; padding: 1px 5px; }
-            .card-tag { font-size: 0.5rem; padding: 1px 4px; }
+            .grid { gap: 6px; }
+            .card-body { padding: 6px 8px; }
+            .card-footer { padding: 0 8px 8px; }
+            .card h3 { font-size: 0.65rem; }
+            .card-year { font-size: 0.5rem; padding: 2px 5px; }
+            .card-exp-number { font-size: 0.4rem; padding: 1px 3px; }
+            .card-rarity { font-size: 0.4rem; padding: 1px 4px; bottom: 4px; right: 4px; }
+            .card-tag { font-size: 0.45rem; padding: 1px 4px; }
             .section-title { font-size: 1rem; }
-            .modal-image { height: 140px; }
+            
+            .modal-image { max-height: 40vh; }
             .modal-content { padding: 12px; }
             .modal-title { font-size: 0.95rem; }
-            .related-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-            .related-thumb { height: 50px; }
-            .related-info { padding: 6px 8px; }
-            .related-info h5 { font-size: 0.6rem; }
+            
+            .related-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 6px;
+            }
+            .related-thumb { aspect-ratio: 2 / 3; }
+            .related-info { padding: 4px 6px 6px; }
+            .related-info h5 { font-size: 0.55rem; }
+            .related-type { font-size: 0.45rem; }
         }
 
         /* ============================================================ */
@@ -1696,7 +1765,6 @@
         </a>
         <nav id="mainNav">
             <a href="https://frame-perdido.github.io/Frame-perdido/" class="active">Inicio</a>
-            <!-- CATÁLOGO ELIMINADO -->
             <a href="#etiquetas">Etiquetas</a>
             <a href="#vibes">Vibes</a>
             <a href="#live-action">Live Action</a>
@@ -1833,7 +1901,7 @@
             <div class="featured-image">
                 <img src="" alt="" id="featuredImg" />
                 <span class="year-badge" id="featuredYear">----</span>
-                <span class="rarity-badge">Obra recuperada</span>
+                <span class="rarity-badge" id="featuredRarity">Obra recuperada</span>
             </div>
             <div class="featured-content">
                 <div class="expediente-block">
@@ -1858,7 +1926,6 @@
     <!-- ARCHIVO (antes CATÁLOGO) - SIN TÍTULO VISIBLE                -->
     <!-- ============================================================ -->
     <section class="section" id="archivo">
-        <!-- TÍTULO ELIMINADO -->
         <div class="filters" id="filterContainer">
             <button class="filter-btn active" data-filter="all">Todos</button>
             <button class="filter-btn" data-filter="ova">OVAs</button>
@@ -1993,9 +2060,6 @@
                 <div class="modal-section"><h4>¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
                 <div class="modal-section"><h4>Ficha técnica</h4><ul id="modalTech"></ul></div>
 
-                <!-- ========================================================== -->
-                <!-- BOTÓN BUSCAR DISPONIBILIDAD (CORREGIDO)                    -->
-                <!-- ========================================================== -->
                 <div style="margin: 16px 0;">
                     <button class="btn btn-primary" onclick="buscarDisponibilidad()" style="width:100%;justify-content:center;font-family:'Space Mono',monospace;background:var(--accent);color:#fff;box-shadow:0 4px 20px var(--accent-glow);">
                         📼 Buscar disponibilidad
@@ -2144,6 +2208,79 @@
         });
 
         // ============================================================
+        // NIVELES DE RAREZA
+        // ============================================================
+        const NIVELES_RAREZA = {
+            'Común': '📀 Hallazgo',
+            'Poco común': '🔍 Hallazgo raro',
+            'Raro': '💎 Hallazgo excepcional',
+            'Muy raro': '⭐ Joya perdida',
+            'Único': '🏆 Expediente único'
+        };
+
+        // ============================================================
+        // MANEJADOR DE ERRORES DE IMAGEN
+        // ============================================================
+        function handleImageError(img) {
+            img.style.display = 'none';
+            const parent = img.parentElement;
+            if (parent) {
+                parent.style.background = 'linear-gradient(135deg, var(--bg-elevated), var(--bg))';
+                parent.style.display = 'flex';
+                parent.style.alignItems = 'center';
+                parent.style.justifyContent = 'center';
+                parent.style.color = 'var(--text-dim)';
+                parent.style.fontSize = '0.8rem';
+                parent.style.fontFamily = "'Space Mono', monospace";
+                parent.textContent = '🎬 Sin portada';
+            }
+        }
+
+        // ============================================================
+        // CONTADOR DE ETIQUETAS DINÁMICO
+        // ============================================================
+        function actualizarContadoresEtiquetas() {
+            const obras = animes.filter(a => a.category === "anime");
+            
+            const tipos = { 'OVA': 0, 'Película': 0, 'Serie': 0 };
+            const decadas = { '80s': 0, '90s': 0 };
+            const generos = {};
+            
+            obras.forEach(obra => {
+                if (tipos[obra.type] !== undefined) tipos[obra.type]++;
+                
+                const year = parseInt(obra.year);
+                if (year >= 1980 && year < 1990) decadas['80s']++;
+                if (year >= 1990 && year < 2000) decadas['90s']++;
+                
+                obra.genre.forEach(g => {
+                    const key = g.toLowerCase();
+                    generos[key] = (generos[key] || 0) + 1;
+                });
+            });
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                const filter = btn.dataset.filter;
+                let count = 0;
+                if (filter === 'all') count = obras.length;
+                else if (filter === 'ova') count = tipos['OVA'];
+                else if (filter === 'pelicula') count = tipos['Película'];
+                else if (filter === 'serie') count = tipos['Serie'];
+                else if (filter === '80s') count = decadas['80s'];
+                else if (filter === '90s') count = decadas['90s'];
+                else count = generos[filter] || 0;
+                
+                let span = btn.querySelector('.count');
+                if (!span) {
+                    span = document.createElement('span');
+                    span.className = 'count';
+                    btn.appendChild(span);
+                }
+                span.textContent = ` (${count})`;
+            });
+        }
+
+        // ============================================================
         // FUNCIONES DE UTILIDAD
         // ============================================================
         function getObraById(id) {
@@ -2178,13 +2315,11 @@
         }
 
         // ============================================================
-        // BUSCAR DISPONIBILIDAD (CORREGIDO)
+        // BUSCAR DISPONIBILIDAD
         // ============================================================
         function buscarDisponibilidad() {
             const obra = animes.find(a => a.id === currentModalId);
             if (!obra) return;
-            
-            // Abre watch.html con el ID de la obra
             window.location.href = `watch.html?id=${obra.id}`;
         }
 
@@ -2400,12 +2535,12 @@
                 card.onclick = function() { openModal(obra.id); };
                 
                 const typeClass = obra.type.toLowerCase().replace(' ', '-');
-                const rarity = obra.rarity || 'Hallazgo';
+                const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
                 const expNumber = String(obra.id + 1).padStart(3, '0');
                 
                 card.innerHTML = `
                     <div class="card-image">
-                        <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
                         <span class="card-year">${obra.year}</span>
                         <span class="card-exp-number">#${expNumber}</span>
                         <span class="card-rarity">⚡ ${rarity}</span>
@@ -2558,9 +2693,11 @@
             const obra = obrasPrincipales[dayIndex];
             featuredId = obra.id;
             document.getElementById('featuredImg').src = obra.cover;
+            document.getElementById('featuredImg').onerror = function() { handleImageError(this); };
             document.getElementById('featuredImg').alt = obra.title;
             document.getElementById('featuredYear').textContent = obra.year;
             document.getElementById('featuredExpId').textContent = '#' + String(obra.id + 1).padStart(3, '0');
+            document.getElementById('featuredRarity').textContent = '⚡ ' + (NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo');
             document.getElementById('featuredTitle').textContent = obra.title;
             document.getElementById('featuredMeta').innerHTML =
                 `<span>📅 ${obra.year}</span><span>🎬 ${obra.studio}</span><span>👤 ${obra.director}</span>`;
@@ -2645,13 +2782,14 @@
                 searchGrid.innerHTML = resultados.map(obra => {
                     const typeClass = obra.type.toLowerCase().replace(' ', '-');
                     const expNumber = String(obra.id + 1).padStart(3, '0');
+                    const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
                     return `
                     <div class="card" data-id="${obra.id}" onclick="openModal(${obra.id})">
                         <div class="card-image">
-                            <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                            <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
                             <span class="card-year">${obra.year}</span>
                             <span class="card-exp-number">#${expNumber}</span>
-                            <span class="card-rarity">⚡ ${obra.rarity || 'Hallazgo'}</span>
+                            <span class="card-rarity">⚡ ${rarity}</span>
                         </div>
                         <div class="card-body">
                             <div class="card-tags">
@@ -2762,13 +2900,14 @@
             container.innerHTML = filtrados.map(obra => {
                 const typeClass = obra.type.toLowerCase().replace(' ', '-');
                 const expNumber = String(obra.id + 1).padStart(3, '0');
+                const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
                 return `
                 <div class="card" onclick="openModal(${obra.id})">
                     <div class="card-image">
-                        <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/1a1a25/8a8a9a?text=Sin+portada'">
+                        <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
                         <span class="card-year">${obra.year}</span>
                         <span class="card-exp-number">#${expNumber}</span>
-                        <span class="card-rarity">⚡ ${obra.rarity || 'Hallazgo'}</span>
+                        <span class="card-rarity">⚡ ${rarity}</span>
                     </div>
                     <div class="card-body">
                         <div class="card-tags">
@@ -2827,6 +2966,7 @@
             }
 
             document.getElementById('modalImage').src = obra.cover;
+            document.getElementById('modalImage').onerror = function() { handleImageError(this); };
             document.getElementById('modalImage').alt = obra.title;
             document.getElementById('modalTitle').textContent = obra.title;
             document.getElementById('modalExpId').textContent = '#' + String(obra.id + 1).padStart(3, '0');
@@ -2885,8 +3025,7 @@
                     return `
                     <div class="related-card" onclick="openModalWithScroll(${r.id})">
                         <div class="related-thumb">
-                            <img src="${r.cover}" alt="${r.title}" loading="lazy" 
-                                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, var(--bg-elevated), var(--bg))'">
+                            <img src="${r.cover}" alt="${r.title}" loading="lazy" onerror="handleImageError(this)">
                             <span class="related-year">${r.year}</span>
                         </div>
                         <div class="related-info">
@@ -3138,6 +3277,7 @@
             inicializarSecciones();
             setupTrailerDelDia();
             actualizarHero();
+            actualizarContadoresEtiquetas();
             
             checkUrlForExpediente();
             
