@@ -1,5 +1,5 @@
 // ============================================================
-// BASE DE DATOS - FRAME PERDIDO (VERSIÓN REORDENADA)
+// BASE DE DATOS - FRAME PERDIDO (VERSIÓN CON ORIGEN Y RAREZA)
 // ============================================================
 var animes = [{
     // ============================================================
@@ -24,7 +24,9 @@ var animes = [{
     sagaOrder: 1,
     related: [2, 16, 23],
     next: 2,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 2,
     title: "Barefoot Gen 2",
@@ -45,7 +47,9 @@ var animes = [{
     sagaOrder: 2,
     related: [1, 16, 23],
     prev: 1,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 3,
     title: "Fire and Ice",
@@ -65,7 +69,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [5, 14, 17],
-    category: "anime"
+    category: "anime",
+    origin: "Estados Unidos",
+    rarity: "Raro"
 }, {
     id: 4,
     title: "Angel's Egg",
@@ -85,7 +91,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [16, 18, 24],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
 }, {
     id: 5,
     title: "Megazone 23 Part I",
@@ -106,7 +114,9 @@ var animes = [{
     sagaOrder: 1,
     related: [6, 7],
     next: 6,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
 }, {
     id: 6,
     title: "Megazone 23 Part II",
@@ -128,7 +138,9 @@ var animes = [{
     related: [5, 7],
     prev: 5,
     next: 7,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
 }, {
     id: 7,
     title: "Megazone 23 Part III",
@@ -149,7 +161,9 @@ var animes = [{
     sagaOrder: 3,
     related: [5, 6],
     prev: 6,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
 }, {
     id: 8,
     title: "Arion",
@@ -169,7 +183,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 21, 24],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 9,
     title: "Call Me Tonight",
@@ -189,7 +205,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [21, 16, 4],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 10,
     title: "Guyver: Out of Control",
@@ -210,7 +228,9 @@ var animes = [{
     sagaOrder: 1,
     related: [11, 23, 25],
     next: 11,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 11,
     title: "The Guyver: Bio-Booster Armor",
@@ -231,7 +251,9 @@ var animes = [{
     sagaOrder: 2,
     related: [10, 23, 25],
     prev: 10,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 12,
     title: "Hell Target",
@@ -251,7 +273,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [5, 6, 8],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 13,
     title: "MD Geist",
@@ -272,7 +296,9 @@ var animes = [{
     sagaOrder: 1,
     related: [14, 12, 20],
     next: 14,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 14,
     title: "MD Geist 2: Death Force",
@@ -293,7 +319,9 @@ var animes = [{
     sagaOrder: 2,
     related: [13, 12, 20],
     prev: 13,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 15,
     title: "Project A-Ko",
@@ -314,7 +342,9 @@ var animes = [{
     sagaOrder: 1,
     related: [16, 17, 18, 19, 13, 30],
     next: 16,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 16,
     title: "Project A-Ko 2: Plot of the Daitokuji Financial Group",
@@ -336,7 +366,9 @@ var animes = [{
     related: [15, 17, 18, 19, 13, 30],
     prev: 15,
     next: 17,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 17,
     title: "Project A-Ko 3: Cinderella Rhapsody",
@@ -358,7 +390,9 @@ var animes = [{
     related: [15, 16, 18, 19, 13, 30],
     prev: 16,
     next: 18,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 18,
     title: "Project A-Ko 4: Final",
@@ -380,7 +414,9 @@ var animes = [{
     related: [15, 16, 17, 19, 13, 30],
     prev: 17,
     next: 19,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 19,
     title: "Project A-Ko: Uncivil Wars (Vs)",
@@ -401,7 +437,9 @@ var animes = [{
     sagaOrder: 5,
     related: [15, 16, 17, 18, 13, 30],
     prev: 18,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 20,
     title: "Roots Search",
@@ -421,7 +459,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [5, 11, 7],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 21,
     title: "Windaria",
@@ -441,7 +481,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [1, 14, 24],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 22,
     title: "Black Magic M-66",
@@ -461,7 +503,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [17, 19, 25],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 23,
     title: "Battle Royal High School",
@@ -481,7 +525,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [10, 12, 14],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 24,
     title: "Lily C.A.T.",
@@ -501,7 +547,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [8, 11, 3],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 25,
     title: "Crying Freeman",
@@ -521,7 +569,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 17, 8],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 26,
     title: "Dragon's Heaven",
@@ -541,7 +591,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [22, 24, 21],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
 }, {
     id: 27,
     title: "Blood Reign: Curse of the Yoma",
@@ -561,7 +613,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [8, 10, 15, 20],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 28,
     title: "Riki-Oh: The Wall of Hell",
@@ -582,7 +636,9 @@ var animes = [{
     sagaOrder: 1,
     related: [29, 8, 10, 12],
     next: 29,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 29,
     title: "Riki-Oh 2 Child of Destruction",
@@ -603,7 +659,9 @@ var animes = [{
     sagaOrder: 2,
     related: [28, 8, 10, 12],
     prev: 28,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 30,
     title: "Nineteen 19",
@@ -623,7 +681,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [21, 16],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 31,
     title: "A.D. Police Files",
@@ -643,7 +703,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 17, 25],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 32,
     title: "Record of Lodoss War",
@@ -663,7 +725,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 21, 22],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 33,
     title: "The Curse of Kazuo Umezu",
@@ -683,7 +747,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [7, 9, 11],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 34,
     title: "Dark Cat",
@@ -703,7 +769,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 9, 11],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 35,
     title: "Roujin Z",
@@ -723,7 +791,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 18, 24],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 36,
     title: "3x3 Eyes (Sazan Eyes)",
@@ -744,7 +814,9 @@ var animes = [{
     sagaOrder: 1,
     related: [14, 17, 23],
     next: 37,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 37,
     title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
@@ -765,7 +837,9 @@ var animes = [{
     sagaOrder: 2,
     related: [14, 17, 23],
     prev: 36,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 38,
     title: "Midori: La Niña de las Camelias",
@@ -785,7 +859,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [10, 9],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
 }, {
     id: 39,
     title: "Fatal Fury: Legend of the Hungry Wolf",
@@ -806,7 +882,9 @@ var animes = [{
     sagaOrder: 1,
     related: [8, 10],
     next: 40,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 40,
     title: "Fatal Fury 2: The New Battle",
@@ -828,7 +906,9 @@ var animes = [{
     related: [8, 10],
     prev: 39,
     next: 41,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 41,
     title: "Fatal Fury: The Motion Picture",
@@ -849,7 +929,9 @@ var animes = [{
     sagaOrder: 3,
     related: [8, 10],
     prev: 40,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 42,
     title: "Video Girl Ai",
@@ -869,7 +951,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 16, 21],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 43,
     title: "Big Wars",
@@ -889,7 +973,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [5, 19, 20],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 44,
     title: "Onikirimaru (Ogre Slayer)",
@@ -909,7 +995,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [10, 12, 17],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 45,
     title: "Plastic Little",
@@ -929,7 +1017,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [5, 20, 21],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
 }, {
     id: 46,
     title: "Armitage III",
@@ -949,7 +1039,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 25, 17],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 47,
     title: "Golden Boy",
@@ -969,7 +1061,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 19, 21],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 48,
     title: "The Vision of Escaflowne",
@@ -990,7 +1084,9 @@ var animes = [{
     sagaOrder: 1,
     related: [17, 14, 24],
     next: 49,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 49,
     title: "Escaflowne (Película)",
@@ -1011,7 +1107,9 @@ var animes = [{
     sagaOrder: 2,
     related: [14, 17, 48],
     prev: 48,
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 50,
     title: "Ninja Resurrection",
@@ -1031,7 +1129,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [8, 12, 13],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 51,
     title: "The Big O",
@@ -1051,7 +1151,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [17, 19, 20],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
 }, {
     id: 52,
     title: "Malice@Doll",
@@ -1071,7 +1173,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 17, 25],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 53,
     title: "Parasite Dolls",
@@ -1089,7 +1193,9 @@ var animes = [{
     forgotten: "A pesar de ser un spin-off interesante, Parasite Dolls quedó eclipsado por la propia franquicia de Bubblegum Crisis. Su estreno limitado lo convirtió en una rareza.",
     trailer: "",
     related: [23, 28, 17],
-    category: "anime"
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 54,
     title: "Paprika",
@@ -1109,10 +1215,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 17, 24],
-    category: "anime"
-},
-
-{
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
+}, {
     id: 55,
     title: "Riki-Oh: The Story of Ricky",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh4fgc9IC7Bw546by6ZDeE46s05d4xpegdnBDs51QBL7YeRLGfYB5sFKDJUxcswTt2zN_ZB2W40eiKw4Cfg9s8WEBBQJCinFlhMla4sKSHEmUQUlMDfAVq4JS4A-4t_m6sSgUzFH2sway0mOAYu6aa2jo5pXUbCqysRIN9V1sjTE_el5B9TbtFOffqpGAaS=w277-h400",
@@ -1131,7 +1237,9 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [15, 19, 12],
-    category: "live-action"
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 56,
     title: "Mutronics (The Guyver)",
@@ -1151,7 +1259,9 @@ var animes = [{
     saga: "The Guyver",
     sagaOrder: 1,
     related: [38, 33, 10],
-    category: "live-action"
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 57,
     title: "Guyver: Dark Hero",
@@ -1171,7 +1281,9 @@ var animes = [{
     saga: "The Guyver",
     sagaOrder: 2,
     related: [46, 38, 33],
-    category: "live-action"
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Raro"
 }, {
     id: 58,
     title: "Midori: La Niña de las Camelias (Live Action)",
@@ -1191,10 +1303,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 13, 11],
-    category: "live-action"
-},
- 
-{
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Muy raro"
+}, {
     id: 59,
     title: "Riding Bean",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEidHKFYyOH7xIS_PYn6zz97gB45hlTPnp3TIgFHUnmRxLi3GDfvA3oJCHIKpymFnReb7v81usGXVURudAAsrtfisR37ioei4wEeCFDhBoCFfedGjC_sPHh4j1bLa6nkDOWVh6dHINJ6vb5Ox4V1GymDKgtMZb8Fz2xbvjp9xnoB77nYWMMufz5ze3ZDEECI=w400-h400",
@@ -1205,18 +1317,19 @@ var animes = [{
     director: "Kenichi Sonoda / Yasuo Hasegawa / Yoshikazu Miura",
     genre: ["Acción", "Comedia", "Crimen", "Persecuciones"],
     tags: ["acción", "comedia", "crimen", "autos", "clásico", "80s", "culto", "roadbuster", "getaway-driver"],
-    description: "Bean Bandit, el mejor conductor de fugas de Chicago, es un 'mensajero' que transporta cualquier cosa por el precio adecuado. En un encargo para llevar a una niña secuestrada a casa, él y su socia Rally Vincent son incriminados por el rapto. Ahora, mientras los verdaderos criminales cobran el rescate, Bean debe abrirse paso a tiros y a toda velocidad por la ciudad para limpiar su nombre. Un OVA de culto que es una carta de amor a las películas de acción y persecuciones de los 80 [citation:2][citation:4].",
-    plot: "Bean Bandit y su socia, la armera Rally Vincent, son los mejores 'mensajeros' de la ciudad de Chicago. Tras un encargo rutinario, reciben una misión de rescate: llevar a Chelsea Grimwood, la hija de un millonario, de vuelta a casa con su padre. Lo que no saben es que es una trampa. Son incriminados por el secuestro de la niña y puestos en la mira de la policía, liderada por el obsesivo Inspector Percy. Mientras tanto, los verdaderos culpables, Semmerling y su joven cómplice Carrie, intentan cobrar el rescate y huir. Bean, sin embargo, no es alguien a quien se pueda engañar. Con su coche personalizado, el 'Roadbuster', y su determinación inquebrantable, Bean y Rally se lanzan a una persecución a través de Chicago para atrapar a los responsables, salvar a la niña y demostrar que nadie se burla del 'Road Buster' [citation:2][citation:4][citation:6].",
-    analysis: "Riding Bean es un OVA que destila la esencia del cine de acción estadounidense de los 80, que es precisamente lo que su creador, Kenichi Sonoda, buscaba homenajear [citation:1]. Es una obra que no se toma demasiado en serio a sí misma, pero que mantiene un ritmo frenético de principio a fin [citation:6]. La animación dibujada a mano es de una calidad sobresaliente para su época, y la banda sonora, compuesta en EE. UU., encaja perfectamente con la ambientación callejera de Chicago [citation:1]. El personaje de Bean es un antihéroe carismático, una mezcla entre un Terminator y un Lupin III, un 'duro' con un corazón de oro que lo convierte en un personaje inolvidable [citation:4].",
-    forgotten: "A pesar de su calidad, Riding Bean quedó como un OVA de un solo episodio. La historia de su creación es particular: Sonoda creó el manga para que fuera adaptado, pero debido a su naturaleza como 'one-shot', la serie se canceló [citation:6]. Este hecho llevó a Sonoda a crear su obra más famosa, *Gunsmith Cats*, que comparte personajes con este universo. Por ello, Riding Bean se convirtió en una rareza, un objeto de culto para los amantes del anime de los 80 y los que buscan una obra que captura la esencia de la acción sin concesiones.",
+    description: "Bean Bandit, el mejor conductor de fugas de Chicago, es un 'mensajero' que transporta cualquier cosa por el precio adecuado. En un encargo para llevar a una niña secuestrada a casa, él y su socia Rally Vincent son incriminados por el rapto. Ahora, mientras los verdaderos criminales cobran el rescate, Bean debe abrirse paso a tiros y a toda velocidad por la ciudad para limpiar su nombre. Un OVA de culto que es una carta de amor a las películas de acción y persecuciones de los 80.",
+    plot: "Bean Bandit y su socia, la armera Rally Vincent, son los mejores 'mensajeros' de la ciudad de Chicago. Tras un encargo rutinario, reciben una misión de rescate: llevar a Chelsea Grimwood, la hija de un millonario, de vuelta a casa con su padre. Lo que no saben es que es una trampa. Son incriminados por el secuestro de la niña y puestos en la mira de la policía, liderada por el obsesivo Inspector Percy. Mientras tanto, los verdaderos culpables, Semmerling y su joven cómplice Carrie, intentan cobrar el rescate y huir. Bean, sin embargo, no es alguien a quien se pueda engañar. Con su coche personalizado, el 'Roadbuster', y su determinación inquebrantable, Bean y Rally se lanzan a una persecución a través de Chicago para atrapar a los responsables, salvar a la niña y demostrar que nadie se burla del 'Road Buster'.",
+    analysis: "Riding Bean es un OVA que destila la esencia del cine de acción estadounidense de los 80, que es precisamente lo que su creador, Kenichi Sonoda, buscaba homenajear. Es una obra que no se toma demasiado en serio a sí misma, pero que mantiene un ritmo frenético de principio a fin. La animación dibujada a mano es de una calidad sobresaliente para su época, y la banda sonora, compuesta en EE. UU., encaja perfectamente con la ambientación callejera de Chicago. El personaje de Bean es un antihéroe carismático, una mezcla entre un Terminator y un Lupin III, un 'duro' con un corazón de oro que lo convierte en un personaje inolvidable.",
+    forgotten: "A pesar de su calidad, Riding Bean quedó como un OVA de un solo episodio. La historia de su creación es particular: Sonoda creó el manga para que fuera adaptado, pero debido a su naturaleza como 'one-shot', la serie se canceló. Este hecho llevó a Sonoda a crear su obra más famosa, *Gunsmith Cats*, que comparte personajes con este universo. Por ello, Riding Bean se convirtió en una rareza, un objeto de culto para los amantes del anime de los 80 y los que buscan una obra que captura la esencia de la acción sin concesiones.",
     trailer: "https://www.youtube.com/embed/IyoUhF039nM?si=ceryZA6DRG8uwPzh",
     saga: null,
     sagaOrder: null,
-    related: [28, 29, 46], 
-    category: "anime"
-},
-             {
-    id: 60, 
+    related: [28, 29, 46],
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
+    id: 60,
     title: "Gedou Gakuen (Nightmare Campus)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhSTuEs6nQIF16VN1keyu_TARlC_2abCGKC_h9yM19Eenn9PHVqgLm5b7bURSCeOHZNROQSoj_lE_7ZXrfWDDKYjKwilzJ9ubzgjwLaA64RsEwqBNT_BYc163ISG_kk-icoM2SxyCkohIZK4AUzi_ctVYBVvtsXJ4C-XA7kTvAS_PQchjj9KswRpPGoEyKZ=w282-h400",
     year: "1994-1996",
@@ -1227,16 +1340,17 @@ var animes = [{
     genre: ["Fantasía oscura", "Terror", "Sobrenatural", "Apocalíptico", "Acción"],
     tags: ["adulto", "fantasía", "terror", "demonios", "culto", "90s", "apocalíptico", "horror", "sobrenatural"],
     description: "Un joven estudiante, Masao Sera, es poseído por el Rey del Inframundo durante una expedición arqueológica al Himalaya. A su regreso al instituto Motomichi, una guerra apocalíptica entre demonios y deidades comienza a gestarse en el campus, mientras las pandillas de estudiantes desarrollan poderes sobrenaturales y apetitos infernales.",
-    plot: "Durante una expedición a un templo prohibido en el Himalaya, el joven Masao Sera presencia un ritual de sacrificio diseñado para abrir las Puertas del Infierno [citation:1][citation:5]. A su regreso al instituto, una oscura fuerza se ha apoderado del campus. Las pandillas estudiantiles se enfrentan en una espiral de violencia y violaciones, y algunas de ellas comienzan a desarrollar poderes sobrenaturales y apetitos demoníacos [citation:1][citation:3]. El conflicto entre facciones demoníacas amenaza con desencadenar el Armagedón, especialmente cuando Masao regresa con el Rey del Inframundo ligado a su alma mortal [citation:1][citation:8]. La serie explora el ascenso al poder de Masao mientras lucha por controlar el demonio que habita en su interior, y la batalla entre demonios y los discípulos de los dioses que buscan detenerlos [citation:7][citation:8].",
-    analysis: "Gedou Gakuen es una obra que, al igual que 'Urotsukidoji', mezcla horror, fantasía y violencia extrema con una trama apocalíptica, pero con un trasfondo de crítica social a través de la alegoría del fascismo y la religión organizada [citation:7]. Aunque la calidad de la animación decrece en sus episodios finales, la serie logra construir un mundo y una premisa absorbente que la distinguen dentro del género [citation:7]. Es una rareza que los amantes del terror y la fantasía oscura de los 90 recordarán, aunque su contenido extremo limitó su distribución.",
+    plot: "Durante una expedición a un templo prohibido en el Himalaya, el joven Masao Sera presencia un ritual de sacrificio diseñado para abrir las Puertas del Infierno. A su regreso al instituto, una oscura fuerza se ha apoderado del campus. Las pandillas estudiantiles se enfrentan en una espiral de violencia y violaciones, y algunas de ellas comienzan a desarrollar poderes sobrenaturales y apetitos demoníacos. El conflicto entre facciones demoníacas amenaza con desencadenar el Armagedón, especialmente cuando Masao regresa con el Rey del Inframundo ligado a su alma mortal. La serie explora el ascenso al poder de Masao mientras lucha por controlar el demonio que habita en su interior, y la batalla entre demonios y los discípulos de los dioses que buscan detenerlos.",
+    analysis: "Gedou Gakuen es una obra que, al igual que 'Urotsukidoji', mezcla horror, fantasía y violencia extrema con una trama apocalíptica, pero con un trasfondo de crítica social a través de la alegoría del fascismo y la religión organizada. Aunque la calidad de la animación decrece en sus episodios finales, la serie logra construir un mundo y una premisa absorbente que la distinguen dentro del género. Es una rareza que los amantes del terror y la fantasía oscura de los 90 recordarán, aunque su contenido extremo limitó su distribución.",
     forgotten: "A pesar de ser una de las OVAs más conocidas del género 'erotic horror' de los 90, su distribución fue limitada y hoy es una rareza. Su temática de violencia y sexo explícito la han mantenido como una obra de culto, eclipsada en popularidad por otras series del mismo creador del manga original, Toshio Maeda.",
     trailer: "",
     saga: null,
     sagaOrder: null,
     related: [9, 11, 13],
-    category: "adulto"
-},
- {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 61,
     title: "Reyon Densetsu Flair (The Legend of Lyon)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhWSEAqCxRUjf8LTikVxg160iFDpfPwAvWMve5aDXUTPGl3Wy1ETL5_nddjXxQmkaOVp5ONAM-uwq3XMAistHcfI8fG-vtohrIj6twXuiTItGuTSa-Fwfi88oeHSNilP-1_L8qRZk6X4E1c5VyU9swp7GBv5jmAT9a0s_2Zhog3ei6KyW5Q0ZOnaCuSE3Sl=w310-h400",
@@ -1248,16 +1362,17 @@ var animes = [{
     genre: ["Fantasía oscura", "Acción", "Ciencia ficción", "Apocalíptico"],
     tags: ["adulto", "fantasía", "acción", "ciencia-ficción", "alienígenas", "culto", "80s", "90s", "tentáculos"],
     description: "Una invasión alienígena asola el pacífico mundo de Lyon, donde una raza de seres blindados siembra el caos y la lujuria. La princesa Flair, la espadachina Neris y el príncipe Zeke son la única esperanza contra el sádico Glode. Un OVA de culto que combina fantasía, ciencia ficción y violencia extrema con el inconfundible estilo de Toshiki Hirano.",
-    plot: "Una raza de alienígenas blindados y sádicos invade el pacífico reino de Lyon, masacrando a su población y sometiendo a sus mujeres a todo tipo de vejaciones . Mientras el príncipe Zeke lucha por salvar a su pueblo, la princesa Flair y la espadachina Neris son capturadas y violadas repetidamente . En el segundo episodio, el bosque de Lyon es poseído por una fuerza malévola que devora a todo aquel que se adentra en él. Cuando la Dama Neris y su hermano Eo desaparecen durante una investigación, Flair debe descubrir qué nuevo mal acecha en el corazón de Lyon [citation:1][citation:9]. La historia es un mero pretexto para justificar escenas de violencia y violaciones, pero destaca por sus diseños sensuales y su atmósfera oscura [citation:10].",
-    analysis: "Reyon Densetsu Flair es una de las OVAs históricas del género erótico de los 80, producida en la época dorada de las OVAs [citation:10]. Es conocida por sus diseños de personajes sensuales del legendario Toshiki Hirano (Fight! Iczer-1, Dangaioh) y por su combinación de fantasía, ciencia ficción y violencia extrema [citation:1][citation:10]. Se discute si fue la primera en mostrar los famosos 'violaciones tentaculares' en animación [citation:10]. Su argumento es confuso y la caracterización de los personajes es pobre, pero su estética y su lugar en la historia del anime la convierten en una obra de culto para los amantes del género adulto y la animación ochentera.",
+    plot: "Una raza de alienígenas blindados y sádicos invade el pacífico reino de Lyon, masacrando a su población y sometiendo a sus mujeres a todo tipo de vejaciones. Mientras el príncipe Zeke lucha por salvar a su pueblo, la princesa Flair y la espadachina Neris son capturadas y violadas repetidamente. En el segundo episodio, el bosque de Lyon es poseído por una fuerza malévola que devora a todo aquel que se adentra en él. Cuando la Dama Neris y su hermano Eo desaparecen durante una investigación, Flair debe descubrir qué nuevo mal acecha en el corazón de Lyon. La historia es un mero pretexto para justificar escenas de violencia y violaciones, pero destaca por sus diseños sensuales y su atmósfera oscura.",
+    analysis: "Reyon Densetsu Flair es una de las OVAs históricas del género erótico de los 80, producida en la época dorada de las OVAs. Es conocida por sus diseños de personajes sensuales del legendario Toshiki Hirano (Fight! Iczer-1, Dangaioh) y por su combinación de fantasía, ciencia ficción y violencia extrema. Se discute si fue la primera en mostrar los famosos 'violaciones tentaculares' en animación. Su argumento es confuso y la caracterización de los personajes es pobre, pero su estética y su lugar en la historia del anime la convierten en una obra de culto para los amantes del género adulto y la animación ochentera.",
     forgotten: "A pesar de su notoriedad en su época, Reyon Densetsu Flair es hoy una rareza. Su distribución fue limitada y su contenido extremo la mantuvo fuera del circuito mainstream. Su importancia histórica y sus diseños de Hirano la han convertido en una pieza de colección para los entendidos, pero el público general la ha olvidado.",
     trailer: "",
     saga: "Reyon Densetsu",
     sagaOrder: 1,
     related: [9, 11, 13],
-    category: "adulto"
-},
-        {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 62,
     title: "Ichi the Killer: Episode 0",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgiS5JCcSJo5Br9CahDhaT_MDb2dIuVnt_-S8yTfE3vMPTU19-R9aja1jBcZVylw0qQ4FB3hHIkzw3Uhk8Rx4CC2DqFnDbT3LdNo209n0ggquCIA8OTxWrrhv7n1BG5FM2uiMIsf9fzTJmZUFxhzP5wDq6ziBeLHtMgPGcSGsT8nzHkDdBrslgZgW4fA9jk=w288-h400",
@@ -1276,9 +1391,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 11, 13],
-    category: "adulto"
-},
-    {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 63,
     title: "Ichi the Killer (Película)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiYnr8e55nzwdz_4E72Gig6DNLeJk-bew2kKt-UVPz_Zl7_0-ghju9eFgbHVXIYr4p-Rn5RQhl7GBP3Ds8gmm5PgUwHutWvoKQo1Hf66uhGfIRs2ERow3ciSfQoYnziqXM2H2fb10yDENFVGuArU8AGnJPHzfUGtgWDImC17Pr_Ltu9GRR24qtqU5tULLgv=w267-h400",
@@ -1297,9 +1413,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [65, 9, 11, 13],
-    category: "live-action"
-},
-      {
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 64,
     title: "Cat Soup (Nekojiru-sou)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiLIG-25wqw5gPmSpigGKIm6pfx7Cag45Uvsawyog41kYJlXJ3TYk4AMDyD9YOJsDQMuk-wTiH7rucwY4qs-p3eGJzht-N53H4M3nNIpbicoZQATS7YH-vM4dxpKMhN3JC7Whx-133PX7aTHwRQbbOmjKJaAJ6_xb29DSJwQZy1KRRuYp5quR7fdri6RuHb=w300-h400",
@@ -1318,9 +1435,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 18, 38],
-    category: "anime"
-}, 
-     {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
+}, {
     id: 65,
     title: "Kite",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhL3xYeHRwtEZOokAgcV6DCVMcmh8wCyqIuYGX8f8UU_mJoOcT0hDiFMtZ6CMYscCT50K9pof7EjMRdoDEl5_mhRvuXd_ouhk1IwRSRdU-nNMCZiaVs3ZizYbnZXD7cqplOaHTeFOguFmVi_6_U9YU55vXT_FCHog0nH555Hae0-0Lu9JX7nNoqRYBPqoTZ",
@@ -1339,9 +1457,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [69, 70],
-    category: "adulto"
-},
-       {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 66,
     title: "Kite Liberator",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhPEUbk0jVr42WNmsYxtGAor7Qie2Ocqze4drzdC44J39GM7Ibj7zGx5aWIzMZb1XSHSbCMMjyPNRiZ4Q1WZuCiWMpP8ncXW8BGbsmQkwqo2H6K9wM9yaSbRV3aZ4x_LkNHvl7hWqJVEfNnFvir5frxqYRePHbpCJwS4z_yhi4ITlzsdnFnQDWx8WCyH5My=w280-h400",
@@ -1360,9 +1479,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [68, 69],
-    category: "anime"
-},
-     {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 67,
     title: "Mezzo Forte",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjnr1_hl4CluwB8rcx7tn1voXK-Bgg6t3pXQWFq3Dp0IcH9BElJsZpKU3Vqytej-DQU1gacCqsxizwKJzZLHBbZESY-adP8RNWhPyclawcr5dz0aUNrJx05f-EBaYkNTUmkDNRq33g2hpNi1Wf7fttic6Ne69-ndfqbAMZJrTVHcnoUI84B_OmNi1e2qPR2=w282-h400",
@@ -1381,9 +1501,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [68, 70],
-    category: "adulto"
-},
-{
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 68,
     title: "Mezzo DSA",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEj7iR38brRVorbyZA8hB_9_Ue63PdfmAAs0tX4kjM0QR-3KTYZBQ-l-5VFsbQmnby3Iv4fdMBV_dYHZjJ8gjwTrmzufMaGEynLc9e_cYLZe_t3nTTnfv3aNDrR9csct4q18AacncOEK98SMv9LV7nPgzZ9tkMxbOWIMu4zed2pifOxFPEhKJwv06dqultzn=w267-h400",
@@ -1402,9 +1523,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [69, 68],
-    category: "anime"
-},
-     {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 69,
     title: "Ayakashi: Japanese Classic Horror",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgt5GzmdDjXd5_orQ1fpf2sfYqYMjoAyiqZPoeHDgTJ0fJCpL_Ov-GemMFLQRAXwZnrKu98GOyX5AAvGDoWiN30pXZLJ259I65cRBq7XEmJusCbZ7bWwvng0fJGM-rKlSxQhWCACLIp4FG4HwA5X2gSsTt_wbrgmxHesEBXd0gRMta7J-NgV16Eyt7-yGC6=w317-h400",
@@ -1423,10 +1545,11 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 18, 38],
-    category: "anime"
-},
-     {
-    id: 70, 
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
+}, {
+    id: 70,
     title: "Kage (Hyper Shinobi Animation: Shadow)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjafUB3_nfh12M6l4hKzsTlt1oMMmsL5SYOqhHhXnMayUAKzw5t1ZkEASIEZ-N03mKSC1J-quCdjloQz4OJbUhpraH2OWeIaVUrErKGrNEVByboOpUtCBKMDGYfanaBuWdT5Rseh-Cn0oqLKMc-_HMQRz_VvqB_m3UwW0pC2-M8RgpXFmnYwBvLPmcriOMf=w275-h400",
     year: 2004,
@@ -1444,9 +1567,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [68, 69, 9],
-    category: "adulto"
-},
-      {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 71,
     title: "Key the Metal Idol",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiMmKke7FAwq1F0UCpayRJKT-e83SgUIP5eGJDPgff9V2FZYdUGcpsUxA8bnprbqbBi7TBTxFS6cVh4ysv2jH1PUeOV3f-0sO1Y2H8gbfVGdBEphWmyV_nTu59U5rjExE5GZcmaTRuAYt6s_PF6_fthLIcZuTJow6QpeD_RxOSRQPalPbtYxuQYN-mKTPHa=w282-h400",
@@ -1465,9 +1589,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 18, 38],
-    category: "anime"
-},
-            {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 72,
     title: "Lady Snowblood",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhpYn9mOS8dC1kh6JyTNT0EzcQvrTD4yxN5WWv6KDqtGG-w7cjQddFwHIUBobBxDjszp0udl1kzd8Ig8hKCiWumjS6Vw7pApgTjvLauTtVNOqrqdpq6QzcrGzwHkkAwh4oPLFl_d7pzJxNKI8OFVG-k5zYeY9lHkEDrtY-yGss1LmswFAtg-3ZJxqTMS9BF=w270-h400",
@@ -1486,9 +1611,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [46, 48, 49],
-    category: "live-action"
-},
-{
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 73,
     title: "Mushishi (Película)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjngCsMi6jU5tph6qk3cK6UcbE1G6ztHQj-9etLPQr-UZGbf0EH8_nLtjhtN9wWwI2fb4dhnx9-6S6nh_rCm1cDnHtSptuxVWRLvArWLqbM6j7u9j_hT454eX8IuVCLFofWFnOuPDD51qq9aEaAslO_BR_o-6n2hpZ8n_nQRzc7a-5uwLeqvZagVTS0Fd_x=w278-h400",
@@ -1507,9 +1633,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 18, 38],
-    category: "live-action"
-},
-{
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Poco común"
+}, {
     id: 74,
     title: "La Tumba de las Luciérnagas (Live Action 2005)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgvm1cK4BH_56UFJZ7jg-tnC57N0y6bQ0ovETgdcxqhVT0Pzo2jBc0iTBcA6inblp_rT19uneNTYm2N5pHAif-WeKh9-5HpUfGo3cd2f_Sv7V4sinlfMwZOY82mIvQzLpnlK_clsLKYjSguhKnnoojgLNTkPmcjt5LFIsFIsU4OGSwlrjSPg6lgauFF1EUl=w267-h400",
@@ -1528,9 +1655,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [1, 2, 8],
-    category: "live-action"
-},
-{
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Poco común"
+}, {
     id: 75,
     title: "Azumi",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjx0WnT4ZTma7q8GmhSqJLa7g9Z3hiwM9Z_-fq29knMS4oj36hPQqScaAjSt72ekDuFhJQf8n0RW98qbc6ADucIpEPQUFqeDRSg6W8_M0dIOxeW9FwYq-oHMrGqjfp6XZ9-YGzZiu2Gy_RLp4ni8M4duavmvrjpftU_Rj0iJGUDcy_zXCo43f9S7I5Gy0eQ=w267-h400",
@@ -1549,9 +1677,10 @@ var animes = [{
     saga: "Azumi",
     sagaOrder: 1,
     related: [80, 75, 76],
-    category: "live-action"
-},
-{
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Poco común"
+}, {
     id: 76,
     title: "Azumi 2: Death or Love",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiUPtITSZ6fmTbJFzPYa_Zuh0n0vVWjFlxdw3iYqZNDL6T8pdCyxvG3Zdzqe0cu6MeGO-6umb3i71SfJdRK9_HPw7U8qyN74IveNu4JeOzbKxq3_GOncwaAzTlyF61bKhlLAhKVDR77SIapO5EORjwF_jWvb2T54pGprlxvqXmIG-HXEaxadiU1Vqm31_oG=w277-h400",
@@ -1570,9 +1699,10 @@ var animes = [{
     saga: "Azumi",
     sagaOrder: 2,
     related: [79, 75, 76],
-    category: "live-action"
-},
-              {
+    category: "live-action",
+    origin: "Japón",
+    rarity: "Poco común"
+}, {
     id: 77,
     title: "Hanappe Bazooka",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgElCTpiU7szR7YGhOGM7Xgzq3TMVXwZcgRE-rnNuJs34o2JnCAsyA7FvRbnVU2uxeCscHi5Cw0J7lLELF5EcFQzvXJ5ybGei4IQUOsiZ1soUiH0vaoJ2wkb6RzjVBzusTLkTc8Ym2Jr1OUaQXPUhyTwF-ChK-LIjGRpAY7HC9VTpjcJi2qocXxjebCMzOu=w283-h400",
@@ -1585,15 +1715,16 @@ var animes = [{
     tags: ["adulto", "comedia", "ecchi", "surrealista", "culto", "80s", "go-nagai", "kazuo-koike"],
     description: "Hanappe, un estudiante pervertido, recibe el poder de disparar un rayo o volver locas de deseo a las mujeres con su dedo índice. Dos demonios se instalan en su casa, convirtiéndola en un burdel demoníaco. Un OVA de culto de Go Nagai y Kazuo Koike, que mezcla humor absurdo, erotismo y un final sorprendentemente trascendental.",
     plot: "Hanappe Yamada es un adolescente patético y obsesionado con el sexo. Dos demonios, Dance Mephisto y Bazooka Ophisto, aparecen en su televisor y le conceden un poder: disparar un rayo o controlar la mente de las mujeres. Pero hay una trampa: su casa se convierte en el punto de encuentro de los demonios. A medida que la situación se vuelve más caótica, Hanappe se enfrenta a las consecuencias de sus deseos y a una conspiración demoníaca. El OVA culmina con un viaje espacial y un encuentro con una deidad hindú, donde Hanappe debe enfrentar su propia identidad.",
-    analysis: "Hanappe Bazooka es el resultado de la colaboración entre Go Nagai y Kazuo Koike, dos titanes del manga. Es una obra que parodia Urusei Yatsura, pero con un humor mucho más vulgar y extremo [citation:9]. Aunque su contenido explícito la sitúa cerca del hentai, el OVA sorprende por su final surrealista y sus reflexiones sobre la identidad y el libre albedrío [citation:1][citation:10]. La animación es de la época, y el OVA destaca por su atmósfera única y su estilo provocador.",
+    analysis: "Hanappe Bazooka es el resultado de la colaboración entre Go Nagai y Kazuo Koike, dos titanes del manga. Es una obra que parodia Urusei Yatsura, pero con un humor mucho más vulgar y extremo. Aunque su contenido explícito la sitúa cerca del hentai, el OVA sorprende por su final surrealista y sus reflexiones sobre la identidad y el libre albedrío. La animación es de la época, y el OVA destaca por su atmósfera única y su estilo provocador.",
     forgotten: "Hanappe Bazooka es una rareza dentro de la obra de Go Nagai. Su distribución fuera de Japón fue limitada, y aunque ha sido editada en Estados Unidos y España, sigue siendo un título de culto para los fans de los OVAs de los 90. Hoy es una joya para los amantes del anime extremo y surrealista.",
     trailer: "",
     saga: null,
     sagaOrder: null,
     related: [9, 30, 36],
-    category: "adulto"
-},
-              {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 78,
     title: "Dallos",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjUeVYjSy-SZQt-7zQD8Quz9ntMZwnrg0Q8PZvXSQSzO6zPz2nqHKre_GUpJ4ClMiH_tODp0_VsRzqKhY8jIKDDRi2-7GMZ0OTSc5ymfHN18TmL0hqbT9C18v3V7ShRMBN-tPSIOkgx-zgbSqCDU96BR6P4aRy4YYI9tX3pjOPSu9qX4lUubQKI7h4DWBgU=w282-h400",
@@ -1612,9 +1743,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 21, 28],
-    category: "anime"
-},
-    {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Muy raro"
+}, {
     id: 79,
     title: "Legend of Crystania: The Motion Picture",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjieZlGF2Jky2FlilD061kFEgCPyI4b1vfZ-riYpc1bPayn90tpY3loxrWyExVohlrnu0IqLUrRWmzOJJNya-TKQC-Nui37e6y1KuiiOui4M1BcmNTpY6VkCmzticS1DK69sO8VTXDLyIMxGSywpT-UkOF7zl7X4Et1GClT2sPC14D5YfZ7eQhFUvHCYR3e=w272-h400",
@@ -1633,9 +1765,10 @@ var animes = [{
     saga: "Legend of Crystania",
     sagaOrder: 1,
     related: [80, 31],
-    category: "anime"
-},
-    {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 80,
     title: "Legend of Crystania: The Chaos Ring",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhok28IAddwNr1stjksoECptXbCd4dqT2FnBu2sUrugYl1x7aTkb7-bioRULjcOQ-Jiiet3eojCcmBlOwAi3g2thnSnqJqS_ZjLYd0DHl5brCY01ACmnM9gJyZQ24Oxwt4e5yIf-VHwXqQPI5IrYpYlFwZOpHA6-ecyuxOvage_0O_iqigEj5tKDhAyl6l9=w230-h400",
@@ -1654,9 +1787,10 @@ var animes = [{
     saga: "Legend of Crystania",
     sagaOrder: 2,
     related: [79, 31],
-    category: "anime"
-},
-              {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 81,
     title: "Wanna-Be's",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgHRUoFTU_N_BVepRiW3g67iN3OnZRxv6V6eDr1EXHKZGl8JhDe4a8oPEleuGa1mraPEtvNgLFsVSP8h-ydFK4W8Q1NZYyvTL0-VCpNi5QOvprU-9JMBbkG5OYJynY0dTfU5anolXg6diMftSGyWuBzmSblGvP7Qr8MP67VvkB-aLhq6stPxzCKAcvKJOVN=w220-h400",
@@ -1675,9 +1809,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [75, 14, 18],
-    category: "anime"
-},
-              {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 82,
     title: "Legend of Lemnear",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgroe0jR_oZMo-_DFlOQIZljUCTqSxcN_EMfCxWxKirrj-TiHJ_l718b1k3FkbqwzzRfB1HEn8UNYq0zJgt9FWVm7MXV8iY_UcPsrZsPKROBD6rwa5_GCT1VNcENMWdqWlevewVBlOOk5D2L-rjoQGjH9f85wKqjbxBdrcd3GX4lKV2GIGauURj59AZAhZD=w278-h400",
@@ -1696,9 +1831,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 8, 32],
-    category: "anime"
-},
-         {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 83,
     title: "Goddamn",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEg8EFj_wiAyHRMu0KEqhDWEdCrWZ-5WPIaAW6NmNOcmDfUFXQ7V5Cgwb7JlgQ9zNaIgVUtT7acQFnEw4HW0fSEeAoH_AqKObsd6MGQCgZZ8Eni2-XFp-mczE3-QkMKkE0rU6dGBmZqwe0jXfcL_82suFLYuQY_NJCO8WbcrITHIKDEoyGXI8TaEMyG5CC2h=w303-h400",
@@ -1717,9 +1853,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 81],
-    category: "anime"
-},
-              {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 84,
     title: "Power Dolls",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjRqcPk1gwEOgFQXdzX9rwsSQ0MHBCZ_RHDGoUBJRf3TUCZeNX0RmGn3HTM-gBbSYmc5b2D53xW5gSeNRJlVGqOVAc_D-e_6Mj9ilO1R0IiVv0wvs6RGC-d1hOuN8Yqh4Tv5Vm5MfmJ9EDK18AexayVH-qm7w47v1CDjbDid7tEz5QVQllmuS-4Uu3fOaOG=w282-h400",
@@ -1738,9 +1875,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 81],
-    category: "anime"
-},
-              {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 85,
     title: "Detonator Orgun",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgfGISetos8hq_jBVl_o4FroGH2mOW3SHBLfuZ42m5k0CPxn7uYrkx2NZF1X0Zm9ff1XEiuh97HyvC5Zs_KoTUMGUiyfSlxHXJs7im7flsqegyMKKw9lx6ynLxrvz-oolgjKN-lmqs3cn7CG5tH4PkpG-QPsPx-I2QkpDmQK01DATlXfboRLmVXi2uv9hOB=w270-h400",
@@ -1759,9 +1897,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 78],
-    category: "anime"
-},
- {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 86,
     title: "Kyou Kara Ore Wa!!",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhS8bu0vG6PmJQb94ixp_nmFik9o2DTd8RZZCgweX8aSRScTD1p5ho9IgA1V599m0p2NRxozLcJsz0ZoC803wSfeV9LqEXWhrmlyr22mr1j-v_HpSspvVrHG0Q1nckJj-0emGfTIsJ1o-gCr25lIryhkRyc6BdI5qCcCb-5Ouj1guDwjOnTbjDTr7rSksMa=w265-h400",
@@ -1780,9 +1919,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 81],
-    category: "anime"
-},
- {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 87,
     title: "Ninja Scroll",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh516pJ4QT5LmY1jo9cbOU3FUIWx_oWUkL0ZfYkNlKbzKBTV010gpNUCUxYayOgjlvhK53cPdSE2bzVggblNpnKmwp2Dxxt1OtSlWmi7ayiFpmsrMTZAzpIKRkoBhs44G-WyZEmg6aVBn7nfi-Eh7bE2Y4wFZRCIk6p2hO-3aEP6VdIwE0yDjxQRJDAxElw=w283-h400",
@@ -1801,9 +1941,10 @@ var animes = [{
     saga: "Ninja Scroll",
     sagaOrder: 1,
     related: [88, 45, 78],
-    category: "anime"
-},
- {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Común"
+}, {
     id: 88,
     title: "Ninja Scroll: La Serie",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhVzbd0cB4kJIXsEkrAn5vUhem6cJNWoKODWbAv0XBTMVA7ery9NZVdZIvTFWKtBRLLd7TtFAmq76YZCX6qMZTheIL-w-18t4HkNRnA3gCa5kXSmEqxCL8c9Fi_YrOim5uzj1LVc3-KnmROkSj_1DrMUcyB3aAcTPkVgbdronckG4CfD_OHIZ2VKZIpOeto=w280-h400",
@@ -1822,9 +1963,10 @@ var animes = [{
     saga: "Ninja Scroll",
     sagaOrder: 2,
     related: [87, 45, 78],
-    category: "anime"
-},
-              {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Poco común"
+}, {
     id: 89,
     title: "Oruchuban Ebichu",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEguwd3ZtghY_WmAVnqK3XIiLvUaKln4yGKqQ_Q1LuqjIC73tx4DrsBV9Z-oCO1umrdpRUZN1Bgq2sJZWVHmRCOjDlFP3SrH3LK12GZXzMxU1u4ROKzxsezF5IRfFtaGxPGgFzlNB5oO0kKkkm7FZKI686xfja2Rydd6_2zUsDVW0zKCN3gFPKNCl_UKLnLs=w242-h400",
@@ -1843,9 +1985,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "adulto"
-},
-    {
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 90,
     title: "Psychic Force",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjmGcU6gxfMJocVuc7u84KiZxRTPhnKUn5VCg6-MI7Et-imbwQgYFCnUeNy-tIKFZxsmJHa5n-Zg_lcH0OszPPgDFwn0v2XEfT0yQuYFDrm6pIJwAgXhxPX9P5aI3PpMj5OcczdXi5hJBDm_HJ8z2GK9VHHSu4xetNvpqLHbA5EzSLivSybsoXyODbGLoKV=w278-h400",
@@ -1856,17 +1999,18 @@ var animes = [{
     director: "Kenichi Ōnuki / Tomio Yamauchi",
     genre: ["Ciencia ficción", "Acción", "Superpoderes"],
     tags: ["ciencia-ficción", "superpoderes", "culto", "90s", "rareza", "videojuego", "triangle-staff"],
-    description: "OVA de 2 episodios basado en el juego de lucha de Taito para arcade y PlayStation [citation:1][citation:3]. En un futuro cercano, los psíquicos son perseguidos por el gobierno. Burn Griffith conoce a Keith Evans, un psíquico que huye, y lo ayuda. Tres años después, una guerra entre humanos y psíquicos ha devastado el mundo, y Keith se ha convertido en el líder de los psíquicos. Burn debe encontrar a su amigo y descubrir qué lo cambió [citation:1][citation:15].",
-    plot: "El primer episodio sigue a Keith Evans, un psíquico que escapa de un laboratorio donde el gobierno lo usaba como conejillo de indias [citation:4]. Burn Griffith casi lo atropella con su moto y se lo lleva a casa para ayudarlo. Pero el gobierno lo localiza y, a pesar de que Keith intenta protegerlo, se lo llevan. Burn despierta sus propios poderes psíquicos en ese momento [citation:5]. En el segundo episodio, tres años después, el mundo está en ruinas por una guerra entre humanos y psíquicos [citation:1][citation:13]. Keith es ahora el líder de la organización NOA y quiere dominar a los humanos [citation:5]. Burn se infiltra para enfrentarlo y descubre que su amigo ya no es el mismo. Wong, el líder de NOA, activa la autodestrucción del cuartel general y Keith encierra a Burn en un capullo de hielo para salvarlo, siendo Burn el único superviviente [citation:5].",
-    analysis: "Psychic Force es un OVA de culto que adapta un juego de lucha poco conocido [citation:1][citation:9]. Fue animado por Triangle Staff, el mismo estudio de Serial Experiments Lain, y en occidente lo distribuyó Image Entertainment en VHS y DVD [citation:2][citation:14]. Está fuertemente influenciado por la estética de X-Men y los dramas de psíquicos de los 90 [citation:11], pero a diferencia de otros OVAs de la época, este no se centra en la acción sino en la relación entre Burn y Keith, con un enfoque casi de shonen-ai que lo hace destacar. El diseño de personajes es creativo y está bien dibujado, pero la animación es limitada y hay muchos personajes del juego que apenas aparecen, dejando la historia a medias. La banda sonora incluye temas de Tomokazu Seki [citation:1][citation:3].",
-    forgotten: "Psychic Force es una rareza que se lanzó en una época en la que otros OVAs como X/1999 copaban la atención [citation:9]. Su juego original tampoco fue muy popular fuera de Japón, y la OVA quedó como un producto de nicho. Su puntuación en MyAnimeList es de 5.46, reflejando su calidad irregular [citation:10]. Es recordada por los fans del anime de los 90 y por los que buscan adaptaciones de videojuegos, pero es prácticamente desconocida para el público general.",
+    description: "OVA de 2 episodios basado en el juego de lucha de Taito para arcade y PlayStation. En un futuro cercano, los psíquicos son perseguidos por el gobierno. Burn Griffith conoce a Keith Evans, un psíquico que huye, y lo ayuda. Tres años después, una guerra entre humanos y psíquicos ha devastado el mundo, y Keith se ha convertido en el líder de los psíquicos. Burn debe encontrar a su amigo y descubrir qué lo cambió.",
+    plot: "El primer episodio sigue a Keith Evans, un psíquico que escapa de un laboratorio donde el gobierno lo usaba como conejillo de indias. Burn Griffith casi lo atropella con su moto y se lo lleva a casa para ayudarlo. Pero el gobierno lo localiza y, a pesar de que Keith intenta protegerlo, se lo llevan. Burn despierta sus propios poderes psíquicos en ese momento. En el segundo episodio, tres años después, el mundo está en ruinas por una guerra entre humanos y psíquicos. Keith es ahora el líder de la organización NOA y quiere dominar a los humanos. Burn se infiltra para enfrentarlo y descubre que su amigo ya no es el mismo. Wong, el líder de NOA, activa la autodestrucción del cuartel general y Keith encierra a Burn en un capullo de hielo para salvarlo, siendo Burn el único superviviente.",
+    analysis: "Psychic Force es un OVA de culto que adapta un juego de lucha poco conocido. Fue animado por Triangle Staff, el mismo estudio de Serial Experiments Lain, y en occidente lo distribuyó Image Entertainment en VHS y DVD. Está fuertemente influenciado por la estética de X-Men y los dramas de psíquicos de los 90, pero a diferencia de otros OVAs de la época, este no se centra en la acción sino en la relación entre Burn y Keith, con un enfoque casi de shonen-ai que lo hace destacar. El diseño de personajes es creativo y está bien dibujado, pero la animación es limitada y hay muchos personajes del juego que apenas aparecen, dejando la historia a medias. La banda sonora incluye temas de Tomokazu Seki.",
+    forgotten: "Psychic Force es una rareza que se lanzó en una época en la que otros OVAs como X/1999 copaban la atención. Su juego original tampoco fue muy popular fuera de Japón, y la OVA quedó como un producto de nicho. Su puntuación en MyAnimeList es de 5.46, reflejando su calidad irregular. Es recordada por los fans del anime de los 90 y por los que buscan adaptaciones de videojuegos, pero es prácticamente desconocida para el público general.",
     trailer: "https://www.youtube.com/embed/8mKufvpikHM?si=GU3v7LbQikbQsxop",
     saga: null,
     sagaOrder: null,
     related: [45, 78, 81],
-    category: "anime"
-},
-  {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 91,
     title: "Dokushin Apartment Dokudami-sou",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjriLKVPSFgwAtA7LYAmNJgyN39lXsyLVulTZNExq_IJi9lYIwwMOfIctl2louDlahRJk9Rmwo5hKbDJm0RRIpgFA8olA9cqgDxXS-KoCUJ-KT6cfXyYSd6aspw-mQ32duTvMBqoZzgykdGRaAzmUkTE6We-DZJz6sKXTjvetI1EaQZOP-EAWpUhLu0kCjQ=w257-h400",
@@ -1885,9 +2029,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "adulto"
-},
-{
+    category: "adulto",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 92,
     title: "Æon Flux",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgocKUHh0_htkA2ZGi3m7Y_1nQTmLrtHpmTDIU_UCqZ0Owgv_fR0PYi_sHWtbrDV7BhsC6reGJTCWe6vkAsFzS-rPt8TjPQGUNzvG277kGmzH9jsRBKNqFUTuKb1a6ZRCiOJagu4WAheeHZMtqAfgRhhSWheQTi2sbq-7-8Etd29H2sJeBLKyZHDS051kry=w283-h400",
@@ -1906,10 +2051,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 78],
-    category: "anime"
-    
-   },
-        {
+    category: "anime",
+    origin: "Estados Unidos",
+    rarity: "Raro"
+}, {
     id: 93,
     title: "Variable Geo",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjXVCPp_8LphmsIC1nEgkahBWjsXr4CAlRzlQ2cRP3GVAQEdvTskoMCItcPIvjCBZMOmYtl7XyBxQh2VT687JgfTASiXBXt2nSAKEK-Wt494liRPyft6Cs8N1bv-Md64tXo8tY5AQK5zOJwLkSL1biTCGfbaTdKMbKsokPNbPgdT9wIm86upM8FfZEbqR29=w267-h400",
@@ -1928,9 +2073,10 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [],
-    category: "anime"
-},  
-    {
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}, {
     id: 94,
     title: "Yoiko",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgd3NL_Es2Is95EB5GIqXU3SYapC8NYqYUxAwy5P7phlMSrgCXH4jkat7uVu1RTN2CdoRLeGbHYddlo-oBnOILgmatQWZhzXFX5Azd5tla_qo_Kjv1Ni0eqTI0K9xdIGrRgE5mcDAFDLOX_l5Rs7TV16v47JTbwLxmAfm4bQSam-m4rhi6eNFQqaBHELZpV=w328-h400",
@@ -1949,7 +2095,7 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "anime"
-},       ];
-              
-            
+    category: "anime",
+    origin: "Japón",
+    rarity: "Raro"
+}];
