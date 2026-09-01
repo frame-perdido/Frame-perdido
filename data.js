@@ -1929,7 +1929,7 @@ var animes = [{
     sagaOrder: null,
     related: [],
     category: "anime"
-}  
+},  
       {
     id: 94,
     title: "Yoiko",
