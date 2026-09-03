@@ -1985,7 +1985,7 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "adulto",
+    category: "anime",
     origin: "Japón",
     rarity: "Raro"
 }, {
