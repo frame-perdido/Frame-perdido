@@ -2072,7 +2072,7 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ADMbmMbXuWs?si=dh2altxeve8XsIo3",
     saga: null,
     sagaOrder: null,
-    related: [],
+    related: [92, 90, 85],
     category: "anime",
     origin: "Japón",
     rarity: "Raro"
@@ -2236,4 +2236,27 @@ var animes = [{
     "category": "anime",
     "origin": "Estados Unidos / Japón",
     "rarity": "Poco Raro"
-}     ];
+},  
+       {
+    "id": 101,
+    "title": "Felidae",
+    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEgh8D5-1VKko6XFgGXnhgfWtjoiGcb2rP5TXiUiQ-GICbKba0i8317sbHhYhLj3qhynpikp29NUNDszC_5Hs4E9vcjis1ZCEcZVOTitqwmR021q1ljTcZ100ISbrF5z4rvnOv-gOvKdy8aZ_PDIizWW5qZBhfOYy4Np8UhXFDnikyg5RPmDoW9kRgIYvJTF=w267-h400",
+    "year": 1994,
+    "type": "Película",
+    "duration": "82 min",
+    "studio": "TFC Trickompany",
+    "director": "Michael Schaack",
+    "genre": ["Misterio", "Terror", "Suspenso", "Neo-noir", "Gore"],
+    "tags": ["animación-adulta", "gore", "misterio", "novela", "animales", "eugenesia", "culto", "90s"],
+    "description": "Basada en la novela de Akif Pirinçci. Francis, un gato negro con pecho, cara y patas blancas (tipo esmoquin) y ojos verdes, se muda a un nuevo vecindario con su dueño. Pronto descubre una serie de brutales asesinatos de gatos y se obsesiona con resolver el misterio. Su investigación lo llevará a descubrir una secta felina que adora a una figura mesiánica llamada Claudandus, y un oscuro experimento de laboratorio sobre eugenesia felina.",
+    "plot": "Francis se muda con su dueño Gustav Löbel a una casa en un nuevo vecindario. Allí encuentra el cadáver de un gato asesinado y conoce a Bluebeard, un gato tuerto y malherido. Juntos investigan los asesinatos. Francis descubre una secta de gatos liderada por Joker que adora a una entidad llamada Claudandus y practica suicidios rituales saltando a una corriente eléctrica. Francis descubre que la casa era un laboratorio experimental donde se probaban adhesivos tisulares en gatos callejeros. El único gato que sobrevivió fue Claudandus, quien asesinó al científico líder, Preterius, y escapó. Claudandus, ahora un gato llamado Pascal, ha estado orquestando los asesinatos para crear una raza superior de gatos. Francis se enfrenta a Claudandus, lo hiere de muerte, y lo deja arder en un incendio.",
+    "analysis": "Felidae es una película de animación para adultos alemana basada en la novela de Akif Pirinçci. Fue la película animada más cara de Alemania en su época, con un presupuesto de 10 millones de marcos. Es conocida por ser una de las películas animadas más violentas y perturbadoras, con escenas de gore extremo y sexo explícito. Explora temas como la eugenesia, el fanatismo religioso, la experimentación con animales y la crueldad humana. La animación mezcla un estilo de dibujo que recuerda a Disney con una historia oscura y adulta. Fue comparada con Watership Down y The Plague Dogs por su tono.",
+    "forgotten": "Felidae fue un éxito de taquilla en Alemania en 1994, pero su distribución internacional fue limitada. En España se estrenó con el título 'Francis el Detectigato'. En Latinoamérica no tuvo un estreno masivo. Es considerada una película de culto para los amantes del cine de animación adulta.",
+    "trailer": "",
+    "saga": null,
+    "sagaOrder": null,
+    "related": [4, 64],
+    "category": "anime",
+    "origin": "Alemania",
+    "rarity": "Raro"
+}      ];
