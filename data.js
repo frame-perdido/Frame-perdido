@@ -2213,4 +2213,27 @@ var animes = [{
     "category": "anime",
     "origin": "Japón",
     "rarity": "Muy Raro"
-}       ];
+},
+        {
+    "id": 100,
+    "title": "The Animatrix",
+    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEjz-ExW1h7ShuJcW9R1dOkyDavf97cllrI1V4gfsaSn3ZtCRVc13qgYf0CBNevsZ5KFhmgQi3I4vzYsOXJb8-OQzW1FctdKkalmsFMIUyXdwjZPS2_3HG8FZRZlZ5QypQhq3S_6Mq-TCPJLaaP9ETE8uoIvqct13LzrFcFSdbV2AkuESsI5nS07R7itahCJ=w270-h400",
+    "year": 2003,
+    "type": "Película (Antología)",
+    "duration": "100 min (9 cortos)",
+    "studio": "Varios (Madhouse, Studio 4°C, Square Pictures)",
+    "director": "Varios (Andy Jones, Mahiro Maeda, Shinichirō Watanabe, Yoshiaki Kawajiri, Takeshi Koike, Koji Morimoto, Peter Chung)",
+    "genre": ["Ciencia ficción", "Cyberpunk", "Antología", "Acción"],
+    "tags": ["matrix", "cyberpunk", "antología", "culto", "2000s", "wachowski", "anime"],
+    "description": "Antología de nueve cortometrajes animados ambientados en el universo de The Matrix, producida por los hermanos Wachowski y dirigida por algunos de los nombres más importantes del anime. Cada corto expande la historia y mitología de la franquicia, desde el origen de la guerra entre humanos y máquinas hasta historias individuales de resistencia y redención.",
+    "plot": "The Animatrix reúne nueve historias independientes que exploran diferentes aspectos del universo Matrix. 'The Second Renaissance' (Partes I y II) narra el origen de la guerra entre humanos y máquinas, desde la creación de la IA hasta la esclavitud de la humanidad. 'Final Flight of the Osiris' sigue a la tripulación de la nave Osiris mientras intentan advertir a Zion del ataque inminente. 'Kid's Story' muestra cómo el joven Kid escapa del Matrix guiado por Neo. 'Program' es un entrenamiento en una simulación samurái donde una guerrera debe decidir entre la realidad y la ilusión. 'World Record' sigue a un atleta que corre tan rápido que rompe las reglas del Matrix. 'Beyond' muestra a una chica descubriendo un glitch en el sistema. 'A Detective Story' sigue a un detective contratado por los Agents para encontrar a Trinity. 'Matriculated' muestra a rebeldes intentando reprogramar una máquina.",
+    "analysis": "The Animatrix es una antología de nueve cortometrajes animados que expanden el universo de Matrix. Fue concebida por los hermanos Wachowski mientras promocionaban la primera película en Japón, donde visitaron estudios de animación que los inspiraron. La antología reúne a directores como Shinichirō Watanabe (Cowboy Bebop), Yoshiaki Kawajiri (Ninja Scroll), Mahiro Maeda (Blue Submarine No. 6) y Peter Chung (Æon Flux). Los Wachowski escribieron cuatro de los nueve cortos. La animación abarca desde CGI (Final Flight of the Osiris, producida por Square Pictures) hasta estilos anime más clásicos y experimentales. Se estrenó en 2003, entre The Matrix Reloaded y The Matrix Revolutions, como promoción y expansión del lore. Fue lanzada en DVD y VHS el 3 de junio de 2003, y posteriormente en Blu-ray en 2008.",
+    "forgotten": "The Animatrix fue aclamada por la crítica y el público en su estreno, pero con el tiempo ha quedado eclipsada por las películas de la trilogía. Se transmitió en Cartoon Network Latinoamérica dentro del bloque Toonami, y también por I.Sat y Warner TV. En 2022, estuvo disponible en HBO Max Latinoamérica hasta que fue retirada. Es recordada por los amantes del cyberpunk y del anime de los 2000, y muchos la consideran lo mejor de la saga Matrix por expandir el universo de forma coherente y creativa.",
+    "trailer": "",
+    "saga": null,
+    "sagaOrder": null,
+    "related": [92, 85, 51],
+    "category": "anime",
+    "origin": "Estados Unidos / Japón",
+    "rarity": "Poco Raro"
+}     ];
