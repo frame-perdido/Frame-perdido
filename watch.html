@@ -2044,50 +2044,76 @@
 
        <script>
                 // ============================================================
-        // BLOQUEAR OK.RU - VERSIÓN FINAL
+        // BLOQUEAR OK.RU - FUNCIONA EN PANTALLA COMPLETA
         // ============================================================
         function bloquearOKru() {
             const iframe = document.getElementById('videoFrame');
             if (!iframe) return;
             if (!iframe.src || !iframe.src.includes('ok.ru')) return;
             
-            const container = iframe.closest('.plyr-container');
-            if (!container) return;
+            // Crear overlay directamente sobre el iframe
+            let overlay = document.getElementById('okOverlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'okOverlay';
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 99999;
+                    pointer-events: none;
+                    background: transparent;
+                `;
+                document.body.appendChild(overlay);
+            }
             
-            container.style.position = 'relative';
+            // Zonas bloqueadas (pantalla completa)
+            const zonas = [
+                { top: '5px', right: '5px', width: '160px', height: '50px' },    // Copiar
+                { bottom: '5px', right: '5px', width: '170px', height: '60px' },  // Logo
+                { top: '5px', left: '5px', width: '100px', height: '40px' }       // Logo izquierdo
+            ];
             
-            document.querySelectorAll('.ok-blocker').forEach(el => el.remove());
+            // Eliminar bloqueadores anteriores
+            document.querySelectorAll('.ok-zone-blocker').forEach(el => el.remove());
             
-            // Copiar enlace (arriba derecha)
-            const blocker1 = document.createElement('div');
-            blocker1.className = 'ok-blocker';
-            blocker1.style.cssText = 'position:absolute;top:5px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(blocker1);
-            
-            // Logo OK.ru (abajo derecha)
-            const blocker2 = document.createElement('div');
-            blocker2.className = 'ok-blocker';
-            blocker2.style.cssText = 'position:absolute;bottom:5px;right:5px;width:150px;height:60px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(blocker2);
+            zonas.forEach((zona, index) => {
+                const blocker = document.createElement('div');
+                blocker.className = 'ok-zone-blocker';
+                blocker.style.cssText = `
+                    position: fixed;
+                    top: ${zona.top || 'auto'};
+                    bottom: ${zona.bottom || 'auto'};
+                    left: ${zona.left || 'auto'};
+                    right: ${zona.right || 'auto'};
+                    width: ${zona.width};
+                    height: ${zona.height};
+                    z-index: 100000;
+                    background: transparent;
+                    pointer-events: all;
+                    cursor: default;
+                `;
+                document.body.appendChild(blocker);
+            });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        // Ejecutar siempre
+        function iniciarBloqueo() {
+            setTimeout(bloquearOKru, 100);
             setTimeout(bloquearOKru, 500);
-            setTimeout(bloquearOKru, 1500);
-            setTimeout(bloquearOKru, 3000);
-            setTimeout(bloquearOKru, 5000);
-        });
-
-        const observerOK = new MutationObserver(function() {
             setTimeout(bloquearOKru, 1000);
-        });
-
-        const iframeOK = document.getElementById('videoFrame');
-        if (iframeOK) {
-            observerOK.observe(iframeOK, { attributes: true, attributeFilter: ['src'] });
         }
+
+        document.addEventListener('DOMContentLoaded', iniciarBloqueo);
+        document.addEventListener('fullscreenchange', iniciarBloqueo);
+        document.addEventListener('webkitfullscreenchange', iniciarBloqueo);
+        document.addEventListener('mozfullscreenchange', iniciarBloqueo);
+        window.addEventListener('resize', iniciarBloqueo);
         
-        setTimeout(bloquearOKru, 100);
+        // Ejecutar cada 2 segundos
+        setInterval(bloquearOKru, 2000);
               </script>
 </body>
 </html>
