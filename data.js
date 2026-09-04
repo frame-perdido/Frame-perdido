@@ -2282,4 +2282,27 @@ var animes = [{
     "category": "anime",
     "origin": "Francia / Checoslovaquia",
     "rarity": "Raro"
-}       ];
+},
+       {
+    "id": 103,
+    "title": "Heartwork: Symphony of Destruction (Heartwork: Love Guns)",
+    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEi_o2ihU74wpPsw0nP9MNOoC0RnqXe2MU4L5Ql45hKG61U3jLT8W33Txtdf3-jLJ0_GxbGUBm8BJ0XIilstT5XIH-85NJsKVfHF53_59Ai_3SHTLKLMLDnEranJl44DZFQ1MsmwJk9HtAVaQ-xoXLbD-nBZSSP94HWWCnFcyGcjTKjOOSvYIPvAfsDZEOKg=w257-h400",
+    "year": "2003-2004",
+    "type": "OVA",
+    "duration": "3 episodios (~30 min c/u)",
+    "studio": "Kyushu Network Animation",
+    "director": "Hitoshi Kawaguchi",
+    "genre": ["Acción", "Drama", "Suspenso", "Policíaco"],
+    "tags": ["armas", "asesinos", "misterio", "culto", "2000s", "rareza", "videojuego", "media-blasters"],
+    "description": "Un estudiante universitario llamado Yuu Asakura cambia accidentalmente su maletín con el de un asesino a sueldo. Dentro encuentra una pistola, dinero y un video con una orden de asesinato. Junto a una misteriosa mujer llamada Ángel, acepta el trabajo y se adentra en un mundo de violencia, sexo y crimen. La pistola que porta está 'maldita' y quien la usa no puede controlar sus instintos más salvajes.",
+    "plot": "Yuu Asakura es un estudiante universitario que vive una vida tranquila. Un día, en la estación de tren, choca accidentalmente con un desconocido y cambian sus maletines sin querer. Al llegar a casa, descubre que el maletín contiene una pistola Colt M1911, dinero en efectivo y una cinta de video. La cinta contiene una orden de asesinato dirigida a alguien llamado 'Hunter', junto con información sobre el objetivo. Yuu también encuentra instrucciones para reunirse con su compañera de respaldo, una mujer con el nombre clave 'Ángel'. Sin pensarlo demasiado, Yuu acepta el trabajo y se convierte en un asesino. La pistola que porta está 'maldita': quien la usa no puede controlar sus impulsos violentos y se ve arrastrado a un ciclo de asesinato y sexo. La policía, liderada por Yukari Morikawa, investiga los asesinatos relacionados con esta arma maldita. A lo largo de los tres episodios, Yuu se ve envuelto en un mundo de crimen, violencia y conspiraciones, mientras intenta escapar de su nuevo destino. La historia se desarrolla como múltiples líneas argumentales, como si fueran rutas de un videojuego, con personajes que mueren y reaparecen en episodios posteriores.",
+    "analysis": "Heartwork: Symphony of Destruction es un OVA de culto de los 2000 basado en el videojuego erótico del mismo nombre, desarrollado por Active Software y lanzado en 1997. La adaptación animada fue producida por Kyushu Network Animation y consta de tres episodios lanzados entre 2003 y 2004. La serie fue licenciada en Norteamérica por Media Blasters bajo el título 'Heartwork: Love Guns' y cuenta con un doblaje al inglés. La OVA destaca por su narrativa no lineal, que presenta diferentes líneas argumentales como si fueran rutas de un videojuego, lo que puede resultar confuso para el espectador. El director Tomohiro Koyama también se encargó del diseño de personajes. La banda sonora incluye el tema de apertura 'Symphony of Destruction' y el tema de cierre 'Dawn ~ Yoake', ambos compuestos por Osamu Yamanaka. La OVA mezcla escenas de acción y drama con contenido erótico, y no intenta ser más que una adaptación de un eroge.",
+    "forgotten": "Heartwork: Symphony of Destruction es una rareza dentro del mundo de las OVAs de los 2000. Basado en un videojuego erótico poco conocido, la adaptación no tuvo una distribución masiva fuera de Japón, aunque Media Blasters la lanzó en Norteamérica. Su contenido adulto y su narrativa confusa la han mantenido como un producto de nicho. Es recordada por los fans del anime de los 2000 y los coleccionistas de rarezas basadas en videojuegos, pero es prácticamente desconocida para el público general.",
+    "trailer": "",
+    "saga": null,
+    "sagaOrder": null,
+    "related": [],
+    "category": "adulto",
+    "origin": "Japón",
+    "rarity": "Raro"
+}      ];
