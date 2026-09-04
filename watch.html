@@ -2043,10 +2043,7 @@
     <script src="simpleblocker.js"></script>
 
        <script>
-                // ============================================================
-        // BLOQUE
-        // ============================================================
-        function bloquearOKru() {
+                  function bloquearOKru() {
             const iframe = document.getElementById('videoFrame');
             if (!iframe) return;
             if (!iframe.src || !iframe.src.includes('ok.ru')) return;
@@ -2059,31 +2056,19 @@
             
             container.style.position = 'relative';
             
-        
             document.querySelectorAll('.ok-blocker').forEach(el => el.remove());
-            
             
             const logo = document.createElement('div');
             logo.className = 'ok-blocker';
-            logo.style.cssText = 'position:absolute;top:5px;right:90px;width:80px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            logo.style.cssText = 'position:absolute;bottom:5px;right:5px;width:150px;height:60px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
             container.appendChild(logo);
-            
             
             const copiar = document.createElement('div');
             copiar.className = 'ok-blocker';
-            copiar.style.cssText = 'position:absolute;bottom:60px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            copiar.style.cssText = 'position:absolute;top:5px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
             container.appendChild(copiar);
-            
-            
-            const compartir = document.createElement('div');
-            compartir.className = 'ok-blocker';
-            compartir.style.cssText = 'position:absolute;top:5px;right:5px;width:80px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(compartir);
-            
-            console.log('✅ Bloqueadores OK.ru activados');
         }
 
-        // Ejecutar múltiples veces
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(bloquearOKru, 500);
             setTimeout(bloquearOKru, 1500);
@@ -2091,7 +2076,6 @@
             setTimeout(bloquearOKru, 5000);
         });
 
-        // Detectar cambios en el iframe
         const observerOK = new MutationObserver(function() {
             setTimeout(bloquearOKru, 1000);
         });
