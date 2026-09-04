@@ -2328,4 +2328,27 @@ var animes = [{
     "category": "adulto",
     "origin": "Japón",
     "rarity": "Raro"
+}
+             {
+    "id": 105,
+    "title": "Sanctuary",
+    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEixBx1dKQ9J_WuzbCxnqkxvMQ_DNUINxOXMI9Oc_Q41bfmwThkljDScAJWfztHDeGAsVnoBAbqflOdzL8dKZ_bd24GBtOmfKc4JjVYF8YrwYCT34VZGFsKv81D0diyz8T0X6lz6nmgtsuA4_Nw7QLR3Rh9Pcvh8KhCKbYEahMt2-6gFb0ioRNxpbHpBP3SE=w238-h400",
+    "year": 1996,
+    "type": "OVA",
+    "duration": "1 episodio (~67 min)",
+    "studio": "Pastel",
+    "director": "Takashi Watanabe",
+    "genre": ["Drama", "Crimen", "Político", "Yakuza"],
+    "tags": ["yakuza", "política", "mafia", "culto", "90s", "seinen", "manga", "violento"],
+    "description": "Dos jóvenes japoneses sobreviven a la masacre de los Jemeres Rojos en Camboya y juran encontrar un 'santuario' en su país. Al regresar a Japón, toman caminos opuestos: Akira Houjou se convierte en un gángster de la yakuza, mientras Chiaki Asami se adentra en la política. Ambos harán lo que sea necesario para cumplir su promesa y reformar la sociedad japonesa, mientras su amistad se pone a prueba.",
+    "plot": "Akira Houjou y Chiaki Asami, dos amigos que sobrevivieron juntos a la guerra en Camboya, vuelven a Japón con un objetivo común. Lanzan una moneda al aire para decidir sus caminos: Akira se une a la yakuza, mientras que Chiaki comienza su carrera política. Akira utiliza tácticas brutales y alianzas estratégicas para ascender en el crimen organizado. Chiaki, por otro lado, usa su astucia y carisma para escalar en el complejo mundo de la política japonesa. Sus caminos se cruzan constantemente, y su lealtad se pone a prueba mientras ambos luchan por alcanzar sus metas sin importarles las consecuencias.",
+    "analysis": "Sanctuary es un OVA de culto que adapta parte del aclamado manga de Buronson y Ryoichi Ikegami. Es una de las pocas obras anime que trata el mundo de la yakuza y la política con un enfoque serio y realista. La animación es de alta calidad para un OVA de la época, destacando por su estilo sobrio y su narrativa adulta. A pesar de su corta duración de unos 65 minutos, logra capturar la esencia del manga, aunque muchos fans lamentan que no se haya adaptado más material. La serie se centra en el ascenso de ambos protagonistas en sus respectivos ámbitos, explorando la corrupción y la lealtad. Cuenta con un reparto de doblaje al inglés de renombre, con actores como David Kaye y Paul Dobson.",
+    "forgotten": "Sanctuary es una rareza para los amantes del anime de crimen y yakuza. Su distribución fuera de Japón fue limitada, aunque Viz Media la licenció para Norteamérica. Es recordada por los fans del manga y del género, pero es prácticamente desconocida para el público general. Su estatus de 'un solo OVA' de un manga de 12 volúmenes la convierte en una pieza de coleccionista para aquellos que buscan adaptaciones serias de la obra de Ikegami.",
+    "trailer": "",
+    "saga": null,
+    "sagaOrder": null,
+    "related": [13, 50, 87],
+    "category": "anime",
+    "origin": "Japón",
+    "rarity": "Raro"
 }];
