@@ -2305,4 +2305,27 @@ var animes = [{
     "category": "adulto",
     "origin": "Japón",
     "rarity": "Raro"
-}      ];
+},
+             {
+    "id": 104,
+    "title": "Teizokurei Daydream (Ghost Talker's Daydream)",
+    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEiFGY70GjyAoFB7yiWGamBWuAplNWwPdZYtmnEwo_34x5kPol2S1k7V962662hqZkvf9T90ewWsUruzJCjctamfCwB_rzflTPE-i5iVcNMZAVnINkW-SXYtTjcXj7K51Pb460WnSvPrA9PAclCF4eszLA6OKX4xKOHlFeMF3b0LchhgUmhThfxYV7vtPrxE=w310-h400",
+    "year": 2004,
+    "type": "OVA",
+    "duration": "4 episodios (~24 min c/u)",
+    "studio": "HAL Film Maker",
+    "director": "Osamu Sekita",
+    "genre": ["Sobrenatural", "Misterio", "Comedia", "Horror"],
+    "tags": ["espíritus", "dominatrix", "ecchi", "culto", "2000s", "rareza", "manga", "sobrenatural"],
+    "description": "Misaki Saiki tiene la habilidad de ver y hablar con fantasmas desde que era niña. Trabaja como dominatrix en un club S&M y también como consultora para un escuadrón policial especializado en fenómenos paranormales, dirigido por su padre. Usa sus poderes para ayudar a los espíritus perdidos a encontrar la paz, mientras lidia con su vida personal y un acosador que la persigue.",
+    "plot": "La OVA se divide en cuatro episodios. Los dos primeros son historias independientes: en el primero, Misaki ayuda a una chica llamada Ai a comunicarse con el espíritu de su hermana mayor, que se suicidó tras ser violada. En el segundo, Misaki investiga a una mujer que dice haber sido secuestrada por un fantasma. Los episodios 3 y 4 cuentan una historia de dos partes: un asesino en serie que mata niños está siendo ayudado por un espíritu vengativo. Misaki debe enfrentarse a este espíritu y descubrir la verdad detrás de los asesinatos. A lo largo de la serie, se explora la relación de Misaki con Souichirou, su compañero de trabajo que tiene miedo a los fantasmas, y con Mitsuru, un acosador obsesionado con ella.",
+    "analysis": "Teizokurei Daydream es un OVA de culto de los 2000 basado en el manga de Saki Okuse y Sankichi Meguro. La premisa es única: una dominatrix que también es médium espiritual. La serie dura solo 4 episodios, lo que impide desarrollar bien la trama y los personajes. El tono es desigual: la comedia choca con las historias oscuras de violaciones y asesinatos de niños. Tiene un estilo de animación típico de las OVAs de presupuesto limitado de la época. El doblaje al inglés es recordado por la actuación de la actriz que también dobló a Mai Valentine en Yu-Gi-Oh!.",
+    "forgotten": "Teizokurei Daydream es una rareza de los 2000. Su distribución fuera de Japón fue limitada, aunque Geneon la licenció en Norteamérica con el título 'Ghost Talker's Daydream'. Su contenido adulto y su tono irregular la han mantenido como un producto de nicho. Es recordada por los fans del anime de los 2000 y coleccionistas de rarezas, pero es prácticamente desconocida para el público general.",
+    "trailer": "",
+    "saga": null,
+    "sagaOrder": null,
+    "related": [4, 64, 65],
+    "category": "adulto",
+    "origin": "Japón",
+    "rarity": "Raro"
+}];
