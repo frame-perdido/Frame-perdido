@@ -294,18 +294,19 @@
                 transform: rotate(0deg) !important;
             }
         }
-
-                /* BLOQUEAR OK.RU - NUEVO */
-        .ok-blocker {
-            position: absolute;
-            background: transparent;
-            pointer-events: all;
-            cursor: default;
-            z-index: 25;
-            border-radius: 4px;
-        }
-        .player-container-relative {
+                /* BLOQUEAR OK.RU - CORREGIDO */
+        .player-wrapper {
             position: relative !important;
+            display: block;
+        }
+        
+        .ok-blocker {
+            position: absolute !important;
+            background: transparent !important;
+            pointer-events: all !important;
+            cursor: default !important;
+            z-index: 9999 !important;
+            border-radius: 4px !important;
         }
     </style>
 </head>
@@ -2042,43 +2043,78 @@
 
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
     <script src="simpleblocker.js"></script>
-            // ============================================================
-        // BLOQUEAR ENLACE "COPIAR" DE OK.RU - NUEVO
+             <script>
+        // ============================================================
+        // BLOQUe
         // ============================================================
         function bloquearOKru() {
+            console.log('Intentando bloquear OK.ru...');
+            
             const iframe = document.getElementById('videoFrame');
-            if (!iframe || !iframe.src || !iframe.src.includes('ok.ru')) return;
+            if (!iframe) {
+                console.log('No hay iframe');
+                return;
+            }
             
-            const container = iframe.closest('.plyr-container');
-            if (!container) return;
+            console.log('Src del iframe:', iframe.src);
             
-            container.classList.add('player-container-relative');
+            if (!iframe.src || !iframe.src.includes('ok.ru')) {
+                console.log('No es OK.ru');
+                return;
+            }
+            
+            let container = iframe.closest('.plyr-container');
+            if (!container) {
+                container = iframe.parentElement;
+                if (!container) {
+                    console.log('No se encontró el contenedor');
+                    return;
+                }
+            }
+            
+            console.log('Contenedor encontrado:', container);
+            
+            container.style.position = 'relative';
+            container.style.display = 'block';
             
             document.querySelectorAll('.ok-blocker').forEach(el => el.remove());
             
-            const blocker = document.createElement('div');
-            blocker.className = 'ok-blocker';
-            blocker.style.cssText = 'bottom:60px;right:5px;width:130px;height:45px;';
-            container.appendChild(blocker);
+            const blocker1 = document.createElement('div');
+            blocker1.className = 'ok-blocker';
+            blocker1.style.cssText = 'position:absolute;bottom:60px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(blocker1);
+            console.log('Bloqueador 1 creado');
             
             const blocker2 = document.createElement('div');
             blocker2.className = 'ok-blocker';
-            blocker2.style.cssText = 'top:5px;right:5px;width:90px;height:40px;';
+            blocker2.style.cssText = 'position:absolute;top:5px;right:5px;width:90px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
             container.appendChild(blocker2);
+            console.log('Bloqueador 2 creado');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM cargado');
+            setTimeout(bloquearOKru, 500);
             setTimeout(bloquearOKru, 1500);
             setTimeout(bloquearOKru, 3000);
+            setTimeout(bloquearOKru, 5000);
         });
 
-        const observerOK = new MutationObserver(function() {
-            setTimeout(bloquearOKru, 1000);
+        const observerOK = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                    console.log('El iframe cambió su src');
+                    setTimeout(bloquearOKru, 1000);
+                }
+            });
         });
 
         const iframeOK = document.getElementById('videoFrame');
         if (iframeOK) {
             observerOK.observe(iframeOK, { attributes: true, attributeFilter: ['src'] });
         }
+        
+        setTimeout(bloquearOKru, 100);
+    </script>
 </body>
 </html>
