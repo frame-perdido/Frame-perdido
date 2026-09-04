@@ -294,10 +294,9 @@
                 transform: rotate(0deg) !important;
             }
         }
-                /* BLOQUEAR OK.RU - CORREGIDO */
-        .player-wrapper {
+                  /* BLOQUE */
+        .plyr-container {
             position: relative !important;
-            display: block;
         }
         
         .ok-blocker {
@@ -306,7 +305,6 @@
             pointer-events: all !important;
             cursor: default !important;
             z-index: 9999 !important;
-            border-radius: 4px !important;
         }
     </style>
 </head>
@@ -2043,70 +2041,77 @@
 
     <script src="https://pl30540186.effectivecpmnetwork.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
     <script src="simpleblocker.js"></script>
-             <script>
-        // ============================================================
-        // BLOQUe
+
+       <script>
+                     // ============================================================
+        // BLOQUEAR
         // ============================================================
         function bloquearOKru() {
-            console.log('Intentando bloquear OK.ru...');
-            
             const iframe = document.getElementById('videoFrame');
-            if (!iframe) {
-                console.log('No hay iframe');
-                return;
-            }
-            
-            console.log('Src del iframe:', iframe.src);
-            
-            if (!iframe.src || !iframe.src.includes('ok.ru')) {
-                console.log('No es OK.ru');
-                return;
-            }
+            if (!iframe) return;
+            if (!iframe.src || !iframe.src.includes('ok.ru')) return;
             
             let container = iframe.closest('.plyr-container');
             if (!container) {
                 container = iframe.parentElement;
-                if (!container) {
-                    console.log('No se encontró el contenedor');
-                    return;
-                }
+                if (!container) return;
             }
             
-            console.log('Contenedor encontrado:', container);
-            
             container.style.position = 'relative';
-            container.style.display = 'block';
             
+            // Eliminar bloqueadores anteriores
             document.querySelectorAll('.ok-blocker').forEach(el => el.remove());
             
-            const blocker1 = document.createElement('div');
-            blocker1.className = 'ok-blocker';
-            blocker1.style.cssText = 'position:absolute;bottom:60px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(blocker1);
-            console.log('Bloqueador 1 creado');
+            // 1. Bloquear LOGO (esquina superior izquierda)
+            const logo = document.createElement('div');
+            logo.className = 'ok-blocker';
+            logo.style.cssText = 'position:absolute;top:5px;left:5px;width:120px;height:50px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(logo);
             
-            const blocker2 = document.createElement('div');
-            blocker2.className = 'ok-blocker';
-            blocker2.style.cssText = 'position:absolute;top:5px;right:5px;width:90px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(blocker2);
-            console.log('Bloqueador 2 creado');
+            // 2. Bloquear "Copiar enlace" (esquina inferior derecha)
+            const copiar = document.createElement('div');
+            copiar.className = 'ok-blocker';
+            copiar.style.cssText = 'position:absolute;bottom:60px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(copiar);
+            
+            // 3. Bloquear botón COMPARTIR (esquina superior derecha)
+            const compartir = document.createElement('div');
+            compartir.className = 'ok-blocker';
+            compartir.style.cssText = 'position:absolute;top:5px;right:5px;width:90px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(compartir);
+            
+            // 4. Bloquear el área del TÍTULO del video (parte superior)
+            const titulo = document.createElement('div');
+            titulo.className = 'ok-blocker';
+            titulo.style.cssText = 'position:absolute;top:5px;left:130px;width:200px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(titulo);
+            
+            // 5. Bloquear área del BOTÓN "SUSCRIBIRSE" (si aparece)
+            const suscribir = document.createElement('div');
+            suscribir.className = 'ok-blocker';
+            suscribir.style.cssText = 'position:absolute;top:55px;right:5px;width:100px;height:35px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(suscribir);
+            
+            // 6. Bloquear área de PUBLICIDAD (parte inferior)
+            const publicidad = document.createElement('div');
+            publicidad.className = 'ok-blocker';
+            publicidad.style.cssText = 'position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:300px;height:50px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(publicidad);
+            
+            console.log('✅ TODOS los bloqueadores de OK.ru activados');
         }
 
+        // Ejecutar múltiples veces
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM cargado');
             setTimeout(bloquearOKru, 500);
             setTimeout(bloquearOKru, 1500);
             setTimeout(bloquearOKru, 3000);
             setTimeout(bloquearOKru, 5000);
         });
 
-        const observerOK = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
-                    console.log('El iframe cambió su src');
-                    setTimeout(bloquearOKru, 1000);
-                }
-            });
+        // Detectar cambios en el iframe
+        const observerOK = new MutationObserver(function() {
+            setTimeout(bloquearOKru, 1000);
         });
 
         const iframeOK = document.getElementById('videoFrame');
@@ -2115,6 +2120,6 @@
         }
         
         setTimeout(bloquearOKru, 100);
-    </script>
+              </script>
 </body>
 </html>
