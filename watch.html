@@ -2043,8 +2043,8 @@
     <script src="simpleblocker.js"></script>
 
        <script>
-                     // ============================================================
-        // BLOQUEAR
+                // ============================================================
+        // BLOQUE
         // ============================================================
         function bloquearOKru() {
             const iframe = document.getElementById('videoFrame');
@@ -2059,46 +2059,28 @@
             
             container.style.position = 'relative';
             
-            // Eliminar bloqueadores anteriores
+        
             document.querySelectorAll('.ok-blocker').forEach(el => el.remove());
             
-            // 1. Bloquear LOGO (esquina superior izquierda)
+            
             const logo = document.createElement('div');
             logo.className = 'ok-blocker';
-            logo.style.cssText = 'position:absolute;top:5px;left:5px;width:120px;height:50px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            logo.style.cssText = 'position:absolute;top:5px;right:90px;width:80px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
             container.appendChild(logo);
             
-            // 2. Bloquear "Copiar enlace" (esquina inferior derecha)
+            
             const copiar = document.createElement('div');
             copiar.className = 'ok-blocker';
             copiar.style.cssText = 'position:absolute;bottom:60px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
             container.appendChild(copiar);
             
-            // 3. Bloquear botón COMPARTIR (esquina superior derecha)
+            
             const compartir = document.createElement('div');
             compartir.className = 'ok-blocker';
-            compartir.style.cssText = 'position:absolute;top:5px;right:5px;width:90px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            compartir.style.cssText = 'position:absolute;top:5px;right:5px;width:80px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
             container.appendChild(compartir);
             
-            // 4. Bloquear el área del TÍTULO del video (parte superior)
-            const titulo = document.createElement('div');
-            titulo.className = 'ok-blocker';
-            titulo.style.cssText = 'position:absolute;top:5px;left:130px;width:200px;height:40px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(titulo);
-            
-            // 5. Bloquear área del BOTÓN "SUSCRIBIRSE" (si aparece)
-            const suscribir = document.createElement('div');
-            suscribir.className = 'ok-blocker';
-            suscribir.style.cssText = 'position:absolute;top:55px;right:5px;width:100px;height:35px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(suscribir);
-            
-            // 6. Bloquear área de PUBLICIDAD (parte inferior)
-            const publicidad = document.createElement('div');
-            publicidad.className = 'ok-blocker';
-            publicidad.style.cssText = 'position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:300px;height:50px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(publicidad);
-            
-            console.log('✅ TODOS los bloqueadores de OK.ru activados');
+            console.log('✅ Bloqueadores OK.ru activados');
         }
 
         // Ejecutar múltiples veces
