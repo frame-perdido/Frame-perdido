@@ -2043,30 +2043,32 @@
     <script src="simpleblocker.js"></script>
 
        <script>
-                  function bloquearOKru() {
+                // ============================================================
+        // BLOQUEAR OK.RU - VERSIÓN FINAL
+        // ============================================================
+        function bloquearOKru() {
             const iframe = document.getElementById('videoFrame');
             if (!iframe) return;
             if (!iframe.src || !iframe.src.includes('ok.ru')) return;
             
-            let container = iframe.closest('.plyr-container');
-            if (!container) {
-                container = iframe.parentElement;
-                if (!container) return;
-            }
+            const container = iframe.closest('.plyr-container');
+            if (!container) return;
             
             container.style.position = 'relative';
             
             document.querySelectorAll('.ok-blocker').forEach(el => el.remove());
             
-            const logo = document.createElement('div');
-            logo.className = 'ok-blocker';
-            logo.style.cssText = 'position:absolute;bottom:5px;right:5px;width:150px;height:60px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(logo);
+            // Copiar enlace (arriba derecha)
+            const blocker1 = document.createElement('div');
+            blocker1.className = 'ok-blocker';
+            blocker1.style.cssText = 'position:absolute;top:5px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(blocker1);
             
-            const copiar = document.createElement('div');
-            copiar.className = 'ok-blocker';
-            copiar.style.cssText = 'position:absolute;top:5px;right:5px;width:130px;height:45px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
-            container.appendChild(copiar);
+            // Logo OK.ru (abajo derecha)
+            const blocker2 = document.createElement('div');
+            blocker2.className = 'ok-blocker';
+            blocker2.style.cssText = 'position:absolute;bottom:5px;right:5px;width:150px;height:60px;z-index:9999;background:transparent;pointer-events:all;cursor:default;';
+            container.appendChild(blocker2);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
