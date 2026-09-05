@@ -2328,7 +2328,7 @@ var animes = [{
     "category": "adulto",
     "origin": "Japón",
     "rarity": "Raro"
-}
+},
              {
     "id": 105,
     "title": "Sanctuary",
