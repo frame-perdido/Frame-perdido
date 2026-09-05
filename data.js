@@ -1,5 +1,5 @@
 // ============================================================
-// BASE DE DATOS - FRAME PERDIDO (VERSIÓN CON ORIGEN Y RAREZA)
+// BASE DE DATOS - FRAME PERDIDO (VERSIÓN FINAL)
 // ============================================================
 var animes = [{
     // ============================================================
@@ -22,11 +22,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ymEIcvOESgI?si=74M7be40rBXixBvT",
     saga: "Barefoot Gen",
     sagaOrder: 1,
-    related: [2, 16, 23],
+    related: [2, 74, 21],
     next: 2,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 2,
     title: "Barefoot Gen 2",
@@ -45,11 +48,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/KCLcBeP3mcA?si=pIZxEQZO5ez6bKo-",
     saga: "Barefoot Gen",
     sagaOrder: 2,
-    related: [1, 16, 23],
+    related: [1, 74, 21],
     prev: 1,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 3,
     title: "Fire and Ice",
@@ -68,10 +74,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/Q7wjqtTnegE?si=ZlVZchniANv_q2Gi",
     saga: null,
     sagaOrder: null,
-    related: [5, 14, 17],
-    category: "anime",
+    related: [4, 8, 14, 17],
+    category: "animada",
     origin: "Estados Unidos",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 4,
     title: "Angel's Egg",
@@ -90,10 +99,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/gxHrAoDIPsM?si=msC2rT_-TlEMc0VF",
     saga: null,
     sagaOrder: null,
-    related: [16, 18, 24],
-    category: "anime",
+    related: [8, 16, 18, 24],
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 5,
     title: "Megazone 23 Part I",
@@ -112,11 +124,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/jJ_bTGH_Nm0?si=RUUrMKl-tutKtw7r",
     saga: "Megazone 23",
     sagaOrder: 1,
-    related: [6, 7],
+    related: [6, 7, 43],
     next: 6,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 6,
     title: "Megazone 23 Part II",
@@ -135,12 +150,15 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ZPZ8tUp_aJs?si=i-NNXpnGTQYCHpLN",
     saga: "Megazone 23",
     sagaOrder: 2,
-    related: [5, 7],
+    related: [5, 7, 43],
     prev: 5,
     next: 7,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 7,
     title: "Megazone 23 Part III",
@@ -159,11 +177,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/-pWm4MoeBY8?si=5iJ_OGAvjE7uqqD_",
     saga: "Megazone 23",
     sagaOrder: 3,
-    related: [5, 6],
+    related: [5, 6, 43],
     prev: 6,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 8,
     title: "Arion",
@@ -182,10 +203,13 @@ var animes = [{
     trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [14, 21, 24],
-    category: "anime",
+    related: [4, 14, 17, 3],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 9,
     title: "Call Me Tonight",
@@ -201,13 +225,16 @@ var animes = [{
     plot: "Rumi trabaja en una agencia de acompañantes, pero en realidad es una succubus. Su trabajo consiste en extraer energía masculina de sus clientes. Todo va bien hasta que conoce a Akira, un oficinista que no se deja seducir fácilmente y que guarda un oscuro secreto.",
     analysis: "Call Me Tonight es una comedia romántica con toques sobrenaturales y ecchi. Mezcla el humor con situaciones absurdas y algo picantes. Tiene un ritmo ágil, diálogos ingeniosos y un diseño de personajes carismático. Es una rareza de los 80 que merece ser redescubierta.",
     forgotten: "Es una de esas OVAs que nunca tuvieron distribución internacional y hoy es prácticamente desconocida. Su temática y su estética la convierten en una joya oculta para los amantes del anime ochentero con humor adulto.",
-    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQOw9D9C6CsmaXB7pu7kd3hGj_R7iQJezgBcqQKJYFhOAHHfO4sFeXykzBMWwJFrkT40fntqMqNzDzvTZfkAmBzrOzbk4_lY_LCYjUHgmw.mp4?_nc_cat=110&_nc_oc=AdqGRIckt0dcNQcdMk1-liSc8-AN5DMSKBL6YGeQ9mKm6qHF2UPK4zTpT-rSOos20ks&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=HjNI4oQWijwQ7kNvwG8efHv&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTMzODQ1NTU4MTA3MTc4NSwiYXNzZXRfYWdlX2RheXMiOjE3LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NjgsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=cVLzrqJ3V16UykojMenGTQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCpmZ6CY1u6NwJhDcyp2I296uQy_8lA2aPplJppOhOAJA&oe=6A66DBE4&bitrate=322490&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
     related: [21, 16, 4],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 10,
     title: "Guyver: Out of Control",
@@ -226,11 +253,14 @@ var animes = [{
     trailer: "",
     saga: "The Guyver",
     sagaOrder: 1,
-    related: [11, 23, 25],
+    related: [11, 23, 25, 56],
     next: 11,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 11,
     title: "The Guyver: Bio-Booster Armor",
@@ -249,11 +279,14 @@ var animes = [{
     trailer: "",
     saga: "The Guyver",
     sagaOrder: 2,
-    related: [10, 23, 25],
+    related: [10, 23, 25, 56],
     prev: 10,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 12,
     title: "Hell Target",
@@ -269,13 +302,16 @@ var animes = [{
     plot: "En el planeta Inferno II, un equipo de exploración encuentra una nave abandonada. Pero no está vacía. Una amenaza alienígena se despierta y empieza a matar a la tripulación uno por uno. La única esperanza es descubrir qué es lo que están enfrentando antes de que sea demasiado tarde.",
     analysis: "Hell Target es otra OVA de terror espacial de los 80, con el mismo ADN que Lily C.A.T. y Roots Search. Tiene el encanto de las películas de terror de serie B, con una animación limitada pero efectiva, y una trama que no se toma demasiado en serio. Es el tipo de OVA que veías a las 2 de la madrugada en el videoclub y no podías parar de ver.",
     forgotten: "Es una de esas OVAs que solo existieron en VHS. Nunca tuvo una distribución internacional decente, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Una joya oculta del terror espacial que merece ser rescatada.",
-    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMX6_MKhmByEXhLUWv04le_sQPqA91OQ4k0QAPDVQDQXbXrYPpGU3On4iV8ebsdLTvNHNilVwGtaEkHrdDrZNr8BX2eVQoQlWhwKacmbg.mp4?_nc_cat=104&_nc_oc=AdrWEqRvvdPsw0D0tHrBvn3yS9ysPOwDScB3ksa7P5mN9n-MVaCVp_mRdtV-yjHhmTk&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=PMOIXvxtWGMQ7kNvwHIujAt&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTkyNzI3MDIwMDcxNDYxLCJhc3NldF9hZ2VfZGF5cyI6NDksInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjo2NCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=vzQXnmo2whrS2IpO0pf2tg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAf3nL66BlPq_q3PhJGbPLM3qfxGQLzNSrkAjBC9WeSOA&oe=6A659892&bitrate=213483&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [5, 6, 8],
-    category: "anime",
+    related: [20, 24, 5],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 13,
     title: "MD Geist",
@@ -291,14 +327,17 @@ var animes = [{
     plot: "En un futuro post-apocalíptico, el soldado Geist despierta de su congelación criogénica. Es un M.D.S. (Most Dangerous Soldier), una máquina de matar creada para la guerra. Pero la guerra ha terminado, y ahora Geist no tiene propósito. Hasta que descubre que el planeta está bajo el control de un dictador loco, y decide que la única solución es... más guerra.",
     analysis: "MD Geist es el prototipo de OVA de acción de los 80: violencia sin concesiones, un protagonista que es más bestia que persona, y una trama que apenas se sostiene. Pero es tan exagerado, tan ridículo y tan violento que resulta entretenido. Es la versión anime de las películas de acción de los 80, con todo lo bueno y lo malo que eso conlleva.",
     forgotten: "Nunca llegó a ser tan popular como otras series del género. Su protagonista es un psicópata, la violencia es excesiva y la trama es casi inexistente. Es una OVA de culto para los que buscan acción pura y dura, pero el público general la ha olvidado. Una rareza que solo los fans del mecha más hardcore recuerdan.",
-    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPDdpaug0HJypGQVzQiGz2HvW6FOklWlmE0TEMIWEBKUCh_wuOI06m0Akp2f539eEJl7dgK-uiwR6s0k_uyIb0tRPR276hcBI4zt4IK-w.mp4?_nc_cat=110&_nc_oc=AdpMHL2mAdZz-MJbzLHsboTKcafVTu2IBBk2BPqFUux3bWejksoHc9h-HG88BKuOf70&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=loXPRiSxBCsQ7kNvwHoKFDI&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjcyNDMzNTA5OTUzMDY1MjcsImFzc2V0X2FnZV9kYXlzIjoyNSwidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjE0MSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=FNP8kHOoUN54s6VnPGqnZA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCO-Y3g2ciNUn42TTDb3_wA9h0LD9gxKnXEFiKp1Da_ig&oe=6A657738&bitrate=274037&tag=sve_sd",
+    trailer: "",
     saga: "MD Geist",
     sagaOrder: 1,
     related: [14, 12, 20],
     next: 14,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 14,
     title: "MD Geist 2: Death Force",
@@ -319,9 +358,12 @@ var animes = [{
     sagaOrder: 2,
     related: [13, 12, 20],
     prev: 13,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 15,
     title: "Project A-Ko",
@@ -340,11 +382,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ZoGJTPrwycA?si=eeuYm_R0SUCqLjPg",
     saga: "Project A-Ko",
     sagaOrder: 1,
-    related: [16, 17, 18, 19, 13, 30],
+    related: [16, 17, 18, 19, 30],
     next: 16,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 16,
     title: "Project A-Ko 2: Plot of the Daitokuji Financial Group",
@@ -363,12 +408,15 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/xP2uC_e00Rw?si=sBNrSaCjNzJqcK1C",
     saga: "Project A-Ko",
     sagaOrder: 2,
-    related: [15, 17, 18, 19, 13, 30],
+    related: [15, 17, 18, 19, 30],
     prev: 15,
     next: 17,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 17,
     title: "Project A-Ko 3: Cinderella Rhapsody",
@@ -387,12 +435,15 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/sGxinhe-8ts?si=gFtCSnuMVtagFC3y",
     saga: "Project A-Ko",
     sagaOrder: 3,
-    related: [15, 16, 18, 19, 13, 30],
+    related: [15, 16, 18, 19, 30],
     prev: 16,
     next: 18,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 18,
     title: "Project A-Ko 4: Final",
@@ -411,12 +462,15 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/IIxjNS-0FN4?si=Az4-E0L9PlBO8d6_",
     saga: "Project A-Ko",
     sagaOrder: 4,
-    related: [15, 16, 17, 19, 13, 30],
+    related: [15, 16, 17, 19, 30],
     prev: 17,
     next: 19,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 19,
     title: "Project A-Ko: Uncivil Wars (Vs)",
@@ -435,11 +489,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/Qi9nRF-k5HY?si=Y-UtTOPK2QvxO2gL",
     saga: "Project A-Ko",
     sagaOrder: 5,
-    related: [15, 16, 17, 18, 13, 30],
+    related: [15, 16, 17, 18, 30],
     prev: 18,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 20,
     title: "Roots Search",
@@ -455,13 +512,16 @@ var animes = [{
     plot: "Un equipo de investigación espacial encuentra una nave desierta. Pero no está vacía: algo se ha quedado dentro, y ahora ha viajado con ellos. La tripulación empieza a morir de manera extraña, y el horror se apodera de la nave. ¿Qué es lo que han traído a bordo? ¿Y cómo pueden detenerlo antes de que sea demasiado tarde?",
     analysis: "Roots Search es el ejemplo perfecto de OVA de terror espacial de serie B. Tiene el encanto de las películas de terror de los 80: efectos especiales cutres, una trama que no se toma demasiado en serio, y una atmósfera de claustrofobia que te atrapa. La animación es limitada, pero la historia tiene un ritmo ágil que te mantiene pegado a la pantalla.",
     forgotten: "Roots Search es el ejemplo perfecto de OVA que pasó sin pena ni gloria. Nunca tuvo una distribución internacional decente, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Su título genérico y su portada cutre no ayudan a que la gente la recuerde. Una joya oculta del terror espacial.",
-    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPneRMDn0kq0cLHSlrEJtcpKhHlqNEtcpk8-jKAZWvDWHhBm6x3ely93NSw7XKmTgFDOBEjYWi6ekG8skiHMGoFUCnahhJeIgOHZM0KOQ.mp4?_nc_cat=107&_nc_oc=Adqg-hYKZ-rmcKuP6eCJGNjYqEtBI6E3V9h36ODvyfjn22_XUeKBBr54V-hFkBAkhYg&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=CYKInaDPl2cQ7kNvwFWduc2&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTYyODcyODAzNDY0MDAxLCJhc3NldF9hZ2VfZGF5cyI6MjYsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjoxMDksInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=8NfziTJ2q30M5nzZBWRcyQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQA7kRiZB6i4A74DerS6sybrE7EtQxgmJm82z_Amu4fNcQ&oe=6A6C8583&bitrate=201906&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
-    related: [5, 11, 7],
-    category: "anime",
+    related: [12, 24, 5],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 21,
     title: "Windaria",
@@ -481,9 +541,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [1, 14, 24],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 22,
     title: "Black Magic M-66",
@@ -503,9 +566,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [17, 19, 25],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 23,
     title: "Battle Royal High School",
@@ -521,13 +587,16 @@ var animes = [{
     plot: "En el instituto de la ciudad de Tokio, los estudiantes son entrenados en artes marciales para defenderse de los demonios que acechan en las sombras. Pero cuando una invasión demoníaca amenaza la ciudad, los estudiantes se convierten en la última línea de defensa. El problema es que algunos de ellos no son tan humanos como parecen.",
     analysis: "Battle Royal High School es pura acción de los 80: artes marciales, demonios, estudiantes y una trama que apenas se sostiene. La animación es decente, y las escenas de lucha son coreografiadas con un ritmo trepidante. Es el tipo de OVA que ves por la acción, no por la historia. Un clásico de culto para los fans del anime de acción.",
     forgotten: "Su distribución fuera de Japón fue muy limitada. Nunca llegó a tener el éxito de otras series del género, y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Una joya oculta para los amantes de la acción.",
-    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQPOTQ3McHbjlDIMgPNmFirizkaQMNyGCL31scwXPQpoi9B5cMB3UbeaOsv5uZPKZN2puVvOVywks5WrOgFlb3E7MfwC2z0VksPywxe-DA.mp4?_nc_cat=109&_nc_oc=AdqVb88xTCPGk9skUCvZPuosv7MT_dYJE8BoFe5_MqLk-91hy_EeW0rG_7TiEFjEKt4&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=QXgWq3gLUmsQ7kNvwFiPW7Q&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjA0NzA5NTEzOTI0OTYyOSwiYXNzZXRfYWdlX2RheXMiOjU1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=5P9lkars0hoVf119K__3yQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQCeazsoZaE6m_FVu_Ngil_D94hHzj-lMdnlj4vNGaxcgQ&oe=6A6579E5&bitrate=302968&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
     related: [10, 12, 14],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 24,
     title: "Lily C.A.T.",
@@ -546,10 +615,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/nQxeSPREvHk?si=N18LmOmz9M11zilK",
     saga: null,
     sagaOrder: null,
-    related: [8, 11, 3],
-    category: "anime",
+    related: [8, 12, 20],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 25,
     title: "Crying Freeman",
@@ -569,9 +641,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 17, 8],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 26,
     title: "Dragon's Heaven",
@@ -591,9 +666,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [22, 24, 21],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 27,
     title: "Blood Reign: Curse of the Yoma",
@@ -613,9 +691,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [8, 10, 15, 20],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 28,
     title: "Riki-Oh: The Wall of Hell",
@@ -636,9 +717,12 @@ var animes = [{
     sagaOrder: 1,
     related: [29, 8, 10, 12],
     next: 29,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 29,
     title: "Riki-Oh 2 Child of Destruction",
@@ -659,9 +743,12 @@ var animes = [{
     sagaOrder: 2,
     related: [28, 8, 10, 12],
     prev: 28,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 30,
     title: "Nineteen 19",
@@ -681,9 +768,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [21, 16],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 31,
     title: "A.D. Police Files",
@@ -703,9 +793,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 17, 25],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 32,
     title: "Record of Lodoss War",
@@ -725,9 +818,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 21, 22],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 33,
     title: "The Curse of Kazuo Umezu",
@@ -747,9 +843,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [7, 9, 11],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 34,
     title: "Dark Cat",
@@ -769,9 +868,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 9, 11],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 35,
     title: "Roujin Z",
@@ -791,9 +893,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 18, 24],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 36,
     title: "3x3 Eyes (Sazan Eyes)",
@@ -814,9 +919,12 @@ var animes = [{
     sagaOrder: 1,
     related: [14, 17, 23],
     next: 37,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 37,
     title: "3x3 Eyes: Seima Densetsu (Legend of the Divine Demon)",
@@ -837,9 +945,12 @@ var animes = [{
     sagaOrder: 2,
     related: [14, 17, 23],
     prev: 36,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 38,
     title: "Midori: La Niña de las Camelias",
@@ -859,9 +970,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [10, 9],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: true,
+    hentai: false,
+    ecchi: false
 }, {
     id: 39,
     title: "Fatal Fury: Legend of the Hungry Wolf",
@@ -882,9 +996,12 @@ var animes = [{
     sagaOrder: 1,
     related: [8, 10],
     next: 40,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 40,
     title: "Fatal Fury 2: The New Battle",
@@ -906,9 +1023,12 @@ var animes = [{
     related: [8, 10],
     prev: 39,
     next: 41,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 41,
     title: "Fatal Fury: The Motion Picture",
@@ -929,9 +1049,12 @@ var animes = [{
     sagaOrder: 3,
     related: [8, 10],
     prev: 40,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 42,
     title: "Video Girl Ai",
@@ -951,9 +1074,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 16, 21],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 43,
     title: "Big Wars",
@@ -969,13 +1095,16 @@ var animes = [{
     plot: "En un futuro lejano, la humanidad ha colonizado Marte. Una raza alienígena llamada 'Akushu' los está atacando. La guerra espacial está servida, y el único hombre que puede detenerla es un piloto con más cojones que cerebro.",
     analysis: "Big Wars es pura ciencia ficción espacial de los 90: naves enormes, batallas épicas y una trama que intenta ser profunda pero se queda en el camino.",
     forgotten: "Su distribución fuera de Japón fue casi nula. Es una de esas OVAs que solo los fans más hardcore del mecha conocen.",
-    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQNuz_c6QMsBEEMKx3z6AspoWoFWkLYQOATxV9oFBw2v1F5Nz0PyiU_9w7lQ1zeXkVudMYjwtTb9bTSDJ1w0s2E02XoEI9xZxHEgE23rNQ.mp4?_nc_cat=110&_nc_oc=AdrxD5ol7Pd1nh_CWYdyWj7uq0baAwinlmhH0dDEIpJ2UYWMoF6V1DFDaTCHWKNwkhM&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=DCkW_WUAQv0Q7kNvwGrPfSf&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTUxMDg4MTc1MzMzMDI5NCwiYXNzZXRfYWdlX2RheXMiOjE3LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE3LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=Tx8Kff8pv4nuF1OzsGbToQ&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQB37Jt3Yo_uCUDBSB15-BiVwxnI3V2wPb8m5o_zXQVi9g&oe=6A657748&bitrate=305927&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
     related: [5, 19, 20],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 44,
     title: "Onikirimaru (Ogre Slayer)",
@@ -995,9 +1124,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [10, 12, 17],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 45,
     title: "Plastic Little",
@@ -1013,13 +1145,16 @@ var animes = [{
     plot: "Tita es la capitana de la nave 'Cha Cha Maru' y se gana la vida cazando bichos espaciales. Cuando rescata a Elysse, una fugitiva con un secreto, se ve envuelta en una conspiración.",
     analysis: "Plastic Little es puro entretenimiento ochentero- noventero: acción, comedia, diseños de Satoshi Urushihara y una trama que no se toma en serio a sí misma.",
     forgotten: "Nunca llegó a tener una gran franquicia. Es un clásico de culto para los que crecieron alquilando VHS en el videoclub.",
-    trailer: "https://video.fmga9-3.fna.fbcdn.net/o1/v/t2/f2/m412/AQN3s8eVhDPiX2AhdkesQbDSJmFZxZed2cacdgfsDkp-cPmfdAX9VIZYfbrS4Yt9sYWFxYzI2-nY1NR1_z_oYJeoHr1ZF7CHGMm14V8PrA.mp4?_nc_cat=111&_nc_oc=AdriFoRFZMOtBxpHMUvndy5tI-nyyl8eS7uoi36_CvyncecS1W85J6pBNgCZdQ5qUJo&_nc_sid=8bf8fe&_nc_ht=video.fmga9-3.fna.fbcdn.net&_nc_ohc=sjjkF60ysfYQ7kNvwELIP-c&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTQ3Mzc5OTcxNDc4NDE5NCwiYXNzZXRfYWdlX2RheXMiOjIwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTA0LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=iNyviZN-04fDcScitk41lg&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQBuskxasAHZqmv0RsTIhiQSm5QcvPTsVQ-Ay4gAI1_Xnw&oe=6A6C683B&bitrate=333189&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
     related: [5, 20, 21],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 46,
     title: "Armitage III",
@@ -1032,16 +1167,19 @@ var animes = [{
     genre: ["Ciencia ficción", "Cyberpunk", "Acción"],
     tags: ["ciencia-ficción", "cyberpunk", "acción", "robot", "futurista"],
     description: "En Marte, los androides llamados 'Terceros' son carne de cañón. Pero Armitage no es una máquina cualquiera: es policía, es mujer, y no se deja pisotear.",
-    plot: "Naomi Armitage es una androide de tercera generación que trabaja como policía en Marte. Junto a su nuevo compañero humano, Ross Sylibus, investiga una serie de asesinatos de Terceros.",
+    plot: "Naomi Armitage es un androide de tercera generación que trabaja como policía en Marte. Junto a su nuevo compañero humano, Ross Sylibus, investiga una serie de asesinatos de Terceros.",
     analysis: "Armitage III es el puente perfecto entre el cyberpunk de los 80 y el anime de acción de los 90. Chiaki J. Konaka escribió una historia que cuestiona qué significa ser humano.",
     forgotten: "Armitage III fue víctima de su propio éxito parcial: llegó a Occidente en una época en la que el cyberpunk ya estaba saturado.",
-    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQOvjkLcaO4V4OdvsEhKTVkEGO8SJ1D8XqL7Oqo7B8xHgonQUTYFyEyapRRij0ZzoSSpIr4Tei1WrCJqAv7GXeeLNQmm1ueUpZWrIBd77A.mp4?_nc_cat=100&_nc_oc=Adp6gm0NdzHoGsQMk9jybSxOXgpQAsTxPjROaTanrxogleTrz-4jDWkBiIbaAQf6NhQ&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=JaNq9qq8bWEQ7kNvwHzmMj0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyNjkzMjQxNjQ1OTE0MSwiYXNzZXRfYWdlX2RheXMiOjIxLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTE4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=pzfC_bEBvVlQ9nECPgZ1sA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQAqN7PY38Shz6Q40ijzP7FoEx9D-0PyYvEimU6V1Tcc3Q&oe=6A65A09E&bitrate=512006&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
     related: [23, 25, 17],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 47,
     title: "Golden Boy",
@@ -1061,9 +1199,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 19, 21],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: true
 }, {
     id: 48,
     title: "The Vision of Escaflowne",
@@ -1082,11 +1223,14 @@ var animes = [{
     trailer: "",
     saga: "Escaflowne",
     sagaOrder: 1,
-    related: [17, 14, 24],
+    related: [14, 17, 24],
     next: 49,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 49,
     title: "Escaflowne (Película)",
@@ -1107,9 +1251,12 @@ var animes = [{
     sagaOrder: 2,
     related: [14, 17, 48],
     prev: 48,
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 50,
     title: "Ninja Resurrection",
@@ -1125,13 +1272,16 @@ var animes = [{
     plot: "En el Japón del siglo XVII, Amakusa Shiro lidera una rebelión cristiana contra el shogunato. Es derrotado y ejecutado. Pero no muere. Resucita con poderes demoníacos.",
     analysis: "Ninja Resurrection es pura acción de los 90: violencia exagerada, un protagonista que es más bestia que humano, y una trama que apenas se sostiene.",
     forgotten: "Solo se hicieron dos episodios de los cuatro planeados. La serie fue cancelada y nunca se completó.",
-    trailer: "https://video.fmga9-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMuCfABFaWNYtEq1SXTt6H1GxlRyQWWGGggx2TCS9dyebfSoOeUmGZEiHldxjrjFAI0bDRbMtl2LYaNATM_zU29gl54u1BJXfCVvZJy4g.mp4?_nc_cat=102&_nc_oc=AdrCzSDg8fwcxeqK15jYCTQZguCpTQ7-VfeLX1vSpmecIDczQVkzsY4vXr0VY8CC5IE&_nc_sid=8bf8fe&_nc_ht=video.fmga9-2.fna.fbcdn.net&_nc_ohc=iYpGWUW47SgQ7kNvwGj1cMk&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjIzMjg1MzAxMDg2Mzg5MCwiYXNzZXRfYWdlX2RheXMiOjUwLCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NzcsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=NKB7KFDnrHaoZwGjIOvjeA&_nc_ss=7b2a8&_nc_zt=28&oh=00_AQD6VRWrHwenwPSGDdymRFF8fIFKyydCsEf18ObyPnZO9Q&oe=6A658574&bitrate=222128&tag=sve_sd",
+    trailer: "",
     saga: null,
     sagaOrder: null,
     related: [8, 12, 13],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 51,
     title: "The Big O",
@@ -1151,9 +1301,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [17, 19, 20],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 52,
     title: "Malice@Doll",
@@ -1173,9 +1326,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [23, 17, 25],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 53,
     title: "Parasite Dolls",
@@ -1193,9 +1349,12 @@ var animes = [{
     forgotten: "A pesar de ser un spin-off interesante, Parasite Dolls quedó eclipsado por la propia franquicia de Bubblegum Crisis. Su estreno limitado lo convirtió en una rareza.",
     trailer: "",
     related: [23, 28, 17],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 54,
     title: "Paprika",
@@ -1215,9 +1374,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [14, 17, 24],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 55,
     title: "Riki-Oh: The Story of Ricky",
@@ -1236,10 +1398,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/8YgiYySosFQ?si=MGydAd6LrQwzfC0Q",
     saga: null,
     sagaOrder: null,
-    related: [15, 19, 12],
+    related: [56, 57, 63],
     category: "live-action",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 56,
     title: "Mutronics (The Guyver)",
@@ -1258,10 +1423,13 @@ var animes = [{
     trailer: "",
     saga: "The Guyver",
     sagaOrder: 1,
-    related: [38, 33, 10],
+    related: [57, 10, 11],
     category: "live-action",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 57,
     title: "Guyver: Dark Hero",
@@ -1280,10 +1448,13 @@ var animes = [{
     trailer: "",
     saga: "The Guyver",
     sagaOrder: 2,
-    related: [46, 38, 33],
+    related: [56, 10, 11],
     category: "live-action",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 58,
     title: "Midori: La Niña de las Camelias (Live Action)",
@@ -1302,10 +1473,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/8YgiYySosFQ?si=C_E098W2VVv5U5jM",
     saga: null,
     sagaOrder: null,
-    related: [9, 13, 11],
+    related: [38, 9, 11],
     category: "live-action",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 59,
     title: "Riding Bean",
@@ -1325,9 +1499,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [28, 29, 46],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 60,
     title: "Gedou Gakuen (Nightmare Campus)",
@@ -1347,9 +1524,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 11, 13],
-    category: "adulto",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 61,
     title: "Reyon Densetsu Flair (The Legend of Lyon)",
@@ -1369,9 +1549,12 @@ var animes = [{
     saga: "Reyon Densetsu",
     sagaOrder: 1,
     related: [9, 11, 13],
-    category: "adulto",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 62,
     title: "Ichi the Killer: Episode 0",
@@ -1390,10 +1573,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/BFyW81NkfXs?si=OVdbEND2WQhk1wdm",
     saga: null,
     sagaOrder: null,
-    related: [9, 11, 13],
-    category: "adulto",
+    related: [63, 65, 67],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 63,
     title: "Ichi the Killer (Película)",
@@ -1412,10 +1598,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/Y9c81oA51A8?si=UzQRPCWjXJLDut6w",
     saga: null,
     sagaOrder: null,
-    related: [65, 9, 11, 13],
+    related: [62, 65, 67],
     category: "live-action",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: false
 }, {
     id: 64,
     title: "Cat Soup (Nekojiru-sou)",
@@ -1435,9 +1624,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 18, 38],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 65,
     title: "Kite",
@@ -1456,10 +1648,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/oeNVU4gxAsM?si=_199iFsvSnKyoTft",
     saga: null,
     sagaOrder: null,
-    related: [69, 70],
-    category: "adulto",
+    related: [66, 67, 63],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 66,
     title: "Kite Liberator",
@@ -1478,10 +1673,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/jDzBjE35yuY?si=7fQdkOqmFp_hk6zA",
     saga: null,
     sagaOrder: null,
-    related: [68, 69],
-    category: "anime",
+    related: [65, 68, 63],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 67,
     title: "Mezzo Forte",
@@ -1500,10 +1698,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/0fUjqc_R_Fs?si=Z9xDaxbP2RjUK2Ir",
     saga: null,
     sagaOrder: null,
-    related: [68, 70],
-    category: "adulto",
+    related: [65, 68, 63],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 68,
     title: "Mezzo DSA",
@@ -1522,10 +1723,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/P_t3ely77AA?si=KYmXjKEKAwpCsy0P",
     saga: null,
     sagaOrder: null,
-    related: [69, 68],
-    category: "anime",
+    related: [65, 67, 66],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 69,
     title: "Ayakashi: Japanese Classic Horror",
@@ -1545,9 +1749,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 18, 38],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 70,
     title: "Kage (Hyper Shinobi Animation: Shadow)",
@@ -1557,7 +1764,7 @@ var animes = [{
     duration: "4 episodios (~29 min c/u)",
     studio: "A.P.P.P.",
     director: "Masashi Abe",
-    genre: ["Acción", "Histórico", "Artes marciales", "Hentai"],
+    genre: ["Acción", "Histórico", "Artes marciales"],
     tags: ["adulto", "acción", "artes-marciales", "ninjas", "samurái", "gore", "violento", "culto", "2004"],
     description: "En el período Edo, dos hábiles kunoichi, Karyu y Uzume, se enfrentan en una sangrienta batalla por la superioridad. Un OVA de acción y contenido adulto con animación de alta calidad y violencia gráfica.",
     plot: "Es el período pacífico de Edo en Japón, y los ninjas ya no son necesarios. Karyu, una kunoichi particularmente hábil, se ve forzada a trabajar como asesina a sueldo. Se le encarga matar a un mercader, pero al llegar, descubre que su sirviente, Uzume, es en realidad otra kunoichi tan hábil como ella. Karyu y Uzume compiten en una sangrienta batalla por la superioridad, mientras se desvelan secretos y traiciones. La serie explora la rivalidad y la sed de venganza en un Japón feudal, con un tono oscuro y adulto.",
@@ -1567,9 +1774,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [68, 69, 9],
-    category: "adulto",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 71,
     title: "Key the Metal Idol",
@@ -1589,9 +1799,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 18, 38],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 72,
     title: "Lady Snowblood",
@@ -1610,10 +1823,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/8N_CqxSKBAE?si=ale8ScFhYaLEsY4q",
     saga: null,
     sagaOrder: null,
-    related: [46, 48, 49],
+    related: [75, 76, 73],
     category: "live-action",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 73,
     title: "Mushishi (Película)",
@@ -1635,7 +1851,10 @@ var animes = [{
     related: [4, 18, 38],
     category: "live-action",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 74,
     title: "La Tumba de las Luciérnagas (Live Action 2005)",
@@ -1657,7 +1876,10 @@ var animes = [{
     related: [1, 2, 8],
     category: "live-action",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 75,
     title: "Azumi",
@@ -1676,10 +1898,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/XmI86tMnNmY?si=1iRcYaO0OpaihAnW",
     saga: "Azumi",
     sagaOrder: 1,
-    related: [80, 75, 76],
+    related: [76, 72, 73],
     category: "live-action",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 76,
     title: "Azumi 2: Death or Love",
@@ -1698,10 +1923,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/-z48PyUQc1k?si=IVJMwtyObMKIdM6C",
     saga: "Azumi",
     sagaOrder: 2,
-    related: [79, 75, 76],
+    related: [75, 72, 73],
     category: "live-action",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 77,
     title: "Hanappe Bazooka",
@@ -1721,9 +1949,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [9, 30, 36],
-    category: "adulto",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 78,
     title: "Dallos",
@@ -1743,9 +1974,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [4, 21, 28],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Muy raro"
+    rarity: "Muy raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 79,
     title: "Legend of Crystania: The Motion Picture",
@@ -1764,10 +1998,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/c6MIV8EuTkw?si=o6lXzixosExP9NwI",
     saga: "Legend of Crystania",
     sagaOrder: 1,
-    related: [80, 31],
-    category: "anime",
+    related: [80, 32],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 80,
     title: "Legend of Crystania: The Chaos Ring",
@@ -1786,10 +2023,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/OZeVbuQWw9U?si=7BZKbHeRmjcVuPv8",
     saga: "Legend of Crystania",
     sagaOrder: 2,
-    related: [79, 31],
-    category: "anime",
+    related: [79, 32],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 81,
     title: "Wanna-Be's",
@@ -1809,9 +2049,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [75, 14, 18],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 82,
     title: "Legend of Lemnear",
@@ -1831,9 +2074,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 8, 32],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 83,
     title: "Goddamn",
@@ -1853,9 +2099,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 81],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 84,
     title: "Power Dolls",
@@ -1875,9 +2124,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 81],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 85,
     title: "Detonator Orgun",
@@ -1897,9 +2149,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 78],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 86,
     title: "Kyou Kara Ore Wa!!",
@@ -1919,9 +2174,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 81],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 87,
     title: "Ninja Scroll",
@@ -1941,9 +2199,12 @@ var animes = [{
     saga: "Ninja Scroll",
     sagaOrder: 1,
     related: [88, 45, 78],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Común"
+    rarity: "Común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 88,
     title: "Ninja Scroll: La Serie",
@@ -1963,9 +2224,12 @@ var animes = [{
     saga: "Ninja Scroll",
     sagaOrder: 2,
     related: [87, 45, 78],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Poco común"
+    rarity: "Poco común",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 89,
     title: "Oruchuban Ebichu",
@@ -1985,9 +2249,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 90,
     title: "Psychic Force",
@@ -2007,9 +2274,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 78, 81],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 91,
     title: "Dokushin Apartment Dokudami-sou",
@@ -2029,9 +2299,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "adulto",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 92,
     title: "Æon Flux",
@@ -2051,9 +2324,12 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [3, 45, 78],
-    category: "anime",
+    category: "animada",
     origin: "Estados Unidos",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
 }, {
     id: 93,
     title: "Variable Geo",
@@ -2072,10 +2348,13 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ADMbmMbXuWs?si=dh2altxeve8XsIo3",
     saga: null,
     sagaOrder: null,
-    related: [92, 90, 85],
-    category: "anime",
+    related: [90, 92, 85],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
 }, {
     id: 94,
     title: "Yoiko",
@@ -2095,11 +2374,13 @@ var animes = [{
     saga: null,
     sagaOrder: null,
     related: [45, 81, 4],
-    category: "anime",
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
-},
-{
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: true
+}, {
     id: 95,
     title: "Dark City",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh07lU9bnuv8gW0SjvwgPb-pfLjo7xcR7g4QISyRYDIcDD7JlqBIM4v7-porZ3M3T-29l2KRz8u6Jj67_3_n_58aUV_g1qBHPwxAbFpPY7S4PVfeLEPAmIFa_zd4zAGA-4pBt7rBIvBediAkzfSC42FxpyrG7jCE-WqU1uEK2uaj1JvjNJ42rODKxcK2D5W=w282-h400",
@@ -2117,12 +2398,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ZTldm4vo4mk?si=75vW48VrP6cMTtzM",
     saga: null,
     sagaOrder: null,
-    related: [3, 45, 78],
+    related: [3, 78, 92],
     category: "live-action",
     origin: "Australia / EE.UU.",
-    rarity: "Raro"
-},
-      {
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
     id: 96,
     title: "Ghost Dog: El camino del samurai",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh563M1w7hdzrzK7qgly3j1Bn4ZyzqVBS1Pgf_Waxa3QqWQr0hCZw3EvimEl503VlLUGr4hCXwyuwmd7teRMz8ko1eYJwDf8pGA6IZBpwJGWdYTaF0NYMYg2C7-E4mSaYpHmPj9NWgXQpoAxuf5l3NAB93cVrm0DlTOLKzb85vVoLHeTnACHrVh6_hFi51_=w267-h400",
@@ -2140,12 +2423,14 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/ZjzodE7onE4?si=4w7dnbFDCfE1KvZ4",
     saga: null,
     sagaOrder: null,
-    related: [3, 45, 78],
+    related: [72, 75, 105],
     category: "live-action",
     origin: "Estados Unidos / Francia",
-    rarity: "Raro"
-   },
-        {
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
     id: 97,
     title: "Devilman: El Nacimiento (Devilman: Tanjou-hen)",
     cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjpj_UN1POgd6TfoWwRCHLm_jOuzzmrbA-rL9_A5N9F52N5-VUm0rqx7SCCcS2vE8b70Ri1u7hP4WwnrSaBBO0S3JNEWUCsdLpx7SxcNXb8fFfLh3pjvriXjM7MT5Rm6ROMaoATI3SPqtzuwhTLANj2GsR28K7_BRQWYAK3oJx7c2zO5W-x2lMp3qA7S770=w283-h400",
@@ -2163,192 +2448,211 @@ var animes = [{
     trailer: "https://www.youtube.com/embed/PSE4fvQiSKU?si=Vvec5o62gtDDMnPE",
     saga: "Devilman (OVA)",
     sagaOrder: 1,
-    related: [99, 98, 61],
-    category: "anime",
+    related: [98, 99, 61],
+    category: "animada",
     origin: "Japón",
-    rarity: "Raro"
-},
-      {
-    "id": 98,
-    "title": "Devilman: El Pájaro Demonio (Devilman: Youchou Sirene-hen)",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEj6D0hPVSGSk4-6zlq5T2ekcj1ou7cq2UO9OqOChE75gVtMPfCCxcmb7cA5wQzM0dDvmJM3PhkfQnzrUdx4RtPHc5zD79sYT6LyqlQ8ekSmiQYmaARgVFF1Nh2Fm7IceT9Zj2tdek4jnxxw0YuFR06Dw13wv2-YcV6Nq0harvC5R5g1gRVqkNBpOS3O2hFm=w267-h400",
-    "year": 1990,
-    "type": "OVA",
-    "duration": "1 episodio (~57 min)",
-    "studio": "Oh! Production",
-    "director": "Umanosuke Iida",
-    "genre": ["Fantasía oscura", "Horror", "Acción", "Sobrenatural"],
-    "tags": ["demonios", "violento", "gore", "culto", "90s", "manga", "go-nagai"],
-    "description": "Segunda OVA de Devilman, secuela directa de El Nacimiento. Akira Fudo debe domar el instinto asesino de Amon mientras defiende a la humanidad de una invasión a gran escala. Su mayor amenaza será Sirene, una orgullosa y hermosa guerrera demonio alada que busca torturar a Akira por haberle robado el cuerpo y la gloria a su antiguo amante Amon.",
-    "plot": "Akira Fudo, convertido en Devilman, se enfrenta a una serie de demonios que lo atacan. Primero lucha contra Jinmen, un demonio con forma de tortuga que tiene rostros humanos vivos incrustados en su caparazón, incluyendo el de su madre. Luego, es atacado por Sirene, un demonio alado que busca venganza porque Devilman robó el poder de Amon. Sirene tiende una trampa a Devilman, mutilándole un ala y dejándolo al borde de la muerte tras una persecución aérea. Con la ayuda de sus amigos, Akira logra recuperar sus fuerzas y enfrenta a Sirene en una batalla final. El OVA termina con Sirene muerta de pie con una sonrisa triunfal bajo los primeros rayos del sol, mientras Akira observa en shock.",
-    "analysis": "Esta OVA es una adaptación directa del manga de Go Nagai. El ritmo es trepidante y la animación sube de nivel con combates aéreos dinámicos y un despliegue de gore brutal. La deconstrucción de la villana, Sirene, dota de una tremenda carga dramática al final, evitando el típico final de héroe victorioso. Sin embargo, no es una continuación directa de la primera parte: salta en el tiempo y presenta personajes que Akira conoce pero el público no, lo que resulta confuso. La trama se reduce principalmente a una serie de batallas. La banda sonora de Kenji Kawai mantiene la atmósfera épica y opresiva. Contiene desnudez y violencia gráfica, clasificada como R+.",
-    "forgotten": "Esta OVA es una obra cumbre del anime oscuro de los 90. Se ha convertido en una pieza de culto para los fans del manga original, pero su distribución en occidente fue limitada. La plataforma Anime Onegai la rescató en junio de 2022, ofreciendo por primera vez su doblaje oficial al español latino. Es una rareza para coleccionistas y amantes del terror clásico.",
-    "trailer": "https://www.youtube.com/embed/PSE4fvQiSKU?si=Vvec5o62gtDDMnPE",
-    "saga": "Devilman (OVA)",
-    "sagaOrder": 2,
-    "related": [99, 97, 61],
-    "category": "anime",
-    "origin": "Japón",
-    "rarity": "Raro"
-},
-      {
-    "id": 99,
-    "title": "Amon: Apocalipsis de Devilman (Amon: Devilman Mokushiroku)",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEhEN3nac1gu8-UrL2wnXfCP9MKG76u1LQuIFIlCy8I09_wZUAEiQIgnBmp8t4W-a8oUCc9_m93mRZh16WZC8nAcd_cGIyjXUomgeiBNXXfYrE7KM14dM0HWCPf5pxHnIp2G-hP4ujUndVykBKvFMwtHkF49gA48BDstqChmzmAq9Fj2e1owshQJ1X6F_ems=w282-h400",
-    "year": 2000,
-    "type": "OVA",
-    "duration": "1 episodio (~45-46 min)",
-    "studio": "Studio Live",
-    "director": "Kenichi Takeshita",
-    "genre": ["Fantasía oscura", "Horror", "Acción", "Sobrenatural"],
-    "tags": ["demonios", "violento", "gore", "culto", "2000", "manga", "go-nagai"],
-    "description": "Tercera OVA de Devilman, basada en el manga 'Amon: The Darkside of Devilman'. Tras la revelación de que los demonios existen entre los humanos, el pánico se apodera de Tokio. Cuando Akira presencia la muerte de sus seres queridos, su mente colapsa y Amon, su alter-ego demoníaco, toma el control de su cuerpo para sembrar el caos entre humanos y demonios.",
-    "plot": "Tokio está sumido en el caos tras la revelación de Ryo Asuka de que los demonios viven entre los humanos. La paranoia se extiende y la gente se vuelve contra los demás, sospechando que cualquiera podría ser un demonio. Cuando Akira presencia el asesinato de Miki y su hermano, su mente se rompe y Amon, el demonio con el que se fusionó, toma el control total de su cuerpo. Amon, liberado, arrasa con todo a su paso, matando tanto a humanos como a demonios. La historia culmina en una batalla final entre Amon y Satanás.",
-    "analysis": "Amon: Apocalypse of Devilman es la tercera OVA de la serie clásica de Devilman, lanzada en el año 2000. A diferencia de las dos primeras OVAs, que adaptaban el manga original de 1972, esta adapta el manga 'Amon: The Darkside of Devilman' (1999). El tono es mucho más oscuro, nihilista y violento que sus predecesoras. La animación es inferior a la de las OVAs anteriores, con escenas de acción que a menudo se cortan o usan animación repetitiva. La banda sonora tiene un estilo heavy metal que acompaña la violencia. Es considerada por muchos fans como la entrega más débil de la trilogía, aunque algunos la valoran por su brutalidad y su enfoque en el poder de Amon.",
-    "forgotten": "Esta OVA es una rareza dentro de la franquicia Devilman. Es la menos conocida de las tres OVAs clásicas y ha sido ampliamente criticada por su calidad y su enfoque en la violencia sin propósito. Su distribución fuera de Japón fue muy limitada. Es una pieza de coleccionista para los fans de Devilman y los amantes del anime extremo.",
-    "trailer": "",
-    "saga": "Devilman (OVA)",
-    "sagaOrder": 3,
-    "related": [97, 98, 61],
-    "category": "anime",
-    "origin": "Japón",
-    "rarity": "Muy Raro"
-},
-        {
-    "id": 100,
-    "title": "The Animatrix",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEjz-ExW1h7ShuJcW9R1dOkyDavf97cllrI1V4gfsaSn3ZtCRVc13qgYf0CBNevsZ5KFhmgQi3I4vzYsOXJb8-OQzW1FctdKkalmsFMIUyXdwjZPS2_3HG8FZRZlZ5QypQhq3S_6Mq-TCPJLaaP9ETE8uoIvqct13LzrFcFSdbV2AkuESsI5nS07R7itahCJ=w270-h400",
-    "year": 2003,
-    "type": "Película (Antología)",
-    "duration": "100 min (9 cortos)",
-    "studio": "Varios (Madhouse, Studio 4°C, Square Pictures)",
-    "director": "Varios (Andy Jones, Mahiro Maeda, Shinichirō Watanabe, Yoshiaki Kawajiri, Takeshi Koike, Koji Morimoto, Peter Chung)",
-    "genre": ["Ciencia ficción", "Cyberpunk", "Antología", "Acción"],
-    "tags": ["matrix", "cyberpunk", "antología", "culto", "2000s", "wachowski", "anime"],
-    "description": "Antología de nueve cortometrajes animados ambientados en el universo de The Matrix, producida por los hermanos Wachowski y dirigida por algunos de los nombres más importantes del anime. Cada corto expande la historia y mitología de la franquicia, desde el origen de la guerra entre humanos y máquinas hasta historias individuales de resistencia y redención.",
-    "plot": "The Animatrix reúne nueve historias independientes que exploran diferentes aspectos del universo Matrix. 'The Second Renaissance' (Partes I y II) narra el origen de la guerra entre humanos y máquinas, desde la creación de la IA hasta la esclavitud de la humanidad. 'Final Flight of the Osiris' sigue a la tripulación de la nave Osiris mientras intentan advertir a Zion del ataque inminente. 'Kid's Story' muestra cómo el joven Kid escapa del Matrix guiado por Neo. 'Program' es un entrenamiento en una simulación samurái donde una guerrera debe decidir entre la realidad y la ilusión. 'World Record' sigue a un atleta que corre tan rápido que rompe las reglas del Matrix. 'Beyond' muestra a una chica descubriendo un glitch en el sistema. 'A Detective Story' sigue a un detective contratado por los Agents para encontrar a Trinity. 'Matriculated' muestra a rebeldes intentando reprogramar una máquina.",
-    "analysis": "The Animatrix es una antología de nueve cortometrajes animados que expanden el universo de Matrix. Fue concebida por los hermanos Wachowski mientras promocionaban la primera película en Japón, donde visitaron estudios de animación que los inspiraron. La antología reúne a directores como Shinichirō Watanabe (Cowboy Bebop), Yoshiaki Kawajiri (Ninja Scroll), Mahiro Maeda (Blue Submarine No. 6) y Peter Chung (Æon Flux). Los Wachowski escribieron cuatro de los nueve cortos. La animación abarca desde CGI (Final Flight of the Osiris, producida por Square Pictures) hasta estilos anime más clásicos y experimentales. Se estrenó en 2003, entre The Matrix Reloaded y The Matrix Revolutions, como promoción y expansión del lore. Fue lanzada en DVD y VHS el 3 de junio de 2003, y posteriormente en Blu-ray en 2008.",
-    "forgotten": "The Animatrix fue aclamada por la crítica y el público en su estreno, pero con el tiempo ha quedado eclipsada por las películas de la trilogía. Se transmitió en Cartoon Network Latinoamérica dentro del bloque Toonami, y también por I.Sat y Warner TV. En 2022, estuvo disponible en HBO Max Latinoamérica hasta que fue retirada. Es recordada por los amantes del cyberpunk y del anime de los 2000, y muchos la consideran lo mejor de la saga Matrix por expandir el universo de forma coherente y creativa.",
-    "trailer": "https://www.youtube.com/embed/qjtnWqq1-7A?si=QAIj-EvSFZH7VbJD",
-    "saga": null,
-    "sagaOrder": null,
-    "related": [92, 85, 51],
-    "category": "anime",
-    "origin": "Estados Unidos / Japón",
-    "rarity": "Poco Raro"
-},  
-       {
-    "id": 101,
-    "title": "Felidae",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEgh8D5-1VKko6XFgGXnhgfWtjoiGcb2rP5TXiUiQ-GICbKba0i8317sbHhYhLj3qhynpikp29NUNDszC_5Hs4E9vcjis1ZCEcZVOTitqwmR021q1ljTcZ100ISbrF5z4rvnOv-gOvKdy8aZ_PDIizWW5qZBhfOYy4Np8UhXFDnikyg5RPmDoW9kRgIYvJTF=w267-h400",
-    "year": 1994,
-    "type": "Película",
-    "duration": "82 min",
-    "studio": "TFC Trickompany",
-    "director": "Michael Schaack",
-    "genre": ["Misterio", "Terror", "Suspenso", "Neo-noir", "Gore"],
-    "tags": ["animación-adulta", "gore", "misterio", "novela", "animales", "eugenesia", "culto", "90s"],
-    "description": "Basada en la novela de Akif Pirinçci. Francis, un gato negro con pecho, cara y patas blancas (tipo esmoquin) y ojos verdes, se muda a un nuevo vecindario con su dueño. Pronto descubre una serie de brutales asesinatos de gatos y se obsesiona con resolver el misterio. Su investigación lo llevará a descubrir una secta felina que adora a una figura mesiánica llamada Claudandus, y un oscuro experimento de laboratorio sobre eugenesia felina.",
-    "plot": "Francis se muda con su dueño Gustav Löbel a una casa en un nuevo vecindario. Allí encuentra el cadáver de un gato asesinado y conoce a Bluebeard, un gato tuerto y malherido. Juntos investigan los asesinatos. Francis descubre una secta de gatos liderada por Joker que adora a una entidad llamada Claudandus y practica suicidios rituales saltando a una corriente eléctrica. Francis descubre que la casa era un laboratorio experimental donde se probaban adhesivos tisulares en gatos callejeros. El único gato que sobrevivió fue Claudandus, quien asesinó al científico líder, Preterius, y escapó. Claudandus, ahora un gato llamado Pascal, ha estado orquestando los asesinatos para crear una raza superior de gatos. Francis se enfrenta a Claudandus, lo hiere de muerte, y lo deja arder en un incendio.",
-    "analysis": "Felidae es una película de animación para adultos alemana basada en la novela de Akif Pirinçci. Fue la película animada más cara de Alemania en su época, con un presupuesto de 10 millones de marcos. Es conocida por ser una de las películas animadas más violentas y perturbadoras, con escenas de gore extremo y sexo explícito. Explora temas como la eugenesia, el fanatismo religioso, la experimentación con animales y la crueldad humana. La animación mezcla un estilo de dibujo que recuerda a Disney con una historia oscura y adulta. Fue comparada con Watership Down y The Plague Dogs por su tono.",
-    "forgotten": "Felidae fue un éxito de taquilla en Alemania en 1994, pero su distribución internacional fue limitada. En España se estrenó con el título 'Francis el Detectigato'. En Latinoamérica no tuvo un estreno masivo. Es considerada una película de culto para los amantes del cine de animación adulta.",
-    "trailer": "https://www.youtube.com/embed/ZRdlizSekJU?si=hyqDxf5HegdYg1rK",
-    "saga": null,
-    "sagaOrder": null,
-    "related": [4, 64],
-    "category": "anime",
-    "origin": "Alemania",
-    "rarity": "Raro"
-},
-      {
-    "id": 102,
-    "title": "El Planeta Salvaje (La Planète Sauvage)",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEh46Fv9lmB3whe2PCeow93JOHj9ZmyraqY4nYSp4yvEKT7qccfU1-C7mq3O4MGjs9PKlssSmFUP_yWPSMMX3_zCkppD8nQVEsv_G4N565fXu-jKMiWuRoANu51vMAjSLD_aOhXJpOFInjLhx-WjlZh_3xKBIYSI7OaeH-76PfZXU8Obns09_rMIP9vQgz09=w287-h400",
-    "year": 1973,
-    "type": "Película",
-    "duration": "72 min",
-    "studio": "Les Films Armorial / ORTF / Ceskoslovensky Filmexport",
-    "director": "René Laloux",
-    "genre": ["Ciencia ficción", "Fantasía", "Experimental", "Filosófico"],
-    "tags": ["animación", "ciencia-ficción", "surrealista", "culto", "70s", "frances", "stop-motion", "contracultura"],
-    "description": "En el planeta Ygam, los Draags, gigantes de piel azul y altamente avanzados, tienen como mascotas a los Oms, seres humanos diminutos. Un Om llamado Terr escapa de su dueña y lidera una rebelión contra sus opresores. Una fábula de ciencia ficción surrealista y psicodélica que usa la animación para explorar temas de opresión, conocimiento y coexistencia.",
-    "plot": "En el planeta Ygam, los Oms (humanos) son considerados plagas o mascotas por los Draags, seres gigantes de piel azul y tecnología avanzada. La pequeña Tiwa, hija de un Draag importante, adopta a un bebé Om llamado Terr. Mientras crece, Terr aprende de las sesiones de aprendizaje de Tiwa mediante unos auriculares, absorbiendo conocimientos de la cultura Draag. Al hacerse adulto y temer que su inteligencia sea descubierta, Terr escapa con los auriculares. Se une a una comunidad de Oms salvajes y usa los conocimientos robados para mejorar su tecnología. Los Draags, al descubrir la rebelión, inician una purga. Terr y su grupo huyen al satélite del planeta, llamado Planeta Salvaje, donde descubren estatuas gigantes que los Draags usan para rituales de meditación. Al destruir algunas de estas estatuas, los Oms amenazan la existencia de los Draags, forzándolos a negociar la paz. Finalmente, ambas especies llegan a un acuerdo para coexistir en armonía.",
-    "analysis": "El Planeta Salvaje es una obra maestra del cine de animación surrealista, codirigida por René Laloux y el dibujante Roland Topor, quien creó los diseños de criaturas y paisajes. Su estilo visual es una mezcla de ilustración de ciencia ficción, surrealismo y grabados antiguos. La película se convirtió en un éxito de culto en los 70, ganando el Premio Especial del Jurado en el Festival de Cannes de 1973. Su historia es una clara alegoría sobre la opresión, el racismo y la lucha por el conocimiento, invirtiendo los roles para que los humanos sean los 'animales'. La banda sonora de Alain Goraguer, una mezcla de jazz psicodélico, funk y música electrónica, es icónica y complementa perfectamente la atmósfera extraña del filme. La animación, hecha con la técnica de recortes en stop-motion, refuerza la sensación de un mundo onírico y extraño.",
-    "forgotten": "Aunque es un clásico de culto, El Planeta Salvaje pasó bastante desapercibido en su época fuera de los circuitos de cine de arte y ensayo. Su distribución en VHS y DVD fue irregular durante años, lo que lo convirtió en una rareza para el público general. Fue restaurado y relanzado por The Criterion Collection en 2016, lo que le dio una nueva vida. Sigue siendo menos conocido que otras películas de animación para adultos, pero su influencia en el cine de animación, especialmente en el japonés, es reconocida.",
-    "trailer": "https://www.youtube.com/embed/LE3AaxGKaEg?si=txUTL1tNraP8Ays-",
-    "saga": null,
-    "sagaOrder": null,
-    "related": [3, 78, 4],
-    "category": "anime",
-    "origin": "Francia / Checoslovaquia",
-    "rarity": "Raro"
-},
-       {
-    "id": 103,
-    "title": "Heartwork: Symphony of Destruction (Heartwork: Love Guns)",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEi_o2ihU74wpPsw0nP9MNOoC0RnqXe2MU4L5Ql45hKG61U3jLT8W33Txtdf3-jLJ0_GxbGUBm8BJ0XIilstT5XIH-85NJsKVfHF53_59Ai_3SHTLKLMLDnEranJl44DZFQ1MsmwJk9HtAVaQ-xoXLbD-nBZSSP94HWWCnFcyGcjTKjOOSvYIPvAfsDZEOKg=w257-h400",
-    "year": "2003-2004",
-    "type": "OVA",
-    "duration": "3 episodios (~30 min c/u)",
-    "studio": "Kyushu Network Animation",
-    "director": "Hitoshi Kawaguchi",
-    "genre": ["Acción", "Drama", "Suspenso", "Policíaco"],
-    "tags": ["armas", "asesinos", "misterio", "culto", "2000s", "rareza", "videojuego", "media-blasters"],
-    "description": "Un estudiante universitario llamado Yuu Asakura cambia accidentalmente su maletín con el de un asesino a sueldo. Dentro encuentra una pistola, dinero y un video con una orden de asesinato. Junto a una misteriosa mujer llamada Ángel, acepta el trabajo y se adentra en un mundo de violencia, sexo y crimen. La pistola que porta está 'maldita' y quien la usa no puede controlar sus instintos más salvajes.",
-    "plot": "Yuu Asakura es un estudiante universitario que vive una vida tranquila. Un día, en la estación de tren, choca accidentalmente con un desconocido y cambian sus maletines sin querer. Al llegar a casa, descubre que el maletín contiene una pistola Colt M1911, dinero en efectivo y una cinta de video. La cinta contiene una orden de asesinato dirigida a alguien llamado 'Hunter', junto con información sobre el objetivo. Yuu también encuentra instrucciones para reunirse con su compañera de respaldo, una mujer con el nombre clave 'Ángel'. Sin pensarlo demasiado, Yuu acepta el trabajo y se convierte en un asesino. La pistola que porta está 'maldita': quien la usa no puede controlar sus impulsos violentos y se ve arrastrado a un ciclo de asesinato y sexo. La policía, liderada por Yukari Morikawa, investiga los asesinatos relacionados con esta arma maldita. A lo largo de los tres episodios, Yuu se ve envuelto en un mundo de crimen, violencia y conspiraciones, mientras intenta escapar de su nuevo destino. La historia se desarrolla como múltiples líneas argumentales, como si fueran rutas de un videojuego, con personajes que mueren y reaparecen en episodios posteriores.",
-    "analysis": "Heartwork: Symphony of Destruction es un OVA de culto de los 2000 basado en el videojuego erótico del mismo nombre, desarrollado por Active Software y lanzado en 1997. La adaptación animada fue producida por Kyushu Network Animation y consta de tres episodios lanzados entre 2003 y 2004. La serie fue licenciada en Norteamérica por Media Blasters bajo el título 'Heartwork: Love Guns' y cuenta con un doblaje al inglés. La OVA destaca por su narrativa no lineal, que presenta diferentes líneas argumentales como si fueran rutas de un videojuego, lo que puede resultar confuso para el espectador. El director Tomohiro Koyama también se encargó del diseño de personajes. La banda sonora incluye el tema de apertura 'Symphony of Destruction' y el tema de cierre 'Dawn ~ Yoake', ambos compuestos por Osamu Yamanaka. La OVA mezcla escenas de acción y drama con contenido erótico, y no intenta ser más que una adaptación de un eroge.",
-    "forgotten": "Heartwork: Symphony of Destruction es una rareza dentro del mundo de las OVAs de los 2000. Basado en un videojuego erótico poco conocido, la adaptación no tuvo una distribución masiva fuera de Japón, aunque Media Blasters la lanzó en Norteamérica. Su contenido adulto y su narrativa confusa la han mantenido como un producto de nicho. Es recordada por los fans del anime de los 2000 y los coleccionistas de rarezas basadas en videojuegos, pero es prácticamente desconocida para el público general.",
-    "trailer": "",
-    "saga": null,
-    "sagaOrder": null,
-    "related": [104, 94],
-    "category": "adulto",
-    "origin": "Japón",
-    "rarity": "Raro"
-},
-             {
-    "id": 104,
-    "title": "Teizokurei Daydream (Ghost Talker's Daydream)",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEiFGY70GjyAoFB7yiWGamBWuAplNWwPdZYtmnEwo_34x5kPol2S1k7V962662hqZkvf9T90ewWsUruzJCjctamfCwB_rzflTPE-i5iVcNMZAVnINkW-SXYtTjcXj7K51Pb460WnSvPrA9PAclCF4eszLA6OKX4xKOHlFeMF3b0LchhgUmhThfxYV7vtPrxE=w310-h400",
-    "year": 2004,
-    "type": "OVA",
-    "duration": "4 episodios (~24 min c/u)",
-    "studio": "HAL Film Maker",
-    "director": "Osamu Sekita",
-    "genre": ["Sobrenatural", "Misterio", "Comedia", "Horror"],
-    "tags": ["espíritus", "dominatrix", "ecchi", "culto", "2000s", "rareza", "manga", "sobrenatural"],
-    "description": "Misaki Saiki tiene la habilidad de ver y hablar con fantasmas desde que era niña. Trabaja como dominatrix en un club S&M y también como consultora para un escuadrón policial especializado en fenómenos paranormales, dirigido por su padre. Usa sus poderes para ayudar a los espíritus perdidos a encontrar la paz, mientras lidia con su vida personal y un acosador que la persigue.",
-    "plot": "La OVA se divide en cuatro episodios. Los dos primeros son historias independientes: en el primero, Misaki ayuda a una chica llamada Ai a comunicarse con el espíritu de su hermana mayor, que se suicidó tras ser violada. En el segundo, Misaki investiga a una mujer que dice haber sido secuestrada por un fantasma. Los episodios 3 y 4 cuentan una historia de dos partes: un asesino en serie que mata niños está siendo ayudado por un espíritu vengativo. Misaki debe enfrentarse a este espíritu y descubrir la verdad detrás de los asesinatos. A lo largo de la serie, se explora la relación de Misaki con Souichirou, su compañero de trabajo que tiene miedo a los fantasmas, y con Mitsuru, un acosador obsesionado con ella.",
-    "analysis": "Teizokurei Daydream es un OVA de culto de los 2000 basado en el manga de Saki Okuse y Sankichi Meguro. La premisa es única: una dominatrix que también es médium espiritual. La serie dura solo 4 episodios, lo que impide desarrollar bien la trama y los personajes. El tono es desigual: la comedia choca con las historias oscuras de violaciones y asesinatos de niños. Tiene un estilo de animación típico de las OVAs de presupuesto limitado de la época. El doblaje al inglés es recordado por la actuación de la actriz que también dobló a Mai Valentine en Yu-Gi-Oh!.",
-    "forgotten": "Teizokurei Daydream es una rareza de los 2000. Su distribución fuera de Japón fue limitada, aunque Geneon la licenció en Norteamérica con el título 'Ghost Talker's Daydream'. Su contenido adulto y su tono irregular la han mantenido como un producto de nicho. Es recordada por los fans del anime de los 2000 y coleccionistas de rarezas, pero es prácticamente desconocida para el público general.",
-    "trailer": "",
-    "saga": null,
-    "sagaOrder": null,
-    "related": [4, 64, 65],
-    "category": "adulto",
-    "origin": "Japón",
-    "rarity": "Raro"
-},
- {
-    "id": 105,
-    "title": "Sanctuary",
-    "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEixBx1dKQ9J_WuzbCxnqkxvMQ_DNUINxOXMI9Oc_Q41bfmwThkljDScAJWfztHDeGAsVnoBAbqflOdzL8dKZ_bd24GBtOmfKc4JjVYF8YrwYCT34VZGFsKv81D0diyz8T0X6lz6nmgtsuA4_Nw7QLR3Rh9Pcvh8KhCKbYEahMt2-6gFb0ioRNxpbHpBP3SE=w238-h400",
-    "year": 1996,
-    "type": "OVA",
-    "duration": "1 episodio (~67 min)",
-    "studio": "Pastel",
-    "director": "Takashi Watanabe",
-    "genre": ["Drama", "Crimen", "Político", "Yakuza"],
-    "tags": ["yakuza", "política", "mafia", "culto", "90s", "seinen", "manga", "violento"],
-    "description": "Dos jóvenes japoneses sobreviven a la masacre de los Jemeres Rojos en Camboya y juran encontrar un 'santuario' en su país. Al regresar a Japón, toman caminos opuestos: Akira Houjou se convierte en un gángster de la yakuza, mientras Chiaki Asami se adentra en la política. Ambos harán lo que sea necesario para cumplir su promesa y reformar la sociedad japonesa, mientras su amistad se pone a prueba.",
-    "plot": "Akira Houjou y Chiaki Asami, dos amigos que sobrevivieron juntos a la guerra en Camboya, vuelven a Japón con un objetivo común. Lanzan una moneda al aire para decidir sus caminos: Akira se une a la yakuza, mientras que Chiaki comienza su carrera política. Akira utiliza tácticas brutales y alianzas estratégicas para ascender en el crimen organizado. Chiaki, por otro lado, usa su astucia y carisma para escalar en el complejo mundo de la política japonesa. Sus caminos se cruzan constantemente, y su lealtad se pone a prueba mientras ambos luchan por alcanzar sus metas sin importarles las consecuencias.",
-    "analysis": "Sanctuary es un OVA de culto que adapta parte del aclamado manga de Buronson y Ryoichi Ikegami. Es una de las pocas obras anime que trata el mundo de la yakuza y la política con un enfoque serio y realista. La animación es de alta calidad para un OVA de la época, destacando por su estilo sobrio y su narrativa adulta. A pesar de su corta duración de unos 65 minutos, logra capturar la esencia del manga, aunque muchos fans lamentan que no se haya adaptado más material. La serie se centra en el ascenso de ambos protagonistas en sus respectivos ámbitos, explorando la corrupción y la lealtad. Cuenta con un reparto de doblaje al inglés de renombre, con actores como David Kaye y Paul Dobson.",
-    "forgotten": "Sanctuary es una rareza para los amantes del anime de crimen y yakuza. Su distribución fuera de Japón fue limitada, aunque Viz Media la licenció para Norteamérica. Es recordada por los fans del manga y del género, pero es prácticamente desconocida para el público general. Su estatus de 'un solo OVA' de un manga de 12 volúmenes la convierte en una pieza de coleccionista para aquellos que buscan adaptaciones serias de la obra de Ikegami.",
-    "trailer": "",
-    "saga": null,
-    "sagaOrder": null,
-    "related": [13, 50, 87],
-    "category": "anime",
-    "origin": "Japón",
-    "rarity": "Raro"
-},];
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
+    id: 98,
+    title: "Devilman: El Pájaro Demonio (Devilman: Youchou Sirene-hen)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEj6D0hPVSGSk4-6zlq5T2ekcj1ou7cq2UO9OqOChE75gVtMPfCCxcmb7cA5wQzM0dDvmJM3PhkfQnzrUdx4RtPHc5zD79sYT6LyqlQ8ekSmiQYmaARgVFF1Nh2Fm7IceT9Zj2tdek4jnxxw0YuFR06Dw13wv2-YcV6Nq0harvC5R5g1gRVqkNBpOS3O2hFm=w267-h400",
+    year: 1990,
+    type: "OVA",
+    duration: "1 episodio (~57 min)",
+    studio: "Oh! Production",
+    director: "Umanosuke Iida",
+    genre: ["Fantasía oscura", "Horror", "Acción", "Sobrenatural"],
+    tags: ["demonios", "violento", "gore", "culto", "90s", "manga", "go-nagai"],
+    description: "Segunda OVA de Devilman, secuela directa de El Nacimiento. Akira Fudo debe domar el instinto asesino de Amon mientras defiende a la humanidad de una invasión a gran escala. Su mayor amenaza será Sirene, una orgullosa y hermosa guerrera demonio alada que busca torturar a Akira por haberle robado el cuerpo y la gloria a su antiguo amante Amon.",
+    plot: "Akira Fudo, convertido en Devilman, se enfrenta a una serie de demonios que lo atacan. Primero lucha contra Jinmen, un demonio con forma de tortuga que tiene rostros humanos vivos incrustados en su caparazón, incluyendo el de su madre. Luego, es atacado por Sirene, un demonio alado que busca venganza porque Devilman robó el poder de Amon. Sirene tiende una trampa a Devilman, mutilándole un ala y dejándolo al borde de la muerte tras una persecución aérea. Con la ayuda de sus amigos, Akira logra recuperar sus fuerzas y enfrenta a Sirene en una batalla final. El OVA termina con Sirene muerta de pie con una sonrisa triunfal bajo los primeros rayos del sol, mientras Akira observa en shock.",
+    analysis: "Esta OVA es una adaptación directa del manga de Go Nagai. El ritmo es trepidante y la animación sube de nivel con combates aéreos dinámicos y un despliegue de gore brutal. La deconstrucción de la villana, Sirene, dota de una tremenda carga dramática al final, evitando el típico final de héroe victorioso. Sin embargo, no es una continuación directa de la primera parte: salta en el tiempo y presenta personajes que Akira conoce pero el público no, lo que resulta confuso. La trama se reduce principalmente a una serie de batallas. La banda sonora de Kenji Kawai mantiene la atmósfera épica y opresiva. Contiene desnudez y violencia gráfica, clasificada como R+.",
+    forgotten: "Esta OVA es una obra cumbre del anime oscuro de los 90. Se ha convertido en una pieza de culto para los fans del manga original, pero su distribución en occidente fue limitada. La plataforma Anime Onegai la rescató en junio de 2022, ofreciendo por primera vez su doblaje oficial al español latino. Es una rareza para coleccionistas y amantes del terror clásico.",
+    trailer: "https://www.youtube.com/embed/PSE4fvQiSKU?si=Vvec5o62gtDDMnPE",
+    saga: "Devilman (OVA)",
+    sagaOrder: 2,
+    related: [97, 99, 61],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
+    id: 99,
+    title: "Amon: Apocalipsis de Devilman (Amon: Devilman Mokushiroku)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhEN3nac1gu8-UrL2wnXfCP9MKG76u1LQuIFIlCy8I09_wZUAEiQIgnBmp8t4W-a8oUCc9_m93mRZh16WZC8nAcd_cGIyjXUomgeiBNXXfYrE7KM14dM0HWCPf5pxHnIp2G-hP4ujUndVykBKvFMwtHkF49gA48BDstqChmzmAq9Fj2e1owshQJ1X6F_ems=w282-h400",
+    year: 2000,
+    type: "OVA",
+    duration: "1 episodio (~45-46 min)",
+    studio: "Studio Live",
+    director: "Kenichi Takeshita",
+    genre: ["Fantasía oscura", "Horror", "Acción", "Sobrenatural"],
+    tags: ["demonios", "violento", "gore", "culto", "2000", "manga", "go-nagai"],
+    description: "Tercera OVA de Devilman, basada en el manga 'Amon: The Darkside of Devilman'. Tras la revelación de que los demonios existen entre los humanos, el pánico se apodera de Tokio. Cuando Akira presencia la muerte de sus seres queridos, su mente colapsa y Amon, su alter-ego demoníaco, toma el control de su cuerpo para sembrar el caos entre humanos y demonios.",
+    plot: "Tokio está sumido en el caos tras la revelación de Ryo Asuka de que los demonios viven entre los humanos. La paranoia se extiende y la gente se vuelve contra los demás, sospechando que cualquiera podría ser un demonio. Cuando Akira presencia el asesinato de Miki y su hermano, su mente se rompe y Amon, el demonio con el que se fusionó, toma el control total de su cuerpo. Amon, liberado, arrasa con todo a su paso, matando tanto a humanos como a demonios. La historia culmina en una batalla final entre Amon y Satanás.",
+    analysis: "Amon: Apocalypse of Devilman es la tercera OVA de la serie clásica de Devilman, lanzada en el año 2000. A diferencia de las dos primeras OVAs, que adaptaban el manga original de 1972, esta adapta el manga 'Amon: The Darkside of Devilman' (1999). El tono es mucho más oscuro, nihilista y violento que sus predecesoras. La animación es inferior a la de las OVAs anteriores, con escenas de acción que a menudo se cortan o usan animación repetitiva. La banda sonora tiene un estilo heavy metal que acompaña la violencia. Es considerada por muchos fans como la entrega más débil de la trilogía, aunque algunos la valoran por su brutalidad y su enfoque en el poder de Amon.",
+    forgotten: "Esta OVA es una rareza dentro de la franquicia Devilman. Es la menos conocida de las tres OVAs clásicas y ha sido ampliamente criticada por su calidad y su enfoque en la violencia sin propósito. Su distribución fuera de Japón fue muy limitada. Es una pieza de coleccionista para los fans de Devilman y los amantes del anime extremo.",
+    trailer: "",
+    saga: "Devilman (OVA)",
+    sagaOrder: 3,
+    related: [97, 98, 61],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Muy Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
+    id: 100,
+    title: "The Animatrix",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjz-ExW1h7ShuJcW9R1dOkyDavf97cllrI1V4gfsaSn3ZtCRVc13qgYf0CBNevsZ5KFhmgQi3I4vzYsOXJb8-OQzW1FctdKkalmsFMIUyXdwjZPS2_3HG8FZRZlZ5QypQhq3S_6Mq-TCPJLaaP9ETE8uoIvqct13LzrFcFSdbV2AkuESsI5nS07R7itahCJ=w270-h400",
+    year: 2003,
+    type: "Película (Antología)",
+    duration: "100 min (9 cortos)",
+    studio: "Varios (Madhouse, Studio 4°C, Square Pictures)",
+    director: "Varios (Andy Jones, Mahiro Maeda, Shinichirō Watanabe, Yoshiaki Kawajiri, Takeshi Koike, Koji Morimoto, Peter Chung)",
+    genre: ["Ciencia ficción", "Cyberpunk", "Antología", "Acción"],
+    tags: ["matrix", "cyberpunk", "antología", "culto", "2000s", "wachowski", "anime"],
+    description: "Antología de nueve cortometrajes animados ambientados en el universo de The Matrix, producida por los hermanos Wachowski y dirigida por algunos de los nombres más importantes del anime. Cada corto expande la historia y mitología de la franquicia, desde el origen de la guerra entre humanos y máquinas hasta historias individuales de resistencia y redención.",
+    plot: "The Animatrix reúne nueve historias independientes que exploran diferentes aspectos del universo Matrix. 'The Second Renaissance' (Partes I y II) narra el origen de la guerra entre humanos y máquinas, desde la creación de la IA hasta la esclavitud de la humanidad. 'Final Flight of the Osiris' sigue a la tripulación de la nave Osiris mientras intentan advertir a Zion del ataque inminente. 'Kid's Story' muestra cómo el joven Kid escapa del Matrix guiado por Neo. 'Program' es un entrenamiento en una simulación samurái donde una guerrera debe decidir entre la realidad y la ilusión. 'World Record' sigue a un atleta que corre tan rápido que rompe las reglas del Matrix. 'Beyond' muestra a una chica descubriendo un glitch en el sistema. 'A Detective Story' sigue a un detective contratado por los Agents para encontrar a Trinity. 'Matriculated' muestra a rebeldes intentando reprogramar una máquina.",
+    analysis: "The Animatrix es una antología de nueve cortometrajes animados que expanden el universo de Matrix. Fue concebida por los hermanos Wachowski mientras promocionaban la primera película en Japón, donde visitaron estudios de animación que los inspiraron. La antología reúne a directores como Shinichirō Watanabe (Cowboy Bebop), Yoshiaki Kawajiri (Ninja Scroll), Mahiro Maeda (Blue Submarine No. 6) y Peter Chung (Æon Flux). Los Wachowski escribieron cuatro de los nueve cortos. La animación abarca desde CGI (Final Flight of the Osiris, producida por Square Pictures) hasta estilos anime más clásicos y experimentales. Se estrenó en 2003, entre The Matrix Reloaded y The Matrix Revolutions, como promoción y expansión del lore. Fue lanzada en DVD y VHS el 3 de junio de 2003, y posteriormente en Blu-ray en 2008.",
+    forgotten: "The Animatrix fue aclamada por la crítica y el público en su estreno, pero con el tiempo ha quedado eclipsada por las películas de la trilogía. Se transmitió en Cartoon Network Latinoamérica dentro del bloque Toonami, y también por I.Sat y Warner TV. En 2022, estuvo disponible en HBO Max Latinoamérica hasta que fue retirada. Es recordada por los amantes del cyberpunk y del anime de los 2000, y muchos la consideran lo mejor de la saga Matrix por expandir el universo de forma coherente y creativa.",
+    trailer: "https://www.youtube.com/embed/qjtnWqq1-7A?si=QAIj-EvSFZH7VbJD",
+    saga: null,
+    sagaOrder: null,
+    related: [92, 85, 51],
+    category: "animada",
+    origin: "Estados Unidos / Japón",
+    rarity: "Poco Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
+    id: 101,
+    title: "Felidae",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEgh8D5-1VKko6XFgGXnhgfWtjoiGcb2rP5TXiUiQ-GICbKba0i8317sbHhYhLj3qhynpikp29NUNDszC_5Hs4E9vcjis1ZCEcZVOTitqwmR021q1ljTcZ100ISbrF5z4rvnOv-gOvKdy8aZ_PDIizWW5qZBhfOYy4Np8UhXFDnikyg5RPmDoW9kRgIYvJTF=w267-h400",
+    year: 1994,
+    type: "Película",
+    duration: "82 min",
+    studio: "TFC Trickompany",
+    director: "Michael Schaack",
+    genre: ["Misterio", "Terror", "Suspenso", "Neo-noir", "Gore"],
+    tags: ["animación-adulta", "gore", "misterio", "novela", "animales", "eugenesia", "culto", "90s"],
+    description: "Basada en la novela de Akif Pirinçci. Francis, un gato negro con pecho, cara y patas blancas (tipo esmoquin) y ojos verdes, se muda a un nuevo vecindario con su dueño. Pronto descubre una serie de brutales asesinatos de gatos y se obsesiona con resolver el misterio. Su investigación lo llevará a descubrir una secta felina que adora a una figura mesiánica llamada Claudandus, y un oscuro experimento de laboratorio sobre eugenesia felina.",
+    plot: "Francis se muda con su dueño Gustav Löbel a una casa en un nuevo vecindario. Allí encuentra el cadáver de un gato asesinado y conoce a Bluebeard, un gato tuerto y malherido. Juntos investigan los asesinatos. Francis descubre una secta de gatos liderada por Joker que adora a una entidad llamada Claudandus y practica suicidios rituales saltando a una corriente eléctrica. Francis descubre que la casa era un laboratorio experimental donde se probaban adhesivos tisulares en gatos callejeros. El único gato que sobrevivió fue Claudandus, quien asesinó al científico líder, Preterius, y escapó. Claudandus, ahora un gato llamado Pascal, ha estado orquestando los asesinatos para crear una raza superior de gatos. Francis se enfrenta a Claudandus, lo hiere de muerte, y lo deja arder en un incendio.",
+    analysis: "Felidae es una película de animación para adultos alemana basada en la novela de Akif Pirinçci. Fue la película animada más cara de Alemania en su época, con un presupuesto de 10 millones de marcos. Es conocida por ser una de las películas animadas más violentas y perturbadoras, con escenas de gore extremo y sexo explícito. Explora temas como la eugenesia, el fanatismo religioso, la experimentación con animales y la crueldad humana. La animación mezcla un estilo de dibujo que recuerda a Disney con una historia oscura y adulta. Fue comparada con Watership Down y The Plague Dogs por su tono.",
+    forgotten: "Felidae fue un éxito de taquilla en Alemania en 1994, pero su distribución internacional fue limitada. En España se estrenó con el título 'Francis el Detectigato'. En Latinoamérica no tuvo un estreno masivo. Es considerada una película de culto para los amantes del cine de animación adulta.",
+    trailer: "https://www.youtube.com/embed/ZRdlizSekJU?si=hyqDxf5HegdYg1rK",
+    saga: null,
+    sagaOrder: null,
+    related: [4, 64],
+    category: "animada",
+    origin: "Alemania",
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
+    id: 102,
+    title: "El Planeta Salvaje (La Planète Sauvage)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEh46Fv9lmB3whe2PCeow93JOHj9ZmyraqY4nYSp4yvEKT7qccfU1-C7mq3O4MGjs9PKlssSmFUP_yWPSMMX3_zCkppD8nQVEsv_G4N565fXu-jKMiWuRoANu51vMAjSLD_aOhXJpOFInjLhx-WjlZh_3xKBIYSI7OaeH-76PfZXU8Obns09_rMIP9vQgz09=w287-h400",
+    year: 1973,
+    type: "Película",
+    duration: "72 min",
+    studio: "Les Films Armorial / ORTF / Ceskoslovensky Filmexport",
+    director: "René Laloux",
+    genre: ["Ciencia ficción", "Fantasía", "Experimental", "Filosófico"],
+    tags: ["animación", "ciencia-ficción", "surrealista", "culto", "70s", "frances", "stop-motion", "contracultura"],
+    description: "En el planeta Ygam, los Draags, gigantes de piel azul y altamente avanzados, tienen como mascotas a los Oms, seres humanos diminutos. Un Om llamado Terr escapa de su dueña y lidera una rebelión contra sus opresores. Una fábula de ciencia ficción surrealista y psicodélica que usa la animación para explorar temas de opresión, conocimiento y coexistencia.",
+    plot: "En el planeta Ygam, los Oms (humanos) son considerados plagas o mascotas por los Draags, seres gigantes de piel azul y tecnología avanzada. La pequeña Tiwa, hija de un Draag importante, adopta a un bebé Om llamado Terr. Mientras crece, Terr aprende de las sesiones de aprendizaje de Tiwa mediante unos auriculares, absorbiendo conocimientos de la cultura Draag. Al hacerse adulto y temer que su inteligencia sea descubierta, Terr escapa con los auriculares. Se une a una comunidad de Oms salvajes y usa los conocimientos robados para mejorar su tecnología. Los Draags, al descubrir la rebelión, inician una purga. Terr y su grupo huyen al satélite del planeta, llamado Planeta Salvaje, donde descubren estatuas gigantes que los Draags usan para rituales de meditación. Al destruir algunas de estas estatuas, los Oms amenazan la existencia de los Draags, forzándolos a negociar la paz. Finalmente, ambas especies llegan a un acuerdo para coexistir en armonía.",
+    analysis: "El Planeta Salvaje es una obra maestra del cine de animación surrealista, codirigida por René Laloux y el dibujante Roland Topor, quien creó los diseños de criaturas y paisajes. Su estilo visual es una mezcla de ilustración de ciencia ficción, surrealismo y grabados antiguos. La película se convirtió en un éxito de culto en los 70, ganando el Premio Especial del Jurado en el Festival de Cannes de 1973. Su historia es una clara alegoría sobre la opresión, el racismo y la lucha por el conocimiento, invirtiendo los roles para que los humanos sean los 'animales'. La banda sonora de Alain Goraguer, una mezcla de jazz psicodélico, funk y música electrónica, es icónica y complementa perfectamente la atmósfera extraña del filme. La animación, hecha con la técnica de recortes en stop-motion, refuerza la sensación de un mundo onírico y extraño.",
+    forgotten: "Aunque es un clásico de culto, El Planeta Salvaje pasó bastante desapercibido en su época fuera de los circuitos de cine de arte y ensayo. Su distribución en VHS y DVD fue irregular durante años, lo que lo convirtió en una rareza para el público general. Fue restaurado y relanzado por The Criterion Collection en 2016, lo que le dio una nueva vida. Sigue siendo menos conocido que otras películas de animación para adultos, pero su influencia en el cine de animación, especialmente en el japonés, es reconocida.",
+    trailer: "https://www.youtube.com/embed/LE3AaxGKaEg?si=txUTL1tNraP8Ays-",
+    saga: null,
+    sagaOrder: null,
+    related: [3, 78, 4],
+    category: "animada",
+    origin: "Francia / Checoslovaquia",
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}, {
+    id: 103,
+    title: "Heartwork: Symphony of Destruction (Heartwork: Love Guns)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEi_o2ihU74wpPsw0nP9MNOoC0RnqXe2MU4L5Ql45hKG61U3jLT8W33Txtdf3-jLJ0_GxbGUBm8BJ0XIilstT5XIH-85NJsKVfHF53_59Ai_3SHTLKLMLDnEranJl44DZFQ1MsmwJk9HtAVaQ-xoXLbD-nBZSSP94HWWCnFcyGcjTKjOOSvYIPvAfsDZEOKg=w257-h400",
+    year: "2003-2004",
+    type: "OVA",
+    duration: "3 episodios (~30 min c/u)",
+    studio: "Kyushu Network Animation",
+    director: "Hitoshi Kawaguchi",
+    genre: ["Acción", "Drama", "Suspenso", "Policíaco"],
+    tags: ["armas", "asesinos", "misterio", "culto", "2000s", "rareza", "videojuego", "media-blasters"],
+    description: "Un estudiante universitario llamado Yuu Asakura cambia accidentalmente su maletín con el de un asesino a sueldo. Dentro encuentra una pistola, dinero y un video con una orden de asesinato. Junto a una misteriosa mujer llamada Ángel, acepta el trabajo y se adentra en un mundo de violencia, sexo y crimen. La pistola que porta está 'maldita' y quien la usa no puede controlar sus instintos más salvajes.",
+    plot: "Yuu Asakura es un estudiante universitario que vive una vida tranquila. Un día, en la estación de tren, choca accidentalmente con un desconocido y cambian sus maletines sin querer. Al llegar a casa, descubre que el maletín contiene una pistola Colt M1911, dinero en efectivo y una cinta de video. La cinta contiene una orden de asesinato dirigida a alguien llamado 'Hunter', junto con información sobre el objetivo. Yuu también encuentra instrucciones para reunirse con su compañera de respaldo, una mujer con el nombre clave 'Ángel'. Sin pensarlo demasiado, Yuu acepta el trabajo y se convierte en un asesino. La pistola que porta está 'maldita': quien la usa no puede controlar sus impulsos violentos y se ve arrastrado a un ciclo de asesinato y sexo. La policía, liderada por Yukari Morikawa, investiga los asesinatos relacionados con esta arma maldita. A lo largo de los tres episodios, Yuu se ve envuelto en un mundo de crimen, violencia y conspiraciones, mientras intenta escapar de su nuevo destino. La historia se desarrolla como múltiples líneas argumentales, como si fueran rutas de un videojuego, con personajes que mueren y reaparecen en episodios posteriores.",
+    analysis: "Heartwork: Symphony of Destruction es un OVA de culto de los 2000 basado en el videojuego erótico del mismo nombre, desarrollado por Active Software y lanzado en 1997. La adaptación animada fue producida por Kyushu Network Animation y consta de tres episodios lanzados entre 2003 y 2004. La serie fue licenciada en Norteamérica por Media Blasters bajo el título 'Heartwork: Love Guns' y cuenta con un doblaje al inglés. La OVA destaca por su narrativa no lineal, que presenta diferentes líneas argumentales como si fueran rutas de un videojuego, lo que puede resultar confuso para el espectador. El director Tomohiro Koyama también se encargó del diseño de personajes. La banda sonora incluye el tema de apertura 'Symphony of Destruction' y el tema de cierre 'Dawn ~ Yoake', ambos compuestos por Osamu Yamanaka. La OVA mezcla escenas de acción y drama con contenido erótico, y no intenta ser más que una adaptación de un eroge.",
+    forgotten: "Heartwork: Symphony of Destruction es una rareza dentro del mundo de las OVAs de los 2000. Basado en un videojuego erótico poco conocido, la adaptación no tuvo una distribución masiva fuera de Japón, aunque Media Blasters la lanzó en Norteamérica. Su contenido adulto y su narrativa confusa la han mantenido como un producto de nicho. Es recordada por los fans del anime de los 2000 y los coleccionistas de rarezas basadas en videojuegos, pero es prácticamente desconocida para el público general.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [104, 94],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
+}, {
+    id: 104,
+    title: "Teizokurei Daydream (Ghost Talker's Daydream)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiFGY70GjyAoFB7yiWGamBWuAplNWwPdZYtmnEwo_34x5kPol2S1k7V962662hqZkvf9T90ewWsUruzJCjctamfCwB_rzflTPE-i5iVcNMZAVnINkW-SXYtTjcXj7K51Pb460WnSvPrA9PAclCF4eszLA6OKX4xKOHlFeMF3b0LchhgUmhThfxYV7vtPrxE=w310-h400",
+    year: 2004,
+    type: "OVA",
+    duration: "4 episodios (~24 min c/u)",
+    studio: "HAL Film Maker",
+    director: "Osamu Sekita",
+    genre: ["Sobrenatural", "Misterio", "Comedia", "Horror"],
+    tags: ["espíritus", "dominatrix", "ecchi", "culto", "2000s", "rareza", "manga", "sobrenatural"],
+    description: "Misaki Saiki tiene la habilidad de ver y hablar con fantasmas desde que era niña. Trabaja como dominatrix en un club S&M y también como consultora para un escuadrón policial especializado en fenómenos paranormales, dirigido por su padre. Usa sus poderes para ayudar a los espíritus perdidos a encontrar la paz, mientras lidia con su vida personal y un acosador que la persigue.",
+    plot: "La OVA se divide en cuatro episodios. Los dos primeros son historias independientes: en el primero, Misaki ayuda a una chica llamada Ai a comunicarse con el espíritu de su hermana mayor, que se suicidó tras ser violada. En el segundo, Misaki investiga a una mujer que dice haber sido secuestrada por un fantasma. Los episodios 3 y 4 cuentan una historia de dos partes: un asesino en serie que mata niños está siendo ayudado por un espíritu vengativo. Misaki debe enfrentarse a este espíritu y descubrir la verdad detrás de los asesinatos. A lo largo de la serie, se explora la relación de Misaki con Souichirou, su compañero de trabajo que tiene miedo a los fantasmas, y con Mitsuru, un acosador obsesionado con ella.",
+    analysis: "Teizokurei Daydream es un OVA de culto de los 2000 basado en el manga de Saki Okuse y Sankichi Meguro. La premisa es única: una dominatrix que también es médium espiritual. La serie dura solo 4 episodios, lo que impide desarrollar bien la trama y los personajes. El tono es desigual: la comedia choca con las historias oscuras de violaciones y asesinatos de niños. Tiene un estilo de animación típico de las OVAs de presupuesto limitado de la época. El doblaje al inglés es recordado por la actuación de la actriz que también dobló a Mai Valentine en Yu-Gi-Oh!.",
+    forgotten: "Teizokurei Daydream es una rareza de los 2000. Su distribución fuera de Japón fue limitada, aunque Geneon la licenció en Norteamérica con el título 'Ghost Talker's Daydream'. Su contenido adulto y su tono irregular la han mantenido como un producto de nicho. Es recordada por los fans del anime de los 2000 y coleccionistas de rarezas, pero es prácticamente desconocida para el público general.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [4, 64, 65],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: true
+}, {
+    id: 105,
+    title: "Sanctuary",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEixBx1dKQ9J_WuzbCxnqkxvMQ_DNUINxOXMI9Oc_Q41bfmwThkljDScAJWfztHDeGAsVnoBAbqflOdzL8dKZ_bd24GBtOmfKc4JjVYF8YrwYCT34VZGFsKv81D0diyz8T0X6lz6nmgtsuA4_Nw7QLR3Rh9Pcvh8KhCKbYEahMt2-6gFb0ioRNxpbHpBP3SE=w238-h400",
+    year: 1996,
+    type: "OVA",
+    duration: "1 episodio (~67 min)",
+    studio: "Pastel",
+    director: "Takashi Watanabe",
+    genre: ["Drama", "Crimen", "Político", "Yakuza"],
+    tags: ["yakuza", "política", "mafia", "culto", "90s", "seinen", "manga", "violento"],
+    description: "Dos jóvenes japoneses sobreviven a la masacre de los Jemeres Rojos en Camboya y juran encontrar un 'santuario' en su país. Al regresar a Japón, toman caminos opuestos: Akira Houjou se convierte en un gángster de la yakuza, mientras Chiaki Asami se adentra en la política. Ambos harán lo que sea necesario para cumplir su promesa y reformar la sociedad japonesa, mientras su amistad se pone a prueba.",
+    plot: "Akira Houjou y Chiaki Asami, dos amigos que sobrevivieron juntos a la guerra en Camboya, vuelven a Japón con un objetivo común. Lanzan una moneda al aire para decidir sus caminos: Akira se une a la yakuza, mientras que Chiaki comienza su carrera política. Akira utiliza tácticas brutales y alianzas estratégicas para ascender en el crimen organizado. Chiaki, por otro lado, usa su astucia y carisma para escalar en el complejo mundo de la política japonesa. Sus caminos se cruzan constantemente, y su lealtad se pone a prueba mientras ambos luchan por alcanzar sus metas sin importarles las consecuencias.",
+    analysis: "Sanctuary es un OVA de culto que adapta parte del aclamado manga de Buronson y Ryoichi Ikegami. Es una de las pocas obras anime que trata el mundo de la yakuza y la política con un enfoque serio y realista. La animación es de alta calidad para un OVA de la época, destacando por su estilo sobrio y su narrativa adulta. A pesar de su corta duración de unos 65 minutos, logra capturar la esencia del manga, aunque muchos fans lamentan que no se haya adaptado más material. La serie se centra en el ascenso de ambos protagonistas en sus respectivos ámbitos, explorando la corrupción y la lealtad. Cuenta con un reparto de doblaje al inglés de renombre, con actores como David Kaye y Paul Dobson.",
+    forgotten: "Sanctuary es una rareza para los amantes del anime de crimen y yakuza. Su distribución fuera de Japón fue limitada, aunque Viz Media la licenció para Norteamérica. Es recordada por los fans del manga y del género, pero es prácticamente desconocida para el público general. Su estatus de 'un solo OVA' de un manga de 12 volúmenes la convierte en una pieza de coleccionista para aquellos que buscan adaptaciones serias de la obra de Ikegami.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [72, 75, 96],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Raro",
+    adulto: false,
+    hentai: false,
+    ecchi: false
+}];
