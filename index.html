@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frame Perdido — Archivo de obras audiovisuales olvidadas</title>
+    <title>Frame Perdido — Anime y cine de culto olvidado</title>
     <link rel="canonical" href="https://frame-perdido.github.io/Frame-perdido/">
     <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8" />
-    <meta name="description" content="Rescatando OVAs, películas, series y live action clásicos y poco conocidos de los 80s, 90s y más." />
+    <meta name="description" content="Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros." />
+    <meta name="keywords" content="anime, OVAs, cine de culto, anime olvidado, películas de culto, anime 80s, anime 90s, live action" />
+    <meta name="author" content="Frame Perdido" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="es" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Frame Perdido — Anime y cine de culto olvidado" />
+    <meta property="og:description" content="Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frame-perdido.github.io/Frame-perdido/" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Frame Perdido — Anime y cine de culto olvidado" />
+    <meta name="twitter:description" content="Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros." />
+    
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Frame Perdido",
+        "description": "Archivo de anime, OVAs, películas de culto y live action olvidados",
+        "url": "https://frame-perdido.github.io/Frame-perdido/",
+        "keywords": "anime, OVAs, cine de culto, anime olvidado, películas de culto"
+    }
+    </script>
     
     <style>
         /* ============================================================ */
@@ -38,11 +66,11 @@
             --text: #e8e8f0;
             --text-muted: #8a8a9a;
             --text-dim: #5a5a6a;
-            --accent: #ff2a6d;
-            --accent-soft: #ff2a6d20;
-            --accent-glow: #ff2a6d60;
-            --border: #2a2a3a;
-            --border-hover: #3a3a50;
+            --accent: #d4a373;
+            --accent-soft: #d4a37320;
+            --accent-glow: #d4a37360;
+            --border: #2a2420;
+            --border-hover: #3a322c;
             --warning: #f59e0b;
             --danger: #ef4444;
             --cyan: #05d9e8;
@@ -121,7 +149,7 @@
         }
 
         /* ============================================================ */
-        /* HEADER - MÁS COMPACTO EN MÓVIL                              */
+        /* HEADER                                                       */
         /* ============================================================ */
         header {
             padding: 12px 20px;
@@ -207,7 +235,7 @@
         }
 
         /* ============================================================ */
-        /* HERO - FORMATO EXPEDIENTE                                    */
+        /* HERO                                                         */
         /* ============================================================ */
         .hero {
             padding: 50px 24px 40px;
@@ -223,12 +251,12 @@
                     rgba(255,255,255,0.01) 2px,
                     rgba(255,255,255,0.01) 3px
                 ),
-                radial-gradient(ellipse at 50% 50%, rgba(255,42,109,0.03) 0%, transparent 70%);
-            border: 1px solid rgba(255,42,109,0.06);
+                radial-gradient(ellipse at 50% 50%, rgba(212,163,115,0.03) 0%, transparent 70%);
+            border: 1px solid rgba(212,163,115,0.06);
             border-radius: 4px;
             box-shadow: 
                 inset 0 0 100px rgba(0,0,0,0.7),
-                0 0 60px rgba(255,42,109,0.02);
+                0 0 60px rgba(212,163,115,0.02);
             margin-bottom: 20px;
         }
         .hero::after {
@@ -238,7 +266,7 @@
             right: 20px;
             font-family: 'Space Mono', monospace;
             font-size: 0.55rem;
-            color: rgba(255,42,109,0.08);
+            color: rgba(212,163,115,0.08);
             letter-spacing: 6px;
             transform: rotate(-6deg);
             pointer-events: none;
@@ -696,11 +724,6 @@
             border-color: var(--accent-glow);
         }
 
-        .card-tag[data-type="ova"], .tag.type-ova { color: var(--cyan); border-color: rgba(5,217,232,0.3); }
-        .card-tag[data-type="pelicula"], .tag.type-pelicula { color: var(--accent); border-color: rgba(255,42,109,0.3); }
-        .card-tag[data-type="serie"], .tag.type-serie { color: var(--amber); border-color: rgba(245,158,11,0.3); }
-        .card-tag[data-type="live-action"], .tag.type-live-action { color: var(--green); border-color: rgba(34,197,94,0.3); }
-
         .featured-content h2 {
             font-family: 'Space Mono', monospace;
             font-size: 1.5rem;
@@ -723,6 +746,59 @@
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
+        }
+
+        /* ============================================================ */
+        /* TABS PRINCIPALES                                              */
+        /* ============================================================ */
+        .tabs-container {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+        }
+        
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .tab-btn:hover {
+            color: var(--text);
+            background: var(--bg-hover);
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .tab-btn .tab-count {
+            font-size: 0.6rem;
+            background: var(--bg-elevated);
+            padding: 1px 8px;
+            border-radius: 10px;
+            margin-left: 4px;
+            color: var(--text-dim);
+        }
+        
+        .tab-btn.active .tab-count {
+            background: var(--accent-soft);
+            color: var(--accent);
         }
 
         /* ============================================================ */
@@ -766,7 +842,7 @@
         }
 
         /* ============================================================ */
-        /* GRID - 2 COLUMNAS EN MÓVIL                                  */
+        /* GRID                                                         */
         /* ============================================================ */
         .grid {
             display: grid;
@@ -857,6 +933,44 @@
             border: 1px solid var(--warning);
             z-index: 2;
         }
+        .badge-hentai {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(220, 38, 38, 0.9);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 5;
+        }
+        .badge-ecchi {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            background: rgba(212, 108, 24, 0.9);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 5;
+        }
+        /* Si solo hay una etiqueta, que no se superponga */
+        .card-image .badge-hentai:only-child,
+        .card-image .badge-ecchi:only-child {
+            top: 10px;
+            left: 10px;
+        }
         .card-body { padding: 14px; }
         .card-tags {
             display: flex;
@@ -919,7 +1033,7 @@
         .no-results.visible { display: block; }
 
         /* ============================================================ */
-        /* ETIQUETAS - YA EXISTE                                       */
+        /* ETIQUETAS                                                     */
         /* ============================================================ */
         .listas-grid {
             display: grid;
@@ -1101,6 +1215,16 @@
             margin-bottom: 14px;
             flex-wrap: wrap;
         }
+        .tag-hentai {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+        .tag-ecchi {
+            background: rgba(212, 108, 24, 0.2);
+            color: #d46c18;
+            border: 1px solid rgba(212, 108, 24, 0.3);
+        }
         .modal-desc {
             color: var(--text-muted);
             line-height: 1.7;
@@ -1123,7 +1247,7 @@
         .modal-section li { margin-bottom: 4px; }
 
         /* ============================================================ */
-        /* RECOMENDACIONES EN MODAL - FORMATO VERTICAL (FICHA DE CINE) */
+        /* RECOMENDACIONES EN MODAL                                     */
         /* ============================================================ */
         #modalTrailerContainer {
             position: relative;
@@ -1209,6 +1333,18 @@
             font-size: 0.5rem;
             font-weight: 600;
             font-family: 'Space Mono', monospace;
+            z-index: 2;
+        }
+        .related-badge-adulto {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(239, 68, 68, 0.9);
+            color: #fff;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.55rem;
+            font-weight: 700;
             z-index: 2;
         }
         .related-info {
@@ -1381,6 +1517,68 @@
         ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 
         /* ============================================================ */
+        /* BOTÓN VOLVER ARRIBA                                          */
+        /* ============================================================ */
+        #btnVolverArriba {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            z-index: 999;
+            display: none;
+            transition: all 0.3s;
+        }
+        #btnVolverArriba:hover { transform: scale(1.1); }
+
+        /* ============================================================ */
+        /* ANIMACIONES                                                  */
+        /* ============================================================ */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            3% { opacity: 0.4; }
+            6% { opacity: 1; }
+            7% { opacity: 0.8; }
+        }
+        .logo {
+            animation: flicker 6s infinite;
+        }
+
+        /* ============================================================ */
+        /* ANUNCIOS                                                     */
+        /* ============================================================ */
+        .ad-container {
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 728px;
+            border: 1px dashed var(--border);
+            background: rgba(255,255,255,0.01);
+            text-align: center;
+            position: relative;
+            border-radius: 4px;
+        }
+        .ad-container::before {
+            content: "ESPACIO PUBLICITARIO";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            padding: 0 10px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.5rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+
+        /* ============================================================ */
         /* RESPONSIVE                                                   */
         /* ============================================================ */
         @media (max-width: 1024px) {
@@ -1506,6 +1704,31 @@
             .listas-grid { grid-template-columns: 1fr; }
             .vibes-cloud { gap: 6px; }
             .vibe-btn { font-size: 0.7rem; padding: 4px 12px; }
+            
+            .tabs-container {
+                gap: 2px;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 8px 14px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .tab-btn .tab-count {
+                font-size: 0.5rem;
+                padding: 1px 6px;
+            }
+
+            .badge-hentai, .badge-ecchi {
+                font-size: 0.45rem;
+                padding: 1px 6px;
+            }
+            .badge-ecchi {
+                top: 30px;
+            }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.4rem; }
@@ -1532,224 +1755,9 @@
             .related-info h5 { font-size: 0.55rem; }
             .related-type { font-size: 0.45rem; }
         }
-
-        /* ============================================================ */
-        /* VERIFICACIÓN DE EDAD                                         */
-        /* ============================================================ */
-        #age-verify-adulto {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 999998;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        #age-verify-adulto.active { display: flex; }
-        #age-verify-adulto .age-box {
-            background: #12121a;
-            border: 2px solid #ef4444;
-            border-radius: 12px;
-            padding: 32px 28px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
-            animation: ageFadeIn 0.5s ease;
-        }
-        #age-verify-adulto .age-box .age-icon { font-size: 3rem; margin-bottom: 8px; }
-        #age-verify-adulto .age-box h2 {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #ef4444;
-            margin-bottom: 6px;
-        }
-        #age-verify-adulto .age-box .age-sub {
-            color: #8a8a9a;
-            font-size: 0.85rem;
-            margin-bottom: 14px;
-            line-height: 1.5;
-        }
-        #age-verify-adulto .age-box .age-input-group {
-            text-align: left;
-            margin-bottom: 14px;
-        }
-        #age-verify-adulto .age-box .age-input-group label {
-            color: #e8e8f0;
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-        #age-verify-adulto .age-box .age-input-group input {
-            width: 100%;
-            padding: 10px;
-            background: #1a1a25;
-            border: 1px solid #2a2a3a;
-            border-radius: 6px;
-            color: #e8e8f0;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        #age-verify-adulto .age-box .age-input-group input:focus {
-            border-color: #ef4444;
-        }
-        #age-verify-adulto .age-box .age-warning {
-            color: #ef4444;
-            font-size: 0.8rem;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            padding: 8px 14px;
-            border-radius: 8px;
-            margin: 12px 0 20px;
-            line-height: 1.5;
-            display: none;
-        }
-        #age-verify-adulto .age-box .age-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        #age-verify-adulto .age-box .age-btn {
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-            min-width: 100px;
-            min-height: 44px;
-        }
-        #age-verify-adulto .age-box .age-btn-yes {
-            background: #ef4444;
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
-        }
-        #age-verify-adulto .age-box .age-btn-yes:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(239, 68, 68, 0.5);
-        }
-        #age-verify-adulto .age-box .age-btn-no {
-            background: #1a1a25;
-            color: #8a8a9a;
-            border: 1px solid #2a2a3a;
-        }
-        #age-verify-adulto .age-box .age-btn-no:hover {
-            background: #2a2a3a;
-            color: #e8e8f0;
-        }
-
-        /* ============================================================ */
-        /* BOTÓN VOLVER ARRIBA                                          */
-        /* ============================================================ */
-        #btnVolverArriba {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            box-shadow: 0 4px 20px var(--accent-glow);
-            z-index: 999;
-            display: none;
-            transition: all 0.3s;
-        }
-        #btnVolverArriba:hover { transform: scale(1.1); }
-
-        /* ============================================================ */
-        /* SECCIONES ESPECIALES                                         */
-        /* ============================================================ */
-        #live-action .section-title .icon { color: #fbbf24; }
-        #adulto .section-title .icon { color: #ef4444; }
-        #live-action .card { border-color: rgba(251, 191, 36, 0.2); }
-        #adulto .card { border-color: rgba(239, 68, 68, 0.2); }
-        #live-action .card:hover { border-color: #fbbf24; }
-        #adulto .card:hover { border-color: #ef4444; }
-        #searchResultsContainer .section-title .icon { color: #fbbf24; }
-        #searchResultsContainer .card { border-color: rgba(251, 191, 36, 0.2); }
-        #searchResultsContainer .card:hover { border-color: #fbbf24; }
-
-        /* ============================================================ */
-        /* ANIMACIONES                                                  */
-        /* ============================================================ */
-        @keyframes ageFadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            3% { opacity: 0.4; }
-            6% { opacity: 1; }
-            7% { opacity: 0.8; }
-        }
-        .logo {
-            animation: flicker 6s infinite;
-        }
-
-        /* ============================================================ */
-        /* ANUNCIOS                                                     */
-        /* ============================================================ */
-        .ad-container {
-            margin: 30px auto;
-            padding: 20px;
-            max-width: 728px;
-            border: 1px dashed var(--border);
-            background: rgba(255,255,255,0.01);
-            text-align: center;
-            position: relative;
-            border-radius: 4px;
-        }
-        .ad-container::before {
-            content: "ESPACIO PUBLICITARIO";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg);
-            padding: 0 10px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.5rem;
-            color: var(--text-dim);
-            letter-spacing: 2px;
-        }
     </style>
 </head>
 <body>
-
-    <!-- ============================================================ -->
-    <!-- VERIFICACIÓN DE EDAD (+18)                                   -->
-    <!-- ============================================================ -->
-    <div id="age-verify-adulto">
-        <div class="age-box">
-            <div class="age-icon">🔞</div>
-            <h2>Contenido para adultos</h2>
-            <p class="age-sub">Estás a punto de acceder a una sección con<br>contenido explícito para mayores de 18 años.</p>
-            <div class="age-input-group">
-                <label>Ingresa tu edad:</label>
-                <input type="number" id="adultAgeInput" min="1" max="120" placeholder="18" />
-            </div>
-            <div class="age-warning" id="adultAgeError">
-                ⚠️ <strong>Debes tener 18 años o más</strong> para acceder a esta sección.
-            </div>
-            <div class="age-buttons">
-                <button class="age-btn age-btn-yes" onclick="verificarEdadAdulto()">Verificar edad</button>
-                <button class="age-btn age-btn-no" onclick="rechazarAdulto()">Volver</button>
-            </div>
-        </div>
-    </div>
 
     <!-- FONDOS Y TEXTURAS -->
     <div class="bg-animation"></div>
@@ -1767,8 +1775,6 @@
             <a href="https://frame-perdido.github.io/Frame-perdido/" class="active">Inicio</a>
             <a href="#etiquetas">Etiquetas</a>
             <a href="#vibes">Vibes</a>
-            <a href="#live-action">Live Action</a>
-            <a href="#adulto" onclick="verificarAdulto(event)">Adulto</a>
             <a href="#sobre">Sobre</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -1809,7 +1815,7 @@
         <h1>
             <span class="hero-sub">■ EXPEDIENTE RECUPERADO ■</span>
             <span class="highlight">FRAME_PERDIDO</span>
-            <span class="hero-categories">[ OVAs · Películas · Series · Live Action ]</span>
+            <span class="hero-categories">[ Anime · OVAs · Películas · Live Action ]</span>
         </h1>
         
         <div class="hero-terminal">
@@ -1841,7 +1847,7 @@
     <!-- STATS -->
     <div class="stats-bar">
         <div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">Expedientes</div></div>
-        <div class="stat-item"><div class="stat-number" id="statOVAs">0</div><div class="stat-label">Series · OVAs</div></div>
+        <div class="stat-item"><div class="stat-number" id="statOVAs">0</div><div class="stat-label">OVAs</div></div>
         <div class="stat-item"><div class="stat-number" id="statPelis">0</div><div class="stat-label">Películas</div></div>
     </div>
 
@@ -1869,8 +1875,8 @@
     <!-- ============================================================ -->
     <section id="trailer-del-dia" style="display:none;">
         <div style="max-width: 900px; margin: 0 auto 40px; padding: 0 20px;">
-            <div style="background: linear-gradient(135deg, rgba(255,42,109,0.06) 0%, rgba(10,10,15,0.95) 100%); border: 1px solid rgba(255,42,109,0.15); border-radius: 8px; overflow: hidden;">
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid rgba(255,42,109,0.08); flex-wrap: wrap; gap: 8px;">
+            <div style="background: linear-gradient(135deg, rgba(212,163,115,0.06) 0%, rgba(10,10,15,0.95) 100%); border: 1px solid rgba(212,163,115,0.15); border-radius: 8px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid rgba(212,163,115,0.08); flex-wrap: wrap; gap: 8px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 1rem;">▶️</span>
                         <div>
@@ -1923,23 +1929,43 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- ARCHIVO (antes CATÁLOGO) - SIN TÍTULO VISIBLE                -->
+    <!-- ARCHIVO                                                       -->
     <!-- ============================================================ -->
     <section class="section" id="archivo">
+        <!-- TABS -->
+        <div class="tabs-container" id="tabsContainer">
+            <button class="tab-btn active" data-tab="peliculas" onclick="cambiarTab('peliculas')">
+                🎬 Películas <span class="tab-count" id="countPeliculas">0</span>
+            </button>
+            <button class="tab-btn" data-tab="ovas" onclick="cambiarTab('ovas')">
+                📼 OVAs <span class="tab-count" id="countOVAs">0</span>
+            </button>
+            <button class="tab-btn" data-tab="series" onclick="cambiarTab('series')">
+                📺 Series TV <span class="tab-count" id="countSeries">0</span>
+            </button>
+            <button class="tab-btn" data-tab="liveaction" onclick="cambiarTab('liveaction')">
+                🎥 Live Action <span class="tab-count" id="countLiveAction">0</span>
+            </button>
+        </div>
+
+        <!-- FILTROS -->
         <div class="filters" id="filterContainer">
             <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="ova">OVAs</button>
-            <button class="filter-btn" data-filter="pelicula">Películas</button>
-            <button class="filter-btn" data-filter="serie">Series</button>
             <button class="filter-btn" data-filter="80s">80s</button>
             <button class="filter-btn" data-filter="90s">90s</button>
+            <button class="filter-btn" data-filter="adulto">🔞 +18</button>
             <button class="filter-btn" data-filter="cyberpunk">Cyberpunk</button>
             <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
             <button class="filter-btn" data-filter="drama">Drama</button>
             <button class="filter-btn" data-filter="accion">Acción</button>
-            <button class="filter-btn" data-filter="horror">Horror</button>
+            <button class="filter-btn" data-filter="terror">Terror</button>
             <button class="filter-btn" data-filter="mecha">Mecha</button>
         </div>
+
+        <div style="text-align:center;color:var(--text-muted);font-size:0.75rem;margin-bottom:12px;font-family:'Space Mono',monospace;">
+            <span id="tabTotalCount">0</span> obras en <span id="tabNameDisplay">Películas</span>
+        </div>
+
         <div class="no-results" id="noResults">
             <p style="font-size:1rem;margin-bottom:4px;">Cinta no encontrada en el archivo</p>
             <p style="font-size:0.85rem;">Prueba con otros términos o quita los filtros</p>
@@ -1986,24 +2012,6 @@
         <h2 class="section-title" style="margin-bottom:6px;justify-content:center;">¿Qué buscas hoy?</h2>
         <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.9rem;">No por género. Por sensación.</p>
         <div class="vibes-cloud" id="vibesCloud"></div>
-    </section>
-
-    <!-- LIVE ACTION -->
-    <section class="section" id="live-action">
-        <div class="section-header">
-            <h2 class="section-title"><span class="icon">🎬</span>Live Action Clásicos</h2>
-            <span class="section-meta">Películas de culto en imagen real</span>
-        </div>
-        <div class="grid" id="liveActionGrid"></div>
-    </section>
-
-    <!-- CONTENIDO ADULTO -->
-    <section class="section" id="adulto" style="display:none;">
-        <div class="section-header">
-            <h2 class="section-title"><span class="icon">🔞</span>Contenido Adulto</h2>
-            <span class="section-meta">Obras para público maduro</span>
-        </div>
-        <div class="grid" id="adultoGrid"></div>
     </section>
 
     <!-- SOBRE -->
@@ -2080,7 +2088,7 @@
                 </div>
 
                 <div class="modal-related" id="modalRelated">
-                    <h4>También puedes explorar</h4>
+                    <h4>🎯 Obras similares</h4>
                     <div class="related-grid" id="relatedGrid"></div>
                 </div>
 
@@ -2103,7 +2111,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo-text">Frame <span>Perdido</span></div>
-                <p>El archivo de obras audiovisuales que el tiempo olvidó. OVAs, películas, series y live action seleccionados con criterio, sin algoritmos.</p>
+                <p>El archivo de anime y cine que el tiempo olvidó. OVAs, películas, series y live action seleccionados sin algoritmos.</p>
                 <div class="footer-socials">
                     <a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">📘</a>
                     <a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">🎵</a>
@@ -2149,64 +2157,8 @@
     <!-- SCRIPTS                                                      -->
     <!-- ============================================================ -->
     <script src="data.js"></script>
-    <script src="age-verify.js"></script>
 
     <script>
-        // ============================================================
-        // VERIFICACIÓN DE CONTENIDO ADULTO
-        // ============================================================
-        function verificarAdulto(e) {
-            e.preventDefault();
-            if (localStorage.getItem('adultoVerified') === 'true') {
-                mostrarAdulto();
-                return;
-            }
-            document.getElementById('age-verify-adulto').classList.add('active');
-            document.getElementById('adultAgeInput').focus();
-        }
-
-        function verificarEdadAdulto() {
-            const edad = parseInt(document.getElementById('adultAgeInput').value);
-            const errorEl = document.getElementById('adultAgeError');
-            if (!edad || edad < 1) {
-                errorEl.style.display = 'block';
-                errorEl.innerHTML = '⚠️ <strong>Por favor, ingresa tu edad.</strong>';
-                return;
-            }
-            if (edad >= 18) {
-                document.getElementById('age-verify-adulto').classList.remove('active');
-                localStorage.setItem('adultoVerified', 'true');
-                localStorage.setItem('adultAge', edad);
-                mostrarAdulto();
-            } else {
-                errorEl.style.display = 'block';
-                errorEl.innerHTML = '⚠️ <strong>Debes tener 18 años o más</strong> para acceder a esta sección. Tienes ' + edad + ' años.';
-            }
-        }
-
-        function rechazarAdulto() {
-            document.getElementById('age-verify-adulto').classList.remove('active');
-            document.getElementById('adultAgeError').style.display = 'none';
-            document.getElementById('adultAgeInput').value = '';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function mostrarAdulto() {
-            const adultoSection = document.getElementById('adulto');
-            adultoSection.style.display = 'block';
-            adultoSection.scrollIntoView({ behavior: 'smooth' });
-            const grid = document.getElementById('adultoGrid');
-            if (grid.children.length === 0) {
-                renderizarPorCategoria('adulto', 'adultoGrid');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('adultAgeInput').addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') verificarEdadAdulto();
-            });
-        });
-
         // ============================================================
         // NIVELES DE RAREZA
         // ============================================================
@@ -2234,50 +2186,6 @@
                 parent.style.fontFamily = "'Space Mono', monospace";
                 parent.textContent = '🎬 Sin portada';
             }
-        }
-
-        // ============================================================
-        // CONTADOR DE ETIQUETAS DINÁMICO
-        // ============================================================
-        function actualizarContadoresEtiquetas() {
-            const obras = animes.filter(a => a.category === "anime");
-            
-            const tipos = { 'OVA': 0, 'Película': 0, 'Serie': 0 };
-            const decadas = { '80s': 0, '90s': 0 };
-            const generos = {};
-            
-            obras.forEach(obra => {
-                if (tipos[obra.type] !== undefined) tipos[obra.type]++;
-                
-                const year = parseInt(obra.year);
-                if (year >= 1980 && year < 1990) decadas['80s']++;
-                if (year >= 1990 && year < 2000) decadas['90s']++;
-                
-                obra.genre.forEach(g => {
-                    const key = g.toLowerCase();
-                    generos[key] = (generos[key] || 0) + 1;
-                });
-            });
-            
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                const filter = btn.dataset.filter;
-                let count = 0;
-                if (filter === 'all') count = obras.length;
-                else if (filter === 'ova') count = tipos['OVA'];
-                else if (filter === 'pelicula') count = tipos['Película'];
-                else if (filter === 'serie') count = tipos['Serie'];
-                else if (filter === '80s') count = decadas['80s'];
-                else if (filter === '90s') count = decadas['90s'];
-                else count = generos[filter] || 0;
-                
-                let span = btn.querySelector('.count');
-                if (!span) {
-                    span = document.createElement('span');
-                    span.className = 'count';
-                    btn.appendChild(span);
-                }
-                span.textContent = ` (${count})`;
-            });
         }
 
         // ============================================================
@@ -2328,7 +2236,7 @@
         // ============================================================
         function generarVibesAutomaticos() {
             const vibesSet = new Set();
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             obrasPrincipales.forEach(obra => {
                 if (obra.tags && Array.isArray(obra.tags)) {
                     obra.tags.forEach(tag => vibesSet.add(tag.toLowerCase().trim()));
@@ -2363,7 +2271,7 @@
                 palabrasBuscar.push(...sinonimos[vibeBusqueda]);
             }
             const resultados = [];
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             obrasPrincipales.forEach(obra => {
                 let coincide = false;
                 if (obra.tags) {
@@ -2434,6 +2342,44 @@
         }
 
         // ============================================================
+        // TABS PRINCIPALES
+        // ============================================================
+        let currentTab = 'peliculas';
+
+        function cambiarTab(tab) {
+            currentTab = tab;
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+            
+            const nombres = {
+                'peliculas': 'Películas',
+                'ovas': 'OVAs',
+                'series': 'Series TV',
+                'liveaction': 'Live Action'
+            };
+            document.getElementById('tabNameDisplay').textContent = nombres[tab] || 'Películas';
+            
+            currentPage = 1;
+            renderPaginatedCards();
+        }
+
+        function actualizarContadoresTabs() {
+            const obrasAnimadas = animes.filter(a => a.category === "animada");
+            const liveAction = animes.filter(a => a.category === "live-action");
+            
+            const peliculas = obrasAnimadas.filter(a => a.type === 'Película').length;
+            const ovas = obrasAnimadas.filter(a => a.type === 'OVA').length;
+            const series = obrasAnimadas.filter(a => a.type === 'Serie' || a.type === 'TV').length;
+            
+            document.getElementById('countPeliculas').textContent = peliculas;
+            document.getElementById('countOVAs').textContent = ovas;
+            document.getElementById('countSeries').textContent = series;
+            document.getElementById('countLiveAction').textContent = liveAction.length;
+        }
+
+        // ============================================================
         // PAGINACIÓN
         // ============================================================
         let currentPage = 1;
@@ -2461,7 +2407,27 @@
             const activeFilter = document.querySelector('.filter-btn.active');
             const filter = activeFilter ? activeFilter.dataset.filter : 'all';
             
-            let filtered = animes.filter(a => a.category === "anime");
+            let filtered = [];
+            
+            if (currentTab === 'liveaction') {
+                filtered = animes.filter(a => a.category === "live-action");
+            } else {
+                let obrasPrincipales = animes.filter(a => a.category === "animada");
+                
+                const tipos = {
+                    'peliculas': ['Película'],
+                    'ovas': ['OVA'],
+                    'series': ['Serie', 'TV']
+                };
+                
+                if (tipos[currentTab]) {
+                    obrasPrincipales = obrasPrincipales.filter(a => 
+                        tipos[currentTab].includes(a.type)
+                    );
+                }
+                
+                filtered = obrasPrincipales;
+            }
             
             if (searchQuery) {
                 filtered = filtered.filter(obra => {
@@ -2477,16 +2443,17 @@
             
             if (filter !== 'all') {
                 filtered = filtered.filter(obra => {
-                    const type = obra.type.toLowerCase();
                     const year = parseInt(obra.year);
                     const genre = obra.genre.join(',').toLowerCase();
+                    const tags = obra.tags ? obra.tags.join(',').toLowerCase() : '';
                     
-                    if (filter === 'ova') return type === 'ova';
-                    if (filter === 'pelicula') return type === 'película';
-                    if (filter === 'serie') return type === 'serie';
                     if (filter === '80s') return year >= 1980 && year < 1990;
                     if (filter === '90s') return year >= 1990 && year < 2000;
-                    return genre.includes(filter);
+                    if (filter === 'adulto') return obra.adulto === true;
+                    if (filter === 'cyberpunk') return genre.includes('cyberpunk') || tags.includes('cyberpunk');
+                    if (filter === 'terror') return genre.includes('terror') || genre.includes('horror') || tags.includes('terror');
+                    
+                    return genre.includes(filter) || tags.includes(filter);
                 });
             }
             
@@ -2513,6 +2480,7 @@
             document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
             document.getElementById('showingEnd').textContent = endIndex;
             document.getElementById('totalItems').textContent = totalFilteredItems;
+            document.getElementById('tabTotalCount').textContent = totalFilteredItems;
             
             const noResults = document.getElementById('noResults');
             if (totalFilteredItems === 0) {
@@ -2538,12 +2506,17 @@
                 const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
                 const expNumber = String(obra.id + 1).padStart(3, '0');
                 
+                const hentaiBadge = obra.hentai ? `<span class="badge-hentai">🔞 HENTAI</span>` : '';
+                const ecchiBadge = obra.ecchi ? `<span class="badge-ecchi">🔞 ECCHI</span>` : '';
+                
                 card.innerHTML = `
                     <div class="card-image">
                         <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
                         <span class="card-year">${obra.year}</span>
                         <span class="card-exp-number">#${expNumber}</span>
                         <span class="card-rarity">⚡ ${rarity}</span>
+                        ${hentaiBadge}
+                        ${ecchiBadge}
                     </div>
                     <div class="card-body">
                         <div class="card-tags">
@@ -2583,7 +2556,6 @@
         function updatePaginationControls(totalPages) {
             const loadMoreBtn = document.getElementById('loadMoreBtn');
             const numericPagination = document.getElementById('numericPagination');
-            const itemsPerPage = getItemsPerPage();
             
             if (isMobile) {
                 loadMoreBtn.style.display = 'block';
@@ -2660,7 +2632,7 @@
         }
 
         function updateStats() {
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             const total = obrasPrincipales.length;
             const ovas = obrasPrincipales.filter(a => a.type === 'OVA').length;
             const pelis = obrasPrincipales.filter(a => a.type === 'Película').length;
@@ -2682,7 +2654,7 @@
         }
 
         function setupFeatured() {
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             if (!obrasPrincipales || obrasPrincipales.length === 0) {
                 document.getElementById('featuredTitle').textContent = 'Sin obras';
                 document.getElementById('featuredDesc').textContent = 'Añade obras en data.js';
@@ -2708,7 +2680,7 @@
         }
 
         function actualizarHero() {
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             document.getElementById('heroCount').textContent = obrasPrincipales.length;
             const hoy = new Date();
             const fecha = hoy.toLocaleDateString('es-ES', { 
@@ -2745,8 +2717,6 @@
                     return;
                 }
                 
-                const adultoVerificado = localStorage.getItem('adultoVerified') === 'true';
-                
                 let resultados = animes.filter(obra => {
                     return obra.title.toLowerCase().includes(query) ||
                         obra.description.toLowerCase().includes(query) ||
@@ -2756,10 +2726,6 @@
                         obra.director.toLowerCase().includes(query) ||
                         String(obra.year).includes(query);
                 });
-                
-                if (!adultoVerificado) {
-                    resultados = resultados.filter(obra => obra.category !== "adulto");
-                }
                 
                 archivoSection.style.display = 'none';
                 featuredSection.style.display = 'none';
@@ -2783,6 +2749,9 @@
                     const typeClass = obra.type.toLowerCase().replace(' ', '-');
                     const expNumber = String(obra.id + 1).padStart(3, '0');
                     const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
+                    const hentaiBadge = obra.hentai ? `<span class="badge-hentai">🔞 HENTAI</span>` : '';
+                    const ecchiBadge = obra.ecchi ? `<span class="badge-ecchi">🔞 ECCHI</span>` : '';
+                    
                     return `
                     <div class="card" data-id="${obra.id}" onclick="openModal(${obra.id})">
                         <div class="card-image">
@@ -2790,6 +2759,8 @@
                             <span class="card-year">${obra.year}</span>
                             <span class="card-exp-number">#${expNumber}</span>
                             <span class="card-rarity">⚡ ${rarity}</span>
+                            ${hentaiBadge}
+                            ${ecchiBadge}
                         </div>
                         <div class="card-body">
                             <div class="card-tags">
@@ -2842,7 +2813,7 @@
         function setupListas() {
             const container = document.getElementById('listasGrid');
             if (!container) return;
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             const tagsCount = {};
             obrasPrincipales.forEach(obra => {
                 if (obra.tags) {
@@ -2881,58 +2852,123 @@
             return icons[tag] || '📁';
         }
 
-        function renderizarPorCategoria(categoria, containerId) {
-            const container = document.getElementById(containerId);
+        // ============================================================
+        // SISTEMA DE RECOMENDACIONES AUTOMÁTICAS
+        // ============================================================
+        function obtenerRecomendaciones(obraId, limite = 4) {
+            const obraActual = animes.find(a => a.id === obraId);
+            if (!obraActual) return [];
+            
+            const otrasObras = animes.filter(a => 
+                a.id !== obraId && 
+                a.category === obraActual.category
+            );
+            
+            if (otrasObras.length === 0) return [];
+            
+            const puntajes = otrasObras.map(obra => {
+                let puntaje = 0;
+                
+                if (obraActual.genre && obra.genre) {
+                    const generosCoincidentes = obraActual.genre.filter(g => 
+                        obra.genre.some(og => og.toLowerCase() === g.toLowerCase())
+                    );
+                    puntaje += generosCoincidentes.length * 5;
+                }
+                
+                if (obraActual.tags && obra.tags) {
+                    const tagsCoincidentes = obraActual.tags.filter(t => 
+                        obra.tags.some(ot => ot.toLowerCase() === t.toLowerCase())
+                    );
+                    puntaje += tagsCoincidentes.length * 3;
+                }
+                
+                if (obraActual.year && obra.year) {
+                    const diffYear = Math.abs(obraActual.year - obra.year);
+                    if (diffYear <= 2) puntaje += 2;
+                    else if (diffYear <= 5) puntaje += 1;
+                }
+                
+                if (obraActual.studio && obra.studio && 
+                    obraActual.studio.toLowerCase() === obra.studio.toLowerCase()) {
+                    puntaje += 1;
+                }
+                
+                if (obraActual.director && obra.director && 
+                    obraActual.director.toLowerCase() === obra.director.toLowerCase()) {
+                    puntaje += 1;
+                }
+                
+                if (obraActual.adulto === obra.adulto) {
+                    puntaje += 0.5;
+                }
+                
+                return { obra, puntaje };
+            });
+            
+            const recomendaciones = puntajes
+                .filter(p => p.puntaje > 0)
+                .sort((a, b) => b.puntaje - a.puntaje)
+                .slice(0, limite)
+                .map(p => p.obra);
+            
+            if (recomendaciones.length < limite) {
+                const restantes = otrasObras.filter(o => 
+                    !recomendaciones.some(r => r.id === o.id)
+                );
+                const mezcladas = restantes.sort(() => Math.random() - 0.5);
+                const faltantes = limite - recomendaciones.length;
+                for (let i = 0; i < Math.min(faltantes, mezcladas.length); i++) {
+                    recomendaciones.push(mezcladas[i]);
+                }
+            }
+            
+            return recomendaciones;
+        }
+
+        function renderizarRecomendaciones(obraId) {
+            const container = document.getElementById('relatedGrid');
             if (!container) return;
             
-            const filtrados = animes.filter(a => a.category === categoria);
+            const recomendaciones = obtenerRecomendaciones(obraId);
             
-            if (filtrados.length === 0) {
+            if (recomendaciones.length === 0) {
                 container.innerHTML = `
-                    <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text-muted);">
-                        <p style="font-size:1rem;margin-bottom:4px;">📭 No hay obras en esta categoría</p>
-                        <p style="font-size:0.85rem;">Pronto agregaremos más contenido</p>
+                    <div style="color:var(--text-muted);font-size:0.85rem;grid-column:1/-1;text-align:center;padding:12px;">
+                        📭 No hay recomendaciones disponibles
                     </div>
                 `;
                 return;
             }
             
-            container.innerHTML = filtrados.map(obra => {
-                const typeClass = obra.type.toLowerCase().replace(' ', '-');
-                const expNumber = String(obra.id + 1).padStart(3, '0');
-                const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
+            container.innerHTML = recomendaciones.map(r => {
+                const typeColor = r.type === 'OVA' ? 'var(--cyan)' : 
+                                 r.type === 'Película' ? 'var(--accent)' : 
+                                 r.type === 'Serie' ? 'var(--amber)' : 'var(--text-muted)';
+                const typeBg = r.type === 'OVA' ? 'rgba(5,217,232,0.1)' : 
+                              r.type === 'Película' ? 'rgba(212,163,115,0.1)' : 
+                              r.type === 'Serie' ? 'rgba(245,158,11,0.1)' : 'var(--bg-hover)';
+                const mainGenre = r.genre && r.genre[0] ? r.genre[0] : '';
+                const etiquetaAdulto = r.adulto ? '🔞' : '';
+                
                 return `
-                <div class="card" onclick="openModal(${obra.id})">
-                    <div class="card-image">
-                        <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
-                        <span class="card-year">${obra.year}</span>
-                        <span class="card-exp-number">#${expNumber}</span>
-                        <span class="card-rarity">⚡ ${rarity}</span>
+                <div class="related-card" onclick="openModal(${r.id})">
+                    <div class="related-thumb">
+                        <img src="${r.cover}" alt="${r.title}" loading="lazy" onerror="handleImageError(this)">
+                        <span class="related-year">${r.year}</span>
+                        ${r.adulto ? '<span class="related-badge-adulto">🔞</span>' : ''}
                     </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="card-tag type-${typeClass}" data-type="${typeClass}">${obra.type}</span>
-                            ${obra.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
-                        </div>
-                        <h3>${obra.title}</h3>
-                        <p>${obra.description}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="watch.html?id=${obra.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </a>
-                        <div class="card-vibes">
-                            ${obra.tags ? obra.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                    <div class="related-info">
+                        <h5>${r.title} ${etiquetaAdulto}</h5>
+                        <div class="related-meta">
+                            <span class="related-type" style="background:${typeBg};color:${typeColor};border:1px solid ${typeColor}30;font-size:0.5rem;padding:1px 5px;border-radius:3px;font-weight:500;">
+                                ${r.type}
+                            </span>
+                            ${mainGenre ? `<span class="related-genre" style="font-size:0.55rem;color:var(--text-muted);">${mainGenre}</span>` : ''}
                         </div>
                     </div>
-                </div>
-            `}).join('');
-        }
-
-        function inicializarSecciones() {
-            renderizarPorCategoria('live-action', 'liveActionGrid');
+                </div>`;
+            }).join('');
         }
 
         // ============================================================
@@ -2952,7 +2988,7 @@
 
             currentModalId = id;
 
-            document.title = `${obra.title} — Frame Perdido`;
+            document.title = `${obra.title} (${obra.year}) — Anime y cine de culto | Frame Perdido`;
             
             if (window.history.pushState) {
                 const url = new URL(window.location);
@@ -2962,7 +2998,7 @@
 
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
-                metaDesc.content = `${obra.title} (${obra.year}) - ${obra.description.slice(0, 150)}`;
+                metaDesc.content = `${obra.title} (${obra.year}) - ${obra.description.slice(0, 150)}. Anime y cine de culto.`;
             }
 
             document.getElementById('modalImage').src = obra.cover;
@@ -2972,8 +3008,11 @@
             document.getElementById('modalExpId').textContent = '#' + String(obra.id + 1).padStart(3, '0');
             document.getElementById('modalMeta').innerHTML =
                 `<span>📅 ${obra.year}</span><span>🎬 ${obra.studio}</span><span>👤 ${obra.director}</span><span>⏱️ ${obra.duration}</span>`;
-            document.getElementById('modalTags').innerHTML =
-                obra.genre.map(g => `<span class="tag accent">${g}</span>`).join('');
+            
+            const hentaiTag = obra.hentai ? `<span class="tag tag-hentai">🔞 Hentai</span>` : '';
+            const ecchiTag = obra.ecchi ? `<span class="tag tag-ecchi">🔞 Ecchi</span>` : '';
+            document.getElementById('modalTags').innerHTML = hentaiTag + ecchiTag + obra.genre.map(g => `<span class="tag accent">${g}</span>`).join('');
+            
             document.getElementById('modalDesc').textContent = obra.description;
             document.getElementById('modalPlot').textContent = obra.plot || 'Sin información disponible.';
             document.getElementById('modalAnalysis').textContent = obra.analysis || 'Sin información disponible.';
@@ -3010,38 +3049,8 @@
                 trailerFrame.src = '';
             }
 
-            const relatedGrid = document.getElementById('relatedGrid');
-            if (obra.related && obra.related.length > 0) {
-                const relatedObras = animes.filter(a => obra.related.includes(a.id)).slice(0, 4);
-                relatedGrid.innerHTML = relatedObras.map(r => {
-                    const typeColor = r.type === 'OVA' ? 'var(--cyan)' : 
-                                     r.type === 'Película' ? 'var(--accent)' : 
-                                     r.type === 'Serie' ? 'var(--amber)' : 'var(--text-muted)';
-                    const typeBg = r.type === 'OVA' ? 'rgba(5,217,232,0.1)' : 
-                                  r.type === 'Película' ? 'rgba(255,42,109,0.1)' : 
-                                  r.type === 'Serie' ? 'rgba(245,158,11,0.1)' : 'var(--bg-hover)';
-                    const mainGenre = r.genre && r.genre[0] ? r.genre[0] : '';
-                    
-                    return `
-                    <div class="related-card" onclick="openModalWithScroll(${r.id})">
-                        <div class="related-thumb">
-                            <img src="${r.cover}" alt="${r.title}" loading="lazy" onerror="handleImageError(this)">
-                            <span class="related-year">${r.year}</span>
-                        </div>
-                        <div class="related-info">
-                            <h5>${r.title}</h5>
-                            <div class="related-meta">
-                                <span class="related-type" style="background:${typeBg}; color:${typeColor}; border: 1px solid ${typeColor}30; font-size:0.5rem; padding:1px 5px; border-radius:3px; font-weight:500;">
-                                    ${r.type}
-                                </span>
-                                ${mainGenre ? `<span class="related-genre" style="font-size:0.55rem;color:var(--text-muted);">${mainGenre}</span>` : ''}
-                            </div>
-                        </div>
-                    </div>`;
-                }).join('');
-            } else {
-                relatedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem;">No hay obras relacionadas.</p>';
-            }
+            // RECOMENDACIONES AUTOMÁTICAS
+            renderizarRecomendaciones(id);
 
             document.getElementById('shareUrlInput').value = window.location.href;
 
@@ -3056,20 +3065,6 @@
                 }
                 overlay.scrollTop = 0;
             }, 50);
-        }
-
-        function openModalWithScroll(id) {
-            const overlay = document.getElementById('modalOverlay');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-            
-            setTimeout(() => {
-                openModal(id);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                setTimeout(() => {
-                    document.getElementById('modalOverlay').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }, 300);
         }
 
         function closeModal(e) {
@@ -3088,10 +3083,10 @@
                 trailerFrame.src = '';
             }
             
-            document.title = 'Frame Perdido — Archivo de obras audiovisuales olvidadas';
+            document.title = 'Frame Perdido — Anime y cine de culto olvidado';
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
-                metaDesc.content = 'Rescatando OVAs, películas, series y live action clásicos y poco conocidos de los 80s, 90s y más.';
+                metaDesc.content = 'Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros.';
             }
             
             if (window.history.pushState) {
@@ -3104,7 +3099,7 @@
         }
 
         function randomObra() {
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             if (!obrasPrincipales || obrasPrincipales.length === 0) return;
             const randomId = obrasPrincipales[Math.floor(Math.random() * obrasPrincipales.length)].id;
             openModal(randomId);
@@ -3114,7 +3109,7 @@
         // TRAILER DEL DÍA
         // ============================================================
         function setupTrailerDelDia() {
-            const obrasPrincipales = animes.filter(a => a.category === "anime");
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
             if (!obrasPrincipales.length) return;
             
             const today = new Date();
@@ -3168,41 +3163,9 @@
             document.getElementById('mainNav').classList.toggle('active');
         }
 
-        function setupScrollSpy() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (window.scrollY >= sectionTop - 200) current = section.getAttribute('id');
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-                });
-            });
-        }
-
-        function setupSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                    document.getElementById('mainNav').classList.remove('active');
-                });
-            });
-        }
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModalDirect();
-                if (document.getElementById('age-verify-adulto').classList.contains('active')) {
-                    document.getElementById('age-verify-adulto').classList.remove('active');
-                    document.getElementById('adultAgeError').style.display = 'none';
-                    document.getElementById('adultAgeInput').value = '';
-                }
             }
         });
 
@@ -3265,6 +3228,7 @@
             
             document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
             
+            actualizarContadoresTabs();
             renderCards();
             updateStats();
             setupFeatured();
@@ -3272,12 +3236,8 @@
             setupFilters();
             renderizarVibes();
             setupListas();
-            setupScrollSpy();
-            setupSmoothScroll();
-            inicializarSecciones();
             setupTrailerDelDia();
             actualizarHero();
-            actualizarContadoresEtiquetas();
             
             checkUrlForExpediente();
             
