@@ -2301,7 +2301,7 @@ var animes = [{
     "trailer": "",
     "saga": null,
     "sagaOrder": null,
-    "related": [],
+    "related": [104, 94],
     "category": "adulto",
     "origin": "Japón",
     "rarity": "Raro"
@@ -2329,7 +2329,7 @@ var animes = [{
     "origin": "Japón",
     "rarity": "Raro"
 },
-             {
+ {
     "id": 105,
     "title": "Sanctuary",
     "cover": "https://blogger.googleusercontent.com/img/a/AVvXsEixBx1dKQ9J_WuzbCxnqkxvMQ_DNUINxOXMI9Oc_Q41bfmwThkljDScAJWfztHDeGAsVnoBAbqflOdzL8dKZ_bd24GBtOmfKc4JjVYF8YrwYCT34VZGFsKv81D0diyz8T0X6lz6nmgtsuA4_Nw7QLR3Rh9Pcvh8KhCKbYEahMt2-6gFb0ioRNxpbHpBP3SE=w238-h400",
@@ -2351,4 +2351,4 @@ var animes = [{
     "category": "anime",
     "origin": "Japón",
     "rarity": "Raro"
-}];
+},];
