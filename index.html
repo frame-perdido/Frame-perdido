@@ -2368,15 +2368,20 @@
         function actualizarContadoresTabs() {
             const obrasAnimadas = animes.filter(a => a.category === "animada");
             const liveAction = animes.filter(a => a.category === "live-action");
+            const total = animes.length;
             
-            const peliculas = obrasAnimadas.filter(a => a.type === 'Película').length;
-            const ovas = obrasAnimadas.filter(a => a.type === 'OVA').length;
-            const series = obrasAnimadas.filter(a => a.type === 'Serie' || a.type === 'TV').length;
+            const peliculas = animes.filter(a => a.type === 'Película').length;
+            const ovas = animes.filter(a => a.type === 'OVA').length;
+            const series = animes.filter(a => a.type === 'Serie' || a.type === 'TV' || a.type === 'Serie TV').length;
             
             document.getElementById('countPeliculas').textContent = peliculas;
             document.getElementById('countOVAs').textContent = ovas;
             document.getElementById('countSeries').textContent = series;
             document.getElementById('countLiveAction').textContent = liveAction.length;
+            
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('heroCount').textContent = total;
+            document.getElementById('tabTotalCount').textContent = total;
         }
 
         // ============================================================
@@ -2417,7 +2422,7 @@
                 const tipos = {
                     'peliculas': ['Película'],
                     'ovas': ['OVA'],
-                    'series': ['Serie', 'TV']
+                    'series': ['Serie', 'TV', 'Serie TV']
                 };
                 
                 if (tipos[currentTab]) {
@@ -2479,8 +2484,8 @@
             
             document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
             document.getElementById('showingEnd').textContent = endIndex;
-            document.getElementById('totalItems').textContent = totalFilteredItems;
-            document.getElementById('tabTotalCount').textContent = totalFilteredItems;
+            document.getElementById('totalItems').textContent = animes.length;
+            document.getElementById('tabTotalCount').textContent = animes.length;
             
             const noResults = document.getElementById('noResults');
             if (totalFilteredItems === 0) {
@@ -2632,10 +2637,9 @@
         }
 
         function updateStats() {
-            const obrasPrincipales = animes.filter(a => a.category === "animada");
-            const total = obrasPrincipales.length;
-            const ovas = obrasPrincipales.filter(a => a.type === 'OVA').length;
-            const pelis = obrasPrincipales.filter(a => a.type === 'Película').length;
+            const total = animes.length;
+            const ovas = animes.filter(a => a.type === 'OVA').length;
+            const pelis = animes.filter(a => a.type === 'Película').length;
             animateCounter('statTotal', total);
             animateCounter('statOVAs', ovas);
             animateCounter('statPelis', pelis);
@@ -2654,7 +2658,7 @@
         }
 
         function setupFeatured() {
-            const obrasPrincipales = animes.filter(a => a.category === "animada");
+            const obrasPrincipales = animes.filter(a => a.category === "animada" || a.category === "live-action");
             if (!obrasPrincipales || obrasPrincipales.length === 0) {
                 document.getElementById('featuredTitle').textContent = 'Sin obras';
                 document.getElementById('featuredDesc').textContent = 'Añade obras en data.js';
@@ -2680,8 +2684,7 @@
         }
 
         function actualizarHero() {
-            const obrasPrincipales = animes.filter(a => a.category === "animada");
-            document.getElementById('heroCount').textContent = obrasPrincipales.length;
+            document.getElementById('heroCount').textContent = animes.length;
             const hoy = new Date();
             const fecha = hoy.toLocaleDateString('es-ES', { 
                 day: '2-digit', 
@@ -3099,7 +3102,7 @@
         }
 
         function randomObra() {
-            const obrasPrincipales = animes.filter(a => a.category === "animada");
+            const obrasPrincipales = animes.filter(a => a.category === "animada" || a.category === "live-action");
             if (!obrasPrincipales || obrasPrincipales.length === 0) return;
             const randomId = obrasPrincipales[Math.floor(Math.random() * obrasPrincipales.length)].id;
             openModal(randomId);
@@ -3109,7 +3112,7 @@
         // TRAILER DEL DÍA
         // ============================================================
         function setupTrailerDelDia() {
-            const obrasPrincipales = animes.filter(a => a.category === "animada");
+            const obrasPrincipales = animes.filter(a => a.category === "animada" || a.category === "live-action");
             if (!obrasPrincipales.length) return;
             
             const today = new Date();
