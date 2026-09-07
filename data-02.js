@@ -29,3 +29,8 @@ var animes02 = [
         ecchi: false
     }
 ];
+
+// Al final de data-02.js
+if (typeof animes !== 'undefined' && Array.isArray(animes)) {
+    animes.push(...animes02);
+}
