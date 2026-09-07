@@ -1755,6 +1755,51 @@
             .related-info h5 { font-size: 0.55rem; }
             .related-type { font-size: 0.45rem; }
         }
+
+        /* ============================================================ */
+/* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE              */
+/* ============================================================ */
+@media (min-width: 1400px) {
+    .ad-skyscraper {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 160px;
+        height: 600px;
+        z-index: 50;
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+    }
+    .ad-skyscraper::before {
+        content: "PUBLICIDAD";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg);
+        padding: 0 8px;
+        font-size: 0.5rem;
+        color: var(--text-dim);
+        font-family: 'Space Mono', monospace;
+        letter-spacing: 2px;
+        z-index: 2;
+    }
+    body {
+        padding-right: 180px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .ad-skyscraper {
+        display: none !important;
+    }
+    body {
+        padding-right: 0 !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -1779,6 +1824,20 @@
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </header>
+
+    <!-- BANNER VERTICAL 160×600 -->
+<div class="ad-skyscraper" id="skyscraperAd">
+    <script>
+        atOptions = {
+            'key' : 'f564e8789f9520e705a0684b0fb3ad26',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
+</div>
 
     <!-- ============================================================ -->
     <!-- BANNER HEADER                                                -->
