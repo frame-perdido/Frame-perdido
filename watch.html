@@ -294,6 +294,51 @@
                 transform: rotate(0deg) !important;
             }
         }
+
+        /* ============================================================ */
+/* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE              */
+/* ============================================================ */
+@media (min-width: 1400px) {
+    .ad-skyscraper {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 160px;
+        height: 600px;
+        z-index: 50;
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+    }
+    .ad-skyscraper::before {
+        content: "PUBLICIDAD";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg);
+        padding: 0 8px;
+        font-size: 0.5rem;
+        color: var(--text-dim);
+        font-family: 'Space Mono', monospace;
+        letter-spacing: 2px;
+        z-index: 2;
+    }
+    body {
+        padding-right: 180px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .ad-skyscraper {
+        display: none !important;
+    }
+    body {
+        padding-right: 0 !important;
+    }
+}
                 
     </style>
 </head>
@@ -317,13 +362,6 @@
                     kofiwidget2.draw();
                 </script>
             </div>
-            
-            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
-               class="action-btn support" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <span class="icon">👁️</span> Apoyar viendo anuncios
-            </a>
         </div>
 
         <!-- BANNER ENCIMA DEL REPRODUCTOR -->
@@ -354,6 +392,20 @@
             </div>
         </div>
 
+        <!-- BANNER VERTICAL 160×600 -->
+<div class="ad-skyscraper">
+    <script>
+        atOptions = {
+            'key' : 'f564e8789f9520e705a0684b0fb3ad26',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
+</div>
+
         <!-- REPRODUCTOR -->
         <div class="plyr-container">
             <div class="plyr__video-embed" id="player">
@@ -380,6 +432,29 @@
             </script>
             <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
         </div>
+        <!-- 1. Botón principal debajo del reproductor (grande, llamativo) -->
+<div style="text-align:center; margin: 16px 0;">
+    <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
+       class="btn btn-primary" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       style="display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
+        ⬇️ DOWNLOAD
+    </a>
+</div>
+
+<!-- ... todo el contenido intermedio ... -->
+
+<!-- 2. Botón secundario debajo del selector (más pequeño) -->
+<div style="text-align:center; margin: 12px 0;">
+    <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
+       class="btn btn-primary" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;box-shadow:0 4px 12px var(--accent-glow);transition:all 0.3s;opacity:0.8;">
+        ⬇️ DOWNLOAD
+    </a>
+</div>
 
         <!-- NATIVE BANNER (solo desktop) -->
         <div class="native-banner-desktop" style="margin: 20px auto; max-width: 100%;">
@@ -2091,6 +2166,9 @@
             playerContainer.appendChild(errorMsg);
         }
     </script>
+
+    <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
+
 
    
     <script src="simpleblocker.js"></script>
