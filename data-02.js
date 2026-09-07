@@ -30,7 +30,3 @@ var animes02 = [
     }
 ];
 
-// Al final de data-02.js
-if (typeof animes !== 'undefined' && Array.isArray(animes)) {
-    animes.push(...animes02);
-}
