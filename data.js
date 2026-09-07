@@ -2683,3 +2683,9 @@ var animes = [{
     ecchi: false
 }];
 
+// ============================================================
+// COMBINAR CON data-02.js (obras nuevas 107+)
+// ============================================================
+if (typeof animes02 !== 'undefined') {
+    animes = animes.concat(animes02);
+}
