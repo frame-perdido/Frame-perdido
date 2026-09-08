@@ -469,6 +469,7 @@
     
         <!--  carga watch-02-data.js -->
 <script src="watch-02-data.js"></script>
+    <script>
         // ============================================================
         // BASE DE DATOS DE VIDEOS - CON IDs CORRECTOS
         // ============================================================
@@ -2158,6 +2159,10 @@
             `;
             playerContainer.appendChild(errorMsg);
         }
+            // COMBINAR CON watch-02-data.js
+    if (typeof videos2 !== 'undefined') {
+        Object.assign(videos, videos2);
+
     </script>
 
     <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
@@ -2165,11 +2170,7 @@
 
    
     <script src="simpleblocker.js"></script>
-
-
-<script>
-    // Combinar ambas bases de datos
-    Object.assign(videos, videos2);
+ 
 </script>
 </body>
 </html>
