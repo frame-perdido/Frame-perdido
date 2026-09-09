@@ -44,5 +44,17 @@ const videos2 = {
          { num: 1, version: "Sub", url: "//ok.ru/videoembed/4296221329989?nochat=1" },
           { num: 1, version: "Sub 1080p", url: "//ok.ru/videoembed/8064839780950?nochat=1" }
     ]
+},
+    110: {
+    title: "Professor Pain (Gakuen Sodom)",
+    year: 1998,
+    studio: "Artland",
+    director: "Kazuyoshi Yokota",
+    desc: "El profesor Ohse toma como rehenes a las estudiantes de la Universidad Aoi con una bomba casera. Su objetivo es someterlas a todo tipo de torturas y depravaciones. Un OVA de culto extremo que mezcla terror y violencia con contenido sexual explícito.",
+    tags: ["Terror", "Hentai", "Violencia extrema", "Psicológico", "Culto"],
+    episodios: [
+        { num: 1, version: "Sub", url: "//ok.ru/videoembed/15716671621775?nochat=1" },
+        { num: 2, version: "Sub", url: "//ok.ru/videoembed/15716671556239?nochat=1" }
+    ]
 }
 };
