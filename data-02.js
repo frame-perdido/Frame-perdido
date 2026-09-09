@@ -108,6 +108,32 @@ var animes02 = [
     adulto: true,
     hentai: true,
     ecchi: false
+},
+    {
+    id: 111,
+    title: "Inma Youjo: The Erotic Temptress",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjx72tLsnI5mmcEGzLZVF5eZUcoPiL33Tyq9CEx-A59k0NOUPKtUrYBCl5pKfM2iy4B3juTvb9Zr0181OMioyBxNJApmZqqGuHM3iZOQ2RD3Irb3ZbqiJDaSQfym8PbGG-TnUbnANzPRPq5SV4ljhudSmsJVR_KP9VI72frJuLckH2CFCJTtRtzrJZoB-VN=w280-h400",
+    year: "1994-1997",
+    type: "OVA",
+    duration: "5 episodios (~30 min c/u)",
+    studio: "Horannabi / Magic Bus / Pink Pineapple",
+    director: "Varios",
+    genre: ["Hentai", "Terror", "Psicológico", "Fantasía oscura", "Antología"],
+    tags: ["hentai", "terror", "psicológico", "fantasía-oscura", "antología", "culto", "90s", "rx", "adulto", "rareza", "deconstrucción"],
+    description: "Inma Youjo es una serie de culto del hentai de los 90 que se destaca por subvertir los tropos del género y contar historias con un trasfondo oscuro y complejo. La serie sigue a Maya, una figura enigmática descrita como una 'fuerza de la naturaleza' que siembra el caos y la destrucción allá donde va. Cada episodio presenta a una versión diferente de Maya en un mundo y época distinta, desde el cyberpunk hasta la caza de brujas en la Edad Media.",
+    plot: "Maya es una entidad que viaja a través del tiempo y el espacio, apareciendo en diferentes épocas y lugares. En cada episodio, se encuentra con personas que sufren bajo el yugo del patriarcado, la opresión o la injusticia. Su presencia desata el caos y la violencia, pero también expone las verdades ocultas de cada sociedad. La serie es una antología que explora temas como el poder, el deseo, la violencia y la liberación, siempre desde un tono oscuro y trágico.",
+    analysis: "Inma Youjo es una de las obras más interesantes y subversivas del género hentai. A diferencia de la mayoría de las series del género, que se centran en la fantasía sexual, Inma Youjo utiliza la violencia sexual y la explotación como herramientas para criticar el patriarcado y explorar temas de poder y deseo. La serie es una deconstrucción del hentai, que expone la misoginia y la violencia inherentes al género para ofrecer una experiencia incómoda y reflexiva. Cada episodio es una historia independiente con un estilo visual y narrativo diferente, lo que la convierte en una obra de antología única.",
+    forgotten: "Inma Youjo es una rareza absoluta dentro del mundo del hentai. Su distribución fue limitada y su contenido extremo la ha convertido en un producto de nicho. A pesar de tener un lanzamiento en DVD por Critical Mass Video con doblaje al inglés, la serie es prácticamente desconocida para el público general. Solo los coleccionistas más acérrimos del hentai de los 90 la recuerdan. Una pieza de culto para completistas y amantes del terror psicológico.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [60, 61, 62, 110],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Muy raro",
+    adulto: true,
+    hentai: true,
+    ecchi: false
 }
         
 ];
