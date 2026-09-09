@@ -27,6 +27,62 @@ var animes02 = [
         adulto: true,
         hentai: false,
         ecchi: false
-    }
+
+    },
+    {
+    id: 108,
+    title: "Fritz el Gato",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEi5lWBMDENqvUqD1rT8-SlPHVitNsp_PdOSAaOTPR5tVhmrVCr8wsl_JagwbjoXuInndmUfGBLy3mEAIChy05mP8D6VH2eOaEifnMwCUBm719YA77KYdbcYf1fqpGp59HX6ngxow6MtkkFfE4BCq1YpcR5X7XrQp6S8Ps7kayT1DjJdRU1bAODzpVLPD4k7=w237-h400",
+    year: 1972,
+    type: "Película",
+    duration: "78 min",
+    studio: "Bakshi Productions",
+    director: "Ralph Bakshi",
+    genre: ["Comedia", "Animación para adultos", "Sátira", "Contracultura"],
+    tags: ["animación-adulta", "comedia", "sátira", "contracultura", "culto", "70s", "ralph-bakshi", "robert-crumb"],
+    description: "Fritz es un gato de la universidad en la ciudad de Nueva York, un hipócrita, mujeriego y pseudointelectual que busca sexo, drogas y experiencias. La película sigue su viaje de 'auto-descubrimiento' a través del caos de la contracultura de los 60, desde una orgía en la bañera hasta un disturbio racial en Harlem, pasando por terroristas domésticos y una explosión en una central eléctrica. Una sátira social mordaz que se burla por igual de la derecha, la izquierda, los policías, los revolucionarios y los hippies.",
+    plot: "Fritz, un gato estudiante universitario, vive su vida entre orgías, drogas y discursos vacíos sobre la revolución. Tras ser expulsado de la universidad, viaja a Harlem, donde provoca un disturbio racial. Luego se une a su exnovia en un viaje por carretera, donde se encuentra con terroristas domésticos que planean volar una central eléctrica. Sobrevive a la explosión y, en el hospital, aprovecha para seducir a tres enfermeras. La película es un retrato caótico y cínico de la América de los 70.",
+    analysis: "Fritz el Gato es un monumento a la animación independiente. Fue la primera película animada en recibir una calificación X en Estados Unidos, rompiendo el molde de la animación familiar. Ralph Bakshi se inspiró en el cómic underground de Robert Crumb y creó una obra cruda, sucia y llena de sexo explícito, drogas y violencia. Su estilo innovador, que combinaba rotoscopia con fondos fotografiados, le dio una textura documental única. Fue un éxito rotundo, recaudando 90 millones de dólares frente a un presupuesto de 700.000. Sin embargo, el creador del personaje, Robert Crumb, odió la película y se desentendió de ella.",
+    forgotten: "A pesar de ser un fenómeno en su época y la película de animación independiente más taquillera de la historia, Fritz el Gato ha quedado semi-olvidada. Su temática tabú y su estilo tan poco convencional la hicieron difícil de ver durante años, y hoy es una rareza de culto que sobrevive en la memoria de los amantes de la animación alternativa. Es un artefacto de una época, una reliquia de la rebelión que aún arde.",
+    trailer: "https://www.youtube.com/embed/SY2qNNvX7kw?si=il-YbpzwSaf135YU",
+    saga: "Fritz el Gato",
+    sagaOrder: 1,
+    related: [109],
+    next: 109,
+    category: "animada",
+    origin: "Estados Unidos",
+    rarity: "Raro",
+    adulto: true,
+    hentai: false,
+    ecchi: false
+},
+    {
+    id: 109,
+    title: "Las nueve vidas de Fritz el Gato",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEhllo8V06Xlnb_w3TSNmsTOT3L4tAXvOgnomSgQzuudD5Al6h-4sRz1nHPtuDxyxqOekMjXJXtcTGXeDdRLclf-J0VStL8Z53PdPtMGnQ-CS9Zl41tbUrUYnd9G5ZpN3s3KBVhFWZ8Hq1NzbAF6nZpxtRga0ZmvW82lBbThbaU_mVv56EWW40VSe9AtBLjJ=w213-h400",
+    year: 1974,
+    type: "Película",
+    duration: "77 min",
+    studio: "Krantz Films / Cinemation Industries",
+    director: "Robert Taylor",
+    genre: ["Comedia", "Animación para adultos", "Sátira", "Antología"],
+    tags: ["animación-adulta", "comedia", "sátira", "antología", "culto", "70s", "secuela"],
+    description: "Esta secuela de Fritz el Gato se realizó sin la participación de Ralph Bakshi ni del creador del personaje, Robert Crumb. La película adopta un formato de antología, mostrando nueve vidas alternativas de Fritz en diferentes épocas y situaciones, desde la época de los conquistadores hasta el futuro. Una curiosidad histórica que fue la primera película animada en recibir una calificación R.",
+    plot: "A diferencia de la primera película, esta secuela no sigue una narrativa lineal. En su lugar, presenta nueve historias independientes que exploran diferentes vidas que Fritz podría haber vivido. Cada segmento es una sátira de diferentes épocas y géneros, desde el western hasta la ciencia ficción. La película es un collage de humor absurdo y crítica social, aunque sin la cohesión ni la mordacidad de la original.",
+    analysis: "Las nueve vidas de Fritz el Gato es una secuela que no cuenta con la participación de Ralph Bakshi ni de Robert Crumb, lo que la convierte en una rareza dentro de la franquicia. Fue el primer largometraje animado en recibir una calificación R en Estados Unidos. La película intenta replicar el éxito de la original con un formato de antología, pero carece del ingenio y la crudeza de la primera. Es una curiosidad histórica para los fans de la animación adulta, pero no alcanza el nivel de la obra de Bakshi.",
+    forgotten: "Las nueve vidas de Fritz el Gato es la hermana olvidada de la franquicia. Sin la participación de Bakshi ni de Crumb, la película pasó sin pena ni gloria y hoy es una rareza que solo los coleccionistas más obsesivos conocen. Es recordada más por su contexto histórico (primera película animada con calificación R) que por su calidad. Una pieza de culto para completistas.",
+    trailer: "https://www.youtube.com/embed/WVDFa2I1k1A?si=8qu6oZdtb3TTyTH4",
+    saga: "Fritz el Gato",
+    sagaOrder: 2,
+    related: [108],
+    prev: 108,
+    category: "animada",
+    origin: "Estados Unidos",
+    rarity: "Muy raro",
+    adulto: true,
+    hentai: false,
+    ecchi: false
+}
+        
 ];
 
