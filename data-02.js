@@ -82,6 +82,32 @@ var animes02 = [
     adulto: true,
     hentai: false,
     ecchi: false
+},
+    {
+    id: 110,
+    title: "Professor Pain (Gakuen Sodom)",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEjHmLrF7qDtZn1U_bkAkyeGq3NtlViCZo8NhaDjbk9GNMD9mD-n5Vh0k7oVZrkOb1x0KYK59D8SHFtWnRCGeub3hjcriosD5YCN2YpSTEzb0IvAoiImDF36dlz9rE6y5JiAbxpperRWPOI2U4u7HqyiHzWOzTr4Bjpoj0dFL1Qg4OYUnbmYvpLE8ZwPAawm=w257-h400",
+    year: 1998,
+    type: "OVA",
+    duration: "2 episodios (~27 min c/u)",
+    studio: "Artland",
+    director: "Kazuyoshi Yokota",
+    genre: ["Terror", "Hentai", "Psicológico", "Violencia extrema"],
+    tags: ["hentai", "terror", "violento", "gore", "psicológico", "culto", "90s", "rx", "adulto", "rareza"],
+    description: "El profesor Ohse, aparentemente un pervertido, resulta ser un terrorista que toma como rehenes a las estudiantes de la Universidad Aoi con una bomba casera. Su objetivo es someter a las jóvenes a todo tipo de torturas y depravaciones para darles su 'lección especial'. Un OVA de culto extremo que mezcla terror y violencia con contenido sexual explícito.",
+    plot: "En la Universidad Aoi, el profesor Ohse parece un acosador más. Pero cuando las estudiantes entran al aula, descubren que ha colocado una bomba casera y las ha tomado como rehenes. Ohse somete a las jóvenes a todo tipo de torturas y abusos sexuales mientras intenta darles su 'lección especial'. La serie explora los límites de la depravación humana y la violencia psicológica.",
+    analysis: "Professor Pain (Gakuen Sodom) es un OVA hentai de culto que se inscribe dentro del subgénero de 'tortura y violación' tan popular en el mercado de animación para adultos de los 90. La obra intenta dar cierta profundidad al personaje del profesor, pero el desarrollo de los secundarios es limitado. Es una pieza de culto para coleccionistas de rarezas extremas, pero su contenido explícito la ha mantenido fuera del circuito mainstream.",
+    forgotten: "Professor Pain es una rareza absoluta. Su distribución fue limitada y su contenido extremo la ha convertido en un producto de nicho. En España tuvo un doblaje realizado por el estudio K2000, pero hoy es prácticamente imposible de encontrar. Solo los coleccionistas más acérrimos de hentai de los 90 la recuerdan. Una pieza de culto para completistas.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [60, 61, 62],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Muy raro",
+    adulto: true,
+    hentai: true,
+    ecchi: false
 }
         
 ];
