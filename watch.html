@@ -339,6 +339,43 @@
         padding-right: 0 !important;
     }
 }
+
+        /* ============================================================ */
+/* OVERLAY PARA BLOQUEA         */
+/* ============================================================ */
+.player-wrapper {
+    position: relative;
+}
+
+.video-overlay-blocker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 130px;
+    height: 70px;
+    background: transparent;
+    z-index: 9999;
+    pointer-events: auto;
+    cursor: default;
+}
+
+/* Para pantalla completa */
+.plyr--fullscreen .video-overlay-blocker {
+    width: 180px;
+    height: 80px;
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .video-overlay-blocker {
+        width: 90px;
+        height: 55px;
+    }
+    .plyr--fullscreen .video-overlay-blocker {
+        width: 140px;
+        height: 70px;
+    }
+}
                 
     </style>
 </head>
@@ -418,6 +455,9 @@
                 ></iframe>
             </div>
         </div>
+
+        <!-- BLOQUE A -->
+<div class="video-overlay-blocker"></div>
 
         <!-- BANNER MÓVIL (solo en móvil, debajo del reproductor) -->
         <div class="adsterra-mobile-banner">
