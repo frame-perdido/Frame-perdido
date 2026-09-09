@@ -340,40 +340,44 @@
     }
 }
 
-        /* ============================================================ */
-/* OVERLAY PARA BLOQUEA         */
 /* ============================================================ */
-.player-wrapper {
+/* BLOQUE A */
+/* ============================================================ */
+
+/* Contenedor principal */
+.plyr-container {
     position: relative;
+    overflow: hidden;
 }
 
+/* Overlay que cubre el botón */
 .video-overlay-blocker {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 130px;
-    height: 70px;
-    background: transparent;
-    z-index: 9999;
-    pointer-events: auto;
-    cursor: default;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 160px !important;
+    height: 80px !important;
+    background: transparent !important;
+    z-index: 9999999 !important;  /* MÁS ALTO que los controles */
+    pointer-events: auto !important;
+    cursor: default !important;
 }
 
 /* Para pantalla completa */
 .plyr--fullscreen .video-overlay-blocker {
-    width: 180px;
-    height: 80px;
+    width: 200px !important;
+    height: 90px !important;
 }
 
-/* Ajuste para móvil */
+/* Móvil */
 @media (max-width: 768px) {
     .video-overlay-blocker {
-        width: 90px;
-        height: 55px;
+        width: 110px !important;
+        height: 60px !important;
     }
     .plyr--fullscreen .video-overlay-blocker {
-        width: 140px;
-        height: 70px;
+        width: 160px !important;
+        height: 80px !important;
     }
 }
                 
@@ -443,21 +447,21 @@
     <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
 </div>
 
-        <!-- REPRODUCTOR -->
-        <div class="plyr-container">
-            <div class="plyr__video-embed" id="player">
-                <iframe
-                    id="videoFrame"
-                    src=""
-                    allowfullscreen
-                    allowtransparency
-                    allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
-                ></iframe>
-            </div>
-        </div>
+    <!-- REPRODUCTOR -->
+<div class="plyr-container">
+    <div class="plyr__video-embed" id="player">
+        <iframe
+            id="videoFrame"
+            src=""
+            allowfullscreen
+            allowtransparency
+            allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
+        ></iframe>
+    </div>
+    <!-- 👇 -->
+    <div class="video-overlay-blocker"></div>
+</div>
 
-        <!-- BLOQUE A -->
-<div class="video-overlay-blocker"></div>
 
         <!-- BANNER MÓVIL (solo en móvil, debajo del reproductor) -->
         <div class="adsterra-mobile-banner">
