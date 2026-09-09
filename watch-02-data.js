@@ -56,5 +56,20 @@ const videos2 = {
         { num: 1, version: "Sub", url: "//ok.ru/videoembed/15716671621775?nochat=1" },
         { num: 2, version: "Sub", url: "//ok.ru/videoembed/15716671556239?nochat=1" }
     ]
+},
+    111: {
+    title: "Inma Youjo",
+    year: "1994-1997",
+    studio: "Horannabi / Magic Bus / Pink Pineapple",
+    director: "Varios",
+    desc: "Maya es una figura enigmática que siembra el caos y la destrucción a través del tiempo y el espacio. Cada episodio presenta una versión diferente de Maya en un mundo y época distinta. Una deconstrucción del hentai que utiliza la violencia y el abuso como crítica al patriarcado.",
+    tags: ["Hentai", "Terror", "Psicológico", "Fantasía oscura", "Antología", "Culto"],
+    episodios: [
+        { num: 1, version: "Dob", url: "//ok.ru/videoembed/15662646430351?nochat=1" },
+        { num: 2, version: "Dob", url: "//ok.ru/videoembed/15662660455055?nochat=1" },
+        { num: 3, version: "Dob", url: "//ok.ru/videoembed/15662688897679?nochat=1" },
+        { num: 4, version: "Dob", url: "//ok.ru/videoembed/15662718192271?nochat=1" },
+        { num: 5, version: "Dob", url: "//ok.ru/videoembed/15662742309519?nochat=1" }
+    ]
 }
 };
