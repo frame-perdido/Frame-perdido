@@ -134,6 +134,32 @@ var animes02 = [
     adulto: true,
     hentai: true,
     ecchi: false
+},
+    {
+    id: 112,
+    title: "Dragon Knight 4",
+    cover: "https://blogger.googleusercontent.com/img/a/AVvXsEiTOtJ_K1lgNonhNPy5O4g-WKbSSTgmDtZq58r4J72gCtVpedcHrj0tnheAU1vFjLSUoE0QMsaWhrg5dV5Y7XdFIiBdgiZfQfYuKdgVawrbwBsoEgb4a9inCtx92ZSi6bgNE0sZANCT0kUneEL7z68M2EcSq16dMvLP071EoWNW3b5SB0EATaI3I-IwdYkV=w283-h400",
+    year: "1998-1999",
+    type: "OVA",
+    duration: "4 episodios (~30 min c/u)",
+    studio: "Dangun Pictures / Pink Pineapple",
+    director: "Hiromichi Matano",
+    genre: ["Fantasía", "Aventura", "Hentai", "Romance"],
+    tags: ["fantasía", "aventura", "hentai", "romance", "viaje-en-el-tiempo", "culto", "90s", "rx", "adulto", "rareza"],
+    description: "Basada en el videojuego eroge 'Dragon Knight IV' de Elf. Takeru, un caballero que lleva veinte años pudriéndose en la prisión de Lucifon tras la derrota del ejército rebelde, recibe la visita de su vieja aliada Marlene. Ella lo envía veinte años al pasado para cambiar el futuro, convenciendo a la Marlene del pasado de que se una por completo contra Lucifon. De vuelta en el pasado, Takeru, ahora con veinte años más, adopta el nombre de Etoh y lidera el ejército rebelde, luchando la misma batalla que libró de niño con la esperanza de cambiar el resultado.",
+    plot: "La historia sigue a Kakeru, el hijo del legendario caballero Takeru, quien debe salvar el reino de la amenaza del malvado Lucifon, señor del reino oriental de Reimling. Una niebla negra que convierte a todo lo que toca en piedra precede a sus fuerzas. Guiado por el misterioso Eto, Kakeru y sus amigos (en su mayoría femeninas y con poca ropa) deben llevar la lucha al corazón del imperio de Lucifon o convertirse en estatuas para su jardín. Eto es en realidad el Takeru del futuro, que ha viajado atrás en el tiempo para guiar a su yo más joven y salvar a sus amigos y a su amada Sasha.",
+    analysis: "Dragon Knight 4 es una OVA de fantasía y aventuras épicas que, a pesar de estar basada en un juego eroge, se centra principalmente en la narrativa de magia y espadas. El contenido explícito está muy reducido (solo una escena fuerte en el primer episodio), por lo que funciona más como una serie de aventuras al estilo de Record of Lodoss War. La historia del viaje en el tiempo y el sacrificio del protagonista le da un trasfondo emocional que la distingue de otras producciones del género. La animación es decente para la época, con diseños de personajes atractivos y escenas de acción bien coreografiadas.",
+    forgotten: "Dragon Knight 4 es una rareza dentro del anime de fantasía de los 90. Su distribución en occidente fue limitada, aunque tuvo un lanzamiento en DVD con doblaje al inglés por parte de ADV Films. La serie es recordada por los fans del anime de fantasía y aventuras de los 90, pero es prácticamente desconocida para el público general. Su origen como adaptación de un videojuego eroge la ha mantenido en un nicho de coleccionistas.",
+    trailer: "",
+    saga: null,
+    sagaOrder: null,
+    related: [],
+    category: "animada",
+    origin: "Japón",
+    rarity: "Raro",
+    adulto: true,
+    hentai: true,
+    ecchi: false
 }
         
 ];
