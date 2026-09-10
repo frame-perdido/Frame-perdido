@@ -71,5 +71,19 @@ const videos2 = {
         { num: 4, version: "Dob", url: "//ok.ru/videoembed/15662718192271?nochat=1" },
         { num: 5, version: "Dob", url: "//ok.ru/videoembed/15662742309519?nochat=1" }
     ]
+},
+    112: {
+    title: "Dragon Knight 4",
+    year: "1998-1999",
+    studio: "Dangun Pictures / Pink Pineapple",
+    director: "Hiromichi Matano",
+    desc: "Takeru, un caballero encarcelado durante veinte años, es enviado al pasado para cambiar el futuro y salvar a sus amigos y a su amada. Una historia épica de fantasía, aventuras y viajes en el tiempo, basada en el videojuego eroge de Elf.",
+    tags: ["Fantasía", "Aventura", "Hentai", "Romance", "Viaje en el tiempo", "Culto"],
+    episodios: [
+        { num: 1, version: "Sub", url: "//ok.ru/videoembed/15716940515983?nochat=1" },
+        { num: 2, version: "Sub", url: "//ok.ru/videoembed/15716940581519?nochat=1" },
+        { num: 3, version: "Sub", url: "//ok.ru/videoembed/15716940647055?nochat=1" },
+        { num: 4, version: "Sub", url: "//ok.ru/videoembed/15716940712591?nochat=1" }
+    ]
 }
 };
