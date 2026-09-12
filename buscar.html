@@ -27,7 +27,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; }
 
         header {
             display: flex;
@@ -151,10 +151,58 @@
             font-size: 0.8rem;
             text-decoration: none;
             display: inline-block;
+            transition: all 0.2s;
         }
         .btn-servidor:hover {
             border-color: var(--accent);
             background: var(--accent-soft);
+        }
+        .btn-servidor.activo {
+            background: var(--accent);
+            color: #0a0a0f;
+            border-color: var(--accent);
+        }
+
+        /* ============================================================ */
+        /* REPRODUCTOR EMBEBIDO                                         */
+        /* ============================================================ */
+        #seccionPlayer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+        #seccionPlayer.activa { display: block; }
+
+        .player-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+        .player-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .player-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .player-info {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'Space Mono', monospace;
+            flex: 1;
         }
 
         .episodios-grid {
@@ -255,6 +303,25 @@
                 <h3>🎥 Servidores</h3>
                 <div class="lista-botones" id="listaSrv"></div>
             </div>
+
+            <!-- REPRODUCTOR PROPIO -->
+            <div id="seccionPlayer">
+                <h3 style="font-family:'Space Mono',monospace;font-size:0.9rem;color:var(--accent);margin-bottom:12px;">▶️ Reproductor</h3>
+                <div class="player-container">
+                    <iframe
+                        id="playerFrame"
+                        src="about:blank"
+                        sandbox="allow-scripts allow-same-origin allow-presentation"
+                        allowfullscreen
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        referrerpolicy="no-referrer"
+                    ></iframe>
+                </div>
+                <div class="player-actions">
+                    <span class="player-info" id="playerInfo">Selecciona un servidor para empezar</span>
+                    <button class="btn-servidor" onclick="cerrarPlayer()">✕ Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -263,6 +330,16 @@
         let serieActual = null;
         let temporadaActual = null;
         let episodioActual = null;
+
+        // ============================================================
+        // BLOQUEO GLOBAL DE POPUPS
+        // ============================================================
+        // Intercepta window.open para bloquear popups de anuncios
+        const _originalOpen = window.open;
+        window.open = function() {
+            console.log("🚫 Popup bloqueado:", arguments[0]);
+            return null;
+        };
 
         const input = document.getElementById("inputBuscar");
         const estado = document.getElementById("estado");
@@ -278,6 +355,7 @@
             estado.style.display = "block";
             ficha.classList.remove("activa");
             resultadosLista.style.display = "none";
+            cerrarPlayer();
 
             try {
                 const r = await fetch(`${API}/catalog?search=${encodeURIComponent(q)}`);
@@ -288,13 +366,11 @@
                     return;
                 }
 
-                // Si solo hay un resultado, cargar ficha directa
                 if (data.results.length === 1) {
                     cargarFicha(data.results[0].id);
                     return;
                 }
 
-                // Si hay varios, mostrar lista
                 estado.textContent = `${data.results.length} resultados. Elige uno:`;
                 mostrarResultados(data.results);
 
@@ -319,6 +395,7 @@
         async function cargarFicha(id) {
             estado.textContent = "📋 Cargando ficha...";
             resultadosLista.style.display = "none";
+            cerrarPlayer();
 
             try {
                 const r = await fetch(`${API}/series/${id}`);
@@ -339,7 +416,6 @@
                 document.getElementById("fichaSinopsis").textContent =
                     (serie.content?.rendered || "").replace(/<[^>]+>/g, "").slice(0, 400);
 
-                // Imagen
                 if (serie.cover_image?.large) {
                     document.getElementById("fichaImg").src = serie.cover_image.large;
                 }
@@ -347,7 +423,6 @@
                 estado.style.display = "none";
                 ficha.classList.add("activa");
 
-                // Cargar temporadas
                 cargarTemporadas(titulo);
 
             } catch (err) {
@@ -369,27 +444,30 @@
                 }
 
                 seccionTemp.style.display = "block";
-                listaTemp.innerHTML = temps.map(t => `
-                    <button class="btn-servidor" onclick='seleccionarTemp(${JSON.stringify(t).replace(/'/g, "&#39;")})'>
+                listaTemp.innerHTML = temps.map((t, i) => `
+                    <button class="btn-servidor ${i === 0 ? 'activo' : ''}" onclick='seleccionarTemp(${JSON.stringify(t).replace(/'/g, "&#39;")}, this)'>
                         ${t.title.rendered}
                     </button>
                 `).join("");
 
-                // Auto-seleccionar la primera
-                if (temps.length > 0) seleccionarTemp(temps[0]);
+                if (temps.length > 0) seleccionarTemp(temps[0], listaTemp.firstElementChild);
 
             } catch (err) {
                 console.error(err);
             }
         }
 
-        async function seleccionarTemp(temp) {
+        async function seleccionarTemp(temp, btn) {
             temporadaActual = temp;
+            document.querySelectorAll("#listaTemp .btn-servidor").forEach(b => b.classList.remove("activo"));
+            if (btn) btn.classList.add("activo");
+
             const seccionEps = document.getElementById("seccionEps");
             const listaEps = document.getElementById("listaEps");
 
             estado.textContent = "🎬 Cargando episodios...";
             estado.style.display = "block";
+            cerrarPlayer();
 
             try {
                 const r = await fetch(`${API}/episodes?season_url=${encodeURIComponent(temp.link)}`);
@@ -426,6 +504,7 @@
 
             estado.textContent = "🎥 Obteniendo servidores...";
             estado.style.display = "block";
+            cerrarPlayer();
 
             try {
                 const r = await fetch(`${API}/servers?episode_url=${encodeURIComponent(url)}`);
@@ -439,10 +518,10 @@
                 }
 
                 seccionSrv.style.display = "block";
-                listaSrv.innerHTML = servidores.map(s => `
-                    <a class="btn-servidor" href="${s.embed_url}" target="_blank" rel="noopener">
+                listaSrv.innerHTML = servidores.map((s, i) => `
+                    <button class="btn-servidor" onclick="reproducirEnWeb('${s.embed_url}', '${s.nombre}', this)">
                         ▶️ ${s.nombre}
-                    </a>
+                    </button>
                 `).join("");
 
                 estado.style.display = "none";
@@ -450,6 +529,43 @@
             } catch (err) {
                 estado.textContent = "❌ Error cargando servidores: " + err.message;
             }
+        }
+
+        // ============================================================
+        // REPRODUCTOR PROPIO CON SANDBOX
+        // ============================================================
+        function reproducirEnWeb(embed_url, nombre, btn) {
+            // Marcar botón activo
+            document.querySelectorAll("#listaSrv .btn-servidor").forEach(b => b.classList.remove("activo"));
+            if (btn) btn.classList.add("activo");
+
+            const seccionPlayer = document.getElementById("seccionPlayer");
+            const playerFrame = document.getElementById("playerFrame");
+            const playerInfo = document.getElementById("playerInfo");
+
+            // Mostrar sección del reproductor
+            seccionPlayer.classList.add("activa");
+
+            // Cargar el embed en el iframe (con sandbox activo)
+            playerFrame.src = embed_url;
+            playerInfo.textContent = `Reproduciendo en ${nombre} · Los popups están bloqueados`;
+
+            // Scroll suave al reproductor
+            setTimeout(() => {
+                seccionPlayer.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 100);
+        }
+
+        function cerrarPlayer() {
+            const seccionPlayer = document.getElementById("seccionPlayer");
+            const playerFrame = document.getElementById("playerFrame");
+            const playerInfo = document.getElementById("playerInfo");
+
+            if (playerFrame) playerFrame.src = "about:blank";
+            if (seccionPlayer) seccionPlayer.classList.remove("activa");
+            if (playerInfo) playerInfo.textContent = "Selecciona un servidor para empezar";
+
+            document.querySelectorAll("#listaSrv .btn-servidor").forEach(b => b.classList.remove("activo"));
         }
     </script>
 </body>
