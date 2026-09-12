@@ -311,7 +311,7 @@
                     <iframe
                         id="playerFrame"
                         src="about:blank"
-                        sandbox="allow-scripts allow-same-origin allow-presentation"
+                        sandbox="allow-scripts allow-forms allow-popups allow-presentation"
                         allowfullscreen
                         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                         referrerpolicy="no-referrer"
@@ -334,7 +334,6 @@
         // ============================================================
         // BLOQUEO GLOBAL DE POPUPS
         // ============================================================
-        // Intercepta window.open para bloquear popups de anuncios
         const _originalOpen = window.open;
         window.open = function() {
             console.log("🚫 Popup bloqueado:", arguments[0]);
@@ -532,10 +531,9 @@
         }
 
         // ============================================================
-        // REPRODUCTOR PROPIO CON SANDBOX
+        // REPRODUCTOR PROPIO CON PROXY ANTI-ANUNCIOS
         // ============================================================
         function reproducirEnWeb(embed_url, nombre, btn) {
-            // Marcar botón activo
             document.querySelectorAll("#listaSrv .btn-servidor").forEach(b => b.classList.remove("activo"));
             if (btn) btn.classList.add("activo");
 
@@ -543,14 +541,13 @@
             const playerFrame = document.getElementById("playerFrame");
             const playerInfo = document.getElementById("playerInfo");
 
-            // Mostrar sección del reproductor
             seccionPlayer.classList.add("activa");
 
-            // Cargar el embed en el iframe (con sandbox activo)
-            playerFrame.src = embed_url;
-            playerInfo.textContent = `Reproduciendo en ${nombre} · Los popups están bloqueados`;
+            // Usar el proxy de la API para limpiar anuncios
+            const proxyUrl = `${API}/proxy?url=${encodeURIComponent(embed_url)}`;
+            playerFrame.src = proxyUrl;
+            playerInfo.textContent = `Reproduciendo en ${nombre} · Proxy anti-anuncios activo`;
 
-            // Scroll suave al reproductor
             setTimeout(() => {
                 seccionPlayer.scrollIntoView({ behavior: "smooth", block: "center" });
             }, 100);
