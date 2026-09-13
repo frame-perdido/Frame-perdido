@@ -6,9 +6,12 @@
 
     <title>Buscar en Danimados — Frame Perdido</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-    <!-- hls.js -->
+    <!-- HLS.js -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <style>
@@ -22,8 +25,6 @@
             --accent: #d4a373;
             --accent-soft: #d4a37320;
             --border: #2a2420;
-            --danger: #d95f59;
-            --success: #70c17a;
         }
 
         * {
@@ -134,8 +135,6 @@
 
         .ficha-img {
             width: 150px;
-            height: auto;
-            object-fit: cover;
             border-radius: 8px;
             border: 1px solid var(--border);
         }
@@ -211,10 +210,6 @@
             border-color: var(--accent);
         }
 
-        /* ========================================================= */
-        /* REPRODUCTOR                                               */
-        /* ========================================================= */
-
         #seccionPlayer {
             margin-top: 20px;
             padding-top: 20px;
@@ -237,36 +232,18 @@
             box-shadow: 0 8px 30px rgba(0,0,0,0.5);
         }
 
-        #videoPlayer {
-            width: 100%;
-            height: 100%;
-            display: none;
-            background: #000;
-        }
-
-        #fallbackFrame {
+        .player-container video,
+        .player-container iframe {
             width: 100%;
             height: 100%;
             border: 0;
             display: none;
-        }
-
-        .player-status {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background: #000;
-            color: var(--text-muted);
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 20px;
         }
 
-        .player-status.oculto {
-            display: none;
+        .player-container video.activo,
+        .player-container iframe.activo {
+            display: block;
         }
 
         .player-actions {
@@ -282,15 +259,6 @@
             color: var(--text-muted);
             font-family: 'Space Mono', monospace;
             flex: 1;
-            min-width: 200px;
-        }
-
-        .player-info.ok {
-            color: var(--success);
-        }
-
-        .player-info.error {
-            color: var(--danger);
         }
 
         .episodios-grid {
@@ -358,22 +326,21 @@
             color: var(--text-muted);
         }
 
-        .debug-box {
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background: #08080c;
-            color: var(--text-dim);
-            font-family: monospace;
-            font-size: 0.7rem;
-            max-height: 130px;
-            overflow-y: auto;
+        .player-loading {
+            position: absolute;
+            inset: 0;
             display: none;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            color: var(--text-muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            z-index: 5;
         }
 
-        .debug-box.visible {
-            display: block;
+        .player-loading.activo {
+            display: flex;
         }
     </style>
 </head>
@@ -388,7 +355,7 @@
     </header>
 
     <div class="search-box">
-        <span class="search-icon">$</span>
+        <span class="search-icon">⌕</span>
 
         <input
             type="text"
@@ -416,7 +383,6 @@
                 class="ficha-img"
                 id="fichaImg"
                 src=""
-                alt=""
                 onerror="this.style.display='none'"
             >
 
@@ -435,10 +401,8 @@
                 ></p>
 
             </div>
-
         </div>
 
-        <!-- TEMPORADAS -->
 
         <div
             class="seccion"
@@ -455,7 +419,6 @@
 
         </div>
 
-        <!-- EPISODIOS -->
 
         <div
             class="seccion"
@@ -472,7 +435,6 @@
 
         </div>
 
-        <!-- SERVIDORES -->
 
         <div
             class="seccion"
@@ -489,9 +451,10 @@
 
         </div>
 
-        <!-- ===================================================== -->
-        <!-- REPRODUCTOR PROPIO                                    -->
-        <!-- ===================================================== -->
+
+        <!-- =====================================================
+             REPRODUCTOR
+        ====================================================== -->
 
         <div id="seccionPlayer">
 
@@ -506,6 +469,13 @@
 
             <div class="player-container">
 
+                <div
+                    id="playerLoading"
+                    class="player-loading"
+                >
+                    🔎 Extrayendo vídeo...
+                </div>
+
                 <video
                     id="videoPlayer"
                     controls
@@ -514,19 +484,12 @@
                 ></video>
 
                 <iframe
-                    id="fallbackFrame"
+                    id="playerFrame"
                     src="about:blank"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                     allowfullscreen
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                     referrerpolicy="no-referrer"
                 ></iframe>
-
-                <div
-                    id="playerStatus"
-                    class="player-status"
-                >
-                    Selecciona un servidor
-                </div>
 
             </div>
 
@@ -548,11 +511,6 @@
 
             </div>
 
-            <div
-                id="debugBox"
-                class="debug-box"
-            ></div>
-
         </div>
 
     </div>
@@ -562,736 +520,1027 @@
 
 <script>
 
-const API = "https://danimados-api.onrender.com";
+    /*
+    ================================================================
+    CONFIGURACIÓN
+    ================================================================
+    */
 
-let serieActual = null;
-let temporadaActual = null;
-let episodioActual = null;
+    const API = "https://danimados-api.onrender.com";
 
-let hlsActual = null;
 
+    let serieActual = null;
+    let temporadaActual = null;
+    let episodioActual = null;
 
-/* ============================================================= */
-/* ELEMENTOS                                                     */
-/* ============================================================= */
+    let hls = null;
 
-const input = document.getElementById("inputBuscar");
-const estado = document.getElementById("estado");
-const resultadosLista = document.getElementById("resultadosLista");
-const ficha = document.getElementById("ficha");
 
-const videoPlayer = document.getElementById("videoPlayer");
-const fallbackFrame = document.getElementById("fallbackFrame");
-const playerStatus = document.getElementById("playerStatus");
-const playerInfo = document.getElementById("playerInfo");
-const debugBox = document.getElementById("debugBox");
+    /*
+    ================================================================
+    ELEMENTOS
+    ================================================================
+    */
 
+    const input = document.getElementById("inputBuscar");
 
-/* ============================================================= */
-/* BUSCAR                                                        */
-/* ============================================================= */
+    const estado = document.getElementById("estado");
 
-input.addEventListener("keydown", async (e) => {
+    const resultadosLista =
+        document.getElementById("resultadosLista");
 
-    if (e.key !== "Enter") return;
+    const ficha =
+        document.getElementById("ficha");
 
-    const q = input.value.trim();
+    const videoPlayer =
+        document.getElementById("videoPlayer");
 
-    if (!q) return;
-
-    estado.textContent = "🔍 Buscando...";
-    estado.style.display = "block";
-
-    ficha.classList.remove("activa");
-
-    resultadosLista.style.display = "none";
-
-    cerrarPlayer();
-
-    try {
-
-        const r = await fetch(
-            `${API}/catalog?search=${encodeURIComponent(q)}`
-        );
-
-        if (!r.ok) {
-            throw new Error(`HTTP ${r.status}`);
-        }
-
-        const data = await r.json();
-
-        if (!data.results || data.results.length === 0) {
-
-            estado.textContent = "❌ No se encontró nada";
-
-            return;
-        }
-
-        if (data.results.length === 1) {
-
-            cargarFicha(data.results[0].id);
-
-            return;
-        }
-
-        estado.textContent =
-            `${data.results.length} resultados. Elige uno:`;
-
-        mostrarResultados(data.results);
-
-    } catch (err) {
-
-        console.error(err);
-
-        estado.textContent =
-            "❌ Error: " + err.message;
-    }
-
-});
-
-
-/* ============================================================= */
-/* RESULTADOS                                                    */
-/* ============================================================= */
-
-function mostrarResultados(items) {
-
-    resultadosLista.style.display = "flex";
-
-    resultadosLista.innerHTML = "";
-
-    items.forEach(s => {
-
-        const item = document.createElement("div");
-
-        item.className = "resultado-item";
-
-        const img = document.createElement("img");
-
-        img.src = s.cover_image?.medium || "";
-
-        img.onerror = function() {
-            this.style.display = "none";
-        };
-
-        const cont = document.createElement("div");
-
-        const titulo = document.createElement("div");
-
-        titulo.className = "titulo";
-
-        titulo.textContent =
-            s.title?.rendered || "Sin título";
-
-        const año = document.createElement("div");
-
-        año.className = "año";
-
-        año.textContent =
-            s.date?.substring(0, 4) || "";
-
-        cont.appendChild(titulo);
-        cont.appendChild(año);
-
-        item.appendChild(img);
-        item.appendChild(cont);
-
-        item.addEventListener("click", () => {
-            cargarFicha(s.id);
-        });
-
-        resultadosLista.appendChild(item);
-
-    });
-}
-
-
-/* ============================================================= */
-/* FICHA                                                         */
-/* ============================================================= */
-
-async function cargarFicha(id) {
-
-    estado.textContent = "📋 Cargando ficha...";
-
-    estado.style.display = "block";
-
-    resultadosLista.style.display = "none";
-
-    cerrarPlayer();
-
-    try {
-
-        const r = await fetch(
-            `${API}/series/${id}`
-        );
-
-        if (!r.ok) {
-            throw new Error(`HTTP ${r.status}`);
-        }
-
-        const serie = await r.json();
-
-        serieActual = serie;
-
-        const titulo =
-            serie.title?.rendered || "Sin título";
-
-        const fecha =
-            serie.date?.substring(0, 4) || "";
-
-        const generos =
-            (serie.class_list || [])
-                .filter(c => c.startsWith("genres-"))
-                .map(c =>
-                    c
-                        .replace("genres-", "")
-                        .replace(/-/g, " ")
-                )
-                .slice(0, 4)
-                .join(", ");
-
-        document.getElementById("fichaTitulo").textContent =
-            titulo;
-
-        document.getElementById("fichaMeta").innerHTML =
-            `<span>📅 ${fecha}</span>
-             <span>🎭 ${generos}</span>`;
-
-        document.getElementById("fichaSinopsis").textContent =
-            (serie.content?.rendered || "")
-                .replace(/<[^>]+>/g, "")
-                .slice(0, 400);
-
-        const img =
-            document.getElementById("fichaImg");
-
-        img.style.display = "block";
-
-        if (serie.cover_image?.large) {
-            img.src = serie.cover_image.large;
-        } else {
-            img.style.display = "none";
-        }
-
-        estado.style.display = "none";
-
-        ficha.classList.add("activa");
-
-        cargarTemporadas(titulo);
-
-    } catch (err) {
-
-        console.error(err);
-
-        estado.textContent =
-            "❌ Error: " + err.message;
-    }
-}
-
-
-/* ============================================================= */
-/* TEMPORADAS                                                    */
-/* ============================================================= */
-
-async function cargarTemporadas(titulo) {
-
-    const seccionTemp =
-        document.getElementById("seccionTemp");
-
-    const listaTemp =
-        document.getElementById("listaTemp");
-
-    try {
-
-        const r = await fetch(
-            `${API}/seasons/${encodeURIComponent(titulo)}`
-        );
-
-        if (!r.ok) {
-            throw new Error(`HTTP ${r.status}`);
-        }
-
-        const temps = await r.json();
-
-        if (!temps || temps.length === 0) {
-
-            seccionTemp.style.display = "none";
-
-            return;
-        }
-
-        seccionTemp.style.display = "block";
-
-        listaTemp.innerHTML = "";
-
-        temps.forEach((t, i) => {
-
-            const btn =
-                document.createElement("button");
-
-            btn.className = "btn-servidor";
-
-            btn.textContent =
-                t.title?.rendered || `Temporada ${i + 1}`;
-
-            btn.addEventListener("click", () => {
-
-                seleccionarTemp(t, btn);
-
-            });
-
-            listaTemp.appendChild(btn);
-
-        });
-
-        seleccionarTemp(
-            temps[0],
-            listaTemp.firstElementChild
-        );
-
-    } catch (err) {
-
-        console.error(
-            "Error temporadas:",
-            err
-        );
-    }
-}
-
-
-/* ============================================================= */
-/* TEMPORADA                                                     */
-/* ============================================================= */
-
-async function seleccionarTemp(temp, btn) {
-
-    temporadaActual = temp;
-
-    document
-        .querySelectorAll("#listaTemp .btn-servidor")
-        .forEach(b =>
-            b.classList.remove("activo")
-        );
-
-    if (btn) {
-        btn.classList.add("activo");
-    }
-
-    const seccionEps =
-        document.getElementById("seccionEps");
-
-    const listaEps =
-        document.getElementById("listaEps");
-
-    estado.textContent =
-        "🎬 Cargando episodios...";
-
-    estado.style.display = "block";
-
-    cerrarPlayer();
-
-    try {
-
-        const r = await fetch(
-            `${API}/episodes?season_url=${encodeURIComponent(temp.link)}`
-        );
-
-        if (!r.ok) {
-            throw new Error(`HTTP ${r.status}`);
-        }
-
-        const data = await r.json();
-
-        const eps = data.episodes || [];
-
-        if (eps.length === 0) {
-
-            seccionEps.style.display = "none";
-
-            estado.style.display = "none";
-
-            return;
-        }
-
-        seccionEps.style.display = "block";
-
-        listaEps.innerHTML = "";
-
-        eps.forEach((url, i) => {
-
-            const btn =
-                document.createElement("button");
-
-            btn.className = "ep-btn";
-
-            btn.textContent =
-                `Ep ${i + 1}`;
-
-            btn.addEventListener("click", () => {
-
-                seleccionarEp(url, btn);
-
-            });
-
-            listaEps.appendChild(btn);
-
-        });
-
-        estado.style.display = "none";
-
-    } catch (err) {
-
-        console.error(err);
-
-        estado.textContent =
-            "❌ Error cargando episodios: " +
-            err.message;
-    }
-}
-
-
-/* ============================================================= */
-/* EPISODIO                                                       */
-/* ============================================================= */
-
-async function seleccionarEp(url, btn) {
-
-    document
-        .querySelectorAll(".ep-btn")
-        .forEach(b =>
-            b.classList.remove("activo")
-        );
-
-    btn.classList.add("activo");
-
-    episodioActual = url;
-
-    const seccionSrv =
-        document.getElementById("seccionSrv");
-
-    const listaSrv =
-        document.getElementById("listaSrv");
-
-    estado.textContent =
-        "🎥 Obteniendo servidores...";
-
-    estado.style.display = "block";
-
-    cerrarPlayer();
-
-    try {
-
-        const r = await fetch(
-            `${API}/servers?episode_url=${encodeURIComponent(url)}`
-        );
-
-        if (!r.ok) {
-            throw new Error(`HTTP ${r.status}`);
-        }
-
-        const data = await r.json();
-
-        const servidores =
-            data.servidores || [];
-
-        if (servidores.length === 0) {
-
-            seccionSrv.style.display = "none";
-
-            estado.textContent =
-                "⚠️ Este episodio no tiene servidores disponibles";
-
-            return;
-        }
-
-        seccionSrv.style.display = "block";
-
-        listaSrv.innerHTML = "";
-
-        servidores.forEach((s) => {
-
-            const btn =
-                document.createElement("button");
-
-            btn.className = "btn-servidor";
-
-            btn.textContent =
-                `▶️ ${s.nombre}`;
-
-            btn.addEventListener("click", () => {
-
-                reproducirEnWeb(
-                    s.embed_url,
-                    s.nombre,
-                    btn
-                );
-
-            });
-
-            listaSrv.appendChild(btn);
-
-        });
-
-        estado.style.display = "none";
-
-    } catch (err) {
-
-        console.error(err);
-
-        estado.textContent =
-            "❌ Error cargando servidores: " +
-            err.message;
-    }
-}
-
-
-/* ============================================================= */
-/* REPRODUCTOR                                                   */
-/* ============================================================= */
-
-async function reproducirEnWeb(
-    embed_url,
-    nombre,
-    btn
-) {
-
-    document
-        .querySelectorAll("#listaSrv .btn-servidor")
-        .forEach(b =>
-            b.classList.remove("activo")
-        );
-
-    if (btn) {
-        btn.classList.add("activo");
-    }
+    const playerFrame =
+        document.getElementById("playerFrame");
 
     const seccionPlayer =
         document.getElementById("seccionPlayer");
 
-    seccionPlayer.classList.add("activa");
+    const playerInfo =
+        document.getElementById("playerInfo");
 
-    detenerHLS();
-
-    videoPlayer.pause();
-
-    videoPlayer.removeAttribute("src");
-
-    videoPlayer.style.display = "none";
-
-    fallbackFrame.style.display = "none";
-
-    fallbackFrame.src = "about:blank";
-
-    playerStatus.classList.remove("oculto");
-
-    playerStatus.textContent =
-        "🔎 Analizando el servidor...";
-
-    playerInfo.className =
-        "player-info";
-
-    playerInfo.textContent =
-        `Analizando ${nombre}...`;
-
-    limpiarDebug();
-
-    setTimeout(() => {
-
-        seccionPlayer.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }, 100);
+    const playerLoading =
+        document.getElementById("playerLoading");
 
 
     /*
-     * PRIMER INTENTO
-     *
-     * Intentamos descargar el HTML del embed
-     * y buscar directamente una URL .m3u8.
-     */
+    ================================================================
+    BLOQUEAR POPUPS DE LA PÁGINA PRINCIPAL
+    ================================================================
+    */
 
-    try {
+    const _originalOpen = window.open;
 
-        agregarDebug(
-            "Embed: " + embed_url
+    window.open = function() {
+
+        console.log(
+            "🚫 Popup bloqueado:",
+            arguments[0]
         );
 
-        playerStatus.textContent =
-            "🔎 Buscando transmisión HLS...";
+        return null;
+    };
 
-        const respuesta =
-            await fetch(embed_url, {
-                method: "GET",
-                credentials: "omit",
-                redirect: "follow"
-            });
 
-        agregarDebug(
-            "HTTP embed: " + respuesta.status
-        );
+    /*
+    ================================================================
+    BUSCAR
+    ================================================================
+    */
 
-        if (!respuesta.ok) {
-            throw new Error(
-                "HTTP " + respuesta.status
+    input.addEventListener(
+        "keydown",
+        async function(e) {
+
+            if (e.key !== "Enter") {
+                return;
+            }
+
+            const q = input.value.trim();
+
+            if (!q) {
+                return;
+            }
+
+            estado.textContent =
+                "🔍 Buscando...";
+
+            estado.style.display = "block";
+
+            ficha.classList.remove("activa");
+
+            resultadosLista.style.display = "none";
+
+            cerrarPlayer();
+
+
+            try {
+
+                const r = await fetch(
+                    `${API}/catalog?search=${encodeURIComponent(q)}`
+                );
+
+
+                if (!r.ok) {
+
+                    throw new Error(
+                        "La API respondió " + r.status
+                    );
+
+                }
+
+
+                const data = await r.json();
+
+
+                if (
+                    !data.results ||
+                    data.results.length === 0
+                ) {
+
+                    estado.textContent =
+                        "❌ No se encontró nada";
+
+                    return;
+                }
+
+
+                if (data.results.length === 1) {
+
+                    cargarFicha(
+                        data.results[0].id
+                    );
+
+                    return;
+                }
+
+
+                estado.textContent =
+                    `${data.results.length} resultados. Elige uno:`;
+
+
+                mostrarResultados(
+                    data.results
+                );
+
+
+            } catch (err) {
+
+                console.error(err);
+
+                estado.textContent =
+                    "❌ Error: " + err.message;
+
+            }
+
+        }
+    );
+
+
+    /*
+    ================================================================
+    RESULTADOS
+    ================================================================
+    */
+
+    function mostrarResultados(items) {
+
+        resultadosLista.style.display = "flex";
+
+
+        resultadosLista.innerHTML =
+            items.map(
+                s => {
+
+                    const titulo =
+                        s.title?.rendered ||
+                        "Sin título";
+
+                    const imagen =
+                        s.cover_image?.medium ||
+                        "";
+
+                    const año =
+                        s.date?.substring(0,4) ||
+                        "";
+
+
+                    return `
+
+                        <div
+                            class="resultado-item"
+                            onclick="cargarFicha(${s.id})"
+                        >
+
+                            <img
+                                src="${imagen}"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <div>
+
+                                <div class="titulo">
+                                    ${titulo}
+                                </div>
+
+                                <div class="año">
+                                    ${año}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            ).join("");
+
+    }
+
+
+    /*
+    ================================================================
+    CARGAR FICHA
+    ================================================================
+    */
+
+    async function cargarFicha(id) {
+
+        estado.textContent =
+            "📋 Cargando ficha...";
+
+        estado.style.display =
+            "block";
+
+        resultadosLista.style.display =
+            "none";
+
+        cerrarPlayer();
+
+
+        try {
+
+            const r =
+                await fetch(
+                    `${API}/series/${id}`
+                );
+
+
+            if (!r.ok) {
+
+                throw new Error(
+                    "No se pudo cargar la serie"
+                );
+
+            }
+
+
+            const serie =
+                await r.json();
+
+
+            serieActual =
+                serie;
+
+
+            const titulo =
+                serie.title?.rendered ||
+                "Sin título";
+
+
+            const fecha =
+                serie.date?.substring(0,4) ||
+                "";
+
+
+            const generos =
+                (serie.class_list || [])
+
+                .filter(
+                    c => c.startsWith("genres-")
+                )
+
+                .map(
+                    c =>
+                        c
+                        .replace("genres-", "")
+                        .replace(/-/g, " ")
+                )
+
+                .slice(0,4)
+
+                .join(", ");
+
+
+            document.getElementById(
+                "fichaTitulo"
+            ).textContent =
+                titulo;
+
+
+            document.getElementById(
+                "fichaMeta"
+            ).innerHTML =
+                `
+                <span>📅 ${fecha}</span>
+                <span>🎭 ${generos}</span>
+                `;
+
+
+            document.getElementById(
+                "fichaSinopsis"
+            ).textContent =
+
+                (serie.content?.rendered || "")
+
+                .replace(/<[^>]+>/g, "")
+
+                .slice(0,400);
+
+
+            const img =
+                document.getElementById(
+                    "fichaImg"
+                );
+
+
+            if (serie.cover_image?.large) {
+
+                img.style.display =
+                    "block";
+
+                img.src =
+                    serie.cover_image.large;
+
+            }
+
+
+            estado.style.display =
+                "none";
+
+
+            ficha.classList.add(
+                "activa"
             );
+
+
+            cargarTemporadas(
+                titulo
+            );
+
+
+        } catch (err) {
+
+            console.error(err);
+
+            estado.textContent =
+                "❌ Error: " + err.message;
+
         }
 
-        const html =
-            await respuesta.text();
+    }
 
-        agregarDebug(
-            "HTML recibido: " +
-            html.length +
-            " caracteres"
+
+    /*
+    ================================================================
+    TEMPORADAS
+    ================================================================
+    */
+
+    async function cargarTemporadas(titulo) {
+
+        const seccionTemp =
+            document.getElementById(
+                "seccionTemp"
+            );
+
+        const listaTemp =
+            document.getElementById(
+                "listaTemp"
+            );
+
+
+        try {
+
+            const r =
+                await fetch(
+                    `${API}/seasons/${encodeURIComponent(titulo)}`
+                );
+
+
+            if (!r.ok) {
+
+                throw new Error(
+                    "Error obteniendo temporadas"
+                );
+
+            }
+
+
+            const temps =
+                await r.json();
+
+
+            if (
+                !temps ||
+                temps.length === 0
+            ) {
+
+                seccionTemp.style.display =
+                    "none";
+
+                return;
+            }
+
+
+            seccionTemp.style.display =
+                "block";
+
+
+            listaTemp.innerHTML =
+                "";
+
+
+            temps.forEach(
+                (t, i) => {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.className =
+                        "btn-servidor" +
+                        (i === 0
+                            ? " activo"
+                            : "");
+
+
+                    button.textContent =
+                        t.title?.rendered ||
+                        `Temporada ${i + 1}`;
+
+
+                    button.onclick =
+                        () =>
+                            seleccionarTemp(
+                                t,
+                                button
+                            );
+
+
+                    listaTemp.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            seleccionarTemp(
+                temps[0],
+                listaTemp.firstElementChild
+            );
+
+
+        } catch (err) {
+
+            console.error(
+                "Temporadas:",
+                err
+            );
+
+        }
+
+    }
+
+
+    /*
+    ================================================================
+    SELECCIONAR TEMPORADA
+    ================================================================
+    */
+
+    async function seleccionarTemp(
+        temp,
+        btn
+    ) {
+
+        temporadaActual =
+            temp;
+
+
+        document
+            .querySelectorAll(
+                "#listaTemp .btn-servidor"
+            )
+            .forEach(
+                b =>
+                    b.classList.remove(
+                        "activo"
+                    )
+            );
+
+
+        if (btn) {
+
+            btn.classList.add(
+                "activo"
+            );
+
+        }
+
+
+        const seccionEps =
+            document.getElementById(
+                "seccionEps"
+            );
+
+        const listaEps =
+            document.getElementById(
+                "listaEps"
+            );
+
+
+        estado.textContent =
+            "🎬 Cargando episodios...";
+
+
+        estado.style.display =
+            "block";
+
+
+        cerrarPlayer();
+
+
+        try {
+
+            const r =
+                await fetch(
+                    `${API}/episodes?season_url=${encodeURIComponent(temp.link)}`
+                );
+
+
+            if (!r.ok) {
+
+                throw new Error(
+                    "Error obteniendo episodios"
+                );
+
+            }
+
+
+            const data =
+                await r.json();
+
+
+            const eps =
+                data.episodes || [];
+
+
+            if (eps.length === 0) {
+
+                seccionEps.style.display =
+                    "none";
+
+                estado.style.display =
+                    "none";
+
+                return;
+            }
+
+
+            seccionEps.style.display =
+                "block";
+
+
+            listaEps.innerHTML =
+                "";
+
+
+            eps.forEach(
+                (url, i) => {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.className =
+                        "ep-btn";
+
+
+                    button.textContent =
+                        `Ep ${i + 1}`;
+
+
+                    button.onclick =
+                        () =>
+                            seleccionarEp(
+                                url,
+                                button
+                            );
+
+
+                    listaEps.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            estado.style.display =
+                "none";
+
+
+        } catch (err) {
+
+            console.error(err);
+
+            estado.textContent =
+                "❌ Error cargando episodios: " +
+                err.message;
+
+        }
+
+    }
+
+
+    /*
+    ================================================================
+    SELECCIONAR EPISODIO
+    ================================================================
+    */
+
+    async function seleccionarEp(
+        url,
+        btn
+    ) {
+
+        document
+            .querySelectorAll(".ep-btn")
+            .forEach(
+                b =>
+                    b.classList.remove(
+                        "activo"
+                    )
+            );
+
+
+        btn.classList.add(
+            "activo"
         );
 
-        const hls =
-            encontrarM3U8(html);
+
+        episodioActual =
+            url;
+
+
+        const seccionSrv =
+            document.getElementById(
+                "seccionSrv"
+            );
+
+
+        const listaSrv =
+            document.getElementById(
+                "listaSrv"
+            );
+
+
+        estado.textContent =
+            "🎥 Obteniendo servidores...";
+
+
+        estado.style.display =
+            "block";
+
+
+        cerrarPlayer();
+
+
+        try {
+
+            const r =
+                await fetch(
+                    `${API}/servers?episode_url=${encodeURIComponent(url)}`
+                );
+
+
+            if (!r.ok) {
+
+                throw new Error(
+                    "Error obteniendo servidores"
+                );
+
+            }
+
+
+            const data =
+                await r.json();
+
+
+            const servidores =
+                data.servidores || [];
+
+
+            if (
+                servidores.length === 0
+            ) {
+
+                seccionSrv.style.display =
+                    "none";
+
+
+                estado.textContent =
+                    "⚠️ Este episodio no tiene servidores disponibles";
+
+
+                return;
+            }
+
+
+            seccionSrv.style.display =
+                "block";
+
+
+            listaSrv.innerHTML =
+                "";
+
+
+            servidores.forEach(
+                s => {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.className =
+                        "btn-servidor";
+
+
+                    button.textContent =
+                        `▶️ ${s.nombre}`;
+
+
+                    button.onclick =
+                        () =>
+                            reproducirEnWeb(
+                                s.embed_url,
+                                s.nombre,
+                                button
+                            );
+
+
+                    listaSrv.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            estado.style.display =
+                "none";
+
+
+        } catch (err) {
+
+            console.error(err);
+
+            estado.textContent =
+                "❌ Error cargando servidores: " +
+                err.message;
+
+        }
+
+    }
+
+
+    /*
+    ================================================================
+    NUEVO SISTEMA DE REPRODUCCIÓN
+    ================================================================
+
+    Primero:
+
+        API /extract
+              ↓
+        Playwright
+              ↓
+        detecta m3u8
+              ↓
+        HLS.js
+              ↓
+        <video>
+
+    Si falla:
+
+        iframe original
+    */
+
+    async function reproducirEnWeb(
+        embed_url,
+        nombre,
+        btn
+    ) {
+
+        document
+            .querySelectorAll(
+                "#listaSrv .btn-servidor"
+            )
+            .forEach(
+                b =>
+                    b.classList.remove(
+                        "activo"
+                    )
+            );
+
+
+        if (btn) {
+
+            btn.classList.add(
+                "activo"
+            );
+
+        }
+
+
+        cerrarVideoInterno();
+
+
+        seccionPlayer.classList.add(
+            "activa"
+        );
+
+
+        playerLoading.classList.add(
+            "activo"
+        );
+
+
+        playerInfo.textContent =
+            `🔎 Extrayendo vídeo desde ${nombre}...`;
+
+
+        setTimeout(
+            () => {
+
+                seccionPlayer.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            },
+            100
+        );
+
+
+        try {
+
+            /*
+            ========================================================
+            LLAMADA A LA NUEVA API
+            ========================================================
+            */
+
+            const apiUrl =
+                `${API}/extract?url=${encodeURIComponent(embed_url)}`;
+
+
+            console.log(
+                "Extrayendo:",
+                embed_url
+            );
+
+
+            const r =
+                await fetch(apiUrl);
+
+
+            if (!r.ok) {
+
+                throw new Error(
+                    `Extracción HTTP ${r.status}`
+                );
+
+            }
+
+
+            const data =
+                await r.json();
+
+
+            console.log(
+                "Respuesta extracción:",
+                data
+            );
+
+
+            /*
+            ========================================================
+            BUSCAR URL HLS
+            ========================================================
+            */
+
+            const hlsUrl =
+                data.m3u8 ||
+                data.hls ||
+                data.video_url ||
+                data.url;
+
+
+            if (
+                !hlsUrl ||
+                !hlsUrl.includes(".m3u8")
+            ) {
+
+                throw new Error(
+                    "La API no devolvió un m3u8"
+                );
+
+            }
+
+
+            console.log(
+                "✅ HLS encontrado:",
+                hlsUrl
+            );
+
+
+            playerLoading.classList.remove(
+                "activo"
+            );
+
+
+            playerInfo.textContent =
+                `▶️ HLS encontrado · ${nombre}`;
+
+
+            reproducirHLS(
+                hlsUrl
+            );
+
+
+        } catch (err) {
+
+            console.warn(
+                "Extracción directa falló:",
+                err.message
+            );
+
+
+            playerLoading.classList.remove(
+                "activo"
+            );
+
+
+            /*
+            ========================================================
+            FALLBACK
+            ========================================================
+            */
+
+            playerInfo.textContent =
+                `⚠️ Extracción directa falló · usando reproductor alternativo`;
+
+
+            reproducirIframe(
+                embed_url
+            );
+
+        }
+
+    }
+
+
+    /*
+    ================================================================
+    REPRODUCIR HLS
+    ================================================================
+    */
+
+    function reproducirHLS(
+        hlsUrl
+    ) {
+
+        playerFrame.classList.remove(
+            "activo"
+        );
+
+
+        videoPlayer.classList.add(
+            "activo"
+        );
+
+
+        /*
+        Destruir HLS anterior
+        */
 
         if (hls) {
 
-            agregarDebug(
-                "M3U8 encontrada: " + hls
-            );
+            hls.destroy();
 
-            playerStatus.textContent =
-                "▶️ Cargando vídeo HLS...";
+            hls = null;
 
-            playerInfo.className =
-                "player-info ok";
-
-            playerInfo.textContent =
-                `HLS directo · ${nombre}`;
-
-            await reproducirHLS(hls);
-
-            return;
         }
-
-        agregarDebug(
-            "No apareció ninguna .m3u8 en el HTML."
-        );
-
-        throw new Error(
-            "No se encontró HLS"
-        );
-
-    } catch (err) {
-
-        console.warn(
-            "No se pudo extraer HLS:",
-            err
-        );
-
-        agregarDebug(
-            "Extracción directa falló: " +
-            err.message
-        );
-
-        /*
-         * SEGUNDO INTENTO
-         *
-         * Fallback al embed normal.
-         */
-
-        cargarFallback(
-            embed_url,
-            nombre
-        );
-    }
-}
-
-
-/* ============================================================= */
-/* BUSCAR M3U8                                                    */
-/* ============================================================= */
-
-function encontrarM3U8(html) {
-
-    if (!html) return null;
-
-    /*
-     * Busca URLs completas terminadas en .m3u8
-     */
-
-    const patrones = [
-
-        /https?:\/\/[^"'<>\\\s]+\.m3u8(?:\?[^"'<>\\\s]*)?/gi,
-
-        /https?:\\\/\\\/[^"'<>\\\s]+\.m3u8(?:\\?[^"'<>\\\s]*)?/gi,
-
-        /["']([^"']+\.m3u8(?:\?[^"']*)?)["']/gi
-
-    ];
-
-    for (const regex of patrones) {
-
-        const encontrados =
-            html.match(regex);
-
-        if (!encontrados) continue;
-
-        for (let url of encontrados) {
-
-            url = url
-                .replace(/^["']|["']$/g, "")
-                .replace(/\\\//g, "/");
-
-            if (
-                url.includes(".m3u8")
-            ) {
-                return url;
-            }
-        }
-    }
-
-    /*
-     * Algunos reproductores guardan la URL
-     * en JSON como source/file/src.
-     */
-
-    const jsonRegex =
-        /(?:file|src|source|url|hls)[\s"'=:]+["']([^"']+\.m3u8(?:\?[^"']*)?)["']/gi;
-
-    let match;
-
-    while (
-        (match = jsonRegex.exec(html))
-    ) {
-
-        if (match[1]) {
-
-            return match[1]
-                .replace(/\\\//g, "/");
-        }
-    }
-
-    return null;
-}
-
-
-/* ============================================================= */
-/* REPRODUCIR HLS                                                 */
-/* ============================================================= */
-
-function reproducirHLS(url) {
-
-    return new Promise((resolve, reject) => {
-
-        videoPlayer.style.display =
-            "block";
-
-        playerStatus.classList.add(
-            "oculto"
-        );
 
 
         /*
-         * Navegadores con soporte HLS nativo
-         */
+        Safari / navegadores con HLS nativo
+        */
 
         if (
             videoPlayer.canPlayType(
@@ -1299,293 +1548,219 @@ function reproducirHLS(url) {
             )
         ) {
 
-            videoPlayer.src = url;
+            videoPlayer.src =
+                hlsUrl;
 
-            videoPlayer.addEventListener(
-                "loadedmetadata",
-                () => {
 
-                    videoPlayer.play()
-                        .catch(() => {});
+            videoPlayer.play()
+                .catch(
+                    () => {}
+                );
 
-                    resolve();
-
-                },
-                {
-                    once: true
-                }
-            );
-
-            videoPlayer.addEventListener(
-                "error",
-                () => {
-
-                    reject(
-                        new Error(
-                            "El navegador no pudo reproducir el HLS"
-                        )
-                    );
-
-                },
-                {
-                    once: true
-                }
-            );
 
             return;
         }
 
 
         /*
-         * Chrome / Android / Firefox
-         */
+        Chrome / Android / Firefox
+        */
 
         if (
-            window.Hls &&
+            typeof Hls !== "undefined" &&
             Hls.isSupported()
         ) {
 
-            hlsActual =
+            hls =
                 new Hls({
                     enableWorker: true,
                     lowLatencyMode: false
                 });
 
-            hlsActual.loadSource(url);
 
-            hlsActual.attachMedia(
+            hls.loadSource(
+                hlsUrl
+            );
+
+
+            hls.attachMedia(
                 videoPlayer
             );
 
-            hlsActual.on(
+
+            hls.on(
                 Hls.Events.MANIFEST_PARSED,
-                () => {
+                function() {
 
-                    agregarDebug(
-                        "HLS manifest cargado correctamente."
-                    );
-
-                    videoPlayer
-                        .play()
-                        .catch(() => {});
-
-                    resolve();
+                    videoPlayer.play()
+                        .catch(
+                            () => {}
+                        );
 
                 }
             );
 
-            hlsActual.on(
-                Hls.Events.ERROR,
-                (event, data) => {
 
-                    agregarDebug(
-                        "HLS error: " +
-                        data.type +
-                        " / " +
-                        data.details
+            hls.on(
+                Hls.Events.ERROR,
+                function(
+                    event,
+                    data
+                ) {
+
+                    console.warn(
+                        "HLS error:",
+                        data
                     );
+
 
                     if (
                         data.fatal
                     ) {
 
-                        reject(
-                            new Error(
-                                "Error HLS: " +
-                                data.details
-                            )
-                        );
+                        playerInfo.textContent =
+                            "⚠️ El navegador no pudo reproducir este HLS";
+
                     }
 
                 }
             );
 
+
             return;
         }
 
 
-        reject(
-            new Error(
-                "Este navegador no soporta HLS"
-            )
+        /*
+        No existe soporte HLS
+        */
+
+        throw new Error(
+            "Este navegador no soporta HLS"
         );
 
-    });
+    }
 
-}
-
-
-/* ============================================================= */
-/* FALLBACK EMBED                                                 */
-/* ============================================================= */
-
-function cargarFallback(
-    embed_url,
-    nombre
-) {
-
-    playerStatus.classList.add(
-        "oculto"
-    );
-
-    videoPlayer.style.display =
-        "none";
-
-    fallbackFrame.style.display =
-        "block";
 
     /*
-     * IMPORTANTE:
-     * aquí NO usamos sandbox.
-     *
-     * Algunos reproductores HLS dejan de funcionar
-     * cuando el iframe está sandboxeado.
-     */
+    ================================================================
+    FALLBACK IFRAME
+    ================================================================
+    */
 
-    fallbackFrame.src =
-        embed_url;
+    function reproducirIframe(
+        embed_url
+    ) {
 
-    playerInfo.className =
-        "player-info";
-
-    playerInfo.textContent =
-        `Reproductor externo · ${nombre}`;
-
-    agregarDebug(
-        "Usando fallback iframe."
-    );
-}
+        cerrarVideoInterno();
 
 
-/* ============================================================= */
-/* DETENER HLS                                                    */
-/* ============================================================= */
-
-function detenerHLS() {
-
-    if (hlsActual) {
-
-        try {
-            hlsActual.destroy();
-        } catch (e) {}
-
-        hlsActual = null;
-    }
-
-    videoPlayer.pause();
-
-    videoPlayer.removeAttribute(
-        "src"
-    );
-
-    videoPlayer.load();
-}
-
-
-/* ============================================================= */
-/* CERRAR                                                         */
-/* ============================================================= */
-
-function cerrarPlayer() {
-
-    detenerHLS();
-
-    const seccionPlayer =
-        document.getElementById(
-            "seccionPlayer"
+        videoPlayer.classList.remove(
+            "activo"
         );
 
-    if (fallbackFrame) {
 
-        fallbackFrame.src =
+        playerFrame.classList.add(
+            "activo"
+        );
+
+
+        /*
+        IMPORTANTE:
+
+        No usamos sandbox aquí.
+
+        El sandbox anterior podía provocar:
+
+        "video is not available due to sandboxed iframe"
+
+        */
+
+        playerFrame.src =
+            embed_url;
+
+    }
+
+
+    /*
+    ================================================================
+    CERRAR SOLO EL VIDEO
+    ================================================================
+    */
+
+    function cerrarVideoInterno() {
+
+        if (hls) {
+
+            hls.destroy();
+
+            hls = null;
+
+        }
+
+
+        videoPlayer.pause();
+
+        videoPlayer.removeAttribute(
+            "src"
+        );
+
+        videoPlayer.load();
+
+
+        playerFrame.src =
             "about:blank";
 
-        fallbackFrame.style.display =
-            "none";
-    }
 
-    if (videoPlayer) {
-
-        videoPlayer.style.display =
-            "none";
-    }
-
-    if (playerStatus) {
-
-        playerStatus.classList.remove(
-            "oculto"
+        videoPlayer.classList.remove(
+            "activo"
         );
 
-        playerStatus.textContent =
-            "Selecciona un servidor";
+
+        playerFrame.classList.remove(
+            "activo"
+        );
+
     }
 
-    if (seccionPlayer) {
+
+    /*
+    ================================================================
+    CERRAR PLAYER
+    ================================================================
+    */
+
+    function cerrarPlayer() {
+
+        cerrarVideoInterno();
+
 
         seccionPlayer.classList.remove(
             "activa"
         );
-    }
 
-    if (playerInfo) {
-
-        playerInfo.className =
-            "player-info";
 
         playerInfo.textContent =
             "Selecciona un servidor para empezar";
-    }
 
-    document
-        .querySelectorAll(
-            "#listaSrv .btn-servidor"
-        )
-        .forEach(b =>
-            b.classList.remove("activo")
+
+        playerLoading.classList.remove(
+            "activo"
         );
 
-    limpiarDebug();
-}
 
+        document
+            .querySelectorAll(
+                "#listaSrv .btn-servidor"
+            )
+            .forEach(
+                b =>
+                    b.classList.remove(
+                        "activo"
+                    )
+            );
 
-/* ============================================================= */
-/* DEBUG                                                          */
-/* ============================================================= */
-
-function agregarDebug(texto) {
-
-    console.log(
-        "[Frame Perdido]",
-        texto
-    );
-
-    debugBox.classList.add(
-        "visible"
-    );
-
-    const linea =
-        document.createElement("div");
-
-    linea.textContent =
-        new Date().toLocaleTimeString() +
-        " · " +
-        texto;
-
-    debugBox.appendChild(linea);
-
-    debugBox.scrollTop =
-        debugBox.scrollHeight;
-}
-
-
-function limpiarDebug() {
-
-    debugBox.innerHTML = "";
-
-    debugBox.classList.remove(
-        "visible"
-    );
-}
+    }
 
 </script>
 
