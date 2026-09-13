@@ -213,6 +213,8 @@
                         src="about:blank"
                         allowfullscreen
                         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        referrerpolicy="no-referrer"
+                        sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                     ></iframe>
                 </div>
                 <div class="player-actions">
@@ -233,6 +235,9 @@
         const estado = document.getElementById("estado");
         const resultadosLista = document.getElementById("resultadosLista");
         const ficha = document.getElementById("ficha");
+
+        // Bloquear popups a nivel de página
+        window.open = function() { return null; };
 
         // ============================================================
         // BUSCAR
@@ -399,7 +404,7 @@
         }
 
         // ============================================================
-        // SELECCIONAR EPISODIO — USA SUPEREMBED
+        // SELECCIONAR EPISODIO — USA SERVIDORES DE DANIMADOS
         // ============================================================
         async function seleccionarEp(url, btn) {
             document.querySelectorAll(".ep-btn").forEach(b => b.classList.remove("activo"));
@@ -409,39 +414,39 @@
             const seccionSrv = document.getElementById("seccionSrv");
             const listaSrv = document.getElementById("listaSrv");
 
-            estado.textContent = "🎥 Obteniendo reproductor limpio...";
+            estado.textContent = "🎥 Obteniendo servidores...";
             estado.style.display = "block";
             cerrarPlayer();
 
             try {
-                // Obtener el número de episodio desde el botón
-                const numEp = parseInt(btn.textContent.replace(/\D/g, "")) || 1;
-                const titulo = serieActual?.title?.rendered || "";
-
-                // Llamar a /stream-clean con el título y el episodio
-                const r = await fetch(`${API}/stream-clean?titulo=${encodeURIComponent(titulo)}&temporada=1&episodio=${numEp}`);
+                const r = await fetch(`${API}/servers?episode_url=${encodeURIComponent(url)}`);
                 if (!r.ok) throw new Error(`HTTP ${r.status}`);
                 const data = await r.json();
+                const servidores = data.servidores || [];
+
+                if (servidores.length === 0) {
+                    seccionSrv.style.display = "none";
+                    estado.textContent = "⚠️ Este episodio no tiene servidores disponibles";
+                    return;
+                }
 
                 seccionSrv.style.display = "block";
-                listaSrv.innerHTML = `
-                    <button class="btn-servidor activo" onclick="reproducirSuperEmbed('${data.embed_url}', this)">
-                        ▶️ SuperEmbed (sin anuncios)
+                listaSrv.innerHTML = servidores.map((s, i) => `
+                    <button class="btn-servidor" onclick="reproducirServidor('${s.embed_url.replace(/'/g, "\\'")}', '${s.nombre}', this)">
+                        ▶️ ${s.nombre}
                     </button>
-                `;
+                `).join("");
 
-                // Reproducir automáticamente
-                reproducirSuperEmbed(data.embed_url, listaSrv.firstElementChild);
                 estado.style.display = "none";
             } catch (err) {
-                estado.textContent = "❌ Error: " + err.message + " (prueba con otro episodio o serie)";
+                estado.textContent = "❌ Error cargando servidores: " + err.message;
             }
         }
 
         // ============================================================
-        // REPRODUCIR EN SUPEREMBED
+        // REPRODUCIR SERVIDOR EN IFRAME CON SANDBOX
         // ============================================================
-        function reproducirSuperEmbed(embed_url, btn) {
+        function reproducirServidor(embed_url, nombre, btn) {
             document.querySelectorAll("#listaSrv .btn-servidor").forEach(b => b.classList.remove("activo"));
             if (btn) btn.classList.add("activo");
 
@@ -451,7 +456,7 @@
 
             seccionPlayer.classList.add("activa");
             playerFrame.src = embed_url;
-            playerInfo.textContent = "Reproduciendo en SuperEmbed · Sin anuncios";
+            playerInfo.textContent = `Reproduciendo en ${nombre} · Popups y redirecciones bloqueados`;
 
             setTimeout(() => {
                 seccionPlayer.scrollIntoView({ behavior: "smooth", block: "center" });
