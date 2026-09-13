@@ -52,10 +52,6 @@
         font-size: 1.2rem;
     }
 
-    .back:hover {
-        color: var(--accent);
-    }
-
     h1 {
         font-family: 'Space Mono', monospace;
         font-size: 1.4rem;
@@ -219,7 +215,6 @@
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid var(--border);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
 
     .player-container iframe {
@@ -308,10 +303,6 @@
         font-size: 0.75rem;
         color: var(--text-muted);
     }
-
-    .cargando {
-        opacity: 0.7;
-    }
 </style>
 
 </head><body><div class="container"><header>
@@ -321,6 +312,7 @@
 
 <div class="search-box">
     <span class="search-icon">$</span>
+
     <input
         type="text"
         id="inputBuscar"
@@ -333,7 +325,11 @@
     Escribe algo para buscar
 </div>
 
-<div class="resultados-lista" id="resultadosLista" style="display:none;"></div>
+<div
+    class="resultados-lista"
+    id="resultadosLista"
+    style="display:none;"
+></div>
 
 <div class="ficha" id="ficha">
 
@@ -352,25 +348,52 @@
 
             <div class="meta" id="fichaMeta"></div>
 
-            <p class="sinopsis" id="fichaSinopsis"></p>
+            <p
+                class="sinopsis"
+                id="fichaSinopsis"
+            ></p>
 
         </div>
 
     </div>
 
-    <div class="seccion" id="seccionTemp" style="display:none;">
+    <div
+        class="seccion"
+        id="seccionTemp"
+        style="display:none;"
+    >
         <h3>📺 Temporadas</h3>
-        <div class="lista-botones" id="listaTemp"></div>
+
+        <div
+            class="lista-botones"
+            id="listaTemp"
+        ></div>
     </div>
 
-    <div class="seccion" id="seccionEps" style="display:none;">
+    <div
+        class="seccion"
+        id="seccionEps"
+        style="display:none;"
+    >
         <h3>🎬 Episodios</h3>
-        <div class="episodios-grid" id="listaEps"></div>
+
+        <div
+            class="episodios-grid"
+            id="listaEps"
+        ></div>
     </div>
 
-    <div class="seccion" id="seccionSrv" style="display:none;">
+    <div
+        class="seccion"
+        id="seccionSrv"
+        style="display:none;"
+    >
         <h3>🎥 Servidores</h3>
-        <div class="lista-botones" id="listaSrv"></div>
+
+        <div
+            class="lista-botones"
+            id="listaSrv"
+        ></div>
     </div>
 
     <div id="seccionPlayer">
@@ -399,7 +422,10 @@
 
         <div class="player-actions">
 
-            <span class="player-info" id="playerInfo">
+            <span
+                class="player-info"
+                id="playerInfo"
+            >
                 Selecciona un servidor para empezar
             </span>
 
@@ -434,13 +460,15 @@ const ficha = document.getElementById("ficha");
 // BUSCAR
 // ============================================================
 
-input.addEventListener("keydown", async (e) => {
-
-    if (e.key !== "Enter") return;
+async function buscar() {
 
     const q = input.value.trim();
 
-    if (!q) return;
+    if (!q) {
+        estado.textContent = "Escribe algo para buscar";
+        estado.style.display = "block";
+        return;
+    }
 
     estado.textContent = "🔍 Buscando...";
     estado.style.display = "block";
@@ -452,9 +480,17 @@ input.addEventListener("keydown", async (e) => {
 
     try {
 
-        const r = await fetch(
-            `${API}/catalog?search=${encodeURIComponent(q)}`
-        );
+        const url =
+            `${API}/catalog?search=${encodeURIComponent(q)}&page=1&per_page=20`;
+
+        console.log("Buscando:", url);
+
+        const r = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            }
+        });
 
         if (!r.ok) {
             throw new Error(`HTTP ${r.status}`);
@@ -462,31 +498,47 @@ input.addEventListener("keydown", async (e) => {
 
         const data = await r.json();
 
-        if (!data.results || data.results.length === 0) {
+        console.log("Respuesta API:", data);
 
+        const resultados = data.results || [];
+
+        if (resultados.length === 0) {
             estado.textContent = "❌ No se encontró nada";
-
             return;
         }
 
-        if (data.results.length === 1) {
-
-            cargarFicha(data.results[0].id);
-
+        if (resultados.length === 1) {
+            cargarFicha(resultados[0].id);
             return;
         }
 
         estado.textContent =
-            `${data.results.length} resultados. Elige uno:`;
+            `${resultados.length} resultados. Elige uno:`;
 
-        mostrarResultados(data.results);
+        mostrarResultados(resultados);
 
     } catch (err) {
 
-        console.error(err);
+        console.error("Error de búsqueda:", err);
 
         estado.textContent =
-            "❌ Error: " + err.message;
+            "❌ Error al conectar con la API: " + err.message;
+
+    }
+}
+
+
+// ============================================================
+// ENTER
+// ============================================================
+
+input.addEventListener("keydown", function(e) {
+
+    if (e.key === "Enter") {
+
+        e.preventDefault();
+
+        buscar();
 
     }
 
@@ -505,20 +557,23 @@ function mostrarResultados(items) {
 
         const titulo =
             s.title?.rendered ||
+            s.title ||
             "Sin título";
-
-        const año =
-            s.date?.substring(0, 4) ||
-            "";
 
         const imagen =
             s.cover_image?.medium ||
+            s.cover_image?.large ||
             "";
+
+        const año =
+            s.date
+                ? s.date.substring(0, 4)
+                : "";
 
         return `
             <div
                 class="resultado-item"
-                onclick="cargarFicha(${s.id})"
+                onclick="cargarFicha(${Number(s.id)})"
             >
 
                 <img
@@ -529,11 +584,11 @@ function mostrarResultados(items) {
                 <div>
 
                     <div class="titulo">
-                        ${titulo}
+                        ${escapeHtml(titulo)}
                     </div>
 
                     <div class="año">
-                        ${año}
+                        ${escapeHtml(año)}
                     </div>
 
                 </div>
@@ -553,7 +608,6 @@ function mostrarResultados(items) {
 async function cargarFicha(id) {
 
     estado.textContent = "📋 Cargando ficha...";
-
     estado.style.display = "block";
 
     resultadosLista.style.display = "none";
@@ -562,9 +616,8 @@ async function cargarFicha(id) {
 
     try {
 
-        const r = await fetch(
-            `${API}/series/${id}`
-        );
+        const r =
+            await fetch(`${API}/series/${encodeURIComponent(id)}`);
 
         if (!r.ok) {
             throw new Error(`HTTP ${r.status}`);
@@ -576,56 +629,48 @@ async function cargarFicha(id) {
 
         const titulo =
             serie.title?.rendered ||
+            serie.title ||
             "Sin título";
 
         const fecha =
-            serie.date?.substring(0, 4) ||
-            "";
+            serie.date
+                ? serie.date.substring(0, 4)
+                : "";
 
         const generos =
             (serie.class_list || [])
                 .filter(c => c.startsWith("genres-"))
                 .map(c =>
-                    c.replace("genres-", "")
-                     .replace(/-/g, " ")
+                    c
+                        .replace("genres-", "")
+                        .replace(/-/g, " ")
                 )
                 .slice(0, 4)
                 .join(", ");
 
-        document.getElementById(
-            "fichaTitulo"
-        ).textContent = titulo;
+        document.getElementById("fichaTitulo").textContent =
+            titulo;
 
-        document.getElementById(
-            "fichaMeta"
-        ).innerHTML =
-            `<span>📅 ${fecha}</span>
-             <span>🎭 ${generos}</span>`;
+        document.getElementById("fichaMeta").innerHTML =
+            `<span>📅 ${escapeHtml(fecha)}</span>
+             <span>🎭 ${escapeHtml(generos)}</span>`;
 
-        document.getElementById(
-            "fichaSinopsis"
-        ).textContent =
-            (serie.content?.rendered || "")
-                .replace(/<[^>]+>/g, "")
-                .slice(0, 400);
+        document.getElementById("fichaSinopsis").textContent =
+            limpiarHtml(
+                serie.content?.rendered || ""
+            ).slice(0, 400);
 
-        const imagen =
-            serie.cover_image?.large ||
-            serie.cover_image?.medium ||
-            "";
-
-        const fichaImg =
+        const img =
             document.getElementById("fichaImg");
 
-        if (imagen) {
+        img.style.display = "block";
 
-            fichaImg.style.display = "block";
-            fichaImg.src = imagen;
-
+        if (serie.cover_image?.large) {
+            img.src = serie.cover_image.large;
+        } else if (serie.cover_image?.medium) {
+            img.src = serie.cover_image.medium;
         } else {
-
-            fichaImg.style.display = "none";
-
+            img.style.display = "none";
         }
 
         estado.style.display = "none";
@@ -639,7 +684,7 @@ async function cargarFicha(id) {
         console.error(err);
 
         estado.textContent =
-            "❌ Error: " + err.message;
+            "❌ Error cargando ficha: " + err.message;
 
     }
 
@@ -658,26 +703,22 @@ async function cargarTemporadas(titulo) {
     const listaTemp =
         document.getElementById("listaTemp");
 
+    seccionTemp.style.display = "none";
+
     try {
 
-        const r = await fetch(
-            `${API}/seasons/${encodeURIComponent(titulo)}`
-        );
-
-        if (!r.ok) {
-
-            throw new Error(
-                `HTTP ${r.status}`
+        const r =
+            await fetch(
+                `${API}/seasons/${encodeURIComponent(titulo)}`
             );
 
+        if (!r.ok) {
+            throw new Error(`HTTP ${r.status}`);
         }
 
         const temps = await r.json();
 
-        if (!temps || temps.length === 0) {
-
-            seccionTemp.style.display = "none";
-
+        if (!Array.isArray(temps) || temps.length === 0) {
             return;
         }
 
@@ -688,26 +729,42 @@ async function cargarTemporadas(titulo) {
 
                 const nombre =
                     t.title?.rendered ||
+                    t.title ||
                     `Temporada ${i + 1}`;
 
                 return `
                     <button
                         class="btn-servidor ${i === 0 ? "activo" : ""}"
-                        onclick="seleccionarTemp(
-                            ${JSON.stringify(t).replace(/"/g, "&quot;")},
-                            this
-                        )"
+                        data-index="${i}"
                     >
-                        ${nombre}
+                        ${escapeHtml(nombre)}
                     </button>
                 `;
 
             }).join("");
 
-        seleccionarTemp(
-            temps[0],
-            listaTemp.firstElementChild
-        );
+        const botones =
+            listaTemp.querySelectorAll("button");
+
+        botones.forEach((btn, i) => {
+
+            btn.addEventListener("click", () => {
+
+                seleccionarTemp(
+                    temps[i],
+                    btn
+                );
+
+            });
+
+        });
+
+        if (temps.length > 0) {
+            seleccionarTemp(
+                temps[0],
+                botones[0]
+            );
+        }
 
     } catch (err) {
 
@@ -730,9 +787,7 @@ async function seleccionarTemp(temp, btn) {
     temporadaActual = temp;
 
     document
-        .querySelectorAll(
-            "#listaTemp .btn-servidor"
-        )
+        .querySelectorAll("#listaTemp .btn-servidor")
         .forEach(b =>
             b.classList.remove("activo")
         );
@@ -756,27 +811,37 @@ async function seleccionarTemp(temp, btn) {
 
     try {
 
-        const r = await fetch(
-            `${API}/episodes?season_url=${encodeURIComponent(temp.link)}`
-        );
+        const seasonUrl =
+            temp.link ||
+            temp.url ||
+            temp.guid?.rendered;
 
-        if (!r.ok) {
-
+        if (!seasonUrl) {
             throw new Error(
-                `HTTP ${r.status}`
+                "La temporada no tiene URL"
+            );
+        }
+
+        const r =
+            await fetch(
+                `${API}/episodes?season_url=${encodeURIComponent(seasonUrl)}`
             );
 
+        if (!r.ok) {
+            throw new Error(`HTTP ${r.status}`);
         }
 
         const data = await r.json();
 
-        const eps = data.episodes || [];
+        const eps =
+            data.episodes || [];
 
         if (eps.length === 0) {
 
             seccionEps.style.display = "none";
 
-            estado.style.display = "none";
+            estado.textContent =
+                "⚠️ No hay episodios";
 
             return;
         }
@@ -789,10 +854,7 @@ async function seleccionarTemp(temp, btn) {
                 return `
                     <button
                         class="ep-btn"
-                        onclick="seleccionarEp(
-                            ${JSON.stringify(url)},
-                            this
-                        )"
+                        data-url="${encodeURIComponent(url)}"
                     >
                         Ep ${i + 1}
                     </button>
@@ -800,11 +862,29 @@ async function seleccionarTemp(temp, btn) {
 
             }).join("");
 
+        listaEps
+            .querySelectorAll(".ep-btn")
+            .forEach(btn => {
+
+                btn.addEventListener(
+                    "click",
+                    () => {
+
+                        seleccionarEp(
+                            decodeURIComponent(
+                                btn.dataset.url
+                            ),
+                            btn
+                        );
+
+                    }
+                );
+
+            });
+
         estado.style.display = "none";
 
     } catch (err) {
-
-        console.error(err);
 
         estado.textContent =
             "❌ Error cargando episodios: " +
@@ -816,7 +896,7 @@ async function seleccionarTemp(temp, btn) {
 
 
 // ============================================================
-// SELECCIONAR EPISODIO
+// EPISODIO
 // ============================================================
 
 async function seleccionarEp(url, btn) {
@@ -846,16 +926,13 @@ async function seleccionarEp(url, btn) {
 
     try {
 
-        const r = await fetch(
-            `${API}/servers?episode_url=${encodeURIComponent(url)}`
-        );
-
-        if (!r.ok) {
-
-            throw new Error(
-                `HTTP ${r.status}`
+        const r =
+            await fetch(
+                `${API}/servers?episode_url=${encodeURIComponent(url)}`
             );
 
+        if (!r.ok) {
+            throw new Error(`HTTP ${r.status}`);
         }
 
         const data = await r.json();
@@ -876,28 +953,45 @@ async function seleccionarEp(url, btn) {
         seccionSrv.style.display = "block";
 
         listaSrv.innerHTML =
-            servidores.map(s => {
+            servidores.map((s, i) => {
 
                 return `
                     <button
                         class="btn-servidor"
-                        onclick="reproducirServidor(
-                            ${JSON.stringify(s.embed_url)},
-                            ${JSON.stringify(s.nombre)},
-                            this
-                        )"
+                        data-index="${i}"
                     >
-                        ▶️ ${s.nombre}
+                        ▶️ ${escapeHtml(
+                            s.nombre || s.dominio || "Servidor"
+                        )}
                     </button>
                 `;
 
             }).join("");
 
+        listaSrv
+            .querySelectorAll(".btn-servidor")
+            .forEach((btn, i) => {
+
+                btn.addEventListener(
+                    "click",
+                    () => {
+
+                        reproducirServidor(
+                            servidores[i].embed_url,
+                            servidores[i].nombre ||
+                            servidores[i].dominio ||
+                            "Servidor",
+                            btn
+                        );
+
+                    }
+                );
+
+            });
+
         estado.style.display = "none";
 
     } catch (err) {
-
-        console.error(err);
 
         estado.textContent =
             "❌ Error cargando servidores: " +
@@ -909,7 +1003,7 @@ async function seleccionarEp(url, btn) {
 
 
 // ============================================================
-// REPRODUCIR SERVIDOR
+// REPRODUCIR
 // ============================================================
 
 function reproducirServidor(
@@ -918,10 +1012,14 @@ function reproducirServidor(
     btn
 ) {
 
+    if (!embed_url) {
+        estado.textContent =
+            "❌ Este servidor no tiene enlace";
+        return;
+    }
+
     document
-        .querySelectorAll(
-            "#listaSrv .btn-servidor"
-        )
+        .querySelectorAll("#listaSrv .btn-servidor")
         .forEach(b =>
             b.classList.remove("activo")
         );
@@ -931,10 +1029,98 @@ function reproducirServidor(
     }
 
     const seccionPlayer =
-        document.getElementById(
-            "seccionPlayer"
-        );
+        document.getElementById("seccionPlayer");
 
     const playerFrame =
-        document.getElementById(
-    
+        document.getElementById("playerFrame");
+
+    const playerInfo =
+        document.getElementById("playerInfo");
+
+    seccionPlayer.classList.add("activa");
+
+    playerFrame.src = embed_url;
+
+    playerInfo.textContent =
+        `Reproduciendo en ${nombre}`;
+
+    setTimeout(() => {
+
+        seccionPlayer.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 100);
+
+}
+
+
+// ============================================================
+// CERRAR PLAYER
+// ============================================================
+
+function cerrarPlayer() {
+
+    const seccionPlayer =
+        document.getElementById("seccionPlayer");
+
+    const playerFrame =
+        document.getElementById("playerFrame");
+
+    const playerInfo =
+        document.getElementById("playerInfo");
+
+    if (playerFrame) {
+        playerFrame.src =
+            "about:blank";
+    }
+
+    if (seccionPlayer) {
+        seccionPlayer.classList.remove("activa");
+    }
+
+    if (playerInfo) {
+        playerInfo.textContent =
+            "Selecciona un servidor para empezar";
+    }
+
+    document
+        .querySelectorAll("#listaSrv .btn-servidor")
+        .forEach(b =>
+            b.classList.remove("activo")
+        );
+
+}
+
+
+// ============================================================
+// UTILIDADES
+// ============================================================
+
+function limpiarHtml(html) {
+
+    const div =
+        document.createElement("div");
+
+    div.innerHTML = html;
+
+    return div.textContent ||
+           div.innerText ||
+           "";
+
+}
+
+function escapeHtml(text) {
+
+    return String(text || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+</script></body>
+</html>
