@@ -58,9 +58,7 @@
         }
 
         @media only screen and (max-width: 768px) {
-            .native-banner-desktop {
-                display: none !important;
-            }
+            .native-banner-desktop { display: none !important; }
         }
 
         .action-bar {
@@ -98,9 +96,7 @@
             transform: translateY(-2px);
         }
 
-        .action-btn .icon {
-            font-size: 1.2rem;
-        }
+        .action-btn .icon { font-size: 1.2rem; }
 
         .adsterra-mobile-banner {
             display: none;
@@ -112,11 +108,8 @@
             border: 1px solid var(--border);
             max-width: 320px;
         }
-
         @media only screen and (max-width: 768px) {
-            .adsterra-mobile-banner {
-                display: block;
-            }
+            .adsterra-mobile-banner { display: block; }
         }
 
         .video-header {
@@ -132,10 +125,7 @@
             font-size: 1.4rem;
             font-weight: 700;
         }
-        .video-meta {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
+        .video-meta { color: var(--text-muted); font-size: 0.85rem; }
         .back-btn {
             color: var(--accent);
             text-decoration: none;
@@ -145,18 +135,26 @@
         }
         .back-btn:hover { opacity: 0.7; }
 
+        /* ============================================================ */
+        /* CONTENEDOR DEL REPRODUCTOR                                    */
+        /* ============================================================ */
         .plyr-container {
-            border-radius: 16px;
+            position: relative;
             overflow: hidden;
+            border-radius: 16px;
             border: 1px solid var(--border);
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            aspect-ratio: 16 / 9;
+            background: #000;
         }
-        .plyr--video {
-            border-radius: 16px;
+        .plyr-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
         }
-        .plyr--video .plyr__controls {
-            padding: 16px 20px;
-        }
+        .plyr--video { border-radius: 16px; }
+        .plyr--video .plyr__controls { padding: 16px 20px; }
         .plyr--fullscreen {
             width: 100vw !important;
             height: 100vh !important;
@@ -164,6 +162,53 @@
             max-height: 100vh !important;
         }
 
+        /* ============================================================ */
+        /* CAPA 3 — OVERLAYS TRANSPARENTES SOBRE EL BOTÓN COMPARTIR     */
+        /* ============================================================ */
+        .video-overlay-blocker {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 90px;
+            background: transparent;
+            z-index: 2147483646;
+            pointer-events: auto;
+            cursor: default;
+        }
+        .video-overlay-blocker-bottom {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 220px;
+            height: 70px;
+            background: transparent;
+            z-index: 2147483646;
+            pointer-events: auto;
+            cursor: default;
+        }
+        .plyr--fullscreen .video-overlay-blocker {
+            width: 260px;
+            height: 100px;
+        }
+        .plyr--fullscreen .video-overlay-blocker-bottom {
+            width: 280px;
+            height: 80px;
+        }
+        @media (max-width: 768px) {
+            .video-overlay-blocker {
+                width: 140px;
+                height: 60px;
+            }
+            .video-overlay-blocker-bottom {
+                width: 140px;
+                height: 55px;
+            }
+        }
+
+        /* ============================================================ */
+        /* SELECTOR DE EPISODIOS                                         */
+        /* ============================================================ */
         .episode-selector {
             display: flex;
             flex-direction: column;
@@ -190,12 +235,10 @@
             border-color: var(--accent);
             color: #fff;
         }
-
         .version-group {
             margin: 4px 0;
             width: 100%;
         }
-
         .version-btn {
             background: var(--bg-elevated);
             border: 1px solid var(--border);
@@ -213,19 +256,16 @@
             align-items: center;
             gap: 8px;
         }
-
         .version-btn:hover {
             background: var(--bg-hover);
             border-color: var(--accent);
         }
-
         .version-btn .count {
             color: var(--text-muted);
             font-weight: 400;
             font-size: 0.75rem;
             margin-left: auto;
         }
-
         .episode-list {
             display: none;
             flex-wrap: wrap;
@@ -234,10 +274,7 @@
             border-left: 2px solid var(--border);
             margin: 4px 0 8px 8px;
         }
-
-        .episode-list.open {
-            display: flex;
-        }
+        .episode-list.open { display: flex; }
 
         @media (max-width: 480px) {
             .episode-list .episode-btn {
@@ -250,6 +287,9 @@
             }
         }
 
+        /* ============================================================ */
+        /* INFO DEL EXPEDIENTE                                            */
+        /* ============================================================ */
         .expediente-info {
             margin-top: 24px;
             background: var(--bg-card);
@@ -296,91 +336,42 @@
         }
 
         /* ============================================================ */
-/* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE              */
-/* ============================================================ */
-@media (min-width: 1400px) {
-    .ad-skyscraper {
-        position: fixed;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 160px;
-        height: 600px;
-        z-index: 50;
-        border-radius: 4px;
-        overflow: hidden;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-    }
-    .ad-skyscraper::before {
-        content: "PUBLICIDAD";
-        position: absolute;
-        top: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--bg);
-        padding: 0 8px;
-        font-size: 0.5rem;
-        color: var(--text-dim);
-        font-family: 'Space Mono', monospace;
-        letter-spacing: 2px;
-        z-index: 2;
-    }
-    body {
-        padding-right: 180px;
-    }
-}
-
-@media (max-width: 1399px) {
-    .ad-skyscraper {
-        display: none !important;
-    }
-    body {
-        padding-right: 0 !important;
-    }
-}
-
-/* ============================================================ */
-/* BLOQUE A */
-/* ============================================================ */
-
-/* Contenedor principal */
-.plyr-container {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Overlay que cubre el botón */
-.video-overlay-blocker {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    width: 160px !important;
-    height: 80px !important;
-    background: transparent !important;
-    z-index: 9999999 !important;  /* MÁS ALTO que los controles */
-    pointer-events: auto !important;
-    cursor: default !important;
-}
-
-/* Para pantalla completa */
-.plyr--fullscreen .video-overlay-blocker {
-    width: 200px !important;
-    height: 90px !important;
-}
-
-/* Móvil */
-@media (max-width: 768px) {
-    .video-overlay-blocker {
-        width: 110px !important;
-        height: 60px !important;
-    }
-    .plyr--fullscreen .video-overlay-blocker {
-        width: 160px !important;
-        height: 80px !important;
-    }
-}
-                
+        /* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE                 */
+        /* ============================================================ */
+        @media (min-width: 1400px) {
+            .ad-skyscraper {
+                position: fixed;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 160px;
+                height: 600px;
+                z-index: 50;
+                border-radius: 4px;
+                overflow: hidden;
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+            }
+            .ad-skyscraper::before {
+                content: "PUBLICIDAD";
+                position: absolute;
+                top: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--bg);
+                padding: 0 8px;
+                font-size: 0.5rem;
+                color: var(--text-dim);
+                font-family: 'Space Mono', monospace;
+                letter-spacing: 2px;
+                z-index: 2;
+            }
+            body { padding-right: 180px; }
+        }
+        @media (max-width: 1399px) {
+            .ad-skyscraper { display: none !important; }
+            body { padding-right: 0 !important; }
+        }
     </style>
 </head>
 <body>
@@ -434,34 +425,38 @@
         </div>
 
         <!-- BANNER VERTICAL 160×600 -->
-<div class="ad-skyscraper">
-    <script>
-        atOptions = {
-            'key' : 'f564e8789f9520e705a0684b0fb3ad26',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-        };
-    </script>
-    <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
-</div>
+        <div class="ad-skyscraper">
+            <script>
+                atOptions = {
+                    'key' : 'f564e8789f9520e705a0684b0fb3ad26',
+                    'format' : 'iframe',
+                    'height' : 600,
+                    'width' : 160,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
+        </div>
 
-    <!-- REPRODUCTOR -->
-<div class="plyr-container">
-    <div class="plyr__video-embed" id="player">
-        <iframe
-            id="videoFrame"
-            src=""
-            allowfullscreen
-            allowtransparency
-            allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
-        ></iframe>
-    </div>
-    <!-- 👇 -->
-    <div class="video-overlay-blocker"></div>
-</div>
-
+        <!-- ============================================================ -->
+        <!-- REPRODUCTOR — CON LAS 3 CAPAS DE BLOQUEO                     -->
+        <!-- ============================================================ -->
+        <div class="plyr-container">
+            <div class="plyr__video-embed" id="player">
+                <iframe
+                    id="videoFrame"
+                    src=""
+                    sandbox="allow-scripts allow-same-origin allow-presentation"
+                    allowfullscreen
+                    allowtransparency
+                    allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation">
+                </iframe>
+            </div>
+            <!-- Capa 3a: bloquea clics en la esquina superior derecha (botón compartir) -->
+            <div class="video-overlay-blocker"></div>
+            <!-- Capa 3b: bloquea clics en la esquina inferior derecha (por si OK.ru cambia layout) -->
+            <div class="video-overlay-blocker-bottom"></div>
+        </div>
 
         <!-- BANNER MÓVIL (solo en móvil, debajo del reproductor) -->
         <div class="adsterra-mobile-banner">
@@ -476,9 +471,6 @@
             </script>
             <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
         </div>
-    
-
-
 
         <!-- NATIVE BANNER (solo desktop) -->
         <div class="native-banner-desktop" style="margin: 20px auto; max-width: 100%;">
@@ -489,17 +481,16 @@
         <!-- SELECTOR DE EPISODIOS -->
         <div class="episode-selector" id="episodeSelector"></div>
 
-        <!-- 👇 BOTÓN DOWNLOAD -->
-<div style="text-align:center; margin: 16px 0 8px 0;">
-    <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
-       class="btn btn-primary" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
-        ⬇️ DOWNLOAD
-    </a>
-</div>
-
+        <!-- BOTÓN DOWNLOAD -->
+        <div style="text-align:center; margin: 16px 0 8px 0;">
+            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
+               class="btn btn-primary" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
+                ⬇️ DOWNLOAD
+            </a>
+        </div>
 
         <!-- INFO DEL EXPEDIENTE -->
         <div class="expediente-info" id="expedienteInfo">
@@ -510,10 +501,160 @@
     </div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    
-        <!--  carga watch-02-data.js -->
-<script src="watch-02-data.js"></script>
+
+    <!-- ============================================================ -->
+    <!-- LÓGICA DEL REPRODUCTOR — conectado a tu API de Render        -->
+    <!-- ============================================================ -->
     <script>
+    (function () {
+        // ==========================================================
+        // 1️⃣ CONFIGURA AQUÍ TU API (Render)
+        // ==========================================================
+        const API = "https://TU-API.onrender.com";   // ← cambia esto
+
+        // ==========================================================
+        // 2️⃣ Leer parámetros de la URL
+        //    Ejemplo: player.html?serie=doraemon&t=1&c=1
+        // ==========================================================
+        const params = new URLSearchParams(location.search);
+        const serie    = params.get("serie") || "doraemon";
+        const temporada = parseInt(params.get("t") || "1", 10);
+        const capitulo  = parseInt(params.get("c") || "1", 10);
+
+        const videoFrame       = document.getElementById("videoFrame");
+        const videoTitle       = document.getElementById("videoTitle");
+        const videoMeta        = document.getElementById("videoMeta");
+        const episodeSelector  = document.getElementById("episodeSelector");
+        const expedienteDesc   = document.getElementById("expedienteDesc");
+        const expedienteTags   = document.getElementById("expedienteTags");
+
+        // ==========================================================
+        // 3️⃣ Capa 2 — Bloqueo de clic derecho sobre el iframe
+        // ==========================================================
+        videoFrame.addEventListener("contextmenu", e => e.preventDefault());
+        videoFrame.addEventListener("dragstart",   e => e.preventDefault());
+
+        // ==========================================================
+        // 4️⃣ Cargar ficha de la serie
+        // ==========================================================
+        fetch(`${API}/serie/${serie}`)
+            .then(r => r.ok ? r.json() : Promise.reject(r.status))
+            .then(info => {
+                document.title = `Frame Perdido — ${info.titulo}`;
+                expedienteDesc.textContent = info.descripcion || "Sin descripción.";
+                expedienteTags.innerHTML = "";
+                if (info.fecha) {
+                    const t = document.createElement("span");
+                    t.className = "exp-tag";
+                    t.textContent = `📅 ${info.fecha}`;
+                    expedienteTags.appendChild(t);
+                }
+                if (info.numCapitulosDisponibles) {
+                    const t = document.createElement("span");
+                    t.className = "exp-tag";
+                    t.textContent = `🎬 ${info.numCapitulosDisponibles} capítulos`;
+                    expedienteTags.appendChild(t);
+                }
+                if (info.tipo) {
+                    const t = document.createElement("span");
+                    t.className = "exp-tag";
+                    t.textContent = `🏷️ ${info.tipo}`;
+                    expedienteTags.appendChild(t);
+                }
+            })
+            .catch(err => {
+                expedienteDesc.textContent = "No se pudo cargar la información.";
+                console.warn("[ficha]", err);
+            });
+
+        // ==========================================================
+        // 5️⃣ Cargar capítulo actual
+        // ==========================================================
+        function cargarCapitulo(t, c) {
+            fetch(`${API}/capitulo?serie=${encodeURIComponent(serie)}&temporada=${t}&capitulo=${c}`)
+                .then(r => {
+                    if (!r.ok) throw new Error("Capítulo no encontrado");
+                    return r.json();
+                })
+                .then(cap => {
+                    videoTitle.textContent = cap.serie || serie;
+                    videoMeta.textContent  = `T${cap.temporada} E${cap.capitulo} — ${cap.titulo} (${cap.duracion})`;
+                    // Sandbox ya está aplicado en el <iframe>. Solo asignamos src.
+                    videoFrame.src = cap.video;
+                })
+                .catch(err => {
+                    videoTitle.textContent = "Error";
+                    videoMeta.textContent  = err.message;
+                });
+        }
+
+        cargarCapitulo(temporada, capitulo);
+
+        // ==========================================================
+        // 6️⃣ Lista de capítulos (agrupada por temporada)
+        // ==========================================================
+        fetch(`${API}/serie/${serie}/capitulos?limit=500`)
+            .then(r => r.ok ? r.json() : Promise.reject(r.status))
+            .then(data => {
+                const caps = data.items || [];
+                if (!caps.length) return;
+
+                // Agrupar por temporada
+                const porTemp = {};
+                caps.forEach(c => {
+                    (porTemp[c.temporada] = porTemp[c.temporada] || []).push(c);
+                });
+
+                // Render
+                Object.keys(porTemp).sort((a,b) => a-b).forEach(temp => {
+                    const grupo = document.createElement("div");
+                    grupo.className = "version-group";
+
+                    const btn = document.createElement("button");
+                    btn.className = "version-btn";
+                    btn.innerHTML = `📺 Temporada ${temp} <span class="count">${porTemp[temp].length} caps</span>`;
+                    grupo.appendChild(btn);
+
+                    const lista = document.createElement("div");
+                    lista.className = "episode-list";
+                    porTemp[temp].forEach(c => {
+                        const eBtn = document.createElement("button");
+                        eBtn.className = "episode-btn";
+                        eBtn.textContent = `E${c.capitulo}`;
+                        eBtn.title = c.titulo;
+                        if (parseInt(temp) === temporada && c.capitulo === capitulo) {
+                            eBtn.classList.add("active");
+                        }
+                        eBtn.addEventListener("click", () => {
+                            document.querySelectorAll(".episode-btn.active")
+                                .forEach(b => b.classList.remove("active"));
+                            eBtn.classList.add("active");
+                            // Actualizar URL sin recargar
+                            const url = new URL(location.href);
+                            url.searchParams.set("t", temp);
+                            url.searchParams.set("c", c.capitulo);
+                            history.replaceState(null, "", url);
+                            cargarCapitulo(parseInt(temp), c.capitulo);
+                        });
+                        lista.appendChild(eBtn);
+                    });
+                    grupo.appendChild(lista);
+
+                    btn.addEventListener("click", () => {
+                        lista.classList.toggle("open");
+                    });
+
+                    // Auto-abrir la temporada actual
+                    if (parseInt(temp) === temporada) {
+                        lista.classList.add("open");
+                    }
+
+                    episodeSelector.appendChild(grupo);
+                });
+            })
+            .catch(err => console.warn("[capítulos]", err));
+    })();
+    </script>
         // ============================================================
         // BASE DE DATOS DE VIDEOS - CON IDs CORRECTOS
         // ============================================================
