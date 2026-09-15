@@ -7,13 +7,20 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-
+    
     <style>
         :root {
-            --bg: #0a0a0f; --bg-card: #12121a; --bg-elevated: #1a1a25;
-            --text: #e8e8f0; --text-muted: #8a8a9a; --text-dim: #5a5a6a;
-            --accent: #ff6b35; --accent-soft: #ff6b3520; --accent-glow: #ff6b3560;
-            --border: #2a2a3a; --border-hover: #3a3a50;
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-elevated: #1a1a25;
+            --text: #e8e8f0;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --accent: #ff6b35;
+            --accent-soft: #ff6b3520;
+            --accent-glow: #ff6b3560;
+            --border: #2a2a3a;
+            --border-hover: #3a3a50;
             --plyr-color-main: #ff6b35;
             --plyr-video-control-color: #e8e8f0;
             --plyr-video-control-color-hover: #ffffff;
@@ -27,63 +34,254 @@
             --plyr-tooltip-color: #e8e8f0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .player-page { max-width: 1100px; width: 100%; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .player-page {
+            max-width: 1100px;
+            width: 100%;
+        }
+
         .adsterra-mobile { display: none; }
         .adsterra-desktop { display: block; }
+
         @media only screen and (max-width: 768px) {
             .adsterra-mobile { display: block; }
             .adsterra-desktop { display: none; }
-            .native-banner-desktop { display: none !important; }
         }
-        .action-bar { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 16px 0 20px 0; flex-wrap: wrap; }
-        .action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none; color: #fff; }
-        .action-btn.support { background: #2a2a3a; border: 1px solid #3a3a50; }
-        .action-btn.support:hover { background: #3a3a50; border-color: #ff6b35; transform: translateY(-2px); }
-        .action-btn .icon { font-size: 1.2rem; }
-        .adsterra-mobile-banner { display: none; text-align: center; margin: 16px auto; padding: 8px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); max-width: 320px; }
-        @media only screen and (max-width: 768px) { .adsterra-mobile-banner { display: block; } }
-        .video-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
-        .video-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; }
-        .video-meta { color: var(--text-muted); font-size: 0.85rem; }
-        .back-btn { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: opacity 0.3s; }
+
+        @media only screen and (max-width: 768px) {
+            .native-banner-desktop {
+                display: none !important;
+            }
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .action-btn.support {
+            background: #2a2a3a;
+            border: 1px solid #3a3a50;
+        }
+        .action-btn.support:hover {
+            background: #3a3a50;
+            border-color: #ff6b35;
+            transform: translateY(-2px);
+        }
+
+        .action-btn .icon {
+            font-size: 1.2rem;
+        }
+
+        .adsterra-mobile-banner {
+            display: none;
+            text-align: center;
+            margin: 16px auto;
+            padding: 8px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            max-width: 320px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .adsterra-mobile-banner {
+                display: block;
+            }
+        }
+
+        .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .video-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .video-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .back-btn {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
         .back-btn:hover { opacity: 0.7; }
 
-        .plyr-container { position: relative; overflow: hidden; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5); aspect-ratio: 16/9; background: #000; }
-        .plyr-container iframe { width: 100%; height: 100%; border: 0; display: block; }
-        .plyr--video { border-radius: 16px; }
-        .plyr--video .plyr__controls { padding: 16px 20px; }
-        .plyr--fullscreen { width: 100vw !important; height: 100vh !important; max-width: 100vw !important; max-height: 100vh !important; }
-
-        .video-overlay-blocker { position: absolute; top: 0; right: 0; width: 200px; height: 90px; background: transparent; z-index: 2147483646; pointer-events: auto; cursor: default; }
-        .video-overlay-blocker-bottom { position: absolute; bottom: 0; right: 0; width: 220px; height: 70px; background: transparent; z-index: 2147483646; pointer-events: auto; cursor: default; }
-        .plyr--fullscreen .video-overlay-blocker { width: 260px; height: 100px; }
-        .plyr--fullscreen .video-overlay-blocker-bottom { width: 280px; height: 80px; }
-        @media (max-width: 768px) {
-            .video-overlay-blocker { width: 140px; height: 60px; }
-            .video-overlay-blocker-bottom { width: 140px; height: 55px; }
+        .plyr-container {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .plyr--video {
+            border-radius: 16px;
+        }
+        .plyr--video .plyr__controls {
+            padding: 16px 20px;
+        }
+        .plyr--fullscreen {
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
         }
 
-        .episode-selector { display: flex; flex-direction: column; gap: 6px; margin: 16px 0; }
-        .episode-btn { padding: 5px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; color: var(--text-muted); cursor: pointer; font-size: 0.75rem; font-family: 'Inter', sans-serif; transition: all 0.3s; }
-        .episode-btn:hover { border-color: var(--accent); color: var(--text); }
-        .episode-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-        .version-group { margin: 4px 0; width: 100%; }
-        .version-btn { background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text); padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; width: 100%; text-align: left; transition: all 0.3s; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; }
-        .version-btn:hover { background: var(--bg-hover); border-color: var(--accent); }
-        .version-btn .count { color: var(--text-muted); font-weight: 400; font-size: 0.75rem; margin-left: auto; }
-        .episode-list { display: none; flex-wrap: wrap; gap: 6px; padding: 8px 0 8px 16px; border-left: 2px solid var(--border); margin: 4px 0 8px 8px; }
-        .episode-list.open { display: flex; }
+        .episode-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin: 16px 0;
+        }
+        .episode-btn {
+            padding: 5px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .episode-btn:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+        .episode-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .version-group {
+            margin: 4px 0;
+            width: 100%;
+        }
+
+        .version-btn {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: left;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .version-btn:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent);
+        }
+
+        .version-btn .count {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+
+        .episode-list {
+            display: none;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 8px 0 8px 16px;
+            border-left: 2px solid var(--border);
+            margin: 4px 0 8px 8px;
+        }
+
+        .episode-list.open {
+            display: flex;
+        }
+
         @media (max-width: 480px) {
-            .episode-list .episode-btn { font-size: 0.7rem; padding: 4px 10px; }
-            .version-btn { font-size: 0.8rem; padding: 8px 12px; }
+            .episode-list .episode-btn {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+            .version-btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
         }
 
-        .expediente-info { margin-top: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
-        .expediente-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: var(--accent); margin-bottom: 12px; }
-        .expediente-info p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
-        .expediente-tags { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
-        .exp-tag { background: #1a1a25; color: var(--text-muted); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; border: 1px solid var(--border); }
+        .expediente-info {
+            margin-top: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .expediente-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .expediente-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .expediente-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .exp-tag {
+            background: #1a1a25;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            border: 1px solid var(--border);
+        }
 
         @media (max-width: 768px) {
             .video-title { font-size: 1.1rem; }
@@ -91,20 +289,103 @@
             .plyr-container { border-radius: 12px; }
             .expediente-info { padding: 16px; }
         }
-        @media (orientation: portrait) { .plyr--fullscreen video { transform: rotate(0deg) !important; } }
+        @media (orientation: portrait) {
+            .plyr--fullscreen video {
+                transform: rotate(0deg) !important;
+            }
+        }
 
-        @media (min-width: 1400px) {
-            .ad-skyscraper { position: fixed; right: 10px; top: 50%; transform: translateY(-50%); width: 160px; height: 600px; z-index: 50; border-radius: 4px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
-            body { padding-right: 180px; }
-        }
-        @media (max-width: 1399px) {
-            .ad-skyscraper { display: none !important; }
-            body { padding-right: 0 !important; }
-        }
+        /* ============================================================ */
+/* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE              */
+/* ============================================================ */
+@media (min-width: 1400px) {
+    .ad-skyscraper {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 160px;
+        height: 600px;
+        z-index: 50;
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+    }
+    .ad-skyscraper::before {
+        content: "PUBLICIDAD";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg);
+        padding: 0 8px;
+        font-size: 0.5rem;
+        color: var(--text-dim);
+        font-family: 'Space Mono', monospace;
+        letter-spacing: 2px;
+        z-index: 2;
+    }
+    body {
+        padding-right: 180px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .ad-skyscraper {
+        display: none !important;
+    }
+    body {
+        padding-right: 0 !important;
+    }
+}
+
+/* ============================================================ */
+/* BLOQUE A */
+/* ============================================================ */
+
+/* Contenedor principal */
+.plyr-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay que cubre el botón */
+.video-overlay-blocker {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 160px !important;
+    height: 80px !important;
+    background: transparent !important;
+    z-index: 9999999 !important;  /* MÁS ALTO que los controles */
+    pointer-events: auto !important;
+    cursor: default !important;
+}
+
+/* Para pantalla completa */
+.plyr--fullscreen .video-overlay-blocker {
+    width: 200px !important;
+    height: 90px !important;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+    .video-overlay-blocker {
+        width: 110px !important;
+        height: 60px !important;
+    }
+    .plyr--fullscreen .video-overlay-blocker {
+        width: 160px !important;
+        height: 80px !important;
+    }
+}
+                
     </style>
 </head>
 <body>
     <div class="player-page">
+        <!-- HEADER -->
         <div class="video-header" id="videoHeader">
             <div>
                 <h1 class="video-title" id="videoTitle">Cargando...</h1>
@@ -113,6 +394,7 @@
             <a href="index.html" class="back-btn">← Volver</a>
         </div>
 
+        <!-- BARRA DE ACCIÓN: DONAR -->
         <div class="action-bar">
             <div style="background: none; padding: 0; box-shadow: none;">
                 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
@@ -123,67 +405,103 @@
             </div>
         </div>
 
+        <!-- BANNER ENCIMA DEL REPRODUCTOR -->
         <div style="text-align:center; margin: 12px 0;">
             <div class="adsterra-desktop">
                 <script>
-                    atOptions = { 'key' : '2d24803022ac8ea2c0f5629bb6e94501', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+                    atOptions = {
+                        'key' : '2d24803022ac8ea2c0f5629bb6e94501',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
                 </script>
                 <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
             </div>
             <div class="adsterra-mobile">
                 <script>
-                    atOptions = { 'key' : 'f609722253730b0dda3e6b83efb17a18', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                    atOptions = {
+                        'key' : 'f609722253730b0dda3e6b83efb17a18',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
                 </script>
                 <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
             </div>
         </div>
 
-        <div class="ad-skyscraper">
-            <script>
-                atOptions = { 'key' : 'f564e8789f9520e705a0684b0fb3ad26', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
-            </script>
-            <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
-        </div>
+        <!-- BANNER VERTICAL 160×600 -->
+<div class="ad-skyscraper">
+    <script>
+        atOptions = {
+            'key' : 'f564e8789f9520e705a0684b0fb3ad26',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
+</div>
 
-        <div class="plyr-container">
-            <div class="plyr__video-embed" id="player">
-                <iframe
-                    id="videoFrame"
-                    src=""
-                    sandbox="allow-scripts allow-same-origin allow-presentation"
-                    allowfullscreen
-                    allowtransparency
-                    allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation">
-                </iframe>
-            </div>
-            <div class="video-overlay-blocker"></div>
-            <div class="video-overlay-blocker-bottom"></div>
-        </div>
+    <!-- REPRODUCTOR -->
+<div class="plyr-container">
+    <div class="plyr__video-embed" id="player">
+        <iframe
+            id="videoFrame"
+            src=""
+            allowfullscreen
+            allowtransparency
+            allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
+        ></iframe>
+    </div>
+    <!-- 👇 -->
+    <div class="video-overlay-blocker"></div>
+</div>
 
+
+        <!-- BANNER MÓVIL (solo en móvil, debajo del reproductor) -->
         <div class="adsterra-mobile-banner">
             <script>
-                atOptions = { 'key' : '87a06576574ce7684612c64a5ebfe421', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                atOptions = {
+                    'key' : '87a06576574ce7684612c64a5ebfe421',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
             </script>
             <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
         </div>
+    
 
+
+
+        <!-- NATIVE BANNER (solo desktop) -->
         <div class="native-banner-desktop" style="margin: 20px auto; max-width: 100%;">
             <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
             <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
         </div>
 
+        <!-- SELECTOR DE EPISODIOS -->
         <div class="episode-selector" id="episodeSelector"></div>
 
-        <div style="text-align:center; margin: 16px 0 8px 0;">
-            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
-               class="btn btn-primary" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
-                ⬇️ DOWNLOAD
-            </a>
-        </div>
+        <!-- 👇 BOTÓN DOWNLOAD -->
+<div style="text-align:center; margin: 16px 0 8px 0;">
+    <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
+       class="btn btn-primary" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
+        ⬇️ DOWNLOAD
+    </a>
+</div>
 
+
+        <!-- INFO DEL EXPEDIENTE -->
         <div class="expediente-info" id="expedienteInfo">
             <h3>📁 Sobre este expediente</h3>
             <p id="expedienteDesc">Cargando...</p>
@@ -192,252 +510,1712 @@
     </div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-
-    <!-- ============================================================ -->
-    <!-- BASE DE DATOS LOCAL (tu data.js + data-02.js) -->
-    <!-- ============================================================ -->
+    
+        <!--  carga watch-02-data.js -->
+<script src="watch-02-data.js"></script>
     <script>
-        const videos = {}; // se rellena desde data.js / data-02.js / watch-02-data.js
-        let videos2 = null; // por si tu data-02.js lo define
+        // ============================================================
+        // BASE DE DATOS DE VIDEOS - CON IDs CORRECTOS
+        // ============================================================
+        const videos = {
+            1: {
+                title: "Barefoot Gen",
+                year: 1983,
+                studio: "Madhouse",
+                director: "Mori Masaki",
+                desc: "La historia de un niño que sobrevive al bombardeo atómico de Hiroshima.",
+                tags: ["Película", "Drama", "Histórico", "Bélico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8034325564013?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/2986566486648?nochat=1" }
+                ]
+            },
+            2: {
+                title: "Barefoot Gen 2",
+                year: 1986,
+                studio: "Madhouse",
+                director: "Toshio Hirata",
+                desc: "Tres años después del bombardeo atómico, Gen sigue luchando por sobrevivir.",
+                tags: ["Película", "Drama", "Histórico", "Bélico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10676698155606?nochat=1" }
+                ]
+            },
+            3: {
+                title: "Fire and Ice",
+                year: 1983,
+                studio: "Aspen Productions",
+                director: "Ralph Bakshi",
+                desc: "En un mundo de hielo y fuego, el guerrero Larn se une a Darkwolf para rescatar a la princesa Teegra.",
+                tags: ["Película", "Fantasía", "Aventura", "Acción", "Clásico"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/2397592619717?nochat=1" }
+                ]
+            },
+            4: {
+                title: "Angel's Egg",
+                year: 1985,
+                studio: "Studio Deen",
+                director: "Mamoru Oshii",
+                desc: "En un mundo sombrío, una niña protege un misterioso huevo en una ciudad gótica.",
+                tags: ["OVA", "Fantasía", "Ciencia ficción", "Experimental"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/8337781033598?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10139166378734?nochat=1" }
+                ]
+            },
+            5: {
+                title: "Megazone 23 Part I",
+                year: 1985,
+                studio: "Artland / Artmic",
+                director: "Noboru Ishiguro",
+                desc: "En el año 2023, un joven descubre que su realidad es una simulación.",
+                tags: ["OVA", "Ciencia ficción", "Cyberpunk", "Mecha"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/1892565584597?nochat=1" }
+                ]
+            },
+            6: {
+                title: "Megazone 23 Part II",
+                year: 1986,
+                studio: "Artmic",
+                director: "Ichiro Itano",
+                desc: "La segunda parte de Megazone 23.",
+                tags: ["OVA", "Ciencia ficción", "Cyberpunk", "Mecha"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/1892565060309?nochat=1" }
+                ]
+            },
+            7: {
+                title: "Megazone 23 Part III",
+                year: 1989,
+                studio: "Artmic",
+                director: "Shinji Aramaki",
+                desc: "La tercera y última parte de la saga Megazone 23.",
+                tags: ["OVA", "Ciencia ficción", "Cyberpunk", "Mecha"],
+                episodios: [
+                    { num: 1, version: "Sub - Parte 1", url: "https://ok.ru/videoembed/1892525345493?nochat=1" },
+                    { num: 1, version: "Sub - Parte 2", url: "https://ok.ru/videoembed/1892564929237?nochat=1" }
+                ]
+            },
+            8: {
+                title: "Arion",
+                year: 1986,
+                studio: "Sunrise",
+                director: "Yoshikazu Yasuhiko",
+                desc: "Arion es un joven criado por los dioses que emprende un viaje para vengarse.",
+                tags: ["Película", "Fantasía", "Aventura", "Mitología"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10744783178478?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3627079436826?nochat=1" }
+                ]
+            },
+            9: {
+                title: "Call Me Tonight",
+                year: 1986,
+                studio: "AIC",
+                director: "Tatsuya Okamoto",
+                desc: "Una de las obras más extrañas de los 80. Híbrido de comedia, horror y ciencia ficción.",
+                tags: ["OVA", "Sci-Fi", "Comedia", "Horror"],
+                episodios: [
+                    { num: 1, version: "", url: "https://www.youtube.com/embed/VoPvrHkgzZQ" }
+                ]
+            },
+            10: {
+                title: "Guyver: Out of Control",
+                year: 1986,
+                studio: "Visual 80",
+                director: "Koichi Ishiguro",
+                desc: "Una adaptación oscura y alternativa de The Guyver.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Horror", "Cyberpunk"],
+                episodios: [
+                    { num: 1, version: "", url: "https://mega.nz/embed/HxpUgb6b#DyRjDx6AcfXsYMhZGJDHo_Ra_f9e-bCVN0u67UcjamM" }
+                ]
+            },
+            11: {
+                title: "The Guyver: Bio-Booster Armor",
+                year: 1989,
+                studio: "Animate Film",
+                director: "Masahiro Otani",
+                desc: "La adaptación más fiel al manga de The Guyver.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Horror", "Cyberpunk"],
+                episodios: [
+                    { num: 1, version: "Ep.", url: "https://mega.nz/embed/duRxgCoZ#-yqmKMVMa2rLPnCzsNKHNzDGAxUGo13r1dPaFJsjxUk" },
+                    { num: 2, version: "Ep.", url: "https://mega.nz/embed/U3pS3SKL#99n-RwKw-_osjJ6nauMIgyk7fyr5TpaPFyEHGiV3oB0" },
+                    { num: 3, version: "Ep.", url: "https://mega.nz/embed/hjISHIaY#L6U8BDNmb7nNyBPslkTbwCQ0Ifa3pJj0jNufGDOb5WI" },
+                    { num: 4, version: "Ep.", url: "https://mega.nz/embed/QyRGVZqI#5XzLi9dAA08yPygX9NHiZBJ7fhHgjXJj2AjjUyl80yE" },
+                    { num: 5, version: "Ep.", url: "https://mega.nz/embed/kqZSiZJD#dU6ueFb3UoEd7I6ir-HnpMPbVTauHWb24-CnxmS4edw" },
+                    { num: 6, version: "Ep.", url: "https://mega.nz/embed/pz5QBAhR#Qstm2P5mdgBy9mk-OcGYEoFT0rHg6p8t_ImRfzx6srk" },
+                    { num: 7, version: "Ep.", url: "https://mega.nz/embed/Nmk0lACZ#zK8THm0DU64eoQUkgdxiN-tn8ClqKuKPZHbAHEGZvr0" },
+                    { num: 8, version: "Ep.", url: "https://mega.nz/embed/4vcQhI4T#jHSElBwdgRXkHZm8cTaBKl-nfd8vbhH0Ghj-aWJopQA" },
+                    { num: 9, version: "Ep.", url: "https://mega.nz/embed/0rFGXZ5B#12BM_FIn8HVdp03lR7Si1YoStOg5l5Tf56I0RvDT17M" },
+                    { num: 10, version: "Ep.", url: "https://mega.nz/embed/17khwaDb#sEOEuBqZdspeNwzo56f4uAfvQZU15_hvYBLoG6PEMt4" },
+                    { num: 11, version: "Ep.", url: "https://mega.nz/embed/1vl12ayb#9k7lDsyQ_gHg0z498FIR6nemiWIT2faUZO2vCNXCNTk" },
+                    { num: 12, version: "Ep.", url: "https://mega.nz/embed/MmFTlKAK#uLfBIq6jZrZ5t5dmB9TU7Oi5jzNwmPCkJludcrKsFk8" }
+                ]
+            },
+            12: {
+                title: "Hell Target",
+                year: 1986,
+                studio: "Nakamura Production",
+                director: "Keizo Nakamura",
+                desc: "En el planeta Inferno II, el primer equipo de exploración ha desaparecido.",
+                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3238568987154?nochat=1" }
+                ]
+            },
+            13: {
+                title: "MD Geist",
+                year: 1986,
+                studio: "Nippon Columbia",
+                director: "Hayato Ikeda",
+                desc: "Un soldado mejorado genéticamente con insaciable sed de batalla.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Mecha", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/9484172200689?nochat=1" }
+                ]
+            },
+            14: {
+                title: "MD Geist 2: Death Force",
+                year: 1996,
+                studio: "Zero-G Room",
+                director: "Hayato Ikeda",
+                desc: "La secuela de MD Geist. Geist continúa su lucha.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Mecha", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3990585215703?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/2062181075669?nochat=1" }
+                ]
+            },
+            15: {
+                title: "Project A-Ko",
+                year: 1986,
+                studio: "Soeishinsha / Studio A.P.P.P.",
+                director: "Katsuhiko Nishijima",
+                desc: "A-Ko, una chica con fuerza sobrehumana, y su amiga C-Ko, deben enfrentarse a B-Ko.",
+                tags: ["Película", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/K2J2jR5Z#eWCtACinHqOLC8JnZ-XrEbc2CWmaTsD-r9sgeyrSCcM" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/5703576914549?nochat=1" }
+                ]
+            },
+            16: {
+                title: "Project A-Ko 2: Plot of the Daitokuji Financial Group",
+                year: 1987,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "B-Ko obtiene la ayuda de su padre para construir un mecha gigante.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/16161273481786?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10409873574638?nochat=1" }
+                ]
+            },
+            17: {
+                title: "Project A-Ko 3: Cinderella Rhapsody",
+                year: 1988,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "Un misterioso maestro de artes marciales llega a Graviton City.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/16161316211258?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10409873640174?nochat=1" }
+                ]
+            },
+            18: {
+                title: "Project A-Ko 4: Final",
+                year: 1989,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "La conclusión de la saga. La madre de C-Ko llega a la Tierra.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Clásico"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/16161378601530?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10409873705710?nochat=1" }
+                ]
+            },
+            19: {
+                title: "Project A-Ko: Uncivil Wars (Vs)",
+                year: 1990,
+                studio: "Studio A.P.P.P.",
+                director: "Yuji Moriyama",
+                desc: "Un spin-off de Project A-Ko en un universo alternativo.",
+                tags: ["OVA", "Comedia", "Parodia", "Ciencia ficción", "Mecha", "Spin-off"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/HzBFXaxY#3Z1Ws-hQgG5Wq8NPJ0sjjR_BXEuO7zIyzwl5B7tyOjc" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/ruZwxBaD#2Z6JrI7XzjWVN2uAD5SzArMy8P6Y-_IuwcjQfkckVsw" }
+                ]
+            },
+            20: {
+                title: "Roots Search",
+                year: 1986,
+                studio: "Production Wave",
+                director: "Hisashi Sugai",
+                desc: "Un equipo de investigación en el espacio encuentra una nave abandonada.",
+                tags: ["OVA", "Ciencia ficción", "Terror", "Horror espacial"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11179775953649?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://www.youtube.com/embed/zPNrY-jf5mQ" }
+                ]
+            },
+            21: {
+                title: "Windaria",
+                year: 1986,
+                studio: "Kaname Productions",
+                director: "Kunihiko Yuyama",
+                desc: "En un mundo fantástico, dos reinos están en guerra.",
+                tags: ["Película", "Fantasía", "Aventura", "Romance", "Melancólico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/10723156757166?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10718103800564?nochat=1" }
+                ]
+            },
+            22: {
+                title: "Black Magic M-66",
+                year: 1987,
+                studio: "AIC / Animate",
+                director: "Hiroyuki Kitakubo",
+                desc: "Un androide militar de última generación se vuelve loco.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Cyberpunk", "Androide"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996683799255?nochat=1" },
+                    { num: 1, version: "Sub 4K", url: "//ok.ru/videoembed/16251927333434?nochat=1" }
+                ]
+            },
+            23: {
+                title: "Battle Royal High School",
+                year: 1987,
+                studio: "DAST",
+                director: "Ichirō Itano",
+                desc: "Un grupo de estudiantes descubre que tienen poderes sobrenaturales.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Artes marciales", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7943725976305?nochat=1" }
+                ]
+            },
+            24: {
+                title: "Lily C.A.T.",
+                year: 1987,
+                studio: "Studio Pierrot",
+                director: "Hisayuki Toriumi",
+                desc: "Terror espacial japonés con atmósfera cercana a 'Alien'.",
+                tags: ["Película", "Ciencia ficción", "Terror", "Espacial"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/2885176789548?nochat=1" },
+                    { num: 1, version: "Sub 1080p", url: "//ok.ru/videoembed/9125040818750?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/14745027873369?nochat=1" }
+                ]
+            },
+            25: {
+                title: "Crying Freeman",
+                year: 1988,
+                studio: "Toei Animation",
+                director: "Daisuke Nishio",
+                desc: "Yo Hinomura, un ceramista, es hipnotizado para convertirse en un asesino a sueldo que llora por sus víctimas.",
+                tags: ["OVA", "Acción", "Drama", "Artes marciales", "Romance", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/2541700057813?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/2541700123349?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/2541700188885?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/2541700254421?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/2061167364821?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/2061167626965?nochat=1" }
+                ]
+            },
+            26: {
+                title: "Dragon's Heaven",
+                year: 1988,
+                studio: "AIC",
+                director: "Makoto Kobayashi",
+                desc: "Una armadura robótica consciente despierta tras mil años para proteger a su creador.",
+                tags: ["OVA", "Ciencia Ficción", "Mecha", "Post-apocalíptico", "Experimental"],
+                episodios: [
+                    { num: 1, version: "", url: "https://www.youtube.com/embed/5ktDpZQlrC4" }
+                ]
+            },
+            27: {
+                title: "Blood Reign: Curse of the Yoma",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Takashi Anno",
+                desc: "Un ninja debe detener a su antiguo amigo, ahora poseído por un demonio.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Terror", "Samurái", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/11180024793841?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/11180161305329?nochat=1" }
+                ]
+            },
+            28: {
+                title: "Riki-Oh: The Wall of Hell (OVA 1)",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Satoshi Dezaki",
+                desc: "Riki-Oh, un hombre con fuerza sobrehumana, es enviado a una prisión privada.",
+                tags: ["OVA", "Acción", "Artes marciales", "Violento", "Gore"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993643977431?nochat=1" }
+                ]
+            },
+            29: {
+                title: "Riki-Oh 2 (OVA 2)",
+                year: 1989,
+                studio: "J.C.Staff",
+                director: "Satoshi Dezaki",
+                desc: "La segunda parte de la historia de Riki-Oh.",
+                tags: ["OVA", "Acción", "Artes marciales", "Violento", "Gore"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3993654594263?nochat=1" }
+                ]
+            },
+            30: {
+                title: "Nineteen 19",
+                year: 1990,
+                studio: "Madhouse",
+                director: "Koichi Chigira",
+                desc: "Kazushi tiene 19 años y busca el amor. Su primer amor vuelve a su vida.",
+                tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico"],
+                episodios: []
+            },
+            31: {
+                title: "A.D. Police Files",
+                year: 1990,
+                studio: "AIC / Artmic",
+                director: "Takamasa Ikegami",
+                desc: "En el Mega-Tokio de 2027, los Boomers (androides) se vuelven locos.",
+                tags: ["OVA", "Cyberpunk", "Ciencia ficción", "Acción", "Policíaco"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/11423781030638?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3990598060759?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/3990602123991?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/3990604483287?nochat=1" }
+                ]
+            },
+            32: {
+                title: "Record of Lodoss War (OVA)",
+                year: 1990,
+                studio: "Madhouse",
+                director: "Akinori Nagaoka",
+                desc: "Un grupo de héroes debe enfrentar las fuerzas del mal que amenazan el continente de Lodoss.",
+                tags: ["OVA", "Fantasía", "Aventura", "Épico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/H4Qz0QJa#NFe01m2kAcc73tn43vuRneq7khd2zado6XhgZbAPdP0" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/C5YmGB4T#l3rEEJTPu4wClKjHCysh8dlh0E4XSZGizTMElwy5M8c" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/LtghHTKS#7yCZNvmDMYWAtsE-7HVhN2qJgVYo-doCHk2cfYQBv3Y" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/mphikZSL#epmeH6qkSZr_Dyysfltzk0mStebCJgFkzmJPH-M3Adk" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/2xgjhD7L#8oyFRVV4poK2uTeDOKi59kpl33SrtZxosDT0YwChq4w" },
+                    { num: 6, version: "Sub", url: "https://mega.nz/embed/ex5hzTpJ#9FEz9D-wR6nBx2UMKTu2Q70Oav7rer3pRTivmIlXFF4" },
+                    { num: 7, version: "Sub", url: "https://mega.nz/embed/7gISCL5S#C_50qSIUFE4oIymQsTFbl-yufIswt8irbWKbjpSMr7U" },
+                    { num: 8, version: "Sub", url: "https://mega.nz/embed/LtgAmaaa#2XUNF7Wk6uNc8SEnMt6RXj6-9ry_y25lwcNemcZU6Is" },
+                    { num: 9, version: "Sub", url: "https://mega.nz/embed/YYtnTZBY#CYVt16jnj8jcE3TgjA_mEJUlaDWALDx8kjGK7MsPLHk" },
+                    { num: 10, version: "Sub", url: "https://mega.nz/embed/z0ZSgZyZ#adXJy9K_naJrYDJKfTZo0tedWCtCl8rN_y_nc_ixpt4" },
+                    { num: 11, version: "Sub", url: "https://mega.nz/embed/D1hFCDjB#IzwvHgxyLeFMOQSbgLgQ8YwivZzUBhKAbsh1kH7JsIE" },
+                    { num: 12, version: "Sub", url: "https://mega.nz/embed/mowVGKrQ#DSYWB56S2fFpCFIxnDC1f-Rd_In9AlMnTkTDxowXYD4" },
+                    { num: 13, version: "Sub", url: "https://mega.nz/embed/qpgjlLoZ#9Y_BwY2zCfunzZe-oejVrQ-h7XCSn48rdDhDOOp6cqw" },
+                    { num: 1, version: "Dob", url: "https://mega.nz/embed/bxYgGaqS#UN4wKAaD6QYYwfWdLeEt4LAC0cE0jtD1IssdZsO4shQ" },
+                    { num: 2, version: "Dob", url: "https://mega.nz/embed/mhw0FRRY#voYJxiLwzZmUf9CjyMpKY-_P0GnhNpjmMYSNcdV_E2E" },
+                    { num: 3, version: "Dob", url: "https://mega.nz/embed/awZSxJrZ#rv3ybYXuoPVSK8uVwLVYBdCoRvRdF-4A1yBW9aLFVL8" },
+                    { num: 4, version: "Dob", url: "https://mega.nz/embed/ukhz2S6Z#LoskibhCfFFfLW2_KHdfaLakZrsatyo2voHNf5haxCE" },
+                    { num: 5, version: "Dob", url: "https://mega.nz/embed/bpZCHKCI#2LM_CCcoP_D-ahhV2rjsmsIkaHs4wVmYUBJYCcW324c" },
+                    { num: 6, version: "Dob", url: "https://mega.nz/embed/nkxSWKxL#2W8a2txR9H824SEIcIIwj6EqfGK45L95f5Mh-2qwl30" },
+                    { num: 7, version: "Dob", url: "https://mega.nz/embed/n5ZRDRTT#Q5W6ET8YfJtvFkvJ3D77F3ovXECBbuWeoTMbwu6Ehhs" },
+                    { num: 8, version: "Dob", url: "https://mega.nz/embed/uwJHyKTI#ph3KkbV3fgzDL8pgNivrMM6TWVbFyhASu8pK_8u5SoA" },
+                    { num: 9, version: "Dob", url: "https://mega.nz/embed/DsQ0nCxI#Mr58mcIksg1SAPtj4JpvZadbxlNHDmjw6xJIJWzW8Jk" },
+                    { num: 10, version: "Dob", url: "https://mega.nz/embed/igoWTK4b#jTnOBS7u9qn9RliilvLqP9v6Z1vPq9nRnwH0wVwfNWI" },
+                    { num: 11, version: "Dob", url: "https://mega.nz/embed/C4gkwQQB#sBNC0ondkmy5pEZQ3rdufTJiK6LbI5pjheIgrPGmt5w" },
+                    { num: 12, version: "Dob", url: "https://mega.nz/embed/KtA31T7b#pEMddidP2AzHQr5lKGrxyLZB-ASwx94mwoOXrdwWnGk" },
+                    { num: 13, version: "Dob", url: "https://mega.nz/embed/jhoknazR#fql2It9Q1pZy-wOy1qT9AJSVNU0JNc0ISgGRAc_9AjM" }
+                ]
+            },
+            33: {
+                title: "The Curse of Kazuo Umezu",
+                year: 1990,
+                studio: "Takahashi Studio",
+                director: "Kazuo Umezu",
+                desc: "Una adaptación del legendario mangaka de terror Kazuo Umezu.",
+                tags: ["OVA", "Terror", "Antología", "Horror", "Psicológico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3627019995674?nochat=1" }
+                ]
+            },
+            34: {
+                title: "Dark Cat",
+                year: 1991,
+                studio: "Agent 21",
+                director: "Takeshi Watanabe",
+                desc: "Dos hermanos con el poder de transformarse en gatos deben detener una plaga demoníaca.",
+                tags: ["OVA", "Terror", "Acción", "Sobrenatural", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3397672634924?nochat=1" }
+                ]
+            },
+            35: {
+                title: "Roujin Z",
+                year: 1991,
+                studio: "A.P.P.P.",
+                director: "Hiroyuki Kitakubo",
+                desc: "El gobierno crea un robot para cuidar ancianos, pero es una máquina militar reconvertida.",
+                tags: ["Película", "Ciencia ficción", "Comedia", "Sátira", "Robot"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/4250607946343?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/10357892582126?nochat=1" }
+                ]
+            },
+            36: {
+                title: "3x3 Eyes (Sazan Eyes)",
+                year: 1991,
+                studio: "Toei Animation",
+                director: "Daisuke Nishio",
+                desc: "La última de una raza de inmortales de tres ojos busca convertirse en humana.",
+                tags: ["OVA", "Fantasía", "Aventura", "Horror", "Romance", "Misterio"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1929895938773?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/1929896004309?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1929897183957?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/1929921497813?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/7954491181807?nochat=1" },
+                    { num: 2, version: "Dob", url: "//ok.ru/videoembed/7954494851823?nochat=1" },
+                    { num: 3, version: "Dob", url: "//ok.ru/videoembed/7966390946543?nochat=1" },
+                    { num: 4, version: "Dob", url: "//ok.ru/videoembed/7966409558767?nochat=1" }
+                ]
+            },
+            37: {
+                title: "3x3 Eyes: Seima Densetsu",
+                year: 1995,
+                studio: "Hal Film Maker",
+                director: "Kazuhisa Takenouchi",
+                desc: "Cuatro años después, Pai ha desaparecido y Yakumo la busca sin descanso.",
+                tags: ["OVA", "Fantasía", "Aventura", "Horror", "Romance", "Misterio"],
+                episodios: [
+                    { num: 1, version: "Seima Sub", url: "https://mega.nz/embed/SjBGSIID#5p2FUZoXa_bRmQZ2vKYjPHvKOQhWqJ3323GpK_dvLlk" },
+                    { num: 2, version: "Seima Sub", url: "//ok.ru/videoembed/1929922677461?nochat=1" },
+                    { num: 3, version: "Seima Sub", url: "//ok.ru/videoembed/1929922874069?nochat=1" },
+                    { num: 1, version: "Seima Dob", url: "//ok.ru/videoembed/7966427056879?nochat=1" },
+                    { num: 2, version: "Seima Dob", url: "//ok.ru/videoembed/7966451174127?nochat=1" }
+                ]
+            },
+            38: {
+                title: "Midori: La Niña de las Camelias",
+                year: 1992,
+                studio: "Harada Production",
+                director: "Hiroshi Harada",
+                desc: "Una niña huérfana cae en un circo de fenómenos. Experiencia visual extrema.",
+                tags: ["Película", "Drama", "Terror", "Psicológico", "Ero-guro"],
+                episodios: [
+                    { num: 1, version: "", url: "//ok.ru/videoembed/4997606017775?nochat=1" }
+                ]
+            },
+            39: {
+                title: "Fatal Fury: Legend of the Hungry Wolf",
+                year: 1992,
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "Terry y Andy Bogard buscan venganza contra Geese Howard.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/9545577597505?nochat=1" }
+                ]
+            },
+            40: {
+                title: "Fatal Fury 2: The New Battle",
+                year: 1993,
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "Terry es derrotado por Krauser y cae en el alcoholismo.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/1904521185836?nochat=1" },
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/14313388771905?nochat=1" }
+                ]
+            },
+            41: {
+                title: "Fatal Fury: The Motion Picture",
+                year: 1994,
+                studio: "Studio Comet",
+                director: "Kazuhiro Furuhashi",
+                desc: "Terry, Andy y Joe viajan por el mundo para detener a Laocorn.",
+                tags: ["Película", "Acción", "Artes marciales", "Videojuego"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/7013340809793?nochat=1" }
+                ]
+            },
+            42: {
+                title: "Video Girl Ai",
+                year: 1992,
+                studio: "Production I.G",
+                director: "Mitsuo Hashimoto",
+                desc: "Yota alquila un video de una chica llamada Ai que cobra vida.",
+                tags: ["OVA", "Drama", "Romance", "Recuentos de la vida", "Nostálgico"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+01+by+Dark.mp4" },
+                    { num: 2, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+02+by+Dark.mp4" },
+                    { num: 3, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+03+by+Dark.mp4" },
+                    { num: 4, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+04+by+Dark.mp4" },
+                    { num: 5, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+05+by+Dark.mp4" },
+                    { num: 6, version: "Dob", url: "https://archive.org/embed/video-girl-ai/Video+Girl+Ai+-+06+by+Dark.mp4" }
+                ]
+            },
+            43: {
+                title: "Big Wars",
+                year: 1993,
+                studio: "Magic Bus",
+                director: "Toshifumi Takizawa",
+                desc: "La humanidad ha colonizado Marte y una raza alienígena ataca.",
+                tags: ["OVA", "Ciencia ficción", "Mecha", "Espacial", "Acción"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/3996628945623?nochat=1" }
+                ]
+            },
+            44: {
+                title: "Onikirimaru (Ogre Slayer)",
+                year: 1994,
+                studio: "J.C.Staff",
+                director: "Noboru Ishiguro",
+                desc: "Un cazador de demonios en el Japón feudal.",
+                tags: ["OVA", "Acción", "Fantasía", "Samurái", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://ok.ru/videoembed/7959672457969?nochat=1" },
+                    { num: 2, version: "Sub", url: "https://ok.ru/videoembed/7959674948337?nochat=1" },
+                    { num: 3, version: "Sub", url: "https://ok.ru/videoembed/10284842945198?nochat=1" },
+                    { num: 4, version: "Sub", url: "https://ok.ru/videoembed/10284844649134?nochat=1" }
+                ]
+            },
+            45: {
+                title: "Plastic Little",
+                year: 1994,
+                studio: "AIC / Animate",
+                director: "Kinji Yoshimoto",
+                desc: "Una cazadora de criaturas espaciales protege a una misteriosa chica.",
+                tags: ["OVA", "Ciencia ficción", "Aventura", "Comedia", "Cyberpunk"],
+                episodios: [
+                    { num: 1, version: "", url: "https://ok.ru/videoembed/11179925244657?nochat=1" }
+                ]
+            },
+            46: {
+                title: "Armitage III",
+                year: 1995,
+                studio: "AIC",
+                director: "Hiroyuki Ochi",
+                desc: "En el Marte del futuro, un detective y una androide investigan asesinatos.",
+                tags: ["OVA", "Cyberpunk", "Ciencia Ficción", "Acción", "Androides"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/bCwDDQoC#Zixy-nKpGBRwPSbLo-k6l5JRVugdSzjeM2ClPwiCNZQ" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/OeRXWAaZ#Kq9Xzcwlbut_15YjkAzpId028wabaMO5cHnnqUfKJak" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/uLpXSbCa#PSGaYc_FYBtrsEASWx2hTz0SdOXmT9EHqGUv77JxsRU" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/HWR0FRbb#k8zDc0lur4LygkMqGYPcImqnNZ3aDFofcToI2uPYKWk" },
+                    { num: 1, version: "Dob", url: "https://mega.nz/embed/Ujsn3DAB#b1mLvzvtlotHN-dWeMUkx1DTvwOEjtRiXMVXkz45rgM" },
+                    { num: 2, version: "Dob", url: "https://mega.nz/embed/J6UgWZTb#BgKKCXCF0616bAkWj-StJ5UraTmRGNBJrZvJ91QN3MI" },
+                    { num: 3, version: "Dob", url: "https://mega.nz/embed/IiFwDQ7T#93RBnqb90dFXEnYnyx5zNPcGbS-R2TCyD6Fs-I_XgNY" },
+                    { num: 4, version: "Dob", url: "https://mega.nz/embed/czFimbCZ#luPSEv8O6yN_uCdDhARPXm7gRO6Nih1aZ6mXIkMYMhI" }
+                ]
+            },
+            47: {
+                title: "Golden Boy",
+                year: 1995,
+                studio: "AIC / APPP",
+                director: "Hiroyuki Kitakubo",
+                desc: "Kintaro Oe abandona la universidad para recorrer Japón en bicicleta.",
+                tags: ["OVA", "Comedia", "Recuentos de la vida", "Ecchi", "Aventura"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/9370714049277?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1954576271895?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/1954576337431?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1958618335767?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/1958618270231?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/1958720047639?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/1958720113175?nochat=1" }
+                ]
+            },
+            48: {
+                title: "The Vision of Escaflowne",
+                year: 1996,
+                studio: "Sunrise",
+                director: "Kazuki Akane",
+                desc: "Hitomi Kanzaki es transportada al mundo de Gaea y pilota el mecha Escaflowne.",
+                tags: ["Serie TV", "Fantasía", "Mecha", "Romance", "Aventura", "Isekai"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/n7ASXZQY#A-DWhPP3uGIreHrkX1ITR3v5sueE8iW0E_Rn8uAUzM8" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/vrJnBTrR#KCVLaeJGK8rXkDlda1AWh0mJ4MC7VzgeWl5Vx64Lh4k" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/r6Q0UJST#r4o2Kh8XwHeznUaPHgdZUy5yTIREbSH8UNFq812CTVI" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/Xrwz1bKS#p5I0VA0VRhPZpOK7EU2T_VI0wdUOqYlJ8xl2A-AGY4A" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/63IgQTqA#kU8GfgDrOxySDG3pHyBUl8HFE08vgxB4Pk-aNzFtkSM" },
+                    { num: 6, version: "Sub", url: "https://mega.nz/embed/C6g3WRRA#nw6FPJSeGSVM5ikFThWtmIk6a0uJOb3ouftdKDcHrt8" },
+                    { num: 7, version: "Sub", url: "https://mega.nz/embed/CmREyY5Z#EhG5Y9zpD6e6SdWBUbqauhotAxblnhnetIaNWHLqQMM" },
+                    { num: 8, version: "Sub", url: "https://mega.nz/embed/S3w2DALb#fYJkggVvHEw0keFQSbvXKN7KFNx8eJiLIKcIyh0gFFI" },
+                    { num: 9, version: "Sub", url: "https://mega.nz/embed/qvokESTR#ebkAAc-sXgFVuFtUXwzoo7hSOq4DIGq1bD5DDb7UmO4" },
+                    { num: 10, version: "Sub", url: "https://mega.nz/embed/q3Y1XR5S#kfXpWrXutWIyJia8ir7XDNYatkO4LRgcS97UhgWelUI" },
+                    { num: 11, version: "Sub", url: "https://mega.nz/embed/juRDkBpB#yQ021aaw50_yGV6XLNybCs24MZ36ilkH62q9hfmfXFk" },
+                    { num: 12, version: "Sub", url: "https://mega.nz/embed/X2IBlCrZ#PoRJFZqgFgRQhywFOsn9fs8fz9z8ykQrQ6m_9PIUw1s" },
+                    { num: 13, version: "Sub", url: "https://mega.nz/embed/PuYQRZqK#qmfJbMS9_0JhzeTtrDwQhcgJlQ2Bq231AnATjDNisIU" },
+                    { num: 14, version: "Sub", url: "https://mega.nz/embed/2zICwQwI#N7SsMDXXCo5PBlNajcagC5ADGWfY2iaXacn5R5pSJ1s" },
+                    { num: 15, version: "Sub", url: "https://mega.nz/embed/764mxb6Z#gG-F2TM9iE4672jCfvQp9q77Ik2xm0LL4PivR6Eh6co" },
+                    { num: 16, version: "Sub", url: "https://mega.nz/embed/6qY11IBa#DzEBCXAo_FXab5S2aPxtBaHcMp1mrGKgMxl-E82e4z8" },
+                    { num: 17, version: "Sub", url: "https://mega.nz/embed/aqQCCBBC#supHgnsyW8ESm278DFmETDA98s0d46nD7ePBDrdE44c" },
+                    { num: 18, version: "Sub", url: "https://mega.nz/embed/y25HHbSR#0VAozUnmFz1-liWQROWaGVdyGOGCnVSR1VBsOqEM8pk" },
+                    { num: 19, version: "Sub", url: "https://mega.nz/embed/OuoGybjD#wBpCWdFhjRWMKtevjg8D-5Spr7liS4mhDXa__5MxqT0" },
+                    { num: 20, version: "Sub", url: "https://mega.nz/embed/K6BhCDZZ#gzaZeSaQM0F1hu0tUtAmVahoZwS523jX3M4kGotfcSM" },
+                    { num: 21, version: "Sub", url: "https://mega.nz/embed/auxgDTiT#5VkBOoaDl3kvUEeoZEzIIJesidnvX2B0JoAbQ9xMOxY" },
+                    { num: 22, version: "Sub", url: "https://mega.nz/embed/SuBF2I6Q#W8L9QQy23o2s0H2-Yvn7uZ3NnjKblQKtC7E15CFfilg" },
+                    { num: 23, version: "Sub", url: "https://mega.nz/embed/GrYnVazb#3ula56lYXya3ZnnX_5AWUoaHP0kpxqXF_2l4RrTUn6w" },
+                    { num: 24, version: "Sub", url: "https://mega.nz/embed/v6ZjEJYR#3V9a1ACJnXNWxtoRQez9XT_84UX_Q6Z53iEfi_-P9ks" },
+                    { num: 25, version: "Sub", url: "https://mega.nz/embed/ivgHXIQD#XyzBj-H8YPIpfqXbJVHmEMRHvYgg8dcVNaulPAiJ2C8" },
+                    { num: 26, version: "Sub", url: "https://mega.nz/embed/O6AnFCCS#ZmIob5WXoTQMHOBUVhSXJiv5UBp3pqN4TPtF564QlaA" }
+                ]
+            },
+            49: {
+                title: "Escaflowne (Película)",
+                year: 2000,
+                studio: "Sunrise / Bones",
+                director: "Kazuki Akane",
+                desc: "Hitomi es transportada a Gaea y descubre que es la 'diosa alada' profetizada.",
+                tags: ["Película", "Fantasía", "Aventura", "Drama", "Romance", "Dark Fantasy"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/3415996762638?nochat=1" },
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/vnBRjT7Y#6m-z7gpZWANdQaqIuA6I-Kf0NNck-7FyMAdVPqy8HGo" }
+                ]
+            },
+            50: {
+                title: "Ninja Resurrection",
+                year: 1997,
+                studio: "J.C.Staff",
+                director: "Yasunori Urata",
+                desc: "El líder de una rebelión cristiana resucita con poderes sobrenaturales.",
+                tags: ["OVA", "Acción", "Fantasía oscura", "Histórico", "Violento", "Samurái"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "https://ok.ru/videoembed/3043419556593?nochat=1" }
+                ]
+            },
+            51: {
+                title: "The Big O",
+                year: 1999,
+                studio: "Sunrise",
+                director: "Kazuyoshi Katayama",
+                desc: "En una ciudad sin memoria, Roger Smith pilota a Big O, un robot gigante.",
+                tags: ["Serie", "Ciencia ficción", "Mecha", "Misterio", "Nocturno", "Robot"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/77IxXYCS#98WupS3iyMbxyPw3ZqsG9oP2Zvj3ncmthvaLlWnfvtE" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/q6oQCDzJ#kO8uYspIAnGPG_dn9BFJr4FyCSga1X06XKYfSWmkm2M" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/X7hBxJBb#zeDaWf_C4fc_wnXyfMbjJZvQVPBtOV4u4ukb27_Q00w" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/evx02bgJ#ZvS2nr44t3qg9Bb-NYrJonnLe0NsjGjZxFIAsHm1YBo" }
+                ]
+            },
+            52: {
+                title: "Malice@Doll",
+                year: 2001,
+                studio: "GAGA Communications",
+                director: "Keitaro Motonaga",
+                desc: "En un mundo post-apocalíptico, un robot prostituta se convierte en humana.",
+                tags: ["OVA", "Horror", "Ciencia ficción", "Psicológico", "Experimental", "Cyberpunk"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10536472742614?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/10536472873686?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/1021877422669?nochat=1" }
+                ]
+            },
+            53: {
+                title: "Parasite Dolls",
+                year: 2003,
+                studio: "AIC",
+                director: "Naoyuki Yoshinaga",
+                desc: "En el Mega-Tokio de 2034, la división 'Branch' investiga crímenes relacionados con androides.",
+                tags: ["OVA", "Cyberpunk", "Ciencia ficción", "Policíaco", "Violento", "Adulto"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/9563359152705?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/11067556498161?nochat=1" }
+                ]
+            },
+            54: {
+                title: "Paprika",
+                year: 2006,
+                studio: "Madhouse",
+                director: "Satoshi Kon",
+                desc: "Una terapeuta usa un dispositivo para entrar en los sueños de sus pacientes.",
+                tags: ["Película", "Ciencia ficción", "Suspenso", "Psicológico", "Surrealista"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/4218845792884?nochat=1" },
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/FENDUISa#aSmRgMnz1gjqJbc1cUItOI4GPG3v5_HEpTDNsKCTdl8" }
+                ]
+            },
+            55: {
+                title: "Riki-Oh: The Story of Ricky",
+                year: 1991,
+                studio: "Golden Sun Films",
+                director: "Lam Nai-choi",
+                desc: "Ricky Ho es encarcelado en una prisión privada y debe enfrentarse a los guardias.",
+                tags: ["Live Action", "Acción", "Artes marciales", "Gore", "Culto"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/10465970686515?nochat=1" }
+                ]
+            },
+            56: {
+                title: "Mutronics (The Guyver)",
+                year: 1991,
+                studio: "New Line Cinema",
+                director: "Screaming Mad George",
+                desc: "Un joven se fusiona con un artefacto alienígena y se convierte en Guyver.",
+                tags: ["Live Action", "Ciencia ficción", "Acción", "Culto", "90s", "Superhéroes"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/6665898429147?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/7320502733398?nochat=1" }
+                ]
+            },
+            57: {
+                title: "Guyver: Dark Hero",
+                year: 1994,
+                studio: "New Line Cinema",
+                director: "Steve Wang",
+                desc: "Sean Barker sigue siendo el huésped de la armadura Guyver.",
+                tags: ["Live Action", "Ciencia ficción", "Acción", "Culto", "90s", "Superhéroes"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/2639713995285?nochat=1" },
+                    { num: 1, version: "Sub 1080p", url: "//ok.ru/videoembed/7320502798934?nochat=1" }
+                ]
+            },
+            58: {
+                title: "Midori: La Niña de las Camelias (Live Action)",
+                year: 2016,
+                studio: "Link Rights",
+                director: "TORICO",
+                desc: "Adaptación en imagen real del manga ero-guro de Suehiro Maruo.",
+                tags: ["Live Action", "Terror", "Drama", "Psicológico", "Ero-guro", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3737682643511?nochat=1" }
+                ]
+            },
+            59: {
+                title: "Riding Bean",
+                year: 1989,
+                studio: "AIC",
+                director: "Kenichi Sonoda",
+                desc: "Bean Bandit, el mejor conductor de fugas, y su socia Rally Vincent.",
+                tags: ["OVA", "Acción", "Comedia", "Crimen", "Culto", "80s", "Persecuciones"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/r1xVQaKK#g29lTbA0mIOvHbWOgz1ofB2KFHoRIcwcOTGG5PyZ7Pk" },
+                    { num: 1, version: "Sub REMASTERED", url: "//ok.ru/videoembed/10450546592430?nochat=1" }
+                ]
+            },
+            60: {
+                title: "Gedou Gakuen (Nightmare Campus)",
+                year: "1994-1996",
+                studio: "Phoenix Entertainment",
+                director: "Koji Yoshikawa",
+                desc: "Un estudiante es poseído por el Rey del Inframundo durante una expedición.",
+                tags: ["OVA", "Fantasía oscura", "Terror", "Sobrenatural", "Apocalíptico", "Adulto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/n3xATTaI#wC9cB4PTCLqOk6f2rKHn8QEl8C-y4cGaVP4c2UxSSeM" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/W2BVwDKJ#-5-77Y7uFi94d3mk1F_ORITDECJ_NO4a_6vMZ4FbTjc" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/TvxHxQoA#-bBJDSnfr63dU58El3Oi1XOW-Qp9e4mPHxlWLXFXEYA" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/DiwGVA7B#aL5Kcd723ZUeTI5jmXCJFvhsoFzudrn-5LPWxWGSGwM" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/mmgUTYAZ#mEBIhGto_m4DpCc8hP6Jcqd54LIKzZUGM945oW3RcSM" }
+                ]
+            },
+            61: {
+                title: "Reyon Densetsu Flair",
+                year: "1986-1990",
+                studio: "Kusama Art / AIC",
+                director: "Yukihiro Makino",
+                desc: "Una invasión alienígena asola el pacífico mundo de Lyon.",
+                tags: ["OVA", "Fantasía oscura", "Acción", "Ciencia ficción", "Adulto", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://archive.org/embed/reyon-densetsu-flair-01" },
+                    { num: 2, version: "Sub", url: "https://archive.org/embed/reyon-densetsu-flair-02" }
+                ]
+            },
+            62: {
+                title: "Ichi the Killer: Episode 0",
+                year: 2002,
+                studio: "AIC",
+                director: "Shinji Ishihira",
+                desc: "Precuela animada de la famosa película de Takashi Miike.",
+                tags: ["OVA", "Acción", "Drama", "Terror", "Psicológico", "Gore", "Yakuza", "Adulto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/13136331279086?nochat=1" }
+                ]
+            },
+            63: {
+                title: "Ichi the Killer (Película)",
+                year: 2001,
+                studio: "Emperor Motion Pictures",
+                director: "Takashi Miike",
+                desc: "Adaptación del manga de Hideo Yamamoto sobre un asesino y un yakuza.",
+                tags: ["Live Action", "Acción", "Crimen", "Terror", "Yakuza", "Gore", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3318299167297?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/7499650763311?nochat=1" },
+                    { num: 1, version: "Dob maxima calidad", url: "//ok.ru/videoembed/13161702361838?nochat=1" }
+                ]
+            },
+            64: {
+                title: "Cat Soup (Nekojiru-sou)",
+                year: 2001,
+                studio: "J.C.Staff",
+                director: "Tatsuo Satō",
+                desc: "Un gato viaja a través de un mundo surrealista para recuperar el alma de su hermana.",
+                tags: ["OVA", "Surrealista", "Experimental", "Psicológico", "Drama", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/8060804991621?nochat=1" }
+                ]
+            },
+            65: {
+                title: "Kite",
+                year: 1998,
+                studio: "Green Bunny / Arms",
+                director: "Yasuomi Umetsu",
+                desc: "Sawa, una joven asesina a sueldo, es controlada por los policías.",
+                tags: ["OVA", "Acción", "Crimen", "Drama", "Gore", "Adulto", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16079402633786?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/16090260507194?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/3415996828174?nochat=1" },
+                    { num: 2, version: "Dob", url: "//ok.ru/videoembed/3415997090318?nochat=1" }
+                ]
+            },
+            66: {
+                title: "Kite Liberator",
+                year: 2008,
+                studio: "Arms",
+                director: "Yasuomi Umetsu",
+                desc: "Secuela de Kite, una colegiala lleva una doble vida como asesina.",
+                tags: ["OVA", "Acción", "Ciencia ficción", "Thriller", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10936827710174?nochat=1" },
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/6952187988708?nochat=1" }
+                ]
+            },
+            67: {
+                title: "Mezzo Forte",
+                year: 2000,
+                studio: "Arms",
+                director: "Yasuomi Umetsu",
+                desc: "Mikura, una joven mercenaria, dirige la agencia Danger Service.",
+                tags: ["OVA", "Acción", "Comedia", "Cyberpunk", "Gore", "Adulto", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16090901121594?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/16091060308538?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/16090819660346?nochat=1" },
+                    { num: 2, version: "Dob", url: "//ok.ru/videoembed/16090879298106?nochat=1" }
+                ]
+            },
+            68: {
+                title: "Mezzo DSA",
+                year: 2004,
+                studio: "Arms",
+                director: "Yasuomi Umetsu",
+                desc: "La Danger Service Agency acepta cualquier trabajo peligroso por dinero.",
+                tags: ["Serie TV", "Acción", "Ciencia ficción", "Comedia", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/nAVziSIS#p8p4GdE_UopI13Oc91hnWKjFjDy3VCByjdXXNtJpo-M" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/2Y0TmJDY#0id1U289aWPl5A1gHsCxpdCAgOTNWt9QqAdGCTXrAc4" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/7QMynZ7J#eQLD4zsOXLGaVnuVlVD7nD0MV9VnNRB3Pu9Dn149xPI" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/CF0ywbiB#O2GvMo0P_UV-isjjI-g8bNeSt-wwXPo_PAy3n36ptaQ" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/PYEyyD6Z#OSBHYO8fMXVRBo9w4aUS1WHs-OlSK6TXLMhGvQwJVGM" },
+                    { num: 6, version: "Sub", url: "https://mega.nz/embed/zZ1zEYwZ#ALHwOD9cYQ40COXoK7osxaNmtOWYBEtYPzMSfm-F6m8" },
+                    { num: 7, version: "Sub", url: "https://mega.nz/embed/6AkU2ZIR#F2tcV3orVCC1mBtye510mpxAThNfPwi8fQKxLATZQg4" },
+                    { num: 8, version: "Sub", url: "https://mega.nz/embed/mM0R1QBT#m6QGgG0lyNbryMuTN2tKtOfDecAOnQKAuQ8MvqIbKf8" },
+                    { num: 9, version: "Sub", url: "https://mega.nz/embed/WZ1yAKLb#CYXA1q-uL4-_p0uIEdSx3uaHwKBjFqg9PZDnUXoj0oM" },
+                    { num: 10, version: "Sub", url: "https://mega.nz/embed/7JVEGRYC#HssrykqdS1RgxGNMNgIUgGYQ_o3Fai3mTRBw_uejbkI" },
+                    { num: 11, version: "Sub", url: "https://mega.nz/embed/6FczjCYC#4QheAjnqL44YE_pCQ6AcpFeG0Ot6LjIDmI_ZblctXDk" },
+                    { num: 12, version: "Sub", url: "https://mega.nz/embed/qJkADZQB#nlnuxpu_wneEyxw6a97Y_D_EKl8QHFWnNOEwgxB_wds" },
+                    { num: 13, version: "Sub", url: "https://mega.nz/embed/DMsXlD5T#athNLjPcQSjU3a2ZoItzG5efWTdOM0dIIzWRlckWcp0" }
+                ]
+            },
+            69: {
+                title: "Ayakashi: Japanese Classic Horror",
+                year: 2006,
+                studio: "Toei Animation",
+                director: "Kenji Nakamura",
+                desc: "Antología de tres historias de terror japonesas.",
+                tags: ["Serie TV", "Horror", "Fantasía", "Sobrenatural", "Antología", "Clásico"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3671615736527?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/3671614950095?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/3671615081167?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/3671615212239?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/3671615474383?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/3671615539919?nochat=1" },
+                    { num: 7, version: "Sub", url: "//ok.ru/videoembed/3671615277775?nochat=1" },
+                    { num: 8, version: "Sub", url: "//ok.ru/videoembed/3671615670991?nochat=1" },
+                    { num: 9, version: "Sub", url: "//ok.ru/videoembed/3671615343311?nochat=1" },
+                    { num: 10, version: "Sub", url: "//ok.ru/videoembed/3671615408847?nochat=1" },
+                    { num: 11, version: "Sub", url: "//ok.ru/videoembed/3671615146703?nochat=1" }
+                ]
+            },
+            70: {
+                title: "Kage (Hyper Shinobi Animation: Shadow)",
+                year: 2004,
+                studio: "A.P.P.P.",
+                director: "Masashi Abe",
+                desc: "Dos hábiles kunoichi se enfrentan en una sangrienta batalla.",
+                tags: ["OVA", "Acción", "Artes marciales", "Ninjas", "Gore", "Adulto", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/O14EXZoL#EplAYnEOecoToSC0vuyqJnThXfCihv0Ne_wsuVLmFxE" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/DgIkiJbb#iS4Jl0qCv0StYWqsIWHWnsXJ2XebScWpo322NvjlrEI" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/elBFXJ6Y#yILxnhiqUGBnYYSjaR1tP7K0RmyQNRnnqTfS6e3SA_0" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/ntpxHTyA#akKVaKGw_9gGyDe0MeCQtoj2MzVYd1PEZ7n0_fgCEJE" }
+                ]
+            },
+            71: {
+                title: "Key the Metal Idol",
+                year: "1994-1997",
+                studio: "Studio Pierrot",
+                director: "Hiroaki Satō",
+                desc: "Key es un robot que debe hacer 30,000 amigos para convertirse en humana.",
+                tags: ["OVA", "Drama", "Ciencia ficción", "Mecha", "Psicológico", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/W8YH1IZI#ry5xbkvIjPjeqhx0TzflVh6VQPotcaVvP7tSyq3j5z8" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/XlBkBLbA#PaToawR-X79Wk0MzNLb0V4U9VEaoRichph1YOtxjG6Q" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/z4xkxLzY#64RzprUTGNMrUsKYyLpQL7wbfVGcte6MQsiqWPQHMeQ" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/T5hA3SZY#X86tEfQHcRV5NVOI2CNo5fJZzv2uNcOezHnmJmixZD4" },
+                    { num: 5, version: "Sub", url: "https://mega.nz/embed/H4YBRLDB#B7xw-SEne-n0IOUtUoVHSdCDLWbQWSLZJpb3vmDL7Gk" },
+                    { num: 6, version: "Sub", url: "https://mega.nz/embed/T9hRgCyQ#CaAMpbtJzpCFAVmcGRtZys-RBJB7_7CA2Er9cgKfHZ4" },
+                    { num: 7, version: "Sub", url: "https://mega.nz/embed/HwwH1brZ#FX98F26tU4dHIwywmj_7uUhCynhjGRkWJ1ZDOWXzvNU" },
+                    { num: 8, version: "Sub", url: "https://mega.nz/embed/m85VDBTC#DptRHRFH2kgaebH2shfBLdfwp5_0AEldErpL6aqFa3M" },
+                    { num: 9, version: "Sub", url: "https://mega.nz/embed/XpogxCzY#XDAoQCqE9tJl6UUIDUNj8T2FGg-ZzxHFpC3lmbZlGio" },
+                    { num: 10, version: "Sub", url: "https://mega.nz/embed/HkgzlKKY#k1_by4x-wdPNZZ6PNeQiNd0YKUsM5VyoQ6eEUDbNhqs" },
+                    { num: 11, version: "Sub", url: "https://mega.nz/embed/XxQg3LZT#SqBDX3k5NxxwMj4Nx4W3AXKmBabNxMyhu065TnlX6pM" },
+                    { num: 12, version: "Sub", url: "https://mega.nz/embed/P8hRSDba#rGoQmyEucxtX_ZmuBW1xkiBLN9Z6zoHh-Fhc15w-CVk" },
+                    { num: 13, version: "Sub", url: "https://mega.nz/embed/30R1HaJK#aApsIttLRCIDKrD70hSgKklO2vXO5xt3nKUrx7LmS68" },
+                    { num: 14, version: "Sub", url: "https://mega.nz/embed/Ol5ggbTS#yp6Vf65j07VNGdEGI5tw7iISsVTOANJyfd8A49SC4-E" },
+                    { num: 15, version: "Sub", url: "https://mega.nz/embed/D9pSFRQR#aFH2s-alvBM-uPng_jaNUzIy_kB2VkabyRl5VqF6nFw" }
+                ]
+            },
+            72: {
+                title: "Lady Snowblood",
+                year: 1973,
+                studio: "Toho",
+                director: "Toshiya Fujita",
+                desc: "Yuki busca venganza contra los tres hombres que asesinaron a su padre.",
+                tags: ["Live Action", "Samurái", "Venganza", "Culto", "70s", "Violento"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/5120418646654?nochat=1" }
+                ]
+            },
+            73: {
+                title: "Mushishi (Película)",
+                year: 2006,
+                studio: "TBS / Hakuhodo",
+                director: "Katsuhiro Ōtomo",
+                desc: "Ginko viaja ayudando a personas afectadas por criaturas llamadas Mushi.",
+                tags: ["Live Action", "Fantasía", "Sobrenatural", "Misterio", "Melancólico", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/6928317549182?nochat=1" }
+                ]
+            },
+            74: {
+                title: "La Tumba de las Luciérnagas (Live Action 2005)",
+                year: 2005,
+                studio: "Nippon Television",
+                director: "Tōya Satō",
+                desc: "Adaptación live-action de la famosa novela de Akiyuki Nosaka.",
+                tags: ["Live Action", "Drama", "Histórico", "Bélico", "Triste", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1388353358362?nochat=1" }
+                ]
+            },
+            75: {
+                title: "Azumi",
+                year: 2003,
+                studio: "Toho / Sedic",
+                director: "Ryuhei Kitamura",
+                desc: "Azumi, una joven asesina, debe eliminar a los señores de la guerra.",
+                tags: ["Live Action", "Samurái", "Acción", "Culto", "Violento", "Manga"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/2801067166325?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/9740743215804?nochat=1" }
+                ]
+            },
+            76: {
+                title: "Azumi 2: Death or Love",
+                year: 2005,
+                studio: "Toho / Sedic",
+                director: "Shusuke Kaneko",
+                desc: "Azumi es capturada y se ve obligada a casarse con el hijo de un señor de la guerra.",
+                tags: ["Live Action", "Samurái", "Acción", "Culto", "Violento", "Secuela"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/1941661551305?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/6876167735934?nochat=1" }
+                ]
+            },
+            77: {
+                title: "Hanappe Bazooka",
+                year: 1992,
+                studio: "Studio Signal",
+                director: "No acreditado",
+                desc: "Hanappe recibe el poder de disparar un rayo con su dedo índice.",
+                tags: ["OVA", "Comedia", "Ecchi", "Surrealista", "Culto", "Adulto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/3312186952206?nochat=1" },
+                    { num: 1, version: "Dub", url: "//ok.ru/videoembed/1155624274434?nochat=1" }
+                ]
+            },
+            78: {
+                title: "Dallos",
+                year: 1985,
+                studio: "Studio Pierrot",
+                director: "Mamoru Oshii",
+                desc: "Considerado el primer OVA de la historia. Los colonos lunares se rebelan.",
+                tags: ["OVA", "Ciencia ficción", "Espacial", "Rebelión", "Culto", "80s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/14705474734830?nochat=1" },
+                    { num: 1, version: "Dallos Special Dub", url: "//ok.ru/videoembed/3289559009806?nochat=1" }
+                ]
+            },
+            79: {
+                title: "Legend of Crystania: The Motion Picture",
+                year: 1995,
+                studio: "Triangle Staff",
+                director: "Ryutaro Nakamura",
+                desc: "Película que da inicio a la saga Crystania, en el universo de Lodoss.",
+                tags: ["Película", "Fantasía", "Aventura", "Acción", "Culto", "90s", "Lodoss"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/qkhykbSC#JdDrywqkCMwukNPq76OlQTkS8nvwbyH43zTEq-DTaoo" }
+                ]
+            },
+            80: {
+                title: "Legend of Crystania: The Chaos Ring",
+                year: "1996-1997",
+                studio: "Triangle Staff",
+                director: "Kenichiro Watanabe",
+                desc: "Redon debe usar el Anillo del Caos para rescatar el alma de Lord Ashram.",
+                tags: ["OVA", "Fantasía", "Aventura", "Acción", "Culto", "90s", "Lodoss"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/G95WSAYJ#BEudFwDsfOmuCBRzpPN6_ypA8CtFbvpE1_ri7B_cRZ8" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/esIBnKAC#YUWOTolnzkKg7jEePu17AY6Z6g1GwntQ3OBhADg4MvU" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/ms4iEQCJ#GNmIA_7aj5Qgz4hBmfB-idjdCkvugF4zZw5m345bxxo" }
+                ]
+            },
+            81: {
+                title: "Wanna-Be's",
+                year: 1986,
+                studio: "AIC / Artmic",
+                director: "Yasuo Hasegawa",
+                desc: "Eri y Miki forman el equipo de lucha Wanna-Be's.",
+                tags: ["OVA", "Comedia", "Deportes", "Ciencia ficción", "Culto", "80s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16151811721786?nochat=1" }
+                ]
+            },
+            82: {
+                title: "Legend of Lemnear",
+                year: 1989,
+                studio: "AIC",
+                director: "Kinji Yoshimoto",
+                desc: "Lemnear jura venganza contra el mago que destruyó su aldea.",
+                tags: ["OVA", "Fantasía", "Acción", "Aventura", "Culto", "80s", "Rareza"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16153661475386?nochat=1" }
+                ]
+            },
+            83: {
+                title: "Goddamn",
+                year: 1990,
+                studio: "Studio Signal",
+                director: "Noboru Furuse",
+                desc: "Gen Todoroki es un piloto de rally que ha destrozado todos los coches.",
+                tags: ["OVA", "Deportes", "Acción", "Comedia", "Carreras", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/11403333601812?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/11403370629652?nochat=1" }
+                ]
+            },
+            84: {
+                title: "Power Dolls",
+                year: "1996-1998",
+                studio: "OLM / Artmic",
+                director: "Masamitsu Hidaka",
+                desc: "En el año 2535, la colonia Omni declara su independencia.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Mecha", "Militar", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/15533981633167?nochat=1" },
+                    { num: 2, version: "Dob", url: "//ok.ru/videoembed/15534094617231?nochat=1" }
+                ]
+            },
+            85: {
+                title: "Detonator Orgun",
+                year: "1991-1992",
+                studio: "AIC / Artmic",
+                director: "Masami Obari",
+                desc: "Tomoru Shindo tiene sueños con un mecha llamado Orgun.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Mecha", "Culto", "90s", "Rareza"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15536549464719?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/15536583674511?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/15536605039247?nochat=1" }
+                ]
+            },
+            86: {
+                title: "Kyou Kara Ore Wa!!",
+                year: "1993-1997",
+                studio: "Studio Pierrot",
+                director: "Takeshi Mori",
+                desc: "Dos estudiantes transferidos deciden convertirse en los delincuentes más temidos.",
+                tags: ["OVA", "Comedia", "Escolares", "Delincuencia", "Acción", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15544602331791?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/15544710072975?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/15544764140175?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/15545393547919?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/15545533336207?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/15545619581583?nochat=1" },
+                    { num: 7, version: "Sub", url: "//ok.ru/videoembed/15545723521679?nochat=1" },
+                    { num: 8, version: "Sub", url: "//ok.ru/videoembed/15545837161103?nochat=1" },
+                    { num: 9, version: "Sub", url: "//ok.ru/videoembed/15545885526671?nochat=1" },
+                    { num: 10, version: "Sub", url: "//ok.ru/videoembed/15546807683727?nochat=1" }
+                ]
+            },
+            87: {
+                title: "Ninja Scroll",
+                year: 1993,
+                studio: "JVC / Toho",
+                director: "Yoshiaki Kawajiri",
+                desc: "Jubei Kibagami se ve envuelto en una conspiración para derrocar al shogunato.",
+                tags: ["Película", "Acción", "Fantasía oscura", "Histórico", "Sobrenatural", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub(Softsub)", url: "//ok.ru/videoembed/6971085884132?nochat=1" },
+                    { num: 1, version: "Sub(Hardsub)", url: "//ok.ru/videoembed/4167572785767?nochat=1" },
+                    { num: 1, version: "Latino", url: "//ok.ru/videoembed/7124482132518?nochat=1" },
+                    { num: 1, version: "Castellano", url: "//ok.ru/videoembed/9870720436741?nochat=1" }
+                ]
+            },
+            88: {
+                title: "Ninja Scroll: The Series",
+                year: 2003,
+                studio: "Madhouse",
+                director: "Tatsuo Sato",
+                desc: "Catorce años después, Jubei se ve envuelto en una guerra entre dos clanes.",
+                tags: ["TV", "Acción", "Fantasía oscura", "Histórico", "Sobrenatural", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/10402312227502?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/10402316421806?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/10405018208942?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/10412431510190?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/10412451695278?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/10412467292846?nochat=1" },
+                    { num: 7, version: "Sub", url: "//ok.ru/videoembed/10412473977518?nochat=1" },
+                    { num: 8, version: "Sub", url: "//ok.ru/videoembed/10412480531118?nochat=1" },
+                    { num: 9, version: "Sub", url: "//ok.ru/videoembed/10412496194222?nochat=1" },
+                    { num: 10, version: "Sub", url: "//ok.ru/videoembed/10412504451758?nochat=1" },
+                    { num: 11, version: "Sub", url: "//ok.ru/videoembed/10412520245934?nochat=1" },
+                    { num: 12, version: "Sub", url: "//ok.ru/videoembed/10412529158830?nochat=1" },
+                    { num: 13, version: "Sub", url: "//ok.ru/videoembed/10412541545134?nochat=1" }
+                ]
+            },
+            89: {
+                title: "Oruchuban Ebichu",
+                year: 1999,
+                studio: "Group TAC / Gainax",
+                director: "Makoto Moriwaki",
+                desc: "Ebichu es un hámster que limpia, cocina y hace todo por su dueña.",
+                tags: ["TV", "Comedia", "Recuentos de la vida", "Ecchi", "Culto", "90s", "Adulto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16259953003066?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/16259958573626?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/16259969124922?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/16259982559802?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/16259965782586?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/16259996977722?nochat=1" },
+                    { num: 7, version: "Sub", url: "//ok.ru/videoembed/16260006742586?nochat=1" },
+                    { num: 8, version: "Sub", url: "//ok.ru/videoembed/16260021619258?nochat=1" },
+                    { num: 9, version: "Sub", url: "//ok.ru/videoembed/16260670294586?nochat=1" },
+                    { num: 10, version: "Sub", url: "//ok.ru/videoembed/16260678027834?nochat=1" },
+                    { num: 11, version: "Sub", url: "//ok.ru/videoembed/16260686940730?nochat=1" },
+                    { num: 12, version: "Sub", url: "//ok.ru/videoembed/16260696640058?nochat=1" },
+                    { num: 13, version: "Sub", url: "//ok.ru/videoembed/16260704897594?nochat=1" },
+                    { num: 14, version: "Sub", url: "//ok.ru/videoembed/16260726721082?nochat=1" },
+                    { num: 15, version: "Sub", url: "//ok.ru/videoembed/16260735896122?nochat=1" },
+                    { num: 16, version: "Sub", url: "//ok.ru/videoembed/16260741859898?nochat=1" },
+                    { num: 17, version: "Sub", url: "//ok.ru/videoembed/16265873984058?nochat=1" },
+                    { num: 18, version: "Sub", url: "//ok.ru/videoembed/16265879947834?nochat=1" },
+                    { num: 19, version: "Sub", url: "//ok.ru/videoembed/16265890302522?nochat=1" },
+                    { num: 20, version: "Sub", url: "//ok.ru/videoembed/16265902754362?nochat=1" },
+                    { num: 21, version: "Sub", url: "//ok.ru/videoembed/16265915992634?nochat=1" },
+                    { num: 22, version: "Sub", url: "//ok.ru/videoembed/16265940175418?nochat=1" },
+                    { num: 23, version: "Sub", url: "//ok.ru/videoembed/16265956559418?nochat=1" },
+                    { num: 24, version: "Sub", url: "//ok.ru/videoembed/16265965799994?nochat=1" }
+                ]
+            },
+            90: {
+                title: "Psychic Force",
+                year: 1998,
+                studio: "Triangle Staff",
+                director: "Kenichi Ōnuki",
+                desc: "En un futuro cercano, los psíquicos son perseguidos por el gobierno.",
+                tags: ["OVA", "Ciencia ficción", "Acción", "Superpoderes", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16233854208570?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/16234705652282?nochat=1" }
+                ]
+            },
+            91: {
+                title: "Dokushin Apartment Dokudami-sou",
+                year: "1989-1990",
+                studio: "Suna Kouhou",
+                director: "Hitoshi Oda",
+                desc: "Yoshio Hori es un jornalero que vive en la pobreza extrema en Tokio.",
+                tags: ["OVA", "Comedia", "Ecchi", "Recuentos de la vida", "Sobrenatural", "Culto"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16200871447098?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/16200955857466?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/16211840338490?nochat=1" }
+                ]
+            },
+            92: {
+                title: "Æon Flux",
+                year: "1991-1995",
+                studio: "MTV Animation / Klasky Csupo",
+                director: "Peter Chung",
+                desc: "Æon Flux es una agente secreta de Mónica, una ciudad-estado anarquista en un futuro distópico.",
+                tags: ["TV", "Ciencia ficción", "Acción", "Experimental", "Cyberpunk", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "DobT1", url: "//ok.ru/videoembed/16283297516090?nochat=1" },
+                    { num: 1, version: "DobT2", url: "//ok.ru/videoembed/16283327334970?nochat=1" },
+                    { num: 2, version: "DobT2", url: "//ok.ru/videoembed/16283331856954?nochat=1" },
+                    { num: 3, version: "DobT2", url: "//ok.ru/videoembed/16283370261050?nochat=1" },
+                    { num: 4, version: "DobT2", url: "//ok.ru/videoembed/16283375831610?nochat=1" },
+                    { num: 5, version: "DobT2", url: "//ok.ru/videoembed/16283381467706?nochat=1" },
+                    { num: 1, version: "DobT3", url: "//ok.ru/videoembed/16283434945082?nochat=1" },
+                    { num: 2, version: "DobT3", url: "//ok.ru/videoembed/16283458931258?nochat=1" },
+                    { num: 3, version: "DobT3", url: "//ok.ru/videoembed/16295185418810?nochat=1" },
+                    { num: 4, version: "DobT3", url: "//ok.ru/videoembed/16283479902778?nochat=1" },
+                    { num: 5, version: "DobT3", url: "//ok.ru/videoembed/16283499563578?nochat=1" },
+                    { num: 6, version: "DobT3", url: "//ok.ru/videoembed/16283580566074?nochat=1" },
+                    { num: 7, version: "DobT3", url: "//ok.ru/videoembed/16283615234618?nochat=1" },
+                    { num: 8, version: "DobT3", url: "//ok.ru/videoembed/16283649509946?nochat=1" },
+                    { num: 9, version: "DobT3", url: "//ok.ru/videoembed/16283682671162?nochat=1" },
+                    { num: 10, version: "DobT3", url: "//ok.ru/videoembed/16283701938746?nochat=1" }
+                ]
+            },
+            93: {
+                title: "Variable Geo",
+                year: "1996-1997",
+                studio: "KSS",
+                director: "Tōru Yoshida",
+                desc: "Yuka Takeuchi es camarera y entra al torneo Variable Geo para medirse contra luchadoras fuertes.",
+                tags: ["OVA", "Acción", "Artes marciales", "Ecchi", "Videojuego", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/16286595549754?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/16292332243514?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/16293176347194?nochat=1" }
+                ]
+            },
+            94: {
+                title: "Yoiko",
+                year: "1998-1999",
+                studio: "Studio Pierroti",
+                director: "Takahiro Omor",
+                desc: "Fūka Esumi es una niña de primaria con cuerpo de adulta. Su apariencia provoca malentendidos con profesores y compañeros.",
+                tags: ["TV", "Comedia", "Ecchi", "Recuentos de la vida", "Escolares", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15606696512143?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/15607127083663?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/15614683449999?nochat=1" },
+                    { num: 4, version: "Sub", url: "//ok.ru/videoembed/15614756522639?nochat=1" },
+                    { num: 5, version: "Sub", url: "//ok.ru/videoembed/15614775069327?nochat=1" },
+                    { num: 6, version: "Sub", url: "//ok.ru/videoembed/15614794664591?nochat=1" },
+                    { num: 7, version: "Sub", url: "//ok.ru/videoembed/15614815570575?nochat=1" },
+                    { num: 8, version: "Sub", url: "//ok.ru/videoembed/15614843423375?nochat=1" },
+                    { num: 9, version: "Sub", url: "//ok.ru/videoembed/15614679845519?nochat=1" },
+                    { num: 10, version: "Sub", url: "//ok.ru/videoembed/15614905092751?nochat=1" },
+                    { num: 11, version: "Sub", url: "//ok.ru/videoembed/15614941530767?nochat=1" },
+                    { num: 12, version: "Sub", url: "//ok.ru/videoembed/15614963026575?nochat=1" },
+                    { num: 13, version: "Sub", url: "//ok.ru/videoembed/15614984194703?nochat=1" },
+                    { num: 14, version: "Sub", url: "//ok.ru/videoembed/15616222562959?nochat=1" },
+                    { num: 15, version: "Sub", url: "//ok.ru/videoembed/15617069681295?nochat=1" },
+                    { num: 16, version: "Sub", url: "//ok.ru/videoembed/15619013544591?nochat=1" },
+                    { num: 17, version: "Sub", url: "//ok.ru/videoembed/15619047361167?nochat=1" },
+                    { num: 18, version: "Sub", url: "//ok.ru/videoembed/15620473555599?nochat=1" },
+                    { num: 19, version: "Sub", url: "//ok.ru/videoembed/15620480371343?nochat=1" },
+                    { num: 20, version: "Sub", url: "//ok.ru/videoembed/15620490988175?nochat=1" }
+                ]
+            },
+            95: {
+                title: "Dark City",
+                year: 1998,
+                studio: "Mystery Clock Cinema",
+                director: "Alex Proyas",
+                desc: "John Murdoch despierta en un hotel con amnesia, perseguido por la policía y por unos seres pálidos llamados Los Extraños.",
+                tags: ["Película", "Ciencia ficción", "Neo-noir", "Suspenso", "Misterio", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Castellano 1080p", url: "//ok.ru/videoembed/9870741605045?nochat=1 " },
+                    { num: 1, version: "Castellano", url: "//ok.ru/videoembed/7259023149615?nochat=1" },
+                    { num: 1, version: "latino", url: "//ok.ru/videoembed/7071736597076?nochat=1" }
+                ]
+            },
+            96: {
+                title: "Ghost Dog: El camino del samurai",
+                year: 1999,
+                studio: "Plywood Productions / Le Studio Canal+",
+                director: "Jim Jarmusch",
+                desc: "Ghost Dog es un asesino a sueldo afroamericano que vive según el código de honor de los samuráis.",
+                tags: ["Película", "Crimen", "Drama", "Cine independiente", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/8123333347926?nochat=1" }
+                ]
+            },
+            97: {
+                title: "Devilman: El Nacimiento (Devilman: Tanjou-hen)",
+                year: 1987,
+                studio: "Oh! Production",
+                director: "Umanosuke Iida",
+                desc: "Ryo Asuka convence a Akira Fudo de que los demonios planean apoderarse de la Tierra.",
+                tags: ["OVA", "Fantasía oscura", "Horror", "Acción", "Sobrenatural", "Culto", "80s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15630632946319?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/8044303813331?nochat=1" }
+                ]
+            },
+            98: {
+                title: "Devilman: El Pájaro Demonio (Devilman: Youchou Sirene-hen)",
+                year: 1990,
+                studio: "Oh! Production",
+                director: "Umanosuke Iida",
+                desc: "Secuela directa de Devilman: El Nacimiento. Akira, como Devilman, se enfrenta a la venganza de la demonio alada Sirene.",
+                tags: ["OVA", "Fantasía oscura", "Horror", "Acción", "Sobrenatural", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15631277689487?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/8050195565267?nochat=1" }
+                ]
+            },
+            99: {
+                title: "Amon: Apocalipsis de Devilman (Amon: Devilman Mokushiroku)",
+                year: 2000,
+                studio: "Studio Live",
+                director: "Kenichi Takeshita",
+                desc: "Tercera OVA de Devilman, basada en el manga 'Amon: The Darkside of Devilman'.",
+                tags: ["OVA", "Fantasía oscura", "Horror", "Acción", "Sobrenatural", "Culto", "2000"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15632248212111?nochat=1"},
+                    { num: 1, version: "Dob [Fandub]", url: "//ok.ru/videoembed/8051681069779?nochat=1"}
+                ]
+            },
+            100: {
+                title: "The Animatrix",
+                year: 2003,
+                studio: "Varios (Madhouse, Studio 4°C, Square Pictures)",
+                director: "Varios (Andy Jones, Mahiro Maeda, Shinichirō Watanabe, Yoshiaki Kawajiri, Takeshi Koike, Koji Morimoto, Peter Chung)",
+                desc: "Antología de nueve cortometrajes animados ambientados en el universo de The Matrix.",
+                tags: ["Película", "Ciencia ficción", "Cyberpunk", "Antología", "Culto", "2000s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/6976629115436?nochat=1" },
+                    { num: 1, version: "Dob", url: "//ok.ru/videoembed/16332902697530?nochat=1" }
+                ]
+            },
+            101: {
+                title: "Felidae",
+                year: 1994,
+                studio: "TFC Trickompany",
+                director: "Michael Schaack",
+                desc: "Francis, un gato negro con manchas blancas, investiga una serie de brutales asesinatos de gatos en su nuevo vecindario.",
+                tags: ["Película", "Misterio", "Terror", "Suspenso", "Neo-noir", "Gore", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15651074149007?nochat=1" }
+                ]
+            },
+            102: {
+                title: "El Planeta Salvaje (La Planète Sauvage)",
+                year: 1973,
+                studio: "Les Films Armorial / ORTF / Ceskoslovensky Filmexport",
+                director: "René Laloux",
+                desc: "En el planeta Ygam, los Draags, gigantes de piel azul, tienen como mascotas a los Oms, seres humanos diminutos.",
+                tags: ["Película", "Ciencia ficción", "Fantasía", "Experimental", "Filosófico", "Culto", "70s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/7046952061666?nochat=1" },
+                    { num: 1, version: "Castellano", url: "//ok.ru/videoembed/6983376439852?nochat=1" }
+                ]
+            },
+            103: {
+                title: "Heartwork: Symphony of Destruction (Heartwork: Love Guns)",
+                year: "2003-2004",
+                studio: "Kyushu Network Animation",
+                director: "Hitoshi Kawaguchi",
+                desc: "Un estudiante universitario cambia accidentalmente su maletín con el de un asesino a sueldo.",
+                tags: ["OVA", "Acción", "Drama", "Suspenso", "Policíaco", "Culto", "2000s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15662484556431?nochat=1" },
+                    { num: 2, version: "Sub", url: "//ok.ru/videoembed/15662502840975?nochat=1" },
+                    { num: 3, version: "Sub", url: "//ok.ru/videoembed/15662521715343?nochat=1" }
+                ]
+            },
+            104: {
+                title: "Teizokurei Daydream (Ghost Talker's Daydream)",
+                year: 2004,
+                studio: "HAL Film Maker",
+                director: "Osamu Sekita",
+                desc: "Misaki Saiki es una dominatrix que también tiene la habilidad de ver fantasmas.",
+                tags: ["OVA", "Sobrenatural", "Misterio", "Comedia", "Horror", "Culto", "2000s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "https://mega.nz/embed/Lwgg2DxB#zKBCFbEBPmCXiEfwe6B6em37tBsR-UJR6Gwzal-P-f8" },
+                    { num: 2, version: "Sub", url: "https://mega.nz/embed/KsxWFYxa#XJIfgMHbPXrwgydIokeJh5O2rtVV7-22m1lH-uju8Jk" },
+                    { num: 3, version: "Sub", url: "https://mega.nz/embed/qsBhDDgT#kkJ_MCWB1bvieUYzVfY13RMjIwI4MgAs9_ZiGLxXEvM" },
+                    { num: 4, version: "Sub", url: "https://mega.nz/embed/N7sD3LyC#XiY3I9R45JwSBLDLAEQcTCug2_tkH-TaJlf4MrgfSUM" }
+                ]
+            },
+            105: {
+                title: "Sanctuary",
+                year: 1996,
+                studio: "Pastel",
+                director: "Takashi Watanabe",
+                desc: "Dos amigos que sobrevivieron a la guerra en Camboya vuelven a Japón. Uno se convierte en gángster y el otro en político.",
+                tags: ["OVA", "Drama", "Crimen", "Político", "Yakuza", "Culto", "90s"],
+                episodios: [
+                    { num: 1, version: "Sub", url: "//ok.ru/videoembed/15663105444495?nochat=1" }
+                ]
+            },
+            106: {
+    title: "Superjail!",
+    year: "2007-2014",
+    studio: "Augenblick Studios / Titmouse, Inc.",
+    director: "Christy Karacas, Stephen Warbrick, Ben Gruber",
+    desc: "Superjail es la prisión más brutal y psicodélica del universo. El Warden y su excéntrico equipo intentan 'perfeccionar el arte del encarcelamiento' en medio de un caos sangriento y surrealista.",
+    tags: ["Comedia", "Violencia extrema", "Psicodélico", "Animación para adultos", "Culto"],
+    episodios: [
+        // ============================================================
+        // TEMPORADA 1 (2007) - 10 episodios
+        // ============================================================
+     
+        { num: 0, version: "Piloto", url: "//ok.ru/videoembed/16404003490362?nochat=1" },
+        { num: 1, version: "T1", url: "//ok.ru/videoembed/16404035275322?nochat=1" },
+        { num: 2, version: "T1", url: "//ok.ru/videoembed/16404048906810?nochat=1" },
+        { num: 3, version: "T1", url: "//ok.ru/videoembed/16404055001658?nochat=1" },
+        { num: 4, version: "T1", url: "//ok.ru/videoembed/16404059523642?nochat=1" },
+        { num: 5, version: "T1", url: "//ok.ru/videoembed/16404067781178?nochat=1" },
+        { num: 6, version: "T1", url: "//ok.ru/videoembed/16404072827450?nochat=1" },
+        { num: 7, version: "T1", url: "//ok.ru/videoembed/16404085279290?nochat=1" },
+        { num: 8, version: "T1", url: "//ok.ru/videoembed/16404091046458?nochat=1" },
+        { num: 9, version: "T1", url: "//ok.ru/videoembed/16404101270074?nochat=1" },
+        { num: 10, version: "T1", url: "//ok.ru/videoembed/16404108413498?nochat=1" },
+        // ============================================================
+        // TEMPORADA 2 (2009) - 10 episodios
+        // ============================================================
+        { num: 1, version: "T2", url: "//ok.ru/videoembed/15697835002511?nochat=1" },
+        { num: 2, version: "T2", url: "//ok.ru/videoembed/15697835068047?nochat=1" },
+        { num: 3, version: "T2", url: "//ok.ru/videoembed/15697835133583?nochat=1" },
+        { num: 4, version: "T2", url: "//ok.ru/videoembed/15697835199119?nochat=1" },
+        { num: 5, version: "T2", url: "//ok.ru/videoembed/15697835657871?nochat=1" },
+        { num: 6, version: "T2", url: "//ok.ru/videoembed/15697835592335?nochat=1" },
+        { num: 7, version: "T2", url: "//ok.ru/videoembed/15697835526799?nochat=1" },
+        { num: 8, version: "T2", url: "//ok.ru/videoembed/15697835461263?nochat=1" },
+        { num: 9, version: "T2", url: "//ok.ru/videoembed/15697835330191?nochat=1" },
+        { num: 10, version: "T2", url: "//ok.ru/videoembed/15697835395727?nochat=1" },
+        // ============================================================
+        // TEMPORADA 3 (2011) - 10 episodios
+        // ============================================================
+        { num: 1, version: "T3", url: "//ok.ru/videoembed/16405441808954?nochat=1" },
+        { num: 2, version: "T3", url: "//ok.ru/videoembed/16405442005562?nochat=1" },
+        { num: 3, version: "T3", url: "//ok.ru/videoembed/16405441940026?nochat=1" },
+        { num: 4, version: "T3", url: "//ok.ru/videoembed/16405442071098?nochat=1" },
+        { num: 5, version: "T3", url: "//ok.ru/videoembed/16405442202170?nochat=1" },
+        { num: 6, version: "T3", url: "//ok.ru/videoembed/16405442136634?nochat=1" },
+        { num: 7, version: "T3", url: "//ok.ru/videoembed/16405442333242?nochat=1" },
+        { num: 8, version: "T3", url: "//ok.ru/videoembed/16405442464314?nochat=1" },
+        { num: 9, version: "T3", url: "//ok.ru/videoembed/16405442398778?nochat=1" },
+        { num: 10, version: "T3", url: "//ok.ru/videoembed/16405442267706?nochat=1" },
+        // ============================================================
+        // TEMPORADA 4 (2014) - 8 episodios
+        // ============================================================
+        { num: 1, version: "T4", url: "//ok.ru/videoembed/15698947607183?nochat=1" },
+        { num: 2, version: "T4", url: "//ok.ru/videoembed/15698947738255?nochat=1" },
+        { num: 3, version: "T4", url: "//ok.ru/videoembed/15698947803791?nochat=1" },
+        { num: 4, version: "T4", url: "//ok.ru/videoembed/15698947869327?nochat=1" },
+        { num: 5, version: "T4", url: "//ok.ru/videoembed/15698947934863?nochat=1" },
+        { num: 6, version: "T4", url: "//ok.ru/videoembed/15698948000399?nochat=1" }
 
-        // --- helper: clave slug de la API a partir del título ---
-        function slugify(s) {
-            return String(s || "").toLowerCase()
-                .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-                .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-        }
-
-        // --- helper: transformar un objeto de la API a tu formato videos{} ---
-        function apiToLocal(apiSerie, apiCaps) {
-            const eps = (apiCaps || []).map(c => ({
-                num: c.capitulo,
-                version: c.tituloTemporada || (c.temporada > 1 ? `T${c.temporada}` : ""),
-                url: c.video,
-                _titulo: c.titulo,
-                _temporada: c.temporada,
-                _duracion: c.duracion
-            }));
-            return {
-                title: apiSerie.titulo,
-                year: apiSerie.fecha,
-                studio: "",
-                director: "",
-                desc: apiSerie.descripcion || "Sin descripción disponible.",
-                tags: [apiSerie.tipo || "serie", `${apiSerie.numCapitulosDisponibles || 0} caps`],
-                episodios: eps
-            };
-        }
-    </script>
-
-    <!-- Cargar tus data locales (si existen) -->
-    <script src="data.js" onerror="console.warn('data.js no encontrado')"></script>
-    <script src="data-02.js" onerror="console.warn('data-02.js no encontrado')"></script>
-    <script>
-        if (typeof videos2 !== 'undefined' && videos2) {
-            Object.assign(videos, videos2);
-        }
-    </script>
-
-    <!-- ============================================================ -->
-    <!-- LÓGICA PRINCIPAL -->
-    <!-- ============================================================ -->
-    <script>
-    (async function () {
-        const API = "https://frik-api.onrender.com";
+    ]
+}
+        };  
+  // COMBINAR CON watch-02-data.js
+  if (typeof videos2 !== 'undefined') {
+    Object.assign(videos, videos2);
+ }
+        
+        // ============================================================
+        // LEER PARÁMETROS DE LA URL
+        // ============================================================
         const params = new URLSearchParams(window.location.search);
-        const idParam = params.get('id');
-        const serieSlug = params.get('serie');
+        const id = parseInt(params.get('id'));
         const ep = parseInt(params.get('ep')) || 1;
         const version = params.get('version') || null;
 
-        const videoFrame = document.getElementById('videoFrame');
-        const videoTitle = document.getElementById('videoTitle');
-        const videoMeta = document.getElementById('videoMeta');
-        const episodeSelector = document.getElementById('episodeSelector');
-        const expedienteDesc = document.getElementById('expedienteDesc');
-        const expedienteTags = document.getElementById('expedienteTags');
-
-        videoFrame.addEventListener("contextmenu", e => e.preventDefault());
-        videoFrame.addEventListener("dragstart", e => e.preventDefault());
-
-        // =====================================================
-        // RUTA A: carga desde data.js local (id numérico)
-        // =====================================================
-        function cargarLocal(id) {
-            const v = videos[id];
-            if (!v) return false;
-
-            const episodios = v.episodios || [];
-            let actual = null;
-            if (episodios.length) {
-                actual = episodios.find(e => e.num === ep && (version ? e.version === version : true)) || episodios[0];
-            }
-
-            let suffix = '';
-            if (actual) {
-                if (actual.version && actual.version !== "Episodio") suffix = ` — ${actual.version} ${actual.num}`;
-                else if (episodios.length > 1) suffix = ` — Episodio ${actual.num}`;
-            }
-            document.title = v.title + suffix + " — Frame Perdido";
-            videoTitle.textContent = v.title + suffix;
-            videoMeta.textContent = `${v.year || ""} · ${v.studio || ""} · ${v.director || ""}`;
-
-            if (actual && actual.url) {
-                videoFrame.src = actual.url;
-            }
-
-            renderSelectorLocal(episodios, id);
-
-            expedienteDesc.textContent = v.desc || "Sin descripción.";
-            expedienteTags.innerHTML = (v.tags || []).map(t => `<span class="exp-tag">${t}</span>`).join('');
-            return true;
+        // ============================================================
+        // FUNCIONES
+        // ============================================================
+        function esVideoMega(url) {
+            return url && url.includes('mega.nz/embed');
         }
 
-        function renderSelectorLocal(episodios, id) {
-            if (!episodios.length) {
-                episodeSelector.innerHTML = `<p style="color:var(--text-muted);font-size:0.85rem;">No hay episodios disponibles.</p>`;
-                return;
-            }
-            const grupos = {};
-            episodios.forEach(e => {
-                const k = e.version || "Episodio";
-                (grupos[k] = grupos[k] || []).push(e);
-            });
-            const keys = Object.keys(grupos);
-            if (keys.length === 1 && keys[0] === "Episodio") {
-                episodeSelector.innerHTML = episodios.map(e =>
-                    `<button class="episode-btn ${e.num === ep ? 'active' : ''}" onclick="cambiarLocal(${id},${e.num},'')">Ep. ${e.num}</button>`
-                ).join('');
-                return;
-            }
-            episodeSelector.innerHTML = keys.map(k => {
-                const gid = 'g-' + id + '-' + k.replace(/\s/g, '-');
-                return `<div class="version-group">
-                    <button class="version-btn" onclick="toggleVersion('${gid}')">📁 ${k}<span class="count">${grupos[k].length}</span></button>
-                    <div class="episode-list" id="${gid}">
-                        ${grupos[k].map(e => `<button class="episode-btn ${e.num === ep && e.version === k ? 'active' : ''}" onclick="cambiarLocal(${id},${e.num},'${(e.version||'').replace(/'/g,"\\'")}')">Ep. ${e.num}</button>`).join('')}
-                    </div>
-                </div>`;
-            }).join('');
+        function esVideoYouTube(url) {
+            return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
         }
 
-        window.cambiarLocal = function (id, num, ver) {
+        function obtenerUrlClean(url) {
+            if (!url) return '';
+            if (esVideoMega(url)) return url;
+            if (esVideoYouTube(url)) {
+                let cleanUrl = url;
+                if (url.includes('?')) cleanUrl = url.split('?')[0];
+                return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
+            }
+            return url;
+        }
+
+        function cambiarEpisodio(id, num, version) {
             let url = `watch.html?id=${id}&ep=${num}`;
-            if (ver) url += `&version=${encodeURIComponent(ver)}`;
+            if (version) url += `&version=${version}`;
             window.location.href = url;
-        };
+        }
 
-        window.toggleVersion = function (gid) {
-            const list = document.getElementById(gid);
-            if (!list) return;
-            list.classList.toggle('open');
-        };
-
-        // =====================================================
-        // RUTA B: carga desde la API (slug)
-        // =====================================================
-        async function cargarDesdeAPI(slug) {
-            videoTitle.textContent = "Cargando...";
-            videoMeta.textContent = "";
-            try {
-                const [rS, rC] = await Promise.all([
-                    fetch(`${API}/serie/${encodeURIComponent(slug)}`),
-                    fetch(`${API}/serie/${encodeURIComponent(slug)}/capitulos?limit=500`)
-                ]);
-                if (!rS.ok) throw new Error(`Serie "${slug}" no encontrada (${rS.status})`);
-                const serie = await rS.json();
-                const caps = rC.ok ? (await rC.json()).items || [] : [];
-
-                document.title = `${serie.titulo} — Frame Perdido`;
-                videoTitle.textContent = serie.titulo;
-                videoMeta.textContent = [
-                    serie.fecha,
-                    serie.tipo,
-                    `${caps.length} caps disponibles`
-                ].filter(Boolean).join(' · ');
-
-                // Elegir capítulo
-                let cap = caps.find(c => c.capitulo === ep && (version ? c.temporada === parseInt(version) : true)) || caps[0];
-                if (cap) {
-                    videoFrame.src = cap.video;
-                    videoMeta.textContent += ` · T${cap.temporada}E${cap.capitulo}${cap.titulo ? ' — ' + cap.titulo : ''}`;
+        // ============================================================
+        // AGRUPAR EPISODIOS POR VERSIÓN
+        // ============================================================
+        function agruparEpisodios(episodios) {
+            const grupos = {};
+            episodios.forEach(ep => {
+                const version = ep.version || "Episodio";
+                if (!grupos[version]) {
+                    grupos[version] = [];
                 }
+                grupos[version].push(ep);
+            });
+            return grupos;
+        }
 
-                // Agrupar por temporada
-                const porTemp = {};
-                caps.forEach(c => (porTemp[c.temporada] = porTemp[c.temporada] || []).push(c));
-
-                episodeSelector.innerHTML = Object.keys(porTemp).sort((a,b)=>a-b).map(t => {
-                    const gid = `t-${serie.slug}-${t}`;
-                    const isOpen = cap && cap.temporada === parseInt(t);
-                    return `<div class="version-group">
-                        <button class="version-btn" onclick="toggleVersion('${gid}')">📁 Temporada ${t}<span class="count">${porTemp[t].length}</span></button>
-                        <div class="episode-list ${isOpen ? 'open' : ''}" id="${gid}">
-                            ${porTemp[t].sort((a,b)=>a.capitulo-b.capitulo).map(c =>
-                                `<button class="episode-btn ${cap && c.capitulo === cap.capitulo && c.temporada === cap.temporada ? 'active' : ''}"
-                                        onclick="cambiarAPI('${serie.slug}',${c.temporada},${c.capitulo})"
-                                        title="${(c.titulo||'').replace(/"/g,'&quot;')}">
-                                    ${c.capitulo}
-                                </button>`
-                            ).join('')}
+        function renderizarSelector(episodios, id) {
+            const grupos = agruparEpisodios(episodios);
+            const versiones = Object.keys(grupos);
+            
+            if (versiones.length === 1 && versiones[0] === "Episodio") {
+                return episodios.map(ep => {
+                    const label = `Ep. ${ep.num}`;
+                    return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">${label}</button>`;
+                }).join('');
+            }
+            
+            let html = '';
+            versiones.forEach(version => {
+                const eps = grupos[version];
+                const count = eps.length;
+                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
+                
+                html += `
+                    <div class="version-group">
+                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
+                            📁 ${version}
+                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
+                        </button>
+                        <div class="episode-list" id="${groupId}">
+                            ${eps.map(ep => {
+                                const label = `Ep. ${ep.num}`;
+                                return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">${label}</button>`;
+                            }).join('')}
                         </div>
-                    </div>`;
-                }).join('') || `<p style="color:var(--text-muted);font-size:0.85rem;">No hay capítulos disponibles.</p>`;
+                    </div>
+                `;
+            });
+            return html;
+        }
 
-                expedienteDesc.textContent = serie.descripcion || "Sin descripción disponible.";
-                expedienteTags.innerHTML = [
-                    serie.fecha ? `<span class="exp-tag">📅 ${serie.fecha}</span>` : '',
-                    serie.tipo ? `<span class="exp-tag">🏷️ ${serie.tipo}</span>` : '',
-                    serie.numCapitulosDisponibles ? `<span class="exp-tag">🎬 ${serie.numCapitulosDisponibles} capítulos</span>` : ''
-                ].filter(Boolean).join('');
-
-            } catch (err) {
-                console.error(err);
-                videoTitle.textContent = "Contenido no disponible";
-                expedienteDesc.textContent = `Error: ${err.message}`;
+        function toggleVersion(groupId) {
+            const list = document.getElementById(groupId);
+            const btn = list.previousElementSibling;
+            if (list.classList.contains('open')) {
+                list.classList.remove('open');
+                btn.innerHTML = btn.innerHTML.replace('📂', '📁');
+            } else {
+                list.classList.add('open');
+                btn.innerHTML = btn.innerHTML.replace('📁', '📂');
             }
         }
 
-        window.cambiarAPI = function (slug, temporada, capitulo) {
-            window.location.href = `watch.html?serie=${encodeURIComponent(slug)}&ep=${capitulo}&version=${temporada}`;
-        };
+        // ============================================================
+        // CARGAR CONTENIDO
+        // ============================================================
+        if (id && videos[id]) {
+            const v = videos[id];
+            const episodios = v.episodios;
 
-        // =====================================================
-        // ROUTER: ¿local o API?
-        // =====================================================
-        if (serieSlug) {
-            // Viene con ?serie=slug → usa la API
-            await cargarDesdeAPI(serieSlug);
-        } else if (idParam) {
-            const id = parseInt(idParam);
-            // Intenta primero local
-            if (!cargarLocal(id)) {
-                // Fallback: busca en la API por título (no hay slug en la URL)
-                try {
-                    const nombre = (videos[id] && videos[id].title) || null;
-                    if (nombre) {
-                        const r = await fetch(`${API}/buscar?q=${encodeURIComponent(nombre)}&limit=1`);
-                        const d = await r.json();
-                        if (d.items && d.items.length) {
-                            await cargarDesdeAPI(d.items[0].slug);
-                            return;
-                        }
-                    }
-                } catch (e) { console.warn(e); }
-
-                videoTitle.textContent = "Contenido no disponible";
-                expedienteDesc.textContent = "Este expediente no existe en el archivo.";
-                expedienteTags.innerHTML = `<span class="exp-tag">ID: ${id}</span>`;
+            let episodioActual = null;
+            if (episodios && episodios.length > 0) {
+                episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
+                if (!episodioActual) episodioActual = episodios[0];
             }
+
+            let titleSuffix = '';
+            if (episodioActual) {
+                if (episodioActual.version && episodioActual.version !== "Episodio") {
+                    titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
+                } else if (episodios.length > 1) {
+                    titleSuffix = ` — Episodio ${episodioActual.num}`;
+                }
+            }
+            document.getElementById('videoTitle').textContent = v.title + titleSuffix;
+            document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
+            document.title = v.title + titleSuffix + " — Frame Perdido";
+
+            if (episodioActual && episodioActual.url) {
+                const cleanUrl = obtenerUrlClean(episodioActual.url);
+                document.getElementById('videoFrame').src = cleanUrl;
+            } else {
+                document.getElementById('videoFrame').src = '';
+                document.getElementById('videoFrame').style.display = 'none';
+                const playerContainer = document.querySelector('.plyr-container');
+                const noVideoMsg = document.createElement('div');
+                noVideoMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
+                noVideoMsg.innerHTML = `
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">🎬 No hay video disponible</h3>
+                    <p style="font-size: 0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>
+                `;
+                playerContainer.appendChild(noVideoMsg);
+            }
+
+            if (episodios && episodios.length > 0) {
+                document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
+            } else {
+                document.getElementById('episodeSelector').innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>`;
+            }
+
+            document.getElementById('expedienteDesc').textContent = v.desc;
+            document.getElementById('expedienteTags').innerHTML = v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('');
+
+            if (document.getElementById('player') && episodioActual && episodioActual.url) {
+                const player = new Plyr('#player', {
+                    youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
+                    tooltips: { controls: true, seek: true },
+                    keyboard: { focused: true, global: true },
+                    fullscreen: { enabled: true, fallback: true, iosNative: true },
+                    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+                    settings: ['captions', 'quality', 'speed'],
+                    quality: { default: 720, options: [1080, 720, 480, 360] }
+                });
+            }
+
         } else {
-            videoTitle.textContent = "Falta parámetro en la URL";
-            expedienteDesc.textContent = "Usa ?id=123 (local) o ?serie=slug (API).";
-            expedienteTags.innerHTML = `<span class="exp-tag">Ejemplo: ?serie=doraemon</span>`;
+            document.getElementById('videoTitle').textContent = 'Contenido no disponible';
+            document.getElementById('videoMeta').textContent = '';
+            document.getElementById('episodeSelector').innerHTML = '';
+            document.getElementById('expedienteDesc').textContent = 'Este expediente no existe en nuestro archivo o no tiene video asociado.';
+            document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
+            document.title = "No disponible — Frame Perdido";
+            
+            const playerContainer = document.querySelector('.plyr-container');
+            const errorMsg = document.createElement('div');
+            errorMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
+            errorMsg.innerHTML = `
+                <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">⚠️ Expediente no encontrado</h3>
+                <p style="font-size: 0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p>
+                <a href="index.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 500;">← Volver al archivo</a>
+            `;
+            playerContainer.appendChild(errorMsg);
         }
-    })();
+   
     </script>
 
     <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
+
+
+   
     <script src="simpleblocker.js"></script>
+ 
+</script>
 </body>
 </html>
