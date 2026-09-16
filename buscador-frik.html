@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,17 +17,13 @@
     --bg-card:#12121a;
     --bg-elevated:#1a1a25;
     --bg-hover:#222230;
-
     --text:#e8e8f0;
     --text-muted:#8a8a9a;
     --text-dim:#5a5a6a;
-
     --accent:#d4a373;
     --accent-soft:#d4a37320;
     --accent-glow:#d4a37360;
-
     --border:#2a2420;
-    --border-hover:#3a322c;
 }
 
 * {
@@ -40,18 +38,6 @@ body {
     color:var(--text);
     min-height:100vh;
     padding:20px;
-
-    background-image:
-        radial-gradient(
-            ellipse at 30% 20%,
-            rgba(139,69,19,0.06) 0%,
-            transparent 60%
-        ),
-        radial-gradient(
-            ellipse at 70% 80%,
-            rgba(139,69,19,0.04) 0%,
-            transparent 60%
-        );
 }
 
 .wrap {
@@ -59,46 +45,35 @@ body {
     margin:0 auto;
 }
 
-/* HEADER */
-
 header {
     display:flex;
-    align-items:center;
     justify-content:space-between;
-
+    align-items:center;
     padding-bottom:14px;
-    margin-bottom:25px;
-
     border-bottom:1px solid var(--border);
+    margin-bottom:25px;
 }
 
 .logo {
     display:flex;
     align-items:center;
     gap:8px;
-
     text-decoration:none;
-    color:inherit;
+    color:var(--text);
 }
 
 .logo-icon {
     width:30px;
     height:30px;
-
     background:var(--accent);
-
     border-radius:4px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
+    color:#fff;
     font-family:'Space Mono',monospace;
     font-size:.8rem;
     font-weight:700;
-
-    color:#fff;
-
     box-shadow:0 0 20px var(--accent-glow);
 }
 
@@ -116,21 +91,242 @@ header {
 .back {
     color:var(--text-muted);
     text-decoration:none;
-
     font-family:'Space Mono',monospace;
     font-size:.7rem;
-
-    padding:7px 10px;
-
     border:1px solid var(--border);
+    padding:7px 10px;
     border-radius:4px;
-
-    transition:.2s;
 }
 
 .back:hover {
     color:var(--accent);
     border-color:var(--accent);
+}
+
+
+/* FICHA */
+
+.ficha {
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:25px;
+    margin-bottom:35px;
+}
+
+.poster {
+    aspect-ratio:2/3;
+    background:var(--bg-elevated);
+    border:1px solid var(--border);
+    border-radius:6px;
+    overflow:hidden;
+}
+
+.poster img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.poster-empty {
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-dim);
+    font-family:'Space Mono',monospace;
+    font-size:.7rem;
+}
+
+.ficha-info h1 {
+    font-family:'Space Mono',monospace;
+    font-size:1.7rem;
+    line-height:1.3;
+    margin-bottom:12px;
+}
+
+.meta {
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-bottom:18px;
+}
+
+.meta span {
+    padding:5px 9px;
+    border:1px solid var(--border);
+    background:var(--bg-card);
+    border-radius:4px;
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:.65rem;
+}
+
+.meta .accent {
+    color:var(--accent);
+    border-color:var(--accent);
+}
+
+.descripcion {
+    max-width:750px;
+    color:var(--text-muted);
+    font-size:.85rem;
+    line-height:1.7;
+}
+
+
+/* SECCIÓN */
+
+.section-title {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--border);
+}
+
+.section-title h2 {
+    font-family:'Space Mono',monospace;
+    font-size:.9rem;
+}
+
+.section-title span {
+    color:var(--text-dim);
+    font-family:'Space Mono',monospace;
+    font-size:.65rem;
+}
+
+
+/* TEMPORADAS */
+
+.temporada {
+    margin-bottom:8px;
+}
+
+.temporada-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:13px;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    cursor:pointer;
+    border-radius:4px;
+}
+
+.temporada-header:hover {
+    border-color:var(--accent);
+}
+
+.temporada-header h3 {
+    font-family:'Space Mono',monospace;
+    font-size:.75rem;
+}
+
+.temporada-header span {
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:.6rem;
+}
+
+.arrow {
+    display:inline-block;
+    color:var(--accent);
+    margin-right:7px;
+    transition:.2s;
+}
+
+.temporada.open .arrow {
+    transform:rotate(90deg);
+}
+
+
+/* EPISODIOS */
+
+.episodios {
+    display:none;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:8px;
+    padding-top:8px;
+}
+
+.temporada.open .episodios {
+    display:grid;
+}
+
+.episodio {
+    padding:12px;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:4px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.episodio:hover {
+    background:var(--bg-hover);
+    border-color:var(--accent);
+    transform:translateY(-2px);
+}
+
+.ep-num {
+    color:var(--accent);
+    font-family:'Space Mono',monospace;
+    font-size:.6rem;
+    margin-bottom:6px;
+}
+
+.ep-title {
+    font-size:.75rem;
+    line-height:1.4;
+}
+
+
+/* PLAYER */
+
+#player {
+    display:none;
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid var(--border);
+}
+
+#player.visible {
+    display:block;
+}
+
+.player-title {
+    font-family:'Space Mono',monospace;
+    font-size:.8rem;
+    margin-bottom:12px;
+}
+
+.player-box {
+    width:100%;
+    aspect-ratio:16/9;
+    background:#000;
+    border:1px solid var(--border);
+    border-radius:6px;
+    overflow:hidden;
+}
+
+.player-box iframe {
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+.close {
+    margin-top:10px;
+    padding:7px 12px;
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:.6rem;
+    cursor:pointer;
 }
 
 
@@ -140,12 +336,10 @@ header {
 .error,
 .empty {
     text-align:center;
-    padding:70px 20px;
-
-    font-family:'Space Mono',monospace;
-    font-size:.85rem;
-
+    padding:60px 20px;
     color:var(--text-muted);
+    font-family:'Space Mono',monospace;
+    font-size:.8rem;
 }
 
 .error {
@@ -153,346 +347,7 @@ header {
 }
 
 
-/* FICHA */
-
-.ficha {
-    display:grid;
-
-    grid-template-columns:220px 1fr;
-
-    gap:25px;
-
-    margin-bottom:35px;
-}
-
-.poster {
-    width:100%;
-
-    aspect-ratio:2/3;
-
-    background:var(--bg-elevated);
-
-    border:1px solid var(--border);
-
-    border-radius:6px;
-
-    overflow:hidden;
-}
-
-.poster img {
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-.poster-empty {
-    width:100%;
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:var(--text-dim);
-
-    font-family:'Space Mono',monospace;
-    font-size:.7rem;
-}
-
-.ficha-info h1 {
-    font-family:'Space Mono',monospace;
-
-    font-size:1.7rem;
-
-    line-height:1.3;
-
-    margin-bottom:10px;
-}
-
-.meta {
-    display:flex;
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-bottom:18px;
-}
-
-.meta span {
-    border:1px solid var(--border);
-
-    background:var(--bg-card);
-
-    color:var(--text-muted);
-
-    padding:5px 9px;
-
-    border-radius:4px;
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.65rem;
-}
-
-.meta span.accent {
-    color:var(--accent);
-    border-color:var(--accent-glow);
-}
-
-.descripcion {
-    color:var(--text-muted);
-
-    font-size:.85rem;
-
-    line-height:1.7;
-
-    max-width:750px;
-}
-
-
-/* TEMPORADAS */
-
-.seccion-titulo {
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    gap:10px;
-
-    margin-bottom:15px;
-
-    border-bottom:1px solid var(--border);
-
-    padding-bottom:10px;
-}
-
-.seccion-titulo h2 {
-    font-family:'Space Mono',monospace;
-
-    font-size:1rem;
-}
-
-.seccion-titulo span {
-    color:var(--text-dim);
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.65rem;
-}
-
-
-/* TEMPORADA */
-
-.temporada {
-    margin-bottom:22px;
-}
-
-.temporada-header {
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    background:var(--bg-card);
-
-    border:1px solid var(--border);
-
-    padding:12px 14px;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.temporada-header:hover {
-    border-color:var(--border-hover);
-}
-
-.temporada-header h3 {
-    font-family:'Space Mono',monospace;
-
-    font-size:.8rem;
-}
-
-.temporada-header span {
-    color:var(--text-muted);
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.65rem;
-}
-
-.temporada-arrow {
-    color:var(--accent);
-
-    margin-right:8px;
-
-    transition:.2s;
-}
-
-.temporada.open .temporada-arrow {
-    transform:rotate(90deg);
-}
-
-
-/* EPISODIOS */
-
-.episodios {
-    display:none;
-
-    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-
-    gap:8px;
-
-    padding-top:8px;
-}
-
-.temporada.open .episodios {
-    display:grid;
-}
-
-.episodio {
-    background:var(--bg-card);
-
-    border:1px solid var(--border);
-
-    border-radius:4px;
-
-    padding:11px;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.episodio:hover {
-    background:var(--bg-hover);
-
-    border-color:var(--accent);
-
-    transform:translateY(-2px);
-}
-
-.ep-num {
-    color:var(--accent);
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.65rem;
-
-    margin-bottom:5px;
-}
-
-.ep-title {
-    font-size:.75rem;
-
-    line-height:1.35;
-
-    color:var(--text);
-}
-
-.ep-extra {
-    margin-top:6px;
-
-    color:var(--text-dim);
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.58rem;
-}
-
-
-/* REPRODUCTOR */
-
-.player-section {
-    display:none;
-
-    margin-top:35px;
-
-    border-top:1px solid var(--border);
-
-    padding-top:25px;
-}
-
-.player-section.visible {
-    display:block;
-}
-
-.player-title {
-    font-family:'Space Mono',monospace;
-
-    font-size:.9rem;
-
-    margin-bottom:12px;
-}
-
-.player-box {
-    width:100%;
-
-    aspect-ratio:16/9;
-
-    background:#000;
-
-    border:1px solid var(--border);
-
-    border-radius:6px;
-
-    overflow:hidden;
-}
-
-.player-box iframe {
-    width:100%;
-    height:100%;
-
-    border:0;
-}
-
-.player-loading {
-    width:100%;
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:var(--text-muted);
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.75rem;
-}
-
-.close-player {
-    margin-top:10px;
-
-    background:transparent;
-
-    border:1px solid var(--border);
-
-    color:var(--text-muted);
-
-    padding:7px 12px;
-
-    border-radius:4px;
-
-    cursor:pointer;
-
-    font-family:'Space Mono',monospace;
-
-    font-size:.65rem;
-}
-
-.close-player:hover {
-    border-color:var(--accent);
-    color:var(--accent);
-}
-
-
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:700px) {
 
@@ -502,27 +357,15 @@ header {
 
     .ficha {
         grid-template-columns:120px 1fr;
-
         gap:15px;
     }
 
     .ficha-info h1 {
-        font-size:1.05rem;
+        font-size:1rem;
     }
 
     .descripcion {
-        font-size:.75rem;
-        line-height:1.55;
-    }
-
-    .meta {
-        gap:4px;
-        margin-bottom:10px;
-    }
-
-    .meta span {
-        font-size:.55rem;
-        padding:4px 6px;
+        font-size:.72rem;
     }
 
     .episodios {
@@ -532,7 +375,9 @@ header {
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -540,26 +385,30 @@ header {
 
 <header>
 
-    <a href="index.html" class="logo">
-        <div class="logo-icon">FP</div>
+<a href="index.html" class="logo">
 
-        <div class="logo-text">
-            Frame <span>Perdido</span>
-        </div>
-    </a>
+<div class="logo-icon">
+FP
+</div>
 
-    <a href="series.html" class="back">
-        ← SERIES
-    </a>
+<div class="logo-text">
+Frame <span>Perdido</span>
+</div>
+
+</a>
+
+<a href="series.html" class="back">
+← SERIES
+</a>
 
 </header>
 
 
 <div id="contenido">
 
-    <div class="loading">
-        &gt; Cargando expediente...
-    </div>
+<div class="loading">
+&gt; Cargando expediente...
+</div>
 
 </div>
 
@@ -577,83 +426,41 @@ const API = "https://frik-api.onrender.com";
 
 
 /* =========================================================
-   UTILIDADES
+   SLUG DE LA URL
    ========================================================= */
 
-const $ = selector =>
-    document.querySelector(selector);
+const params = new URLSearchParams(
+    window.location.search
+);
 
+const slug = params.get("serie");
+
+
+/* =========================================================
+   ESCAPAR HTML
+   ========================================================= */
 
 function esc(valor) {
 
     return String(valor ?? "")
-        .replace(/[&<>"']/g, caracter => ({
+        .replace(/[&<>"']/g, c => ({
             "&":"&amp;",
             "<":"&lt;",
             ">":"&gt;",
             '"':"&quot;",
             "'":"&#39;"
-        }[caracter]));
-
-}
-
-
-/*
-    Obtiene un valor intentando varios nombres posibles.
-
-    Esto permite que la página tolere pequeñas diferencias
-    en los nombres de los campos de la API.
-*/
-
-function campo(obj, nombres, defecto = "") {
-
-    for (const nombre of nombres) {
-
-        if (
-            obj &&
-            obj[nombre] !== undefined &&
-            obj[nombre] !== null
-        ) {
-            return obj[nombre];
-        }
-
-    }
-
-    return defecto;
-}
-
-
-/* =========================================================
-   SLUG DE LA URL
-   ========================================================= */
-
-const parametros = new URLSearchParams(
-    window.location.search
-);
-
-const slug = parametros.get("serie");
-
-
-if (!slug) {
-
-    $("#contenido").innerHTML = `
-        <div class="error">
-            ✕ No se recibió ninguna serie.
-        </div>
-    `;
-
-} else {
-
-    cargarExpediente(slug);
+        }[c]));
 
 }
 
 
 /* =========================================================
-   PETICIÓN JSON
+   PETICIÓN API
    ========================================================= */
 
 async function pedir(url) {
+
+    console.log("API:", url);
 
     const respuesta = await fetch(url);
 
@@ -671,70 +478,54 @@ async function pedir(url) {
 
 
 /* =========================================================
-   CARGAR FICHA
+   INICIO
    ========================================================= */
 
-async function cargarExpediente(slug) {
+async function iniciar() {
+
+    if (!slug) {
+
+        mostrarError(
+            "No se recibió el slug de la serie."
+        );
+
+        return;
+    }
+
 
     try {
 
         /*
-            1. Pedimos la ficha
-        */
+         * 1. FICHA
+         */
 
-        const ficha = await pedir(
+        const serie = await pedir(
             `${API}/serie/${encodeURIComponent(slug)}`
         );
 
 
         /*
-            Algunas APIs devuelven:
+         * 2. CAPÍTULOS
+         *
+         * La API devuelve:
+         *
+         * {
+         *   slug,
+         *   titulo,
+         *   total,
+         *   page,
+         *   limit,
+         *   items:[...]
+         * }
+         */
 
-            {
-                "serie": {...}
-            }
-
-            y otras directamente:
-
-            {
-                "titulo": ...
-            }
-
-            Por eso comprobamos ambas.
-        */
-
-        const serie =
-            ficha.serie ||
-            ficha.data ||
-            ficha;
+        const datosCaps = await pedir(
+            `${API}/serie/${encodeURIComponent(slug)}/capitulos?limit=500`
+        );
 
 
-        /*
-            2. Pedimos TODOS los capítulos
-
-            La API ya tiene el endpoint para esto.
-        */
-
-        const capitulosRespuesta =
-            await pedir(
-                `${API}/serie/${encodeURIComponent(slug)}/capitulos`
-            );
-
-
-        /*
-            Puede devolver directamente un array
-            o un objeto con "items", "capitulos" o "data".
-        */
-
-        let capitulos =
-            Array.isArray(capitulosRespuesta)
-                ? capitulosRespuesta
-                : (
-                    capitulosRespuesta.capitulos ||
-                    capitulosRespuesta.items ||
-                    capitulosRespuesta.data ||
-                    []
-                );
+        const capitulos =
+            datosCaps.items || [];
 
 
         mostrarFicha(
@@ -747,12 +538,9 @@ async function cargarExpediente(slug) {
 
         console.error(error);
 
-        $("#contenido").innerHTML = `
-            <div class="error">
-                ✕ No se pudo cargar la serie.<br><br>
-                <small>${esc(error.message)}</small>
-            </div>
-        `;
+        mostrarError(
+            `No se pudo cargar la serie: ${error.message}`
+        );
 
     }
 
@@ -760,81 +548,87 @@ async function cargarExpediente(slug) {
 
 
 /* =========================================================
-   MOSTRAR FICHA + CAPÍTULOS
+   MOSTRAR ERROR
    ========================================================= */
 
-function mostrarFicha(serie, capitulos) {
+function mostrarError(mensaje) {
+
+    document.getElementById("contenido").innerHTML = `
+
+        <div class="error">
+
+            ✕ ${esc(mensaje)}
+
+            <br><br>
+
+            <a
+                href="series.html"
+                style="color:var(--accent)"
+            >
+                ← Volver a series
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   FICHA
+   ========================================================= */
+
+function mostrarFicha(
+    serie,
+    capitulos
+) {
 
     const titulo =
-        campo(
-            serie,
-            ["titulo","title","nombre"],
-            "Sin título"
-        );
-
+        serie.titulo || "Sin título";
 
     const imagen =
-        campo(
-            serie,
-            ["imagen","poster","portada","imagen_url","poster_url"],
-            ""
-        );
-
+        serie.imagen || "";
 
     const fecha =
-        campo(
-            serie,
-            ["fecha","anio","año","year"],
-            ""
-        );
-
+        serie.fecha || "";
 
     const tipo =
-        campo(
-            serie,
-            ["tipo","type"],
-            "serie"
-        );
-
+        serie.tipo || "serie";
 
     const descripcion =
-        campo(
-            serie,
-            ["descripcion","description","sinopsis"],
-            ""
-        );
+        serie.descripcion || "";
 
 
     document.title =
         `${titulo} — Frame Perdido`;
 
 
-    const posterHTML = imagen
-
-        ? `
-            <img
-                src="${esc(imagen)}"
-                alt="${esc(titulo)}"
-                onerror="
-                    this.parentElement.innerHTML =
-                    '<div class=\\'poster-empty\\'>🎬 Sin portada</div>'
-                "
-            >
-          `
-
-        : `
-            <div class="poster-empty">
-                🎬 Sin portada
-            </div>
-          `;
-
-
-    $("#contenido").innerHTML = `
+    document.getElementById(
+        "contenido"
+    ).innerHTML = `
 
         <section class="ficha">
 
             <div class="poster">
-                ${posterHTML}
+
+                ${
+                    imagen
+
+                    ? `
+                        <img
+                            src="${esc(imagen)}"
+                            alt="${esc(titulo)}"
+                        >
+                    `
+
+                    : `
+                        <div class="poster-empty">
+                            🎬 Sin portada
+                        </div>
+                    `
+                }
+
             </div>
 
 
@@ -858,8 +652,7 @@ function mostrarFicha(serie, capitulos) {
                     </span>
 
                     <span>
-                        ${capitulos.length}
-                        capítulo${capitulos.length !== 1 ? "s" : ""}
+                        ${capitulos.length} capítulos
                     </span>
 
                 </div>
@@ -871,7 +664,7 @@ function mostrarFicha(serie, capitulos) {
                         <div class="descripcion">
                             ${esc(descripcion)}
                         </div>
-                      `
+                    `
                     : ""
                 }
 
@@ -882,10 +675,10 @@ function mostrarFicha(serie, capitulos) {
 
         <section>
 
-            <div class="seccion-titulo">
+            <div class="section-title">
 
                 <h2>
-                    CAPÍTULOS
+                    EPISODIOS
                 </h2>
 
                 <span>
@@ -900,10 +693,7 @@ function mostrarFicha(serie, capitulos) {
         </section>
 
 
-        <section
-            id="playerSection"
-            class="player-section"
-        >
+        <section id="player">
 
             <div
                 id="playerTitle"
@@ -918,8 +708,8 @@ function mostrarFicha(serie, capitulos) {
 
 
             <button
-                id="closePlayer"
-                class="close-player"
+                class="close"
+                onclick="cerrarPlayer()"
             >
                 CERRAR REPRODUCTOR
             </button>
@@ -929,100 +719,66 @@ function mostrarFicha(serie, capitulos) {
     `;
 
 
-    $("#closePlayer").addEventListener(
-        "click",
-        cerrarPlayer
+    construirTemporadas(
+        capitulos
     );
-
-
-    construirTemporadas(capitulos);
 
 }
 
 
 /* =========================================================
-   AGRUPAR CAPÍTULOS POR TEMPORADA
+   AGRUPAR TEMPORADAS
    ========================================================= */
 
-function construirTemporadas(capitulos) {
+function construirTemporadas(
+    capitulos
+) {
 
     const grupos = {};
 
 
-    capitulos.forEach((capitulo, indice) => {
-
-        /*
-            Intentamos diferentes nombres posibles
-            para temporada.
-        */
+    for (const cap of capitulos) {
 
         const temporada =
-            campo(
-                capitulo,
-                [
-                    "temporada",
-                    "season",
-                    "temporada_num",
-                    "season_number"
-                ],
-                1
-            );
+            Number(cap.temporada);
 
 
-        const numero =
-            campo(
-                capitulo,
-                [
-                    "capitulo",
-                    "episodio",
-                    "episode",
-                    "numero",
-                    "number",
-                    "episode_number"
-                ],
-                indice + 1
-            );
+        if (!grupos[temporada]) {
 
+            grupos[temporada] = [];
 
-        /*
-            Guardamos el número normalizado.
-        */
-
-        const clave =
-            String(temporada);
-
-
-        if (!grupos[clave]) {
-            grupos[clave] = [];
         }
 
 
-        grupos[clave].push({
-            ...capitulo,
-            _temporada: temporada,
-            _numero: numero
-        });
+        grupos[temporada].push(cap);
 
-    });
+    }
 
 
     const contenedor =
-        $("#temporadas");
+        document.getElementById(
+            "temporadas"
+        );
 
 
     const temporadas =
-        Object.keys(grupos).sort(
-            (a,b) =>
-                Number(a) - Number(b)
-        );
+        Object.keys(grupos)
+            .sort(
+                (a,b) =>
+                    Number(a) - Number(b)
+            );
 
 
     if (!temporadas.length) {
 
         contenedor.innerHTML = `
+
             <div class="empty">
-                📭 Esta serie no tiene capítulos disponibles.
+
+                📭 No hay capítulos disponibles.
+
             </div>
+
         `;
 
         return;
@@ -1031,16 +787,16 @@ function construirTemporadas(capitulos) {
 
 
     temporadas.forEach(
-        (temporadaNumero, indice) => {
+        (numeroTemporada, indice) => {
 
             const lista =
-                grupos[temporadaNumero];
+                grupos[numeroTemporada];
 
 
             lista.sort(
                 (a,b) =>
-                    Number(a._numero) -
-                    Number(b._numero)
+                    Number(a.capitulo) -
+                    Number(b.capitulo)
             );
 
 
@@ -1053,11 +809,14 @@ function construirTemporadas(capitulos) {
 
 
             /*
-                La primera temporada queda abierta.
-            */
+             * La primera temporada
+             * aparece abierta.
+             */
 
             if (indice === 0) {
+
                 bloque.classList.add("open");
+
             }
 
 
@@ -1066,16 +825,19 @@ function construirTemporadas(capitulos) {
                 <div class="temporada-header">
 
                     <h3>
-                        <span class="temporada-arrow">
+
+                        <span class="arrow">
                             ▶
                         </span>
 
-                        Temporada ${esc(temporadaNumero)}
+                        Temporada
+                        ${esc(numeroTemporada)}
+
                     </h3>
 
+
                     <span>
-                        ${lista.length}
-                        episodio${lista.length !== 1 ? "s" : ""}
+                        ${lista.length} episodios
                     </span>
 
                 </div>
@@ -1086,25 +848,25 @@ function construirTemporadas(capitulos) {
             `;
 
 
-            const listaDOM =
+            const listaElementos =
                 bloque.querySelector(
                     ".episodios"
                 );
 
 
-            lista.forEach(
-                capitulo => {
+            for (const cap of lista) {
 
-                    listaDOM.appendChild(
-                        crearEpisodio(capitulo)
-                    );
+                listaElementos.appendChild(
+                    crearEpisodio(cap)
+                );
 
-                }
-            );
+            }
 
 
             bloque
-                .querySelector(".temporada-header")
+                .querySelector(
+                    ".temporada-header"
+                )
                 .addEventListener(
                     "click",
                     () => {
@@ -1131,7 +893,9 @@ function construirTemporadas(capitulos) {
    CREAR EPISODIO
    ========================================================= */
 
-function crearEpisodio(capitulo) {
+function crearEpisodio(
+    cap
+) {
 
     const elemento =
         document.createElement("div");
@@ -1141,55 +905,26 @@ function crearEpisodio(capitulo) {
         "episodio";
 
 
-    const numero =
-        capitulo._numero;
-
-
-    const titulo =
-        campo(
-            capitulo,
-            [
-                "titulo",
-                "title",
-                "nombre",
-                "titulo_capitulo",
-                "episode_title"
-            ],
-            `Episodio ${numero}`
-        );
-
-
-    const idioma =
-        campo(
-            capitulo,
-            [
-                "idioma",
-                "language",
-                "audio"
-            ],
-            ""
-        );
-
-
     elemento.innerHTML = `
 
         <div class="ep-num">
-            EPISODIO ${esc(numero)}
+
+            EPISODIO
+            ${esc(cap.capitulo)}
+
         </div>
+
 
         <div class="ep-title">
-            ${esc(titulo)}
-        </div>
 
-        ${
-            idioma
-            ? `
-                <div class="ep-extra">
-                    ${esc(idioma)}
-                </div>
-              `
-            : ""
-        }
+            ${
+                esc(
+                    cap.titulo ||
+                    `Episodio ${cap.capitulo}`
+                )
+            }
+
+        </div>
 
     `;
 
@@ -1198,11 +933,11 @@ function crearEpisodio(capitulo) {
         "click",
         () => {
 
-            reproducirCapitulo(
-                slug,
-                capitulo._temporada,
-                capitulo._numero,
-                titulo
+            abrirCapitulo(
+                cap.temporada,
+                cap.capitulo,
+                cap.titulo ||
+                `Episodio ${cap.capitulo}`
             );
 
         }
@@ -1215,5 +950,189 @@ function crearEpisodio(capitulo) {
 
 
 /* =========================================================
-   PEDIR CAPÍTULO ESPECÍFICO
-   =============================
+   ABRIR CAPÍTULO
+   ========================================================= */
+
+async function abrirCapitulo(
+    temporada,
+    capitulo,
+    titulo
+) {
+
+    const player =
+        document.getElementById("player");
+
+    const playerTitle =
+        document.getElementById("playerTitle");
+
+    const playerBox =
+        document.getElementById("playerBox");
+
+
+    player.classList.add(
+        "visible"
+    );
+
+
+    playerTitle.textContent =
+        `▶ Temporada ${temporada} · Episodio ${capitulo} · ${titulo}`;
+
+
+    playerBox.innerHTML = `
+
+        <div class="loading">
+            &gt; Cargando episodio...
+        </div>
+
+    `;
+
+
+    player.scrollIntoView({
+        behavior:"smooth"
+    });
+
+
+    try {
+
+        /*
+         * Endpoint EXACTO de tu main.py:
+         *
+         * /capitulo
+         * ?serie=...
+         * &temporada=...
+         * &capitulo=...
+         */
+
+        const url =
+            `${API}/capitulo` +
+            `?serie=${encodeURIComponent(slug)}` +
+            `&temporada=${encodeURIComponent(temporada)}` +
+            `&capitulo=${encodeURIComponent(capitulo)}`;
+
+
+        const datos =
+            await pedir(url);
+
+
+        console.log(
+            "CAPÍTULO:",
+            datos
+        );
+
+
+        /*
+         * Tu API devuelve:
+         *
+         * {
+         *   serie,
+         *   slug,
+         *   ...c
+         * }
+         *
+         * El campo de vídeo está dentro
+         * del capítulo.
+         *
+         * Buscamos los nombres habituales
+         * que pueda tener ese objeto.
+         */
+
+        const video =
+            datos.video ||
+            datos.url ||
+            datos.embed ||
+            datos.video_url ||
+            datos.embed_url ||
+            "";
+
+
+        if (!video) {
+
+            playerBox.innerHTML = `
+
+                <div class="error">
+
+                    ✕ Este capítulo no tiene
+                    vídeo disponible.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /*
+         * Mostrar vídeo.
+         */
+
+        playerBox.innerHTML = `
+
+            <iframe
+                src="${esc(video)}"
+                allowfullscreen
+                allow="autoplay; fullscreen; picture-in-picture"
+                referrerpolicy="no-referrer"
+            ></iframe>
+
+        `;
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        playerBox.innerHTML = `
+
+            <div class="error">
+
+                ✕ Error al cargar el capítulo.
+
+                <br><br>
+
+                ${esc(error.message)}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   CERRAR PLAYER
+   ========================================================= */
+
+function cerrarPlayer() {
+
+    const player =
+        document.getElementById("player");
+
+    const playerBox =
+        document.getElementById("playerBox");
+
+
+    playerBox.innerHTML = "";
+
+    player.classList.remove(
+        "visible"
+    );
+
+}
+
+
+/* =========================================================
+   ARRANCAR
+   ========================================================= */
+
+iniciar();
+
+</script>
+
+</body>
+</html>
+
