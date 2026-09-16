@@ -1,0 +1,165 @@
+// ============================================================
+// api-bridge.js — Frame Perdido
+// Fusiona el catálogo de la API con el catálogo local (data.js)
+// ============================================================
+
+(function () {
+    'use strict';
+
+    const API = "https://frik-api.onrender.com";
+    const ID_BASE = 10000;   // Los IDs de la API empiezan aquí
+
+    // Mapa global: id local -> slug de la API
+    // watch.html lo leerá para saber si un id viene de la API
+    window.__apiSlugs = window.__apiSlugs || {};
+
+    // ------------------------------------------------------------
+    // Convertir una serie de la API al formato de `animes`
+    // ------------------------------------------------------------
+    function serieAAnime(serie, indice) {
+        const id = ID_BASE + indice;
+        const anio = Number(serie.fecha) || 0;
+
+        // Guardar el slug para watch.html
+        window.__apiSlugs[id] = serie.slug;
+
+        return {
+            id: id,
+            title: serie.titulo || "Sin título",
+            cover: serie.imagen || "",
+            year: serie.fecha || "—",
+            type: "Serie TV",                       // todas las de /series son series
+            duration: serie.numCapitulosDisponibles
+                ? `${serie.numCapitulosDisponibles} caps`
+                : "—",
+            studio: "—",
+            director: "—",
+            genre: [],
+            tags: [],
+            description: serie.descripcion || "Sin descripción disponible.",
+            plot: "",
+            analysis: "",
+            forgotten: "",
+            trailer: "",
+            saga: null,
+            sagaOrder: null,
+            related: [],
+            category: "animada",
+            origin: "",
+            rarity: "Común",
+            adulto: false,
+            hentai: false,
+            ecchi: false,
+
+            // Campos extra (no rompen nada, solo se usan para el reproductor)
+            apiSlug: serie.slug,
+            fromApi: true
+        };
+    }
+
+    // ------------------------------------------------------------
+    // Fusionar con el array global `animes`
+    // ------------------------------------------------------------
+    function fusionarConAnimes(nuevas) {
+        if (typeof window.animes === 'undefined') {
+            console.warn('[api-bridge] `animes` no existe todavía. Reintentando...');
+            return false;
+        }
+
+        // Evitar duplicados si el bridge se ejecuta más de una vez
+        const yaCargadas = new Set(
+            window.animes
+                .filter(a => a.fromApi)
+                .map(a => a.apiSlug)
+        );
+
+        const filtradas = nuevas.filter(n => !yaCargadas.has(n.apiSlug));
+
+        if (filtradas.length === 0) {
+            console.log('[api-bridge] No hay series nuevas para agregar.');
+            return true;
+        }
+
+        // Insertar al final
+        window.animes.push(...filtradas);
+
+        // Guardar referencia global
+        window.__apiAnimes = window.__apiAnimes || [];
+        window.__apiAnimes.push(...filtradas);
+
+        console.log(`[api-bridge] Añadidas ${filtradas.length} series de la API. Total: ${window.animes.length}`);
+        return true;
+    }
+
+    // ------------------------------------------------------------
+    // Refrescar la UI después de fusionar
+    // ------------------------------------------------------------
+    function refrescarUI() {
+        // Darle un tick al DOM por si index.html aún está inicializando
+        setTimeout(() => {
+            try {
+                if (typeof window.actualizarContadoresTabs === 'function') window.actualizarContadoresTabs();
+                if (typeof window.renderCards === 'function') window.renderCards();
+                if (typeof window.updateStats === 'function') window.updateStats();
+                if (typeof window.renderizarVibes === 'function') window.renderizarVibes();
+                if (typeof window.setupListas === 'function') window.setupListas();
+                if (typeof window.actualizarHero === 'function') window.actualizarHero();
+                if (typeof window.setupTrailerDelDia === 'function') window.setupTrailerDelDia();
+                console.log('[api-bridge] UI refrescada.');
+            } catch (e) {
+                console.error('[api-bridge] Error al refrescar UI:', e);
+            }
+        }, 150);
+    }
+
+    // ------------------------------------------------------------
+    // Cargar series desde la API
+    // ------------------------------------------------------------
+    async function cargarSeriesAPI() {
+        try {
+            const r = await fetch(`${API}/series?page=1&limit=500`);
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+
+            const data = await r.json();
+            const items = data.items || [];
+
+            if (!items.length) {
+                console.warn('[api-bridge] La API no devolvió series.');
+                return;
+            }
+
+            const nuevas = items.map((s, i) => serieAAnime(s, i));
+
+            if (fusionarConAnimes(nuevas)) {
+                refrescarUI();
+            }
+        } catch (e) {
+            console.error('[api-bridge] Error al cargar series de la API:', e);
+        }
+    }
+
+    // ------------------------------------------------------------
+    // Esperar a que data.js y data-02.js estén listos
+    // ------------------------------------------------------------
+    function esperarAnimes(intentos = 20) {
+        if (typeof window.animes !== 'undefined' && Array.isArray(window.animes)) {
+            cargarSeriesAPI();
+            return;
+        }
+        if (intentos <= 0) {
+            console.error('[api-bridge] `animes` nunca apareció. ¿Cargaste data.js antes?');
+            return;
+        }
+        setTimeout(() => esperarAnimes(intentos - 1), 100);
+    }
+
+    // ------------------------------------------------------------
+    // Arranque
+    // ------------------------------------------------------------
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => esperarAnimes());
+    } else {
+        esperarAnimes();
+    }
+
+})();
