@@ -3,320 +3,1217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Series — Frame Perdido</title>
+
+<title>Expediente — Frame Perdido</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
+
 :root {
-    --bg:#0a0a0f; --bg-card:#12121a; --bg-elevated:#1a1a25; --bg-hover:#222230;
-    --text:#e8e8f0; --text-muted:#8a8a9a; --text-dim:#5a5a6a;
-    --accent:#d4a373; --accent-soft:#d4a37320; --accent-glow:#d4a37360;
-    --border:#2a2420; --border-hover:#3a322c;
+    --bg:#0a0a0f;
+    --bg-card:#12121a;
+    --bg-elevated:#1a1a25;
+    --bg-hover:#222230;
+
+    --text:#e8e8f0;
+    --text-muted:#8a8a9a;
+    --text-dim:#5a5a6a;
+
+    --accent:#d4a373;
+    --accent-soft:#d4a37320;
+    --accent-glow:#d4a37360;
+
+    --border:#2a2420;
+    --border-hover:#3a322c;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body {
-    font-family:'Inter',sans-serif; background:var(--bg); color:var(--text);
-    min-height:100vh; padding:20px;
-    background-image: radial-gradient(ellipse at 30% 20%, rgba(139,69,19,0.06) 0%, transparent 60%),
-                      radial-gradient(ellipse at 70% 80%, rgba(139,69,19,0.04) 0%, transparent 60%);
-}
-.wrap { max-width:1200px; margin:0 auto; }
-header { display:flex; justify-content:space-between; align-items:center; padding-bottom:14px; border-bottom:1px solid var(--border); margin-bottom:22px; flex-wrap:wrap; gap:8px; }
-.logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
-.logo-icon { width:30px; height:30px; background:var(--accent); border-radius:4px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-family:'Space Mono',monospace; font-size:0.8rem; box-shadow:0 0 20px var(--accent-glow); }
-.logo-text { font-family:'Space Mono',monospace; font-size:0.95rem; letter-spacing:1px; text-transform:uppercase; color:var(--text); }
-.logo-text span { color:var(--accent); }
-h1 { font-family:'Space Mono',monospace; font-size:1.8rem; margin-bottom:6px; }
-.subtitle { color:var(--text-muted); font-size:0.85rem; margin-bottom:20px; font-family:'Space Mono',monospace; }
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    padding:20px;
 
-/* BUSCADOR */
-.search-box { position:relative; max-width:560px; margin:0 auto 24px; }
-.search-box input {
-    width:100%; padding:14px 48px 14px 48px;
-    background:var(--bg-card); border:1px solid var(--border); border-radius:6px;
-    color:var(--text); font-size:0.9rem; font-family:'Space Mono',monospace;
-    outline:none; transition:all 0.3s;
-}
-.search-box input::placeholder { color:var(--text-dim); font-style:italic; }
-.search-box input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft), 0 0 20px var(--accent-glow); }
-.search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--text-dim); font-size:1rem; pointer-events:none; }
-.search-clear {
-    position:absolute; right:14px; top:50%; transform:translateY(-50%);
-    background:none; border:none; color:var(--text-muted); cursor:pointer;
-    font-size:1rem; padding:4px 8px; display:none;
-}
-.search-clear.visible { display:block; }
-.results-info { text-align:center; color:var(--text-muted); font-size:0.75rem; font-family:'Space Mono',monospace; margin-bottom:16px; min-height:18px; }
-
-/* FILTROS */
-.filters { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:20px; justify-content:center; }
-.filter-btn {
-    background:transparent; border:1px solid var(--border); color:var(--text-muted);
-    padding:6px 14px; border-radius:4px; cursor:pointer; font-size:0.7rem;
-    font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.5px;
-    transition:all 0.3s;
-}
-.filter-btn:hover, .filter-btn.active {
-    background:var(--accent); color:#fff; border-color:var(--accent);
-    box-shadow:0 0 12px var(--accent-glow);
+    background-image:
+        radial-gradient(
+            ellipse at 30% 20%,
+            rgba(139,69,19,0.06) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 70% 80%,
+            rgba(139,69,19,0.04) 0%,
+            transparent 60%
+        );
 }
 
-/* GRID */
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:14px; }
-.card {
-    background:var(--bg-card); border:1px solid var(--border); border-radius:6px;
-    overflow:hidden; cursor:pointer; transition:all 0.3s; text-decoration:none; color:inherit;
-    display:flex; flex-direction:column;
+.wrap {
+    max-width:1100px;
+    margin:0 auto;
 }
-.card:hover { transform:translateY(-4px); border-color:var(--accent); box-shadow:0 0 24px var(--accent-glow); }
-.card-img {
-    position:relative; aspect-ratio:2/3; overflow:hidden; background:var(--bg-elevated);
+
+/* HEADER */
+
+header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-bottom:14px;
+    margin-bottom:25px;
+
+    border-bottom:1px solid var(--border);
 }
-.card-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
-.card:hover .card-img img { transform:scale(1.06); }
-.card-img-empty {
-    display:flex; align-items:center; justify-content:center; height:100%;
-    color:var(--text-dim); font-family:'Space Mono',monospace; font-size:0.75rem;
+
+.logo {
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    text-decoration:none;
+    color:inherit;
 }
-.card-year {
-    position:absolute; top:8px; left:8px;
-    background:rgba(0,0,0,0.75); backdrop-filter:blur(4px); color:#fff;
-    padding:3px 8px; border-radius:4px; font-size:0.65rem;
-    font-family:'Space Mono',monospace; font-weight:700;
-}
-.card-type {
-    position:absolute; top:8px; right:8px;
-    background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);
-    color:var(--accent); padding:3px 8px; border-radius:4px;
-    font-size:0.6rem; font-family:'Space Mono',monospace;
-    border:1px solid var(--accent-glow);
-}
-.card-body { padding:12px; display:flex; flex-direction:column; gap:6px; flex:1; }
-.card-title {
-    font-family:'Space Mono',monospace; font-size:0.85rem; font-weight:600;
-    line-height:1.3; display:-webkit-box; -webkit-line-clamp:2;
-    -webkit-box-orient:vertical; overflow:hidden;
-}
-.card-caps {
-    color:var(--text-muted); font-size:0.7rem;
+
+.logo-icon {
+    width:30px;
+    height:30px;
+
+    background:var(--accent);
+
+    border-radius:4px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     font-family:'Space Mono',monospace;
-}
-.card-caps.has { color:var(--accent); }
+    font-size:.8rem;
+    font-weight:700;
 
-/* ESTADOS */
-.loading, .error, .empty {
-    text-align:center; padding:60px 20px;
-    color:var(--text-muted); font-family:'Space Mono',monospace; font-size:0.9rem;
-}
-.error { color:#ef4444; }
+    color:#fff;
 
-/* BOTÓN CARGAR MÁS */
-.load-more {
-    display:block; margin:30px auto 0; padding:12px 30px;
-    background:var(--bg-elevated); border:1px solid var(--border);
-    color:var(--text-muted); border-radius:4px; cursor:pointer;
-    font-family:'Space Mono',monospace; font-size:0.75rem;
-    text-transform:uppercase; letter-spacing:1px; transition:all 0.3s;
-}
-.load-more:hover:not(:disabled) {
-    background:var(--accent); color:#fff; border-color:var(--accent);
     box-shadow:0 0 20px var(--accent-glow);
 }
-.load-more:disabled { opacity:0.4; cursor:not-allowed; }
 
-@media (max-width:768px) {
-    body { padding:12px; }
-    h1 { font-size:1.4rem; }
-    .grid { grid-template-columns:repeat(2, 1fr); gap:8px; }
-    .card-body { padding:8px; }
-    .card-title { font-size:0.7rem; }
+.logo-text {
+    font-family:'Space Mono',monospace;
+    font-size:.95rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
+
+.logo-text span {
+    color:var(--accent);
+}
+
+.back {
+    color:var(--text-muted);
+    text-decoration:none;
+
+    font-family:'Space Mono',monospace;
+    font-size:.7rem;
+
+    padding:7px 10px;
+
+    border:1px solid var(--border);
+    border-radius:4px;
+
+    transition:.2s;
+}
+
+.back:hover {
+    color:var(--accent);
+    border-color:var(--accent);
+}
+
+
+/* ESTADOS */
+
+.loading,
+.error,
+.empty {
+    text-align:center;
+    padding:70px 20px;
+
+    font-family:'Space Mono',monospace;
+    font-size:.85rem;
+
+    color:var(--text-muted);
+}
+
+.error {
+    color:#ef4444;
+}
+
+
+/* FICHA */
+
+.ficha {
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    gap:25px;
+
+    margin-bottom:35px;
+}
+
+.poster {
+    width:100%;
+
+    aspect-ratio:2/3;
+
+    background:var(--bg-elevated);
+
+    border:1px solid var(--border);
+
+    border-radius:6px;
+
+    overflow:hidden;
+}
+
+.poster img {
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.poster-empty {
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--text-dim);
+
+    font-family:'Space Mono',monospace;
+    font-size:.7rem;
+}
+
+.ficha-info h1 {
+    font-family:'Space Mono',monospace;
+
+    font-size:1.7rem;
+
+    line-height:1.3;
+
+    margin-bottom:10px;
+}
+
+.meta {
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-bottom:18px;
+}
+
+.meta span {
+    border:1px solid var(--border);
+
+    background:var(--bg-card);
+
+    color:var(--text-muted);
+
+    padding:5px 9px;
+
+    border-radius:4px;
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.65rem;
+}
+
+.meta span.accent {
+    color:var(--accent);
+    border-color:var(--accent-glow);
+}
+
+.descripcion {
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+    line-height:1.7;
+
+    max-width:750px;
+}
+
+
+/* TEMPORADAS */
+
+.seccion-titulo {
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+    border-bottom:1px solid var(--border);
+
+    padding-bottom:10px;
+}
+
+.seccion-titulo h2 {
+    font-family:'Space Mono',monospace;
+
+    font-size:1rem;
+}
+
+.seccion-titulo span {
+    color:var(--text-dim);
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.65rem;
+}
+
+
+/* TEMPORADA */
+
+.temporada {
+    margin-bottom:22px;
+}
+
+.temporada-header {
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    padding:12px 14px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.temporada-header:hover {
+    border-color:var(--border-hover);
+}
+
+.temporada-header h3 {
+    font-family:'Space Mono',monospace;
+
+    font-size:.8rem;
+}
+
+.temporada-header span {
+    color:var(--text-muted);
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.65rem;
+}
+
+.temporada-arrow {
+    color:var(--accent);
+
+    margin-right:8px;
+
+    transition:.2s;
+}
+
+.temporada.open .temporada-arrow {
+    transform:rotate(90deg);
+}
+
+
+/* EPISODIOS */
+
+.episodios {
+    display:none;
+
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+
+    gap:8px;
+
+    padding-top:8px;
+}
+
+.temporada.open .episodios {
+    display:grid;
+}
+
+.episodio {
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:4px;
+
+    padding:11px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.episodio:hover {
+    background:var(--bg-hover);
+
+    border-color:var(--accent);
+
+    transform:translateY(-2px);
+}
+
+.ep-num {
+    color:var(--accent);
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.65rem;
+
+    margin-bottom:5px;
+}
+
+.ep-title {
+    font-size:.75rem;
+
+    line-height:1.35;
+
+    color:var(--text);
+}
+
+.ep-extra {
+    margin-top:6px;
+
+    color:var(--text-dim);
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.58rem;
+}
+
+
+/* REPRODUCTOR */
+
+.player-section {
+    display:none;
+
+    margin-top:35px;
+
+    border-top:1px solid var(--border);
+
+    padding-top:25px;
+}
+
+.player-section.visible {
+    display:block;
+}
+
+.player-title {
+    font-family:'Space Mono',monospace;
+
+    font-size:.9rem;
+
+    margin-bottom:12px;
+}
+
+.player-box {
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    background:#000;
+
+    border:1px solid var(--border);
+
+    border-radius:6px;
+
+    overflow:hidden;
+}
+
+.player-box iframe {
+    width:100%;
+    height:100%;
+
+    border:0;
+}
+
+.player-loading {
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--text-muted);
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.75rem;
+}
+
+.close-player {
+    margin-top:10px;
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    color:var(--text-muted);
+
+    padding:7px 12px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    font-family:'Space Mono',monospace;
+
+    font-size:.65rem;
+}
+
+.close-player:hover {
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:700px) {
+
+    body {
+        padding:12px;
+    }
+
+    .ficha {
+        grid-template-columns:120px 1fr;
+
+        gap:15px;
+    }
+
+    .ficha-info h1 {
+        font-size:1.05rem;
+    }
+
+    .descripcion {
+        font-size:.75rem;
+        line-height:1.55;
+    }
+
+    .meta {
+        gap:4px;
+        margin-bottom:10px;
+    }
+
+    .meta span {
+        font-size:.55rem;
+        padding:4px 6px;
+    }
+
+    .episodios {
+        grid-template-columns:1fr;
+    }
+
+}
+
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
-    <header>
-        <a href="index.html" class="logo">
-            <div class="logo-icon">FP</div>
-            <div class="logo-text">Frame <span>Perdido</span></div>
-        </a>
-    </header>
 
-    <h1>🎬 Series</h1>
-    <p class="subtitle">> <span id="totalInfo">Cargando...</span></p>
+<header>
 
-    <div class="search-box">
-        <span class="search-icon">$</span>
-        <input type="text" id="searchInput" placeholder="Buscar por título, descripción, año...">
-        <button class="search-clear" id="clearBtn">✕</button>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">FP</div>
+
+        <div class="logo-text">
+            Frame <span>Perdido</span>
+        </div>
+    </a>
+
+    <a href="series.html" class="back">
+        ← SERIES
+    </a>
+
+</header>
+
+
+<div id="contenido">
+
+    <div class="loading">
+        &gt; Cargando expediente...
     </div>
 
-    <div class="filters" id="filters">
-        <button class="filter-btn active" data-decada="all">Todas</button>
-        <button class="filter-btn" data-decada="1960">60s</button>
-        <button class="filter-btn" data-decada="1970">70s</button>
-        <button class="filter-btn" data-decada="1980">80s</button>
-        <button class="filter-btn" data-decada="1990">90s</button>
-        <button class="filter-btn" data-decada="2000">2000s</button>
-        <button class="filter-btn" data-decada="2010">2010s</button>
-        <button class="filter-btn" data-concaps="1">Con capítulos</button>
-    </div>
-
-    <div class="results-info" id="resultsInfo"></div>
-
-    <div id="grid" class="grid"></div>
-    <div id="status"><div class="loading">> Cargando series...</div></div>
 </div>
 
+
+</div>
+
+
 <script>
+
+/* =========================================================
+   CONFIGURACIÓN
+   ========================================================= */
+
 const API = "https://frik-api.onrender.com";
-const POR_PAGINA = 60;
 
-let todas = [];         // todas las series
-let filtradas = [];     // después de búsqueda/filtros
-let visibles = 0;       // cuántas mostradas actualmente
-let decadaActiva = "all";
-let soloConCaps = false;
 
-const $ = s => document.querySelector(s);
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
 
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $ = selector =>
+    document.querySelector(selector);
 
-// ---------- CARGAR SERIES ----------
-async function cargarTodas() {
-    try {
-        // El endpoint /series acepta limit máx 200. Paginamos.
-        const todasSeries = [];
-        for (let page = 1; page <= 10; page++) {
-            const r = await fetch(`${API}/series?page=${page}&limit=200`);
-            if (!r.ok) break;
-            const d = await r.json();
-            todasSeries.push(...(d.items || []));
-            if (todasSeries.length >= (d.total || 0)) break;
-        }
-        todas = todasSeries;
-        filtradas = [...todas];
-        $("#totalInfo").textContent = `${todas.length} series en el archivo`;
-        aplicarFiltros();
-    } catch (e) {
-        console.error(e);
-        $("#status").innerHTML = `<div class="error">✕ Error: ${esc(e.message)}</div>`;
-    }
+
+function esc(valor) {
+
+    return String(valor ?? "")
+        .replace(/[&<>"']/g, caracter => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#39;"
+        }[caracter]));
+
 }
 
-// ---------- FILTROS + BÚSQUEDA ----------
-function aplicarFiltros() {
-    const q = $("#searchInput").value.toLowerCase().trim();
 
-    filtradas = todas.filter(s => {
-        // Búsqueda
-        if (q) {
-            const hay =
-                (s.titulo || "").toLowerCase().includes(q) ||
-                (s.descripcion || "").toLowerCase().includes(q) ||
-                String(s.fecha || "").includes(q);
-            if (!hay) return false;
-        }
-        // Década
-        if (decadaActiva !== "all") {
-            const d = parseInt(decadaActiva, 10);
-            const f = parseInt(s.fecha, 10);
-            if (!(f >= d && f < d + 10)) return false;
-        }
-        // Con capítulos
-        if (soloConCaps) {
-            if (!(s.numCapitulosDisponibles > 0)) return false;
-        }
-        return true;
-    });
+/*
+    Obtiene un valor intentando varios nombres posibles.
 
-    visibles = 0;
-    $("#grid").innerHTML = "";
-    $("#resultsInfo").textContent = q
-        ? `${filtradas.length} resultado${filtradas.length !== 1 ? "s" : ""} para "${q}"`
-        : `${filtradas.length} series`;
+    Esto permite que la página tolere pequeñas diferencias
+    en los nombres de los campos de la API.
+*/
 
-    if (!filtradas.length) {
-        $("#status").innerHTML = `<div class="empty">📭 No se encontraron series</div>`;
-        return;
+function campo(obj, nombres, defecto = "") {
+
+    for (const nombre of nombres) {
+
+        if (
+            obj &&
+            obj[nombre] !== undefined &&
+            obj[nombre] !== null
+        ) {
+            return obj[nombre];
+        }
+
     }
-    $("#status").innerHTML = "";
-    renderMas();
+
+    return defecto;
 }
 
-// ---------- RENDER PAGINADO ----------
-function renderMas() {
-    const grid = $("#grid");
-    const fin = Math.min(visibles + POR_PAGINA, filtradas.length);
-    const trozo = filtradas.slice(visibles, fin);
 
-    trozo.forEach(s => grid.appendChild(crearCard(s)));
-    visibles = fin;
+/* =========================================================
+   SLUG DE LA URL
+   ========================================================= */
 
-    const status = $("#status");
-    if (visibles >= filtradas.length) {
-        status.innerHTML = `<div style="text-align:center;color:var(--text-dim);font-family:'Space Mono',monospace;font-size:0.7rem;padding:20px;">— Fin del archivo —</div>`;
-    } else {
-        status.innerHTML = `<button class="load-more" id="btnMas">Cargar más (${filtradas.length - visibles} restantes)</button>`;
-        $("#btnMas").addEventListener("click", renderMas);
-    }
-}
+const parametros = new URLSearchParams(
+    window.location.search
+);
 
-// ---------- CREAR TARJETA ----------
-function crearCard(s) {
-    const a = document.createElement("a");
-    a.className = "card";
-    a.href = `expediente.html?serie=${encodeURIComponent(s.slug)}`;
+const slug = parametros.get("serie");
 
-    const tieneCaps = s.numCapitulosDisponibles > 0;
-    const imgHtml = s.imagen
-        ? `<img src="${esc(s.imagen)}" alt="${esc(s.titulo)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card-img-empty\\'>🎬 Sin portada</div>'">`
-        : `<div class="card-img-empty">🎬 Sin portada</div>`;
 
-    a.innerHTML = `
-        <div class="card-img">
-            ${imgHtml}
-            ${s.fecha ? `<span class="card-year">${s.fecha}</span>` : ""}
-            <span class="card-type">${esc(s.tipo || "serie")}</span>
-        </div>
-        <div class="card-body">
-            <div class="card-title">${esc(s.titulo)}</div>
-            <div class="card-caps ${tieneCaps ? "has" : ""}">
-                ${tieneCaps ? `✅ ${s.numCapitulosDisponibles} caps` : "📭 Sin caps"}
-            </div>
+if (!slug) {
+
+    $("#contenido").innerHTML = `
+        <div class="error">
+            ✕ No se recibió ninguna serie.
         </div>
     `;
-    return a;
+
+} else {
+
+    cargarExpediente(slug);
+
 }
 
-// ---------- EVENTOS ----------
-$("#searchInput").addEventListener("input", () => {
-    $("#clearBtn").classList.toggle("visible", $("#searchInput").value.length > 0);
-    aplicarFiltros();
-});
-$("#clearBtn").addEventListener("click", () => {
-    $("#searchInput").value = "";
-    $("#clearBtn").classList.remove("visible");
-    aplicarFiltros();
-});
 
-document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        if (btn.dataset.concaps) {
-            soloConCaps = !soloConCaps;
-            btn.classList.toggle("active", soloConCaps);
-            if (!soloConCaps) document.querySelector('[data-decada="all"]').classList.add("active");
-        } else {
-            decadaActiva = btn.dataset.decada;
-            soloConCaps = false;
+/* =========================================================
+   PETICIÓN JSON
+   ========================================================= */
+
+async function pedir(url) {
+
+    const respuesta = await fetch(url);
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            `HTTP ${respuesta.status}`
+        );
+
+    }
+
+    return await respuesta.json();
+
+}
+
+
+/* =========================================================
+   CARGAR FICHA
+   ========================================================= */
+
+async function cargarExpediente(slug) {
+
+    try {
+
+        /*
+            1. Pedimos la ficha
+        */
+
+        const ficha = await pedir(
+            `${API}/serie/${encodeURIComponent(slug)}`
+        );
+
+
+        /*
+            Algunas APIs devuelven:
+
+            {
+                "serie": {...}
+            }
+
+            y otras directamente:
+
+            {
+                "titulo": ...
+            }
+
+            Por eso comprobamos ambas.
+        */
+
+        const serie =
+            ficha.serie ||
+            ficha.data ||
+            ficha;
+
+
+        /*
+            2. Pedimos TODOS los capítulos
+
+            La API ya tiene el endpoint para esto.
+        */
+
+        const capitulosRespuesta =
+            await pedir(
+                `${API}/serie/${encodeURIComponent(slug)}/capitulos`
+            );
+
+
+        /*
+            Puede devolver directamente un array
+            o un objeto con "items", "capitulos" o "data".
+        */
+
+        let capitulos =
+            Array.isArray(capitulosRespuesta)
+                ? capitulosRespuesta
+                : (
+                    capitulosRespuesta.capitulos ||
+                    capitulosRespuesta.items ||
+                    capitulosRespuesta.data ||
+                    []
+                );
+
+
+        mostrarFicha(
+            serie,
+            capitulos
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        $("#contenido").innerHTML = `
+            <div class="error">
+                ✕ No se pudo cargar la serie.<br><br>
+                <small>${esc(error.message)}</small>
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOSTRAR FICHA + CAPÍTULOS
+   ========================================================= */
+
+function mostrarFicha(serie, capitulos) {
+
+    const titulo =
+        campo(
+            serie,
+            ["titulo","title","nombre"],
+            "Sin título"
+        );
+
+
+    const imagen =
+        campo(
+            serie,
+            ["imagen","poster","portada","imagen_url","poster_url"],
+            ""
+        );
+
+
+    const fecha =
+        campo(
+            serie,
+            ["fecha","anio","año","year"],
+            ""
+        );
+
+
+    const tipo =
+        campo(
+            serie,
+            ["tipo","type"],
+            "serie"
+        );
+
+
+    const descripcion =
+        campo(
+            serie,
+            ["descripcion","description","sinopsis"],
+            ""
+        );
+
+
+    document.title =
+        `${titulo} — Frame Perdido`;
+
+
+    const posterHTML = imagen
+
+        ? `
+            <img
+                src="${esc(imagen)}"
+                alt="${esc(titulo)}"
+                onerror="
+                    this.parentElement.innerHTML =
+                    '<div class=\\'poster-empty\\'>🎬 Sin portada</div>'
+                "
+            >
+          `
+
+        : `
+            <div class="poster-empty">
+                🎬 Sin portada
+            </div>
+          `;
+
+
+    $("#contenido").innerHTML = `
+
+        <section class="ficha">
+
+            <div class="poster">
+                ${posterHTML}
+            </div>
+
+
+            <div class="ficha-info">
+
+                <h1>
+                    ${esc(titulo)}
+                </h1>
+
+
+                <div class="meta">
+
+                    ${
+                        fecha
+                        ? `<span>${esc(fecha)}</span>`
+                        : ""
+                    }
+
+                    <span class="accent">
+                        ${esc(tipo)}
+                    </span>
+
+                    <span>
+                        ${capitulos.length}
+                        capítulo${capitulos.length !== 1 ? "s" : ""}
+                    </span>
+
+                </div>
+
+
+                ${
+                    descripcion
+                    ? `
+                        <div class="descripcion">
+                            ${esc(descripcion)}
+                        </div>
+                      `
+                    : ""
+                }
+
+            </div>
+
+        </section>
+
+
+        <section>
+
+            <div class="seccion-titulo">
+
+                <h2>
+                    CAPÍTULOS
+                </h2>
+
+                <span>
+                    ${capitulos.length} disponibles
+                </span>
+
+            </div>
+
+
+            <div id="temporadas"></div>
+
+        </section>
+
+
+        <section
+            id="playerSection"
+            class="player-section"
+        >
+
+            <div
+                id="playerTitle"
+                class="player-title"
+            ></div>
+
+
+            <div
+                id="playerBox"
+                class="player-box"
+            ></div>
+
+
+            <button
+                id="closePlayer"
+                class="close-player"
+            >
+                CERRAR REPRODUCTOR
+            </button>
+
+        </section>
+
+    `;
+
+
+    $("#closePlayer").addEventListener(
+        "click",
+        cerrarPlayer
+    );
+
+
+    construirTemporadas(capitulos);
+
+}
+
+
+/* =========================================================
+   AGRUPAR CAPÍTULOS POR TEMPORADA
+   ========================================================= */
+
+function construirTemporadas(capitulos) {
+
+    const grupos = {};
+
+
+    capitulos.forEach((capitulo, indice) => {
+
+        /*
+            Intentamos diferentes nombres posibles
+            para temporada.
+        */
+
+        const temporada =
+            campo(
+                capitulo,
+                [
+                    "temporada",
+                    "season",
+                    "temporada_num",
+                    "season_number"
+                ],
+                1
+            );
+
+
+        const numero =
+            campo(
+                capitulo,
+                [
+                    "capitulo",
+                    "episodio",
+                    "episode",
+                    "numero",
+                    "number",
+                    "episode_number"
+                ],
+                indice + 1
+            );
+
+
+        /*
+            Guardamos el número normalizado.
+        */
+
+        const clave =
+            String(temporada);
+
+
+        if (!grupos[clave]) {
+            grupos[clave] = [];
         }
-        aplicarFiltros();
-    });
-});
 
-// ---------- INIT ----------
-cargarTodas();
-</script>
-</body>
-</html>
+
+        grupos[clave].push({
+            ...capitulo,
+            _temporada: temporada,
+            _numero: numero
+        });
+
+    });
+
+
+    const contenedor =
+        $("#temporadas");
+
+
+    const temporadas =
+        Object.keys(grupos).sort(
+            (a,b) =>
+                Number(a) - Number(b)
+        );
+
+
+    if (!temporadas.length) {
+
+        contenedor.innerHTML = `
+            <div class="empty">
+                📭 Esta serie no tiene capítulos disponibles.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    temporadas.forEach(
+        (temporadaNumero, indice) => {
+
+            const lista =
+                grupos[temporadaNumero];
+
+
+            lista.sort(
+                (a,b) =>
+                    Number(a._numero) -
+                    Number(b._numero)
+            );
+
+
+            const bloque =
+                document.createElement("div");
+
+
+            bloque.className =
+                "temporada";
+
+
+            /*
+                La primera temporada queda abierta.
+            */
+
+            if (indice === 0) {
+                bloque.classList.add("open");
+            }
+
+
+            bloque.innerHTML = `
+
+                <div class="temporada-header">
+
+                    <h3>
+                        <span class="temporada-arrow">
+                            ▶
+                        </span>
+
+                        Temporada ${esc(temporadaNumero)}
+                    </h3>
+
+                    <span>
+                        ${lista.length}
+                        episodio${lista.length !== 1 ? "s" : ""}
+                    </span>
+
+                </div>
+
+
+                <div class="episodios"></div>
+
+            `;
+
+
+            const listaDOM =
+                bloque.querySelector(
+                    ".episodios"
+                );
+
+
+            lista.forEach(
+                capitulo => {
+
+                    listaDOM.appendChild(
+                        crearEpisodio(capitulo)
+                    );
+
+                }
+            );
+
+
+            bloque
+                .querySelector(".temporada-header")
+                .addEventListener(
+                    "click",
+                    () => {
+
+                        bloque.classList.toggle(
+                            "open"
+                        );
+
+                    }
+                );
+
+
+            contenedor.appendChild(
+                bloque
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CREAR EPISODIO
+   ========================================================= */
+
+function crearEpisodio(capitulo) {
+
+    const elemento =
+        document.createElement("div");
+
+
+    elemento.className =
+        "episodio";
+
+
+    const numero =
+        capitulo._numero;
+
+
+    const titulo =
+        campo(
+            capitulo,
+            [
+                "titulo",
+                "title",
+                "nombre",
+                "titulo_capitulo",
+                "episode_title"
+            ],
+            `Episodio ${numero}`
+        );
+
+
+    const idioma =
+        campo(
+            capitulo,
+            [
+                "idioma",
+                "language",
+                "audio"
+            ],
+            ""
+        );
+
+
+    elemento.innerHTML = `
+
+        <div class="ep-num">
+            EPISODIO ${esc(numero)}
+        </div>
+
+        <div class="ep-title">
+            ${esc(titulo)}
+        </div>
+
+        ${
+            idioma
+            ? `
+                <div class="ep-extra">
+                    ${esc(idioma)}
+                </div>
+              `
+            : ""
+        }
+
+    `;
+
+
+    elemento.addEventListener(
+        "click",
+        () => {
+
+            reproducirCapitulo(
+                slug,
+                capitulo._temporada,
+                capitulo._numero,
+                titulo
+            );
+
+        }
+    );
+
+
+    return elemento;
+
+}
+
+
+/* =========================================================
+   PEDIR CAPÍTULO ESPECÍFICO
+   =============================
