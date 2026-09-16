@@ -8,9 +8,9 @@
 
     const API = "https://frik-api.onrender.com";
     const ID_BASE = 10000;   // Los IDs de la API empiezan aquí
+    const LIMIT = 200;       // máximo que acepta la API
 
     // Mapa global: id local -> slug de la API
-    // watch.html lo leerá para saber si un id viene de la API
     window.__apiSlugs = window.__apiSlugs || {};
 
     // ------------------------------------------------------------
@@ -18,7 +18,6 @@
     // ------------------------------------------------------------
     function serieAAnime(serie, indice) {
         const id = ID_BASE + indice;
-        const anio = Number(serie.fecha) || 0;
 
         // Guardar el slug para watch.html
         window.__apiSlugs[id] = serie.slug;
@@ -28,7 +27,7 @@
             title: serie.titulo || "Sin título",
             cover: serie.imagen || "",
             year: serie.fecha || "—",
-            type: "Serie TV",                       // todas las de /series son series
+            type: "Serie TV",
             duration: serie.numCapitulosDisponibles
                 ? `${serie.numCapitulosDisponibles} caps`
                 : "—",
@@ -51,7 +50,6 @@
             hentai: false,
             ecchi: false,
 
-            // Campos extra (no rompen nada, solo se usan para el reproductor)
             apiSlug: serie.slug,
             fromApi: true
         };
@@ -62,11 +60,10 @@
     // ------------------------------------------------------------
     function fusionarConAnimes(nuevas) {
         if (typeof window.animes === 'undefined') {
-            console.warn('[api-bridge] `animes` no existe todavía. Reintentando...');
+            console.warn('[api-bridge] `animes` no existe todavía.');
             return false;
         }
 
-        // Evitar duplicados si el bridge se ejecuta más de una vez
         const yaCargadas = new Set(
             window.animes
                 .filter(a => a.fromApi)
@@ -80,10 +77,8 @@
             return true;
         }
 
-        // Insertar al final
         window.animes.push(...filtradas);
 
-        // Guardar referencia global
         window.__apiAnimes = window.__apiAnimes || [];
         window.__apiAnimes.push(...filtradas);
 
@@ -95,7 +90,6 @@
     // Refrescar la UI después de fusionar
     // ------------------------------------------------------------
     function refrescarUI() {
-        // Darle un tick al DOM por si index.html aún está inicializando
         setTimeout(() => {
             try {
                 if (typeof window.actualizarContadoresTabs === 'function') window.actualizarContadoresTabs();
@@ -113,22 +107,34 @@
     }
 
     // ------------------------------------------------------------
-    // Cargar series desde la API
+    // Cargar TODAS las series desde la API (paginado)
     // ------------------------------------------------------------
     async function cargarSeriesAPI() {
         try {
-            const r = await fetch(`${API}/series?page=1&limit=500`);
-            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            const todas = [];
+            let page = 1;
 
-            const data = await r.json();
-            const items = data.items || [];
+            while (true) {
+                const r = await fetch(`${API}/series?page=${page}&limit=${LIMIT}`);
+                if (!r.ok) throw new Error(`HTTP ${r.status} en página ${page}`);
 
-            if (!items.length) {
+                const data = await r.json();
+                const items = data.items || [];
+
+                todas.push(...items);
+                console.log(`[api-bridge] Página ${page}: ${items.length} series (acumulado: ${todas.length})`);
+
+                if (items.length < LIMIT) break;   // ya no hay más
+                page++;
+                if (page > 10) break;              // seguro anti-loop
+            }
+
+            if (!todas.length) {
                 console.warn('[api-bridge] La API no devolvió series.');
                 return;
             }
 
-            const nuevas = items.map((s, i) => serieAAnime(s, i));
+            const nuevas = todas.map((s, i) => serieAAnime(s, i));
 
             if (fusionarConAnimes(nuevas)) {
                 refrescarUI();
@@ -147,7 +153,7 @@
             return;
         }
         if (intentos <= 0) {
-            console.error('[api-bridge] `animes` nunca apareció. ¿Cargaste data.js antes?');
+            console.error('[api-bridge] `animes` nunca apareció.');
             return;
         }
         setTimeout(() => esperarAnimes(intentos - 1), 100);
