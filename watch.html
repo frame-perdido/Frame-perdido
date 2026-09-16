@@ -295,9 +295,6 @@
             }
         }
 
-        /* ============================================================ */
-/* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE              */
-/* ============================================================ */
 @media (min-width: 1400px) {
     .ad-skyscraper {
         position: fixed;
@@ -340,17 +337,11 @@
     }
 }
 
-/* ============================================================ */
-/* BLOQUE A */
-/* ============================================================ */
-
-/* Contenedor principal */
 .plyr-container {
     position: relative;
     overflow: hidden;
 }
 
-/* Overlay que cubre el botón */
 .video-overlay-blocker {
     position: absolute !important;
     top: 0 !important;
@@ -358,18 +349,16 @@
     width: 160px !important;
     height: 80px !important;
     background: transparent !important;
-    z-index: 9999999 !important;  /* MÁS ALTO que los controles */
+    z-index: 9999999 !important;
     pointer-events: auto !important;
     cursor: default !important;
 }
 
-/* Para pantalla completa */
 .plyr--fullscreen .video-overlay-blocker {
     width: 200px !important;
     height: 90px !important;
 }
 
-/* Móvil */
 @media (max-width: 768px) {
     .video-overlay-blocker {
         width: 110px !important;
@@ -380,12 +369,10 @@
         height: 80px !important;
     }
 }
-                
     </style>
 </head>
 <body>
     <div class="player-page">
-        <!-- HEADER -->
         <div class="video-header" id="videoHeader">
             <div>
                 <h1 class="video-title" id="videoTitle">Cargando...</h1>
@@ -394,7 +381,6 @@
             <a href="index.html" class="back-btn">← Volver</a>
         </div>
 
-        <!-- BARRA DE ACCIÓN: DONAR -->
         <div class="action-bar">
             <div style="background: none; padding: 0; box-shadow: none;">
                 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
@@ -405,7 +391,6 @@
             </div>
         </div>
 
-        <!-- BANNER ENCIMA DEL REPRODUCTOR -->
         <div style="text-align:center; margin: 12px 0;">
             <div class="adsterra-desktop">
                 <script>
@@ -433,7 +418,6 @@
             </div>
         </div>
 
-        <!-- BANNER VERTICAL 160×600 -->
 <div class="ad-skyscraper">
     <script>
         atOptions = {
@@ -447,7 +431,6 @@
     <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
 </div>
 
-    <!-- REPRODUCTOR -->
 <div class="plyr-container">
     <div class="plyr__video-embed" id="player">
         <iframe
@@ -458,12 +441,9 @@
             allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
         ></iframe>
     </div>
-    <!-- 👇 -->
     <div class="video-overlay-blocker"></div>
 </div>
 
-
-        <!-- BANNER MÓVIL (solo en móvil, debajo del reproductor) -->
         <div class="adsterra-mobile-banner">
             <script>
                 atOptions = {
@@ -476,20 +456,14 @@
             </script>
             <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
         </div>
-    
 
-
-
-        <!-- NATIVE BANNER (solo desktop) -->
         <div class="native-banner-desktop" style="margin: 20px auto; max-width: 100%;">
             <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
             <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
         </div>
 
-        <!-- SELECTOR DE EPISODIOS -->
         <div class="episode-selector" id="episodeSelector"></div>
 
-        <!-- 👇 BOTÓN DOWNLOAD -->
 <div style="text-align:center; margin: 16px 0 8px 0;">
     <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
        class="btn btn-primary" 
@@ -500,8 +474,6 @@
     </a>
 </div>
 
-
-        <!-- INFO DEL EXPEDIENTE -->
         <div class="expediente-info" id="expedienteInfo">
             <h3>📁 Sobre este expediente</h3>
             <p id="expedienteDesc">Cargando...</p>
@@ -510,10 +482,276 @@
     </div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    
-        <!--  carga watch-02-data.js -->
-<script src="watch-02-data.js"></script>
-    <script>
+    <script src="watch-02-data.js"></script>
+    <script src="watch-data.js"></script>
+
+    <script type="module">
+        // ============================================================
+        // CONFIG API
+        // ============================================================
+        const API_BASE = "https://frik-api.onrender.com";
+        const apiSlug = new URLSearchParams(location.search).get('api');
+
+        // ============================================================
+        // LEER PARÁMETROS DE LA URL
+        // ============================================================
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+        const ep = parseInt(params.get('ep')) || 1;
+        const version = params.get('version') || null;
+
+        // ============================================================
+        // FUNCIONES AUXILIARES
+        // ============================================================
+        function esVideoMega(url) {
+            return url && url.includes('mega.nz/embed');
+        }
+
+        function esVideoYouTube(url) {
+            return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
+        }
+
+        function obtenerUrlClean(url) {
+            if (!url) return '';
+            if (esVideoMega(url)) return url;
+            if (esVideoYouTube(url)) {
+                let cleanUrl = url;
+                if (url.includes('?')) cleanUrl = url.split('?')[0];
+                return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
+            }
+            return url;
+        }
+
+        function cambiarEpisodio(id, num, version) {
+            const p = new URLSearchParams(window.location.search);
+            const slugActual = p.get('api');
+
+            let url = `watch.html?id=${id}&ep=${num}`;
+            if (version) url += `&version=${encodeURIComponent(version)}`;
+            if (slugActual) url += `&api=${encodeURIComponent(slugActual)}`;
+            window.location.href = url;
+        }
+        window.cambiarEpisodio = cambiarEpisodio;
+
+        function agruparEpisodios(episodios) {
+            const grupos = {};
+            episodios.forEach(ep => {
+                const version = ep.version || "Episodio";
+                if (!grupos[version]) grupos[version] = [];
+                grupos[version].push(ep);
+            });
+            return grupos;
+        }
+
+        function renderizarSelector(episodios, id) {
+            const grupos = agruparEpisodios(episodios);
+            const versiones = Object.keys(grupos);
+
+            if (versiones.length === 1 && versiones[0] === "Episodio") {
+                return episodios.map(ep => {
+                    return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`;
+                }).join('');
+            }
+
+            let html = '';
+            versiones.forEach(version => {
+                const eps = grupos[version];
+                const count = eps.length;
+                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
+
+                html += `
+                    <div class="version-group">
+                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
+                            📁 ${version}
+                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
+                        </button>
+                        <div class="episode-list" id="${groupId}">
+                            ${eps.map(ep => {
+                                return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            return html;
+        }
+
+        function toggleVersion(groupId) {
+            const list = document.getElementById(groupId);
+            const btn = list.previousElementSibling;
+            if (list.classList.contains('open')) {
+                list.classList.remove('open');
+                btn.innerHTML = btn.innerHTML.replace('📂', '📁');
+            } else {
+                list.classList.add('open');
+                btn.innerHTML = btn.innerHTML.replace('📁', '📂');
+            }
+        }
+        window.toggleVersion = toggleVersion;
+
+        // ============================================================
+        // RESOLVER URL DE UN CAPÍTULO DE LA API
+        // ============================================================
+        async function resolverUrlApi(slug, temporada, capitulo) {
+            try {
+                const r = await fetch(`${API_BASE}/capitulo?serie=${encodeURIComponent(slug)}&temporada=${temporada}&capitulo=${capitulo}`);
+                if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                const cap = await r.json();
+                return cap.video || cap.url || cap.iframe || cap.embed || null;
+            } catch (e) {
+                console.error("[watch] Error resolviendo capítulo:", e);
+                return null;
+            }
+        }
+
+        // ============================================================
+        // CARGAR DESDE LA API SI ES NECESARIO
+        // ============================================================
+        async function cargarDesdeAPI(slug) {
+            try {
+                const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
+                const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
+                const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
+
+                videos[id] = {
+                    title: s.titulo || slug,
+                    year: s.fecha || "—",
+                    studio: "—",
+                    director: "—",
+                    desc: s.descripcion || "Sin descripción disponible.",
+                    tags: [],
+                    episodios: caps.map((x, i) => {
+                        const num = x.capitulo ?? x.numero ?? (i + 1);
+                        const temp = x.temporada ?? 1;
+                        return {
+                            num: num,
+                            version: temp > 1 ? `T${temp}` : "Episodio",
+                            temporada: temp,
+                            apiRef: true,
+                            apiSlug: slug,
+                            url: null
+                        };
+                    })
+                };
+                return true;
+            } catch (e) {
+                console.error("[watch] Error cargando desde API:", e);
+                return false;
+            }
+        }
+
+        // ============================================================
+        // ARRANCAR
+        // ============================================================
+        async function arrancar() {
+            if (apiSlug && !videos[id]) {
+                document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
+                const ok = await cargarDesdeAPI(apiSlug);
+                if (!ok) {
+                    document.getElementById('videoTitle').textContent = 'Error al cargar';
+                    document.getElementById('expedienteDesc').textContent = 'No se pudo cargar el expediente desde la API.';
+                    return;
+                }
+            }
+
+            if (id && videos[id]) {
+                const v = videos[id];
+                const episodios = v.episodios;
+
+                let episodioActual = null;
+                if (episodios && episodios.length > 0) {
+                    episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
+                    if (!episodioActual) episodioActual = episodios[0];
+                }
+
+                let titleSuffix = '';
+                if (episodioActual) {
+                    if (episodioActual.version && episodioActual.version !== "Episodio") {
+                        titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
+                    } else if (episodios.length > 1) {
+                        titleSuffix = ` — Episodio ${episodioActual.num}`;
+                    }
+                }
+                document.getElementById('videoTitle').textContent = v.title + titleSuffix;
+                document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
+                document.title = v.title + titleSuffix + " — Frame Perdido";
+
+                if (episodioActual && episodioActual.apiRef) {
+                    // Es de la API: resolver URL
+                    const frame = document.getElementById('videoFrame');
+                    frame.src = '';
+                    document.getElementById('videoTitle').textContent = v.title + ` — Cargando episodio ${episodioActual.num}...`;
+
+                    const url = await resolverUrlApi(episodioActual.apiSlug, episodioActual.temporada, episodioActual.num);
+                    if (url) {
+                        frame.src = url;
+                        document.getElementById('videoTitle').textContent = v.title + titleSuffix;
+                        document.title = v.title + titleSuffix + " — Frame Perdido";
+                    } else {
+                        document.getElementById('videoTitle').textContent = v.title + ' — Sin video disponible';
+                    }
+                } else if (episodioActual && episodioActual.url) {
+                    const cleanUrl = obtenerUrlClean(episodioActual.url);
+                    document.getElementById('videoFrame').src = cleanUrl;
+                } else {
+                    document.getElementById('videoFrame').src = '';
+                    document.getElementById('videoFrame').style.display = 'none';
+                    const playerContainer = document.querySelector('.plyr-container');
+                    const noVideoMsg = document.createElement('div');
+                    noVideoMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
+                    noVideoMsg.innerHTML = `
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">🎬 No hay video disponible</h3>
+                        <p style="font-size: 0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>
+                    `;
+                    playerContainer.appendChild(noVideoMsg);
+                }
+
+                if (episodios && episodios.length > 0) {
+                    document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
+                } else {
+                    document.getElementById('episodeSelector').innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>`;
+                }
+
+                document.getElementById('expedienteDesc').textContent = v.desc;
+                document.getElementById('expedienteTags').innerHTML = (v.tags || []).map(t => `<span class="exp-tag">${t}</span>`).join('');
+
+                if (document.getElementById('player') && episodioActual && (episodioActual.url || episodioActual.apiRef)) {
+                    new Plyr('#player', {
+                        youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
+                        tooltips: { controls: true, seek: true },
+                        keyboard: { focused: true, global: true },
+                        fullscreen: { enabled: true, fallback: true, iosNative: true },
+                        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+                        settings: ['captions', 'quality', 'speed'],
+                        quality: { default: 720, options: [1080, 720, 480, 360] }
+                    });
+                }
+
+            } else {
+                document.getElementById('videoTitle').textContent = 'Contenido no disponible';
+                document.getElementById('videoMeta').textContent = '';
+                document.getElementById('episodeSelector').innerHTML = '';
+                document.getElementById('expedienteDesc').textContent = 'Este expediente no existe en nuestro archivo o no tiene video asociado.';
+                document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
+                document.title = "No disponible — Frame Perdido";
+
+                const playerContainer = document.querySelector('.plyr-container');
+                const errorMsg = document.createElement('div');
+                errorMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
+                errorMsg.innerHTML = `
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">⚠️ Expediente no encontrado</h3>
+                    <p style="font-size: 0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p>
+                    <a href="index.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 500;">← Volver al archivo</a>
+                `;
+                playerContainer.appendChild(errorMsg);
+            }
+        }
+
+        arrancar();
+    </script>
+
+    <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
+    <script src="simpleblocker.js"></script>
         // ============================================================
         // BASE DE DATOS DE VIDEOS - CON IDs CORRECTOS
         // ============================================================
