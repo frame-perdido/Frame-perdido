@@ -44,331 +44,71 @@
             justify-content: center;
             padding: 20px;
         }
-        .player-page {
-            max-width: 1100px;
-            width: 100%;
-        }
-
+        .player-page { max-width: 1100px; width: 100%; }
         .adsterra-mobile { display: none; }
         .adsterra-desktop { display: block; }
-
         @media only screen and (max-width: 768px) {
             .adsterra-mobile { display: block; }
             .adsterra-desktop { display: none; }
+            .native-banner-desktop { display: none !important; }
         }
-
-        @media only screen and (max-width: 768px) {
-            .native-banner-desktop {
-                display: none !important;
-            }
-        }
-
-        .action-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin: 16px 0 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .action-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .action-btn.support {
-            background: #2a2a3a;
-            border: 1px solid #3a3a50;
-        }
-        .action-btn.support:hover {
-            background: #3a3a50;
-            border-color: #ff6b35;
-            transform: translateY(-2px);
-        }
-
-        .action-btn .icon {
-            font-size: 1.2rem;
-        }
-
-        .adsterra-mobile-banner {
-            display: none;
-            text-align: center;
-            margin: 16px auto;
-            padding: 8px;
-            background: var(--bg-card);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            max-width: 320px;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .adsterra-mobile-banner {
-                display: block;
-            }
-        }
-
-        .video-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .video-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-        .video-meta {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .back-btn {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
+        .action-bar { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 16px 0 20px 0; flex-wrap: wrap; }
+        .action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none; color: #fff; }
+        .action-btn.support { background: #2a2a3a; border: 1px solid #3a3a50; }
+        .action-btn.support:hover { background: #3a3a50; border-color: #ff6b35; transform: translateY(-2px); }
+        .action-btn .icon { font-size: 1.2rem; }
+        .adsterra-mobile-banner { display: none; text-align: center; margin: 16px auto; padding: 8px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); max-width: 320px; }
+        @media only screen and (max-width: 768px) { .adsterra-mobile-banner { display: block; } }
+        .video-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+        .video-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; }
+        .video-meta { color: var(--text-muted); font-size: 0.85rem; }
+        .back-btn { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: opacity 0.3s; }
         .back-btn:hover { opacity: 0.7; }
-
-        .plyr-container {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-        .plyr--video {
-            border-radius: 16px;
-        }
-        .plyr--video .plyr__controls {
-            padding: 16px 20px;
-        }
-        .plyr--fullscreen {
-            width: 100vw !important;
-            height: 100vh !important;
-            max-width: 100vw !important;
-            max-height: 100vh !important;
-        }
-
-        .episode-selector {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin: 16px 0;
-        }
-        .episode-btn {
-            padding: 5px 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 0.75rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-        }
-        .episode-btn:hover {
-            border-color: var(--accent);
-            color: var(--text);
-        }
-        .episode-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }
-
-        .version-group {
-            margin: 4px 0;
-            width: 100%;
-        }
-
-        .version-btn {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            width: 100%;
-            text-align: left;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .version-btn:hover {
-            background: var(--bg-hover);
-            border-color: var(--accent);
-        }
-
-        .version-btn .count {
-            color: var(--text-muted);
-            font-weight: 400;
-            font-size: 0.75rem;
-            margin-left: auto;
-        }
-
-        .episode-list {
-            display: none;
-            flex-wrap: wrap;
-            gap: 6px;
-            padding: 8px 0 8px 16px;
-            border-left: 2px solid var(--border);
-            margin: 4px 0 8px 8px;
-        }
-
-        .episode-list.open {
-            display: flex;
-        }
-
+        .plyr-container { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; }
+        .plyr--video { border-radius: 16px; }
+        .plyr--video .plyr__controls { padding: 16px 20px; }
+        .plyr--fullscreen { width: 100vw !important; height: 100vh !important; max-width: 100vw !important; max-height: 100vh !important; }
+        .episode-selector { display: flex; flex-direction: column; gap: 6px; margin: 16px 0; }
+        .episode-btn { padding: 5px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; color: var(--text-muted); cursor: pointer; font-size: 0.75rem; font-family: 'Inter', sans-serif; transition: all 0.3s; }
+        .episode-btn:hover { border-color: var(--accent); color: var(--text); }
+        .episode-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .version-group { margin: 4px 0; width: 100%; }
+        .version-btn { background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text); padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; width: 100%; text-align: left; transition: all 0.3s; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; }
+        .version-btn:hover { background: var(--bg-hover); border-color: var(--accent); }
+        .version-btn .count { color: var(--text-muted); font-weight: 400; font-size: 0.75rem; margin-left: auto; }
+        .episode-list { display: none; flex-wrap: wrap; gap: 6px; padding: 8px 0 8px 16px; border-left: 2px solid var(--border); margin: 4px 0 8px 8px; }
+        .episode-list.open { display: flex; }
         @media (max-width: 480px) {
-            .episode-list .episode-btn {
-                font-size: 0.7rem;
-                padding: 4px 10px;
-            }
-            .version-btn {
-                font-size: 0.8rem;
-                padding: 8px 12px;
-            }
+            .episode-list .episode-btn { font-size: 0.7rem; padding: 4px 10px; }
+            .version-btn { font-size: 0.8rem; padding: 8px 12px; }
         }
-
-        .expediente-info {
-            margin-top: 24px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-        }
-        .expediente-info h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-        .expediente-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .expediente-tags {
-            display: flex;
-            gap: 8px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-        .exp-tag {
-            background: #1a1a25;
-            color: var(--text-muted);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            border: 1px solid var(--border);
-        }
-
+        .expediente-info { margin-top: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+        .expediente-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: var(--accent); margin-bottom: 12px; }
+        .expediente-info p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+        .expediente-tags { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+        .exp-tag { background: #1a1a25; color: var(--text-muted); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; border: 1px solid var(--border); }
         @media (max-width: 768px) {
             .video-title { font-size: 1.1rem; }
             body { padding: 10px; }
             .plyr-container { border-radius: 12px; }
             .expediente-info { padding: 16px; }
         }
-        @media (orientation: portrait) {
-            .plyr--fullscreen video {
-                transform: rotate(0deg) !important;
-            }
+        @media (orientation: portrait) { .plyr--fullscreen video { transform: rotate(0deg) !important; } }
+        @media (min-width: 1400px) {
+            .ad-skyscraper { position: fixed; right: 10px; top: 50%; transform: translateY(-50%); width: 160px; height: 600px; z-index: 50; border-radius: 4px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
+            .ad-skyscraper::before { content: "PUBLICIDAD"; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background: var(--bg); padding: 0 8px; font-size: 0.5rem; color: var(--text-dim); font-family: 'Space Mono', monospace; letter-spacing: 2px; z-index: 2; }
+            body { padding-right: 180px; }
         }
-
-@media (min-width: 1400px) {
-    .ad-skyscraper {
-        position: fixed;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 160px;
-        height: 600px;
-        z-index: 50;
-        border-radius: 4px;
-        overflow: hidden;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-    }
-    .ad-skyscraper::before {
-        content: "PUBLICIDAD";
-        position: absolute;
-        top: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--bg);
-        padding: 0 8px;
-        font-size: 0.5rem;
-        color: var(--text-dim);
-        font-family: 'Space Mono', monospace;
-        letter-spacing: 2px;
-        z-index: 2;
-    }
-    body {
-        padding-right: 180px;
-    }
-}
-
-@media (max-width: 1399px) {
-    .ad-skyscraper {
-        display: none !important;
-    }
-    body {
-        padding-right: 0 !important;
-    }
-}
-
-.plyr-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.video-overlay-blocker {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    width: 160px !important;
-    height: 80px !important;
-    background: transparent !important;
-    z-index: 9999999 !important;
-    pointer-events: auto !important;
-    cursor: default !important;
-}
-
-.plyr--fullscreen .video-overlay-blocker {
-    width: 200px !important;
-    height: 90px !important;
-}
-
-@media (max-width: 768px) {
-    .video-overlay-blocker {
-        width: 110px !important;
-        height: 60px !important;
-    }
-    .plyr--fullscreen .video-overlay-blocker {
-        width: 160px !important;
-        height: 80px !important;
-    }
-}
+        @media (max-width: 1399px) {
+            .ad-skyscraper { display: none !important; }
+            body { padding-right: 0 !important; }
+        }
+        .video-overlay-blocker { position: absolute !important; top: 0 !important; right: 0 !important; width: 160px !important; height: 80px !important; background: transparent !important; z-index: 9999999 !important; pointer-events: auto !important; cursor: default !important; }
+        .plyr--fullscreen .video-overlay-blocker { width: 200px !important; height: 90px !important; }
+        @media (max-width: 768px) {
+            .video-overlay-blocker { width: 110px !important; height: 60px !important; }
+            .plyr--fullscreen .video-overlay-blocker { width: 160px !important; height: 80px !important; }
+        }
     </style>
 </head>
 <body>
@@ -394,65 +134,35 @@
         <div style="text-align:center; margin: 12px 0;">
             <div class="adsterra-desktop">
                 <script>
-                    atOptions = {
-                        'key' : '2d24803022ac8ea2c0f5629bb6e94501',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
+                    atOptions = { 'key' : '2d24803022ac8ea2c0f5629bb6e94501', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
                 </script>
                 <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
             </div>
             <div class="adsterra-mobile">
                 <script>
-                    atOptions = {
-                        'key' : 'f609722253730b0dda3e6b83efb17a18',
-                        'format' : 'iframe',
-                        'height' : 50,
-                        'width' : 320,
-                        'params' : {}
-                    };
+                    atOptions = { 'key' : 'f609722253730b0dda3e6b83efb17a18', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
                 </script>
                 <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
             </div>
         </div>
 
-<div class="ad-skyscraper">
-    <script>
-        atOptions = {
-            'key' : 'f564e8789f9520e705a0684b0fb3ad26',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-        };
-    </script>
-    <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
-</div>
+        <div class="ad-skyscraper">
+            <script>
+                atOptions = { 'key' : 'f564e8789f9520e705a0684b0fb3ad26', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+            </script>
+            <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
+        </div>
 
-<div class="plyr-container">
-    <div class="plyr__video-embed" id="player">
-        <iframe
-            id="videoFrame"
-            src=""
-            allowfullscreen
-            allowtransparency
-            allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen; screen-orientation"
-        ></iframe>
-    </div>
-    <div class="video-overlay-blocker"></div>
-</div>
+        <div class="plyr-container">
+            <div class="plyr__video-embed" id="player">
+                <iframe id="videoFrame" src="" allowfullscreen allowtransparency allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen"></iframe>
+            </div>
+            <div class="video-overlay-blocker"></div>
+        </div>
 
         <div class="adsterra-mobile-banner">
             <script>
-                atOptions = {
-                    'key' : '87a06576574ce7684612c64a5ebfe421',
-                    'format' : 'iframe',
-                    'height' : 250,
-                    'width' : 300,
-                    'params' : {}
-                };
+                atOptions = { 'key' : '87a06576574ce7684612c64a5ebfe421', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
             </script>
             <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
         </div>
@@ -464,15 +174,15 @@
 
         <div class="episode-selector" id="episodeSelector"></div>
 
-<div style="text-align:center; margin: 16px 0 8px 0;">
-    <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
-       class="btn btn-primary" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
-        ⬇️ DOWNLOAD
-    </a>
-</div>
+        <div style="text-align:center; margin: 16px 0 8px 0;">
+            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
+               class="btn btn-primary" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
+                ⬇️ DOWNLOAD
+            </a>
+        </div>
 
         <div class="expediente-info" id="expedienteInfo">
             <h3>📁 Sobre este expediente</h3>
@@ -485,247 +195,11 @@
     <script src="watch-02-data.js"></script>
 
     <script>
-        // ============================================================
-        // CONFIG API
-        // ============================================================
-        const API_BASE = "https://frik-api.onrender.com";
-        const apiSlug = new URLSearchParams(location.search).get('api');
-
-        // ============================================================
-        // PARÁMETROS DE LA URL
-        // ============================================================
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get('id'));
-        const ep = parseInt(params.get('ep')) || 1;
-        const version = params.get('version') || null;
-
-        // ============================================================
-        // AUXILIARES
-        // ============================================================
-        function esVideoMega(url) { return url && url.includes('mega.nz/embed'); }
-        function esVideoYouTube(url) { return url && (url.includes('youtube.com/embed') || url.includes('youtu.be')); }
-        function obtenerUrlClean(url) {
-            if (!url) return '';
-            if (esVideoMega(url)) return url;
-            if (esVideoYouTube(url)) {
-                let u = url;
-                if (u.includes('?')) u = u.split('?')[0];
-                return u + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(location.origin);
-            }
-            return url;
-        }
-
-        function cambiarEpisodio(id, num, version) {
-            const p = new URLSearchParams(location.search);
-            const slugActual = p.get('api');
-            let url = `watch.html?id=${id}&ep=${num}`;
-            if (version) url += `&version=${encodeURIComponent(version)}`;
-            if (slugActual) url += `&api=${encodeURIComponent(slugActual)}`;
-            location.href = url;
-        }
-        window.cambiarEpisodio = cambiarEpisodio;
-
-        function toggleVersion(groupId) {
-            const list = document.getElementById(groupId);
-            const btn = list.previousElementSibling;
-            if (list.classList.contains('open')) {
-                list.classList.remove('open');
-                btn.innerHTML = btn.innerHTML.replace('📂', '📁');
-            } else {
-                list.classList.add('open');
-                btn.innerHTML = btn.innerHTML.replace('📁', '📂');
-            }
-        }
-        window.toggleVersion = toggleVersion;
-
-        function agruparEpisodios(episodios) {
-            const g = {};
-            episodios.forEach(ep => {
-                const v = ep.version || "Episodio";
-                if (!g[v]) g[v] = [];
-                g[v].push(ep);
-            });
-            return g;
-        }
-
-        function renderizarSelector(episodios, id) {
-            const grupos = agruparEpisodios(episodios);
-            const versiones = Object.keys(grupos);
-            if (versiones.length === 1 && versiones[0] === "Episodio") {
-                return episodios.map(ep => `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`).join('');
-            }
-            let html = '';
-            versiones.forEach(version => {
-                const eps = grupos[version];
-                const count = eps.length;
-                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
-                html += `
-                    <div class="version-group">
-                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
-                            📁 ${version}
-                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
-                        </button>
-                        <div class="episode-list" id="${groupId}">
-                            ${eps.map(ep => `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-            return html;
-        }
-
-        async function resolverUrlApi(slug, temporada, capitulo) {
-            try {
-                const r = await fetch(`${API_BASE}/capitulo?serie=${encodeURIComponent(slug)}&temporada=${temporada}&capitulo=${capitulo}`);
-                if (!r.ok) throw new Error(`HTTP ${r.status}`);
-                const cap = await r.json();
-                return cap.video || cap.url || cap.iframe || cap.embed || null;
-            } catch (e) {
-                console.error("[watch] Error resolviendo capítulo:", e);
-                return null;
-            }
-        }
-
-        async function cargarDesdeAPI(slug) {
-            try {
-                const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
-                const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
-                const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
-                window.videos[id] = {
-                    title: s.titulo || slug,
-                    year: s.fecha || "—",
-                    studio: "—",
-                    director: "—",
-                    desc: s.descripcion || "Sin descripción disponible.",
-                    tags: [],
-                    episodios: caps.map((x, i) => {
-                        const num = x.capitulo ?? x.numero ?? (i + 1);
-                        const temp = x.temporada ?? 1;
-                        return {
-                            num: num,
-                            version: temp > 1 ? `T${temp}` : "Episodio",
-                            temporada: temp,
-                            apiRef: true,
-                            apiSlug: slug,
-                            url: null
-                        };
-                    })
-                };
-                return true;
-            } catch (e) {
-                console.error("[watch] Error cargando desde API:", e);
-                return false;
-            }
-        }
-
-        async function arrancar() {
-            // Si viene de la API y no está en videos, cargar
-            if (apiSlug && !window.videos[id]) {
-                document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
-                const ok = await cargarDesdeAPI(apiSlug);
-                if (!ok) {
-                    document.getElementById('videoTitle').textContent = 'Error al cargar';
-                    document.getElementById('expedienteDesc').textContent = 'No se pudo cargar el expediente desde la API.';
-                    return;
-                }
-            }
-
-            if (id && window.videos[id]) {
-                const v = window.videos[id];
-                const episodios = v.episodios;
-
-                let episodioActual = null;
-                if (episodios && episodios.length > 0) {
-                    episodioActual = episodios.find(e => e.num === ep && (version ? e.version === version : true));
-                    if (!episodioActual) episodioActual = episodios[0];
-                }
-
-                let titleSuffix = '';
-                if (episodioActual) {
-                    if (episodioActual.version && episodioActual.version !== "Episodio") {
-                        titleSuffix = ` — ${episodioActual.version} ${episodioActual.num}`;
-                    } else if (episodios.length > 1) {
-                        titleSuffix = ` — Episodio ${episodioActual.num}`;
-                    }
-                }
-                document.getElementById('videoTitle').textContent = v.title + titleSuffix;
-                document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
-                document.title = v.title + titleSuffix + " — Frame Perdido";
-
-                if (episodioActual && episodioActual.apiRef) {
-                    const frame = document.getElementById('videoFrame');
-                    frame.src = '';
-                    document.getElementById('videoTitle').textContent = v.title + ` — Cargando episodio ${episodioActual.num}...`;
-                    const url = await resolverUrlApi(episodioActual.apiSlug, episodioActual.temporada, episodioActual.num);
-                    if (url) {
-                        frame.src = url;
-                        document.getElementById('videoTitle').textContent = v.title + titleSuffix;
-                    } else {
-                        document.getElementById('videoTitle').textContent = v.title + ' — Sin video disponible';
-                    }
-                } else if (episodioActual && episodioActual.url) {
-                    document.getElementById('videoFrame').src = obtenerUrlClean(episodioActual.url);
-                } else {
-                    document.getElementById('videoFrame').src = '';
-                    document.getElementById('videoFrame').style.display = 'none';
-                    const pc = document.querySelector('.plyr-container');
-                    const m = document.createElement('div');
-                    m.style.cssText = 'padding:60px 20px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:16px;';
-                    m.innerHTML = `<h3 style="font-family:'Space Grotesk',sans-serif;color:var(--text);margin-bottom:12px;">🎬 No hay video disponible</h3><p style="font-size:0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>`;
-                    pc.appendChild(m);
-                }
-
-                if (episodios && episodios.length > 0) {
-                    document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
-                } else {
-                    document.getElementById('episodeSelector').innerHTML = `<p style="color:var(--text-muted);font-size:0.85rem;">No hay episodios disponibles para este título.</p>`;
-                }
-
-                document.getElementById('expedienteDesc').textContent = v.desc;
-                document.getElementById('expedienteTags').innerHTML = (v.tags || []).map(t => `<span class="exp-tag">${t}</span>`).join('');
-
-                if (document.getElementById('player') && episodioActual && (episodioActual.url || episodioActual.apiRef)) {
-                    new Plyr('#player', {
-                        youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
-                        tooltips: { controls: true, seek: true },
-                        keyboard: { focused: true, global: true },
-                        fullscreen: { enabled: true, fallback: true, iosNative: true },
-                        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
-                        settings: ['captions', 'quality', 'speed'],
-                        quality: { default: 720, options: [1080, 720, 480, 360] }
-                    });
-                }
-            } else {
-                document.getElementById('videoTitle').textContent = 'Contenido no disponible';
-                document.getElementById('videoMeta').textContent = '';
-                document.getElementById('episodeSelector').innerHTML = '';
-                document.getElementById('expedienteDesc').textContent = 'Este expediente no existe en nuestro archivo o no tiene video asociado.';
-                document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
-                document.title = "No disponible — Frame Perdido";
-
-                const pc = document.querySelector('.plyr-container');
-                const m = document.createElement('div');
-                m.style.cssText = 'padding:60px 20px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:16px;';
-                m.innerHTML = `<h3 style="font-family:'Space Grotesk',sans-serif;color:var(--text);margin-bottom:12px;">⚠️ Expediente no encontrado</h3><p style="font-size:0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p><a href="index.html" style="display:inline-block;margin-top:16px;color:var(--accent);text-decoration:none;font-weight:500;">← Volver al archivo</a>`;
-                pc.appendChild(m);
-            }
-        }
-
-           (async () => {
-            await arrancar();
-        })();
-    </script>
-    <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
-    <script src="simpleblocker.js"></script>
-
-    <script>
-    
-
-        // ============================================================
-        // BASE DE DATOS DE VIDEOS - CON IDs CORRECTOS
-        // ============================================================
-        const videos = {
-            1: {
+    // ============================================================
+    // BASE DE DATOS DE VIDEOS - IDs 1 a 106
+    // ============================================================
+    window.videos = {
+         1: {
                 title: "Barefoot Gen",
                 year: 1983,
                 studio: "Madhouse",
@@ -2231,114 +1705,157 @@
     ]
 }
         };  
-  // COMBINAR CON watch-02-data.js
-  if (typeof videos2 !== 'undefined') {
-    Object.assign(videos, videos2);
- }
-        
-        // ============================================================
-        // LEER PARÁMETROS DE LA URL
-        // ============================================================
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get('id'));
-        const ep = parseInt(params.get('ep')) || 1;
-        const version = params.get('version') || null;
+    // Combinar con watch-02-data.js (IDs 107+)
+    if (typeof videos2 !== 'undefined') {
+        Object.assign(window.videos, videos2);
+    }
 
-        // ============================================================
-        // FUNCIONES
-        // ============================================================
-        function esVideoMega(url) {
-            return url && url.includes('mega.nz/embed');
+    // ============================================================
+    // CONFIG API
+    // ============================================================
+    const API_BASE = "https://frik-api.onrender.com";
+    const apiSlug = new URLSearchParams(location.search).get('api');
+
+    // ============================================================
+    // PARÁMETROS DE LA URL
+    // ============================================================
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const ep = parseInt(params.get('ep')) || 1;
+    const version = params.get('version') || null;
+
+    // ============================================================
+    // AUXILIARES
+    // ============================================================
+    function esVideoMega(url) { return url && url.includes('mega.nz/embed'); }
+    function esVideoYouTube(url) { return url && (url.includes('youtube.com/embed') || url.includes('youtu.be')); }
+    function obtenerUrlClean(url) {
+        if (!url) return '';
+        if (esVideoMega(url)) return url;
+        if (esVideoYouTube(url)) {
+            let u = url;
+            if (u.includes('?')) u = u.split('?')[0];
+            return u + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(location.origin);
         }
+        return url;
+    }
 
-        function esVideoYouTube(url) {
-            return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
+    function cambiarEpisodio(id, num, version) {
+        const p = new URLSearchParams(location.search);
+        const slugActual = p.get('api');
+        let url = `watch.html?id=${id}&ep=${num}`;
+        if (version) url += `&version=${encodeURIComponent(version)}`;
+        if (slugActual) url += `&api=${encodeURIComponent(slugActual)}`;
+        location.href = url;
+    }
+    window.cambiarEpisodio = cambiarEpisodio;
+
+    function toggleVersion(groupId) {
+        const list = document.getElementById(groupId);
+        const btn = list.previousElementSibling;
+        if (list.classList.contains('open')) {
+            list.classList.remove('open');
+            btn.innerHTML = btn.innerHTML.replace('📂', '📁');
+        } else {
+            list.classList.add('open');
+            btn.innerHTML = btn.innerHTML.replace('📁', '📂');
         }
+    }
+    window.toggleVersion = toggleVersion;
 
-        function obtenerUrlClean(url) {
-            if (!url) return '';
-            if (esVideoMega(url)) return url;
-            if (esVideoYouTube(url)) {
-                let cleanUrl = url;
-                if (url.includes('?')) cleanUrl = url.split('?')[0];
-                return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
-            }
-            return url;
+    function agruparEpisodios(episodios) {
+        const g = {};
+        episodios.forEach(ep => {
+            const v = ep.version || "Episodio";
+            if (!g[v]) g[v] = [];
+            g[v].push(ep);
+        });
+        return g;
+    }
+
+    function renderizarSelector(episodios, id) {
+        const grupos = agruparEpisodios(episodios);
+        const versiones = Object.keys(grupos);
+        if (versiones.length === 1 && versiones[0] === "Episodio") {
+            return episodios.map(ep => `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`).join('');
         }
-
-        function cambiarEpisodio(id, num, version) {
-            let url = `watch.html?id=${id}&ep=${num}`;
-            if (version) url += `&version=${version}`;
-            window.location.href = url;
-        }
-
-        // ============================================================
-        // AGRUPAR EPISODIOS POR VERSIÓN
-        // ============================================================
-        function agruparEpisodios(episodios) {
-            const grupos = {};
-            episodios.forEach(ep => {
-                const version = ep.version || "Episodio";
-                if (!grupos[version]) {
-                    grupos[version] = [];
-                }
-                grupos[version].push(ep);
-            });
-            return grupos;
-        }
-
-        function renderizarSelector(episodios, id) {
-            const grupos = agruparEpisodios(episodios);
-            const versiones = Object.keys(grupos);
-            
-            if (versiones.length === 1 && versiones[0] === "Episodio") {
-                return episodios.map(ep => {
-                    const label = `Ep. ${ep.num}`;
-                    return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">${label}</button>`;
-                }).join('');
-            }
-            
-            let html = '';
-            versiones.forEach(version => {
-                const eps = grupos[version];
-                const count = eps.length;
-                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
-                
-                html += `
-                    <div class="version-group">
-                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
-                            📁 ${version}
-                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
-                        </button>
-                        <div class="episode-list" id="${groupId}">
-                            ${eps.map(ep => {
-                                const label = `Ep. ${ep.num}`;
-                                return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">${label}</button>`;
-                            }).join('')}
-                        </div>
+        let html = '';
+        versiones.forEach(version => {
+            const eps = grupos[version];
+            const count = eps.length;
+            const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
+            html += `
+                <div class="version-group">
+                    <button class="version-btn" onclick="toggleVersion('${groupId}')">
+                        📁 ${version}
+                        <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
+                    </button>
+                    <div class="episode-list" id="${groupId}">
+                        ${eps.map(ep => `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`).join('')}
                     </div>
-                `;
-            });
-            return html;
-        }
+                </div>
+            `;
+        });
+        return html;
+    }
 
-        function toggleVersion(groupId) {
-            const list = document.getElementById(groupId);
-            const btn = list.previousElementSibling;
-            if (list.classList.contains('open')) {
-                list.classList.remove('open');
-                btn.innerHTML = btn.innerHTML.replace('📂', '📁');
-            } else {
-                list.classList.add('open');
-                btn.innerHTML = btn.innerHTML.replace('📁', '📂');
+    async function resolverUrlApi(slug, temporada, capitulo) {
+        try {
+            const r = await fetch(`${API_BASE}/capitulo?serie=${encodeURIComponent(slug)}&temporada=${temporada}&capitulo=${capitulo}`);
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            const cap = await r.json();
+            return cap.video || cap.url || cap.iframe || cap.embed || null;
+        } catch (e) {
+            console.error("[watch] Error resolviendo capítulo:", e);
+            return null;
+        }
+    }
+
+    async function cargarDesdeAPI(slug) {
+        try {
+            const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
+            const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
+            const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
+            window.videos[id] = {
+                title: s.titulo || slug,
+                year: s.fecha || "—",
+                studio: "—",
+                director: "—",
+                desc: s.descripcion || "Sin descripción disponible.",
+                tags: [],
+                episodios: caps.map((x, i) => {
+                    const num = x.capitulo ?? x.numero ?? (i + 1);
+                    const temp = x.temporada ?? 1;
+                    return {
+                        num: num,
+                        version: temp > 1 ? `T${temp}` : "Episodio",
+                        temporada: temp,
+                        apiRef: true,
+                        apiSlug: slug,
+                        url: null
+                    };
+                })
+            };
+            return true;
+        } catch (e) {
+            console.error("[watch] Error cargando desde API:", e);
+            return false;
+        }
+    }
+
+    async function arrancar() {
+        if (apiSlug && !window.videos[id]) {
+            document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
+            const ok = await cargarDesdeAPI(apiSlug);
+            if (!ok) {
+                document.getElementById('videoTitle').textContent = 'Error al cargar';
+                document.getElementById('expedienteDesc').textContent = 'No se pudo cargar el expediente desde la API.';
+                return;
             }
         }
 
-        // ============================================================
-        // CARGAR CONTENIDO
-        // ============================================================
-        if (id && videos[id]) {
-            const v = videos[id];
+        if (id && window.videos[id]) {
+            const v = window.videos[id];
             const episodios = v.episodios;
 
             let episodioActual = null;
@@ -2359,33 +1876,40 @@
             document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
             document.title = v.title + titleSuffix + " — Frame Perdido";
 
-            if (episodioActual && episodioActual.url) {
-                const cleanUrl = obtenerUrlClean(episodioActual.url);
-                document.getElementById('videoFrame').src = cleanUrl;
+            if (episodioActual && episodioActual.apiRef) {
+                const frame = document.getElementById('videoFrame');
+                frame.src = '';
+                document.getElementById('videoTitle').textContent = v.title + ` — Cargando episodio ${episodioActual.num}...`;
+                const url = await resolverUrlApi(episodioActual.apiSlug, episodioActual.temporada, episodioActual.num);
+                if (url) {
+                    frame.src = url;
+                    document.getElementById('videoTitle').textContent = v.title + titleSuffix;
+                } else {
+                    document.getElementById('videoTitle').textContent = v.title + ' — Sin video disponible';
+                }
+            } else if (episodioActual && episodioActual.url) {
+                document.getElementById('videoFrame').src = obtenerUrlClean(episodioActual.url);
             } else {
                 document.getElementById('videoFrame').src = '';
                 document.getElementById('videoFrame').style.display = 'none';
-                const playerContainer = document.querySelector('.plyr-container');
-                const noVideoMsg = document.createElement('div');
-                noVideoMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
-                noVideoMsg.innerHTML = `
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">🎬 No hay video disponible</h3>
-                    <p style="font-size: 0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>
-                `;
-                playerContainer.appendChild(noVideoMsg);
+                const pc = document.querySelector('.plyr-container');
+                const m = document.createElement('div');
+                m.style.cssText = 'padding:60px 20px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:16px;';
+                m.innerHTML = `<h3 style="font-family:'Space Grotesk',sans-serif;color:var(--text);margin-bottom:12px;">🎬 No hay video disponible</h3><p style="font-size:0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>`;
+                pc.appendChild(m);
             }
 
             if (episodios && episodios.length > 0) {
                 document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
             } else {
-                document.getElementById('episodeSelector').innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>`;
+                document.getElementById('episodeSelector').innerHTML = `<p style="color:var(--text-muted);font-size:0.85rem;">No hay episodios disponibles para este título.</p>`;
             }
 
             document.getElementById('expedienteDesc').textContent = v.desc;
-            document.getElementById('expedienteTags').innerHTML = v.tags.map(t => `<span class="exp-tag">${t}</span>`).join('');
+            document.getElementById('expedienteTags').innerHTML = (v.tags || []).map(t => `<span class="exp-tag">${t}</span>`).join('');
 
-            if (document.getElementById('player') && episodioActual && episodioActual.url) {
-                const player = new Plyr('#player', {
+            if (document.getElementById('player') && episodioActual && (episodioActual.url || episodioActual.apiRef)) {
+                new Plyr('#player', {
                     youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
                     tooltips: { controls: true, seek: true },
                     keyboard: { focused: true, global: true },
@@ -2395,7 +1919,6 @@
                     quality: { default: 720, options: [1080, 720, 480, 360] }
                 });
             }
-
         } else {
             document.getElementById('videoTitle').textContent = 'Contenido no disponible';
             document.getElementById('videoMeta').textContent = '';
@@ -2403,26 +1926,21 @@
             document.getElementById('expedienteDesc').textContent = 'Este expediente no existe en nuestro archivo o no tiene video asociado.';
             document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
             document.title = "No disponible — Frame Perdido";
-            
-            const playerContainer = document.querySelector('.plyr-container');
-            const errorMsg = document.createElement('div');
-            errorMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
-            errorMsg.innerHTML = `
-                <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">⚠️ Expediente no encontrado</h3>
-                <p style="font-size: 0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p>
-                <a href="index.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 500;">← Volver al archivo</a>
-            `;
-            playerContainer.appendChild(errorMsg);
+
+            const pc = document.querySelector('.plyr-container');
+            const m = document.createElement('div');
+            m.style.cssText = 'padding:60px 20px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:16px;';
+            m.innerHTML = `<h3 style="font-family:'Space Grotesk',sans-serif;color:var(--text);margin-bottom:12px;">⚠️ Expediente no encontrado</h3><p style="font-size:0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p><a href="index.html" style="display:inline-block;margin-top:16px;color:var(--accent);text-decoration:none;font-weight:500;">← Volver al archivo</a>`;
+            pc.appendChild(m);
         }
-   
+    }
+
+    (async () => {
+        await arrancar();
+    })();
     </script>
 
     <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
-
-
-   
     <script src="simpleblocker.js"></script>
- 
-</script>
 </body>
 </html>
