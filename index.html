@@ -2289,11 +2289,16 @@
         // ============================================================
         // BUSCAR DISPONIBILIDAD
         // ============================================================
-        function buscarDisponibilidad() {
-            const obra = animes.find(a => a.id === currentModalId);
-            if (!obra) return;
-            window.location.href = `watch.html?id=${obra.id}`;
-        }
+      function buscarDisponibilidad() {
+    const obra = animes.find(a => a.id === currentModalId);
+    if (!obra) return;
+    
+    let url = `watch.html?id=${obra.id}`;
+    if (obra.apiSlug) {
+        url += `&api=${encodeURIComponent(obra.apiSlug)}`;
+    }
+    window.location.href = url;
+}
 
         // ============================================================
         // VIBES
