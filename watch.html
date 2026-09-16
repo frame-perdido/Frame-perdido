@@ -484,7 +484,7 @@
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="watch-02-data.js"></script>
 
-    <script type="module">
+    <script>
         // ============================================================
         // CONFIG API
         // ============================================================
@@ -711,9 +711,10 @@
             }
         }
 
-        arrancar();
+           (async () => {
+            await arrancar();
+        })();
     </script>
-
     <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
     <script src="simpleblocker.js"></script>
 
