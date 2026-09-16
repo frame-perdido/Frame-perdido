@@ -483,7 +483,6 @@
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="watch-02-data.js"></script>
-    <script src="watch-data.js"></script>
 
     <script type="module">
         // ============================================================
@@ -493,7 +492,7 @@
         const apiSlug = new URLSearchParams(location.search).get('api');
 
         // ============================================================
-        // LEER PARÁMETROS DE LA URL
+        // PARÁMETROS DE LA URL
         // ============================================================
         const params = new URLSearchParams(window.location.search);
         const id = parseInt(params.get('id'));
@@ -501,80 +500,30 @@
         const version = params.get('version') || null;
 
         // ============================================================
-        // FUNCIONES AUXILIARES
+        // AUXILIARES
         // ============================================================
-        function esVideoMega(url) {
-            return url && url.includes('mega.nz/embed');
-        }
-
-        function esVideoYouTube(url) {
-            return url && (url.includes('youtube.com/embed') || url.includes('youtu.be'));
-        }
-
+        function esVideoMega(url) { return url && url.includes('mega.nz/embed'); }
+        function esVideoYouTube(url) { return url && (url.includes('youtube.com/embed') || url.includes('youtu.be')); }
         function obtenerUrlClean(url) {
             if (!url) return '';
             if (esVideoMega(url)) return url;
             if (esVideoYouTube(url)) {
-                let cleanUrl = url;
-                if (url.includes('?')) cleanUrl = url.split('?')[0];
-                return cleanUrl + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(window.location.origin);
+                let u = url;
+                if (u.includes('?')) u = u.split('?')[0];
+                return u + '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&origin=' + encodeURIComponent(location.origin);
             }
             return url;
         }
 
         function cambiarEpisodio(id, num, version) {
-            const p = new URLSearchParams(window.location.search);
+            const p = new URLSearchParams(location.search);
             const slugActual = p.get('api');
-
             let url = `watch.html?id=${id}&ep=${num}`;
             if (version) url += `&version=${encodeURIComponent(version)}`;
             if (slugActual) url += `&api=${encodeURIComponent(slugActual)}`;
-            window.location.href = url;
+            location.href = url;
         }
         window.cambiarEpisodio = cambiarEpisodio;
-
-        function agruparEpisodios(episodios) {
-            const grupos = {};
-            episodios.forEach(ep => {
-                const version = ep.version || "Episodio";
-                if (!grupos[version]) grupos[version] = [];
-                grupos[version].push(ep);
-            });
-            return grupos;
-        }
-
-        function renderizarSelector(episodios, id) {
-            const grupos = agruparEpisodios(episodios);
-            const versiones = Object.keys(grupos);
-
-            if (versiones.length === 1 && versiones[0] === "Episodio") {
-                return episodios.map(ep => {
-                    return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`;
-                }).join('');
-            }
-
-            let html = '';
-            versiones.forEach(version => {
-                const eps = grupos[version];
-                const count = eps.length;
-                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
-
-                html += `
-                    <div class="version-group">
-                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
-                            📁 ${version}
-                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
-                        </button>
-                        <div class="episode-list" id="${groupId}">
-                            ${eps.map(ep => {
-                                return `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`;
-                            }).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-            return html;
-        }
 
         function toggleVersion(groupId) {
             const list = document.getElementById(groupId);
@@ -589,9 +538,42 @@
         }
         window.toggleVersion = toggleVersion;
 
-        // ============================================================
-        // RESOLVER URL DE UN CAPÍTULO DE LA API
-        // ============================================================
+        function agruparEpisodios(episodios) {
+            const g = {};
+            episodios.forEach(ep => {
+                const v = ep.version || "Episodio";
+                if (!g[v]) g[v] = [];
+                g[v].push(ep);
+            });
+            return g;
+        }
+
+        function renderizarSelector(episodios, id) {
+            const grupos = agruparEpisodios(episodios);
+            const versiones = Object.keys(grupos);
+            if (versiones.length === 1 && versiones[0] === "Episodio") {
+                return episodios.map(ep => `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`).join('');
+            }
+            let html = '';
+            versiones.forEach(version => {
+                const eps = grupos[version];
+                const count = eps.length;
+                const groupId = 'group-' + id + '-' + version.replace(/\s/g, '-');
+                html += `
+                    <div class="version-group">
+                        <button class="version-btn" onclick="toggleVersion('${groupId}')">
+                            📁 ${version}
+                            <span class="count">${count} episodio${count > 1 ? 's' : ''}</span>
+                        </button>
+                        <div class="episode-list" id="${groupId}">
+                            ${eps.map(ep => `<button class="episode-btn" onclick="cambiarEpisodio(${id}, ${ep.num}, '${ep.version || ''}')">Ep. ${ep.num}</button>`).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            return html;
+        }
+
         async function resolverUrlApi(slug, temporada, capitulo) {
             try {
                 const r = await fetch(`${API_BASE}/capitulo?serie=${encodeURIComponent(slug)}&temporada=${temporada}&capitulo=${capitulo}`);
@@ -604,16 +586,12 @@
             }
         }
 
-        // ============================================================
-        // CARGAR DESDE LA API SI ES NECESARIO
-        // ============================================================
         async function cargarDesdeAPI(slug) {
             try {
                 const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
                 const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
                 const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
-
-                videos[id] = {
+                window.videos[id] = {
                     title: s.titulo || slug,
                     year: s.fecha || "—",
                     studio: "—",
@@ -640,11 +618,9 @@
             }
         }
 
-        // ============================================================
-        // ARRANCAR
-        // ============================================================
         async function arrancar() {
-            if (apiSlug && !videos[id]) {
+            // Si viene de la API y no está en videos, cargar
+            if (apiSlug && !window.videos[id]) {
                 document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
                 const ok = await cargarDesdeAPI(apiSlug);
                 if (!ok) {
@@ -654,8 +630,8 @@
                 }
             }
 
-            if (id && videos[id]) {
-                const v = videos[id];
+            if (id && window.videos[id]) {
+                const v = window.videos[id];
                 const episodios = v.episodios;
 
                 let episodioActual = null;
@@ -677,39 +653,32 @@
                 document.title = v.title + titleSuffix + " — Frame Perdido";
 
                 if (episodioActual && episodioActual.apiRef) {
-                    // Es de la API: resolver URL
                     const frame = document.getElementById('videoFrame');
                     frame.src = '';
                     document.getElementById('videoTitle').textContent = v.title + ` — Cargando episodio ${episodioActual.num}...`;
-
                     const url = await resolverUrlApi(episodioActual.apiSlug, episodioActual.temporada, episodioActual.num);
                     if (url) {
                         frame.src = url;
                         document.getElementById('videoTitle').textContent = v.title + titleSuffix;
-                        document.title = v.title + titleSuffix + " — Frame Perdido";
                     } else {
                         document.getElementById('videoTitle').textContent = v.title + ' — Sin video disponible';
                     }
                 } else if (episodioActual && episodioActual.url) {
-                    const cleanUrl = obtenerUrlClean(episodioActual.url);
-                    document.getElementById('videoFrame').src = cleanUrl;
+                    document.getElementById('videoFrame').src = obtenerUrlClean(episodioActual.url);
                 } else {
                     document.getElementById('videoFrame').src = '';
                     document.getElementById('videoFrame').style.display = 'none';
-                    const playerContainer = document.querySelector('.plyr-container');
-                    const noVideoMsg = document.createElement('div');
-                    noVideoMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
-                    noVideoMsg.innerHTML = `
-                        <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">🎬 No hay video disponible</h3>
-                        <p style="font-size: 0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>
-                    `;
-                    playerContainer.appendChild(noVideoMsg);
+                    const pc = document.querySelector('.plyr-container');
+                    const m = document.createElement('div');
+                    m.style.cssText = 'padding:60px 20px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:16px;';
+                    m.innerHTML = `<h3 style="font-family:'Space Grotesk',sans-serif;color:var(--text);margin-bottom:12px;">🎬 No hay video disponible</h3><p style="font-size:0.9rem;">Este expediente aún no tiene video en nuestro archivo.</p>`;
+                    pc.appendChild(m);
                 }
 
                 if (episodios && episodios.length > 0) {
                     document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
                 } else {
-                    document.getElementById('episodeSelector').innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No hay episodios disponibles para este título.</p>`;
+                    document.getElementById('episodeSelector').innerHTML = `<p style="color:var(--text-muted);font-size:0.85rem;">No hay episodios disponibles para este título.</p>`;
                 }
 
                 document.getElementById('expedienteDesc').textContent = v.desc;
@@ -726,7 +695,6 @@
                         quality: { default: 720, options: [1080, 720, 480, 360] }
                     });
                 }
-
             } else {
                 document.getElementById('videoTitle').textContent = 'Contenido no disponible';
                 document.getElementById('videoMeta').textContent = '';
@@ -735,15 +703,11 @@
                 document.getElementById('expedienteTags').innerHTML = `<span class="exp-tag">ID: ${id || 'ninguno'}</span>`;
                 document.title = "No disponible — Frame Perdido";
 
-                const playerContainer = document.querySelector('.plyr-container');
-                const errorMsg = document.createElement('div');
-                errorMsg.style.cssText = 'padding: 60px 20px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 16px;';
-                errorMsg.innerHTML = `
-                    <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 12px;">⚠️ Expediente no encontrado</h3>
-                    <p style="font-size: 0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p>
-                    <a href="index.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 500;">← Volver al archivo</a>
-                `;
-                playerContainer.appendChild(errorMsg);
+                const pc = document.querySelector('.plyr-container');
+                const m = document.createElement('div');
+                m.style.cssText = 'padding:60px 20px;text-align:center;color:var(--text-muted);background:var(--bg-card);border-radius:16px;';
+                m.innerHTML = `<h3 style="font-family:'Space Grotesk',sans-serif;color:var(--text);margin-bottom:12px;">⚠️ Expediente no encontrado</h3><p style="font-size:0.9rem;">El ID <strong>${id || 'ninguno'}</strong> no corresponde a ningún título en nuestro archivo.</p><a href="index.html" style="display:inline-block;margin-top:16px;color:var(--accent);text-decoration:none;font-weight:500;">← Volver al archivo</a>`;
+                pc.appendChild(m);
             }
         }
 
@@ -752,6 +716,10 @@
 
     <script src="https://dischargeconceiteffort.com/9d/ad/73/9dad739cfebb35cc99470df44ad0da2f.js"></script>
     <script src="simpleblocker.js"></script>
+
+    <script>
+    
+
         // ============================================================
         // BASE DE DATOS DE VIDEOS - CON IDs CORRECTOS
         // ============================================================
