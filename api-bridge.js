@@ -22,10 +22,10 @@
         // Guardar el slug para watch.html
         window.__apiSlugs[id] = serie.slug;
 
-        // Portada en alta resolución (Filmaffinity: msmall → big)
+        // Portada en alta resolución (Filmaffinity: msmall → large)
         let portada = serie.imagen || "";
         if (portada.includes("pics.filmaffinity.com")) {
-            portada = portada.replace("msmall.jpg", "big.jpg");
+            portada = portada.replace("msmall.jpg", "large.jpg");
         }
 
         return {
