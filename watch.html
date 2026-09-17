@@ -1812,37 +1812,63 @@
     }
 
     async function cargarDesdeAPI(slug) {
-        try {
-            const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
-            const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
-            const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
-            window.videos[id] = {
-                title: s.titulo || slug,
-                year: s.fecha || "—",
-                studio: "—",
-                director: "—",
-                desc: s.descripcion || "Sin descripción disponible.",
-                tags: [],
-                episodios: caps.map((x, i) => {
-                    const num = x.capitulo ?? x.numero ?? (i + 1);
-                    const temp = x.temporada ?? 1;
-                    return {
-                        num: num,
-                        version: temp > 1 ? `T${temp}` : "Episodio",
-                        temporada: temp,
-                        apiRef: true,
-                        apiSlug: slug,
-                        url: null
-                    };
-                })
-            };
-            return true;
-        } catch (e) {
-            console.error("[watch] Error cargando desde API:", e);
-            return false;
-        }
-    }
+    try {
+        const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
+        const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
+        const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
 
+        // Agrupar caps en carpetas de 20 por temporada
+        const capsPorTemp = {};
+        caps.forEach(x => {
+            const t = x.temporada ?? 1;
+            if (!capsPorTemp[t]) capsPorTemp[t] = [];
+            capsPorTemp[t].push(x);
+        });
+
+        const episodios = [];
+        Object.keys(capsPorTemp).sort((a,b) => Number(a) - Number(b)).forEach(tempKey => {
+            const temp = Number(tempKey);
+            const capsTemp = capsPorTemp[tempKey];
+            const usarBloques = capsTemp.length > 20;
+
+            capsTemp.forEach((x, i) => {
+                const num = x.capitulo ?? x.numero ?? (i + 1);
+                let version;
+                if (usarBloques) {
+                    const inicio = Math.floor(i / 20) * 20 + 1;
+                    const fin = Math.min(inicio + 19, capsTemp.length);
+                    version = temp > 1
+                        ? `T${temp} · Ep ${inicio}-${fin}`
+                        : `Ep ${inicio}-${fin}`;
+                } else {
+                    version = temp > 1 ? `T${temp}` : "Episodio";
+                }
+                episodios.push({
+                    num: num,
+                    version: version,
+                    temporada: temp,
+                    apiRef: true,
+                    apiSlug: slug,
+                    url: null
+                });
+            });
+        });
+
+        videos[id] = {
+            title: s.titulo || slug,
+            year: s.fecha || "—",
+            studio: "—",
+            director: "—",
+            desc: s.descripcion || "Sin descripción disponible.",
+            tags: [],
+            episodios: episodios
+        };
+        return true;
+    } catch (e) {
+        console.error("[watch] Error cargando desde API:", e);
+        return false;
+    }
+}
     async function arrancar() {
         if (apiSlug && !window.videos[id]) {
             document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
