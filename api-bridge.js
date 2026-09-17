@@ -7,19 +7,15 @@
     'use strict';
 
     const API = "https://frik-api.onrender.com";
-    const ID_BASE = 10000;   // Los IDs de la API empiezan aquí
-    const LIMIT = 200;       // máximo que acepta la API
+    const ID_BASE = 10000;
+    const LIMIT = 200;
 
-    // Mapa global: id local -> slug de la API
     window.__apiSlugs = window.__apiSlugs || {};
 
-    // ------------------------------------------------------------
-    // Convertir una serie de la API al formato de `animes`
     // ------------------------------------------------------------
     function serieAAnime(serie, indice) {
         const id = ID_BASE + indice;
 
-        // Guardar el slug para watch.html
         window.__apiSlugs[id] = serie.slug;
 
         // Portada en alta resolución (Filmaffinity: msmall → large)
@@ -31,7 +27,9 @@
         return {
             id: id,
             title: serie.titulo || "Sin título",
-            cover: portada,
+            cover: (window.PORTADAS_FIX && window.PORTADAS_FIX[serie.slug]) 
+                ? window.PORTADAS_FIX[serie.slug] 
+                : portada,
             year: serie.fecha || "—",
             type: "Serie TV",
             duration: serie.numCapitulosDisponibles
@@ -62,8 +60,6 @@
     }
 
     // ------------------------------------------------------------
-    // Fusionar con el array global `animes`
-    // ------------------------------------------------------------
     function fusionarConAnimes(nuevas) {
         if (typeof window.animes === 'undefined') {
             console.warn('[api-bridge] `animes` no existe todavía.');
@@ -93,8 +89,6 @@
     }
 
     // ------------------------------------------------------------
-    // Refrescar la UI después de fusionar
-    // ------------------------------------------------------------
     function refrescarUI() {
         setTimeout(() => {
             try {
@@ -113,8 +107,6 @@
     }
 
     // ------------------------------------------------------------
-    // Cargar TODAS las series desde la API (paginado) + orden A-Z
-    // ------------------------------------------------------------
     async function cargarSeriesAPI() {
         try {
             const todas = [];
@@ -130,9 +122,9 @@
                 todas.push(...items);
                 console.log(`[api-bridge] Página ${page}: ${items.length} series (acumulado: ${todas.length})`);
 
-                if (items.length < LIMIT) break;   // ya no hay más
+                if (items.length < LIMIT) break;
                 page++;
-                if (page > 10) break;              // seguro anti-loop
+                if (page > 10) break;
             }
 
             if (!todas.length) {
@@ -140,7 +132,7 @@
                 return;
             }
 
-            // ORDEN ALFABÉTICO A-Z por título (respeta acentos y ñ)
+            // ORDEN ALFABÉTICO A-Z
             todas.sort((a, b) => {
                 const ta = (a.titulo || "").toLowerCase();
                 const tb = (b.titulo || "").toLowerCase();
@@ -158,8 +150,6 @@
     }
 
     // ------------------------------------------------------------
-    // Esperar a que data.js y data-02.js estén listos
-    // ------------------------------------------------------------
     function esperarAnimes(intentos = 20) {
         if (typeof window.animes !== 'undefined' && Array.isArray(window.animes)) {
             cargarSeriesAPI();
@@ -172,8 +162,6 @@
         setTimeout(() => esperarAnimes(intentos - 1), 100);
     }
 
-    // ------------------------------------------------------------
-    // Arranque
     // ------------------------------------------------------------
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => esperarAnimes());
