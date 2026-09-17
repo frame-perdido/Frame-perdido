@@ -1,41 +1,91 @@
 // ============================================================
 // api-locomotion-bridge.js
-// Fusiona los videos de Locomotion (loc0api) al catálogo
+// Agrupa videos de Locomotion por serie
 // ============================================================
 
 (function () {
     'use strict';
 
     const API_LOCO = "https://loc0api.onrender.com";
-    const ID_BASE = 20000;   // IDs desde 20000 (no choca con frikiserie)
+    const ID_BASE = 20000;
 
     window.__apiSlugs = window.__apiSlugs || {};
+    window.__locoEpisodios = window.__locoEpisodios || {};
 
     // ------------------------------------------------------------
-    function videoAAnime(video, indice) {
-        const id = ID_BASE + indice;
-        const titulo = video.title || "Sin título";
+    function extraerSerie(titulo) {
+        const t = titulo.trim();
 
-        // Duración formateada
-        let dur = "—";
-        if (video.durationSeconds) {
-            const min = Math.floor(video.durationSeconds / 60);
-            const seg = video.durationSeconds % 60;
-            dur = `${min}:${String(seg).padStart(2, "0")}`;
+        const patrones = [
+            /\s+-\s+/,
+            /\s+–\s+/,
+            /\s+CAP\s+/i,
+            /\s+Cap\s+/i,
+            /\s+cap\s+/i,
+            /\s+Ep\s+/i,
+            /\s+EP\s+/i,
+            /\s+Episodio\s+/i,
+            /\s+episodio\s+/i,
+            /\s+S\d+E\d+/i,
+            /\s+T\d+E\d+/i,
+            /\s+T\d+\s+/i,
+            /\s+\d{1,3}\s*[-–:]?\s*/,
+            /\s+\d{1,3}\s*$/,
+        ];
+
+        for (const p of patrones) {
+            const m = t.match(p);
+            if (m && m.index > 0) {
+                return t.slice(0, m.index).trim();
+            }
         }
+
+        return t;
+    }
+
+    function extraerNumero(titulo) {
+        const m = titulo.match(/\d+/);
+        return m ? parseInt(m[0]) : 1;
+    }
+
+    function extraerNombreEp(titulo) {
+        const m = titulo.match(/\d+\s*[-–:]?\s*(.+)/);
+        return m ? m[1].trim() : "";
+    }
+
+    // ------------------------------------------------------------
+    function grupoAAnime(serie, videos, indice) {
+        const id = ID_BASE + indice;
+        const slug = "loco-" + serie.toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "")
+            .slice(0, 50);
+
+        window.__apiSlugs[id] = slug;
+
+        videos.sort((a, b) => a.num - b.num);
+
+        const episodios = videos.map(v => ({
+            num: v.num,
+            version: "Episodio",
+            url: v.url,
+            titulo: v.nombreEp
+        }));
+
+        window.__locoEpisodios[id] = episodios;
 
         return {
             id: id,
-            title: titulo,
-            cover: video.thumbnail || video.imagen || "",
+            title: serie,
+            cover: "",
             year: "—",
             type: "Serie TV",
-            duration: dur,
+            duration: `${videos.length} cap${videos.length > 1 ? 's' : ''}`,
             studio: "Locomotion",
             director: "—",
             genre: ["Animación"],
             tags: ["locomotion"],
-            description: video.description || "Contenido de Locomotion.",
+            description: `Serie del catálogo Locomotion. ${videos.length} episodios.`,
             plot: "",
             analysis: "",
             forgotten: "",
@@ -49,9 +99,6 @@
             adulto: false,
             hentai: false,
             ecchi: false,
-
-            // Info para el reproductor
-            locoUrl: video.url,
             fromLocomotion: true
         };
     }
@@ -59,26 +106,26 @@
     // ------------------------------------------------------------
     function fusionarConAnimes(nuevas) {
         if (typeof window.animes === 'undefined') {
-            console.warn('[loco-bridge] `animes` no existe todavía.');
+            console.warn('[loc0-bridge] `animes` no existe todavía.');
             return false;
         }
 
         const yaCargadas = new Set(
             window.animes
                 .filter(a => a.fromLocomotion)
-                .map(a => a.title)
+                .map(a => a.title.toLowerCase())
         );
 
-        const filtradas = nuevas.filter(n => !yaCargadas.has(n.title));
+        const filtradas = nuevas.filter(n => !yaCargadas.has(n.title.toLowerCase()));
 
         if (filtradas.length === 0) {
-            console.log('[loco-bridge] No hay videos nuevos.');
+            console.log('[loc0-bridge] No hay series nuevas.');
             return true;
         }
 
         window.animes.push(...filtradas);
 
-        console.log(`[loco-bridge] Añadidos ${filtradas.length} videos. Total: ${window.animes.length}`);
+        console.log(`[loc0-bridge] Añadidas ${filtradas.length} series de Locomotion. Total: ${window.animes.length}`);
         return true;
     }
 
@@ -90,9 +137,9 @@
                 if (typeof window.renderCards === 'function') window.renderCards();
                 if (typeof window.updateStats === 'function') window.updateStats();
                 if (typeof window.actualizarHero === 'function') window.actualizarHero();
-                console.log('[loco-bridge] UI refrescada.');
+                console.log('[loc0-bridge] UI refrescada.');
             } catch (e) {
-                console.error('[loco-bridge] Error refrescando UI:', e);
+                console.error('[loc0-bridge] Error refrescando UI:', e);
             }
         }, 150);
     }
@@ -107,24 +154,36 @@
             const videos = data.contenido || [];
 
             if (!videos.length) {
-                console.warn('[loco-bridge] No hay videos.');
+                console.warn('[loc0-bridge] No hay videos.');
                 return;
             }
 
-            // Orden A-Z
-            videos.sort((a, b) => {
-                const ta = (a.title || "").toLowerCase();
-                const tb = (b.title || "").toLowerCase();
-                return ta.localeCompare(tb, 'es');
+            console.log(`[loc0-bridge] ${videos.length} videos recibidos`);
+
+            // Agrupar por serie
+            const grupos = {};
+            videos.forEach(v => {
+                const serie = extraerSerie(v.title || "");
+                if (!serie) return;
+
+                if (!grupos[serie]) grupos[serie] = [];
+                grupos[serie].push({
+                    num: extraerNumero(v.title || ""),
+                    nombreEp: extraerNombreEp(v.title || ""),
+                    url: v.url
+                });
             });
 
-            const nuevas = videos.map((v, i) => videoAAnime(v, i));
+            console.log(`[loc0-bridge] ${Object.keys(grupos).length} series agrupadas`);
+
+            const series = Object.keys(grupos).sort((a, b) => a.localeCompare(b, 'es'));
+            const nuevas = series.map((s, i) => grupoAAnime(s, grupos[s], i));
 
             if (fusionarConAnimes(nuevas)) {
                 refrescarUI();
             }
         } catch (e) {
-            console.error('[loco-bridge] Error cargando videos:', e);
+            console.error('[loc0-bridge] Error cargando videos:', e);
         }
     }
 
@@ -135,7 +194,7 @@
             return;
         }
         if (intentos <= 0) {
-            console.error('[loco-bridge] `animes` nunca apareció.');
+            console.error('[loc0-bridge] `animes` nunca apareció.');
             return;
         }
         setTimeout(() => esperarAnimes(intentos - 1), 100);
