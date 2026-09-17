@@ -22,10 +22,16 @@
         // Guardar el slug para watch.html
         window.__apiSlugs[id] = serie.slug;
 
+        // Portada en alta resolución (Filmaffinity: msmall → big)
+        let portada = serie.imagen || "";
+        if (portada.includes("pics.filmaffinity.com")) {
+            portada = portada.replace("msmall.jpg", "big.jpg");
+        }
+
         return {
             id: id,
             title: serie.titulo || "Sin título",
-            cover: serie.imagen || "",
+            cover: portada,
             year: serie.fecha || "—",
             type: "Serie TV",
             duration: serie.numCapitulosDisponibles
@@ -107,7 +113,7 @@
     }
 
     // ------------------------------------------------------------
-    // Cargar TODAS las series desde la API (paginado)
+    // Cargar TODAS las series desde la API (paginado) + orden A-Z
     // ------------------------------------------------------------
     async function cargarSeriesAPI() {
         try {
@@ -133,6 +139,13 @@
                 console.warn('[api-bridge] La API no devolvió series.');
                 return;
             }
+
+            // ORDEN ALFABÉTICO A-Z por título (respeta acentos y ñ)
+            todas.sort((a, b) => {
+                const ta = (a.titulo || "").toLowerCase();
+                const tb = (b.titulo || "").toLowerCase();
+                return ta.localeCompare(tb, 'es');
+            });
 
             const nuevas = todas.map((s, i) => serieAAnime(s, i));
 
