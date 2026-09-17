@@ -199,7 +199,7 @@
     // BASE DE DATOS DE VIDEOS - IDs 1 a 106
     // ============================================================
     window.videos = {
-         1: {
+          1: {
                 title: "Barefoot Gen",
                 year: 1983,
                 studio: "Madhouse",
@@ -1711,10 +1711,15 @@
     }
 
     // ============================================================
-    // CONFIG API
+    // CONFIG APi
     // ============================================================
     const API_BASE = "https://frik-api.onrender.com";
     const apiSlug = new URLSearchParams(location.search).get('api');
+
+    // ============================================================
+    // CONFIG
+    // ============================================================
+    const locoUrl = new URLSearchParams(location.search).get('loco');
 
     // ============================================================
     // PARÁMETROS DE LA URL
@@ -1812,64 +1817,99 @@
     }
 
     async function cargarDesdeAPI(slug) {
-    try {
-        const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
-        const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
-        const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
+        try {
+            const s = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}`).then(r => r.json());
+            const c = await fetch(`${API_BASE}/serie/${encodeURIComponent(slug)}/capitulos`).then(r => r.json());
+            const caps = c.items || c.capitulos || (Array.isArray(c) ? c : []);
 
-        // Agrupar caps en carpetas de 20 por temporada
-        const capsPorTemp = {};
-        caps.forEach(x => {
-            const t = x.temporada ?? 1;
-            if (!capsPorTemp[t]) capsPorTemp[t] = [];
-            capsPorTemp[t].push(x);
-        });
+            const capsPorTemp = {};
+            caps.forEach(x => {
+                const t = x.temporada ?? 1;
+                if (!capsPorTemp[t]) capsPorTemp[t] = [];
+                capsPorTemp[t].push(x);
+            });
 
-        const episodios = [];
-        Object.keys(capsPorTemp).sort((a,b) => Number(a) - Number(b)).forEach(tempKey => {
-            const temp = Number(tempKey);
-            const capsTemp = capsPorTemp[tempKey];
-            const usarBloques = capsTemp.length > 20;
+            const episodios = [];
+            Object.keys(capsPorTemp).sort((a,b) => Number(a) - Number(b)).forEach(tempKey => {
+                const temp = Number(tempKey);
+                const capsTemp = capsPorTemp[tempKey];
+                const usarBloques = capsTemp.length > 20;
 
-            capsTemp.forEach((x, i) => {
-                const num = x.capitulo ?? x.numero ?? (i + 1);
-                let version;
-                if (usarBloques) {
-                    const inicio = Math.floor(i / 20) * 20 + 1;
-                    const fin = Math.min(inicio + 19, capsTemp.length);
-                    version = temp > 1
-                        ? `T${temp} · Ep ${inicio}-${fin}`
-                        : `Ep ${inicio}-${fin}`;
-                } else {
-                    version = temp > 1 ? `T${temp}` : "Episodio";
-                }
-                episodios.push({
-                    num: num,
-                    version: version,
-                    temporada: temp,
-                    apiRef: true,
-                    apiSlug: slug,
-                    url: null
+                capsTemp.forEach((x, i) => {
+                    const num = x.capitulo ?? x.numero ?? (i + 1);
+                    let version;
+                    if (usarBloques) {
+                        const inicio = Math.floor(i / 20) * 20 + 1;
+                        const fin = Math.min(inicio + 19, capsTemp.length);
+                        version = temp > 1
+                            ? `T${temp} · Ep ${inicio}-${fin}`
+                            : `Ep ${inicio}-${fin}`;
+                    } else {
+                        version = temp > 1 ? `T${temp}` : "Episodio";
+                    }
+                    episodios.push({
+                        num: num,
+                        version: version,
+                        temporada: temp,
+                        apiRef: true,
+                        apiSlug: slug,
+                        url: null
+                    });
                 });
             });
-        });
 
-        videos[id] = {
-            title: s.titulo || slug,
-            year: s.fecha || "—",
-            studio: "—",
-            director: "—",
-            desc: s.descripcion || "Sin descripción disponible.",
-            tags: [],
-            episodios: episodios
-        };
-        return true;
-    } catch (e) {
-        console.error("[watch] Error cargando desde API:", e);
-        return false;
+            videos[id] = {
+                title: s.titulo || slug,
+                year: s.fecha || "—",
+                studio: "—",
+                director: "—",
+                desc: s.descripcion || "Sin descripción disponible.",
+                tags: [],
+                episodios: episodios
+            };
+            return true;
+        } catch (e) {
+            console.error("[watch] Error cargando desde API:", e);
+            return false;
+        }
     }
-}
+
     async function arrancar() {
+        // ============================================================
+        // LOC
+        // ============================================================
+        if (locoUrl) {
+            const urlVideo = decodeURIComponent(locoUrl);
+            const tituloLoco = params.get('title') ? decodeURIComponent(params.get('title')) : 'Locomotion';
+
+            document.getElementById('videoTitle').textContent = tituloLoco;
+            document.getElementById('videoMeta').textContent = 'Locomotion · Video directo';
+            document.title = tituloLoco + " — Frame Perdido";
+
+            const frame = document.getElementById('videoFrame');
+            frame.src = urlVideo;
+
+            document.getElementById('episodeSelector').innerHTML = '';
+            document.getElementById('expedienteDesc').textContent = 'Contenido del catálogo Locomotion.';
+            document.getElementById('expedienteTags').innerHTML = '<span class="exp-tag">Locomotion</span>';
+
+            if (document.getElementById('player')) {
+                new Plyr('#player', {
+                    youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
+                    tooltips: { controls: true, seek: true },
+                    keyboard: { focused: true, global: true },
+                    fullscreen: { enabled: true, fallback: true, iosNative: true },
+                    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+                    settings: ['captions', 'quality', 'speed'],
+                    quality: { default: 720, options: [1080, 720, 480, 360] }
+                });
+            }
+            return;
+        }
+
+        // ============================================================
+        // FRIk (API)
+        // ============================================================
         if (apiSlug && !window.videos[id]) {
             document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
             const ok = await cargarDesdeAPI(apiSlug);
