@@ -72,12 +72,11 @@
                 .map(a => a.apiSlug)
         );
 
-        const filtradas = nuevas.filter(n => !yaCargadas.has(n.apiSlug));
-
-        if (filtradas.length === 0) {
-            console.log('[api-bridge] No hay series nuevas para agregar.');
-            return true;
-        }
+     const rotas = window.SERIES_ROTAS || [];
+const filtradas = nuevas.filter(n => 
+    !yaCargadas.has(n.apiSlug) && 
+    !rotas.includes(n.apiSlug)
+);
 
         window.animes.push(...filtradas);
 
