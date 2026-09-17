@@ -2292,11 +2292,12 @@
         // ============================================================
         // BUSCAR DISPONIBILIDAD
         // ============================================================
-    function buscarDisponibilidad() {
+   function buscarDisponibilidad() {
     const obra = animes.find(a => a.id === currentModalId);
     if (!obra) return;
     let url = `watch.html?id=${obra.id}`;
     if (obra.apiSlug) url += `&api=${encodeURIComponent(obra.apiSlug)}`;
+    if (obra.locoUrl) url += `&loco=${encodeURIComponent(obra.locoUrl)}`;
     window.location.href = url;
 }
 
