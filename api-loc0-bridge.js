@@ -1,6 +1,6 @@
 // ============================================================
-// api-locomotion-bridge.js
-// Agrupa videos de Locomotion por serie
+// api-loc0-bridge.js
+// Trae videos de Locomotion, los agrupa por serie y los fusiona
 // ============================================================
 
 (function () {
@@ -9,57 +9,125 @@
     const API_LOCO = "https://loc0api.onrender.com";
     const ID_BASE = 20000;
 
+    // ------------------------------------------------------------
+    // LISTA MAESTRA DE SERIES (57)
+    // ------------------------------------------------------------
+    const SERIES = [
+        "Aeon Flux",
+        "AIKa",
+        "Alexander Senki",
+        "Arjuna",
+        "Tetsuwan Birdy",
+        "Blue Seed",
+        "Blue Submarine No. 6",
+        "Bob y Margaret",
+        "Boogiepop Phantom",
+        "Bubblegum Crisis Tokyo 2040",
+        "Burn Up Express",
+        "Burn Up W",
+        "CUTTLAS",
+        "Candidate for Goddess",
+        "Those Who Hunt Elves",
+        "Cowboy Bebop",
+        "Cyber Team in Akihabara",
+        "Cybuster",
+        "Dirty Pair",
+        "Duckman",
+        "EX Driver",
+        "Eat-Man",
+        "Eat-Man '98",
+        "Red Baron",
+        "The Critic",
+        "Gasaraki",
+        "Geneshaft",
+        "Gogs",
+        "Gunsmith Cats",
+        "Initial D",
+        "The Legend of Ellcia",
+        "Labyrinth of Flames",
+        "Let's Dance with Papa",
+        "Lupin III",
+        "Aa! Megami-sama",
+        "Neo Ranga",
+        "Neon Genesis Evangelion",
+        "Nightwalker",
+        "Ninja Resurrection",
+        "Oh My Goddess",
+        "Petshop of Horrors",
+        "Quads",
+        "The Ren & Stimpy Show",
+        "Robotech",
+        "Saber Marionette J",
+        "Saber Marionette J to X",
+        "Saber Marionette R",
+        "Sakura Diaries",
+        "Serial Experiments Lain",
+        "Silent Mobius",
+        "Soul Hunter",
+        "South Park",
+        "Tenamonya Voyagers",
+        "The Maxx",
+        "Villas Crapston",
+        "Virgin Fleet",
+        "If I See You in My Dreams"
+    ];
+
     window.__apiSlugs = window.__apiSlugs || {};
     window.__locoEpisodios = window.__locoEpisodios || {};
 
     // ------------------------------------------------------------
-    function extraerSerie(titulo) {
-        const t = titulo.trim();
-
-        const patrones = [
-            /\s+-\s+/,
-            /\s+–\s+/,
-            /\s+CAP\s+/i,
-            /\s+Cap\s+/i,
-            /\s+cap\s+/i,
-            /\s+Ep\s+/i,
-            /\s+EP\s+/i,
-            /\s+Episodio\s+/i,
-            /\s+episodio\s+/i,
-            /\s+S\d+E\d+/i,
-            /\s+T\d+E\d+/i,
-            /\s+T\d+\s+/i,
-            /\s+\d{1,3}\s*[-–:]?\s*/,
-            /\s+\d{1,3}\s*$/,
-        ];
-
-        for (const p of patrones) {
-            const m = t.match(p);
-            if (m && m.index > 0) {
-                return t.slice(0, m.index).trim();
-            }
-        }
-
-        return t;
+    // Normalizar texto (sin acentos, sin símbolos)
+    // ------------------------------------------------------------
+    function norm(s) {
+        return String(s || "").toLowerCase().trim()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9]/g, "");
     }
 
-    function extraerNumero(titulo) {
-        const m = titulo.match(/\d+/);
+    // ------------------------------------------------------------
+    // Encontrar a qué serie pertenece un título
+    // ------------------------------------------------------------
+    function encontrarSerie(tituloVideo) {
+        const tNorm = norm(tituloVideo);
+        let mejor = null;
+
+        for (const serie of SERIES) {
+            const sNorm = norm(serie);
+            if (!sNorm) continue;
+
+            if (tNorm.startsWith(sNorm)) {
+                if (!mejor || serie.length > mejor.length) {
+                    mejor = serie;
+                }
+            }
+        }
+        return mejor;
+    }
+
+    // ------------------------------------------------------------
+    // Extraer número de episodio
+    // ------------------------------------------------------------
+    function extraerNumero(titulo, serie) {
+        const resto = titulo.slice(serie.length).trim();
+        const m = resto.match(/\d+/);
         return m ? parseInt(m[0]) : 1;
     }
 
-    function extraerNombreEp(titulo) {
-        const m = titulo.match(/\d+\s*[-–:]?\s*(.+)/);
+    // ------------------------------------------------------------
+    // Extraer título del episodio
+    // ------------------------------------------------------------
+    function extraerTituloEp(titulo, serie) {
+        const resto = titulo.slice(serie.length).trim();
+        const m = resto.match(/\d+\s*[-–:]?\s*(.+)/);
         return m ? m[1].trim() : "";
     }
 
     // ------------------------------------------------------------
+    // Convertir grupo a anime
+    // ------------------------------------------------------------
     function grupoAAnime(serie, videos, indice) {
         const id = ID_BASE + indice;
-        const slug = "loco-" + serie.toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/^-|-$/g, "")
-            .slice(0, 50);
+        const slug = "loco-" + norm(serie).slice(0, 50);
 
         window.__apiSlugs[id] = slug;
 
@@ -69,7 +137,7 @@
             num: v.num,
             version: "Episodio",
             url: v.url,
-            titulo: v.nombreEp
+            titulo: v.tituloEp
         }));
 
         window.__locoEpisodios[id] = episodios;
@@ -160,21 +228,29 @@
 
             console.log(`[loc0-bridge] ${videos.length} videos recibidos`);
 
-            // Agrupar por serie
             const grupos = {};
+            let sinClasificar = 0;
+
             videos.forEach(v => {
-                const serie = extraerSerie(v.title || "");
-                if (!serie) return;
+                const titulo = v.title || "";
+                const serie = encontrarSerie(titulo);
+
+                if (!serie) {
+                    sinClasificar++;
+                    return;
+                }
 
                 if (!grupos[serie]) grupos[serie] = [];
+
                 grupos[serie].push({
-                    num: extraerNumero(v.title || ""),
-                    nombreEp: extraerNombreEp(v.title || ""),
+                    num: extraerNumero(titulo, serie),
+                    tituloEp: extraerTituloEp(titulo, serie),
                     url: v.url
                 });
             });
 
             console.log(`[loc0-bridge] ${Object.keys(grupos).length} series agrupadas`);
+            console.log(`[loc0-bridge] ${sinClasificar} videos sin clasificar`);
 
             const series = Object.keys(grupos).sort((a, b) => a.localeCompare(b, 'es'));
             const nuevas = series.map((s, i) => grupoAAnime(s, grupos[s], i));
