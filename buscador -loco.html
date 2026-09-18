@@ -1,245 +1,64 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-    <title>Prueba Locapi</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background: #111;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-
-        .contenedor {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .buscador {
-            display: flex;
-            gap: 8px;
-        }
-
-        input {
-            flex: 1;
-            padding: 12px;
-            font-size: 16px;
-            border: 0;
-            border-radius: 6px;
-        }
-
-        button {
-            padding: 12px 18px;
-            border: 0;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        #estado {
-            margin: 20px 0;
-        }
-
-        .resultado {
-            background: #222;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .titulo {
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .duracion {
-            color: #aaa;
-            margin-bottom: 10px;
-        }
-
-        video {
-            width: 100%;
-            margin-top: 25px;
-            background: #000;
-            border-radius: 8px;
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="contenedor">
-
-    <h1>Prueba Locapi</h1>
-
-    <div class="buscador">
-        <input
-            id="busqueda"
-            type="text"
-            placeholder="Buscar contenido..."
-            value="Aeon Flux"
-        >
-
-        <button onclick="buscar()">
-            Buscar
-        </button>
-    </div>
-
-    <div id="estado"></div>
-
-    <div id="resultados"></div>
-
-    <video
-        id="player"
-        controls
-        playsinline
-        preload="metadata"
-        style="display:none;"
-    ></video>
-
-</div>
-
-<script>
-
-const API = "https://loc0api.onrender.com";
-
-
-async function buscar() {
-
-    const input =
-        document.getElementById("busqueda");
-
-    const estado =
-        document.getElementById("estado");
-
-    const resultados =
-        document.getElementById("resultados");
-
-    const termino =
-        input.value.trim();
-
-    if (!termino) {
-        estado.textContent = "Escribe algo para buscar.";
-        return;
-    }
-
-    estado.textContent = "Buscando...";
-    resultados.innerHTML = "";
-
-    try {
-
-        const respuesta = await fetch(
-            `${API}/locomotion/buscar?q=${encodeURIComponent(termino)}`
-        );
-
-        if (!respuesta.ok) {
-            throw new Error(
-                `HTTP ${respuesta.status}`
-            );
-        }
-
-        const datos =
-            await respuesta.json();
-
-        estado.textContent =
-            `Resultados: ${datos.resultados}`;
-
-        if (!datos.videos || datos.videos.length === 0) {
-
-            resultados.innerHTML =
-                "<p>No se encontraron resultados.</p>";
-
-            return;
-        }
-
-        datos.videos.forEach((video, indice) => {
-
-            const elemento =
-                document.createElement("div");
-
-            elemento.className = "resultado";
-
-            const minutos =
-                Math.floor(video.durationSeconds / 60);
-
-            elemento.innerHTML = `
-                <div class="titulo">
-                    ${indice + 1}. ${video.title}
-                </div>
-
-                <div class="duracion">
-                    Duración: ${minutos} min
-                </div>
-
-                <button>
-                    Reproducir
-                </button>
-            `;
-
-            elemento
-                .querySelector("button")
-                .addEventListener(
-                    "click",
-                    () => reproducir(video.url)
-                );
-
-            resultados.appendChild(elemento);
-
-        });
-
-    } catch (error) {
-
-        console.error(error);
-
-        estado.textContent =
-            "Error conectando con la API.";
-
-        resultados.innerHTML =
-            `<p>${error.message}</p>`;
-    }
-}
-
-
-function reproducir(url) {
-
-    const player =
-        document.getElementById("player");
-
-    player.src = url;
-
-    player.style.display = "block";
-
-    player.load();
-
-    player.play().catch(() => {});
-
-    player.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-}
-
-
-document
-    .getElementById("busqueda")
-    .addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter") {
-            buscar();
-        }
-
-    });
-
-</script>
-
-</body>
-</html>
+// ============================================================
+// loco-series.js
+// Lista maestra de series de Locomotion
+// ============================================================
+
+window.LOCO_SERIES = [
+    "Aeon Flux",
+    "AIKa",
+    "Alexander Senki",
+    "Arjuna",
+    "Tetsuwan Birdy",
+    "Blue Seed",
+    "Blue Submarine No. 6",
+    "Bob y Margaret",
+    "Boogiepop Phantom",
+    "Bubblegum Crisis Tokyo 2040",
+    "Burn Up Express",
+    "Burn Up W",
+    "CUTTLAS",
+    "Candidate for Goddess",
+    "Those Who Hunt Elves",
+    "Cowboy Bebop",
+    "Cyber Team in Akihabara",
+    "Cybuster",
+    "Dirty Pair",
+    "Duckman",
+    "EX Driver",
+    "Eat-Man",
+    "Eat-Man '98",
+    "Red Baron",
+    "The Critic",
+    "Gasaraki",
+    "Geneshaft",
+    "Gogs",
+    "Gunsmith Cats",
+    "Initial D",
+    "The Legend of Ellcia",
+    "Labyrinth of Flames",
+    "Let's Dance with Papa",
+    "Lupin III",
+    "Aa! Megami-sama",
+    "Neo Ranga",
+    "Neon Genesis Evangelion",
+    "Nightwalker",
+    "Ninja Resurrection",
+    "Oh My Goddess",
+    "Petshop of Horrors",
+    "Quads",
+    "The Ren & Stimpy Show",
+    "Robotech",
+    "Saber Marionette J",
+    "Saber Marionette J to X",
+    "Saber Marionette R",
+    "Sakura Diaries",
+    "Serial Experiments Lain",
+    "Silent Mobius",
+    "Soul Hunter",
+    "South Park",
+    "Tenamonya Voyagers",
+    "The Maxx",
+    "Villas Crapston",
+    "Virgin Fleet",
+    "If I See You in My Dreams",
+];
