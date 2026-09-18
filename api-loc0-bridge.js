@@ -1,6 +1,6 @@
 // ============================================================
 // api-loc0-bridge.js
-// Trae videos de Locomotion, los agrupa por serie y los fusiona
+// Trae videos de Locomotion, agrupa por serie, saca portada de Jikan
 // ============================================================
 
 (function () {
@@ -76,16 +76,12 @@
     window.__locoEpisodios = window.__locoEpisodios || {};
 
     // ------------------------------------------------------------
-    // Normalizar texto (sin acentos, sin símbolos)
-    // ------------------------------------------------------------
     function norm(s) {
         return String(s || "").toLowerCase().trim()
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             .replace(/[^a-z0-9]/g, "");
     }
 
-    // ------------------------------------------------------------
-    // Encontrar a qué serie pertenece un título
     // ------------------------------------------------------------
     function encontrarSerie(tituloVideo) {
         const tNorm = norm(tituloVideo);
@@ -94,7 +90,6 @@
         for (const serie of SERIES) {
             const sNorm = norm(serie);
             if (!sNorm) continue;
-
             if (tNorm.startsWith(sNorm)) {
                 if (!mejor || serie.length > mejor.length) {
                     mejor = serie;
@@ -104,18 +99,12 @@
         return mejor;
     }
 
-    // ------------------------------------------------------------
-    // Extraer número de episodio
-    // ------------------------------------------------------------
     function extraerNumero(titulo, serie) {
         const resto = titulo.slice(serie.length).trim();
         const m = resto.match(/\d+/);
         return m ? parseInt(m[0]) : 1;
     }
 
-    // ------------------------------------------------------------
-    // Extraer título del episodio
-    // ------------------------------------------------------------
     function extraerTituloEp(titulo, serie) {
         const resto = titulo.slice(serie.length).trim();
         const m = resto.match(/\d+\s*[-–:]?\s*(.+)/);
@@ -123,9 +112,40 @@
     }
 
     // ------------------------------------------------------------
-    // Convertir grupo a anime
+    // Buscar portada en Jikan (MyAnimeList)
     // ------------------------------------------------------------
-    function grupoAAnime(serie, videos, indice) {
+    async function buscarPortada(titulo) {
+        try {
+            const url = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(titulo)}&limit=1`;
+            const r = await fetch(url);
+            if (!r.ok) return "";
+            const data = await r.json();
+            const img = data?.data?.[0]?.images?.jpg?.large_image_url
+                     || data?.data?.[0]?.images?.jpg?.image_url
+                     || "";
+            return img;
+        } catch (e) {
+            console.warn(`[loc0-bridge] Sin portada para "${titulo}"`);
+            return "";
+        }
+    }
+
+    // ------------------------------------------------------------
+    // Buscar todas las portadas (con pausa para no saturar Jikan)
+    // ------------------------------------------------------------
+    async function cargarPortadas(series) {
+        const portadas = {};
+        for (const s of series) {
+            portadas[s] = await buscarPortada(s);
+            // Pausa de 400ms entre peticiones (Jikan permite 3/segundo)
+            await new Promise(r => setTimeout(r, 400));
+        }
+        console.log(`[loc0-bridge] Portadas cargadas: ${Object.values(portadas).filter(Boolean).length}/${series.length}`);
+        return portadas;
+    }
+
+    // ------------------------------------------------------------
+    function grupoAAnime(serie, videos, indice, portada) {
         const id = ID_BASE + indice;
         const slug = "loco-" + norm(serie).slice(0, 50);
 
@@ -145,7 +165,7 @@
         return {
             id: id,
             title: serie,
-            cover: "",
+            cover: portada || "",
             year: "—",
             type: "Serie TV",
             duration: `${videos.length} cap${videos.length > 1 ? 's' : ''}`,
@@ -253,7 +273,13 @@
             console.log(`[loc0-bridge] ${sinClasificar} videos sin clasificar`);
 
             const series = Object.keys(grupos).sort((a, b) => a.localeCompare(b, 'es'));
-            const nuevas = series.map((s, i) => grupoAAnime(s, grupos[s], i));
+
+            // Buscar portadas en Jikan
+            console.log(`[loc0-bridge] Buscando portadas en Jikan...`);
+            const portadas = await cargarPortadas(series);
+
+            // Crear animes
+            const nuevas = series.map((s, i) => grupoAAnime(s, grupos[s], i, portadas[s]));
 
             if (fusionarConAnimes(nuevas)) {
                 refrescarUI();
