@@ -59,7 +59,9 @@
             saga: null,
             sagaOrder: null,
             related: [],
-            category: "animada",
+            category: (window.LIVE_ACTION_SLUGS || []).includes(serie.slug) 
+          ? "live-action" 
+           : "animada",
             origin: "",
             rarity: "Común",
             adulto: false,
