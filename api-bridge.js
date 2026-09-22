@@ -13,6 +13,18 @@
     window.__apiSlugs = window.__apiSlugs || {};
 
     // ------------------------------------------------------------
+    function normalizarTipo(tipo) {
+        const t = (tipo || "").trim().toLowerCase();
+        if (t === "serie" || t === "tv" || t === "serie tv") return "Serie TV";
+        if (t === "ova") return "OVA";
+        if (t === "pelicula" || t === "película" || t === "movie") return "Película";
+        if (t === "especial" || t === "special") return "Especial";
+        if (t === "ona") return "ONA";
+        if (t === "corto" || t === "short") return "Corto";
+        return "Serie TV";
+    }
+
+    // ------------------------------------------------------------
     function serieAAnime(serie, indice) {
         const id = ID_BASE + indice;
 
@@ -31,7 +43,7 @@
                 ? window.PORTADAS_FIX[serie.slug] 
                 : portada,
             year: serie.fecha || "—",
-            type: "Serie TV",
+            type: normalizarTipo(serie.tipo),
             duration: serie.numCapitulosDisponibles
                 ? `${serie.numCapitulosDisponibles} caps`
                 : "—",
@@ -72,11 +84,11 @@
                 .map(a => a.apiSlug)
         );
 
-     const rotas = window.SERIES_ROTAS || [];
-const filtradas = nuevas.filter(n => 
-    !yaCargadas.has(n.apiSlug) && 
-    !rotas.includes(n.apiSlug)
-);
+        const rotas = window.SERIES_ROTAS || [];
+        const filtradas = nuevas.filter(n => 
+            !yaCargadas.has(n.apiSlug) && 
+            !rotas.includes(n.apiSlug)
+        );
 
         window.animes.push(...filtradas);
 
