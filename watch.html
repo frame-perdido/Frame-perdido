@@ -109,6 +109,19 @@
             .video-overlay-blocker { width: 110px !important; height: 60px !important; }
             .plyr--fullscreen .video-overlay-blocker { width: 160px !important; height: 80px !important; }
         }
+
+        .adblock-notice { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); padding: 8px 14px; border-radius: 10px; margin: 12px 0; font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+        .adblock-notice a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .adblock-notice a:hover { text-decoration: underline; }
+
+        .episode-nav { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0; }
+        .ep-nav-btn { flex: 1; padding: 12px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .ep-nav-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--bg-elevated); transform: translateY(-2px); }
+        .ep-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .ep-nav-btn span { color: var(--text-muted); font-weight: 400; }
+        @media (max-width: 480px) {
+            .ep-nav-btn { padding: 10px 12px; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -129,6 +142,10 @@
                     kofiwidget2.draw();
                 </script>
             </div>
+        </div>
+
+        <div class="adblock-notice">
+            ⚠️ Si aparecen anuncios, instala <a href="https://ublockorigin.com/" target="_blank" rel="noopener">uBlock Origin</a> para una experiencia sin interrupciones.
         </div>
 
         <div style="text-align:center; margin: 12px 0;">
@@ -158,6 +175,11 @@
                 <iframe id="videoFrame" src="" allowfullscreen allowtransparency allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen"></iframe>
             </div>
             <div class="video-overlay-blocker"></div>
+        </div>
+
+        <div class="episode-nav" id="episodeNav" style="display:none;">
+            <button class="ep-nav-btn" id="epPrevBtn" onclick="irEpisodioAnterior()">◀ <span id="epPrevLabel">Anterior</span></button>
+            <button class="ep-nav-btn" id="epNextBtn" onclick="irEpisodioSiguiente()"><span id="epNextLabel">Siguiente</span> ▶</button>
         </div>
 
         <div class="adsterra-mobile-banner">
@@ -196,9 +218,14 @@
 
     <script>
     // ============================================================
+    // BLOQUEO 
+    // ============================================================
+    window.open = function() { return null; };
+
+    // ============================================================
     // BASE DE DATOS DE VIDEOS
     // ============================================================
-     // ============================================================
+      // ============================================================
     // BASE DE DATOS DE VIDEOS - IDs 1 a 106
     // ============================================================
     window.videos = {
@@ -1710,8 +1737,7 @@
         };  
 
 
-
-   // Combinar con watch-02-data.js (IDs 107+)
+    // Combinar con watch-02-data.js (IDs 107+)
     if (typeof videos2 !== 'undefined') {
         Object.assign(window.videos, videos2);
     }
@@ -1758,6 +1784,73 @@
     }
     window.cambiarEpisodio = cambiarEpisodio;
 
+    // ============================================================
+    // BOTONES NAV
+    // ============================================================
+    let __episodiosActuales = [];
+    let __idActual = null;
+
+    function actualizarBotonesNav(episodios, episodioActual) {
+        const nav = document.getElementById('episodeNav');
+        if (!nav) return;
+
+        if (!episodios || episodios.length <= 1) {
+            nav.style.display = 'none';
+            return;
+        }
+
+        nav.style.display = 'flex';
+        __episodiosActuales = episodios;
+        __idActual = id;
+
+        const idx = episodios.findIndex(e => e.num === episodioActual.num && e.version === episodioActual.version);
+        const prev = idx > 0 ? episodios[idx - 1] : null;
+        const next = idx < episodios.length - 1 ? episodios[idx + 1] : null;
+
+        const prevBtn = document.getElementById('epPrevBtn');
+        const nextBtn = document.getElementById('epNextBtn');
+        const prevLabel = document.getElementById('epPrevLabel');
+        const nextLabel = document.getElementById('epNextLabel');
+
+        if (prev) {
+            prevLabel.textContent = `Ep. ${prev.num}`;
+            prevBtn.disabled = false;
+        } else {
+            prevLabel.textContent = 'Inicio';
+            prevBtn.disabled = true;
+        }
+
+        if (next) {
+            nextLabel.textContent = `Ep. ${next.num}`;
+            nextBtn.disabled = false;
+        } else {
+            nextLabel.textContent = 'Fin';
+            nextBtn.disabled = true;
+        }
+    }
+
+    function irEpisodioAnterior() {
+        const idx = __episodiosActuales.findIndex(e => e.num === ep && (version ? e.version === version : true));
+        if (idx > 0) {
+            const prev = __episodiosActuales[idx - 1];
+            cambiarEpisodio(__idActual, prev.num, prev.version || '');
+        }
+    }
+
+    function irEpisodioSiguiente() {
+        const idx = __episodiosActuales.findIndex(e => e.num === ep && (version ? e.version === version : true));
+        if (idx >= 0 && idx < __episodiosActuales.length - 1) {
+            const next = __episodiosActuales[idx + 1];
+            cambiarEpisodio(__idActual, next.num, next.version || '');
+        }
+    }
+
+    window.irEpisodioAnterior = irEpisodioAnterior;
+    window.irEpisodioSiguiente = irEpisodioSiguiente;
+
+    // ============================================================
+    // SELECTOR DE EPISODIOS
+    // ============================================================
     function toggleVersion(groupId) {
         const list = document.getElementById(groupId);
         const btn = list.previousElementSibling;
@@ -1808,7 +1901,7 @@
     }
 
     // ============================================================
-    // CARGA API PRINCIPAL
+    // CARGA API PRINCIPAL (FRIK)
     // ============================================================
     async function resolverUrlApi(slug, temporada, capitulo) {
         try {
@@ -1847,9 +1940,7 @@
                     if (usarBloques) {
                         const inicio = Math.floor(i / 20) * 20 + 1;
                         const fin = Math.min(inicio + 19, capsTemp.length);
-                        version = temp > 1
-                            ? `T${temp} · Ep ${inicio}-${fin}`
-                            : `Ep ${inicio}-${fin}`;
+                        version = temp > 1 ? `T${temp} · Ep ${inicio}-${fin}` : `Ep ${inicio}-${fin}`;
                     } else {
                         version = temp > 1 ? `T${temp}` : "Episodio";
                     }
@@ -1913,7 +2004,7 @@
     }
 
     // ============================================================
-    // ROUTER PRINCIPAL
+    // ROUTER
     // ============================================================
     async function cargarDesdeAPI(slug, esExtra) {
         if (esExtra) {
@@ -1926,9 +2017,6 @@
     // ARRANQUE
     // ============================================================
     async function arrancar() {
-        // ============================================================
-        // MODO VIDEO DIRECTO
-        // ============================================================
         if (locoUrl) {
             const urlVideo = decodeURIComponent(locoUrl);
             const tituloDirecto = params.get('title') ? decodeURIComponent(params.get('title')) : 'Video';
@@ -1958,14 +2046,8 @@
             return;
         }
 
-        // ============================================================
-        // Detectar fuente extra (IDs >= 50000)
-        // ============================================================
         const esExtra = id >= 50000;
 
-        // ============================================================
-        // CARGAR DESDE API SI ES NECESARIO
-        // ============================================================
         if (apiSlug && !window.videos[id]) {
             document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
             const ok = await cargarDesdeAPI(apiSlug, esExtra);
@@ -1976,9 +2058,6 @@
             }
         }
 
-        // ============================================================
-        // RENDERIZAR
-        // ============================================================
         if (id && window.videos[id]) {
             const v = window.videos[id];
             const episodios = v.episodios;
@@ -2001,9 +2080,7 @@
             document.getElementById('videoMeta').textContent = `${v.year} · ${v.studio} · ${v.director}`;
             document.title = v.title + titleSuffix + " — Frame Perdido";
 
-            // Cargar video según el tipo de fuente
             if (episodioActual && episodioActual.apiRef) {
-                // Fuente principal: hay que resolver la URL
                 const frame = document.getElementById('videoFrame');
                 frame.src = '';
                 document.getElementById('videoTitle').textContent = v.title + ` — Cargando episodio ${episodioActual.num}...`;
@@ -2015,7 +2092,6 @@
                     document.getElementById('videoTitle').textContent = v.title + ' — Sin video disponible';
                 }
             } else if (episodioActual && episodioActual.url) {
-                // URL directa
                 document.getElementById('videoFrame').src = obtenerUrlClean(episodioActual.url);
             } else {
                 document.getElementById('videoFrame').src = '';
@@ -2027,18 +2103,17 @@
                 pc.appendChild(m);
             }
 
-            // Selector de episodios
             if (episodios && episodios.length > 0) {
                 document.getElementById('episodeSelector').innerHTML = renderizarSelector(episodios, id);
             } else {
                 document.getElementById('episodeSelector').innerHTML = `<p style="color:var(--text-muted);font-size:0.85rem;">No hay episodios disponibles para este título.</p>`;
             }
 
-            // Info del expediente
+            actualizarBotonesNav(episodios, episodioActual);
+
             document.getElementById('expedienteDesc').textContent = v.desc;
             document.getElementById('expedienteTags').innerHTML = (v.tags || []).map(t => `<span class="exp-tag">${t}</span>`).join('');
 
-            // Inicializar Plyr
             if (document.getElementById('player') && episodioActual && (episodioActual.url || episodioActual.apiRef)) {
                 new Plyr('#player', {
                     youtube: { noCookie: false, rel: 0, modestbranding: 1, iv_load_policy: 3 },
@@ -2051,7 +2126,6 @@
                 });
             }
         } else {
-            // No encontrado
             document.getElementById('videoTitle').textContent = 'Contenido no disponible';
             document.getElementById('videoMeta').textContent = '';
             document.getElementById('episodeSelector').innerHTML = '';
