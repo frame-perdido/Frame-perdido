@@ -1,5 +1,5 @@
 // ============================================================
-// ahen — Frame Perdido
+// api-bridge-hen.js — Frame Perdido
 // ============================================================
 
 (function () {
@@ -12,15 +12,15 @@
     const PAUSA_ENTRE_PAGINAS = 300;
 
     window.__apiSlugs = window.__apiSlugs || {};
-    window.__hentaiEpisodios = window.__hentaiEpisodios || {};
+    window.__episodiosExtra = window.__episodiosExtra || {};
 
-    function apiAnimeAAnime(apiAnime, indice) {
+    function apiItemAItem(apiItem, indice) {
         const id = ID_BASE + indice;
 
-        window.__apiSlugs[id] = apiAnime.slug;
+        window.__apiSlugs[id] = apiItem.slug;
 
-        const generosLower = (apiAnime.generos || []).map(g => g.toLowerCase());
-        const esHentai = true;
+        const generosLower = (apiItem.generos || []).map(g => g.toLowerCase());
+        const esAdulto = true;
         const esEcchi = generosLower.some(g =>
             g.includes('ecchi') || g.includes('softcore')
         );
@@ -29,16 +29,16 @@
 
         return {
             id: id,
-            title: apiAnime.titulo || "Sin título",
-            cover: apiAnime.portada || "",
-            year: apiAnime.año || "—",
-            type: apiAnime.tipo || "OVA",
+            title: apiItem.titulo || "Sin título",
+            cover: apiItem.portada || "",
+            year: apiItem.año || "—",
+            type: apiItem.tipo || "OVA",
             duration: "—",
             studio: "—",
             director: "—",
-            genre: apiAnime.generos || [],
+            genre: apiItem.generos || [],
             tags: tags,
-            description: apiAnime.sinopsis || "Sin descripción disponible.",
+            description: apiItem.sinopsis || "Sin descripción disponible.",
             plot: "",
             analysis: "",
             forgotten: "",
@@ -50,18 +50,18 @@
             origin: "Japón",
             rarity: "Común",
             adulto: true,
-            hentai: esHentai,
+            hentai: esAdulto,
             ecchi: esEcchi,
 
-            apiSlug: apiAnime.slug,
+            apiSlug: apiItem.slug,
             fromApi: true,
-            apiUrl: apiAnime.url
+            apiUrl: apiItem.url
         };
     }
 
     function fusionarConAnimes(nuevas) {
         if (typeof window.animes === 'undefined') {
-            console.warn('[api-bridge-hentai] `animes` no existe todavía.');
+            console.warn('[api-bridge-hen] `animes` no existe todavía.');
             return false;
         }
 
@@ -78,7 +78,7 @@
         window.__apiAnimes = window.__apiAnimes || [];
         window.__apiAnimes.push(...filtradas);
 
-        console.log(`[api-bridge-hentai] Añadidos ${filtradas.length} animes. Total global: ${window.animes.length}`);
+        console.log(`[api-bridge-hen] Añadidos ${filtradas.length} items. Total global: ${window.animes.length}`);
         return true;
     }
 
@@ -92,21 +92,21 @@
                 if (typeof window.setupListas === 'function') window.setupListas();
                 if (typeof window.actualizarHero === 'function') window.actualizarHero();
                 if (typeof window.setupTrailerDelDia === 'function') window.setupTrailerDelDia();
-                console.log('[api-bridge-hentai] UI refrescada.');
+                console.log('[api-bridge-hen] UI refrescada.');
             } catch (e) {
-                console.error('[api-bridge-hentai] Error al refrescar UI:', e);
+                console.error('[api-bridge-hen] Error al refrescar UI:', e);
             }
         }, 150);
     }
 
-    async function cargarAnimesAPI() {
+    async function cargarItemsAPI() {
         try {
-            const todas = [];
+            const todos = [];
             let page = 1;
 
             while (true) {
                 const url = `${API}/animes?max_year=${MAX_YEAR}&page=${page}&limit=${LIMIT}`;
-                console.log(`[api-bridge-hentai] Pidiendo ${url}`);
+                console.log(`[api-bridge-hen] Pidiendo ${url}`);
 
                 const r = await fetch(url);
                 if (!r.ok) throw new Error(`HTTP ${r.status} en página ${page}`);
@@ -114,8 +114,8 @@
                 const data = await r.json();
                 const items = data.animes || [];
 
-                todas.push(...items);
-                console.log(`[api-bridge-hentai] Página ${page}: ${items.length} (acumulado: ${todas.length}/${data.total})`);
+                todos.push(...items);
+                console.log(`[api-bridge-hen] Página ${page}: ${items.length} (acumulado: ${todos.length}/${data.total})`);
 
                 if (items.length < LIMIT) break;
                 if (page >= data.paginas_totales) break;
@@ -124,31 +124,31 @@
                 await new Promise(res => setTimeout(res, PAUSA_ENTRE_PAGINAS));
             }
 
-            if (!todas.length) {
-                console.warn('[api-bridge-hentai] La API no devolvió animes.');
+            if (!todos.length) {
+                console.warn('[api-bridge-hen] La API no devolvió items.');
                 return;
             }
 
-            todas.sort((a, b) => {
+            todos.sort((a, b) => {
                 const ta = (a.titulo || "").toLowerCase();
                 const tb = (b.titulo || "").toLowerCase();
                 return ta.localeCompare(tb, 'es');
             });
 
-            const nuevas = todas.map((a, i) => apiAnimeAAnime(a, i));
+            const nuevas = todos.map((a, i) => apiItemAItem(a, i));
 
             if (fusionarConAnimes(nuevas)) {
                 refrescarUI();
             }
         } catch (e) {
-            console.error('[api-bridge-hentai] Error al cargar animes:', e);
+            console.error('[api-bridge-hen] Error al cargar items:', e);
         }
     }
 
-    async function cargarEpisodiosDeAnime(apiSlug) {
+    async function cargarEpisodiosDeItem(apiSlug) {
         if (!apiSlug) return [];
-        if (window.__hentaiEpisodios[apiSlug]) {
-            return window.__hentaiEpisodios[apiSlug];
+        if (window.__episodiosExtra[apiSlug]) {
+            return window.__episodiosExtra[apiSlug];
         }
 
         try {
@@ -156,23 +156,23 @@
             if (!r.ok) throw new Error(`HTTP ${r.status}`);
             const data = await r.json();
 
-            window.__hentaiEpisodios[apiSlug] = data.episodios || [];
-            return window.__hentaiEpisodios[apiSlug];
+            window.__episodiosExtra[apiSlug] = data.episodios || [];
+            return window.__episodiosExtra[apiSlug];
         } catch (e) {
-            console.error(`[api-bridge-hentai] Error cargando episodios:`, e);
+            console.error(`[api-bridge-hen] Error cargando episodios:`, e);
             return [];
         }
     }
 
-    window.__cargarEpisodiosHentai = cargarEpisodiosDeAnime;
+    window.__cargarEpisodiosExtra = cargarEpisodiosDeItem;
 
     function esperarAnimes(intentos = 20) {
         if (typeof window.animes !== 'undefined' && Array.isArray(window.animes)) {
-            cargarAnimesAPI();
+            cargarItemsAPI();
             return;
         }
         if (intentos <= 0) {
-            console.error('[api-bridge-hentai] `animes` nunca apareció.');
+            console.error('[api-bridge-hen] `animes` nunca apareció.');
             return;
         }
         setTimeout(() => esperarAnimes(intentos - 1), 100);
