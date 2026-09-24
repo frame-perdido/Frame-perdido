@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    
+
     <style>
         :root {
             --bg: #0a0a0f;
@@ -197,9 +197,9 @@
         <div class="episode-selector" id="episodeSelector"></div>
 
         <div style="text-align:center; margin: 16px 0 8px 0;">
-            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9" 
-               class="btn btn-primary" 
-               target="_blank" 
+            <a href="https://dischargeconceiteffort.com/ghqwpv6d4x?key=b56d8434f7a4661c327f68d6ff71b0b9"
+               class="btn btn-primary"
+               target="_blank"
                rel="noopener noreferrer"
                style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px var(--accent-glow);transition:all 0.3s;">
                 ⬇️ DOWNLOAD
@@ -218,14 +218,12 @@
 
     <script>
     // ============================================================
-    // BLOQUEO 
+    // BLOQUEO
     // ============================================================
     window.open = function() { return null; };
 
+   
     // ============================================================
-    // BASE DE DATOS DE VIDEOS
-    // ============================================================
-      // ============================================================
     // BASE DE DATOS DE VIDEOS - IDs 1 a 106
     // ============================================================
     window.videos = {
@@ -1737,6 +1735,8 @@
         };  
 
 
+
+
     // Combinar con watch-02-data.js (IDs 107+)
     if (typeof videos2 !== 'undefined') {
         Object.assign(window.videos, videos2);
@@ -1745,8 +1745,9 @@
     // ============================================================
     // CONFIG APIs
     // ============================================================
-    const API_FRIK = "https://frik-api.onrender.com";
+    const API_FRIK  = "https://frik-api.onrender.com";
     const API_EXTRA = "https://hen-api.onrender.com";
+    const API_RETRO = "https://retv1.onrender.com";
 
     // ============================================================
     // PARÁMETROS DE LA URL
@@ -1972,7 +1973,7 @@
     }
 
     // ============================================================
-    // CARGA API EXTRA
+    // CARGA API EXTRA (HEN)
     // ============================================================
     async function cargarDesdeApiExtra(slug) {
         try {
@@ -2004,12 +2005,79 @@
     }
 
     // ============================================================
+    // CARGA API RETROTVE
+    // ============================================================
+    async function cargarDesdeRetroAPI(slug) {
+        try {
+            let data = null;
+            let tipo = null;
+
+            let r = await fetch(`${API_RETRO}/series/${encodeURIComponent(slug)}`);
+            if (r.ok) {
+                data = await r.json();
+                tipo = 'serie';
+            } else {
+                r = await fetch(`${API_RETRO}/peliculas/${encodeURIComponent(slug)}`);
+                if (r.ok) {
+                    data = await r.json();
+                    tipo = 'pelicula';
+                }
+            }
+
+            if (!data) throw new Error("No encontrado en RetroTVE");
+
+            let episodios = [];
+
+            if (tipo === 'pelicula') {
+                const urls = data.urls_directas || [];
+                episodios = urls.map((u, i) => ({
+                    num: i + 1,
+                    version: urls.length > 1 ? `Opción ${i + 1}` : "Película",
+                    url: u,
+                    temporada: 1
+                }));
+                if (episodios.length === 0) {
+                    episodios = [{ num: 1, version: "Película", url: null, temporada: 1 }];
+                }
+            } else {
+                (data.temporadas || []).forEach(t => {
+                    (t.episodios || []).forEach(e => {
+                        episodios.push({
+                            num: e.episodio,
+                            version: (data.total_temporadas > 1) ? `T${e.temporada}` : "Episodio",
+                            url: e.url_directa,
+                            temporada: e.temporada
+                        });
+                    });
+                });
+            }
+
+            videos[id] = {
+                title: data.titulo || slug,
+                year: data.primera_emision
+                    ? data.primera_emision.split('-').pop()
+                    : (data.fecha_lanzamiento
+                        ? data.fecha_lanzamiento.split('-').pop()
+                        : "—"),
+                studio: "—",
+                director: (data.directores || []).join(', ') || "—",
+                desc: data.sinopsis || "Sin descripción disponible.",
+                tags: data.generos || [],
+                episodios: episodios
+            };
+            return true;
+        } catch (e) {
+            console.error("[watch] Error cargando desde RetroTVE:", e);
+            return false;
+        }
+    }
+
+    // ============================================================
     // ROUTER
     // ============================================================
-    async function cargarDesdeAPI(slug, esExtra) {
-        if (esExtra) {
-            return await cargarDesdeApiExtra(slug);
-        }
+    async function cargarDesdeAPI(slug, tipo) {
+        if (tipo === 'hen')   return await cargarDesdeApiExtra(slug);
+        if (tipo === 'retro') return await cargarDesdeRetroAPI(slug);
         return await cargarDesdeFrikAPI(slug);
     }
 
@@ -2046,11 +2114,13 @@
             return;
         }
 
-        const esExtra = id >= 50000;
+        const esHen   = id >= 50000 && id < 70000;
+        const esRetro = id >= 70000;
+        const tipo = esHen ? 'hen' : (esRetro ? 'retro' : 'frik');
 
         if (apiSlug && !window.videos[id]) {
             document.getElementById('videoTitle').textContent = 'Cargando desde la API...';
-            const ok = await cargarDesdeAPI(apiSlug, esExtra);
+            const ok = await cargarDesdeAPI(apiSlug, tipo);
             if (!ok) {
                 document.getElementById('videoTitle').textContent = 'Error al cargar';
                 document.getElementById('expedienteDesc').textContent = 'No se pudo cargar el expediente desde la API.';
