@@ -1,5 +1,5 @@
 // ============================================================
-// api-bridge-retv1.js — Frame Perdido 
+// api-bridge-retv1.js — Frame Perdido → RetroTVE API
 // ============================================================
 
 (function () {
@@ -15,27 +15,20 @@
     window.__episodiosExtra = window.__episodiosExtra || {};
 
     // ---------------------------------------------------------
-    // Detectar si el slug está en la lista de live action
+    // Detectar si es live action:
+    //   1) Si está en la lista LIVE_ACTION_SLUGS
+    //   2) O si tiene "Live Action" en los géneros
     // ---------------------------------------------------------
-    function esLiveAction(slug) {
-        return Array.isArray(window.LIVE_ACTION_SLUGS)
-            && window.LIVE_ACTION_SLUGS.includes(slug);
-    }
-
-    // ---------------------------------------------------------
-    // Detectar si es anime/animada
-    // ---------------------------------------------------------
-    function esAnimada(generos, slug) {
-        if (esLiveAction(slug)) return false;
-
-        const g = (generos || []).map(x => x.toLowerCase());
-        return g.some(x =>
-            x.includes('animación') ||
-            x.includes('animacion') ||
-            x.includes('anime') ||
-            x.includes('kids') ||
-            x.includes('caricatura')
-        );
+    function esLiveAction(slug, generos) {
+        // Lista manual
+        if (Array.isArray(window.LIVE_ACTION_SLUGS) && window.LIVE_ACTION_SLUGS.includes(slug)) {
+            return true;
+        }
+        // Género "Live Action"
+        if (Array.isArray(generos)) {
+            return generos.some(g => g.toLowerCase().includes('live action'));
+        }
+        return false;
     }
 
     // ---------------------------------------------------------
@@ -46,20 +39,14 @@
         window.__apiSlugs[id] = slug;
 
         const generos = apiItem.generos || [];
-        const generosLower = generos.map(g => g.toLowerCase());
-        const esAnim = esAnimada(generos, slug);
-
+        const esLive = esLiveAction(slug, generos);
+        const category = esLive ? 'live-action' : 'animada';
         const type = (tipo === 'pelicula') ? 'Película' : 'Serie TV';
-        const category = esAnim ? 'animada' : 'live-action';
 
         let year = '—';
-        if (apiItem.primera_emision) {
-            year = apiItem.primera_emision.split('-').pop();
-        } else if (apiItem.fecha_lanzamiento) {
-            year = apiItem.fecha_lanzamiento.split('-').pop();
-        } else if (apiItem.anio) {
-            year = apiItem.anio;
-        }
+        if (apiItem.primera_emision) year = apiItem.primera_emision.split('-').pop();
+        else if (apiItem.fecha_lanzamiento) year = apiItem.fecha_lanzamiento.split('-').pop();
+        else if (apiItem.anio) year = apiItem.anio;
 
         return {
             id: id,
@@ -71,7 +58,7 @@
             studio: "—",
             director: (apiItem.directores || []).join(', ') || "—",
             genre: generos,
-            tags: [...new Set(generosLower.map(g => g.trim()).filter(Boolean))],
+            tags: [...new Set(generos.map(g => g.toLowerCase().trim()).filter(Boolean))],
             description: apiItem.sinopsis || "Sin descripción disponible.",
             plot: "",
             analysis: "",
@@ -96,6 +83,9 @@
         };
     }
 
+    // ---------------------------------------------------------
+    // Fusionar con window.animes
+    // ---------------------------------------------------------
     function fusionarConAnimes(nuevas) {
         if (typeof window.animes === 'undefined') return false;
 
@@ -115,6 +105,9 @@
         return true;
     }
 
+    // ---------------------------------------------------------
+    // Refrescar UI
+    // ---------------------------------------------------------
     function refrescarUI() {
         setTimeout(() => {
             try {
@@ -131,6 +124,9 @@
         }, 150);
     }
 
+    // ---------------------------------------------------------
+    // Cargar todas las páginas de una colección
+    // ---------------------------------------------------------
     async function cargarColeccion(endpoint) {
         const todos = [];
         let offset = 0;
@@ -156,29 +152,52 @@
         return todos;
     }
 
+    // ---------------------------------------------------------
+    // Cargar TODO: series + pelis, independientes
+    // ---------------------------------------------------------
     async function cargarTodo() {
+        let nuevasSeries = [];
+        let nuevasPelis = [];
+
+        // ----- SERIES -----
         try {
+            console.log('[api-bridge-retv1] Cargando SERIES...');
             const series = await cargarColeccion("/series");
             series.sort((a, b) => (a.titulo || "").localeCompare(b.titulo || "", 'es'));
-            const nuevasSeries = series.map((a, i) => apiItemAItem(a, ID_BASE_SERIES + i, "serie"));
+            nuevasSeries = series.map((a, i) => apiItemAItem(a, ID_BASE_SERIES + i, "serie"));
+            console.log(`[api-bridge-retv1] Series listas: ${nuevasSeries.length}`);
+        } catch (e) {
+            console.error('[api-bridge-retv1] Error cargando series:', e);
+        }
 
+        // ----- PELÍCULAS -----
+        try {
+            console.log('[api-bridge-retv1] Cargando PELÍCULAS...');
             const pelis = await cargarColeccion("/peliculas");
             pelis.sort((a, b) => (a.titulo || "").localeCompare(b.titulo || "", 'es'));
-            const nuevasPelis = pelis.map((a, i) => apiItemAItem(a, ID_BASE_PELIS + i, "pelicula"));
-
-            const todas = [...nuevasSeries, ...nuevasPelis];
-            const animadas = todas.filter(x => x.category === 'animada').length;
-            const liveAction = todas.filter(x => x.category === 'live-action').length;
-
-            console.log(`[api-bridge-retv1] Total: ${todas.length} (${nuevasSeries.length} series + ${nuevasPelis.length} pelis)`);
-            console.log(`[api-bridge-retv1] Categorías: ${animadas} animadas · ${liveAction} live action`);
-
-            if (fusionarConAnimes(todas)) refrescarUI();
+            nuevasPelis = pelis.map((a, i) => apiItemAItem(a, ID_BASE_PELIS + i, "pelicula"));
+            console.log(`[api-bridge-retv1] Películas listas: ${nuevasPelis.length}`);
         } catch (e) {
-            console.error('[api-bridge-retv1] Error general:', e);
+            console.error('[api-bridge-retv1] Error cargando películas:', e);
         }
+
+        const todas = [...nuevasSeries, ...nuevasPelis];
+        if (todas.length === 0) {
+            console.warn('[api-bridge-retv1] No se cargó nada');
+            return;
+        }
+
+        const animadas = todas.filter(x => x.category === 'animada').length;
+        const liveAction = todas.filter(x => x.category === 'live-action').length;
+        console.log(`[api-bridge-retv1] Total: ${todas.length} (${nuevasSeries.length} series + ${nuevasPelis.length} pelis)`);
+        console.log(`[api-bridge-retv1] Categorías: ${animadas} animadas · ${liveAction} live action`);
+
+        if (fusionarConAnimes(todas)) refrescarUI();
     }
 
+    // ---------------------------------------------------------
+    // Cargar episodios de un item
+    // ---------------------------------------------------------
     async function cargarEpisodiosDeItem(apiSlug, tipo) {
         if (!apiSlug) return [];
         const cacheKey = tipo + ':' + apiSlug;
@@ -228,6 +247,9 @@
 
     window.__cargarEpisodiosRetv1 = cargarEpisodiosDeItem;
 
+    // ---------------------------------------------------------
+    // Esperar `animes` y arrancar
+    // ---------------------------------------------------------
     function esperarAnimes(intentos = 20) {
         if (typeof window.animes !== 'undefined' && Array.isArray(window.animes)) {
             cargarTodo();
