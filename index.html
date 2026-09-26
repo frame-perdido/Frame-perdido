@@ -2480,63 +2480,68 @@
             return isMobile ? itemsPerPageMobile : itemsPerPageDesktop;
         }
 
-        function getFilteredAnimes() {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
-            const activeFilter = document.querySelector('.filter-btn.active');
-            const filter = activeFilter ? activeFilter.dataset.filter : 'all';
-            
-            let filtered = [];
-            
-            if (currentTab === 'liveaction') {
-                filtered = animes.filter(a => a.category === "live-action");
-            } else {
-                let obrasPrincipales = animes.filter(a => a.category === "animada");
-                
-                const tipos = {
-                    'peliculas': ['Película'],
-                    'ovas': ['OVA'],
-                    'series': ['Serie', 'TV', 'Serie TV']
-                };
-                
-                if (tipos[currentTab]) {
-                    obrasPrincipales = obrasPrincipales.filter(a => 
-                        tipos[currentTab].includes(a.type)
-                    );
-                }
-                
-                filtered = obrasPrincipales;
-            }
-            
-            if (searchQuery) {
-                filtered = filtered.filter(obra => {
-                    return obra.title.toLowerCase().includes(searchQuery) ||
-                        obra.description.toLowerCase().includes(searchQuery) ||
-                        obra.genre.some(g => g.toLowerCase().includes(searchQuery)) ||
-                        (obra.tags && obra.tags.some(t => t.toLowerCase().includes(searchQuery))) ||
-                        obra.studio.toLowerCase().includes(searchQuery) ||
-                        obra.director.toLowerCase().includes(searchQuery) ||
-                        String(obra.year).includes(searchQuery);
-                });
-            }
-            
-            if (filter !== 'all') {
-                filtered = filtered.filter(obra => {
-                    const year = parseInt(obra.year);
-                    const genre = obra.genre.join(',').toLowerCase();
-                    const tags = obra.tags ? obra.tags.join(',').toLowerCase() : '';
-                    
-                    if (filter === '80s') return year >= 1980 && year < 1990;
-                    if (filter === '90s') return year >= 1990 && year < 2000;
-                    if (filter === 'adulto') return obra.adulto === true;
-                    if (filter === 'cyberpunk') return genre.includes('cyberpunk') || tags.includes('cyberpunk');
-                    if (filter === 'terror') return genre.includes('terror') || genre.includes('horror') || tags.includes('terror');
-                    
-                    return genre.includes(filter) || tags.includes(filter);
-                });
-            }
-            
-            return filtered;
+       function getFilteredAnimes() {
+    const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+    const activeFilter = document.querySelector('.filter-btn.active');
+    const filter = activeFilter ? activeFilter.dataset.filter : 'all';
+    
+    let filtered = [];
+    
+    if (currentTab === 'liveaction') {
+        filtered = animes.filter(a => a.category === "live-action");
+    } else {
+        let obrasPrincipales = animes.filter(a => a.category === "animada");
+        
+        const tipos = {
+            'peliculas': ['Película'],
+            'ovas': ['OVA'],
+            'series': ['Serie', 'TV', 'Serie TV']
+        };
+        
+        if (tipos[currentTab]) {
+            obrasPrincipales = obrasPrincipales.filter(a => 
+                tipos[currentTab].includes(a.type)
+            );
         }
+        
+        filtered = obrasPrincipales;
+    }
+    
+    if (searchQuery) {
+        filtered = filtered.filter(obra => {
+            return obra.title.toLowerCase().includes(searchQuery) ||
+                obra.description.toLowerCase().includes(searchQuery) ||
+                obra.genre.some(g => g.toLowerCase().includes(searchQuery)) ||
+                (obra.tags && obra.tags.some(t => t.toLowerCase().includes(searchQuery))) ||
+                obra.studio.toLowerCase().includes(searchQuery) ||
+                obra.director.toLowerCase().includes(searchQuery) ||
+                String(obra.year).includes(searchQuery);
+        });
+    }
+    
+    if (filter !== 'all') {
+        filtered = filtered.filter(obra => {
+            const year = parseInt(obra.year);
+            const genre = obra.genre.join(',').toLowerCase();
+            const tags = obra.tags ? obra.tags.join(',').toLowerCase() : '';
+            
+            if (filter === '80s') return year >= 1980 && year < 1990;
+            if (filter === '90s') return year >= 1990 && year < 2000;
+            if (filter === 'adulto') return obra.adulto === true;
+            if (filter === 'cyberpunk') return genre.includes('cyberpunk') || tags.includes('cyberpunk');
+            if (filter === 'terror') return genre.includes('terror') || genre.includes('horror') || tags.includes('terror');
+            
+            return genre.includes(filter) || tags.includes(filter);
+        });
+    }
+    
+    // 🔻 Filtra las obras rotas según su API de origen
+    if (window.estaRota) {
+        filtered = filtered.filter(obra => !window.estaRota(obra));
+    }
+    
+    return filtered;
+}
 
         function renderPaginatedCards() {
             const grid = document.getElementById('animeGrid');
