@@ -235,10 +235,10 @@ window.SERIES_ROTAS = [
 window.estaRota = function (obra) {
     if (!obra || !window.SERIES_ROTAS) return false;
 
+    // Detectar API por rango de ID
     let api = null;
-    const url = obra.apiUrl || "";
-    if (url.includes("frik")) api = "frik";
-    else if (url.includes("retv1") || url.includes("retrotve")) api = "retv1";
+    if (obra.id >= 70000 && obra.id < 80000) api = "retv1";
+    else if (obra.id >= 50000 && obra.id < 60000) api = "frik";
     else return false;
 
     const slug = obra.apiSlug || obra.slug || null;
