@@ -40,7 +40,7 @@ window.SERIES_ROTAS = [
     "las-guerreras-m-gicas",
 
     // ---------- DEL ESCANEO DE RET ----------
-    "space-academy",
+    "academia espacial",
     "aprendiendo-a-vivir",
     "aquaman",
     "astroboy-1980",
