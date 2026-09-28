@@ -2480,7 +2480,7 @@
             return isMobile ? itemsPerPageMobile : itemsPerPageDesktop;
         }
 
-       function getFilteredAnimes() {
+     function getFilteredAnimes() {
     const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
     const activeFilter = document.querySelector('.filter-btn.active');
     const filter = activeFilter ? activeFilter.dataset.filter : 'all';
@@ -2535,14 +2535,19 @@
         });
     }
     
-  // Ocultar series sin episodios
-filtered = filtered.filter(obra => {
+    // Solo bloquea SERIES sin episodios (no películas)
+    filtered = filtered.filter(obra => {
+        const esSerie = ['Serie', 'Serie TV', 'TV'].includes(obra.type);
+        if (esSerie && obra.fromApi && (!obra.totalEpisodios || obra.totalEpisodios === 0)) {
+            return false;
+        }
+        return true;
+    });
     
-    if (obra.fromApi && (obra.totalEpisodios === 0 || obra.totalEpisodios === undefined)) {
-        return false;
+    // Bloquea las rotas
+    if (window.estaRota) {
+        filtered = filtered.filter(obra => !window.estaRota(obra));
     }
-    return true;
-});
     
     return filtered;
 }
