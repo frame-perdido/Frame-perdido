@@ -60,8 +60,8 @@
             sagaOrder: null,
             related: [],
             category: (window.LIVE_ACTION_SLUGS || []).includes(serie.slug) 
-          ? "live-action" 
-           : "animada",
+                ? "live-action" 
+                : "animada",
             origin: "",
             rarity: "Común",
             adulto: false,
@@ -69,7 +69,10 @@
             ecchi: false,
 
             apiSlug: serie.slug,
-            fromApi: true
+            fromApi: true,
+            apiUrl: `${API}/series/${serie.slug}`,
+            apiTipo: "serie",
+            totalEpisodios: serie.numCapitulosDisponibles || 0
         };
     }
 
@@ -89,7 +92,8 @@
         const rotas = window.SERIES_ROTAS || [];
         const filtradas = nuevas.filter(n => 
             !yaCargadas.has(n.apiSlug) && 
-            !rotas.includes(n.apiSlug)
+            !rotas.includes(n.apiSlug) &&
+            !(window.estaRota && window.estaRota(n))
         );
 
         window.animes.push(...filtradas);
