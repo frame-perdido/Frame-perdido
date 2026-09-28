@@ -2535,10 +2535,7 @@
         });
     }
     
-    // 🔻 Filtra las obras rotas según su API de origen
-   if (window.estaRota) {
-        filtered = filtered.filter(obra => !window.estaRota(obra));
-    }
+  
     
     return filtered;
 }
