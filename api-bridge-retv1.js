@@ -15,16 +15,12 @@
     window.__episodiosExtra = window.__episodiosExtra || {};
 
     // ---------------------------------------------------------
-    // Detectar si es live action:
-    //   1) Si está en la lista LIVE_ACTION_SLUGS
-    //   2) O si tiene "Live Action" en los géneros
+    // Detectar si es live action
     // ---------------------------------------------------------
     function esLiveAction(slug, generos) {
-        // Lista manual
         if (Array.isArray(window.LIVE_ACTION_SLUGS) && window.LIVE_ACTION_SLUGS.includes(slug)) {
             return true;
         }
-        // Género "Live Action"
         if (Array.isArray(generos)) {
             return generos.some(g => g.toLowerCase().includes('live action'));
         }
@@ -85,6 +81,7 @@
 
     // ---------------------------------------------------------
     // Fusionar con window.animes
+    // Filtra: duplicadas, sin episodios, y rotas
     // ---------------------------------------------------------
     function fusionarConAnimes(nuevas) {
         if (typeof window.animes === 'undefined') return false;
@@ -95,13 +92,25 @@
                 .map(a => a.apiSlug + '|' + a.apiTipo)
         );
 
-        const filtradas = nuevas.filter(n => !yaCargadas.has(n.apiSlug + '|' + n.apiTipo));
+        const filtradas = nuevas.filter(n => {
+            // 1. No duplicar
+            if (yaCargadas.has(n.apiSlug + '|' + n.apiTipo)) return false;
+            
+            // 2. No añadir series sin episodios (solo aplica a series, no a pelis)
+            if (n.apiTipo === 'serie' && (!n.totalEpisodios || n.totalEpisodios === 0)) return false;
+            
+            // 3. No añadir rotas
+            if (window.estaRota && window.estaRota(n)) return false;
+            
+            return true;
+        });
+
         window.animes.push(...filtradas);
 
         window.__apiAnimesRetv1 = window.__apiAnimesRetv1 || [];
         window.__apiAnimesRetv1.push(...filtradas);
 
-        console.log(`[api-bridge-retv1] Añadidos ${filtradas.length}. Total global: ${window.animes.length}`);
+        console.log(`[api-bridge-retv1] Añadidos ${filtradas.length} de ${nuevas.length}. Total global: ${window.animes.length}`);
         return true;
     }
 
