@@ -8,7 +8,6 @@
     const API = "https://hen-api.onrender.com";
     const ID_BASE = 50000;
     const LIMIT = 100;
-    const MAX_YEAR = 2008;
     const PAUSA_ENTRE_PAGINAS = 300;
 
     window.__apiSlugs = window.__apiSlugs || {};
@@ -105,7 +104,7 @@
             let page = 1;
 
             while (true) {
-                const url = `${API}/animes?max_year=${MAX_YEAR}&page=${page}&limit=${LIMIT}`;
+                const url = `${API}/animes?page=${page}&limit=${LIMIT}`;
                 console.log(`[api-bridge-hen] Pidiendo ${url}`);
 
                 const r = await fetch(url);
