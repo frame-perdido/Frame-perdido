@@ -2535,7 +2535,14 @@
         });
     }
     
-  
+  // Ocultar series sin episodios
+filtered = filtered.filter(obra => {
+    
+    if (obra.fromApi && (obra.totalEpisodios === 0 || obra.totalEpisodios === undefined)) {
+        return false;
+    }
+    return true;
+});
     
     return filtered;
 }
