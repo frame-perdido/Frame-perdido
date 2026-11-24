@@ -1,40 +1,3447 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#09080d">
-<meta name="description" content="FRAME PLUS. Próximamente.">
-<title>FRAME PLUS — Próximamente</title>
-<style>
-:root{color-scheme:dark;--bg:#09080d;--violet:#9b5cff;--red:#ff563f;--text:#f7f4fb;--muted:#aaa4b5}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:grid;place-items:center;overflow:hidden;color:var(--text);background:radial-gradient(ellipse at 18% 18%,rgba(126,65,220,.17),transparent 38%),radial-gradient(ellipse at 85% 82%,rgba(255,75,55,.10),transparent 34%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(ellipse at center,black,transparent 78%)}
-.wrap{position:relative;width:min(900px,100%);padding:48px 24px;text-align:center}
-.mark{width:68px;height:68px;margin:0 auto 30px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);border-radius:19px;background:linear-gradient(145deg,rgba(155,92,255,.18),rgba(255,86,63,.10));box-shadow:0 0 55px rgba(137,76,255,.15),inset 0 1px rgba(255,255,255,.12);font-size:30px;font-weight:900;letter-spacing:-4px}
-.mark span,h1 .plus{background:linear-gradient(120deg,#c69aff 12%,#9250ff 56%,#ff6948 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.mark span{transform:translateX(-2px)}
-h1{margin:0;font-size:clamp(3.1rem,10vw,7.4rem);line-height:.95;letter-spacing:-.085em;font-weight:900}
-h1 .plus{display:inline-block;margin-left:.035em}
-.rule{width:58px;height:3px;margin:34px auto 27px;border-radius:8px;background:linear-gradient(90deg,var(--violet),var(--red));box-shadow:0 0 20px rgba(155,92,255,.45)}
-.eyebrow{margin:0 0 12px;color:#c5a7ff;font-size:.76rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase}
-.message{margin:0;font-size:clamp(1.2rem,3vw,1.75rem);font-weight:650;letter-spacing:-.035em}
-.sub{margin:14px 0 0;color:var(--muted);font-size:.96rem;letter-spacing:.015em}
-.bottom{position:fixed;bottom:24px;left:20px;right:20px;color:#777180;text-align:center;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase}
-@media(max-width:480px){.wrap{padding:36px 20px}.mark{width:58px;height:58px;border-radius:16px;margin-bottom:26px}.sub{max-width:270px;margin-inline:auto;line-height:1.6}}
-@media(prefers-reduced-motion:no-preference){.wrap{animation:appear .9s ease both}@keyframes appear{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}}
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame Perdido — Anime y cine de culto olvidado</title>
+    <link rel="canonical" href="https://frame-perdido.github.io/Frame-perdido/">
+    <meta name="google-site-verification" content="oqWojBHCi2STPs4YgytWF_vTJlDvfb4cvVUfTqzyGh8" />
+    <meta name="description" content="Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros." />
+    <meta name="keywords" content="anime, OVAs, cine de culto, anime olvidado, películas de culto, anime 80s, anime 90s, live action" />
+    <meta name="author" content="Frame Perdido" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="es" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎞️</text></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Frame Perdido — Anime y cine de culto olvidado" />
+    <meta property="og:description" content="Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frame-perdido.github.io/Frame-perdido/" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Frame Perdido — Anime y cine de culto olvidado" />
+    <meta name="twitter:description" content="Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros." />
+    
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Frame Perdido",
+        "description": "Archivo de anime, OVAs, películas de culto y live action olvidados",
+        "url": "https://frame-perdido.github.io/Frame-perdido/",
+        "keywords": "anime, OVAs, cine de culto, anime olvidado, películas de culto"
+    }
+    </script>
+    
+    <style>
+        /* ============================================================ */
+        /* RESPONSIVIDAD ANUNCIOS ADSTERRA                              */
+        /* ============================================================ */
+        .adsterra-mobile { display: none; }
+        .adsterra-desktop { display: block; }
+        @media only screen and (max-width: 768px) {
+            .adsterra-mobile { display: block; }
+            .adsterra-desktop { display: none; }
+        }
+        @media only screen and (max-width: 768px) {
+            #container-9194bf40864159e5a4b3f23a7e69a1b6,
+            div[id*="container-"] {
+                display: none !important;
+            }
+        }
+
+        /* ============================================================ */
+        /* TODOS LOS ESTILOS                                            */
+        /* ============================================================ */
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-elevated: #1a1a25;
+            --bg-hover: #222230;
+            --text: #e8e8f0;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --accent: #d4a373;
+            --accent-soft: #d4a37320;
+            --accent-glow: #d4a37360;
+            --border: #2a2420;
+            --border-hover: #3a322c;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --cyan: #05d9e8;
+            --amber: #f59e0b;
+            --green: #22c55e;
+            --paper: #1a1715;
+            --ink: #c4b5a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================================ */
+        /* FONDO: PAPEL ARCHIVADO + TEXTURA VHS                        */
+        /* ============================================================ */
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(139,69,19,0.03) 100px,
+                    rgba(139,69,19,0.03) 101px
+                ),
+                radial-gradient(ellipse at 30% 20%, rgba(139,69,19,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,69,19,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(139,69,19,0.02) 0%, transparent 80%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255,255,255,0.01) 3px,
+                    rgba(255,255,255,0.01) 4px
+                ),
+                #0a0a0f;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.02;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.4) 2px,
+                rgba(0,0,0,0.4) 4px
+            );
+        }
+        .crt-vignette {
+            position: fixed;
+            inset: 0;
+            z-index: 9997;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);
+        }
+
+        /* ============================================================ */
+        /* HEADER                                                       */
+        /* ============================================================ */
+        header {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+            position: relative;
+        }
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 1px solid var(--accent);
+            opacity: 0.2;
+            border-radius: 2px;
+        }
+        .logo-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .logo-text span { color: var(--accent); }
+
+        nav {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        nav a:hover, nav a.active {
+            color: var(--text);
+            background: var(--bg-elevated);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        /* ============================================================ */
+        /* HERO                                                         */
+        /* ============================================================ */
+        .hero {
+            padding: 50px 24px 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.01) 2px,
+                    rgba(255,255,255,0.01) 3px
+                ),
+                radial-gradient(ellipse at 50% 50%, rgba(212,163,115,0.03) 0%, transparent 70%);
+            border: 1px solid rgba(212,163,115,0.06);
+            border-radius: 4px;
+            box-shadow: 
+                inset 0 0 100px rgba(0,0,0,0.7),
+                0 0 60px rgba(212,163,115,0.02);
+            margin-bottom: 20px;
+        }
+        .hero::after {
+            content: "CONFIDENCIAL";
+            position: absolute;
+            bottom: 12px;
+            right: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.55rem;
+            color: rgba(212,163,115,0.08);
+            letter-spacing: 6px;
+            transform: rotate(-6deg);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero .hero-sub {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .hero .hero-categories {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 6px;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+        .hero .hero-terminal {
+            max-width: 480px;
+            margin: 0 auto 24px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: left;
+            background: rgba(0,0,0,0.4);
+            padding: 14px 18px;
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero .hero-terminal .hero-line {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .hero .hero-terminal .hero-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+        .hero .hero-terminal .hero-status .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto 28px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================================ */
+        /* BOTONES                                                      */
+        /* ============================================================ */
+        .btn {
+            padding: 11px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            min-height: 44px;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        .btn-secondary {
+            background: var(--bg-elevated);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { border-color: var(--border-hover); }
+        .btn-random {
+            background: var(--bg-elevated);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+        .btn-random:hover { background: rgba(251, 191, 36, 0.1); }
+
+        #loadMoreBtn {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            padding: 14px 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 auto;
+            min-height: 48px;
+        }
+        #loadMoreBtn:hover:not(:disabled) {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        #loadMoreBtn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        #loadMoreBtn .loading-message {
+            display: inline-block;
+            animation: pulseText 1s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ============================================================ */
+        /* STATS                                                        */
+        /* ============================================================ */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 16px 20px;
+            max-width: 450px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin-top: 16px;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+        .stat-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* ============================================================ */
+        /* BÚSQUEDA                                                     */
+        /* ============================================================ */
+        .search-section {
+            max-width: 560px;
+            margin: 32px auto;
+            padding: 0 20px;
+        }
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-family: 'Space Mono', monospace;
+            outline: none;
+            transition: all 0.3s;
+            caret-color: var(--accent);
+            min-height: 48px;
+        }
+        .search-box input::placeholder {
+            color: var(--text-dim);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        .search-box input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft), 0 0 20px var(--accent-glow);
+        }
+        .search-box .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            pointer-events: none;
+            color: var(--text-dim);
+        }
+        .search-clear {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1rem;
+            display: none;
+            padding: 4px 8px;
+        }
+        .search-clear.visible { display: block; }
+        .search-results-count {
+            text-align: center;
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            min-height: 20px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* ============================================================ */
+        /* SECCIONES                                                    */
+        /* ============================================================ */
+        .section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.2;
+        }
+        .section:first-of-type::before { display: none; }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .section-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .icon { color: var(--accent); font-size: 1.2rem; }
+        .section-meta {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* ============================================================ */
+        /* EXPEDIENTE DEL DÍA                                           */
+        /* ============================================================ */
+        .featured-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .featured-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+        .featured-image {
+            position: relative;
+            min-height: 300px;
+            overflow: hidden;
+        }
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .featured-card:hover .featured-image img { transform: scale(1.05); }
+        .year-badge {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            font-family: 'Space Mono', monospace;
+            z-index: 2;
+        }
+        .rarity-badge {
+            position: absolute;
+            bottom: 12px; left: 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            color: var(--warning);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            border: 1px solid var(--warning);
+            z-index: 2;
+            font-family: 'Space Mono', monospace;
+        }
+        .featured-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .expediente-block {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin-bottom: 14px;
+            font-family: 'Space Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .expediente-block::after {
+            content: "ARCHIVO";
+            position: absolute;
+            bottom: 4px;
+            right: 10px;
+            font-size: 0.5rem;
+            color: var(--text-dim);
+            letter-spacing: 3px;
+            opacity: 0.2;
+            transform: rotate(-4deg);
+        }
+        .expediente-block .exp-separator {
+            border: 0;
+            border-top: 1px dashed var(--border);
+            margin: 6px 0;
+        }
+        .expediente-block .exp-barcode {
+            font-family: 'Courier New', monospace;
+            font-size: 0.5rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+            text-align: right;
+            margin-top: 4px;
+        }
+        .exp-label {
+            color: var(--text-dim);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+        .exp-value {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .exp-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        .exp-status-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .featured-tags {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+        .tag.accent {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent-glow);
+        }
+
+        .featured-content h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .featured-meta {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+        .featured-meta span { margin-right: 12px; }
+        .featured-desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+        .featured-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================ */
+        /* TABS PRINCIPALES                                              */
+        /* ============================================================ */
+        .tabs-container {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+        }
+        
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .tab-btn:hover {
+            color: var(--text);
+            background: var(--bg-hover);
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .tab-btn .tab-count {
+            font-size: 0.6rem;
+            background: var(--bg-elevated);
+            padding: 1px 8px;
+            border-radius: 10px;
+            margin-left: 4px;
+            color: var(--text-dim);
+        }
+        
+        .tab-btn.active .tab-count {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        /* ============================================================ */
+        /* FILTROS - SCROLL HORIZONTAL EN MÓVIL                        */
+        /* ============================================================ */
+        .filters {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.65rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            min-height: 32px;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+        .filter-btn .count {
+            font-size: 0.6rem;
+            opacity: 0.6;
+            margin-left: 2px;
+        }
+        .filter-btn.active .count {
+            opacity: 1;
+            color: var(--bg);
+        }
+
+        /* ============================================================ */
+        /* GRID                                                         */
+        /* ============================================================ */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .card.hidden { display: none; }
+        .card-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 2 / 3;
+            width: 100%;
+            background: var(--bg-elevated);
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+        .card:hover .card-image img { transform: scale(1.06); }
+        .card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        .card-year {
+            position: absolute;
+            top: 10px; left: 10px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            font-family: 'Space Mono', monospace;
+            z-index: 2;
+        }
+        .card-exp-number {
+            position: absolute;
+            top: 10px; right: 10px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            color: var(--text-dim);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 1px;
+            z-index: 2;
+            border: 1px solid var(--border);
+        }
+        .card-rarity {
+            position: absolute;
+            bottom: 10px; right: 10px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: var(--warning);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            border: 1px solid var(--warning);
+            z-index: 2;
+        }
+        .badge-hentai {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(220, 38, 38, 0.9);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 5;
+        }
+        .badge-ecchi {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            background: rgba(212, 108, 24, 0.9);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 5;
+        }
+        /* Si solo hay una etiqueta, que no se superponga */
+        .card-image .badge-hentai:only-child,
+        .card-image .badge-ecchi:only-child {
+            top: 10px;
+            left: 10px;
+        }
+        .card-body { padding: 14px; }
+        .card-tags {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        .card-tag {
+            font-size: 0.55rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+        .card h3 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-footer {
+            padding: 0 14px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-vibes {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .vibe-tag {
+            font-size: 0.55rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 2px 8px;
+            border-radius: 12px;
+            border: 1px solid var(--accent-glow);
+        }
+
+        /* ============================================================ */
+        /* NO RESULTADOS                                                */
+        /* ============================================================ */
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            display: none;
+        }
+        .no-results.visible { display: block; }
+
+        /* ============================================================ */
+        /* ETIQUETAS                                                     */
+        /* ============================================================ */
+        .listas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .lista-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .lista-card:hover {
+            border-color: var(--accent-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+        }
+        .lista-card .lista-icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .lista-card h3 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .lista-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        .lista-card .lista-count {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* ============================================================ */
+        /* VIBES                                                        */
+        /* ============================================================ */
+        .vibes-section { text-align: center; }
+        .vibes-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .vibe-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            min-height: 36px;
+        }
+        .vibe-btn:hover, .vibe-btn.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent-glow);
+            transform: scale(1.05);
+        }
+
+        /* ============================================================ */
+        /* SOBRE                                                        */
+        /* ============================================================ */
+        .sobre-text {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+        .sobre-text p { margin-bottom: 14px; }
+        .sobre-text ul { margin-left: 18px; margin-bottom: 14px; }
+        .sobre-text li { margin-bottom: 4px; }
+
+        /* ============================================================ */
+        /* MODAL                                                        */
+        /* ============================================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 95vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal { transform: scale(1); }
+        .modal-close {
+            position: absolute;
+            top: 12px; right: 12px;
+            width: 36px; height: 36px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .modal-close:hover {
+            background: var(--danger);
+            border-color: var(--danger);
+            color: #fff;
+        }
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            border-radius: 6px 6px 0 0;
+            display: block;
+        }
+        .modal-content { padding: 24px; }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .modal-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .modal-meta {
+            display: flex;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .modal-tags {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .tag-hentai {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+        .tag-ecchi {
+            background: rgba(212, 108, 24, 0.2);
+            color: #d46c18;
+            border: 1px solid rgba(212, 108, 24, 0.3);
+        }
+        .modal-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+        .modal-section { margin-bottom: 16px; }
+        .modal-section h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .modal-section p, .modal-section ul {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .modal-section ul { padding-left: 16px; }
+        .modal-section li { margin-bottom: 4px; }
+
+        /* ============================================================ */
+        /* RECOMENDACIONES EN MODAL                                     */
+        /* ============================================================ */
+        #modalTrailerContainer {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+        #modalTrailerFrame {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .trailer-duration {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-align: right;
+            margin-top: 4px;
+        }
+
+        .modal-related {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .modal-related h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+        }
+        .related-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: var(--accent-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .related-thumb {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 2 / 3;
+            width: 100%;
+            background: linear-gradient(135deg, var(--bg-elevated), var(--bg));
+        }
+        .related-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+            display: block;
+        }
+        .related-card:hover .related-thumb img {
+            transform: scale(1.08);
+        }
+        .related-year {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.5rem;
+            font-weight: 600;
+            font-family: 'Space Mono', monospace;
+            z-index: 2;
+        }
+        .related-badge-adulto {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(239, 68, 68, 0.9);
+            color: #fff;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+        .related-info {
+            padding: 8px 10px 10px;
+        }
+        .related-info h5 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin: 0 0 4px;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-meta {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .related-type {
+            font-size: 0.5rem;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        .related-genre {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================================ */
+        /* PAGINACIÓN                                                   */
+        /* ============================================================ */
+        #paginationContainer {
+            margin-top: 28px;
+            text-align: center;
+        }
+        #paginationCounter {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 14px;
+            font-family: 'Space Mono', monospace;
+        }
+        #numericPagination {
+            display: none;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        #numericPagination .btn {
+            min-width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+            min-height: 36px;
+        }
+        #numericPagination .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        #numericPagination .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            #numericPagination { display: none !important; }
+            #loadMoreBtn { display: block !important; }
+        }
+        @media (min-width: 769px) {
+            #loadMoreBtn { display: none !important; }
+            #numericPagination { display: flex !important; }
+        }
+
+        /* ============================================================ */
+        /* FOOTER                                                       */
+        /* ============================================================ */
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-top: 40px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 28px;
+        }
+        .footer-brand .logo-text {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .footer-socials {
+            display: flex;
+            gap: 8px;
+        }
+        .footer-socials a {
+            width: 32px; height: 32px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .footer-socials a:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 6px; }
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding: 16px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+        .footer-bottom a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+        .footer-bottom a:hover { color: var(--accent); }
+
+        /* ============================================================ */
+        /* SCROLLBAR                                                    */
+        /* ============================================================ */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+        /* ============================================================ */
+        /* BOTÓN VOLVER ARRIBA                                          */
+        /* ============================================================ */
+        #btnVolverArriba {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            z-index: 999;
+            display: none;
+            transition: all 0.3s;
+        }
+        #btnVolverArriba:hover { transform: scale(1.1); }
+
+        /* ============================================================ */
+        /* ANIMACIONES                                                  */
+        /* ============================================================ */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            3% { opacity: 0.4; }
+            6% { opacity: 1; }
+            7% { opacity: 0.8; }
+        }
+        .logo {
+            animation: flicker 6s infinite;
+        }
+
+        /* ============================================================ */
+        /* ANUNCIOS                                                     */
+        /* ============================================================ */
+        .ad-container {
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 728px;
+            border: 1px dashed var(--border);
+            background: rgba(255,255,255,0.01);
+            text-align: center;
+            position: relative;
+            border-radius: 4px;
+        }
+        .ad-container::before {
+            content: "ESPACIO PUBLICITARIO";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            padding: 0 10px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.5rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+
+        /* ============================================================ */
+        /* RESPONSIVE                                                   */
+        /* ============================================================ */
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+            .related-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            header { padding: 10px 16px; }
+            .logo-text { font-size: 0.85rem; }
+            .logo-icon { width: 28px; height: 28px; font-size: 0.75rem; }
+            nav {
+                display: none;
+                position: absolute;
+                top: 56px; left: 0; right: 0;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 12px 16px;
+                border-bottom: 1px solid var(--border);
+                z-index: 99;
+                gap: 2px;
+            }
+            nav.active { display: flex; }
+            nav a { padding: 8px 12px; font-size: 0.7rem; }
+            .mobile-menu-btn { display: block; }
+            
+            .hero { padding: 30px 16px 28px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .hero-terminal { font-size: 0.65rem; padding: 10px 14px; }
+            .hero-cta { flex-direction: column; align-items: stretch; }
+            .hero-cta .btn { justify-content: center; text-align: center; }
+            
+            .section { padding: 30px 16px; }
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-image { min-height: 240px; }
+            .featured-content { padding: 20px; }
+            .featured-content h2 { font-size: 1.2rem; }
+            
+            .grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 10px;
+            }
+            
+            .card-image {
+                aspect-ratio: 2 / 3;
+            }
+            
+            .card-image img {
+                object-fit: cover;
+            }
+            
+            .card-body { padding: 10px; }
+            .card h3 { 
+                font-size: 0.75rem; 
+                white-space: nowrap; 
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                line-height: 1.3;
+            }
+            .card p { display: none; }
+            .card-tags { 
+                flex-wrap: nowrap; 
+                overflow-x: auto; 
+                -webkit-overflow-scrolling: touch;
+                gap: 3px;
+                padding-bottom: 2px;
+            }
+            .card-tags::-webkit-scrollbar { height: 0; display: none; }
+            .card-footer .card-vibes { display: none; }
+            .card-footer { padding: 0 10px 10px; }
+            .card-year { font-size: 0.55rem; padding: 2px 6px; }
+            .card-exp-number { font-size: 0.45rem; padding: 1px 4px; }
+            .card-rarity { font-size: 0.45rem; padding: 1px 5px; bottom: 6px; right: 6px; }
+            .card-tag { font-size: 0.5rem; padding: 1px 5px; }
+            
+            .filters { 
+                flex-wrap: nowrap; 
+                overflow-x: auto; 
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 4px;
+            }
+            .filters::-webkit-scrollbar { height: 0; }
+            .filter-btn { font-size: 0.6rem; padding: 4px 10px; flex-shrink: 0; }
+            
+            .modal-content { padding: 16px; }
+            .modal-image {
+                aspect-ratio: 2 / 3;
+                height: auto;
+                max-height: 50vh;
+            }
+            .modal-title { font-size: 1.1rem; }
+            
+            .related-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 8px;
+            }
+            .related-thumb {
+                aspect-ratio: 2 / 3;
+            }
+            .related-card {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            .related-info {
+                padding: 6px 8px 8px;
+                flex: 1;
+            }
+            .related-info h5 { 
+                font-size: 0.65rem; 
+                white-space: nowrap; 
+                overflow: hidden; 
+                text-overflow: ellipsis;
+            }
+            .related-type { font-size: 0.5rem; }
+            
+            .stats-bar { gap: 20px; padding: 12px 16px; }
+            .stat-number { font-size: 1.3rem; }
+            
+            .footer-content { grid-template-columns: 1fr; gap: 24px; padding: 30px 16px 16px; }
+            
+            #modalTrailerContainer { max-width: 100%; }
+            
+            .listas-grid { grid-template-columns: 1fr; }
+            .vibes-cloud { gap: 6px; }
+            .vibe-btn { font-size: 0.7rem; padding: 4px 12px; }
+            
+            .tabs-container {
+                gap: 2px;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 8px 14px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .tab-btn .tab-count {
+                font-size: 0.5rem;
+                padding: 1px 6px;
+            }
+
+            .badge-hentai, .badge-ecchi {
+                font-size: 0.45rem;
+                padding: 1px 6px;
+            }
+            .badge-ecchi {
+                top: 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.4rem; }
+            .grid { gap: 6px; }
+            .card-body { padding: 6px 8px; }
+            .card-footer { padding: 0 8px 8px; }
+            .card h3 { font-size: 0.65rem; }
+            .card-year { font-size: 0.5rem; padding: 2px 5px; }
+            .card-exp-number { font-size: 0.4rem; padding: 1px 3px; }
+            .card-rarity { font-size: 0.4rem; padding: 1px 4px; bottom: 4px; right: 4px; }
+            .card-tag { font-size: 0.45rem; padding: 1px 4px; }
+            .section-title { font-size: 1rem; }
+            
+            .modal-image { max-height: 40vh; }
+            .modal-content { padding: 12px; }
+            .modal-title { font-size: 0.95rem; }
+            
+            .related-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 6px;
+            }
+            .related-thumb { aspect-ratio: 2 / 3; }
+            .related-info { padding: 4px 6px 6px; }
+            .related-info h5 { font-size: 0.55rem; }
+            .related-type { font-size: 0.45rem; }
+        }
+
+        /* ============================================================ */
+/* BANNER VERTICAL 160×600 - SOLO DESKTOP GRANDE              */
+/* ============================================================ */
+@media (min-width: 1400px) {
+    .ad-skyscraper {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 160px;
+        height: 600px;
+        z-index: 50;
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+    }
+    .ad-skyscraper::before {
+        content: "PUBLICIDAD";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg);
+        padding: 0 8px;
+        font-size: 0.5rem;
+        color: var(--text-dim);
+        font-family: 'Space Mono', monospace;
+        letter-spacing: 2px;
+        z-index: 2;
+    }
+    body {
+        padding-right: 180px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .ad-skyscraper {
+        display: none !important;
+    }
+    body {
+        padding-right: 0 !important;
+    }
+}
+    </style>
 </head>
 <body>
-<main class="wrap">
-<div class="mark" aria-hidden="true"><span>F+</span></div>
-<p class="eyebrow">Una nueva experiencia</p>
-<h1>FRAME<span class="plus">+</span></h1>
-<div class="rule"></div>
-<p class="message">Próximamente, una app.</p>
-<p class="sub">Prepárate para descubrir algo diferente.</p>
-</main>
-<footer class="bottom">FRAME PLUS · Próximamente</footer>
+
+    <!-- FONDOS Y TEXTURAS -->
+    <div class="bg-animation"></div>
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+    <div class="crt-vignette"></div>
+
+    <!-- HEADER -->
+    <header>
+        <a href="https://frame-perdido.github.io/Frame-perdido/" class="logo">
+            <div class="logo-icon">FP</div>
+            <div class="logo-text">Frame <span>Perdido</span></div>
+        </a>
+        <nav id="mainNav">
+            <a href="https://frame-perdido.github.io/Frame-perdido/" class="active">Inicio</a>
+            <a href="buscar.html"></a>
+            <a href="#etiquetas">Etiquetas</a>
+            <a href="#vibes">Vibes</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </header>
+
+    <!-- BANNER VERTICAL 160×600 -->
+<div class="ad-skyscraper" id="skyscraperAd">
+    <script>
+        atOptions = {
+            'key' : 'f564e8789f9520e705a0684b0fb3ad26',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+        };
+    </script>
+    <script src="https://dischargeconceiteffort.com/f564e8789f9520e705a0684b0fb3ad26/invoke.js"></script>
+</div>
+
+    <!-- ============================================================ -->
+    <!-- BANNER HEADER                                                -->
+    <!-- ============================================================ -->
+    <div class="ad-container">
+        <div class="adsterra-desktop">
+            <script>
+                atOptions = {
+                    'key' : '2d24803022ac8ea2c0f5629bb6e94501',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/2d24803022ac8ea2c0f5629bb6e94501/invoke.js"></script>
+        </div>
+        <div class="adsterra-mobile">
+            <script>
+                atOptions = {
+                    'key' : 'f609722253730b0dda3e6b83efb17a18',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://dischargeconceiteffort.com/f609722253730b0dda3e6b83efb17a18/invoke.js"></script>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <h1>
+            <span class="hero-sub">■ EXPEDIENTE RECUPERADO ■</span>
+            <span class="highlight">FRAME_PERDIDO</span>
+            <span class="hero-categories">[ Anime · OVAs · Películas · Live Action ]</span>
+        </h1>
+        
+        <div class="hero-terminal">
+            <div class="hero-line">
+                <span>&gt; <span id="heroCount">0</span> expedientes activos</span>
+                <span>&gt; v<span id="heroVersion">1.0</span></span>
+            </div>
+            <div>&gt; Última restauración: <span id="heroDate"></span></div>
+            <div class="hero-status">
+                <span class="dot"></span>
+                Sistema en línea · Archivo operativo
+            </div>
+        </div>
+        
+        <div class="hero-cta">
+            <a href="#archivo" class="btn btn-primary">▶ Explorar archivo</a>
+            <button class="btn btn-random" onclick="randomObra()">🎲 Expediente aleatorio</button>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- NATIVE BANNER                                                -->
+    <!-- ============================================================ -->
+    <div class="ad-container">
+        <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/9194bf40864159e5a4b3f23a7e69a1b6/invoke.js"></script>
+        <div id="container-9194bf40864159e5a4b3f23a7e69a1b6"></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">Expedientes</div></div>
+        <div class="stat-item"><div class="stat-number" id="statOVAs">0</div><div class="stat-label">OVAs</div></div>
+        <div class="stat-item"><div class="stat-number" id="statPelis">0</div><div class="stat-label">Películas</div></div>
+    </div>
+
+    <!-- BÚSQUEDA -->
+    <section class="search-section">
+        <div class="search-box">
+            <span class="search-icon">$</span>
+            <input type="text" id="searchInput" placeholder="buscar en el archivo por título, año, estudio..." />
+            <button class="search-clear" id="searchClear">✕</button>
+        </div>
+        <div class="search-results-count" id="searchResults"></div>
+    </section>
+
+    <!-- RESULTADOS DE BÚSQUEDA -->
+    <section class="section" id="searchResultsContainer" style="display:none;">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🔍</span>Resultados de búsqueda</h2>
+            <span class="section-meta" id="searchResultCount">0 resultados</span>
+        </div>
+        <div class="grid" id="searchResultsGrid"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TRAILER DEL DÍA                                              -->
+    <!-- ============================================================ -->
+    <section id="trailer-del-dia" style="display:none;">
+        <div style="max-width: 900px; margin: 0 auto 40px; padding: 0 20px;">
+            <div style="background: linear-gradient(135deg, rgba(212,163,115,0.06) 0%, rgba(10,10,15,0.95) 100%); border: 1px solid rgba(212,163,115,0.15); border-radius: 8px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid rgba(212,163,115,0.08); flex-wrap: wrap; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1rem;">▶️</span>
+                        <div>
+                            <div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase;">Trailer del Día</div>
+                            <div id="trailerDiaTitle" style="font-family: 'Space Mono', monospace; color: var(--text); font-size: 0.85rem; font-weight: 700;">---</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="document.getElementById('featuredCard').scrollIntoView({behavior:'smooth'})" style="font-size: 0.65rem; padding: 6px 12px; min-height: 32px;">Ver expediente</button>
+                </div>
+                <div id="trailerDiaPlayer" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
+                </div>
+                <div style="padding: 10px 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                    <span id="trailerDiaMeta" style="font-size: 0.75rem; color: var(--text-muted);">---</span>
+                    <div style="flex: 1;"></div>
+                    <div id="trailerDiaTags" style="display: flex; gap: 4px; flex-wrap: wrap;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPEDIENTE DEL DÍA -->
+    <section class="section" id="featured">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">✦</span>Expediente del Día</h2>
+            <span class="section-meta">Actualizado cada 24h</span>
+        </div>
+        <div class="featured-card" id="featuredCard">
+            <div class="featured-image">
+                <img src="" alt="" id="featuredImg" />
+                <span class="year-badge" id="featuredYear">----</span>
+                <span class="rarity-badge" id="featuredRarity">Obra recuperada</span>
+            </div>
+            <div class="featured-content">
+                <div class="expediente-block">
+                    <div class="exp-label">Expediente recuperado</div>
+                    <div class="exp-value" id="featuredExpId">#---</div>
+                    <hr class="exp-separator" />
+                    <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.65rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                    <div class="exp-barcode">||| ||| ||| ||| |||</div>
+                </div>
+                <div class="featured-tags" id="featuredTags"></div>
+                <h2 id="featuredTitle">---</h2>
+                <div class="featured-meta" id="featuredMeta"></div>
+                <p class="featured-desc" id="featuredDesc">---</p>
+                <div class="featured-actions">
+                    <button class="btn btn-primary" onclick="event.stopPropagation();openModal(featuredId)">Abrir expediente</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ARCHIVO                                                       -->
+    <!-- ============================================================ -->
+    <section class="section" id="archivo">
+        <!-- TABS -->
+        <div class="tabs-container" id="tabsContainer">
+            <button class="tab-btn active" data-tab="peliculas" onclick="cambiarTab('peliculas')">
+                🎬 Películas <span class="tab-count" id="countPeliculas">0</span>
+            </button>
+            <button class="tab-btn" data-tab="ovas" onclick="cambiarTab('ovas')">
+                📼 OVAs <span class="tab-count" id="countOVAs">0</span>
+            </button>
+            <button class="tab-btn" data-tab="series" onclick="cambiarTab('series')">
+                📺 Series TV <span class="tab-count" id="countSeries">0</span>
+            </button>
+            <button class="tab-btn" data-tab="liveaction" onclick="cambiarTab('liveaction')">
+                🎥 Live Action <span class="tab-count" id="countLiveAction">0</span>
+            </button>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filters" id="filterContainer">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="80s">80s</button>
+            <button class="filter-btn" data-filter="90s">90s</button>
+            <button class="filter-btn" data-filter="adulto">🔞 +18</button>
+            <button class="filter-btn" data-filter="cyberpunk">Cyberpunk</button>
+            <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
+            <button class="filter-btn" data-filter="drama">Drama</button>
+            <button class="filter-btn" data-filter="accion">Acción</button>
+            <button class="filter-btn" data-filter="terror">Terror</button>
+            <button class="filter-btn" data-filter="mecha">Mecha</button>
+        </div>
+
+        <div style="text-align:center;color:var(--text-muted);font-size:0.75rem;margin-bottom:12px;font-family:'Space Mono',monospace;">
+            <span id="tabTotalCount">0</span> obras en <span id="tabNameDisplay">Películas</span>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <p style="font-size:1rem;margin-bottom:4px;">Cinta no encontrada en el archivo</p>
+            <p style="font-size:0.85rem;">Prueba con otros términos o quita los filtros</p>
+        </div>
+        <div class="grid" id="animeGrid"></div>
+
+        <!-- PAGINACIÓN -->
+        <div id="paginationContainer">
+            <div id="paginationCounter">
+                Mostrando <span id="showingStart">0</span> - <span id="showingEnd">0</span> de <span id="totalItems">0</span> obras
+            </div>
+            <button id="loadMoreBtn" class="btn">Cargar más obras</button>
+            <div id="numericPagination"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BANNER MID-CONTENT                                           -->
+    <!-- ============================================================ -->
+    <div class="ad-container">
+        <script>
+            atOptions = {
+                'key' : '87a06576574ce7684612c64a5ebfe421',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
+    </div>
+
+    <!-- ETIQUETAS -->
+    <section class="section" id="etiquetas">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">🏷️</span>Etiquetas</h2>
+            <span class="section-meta">Explorar por etiquetas</span>
+        </div>
+        <div class="listas-grid" id="listasGrid"></div>
+    </section>
+
+    <!-- VIBES -->
+    <section class="section vibes-section" id="vibes">
+        <h2 class="section-title" style="margin-bottom:6px;justify-content:center;">¿Qué buscas hoy?</h2>
+        <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.9rem;">No por género. Por sensación.</p>
+        <div class="vibes-cloud" id="vibesCloud"></div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+        <div class="section-header">
+            <h2 class="section-title"><span class="icon">📋</span>Sobre Frame Perdido</h2>
+        </div>
+        <div class="sobre-text">
+            <p>Frame Perdido nació de una pregunta simple: <strong style="color:var(--text)">¿Qué pasó con todas esas obras que no aparecen en los tops?</strong></p>
+            <p>No hablamos de los grandes éxitos. Hablamos de las OVAs que solo existieron en VHS, de las películas que se proyectaron una vez en un festival y desaparecieron, de los experimentos visuales que los estudios hicieron cuando nadie les decía qué no podían hacer.</p>
+            <p>Cada expediente responde a cinco preguntas:</p>
+            <ul>
+                <li>¿Qué es esta obra?</li>
+                <li>¿Por qué merece ser vista hoy?</li>
+                <li>¿Qué la hace diferente?</li>
+                <li>¿Por qué terminó siendo olvidada?</li>
+                <li>¿Qué otras obras similares recomendarías?</li>
+            </ul>
+            <p>Este archivo crece día a día. Si tienes una recomendación, escríbenos en redes.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MODAL                                                        -->
+    <!-- ============================================================ -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <img class="modal-image" id="modalImage" src="" alt="" />
+            <div class="modal-content">
+                <div class="expediente-block" style="margin-bottom:14px;">
+                    <div class="exp-label">Expediente recuperado</div>
+                    <div class="exp-value" id="modalExpId"></div>
+                    <hr class="exp-separator" />
+                    <div class="exp-status"><span class="exp-status-dot"></span><span style="font-size:0.65rem;color:var(--text-muted)">Recuperado del archivo</span></div>
+                    <div class="exp-barcode">||| ||| ||| ||| |||</div>
+                </div>
+                <div class="modal-header"><h2 class="modal-title" id="modalTitle"></h2></div>
+                <div class="modal-meta" id="modalMeta"></div>
+                <div class="modal-tags" id="modalTags"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+
+                <!-- TRAILER -->
+                <div class="modal-section" id="modalTrailerSection">
+                    <h4>Trailer</h4>
+                    <div id="modalTrailerContainer">
+                        <iframe id="modalTrailerFrame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="trailer-duration">⏱️ Duración del trailer: 1:30</div>
+                </div>
+
+                <div class="modal-section"><h4>¿De qué trata?</h4><p id="modalPlot"></p></div>
+                <div class="modal-section"><h4>¿Por qué verla?</h4><p id="modalAnalysis"></p></div>
+                <div class="modal-section"><h4>¿Por qué quedó olvidada?</h4><p id="modalForgotten"></p></div>
+                <div class="modal-section"><h4>Ficha técnica</h4><ul id="modalTech"></ul></div>
+
+                <div style="margin: 16px 0;">
+                    <button class="btn btn-primary" onclick="buscarDisponibilidad()" style="width:100%;justify-content:center;font-family:'Space Mono',monospace;background:var(--accent);color:#fff;box-shadow:0 4px 20px var(--accent-glow);">
+                        📼 Buscar disponibilidad
+                    </button>
+                </div>
+
+                <div class="ad-container" style="margin:16px 0; max-width:100%;">
+                    <script>
+                        atOptions = {
+                            'key' : '87a06576574ce7684612c64a5ebfe421',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://dischargeconceiteffort.com/87a06576574ce7684612c64a5ebfe421/invoke.js"></script>
+                </div>
+
+                <div class="modal-related" id="modalRelated">
+                    <h4>🎯 Obras similares</h4>
+                    <div class="related-grid" id="relatedGrid"></div>
+                </div>
+
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+                    <button class="btn btn-secondary" onclick="shareOn('twitter')" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">Twitter</button>
+                    <button class="btn btn-secondary" onclick="shareOn('facebook')" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">Facebook</button>
+                    <button class="btn btn-secondary" onclick="shareOn('whatsapp')" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">WhatsApp</button>
+                    <button class="btn btn-secondary" onclick="shareOn('telegram')" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">Telegram</button>
+                    <button class="btn btn-secondary" onclick="copyShareUrl()" style="font-size:0.75rem;padding:8px 14px;min-height:36px;">Copiar enlace</button>
+                </div>
+                <input type="text" id="shareUrlInput" value="" readonly 
+                       style="width:100%;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:0.75rem;cursor:pointer;margin-top:6px;"
+                       onclick="this.select(); navigator.clipboard?.writeText(this.value);" />
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-text">Frame <span>Perdido</span></div>
+                <p>El archivo de anime y cine que el tiempo olvidó. OVAs, películas, series y live action seleccionados sin algoritmos.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">📘</a>
+                    <a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">🎵</a>
+                    <a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">📷</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="#archivo">Archivo</a></li>
+                    <li><a href="#vibes">Buscar por vibe</a></li>
+                    <li><a href="#featured">Expediente del Día</a></li>
+                    <li><a href="#etiquetas">Etiquetas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Comunidad</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/share/1Hz9NsDpvD/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.tiktok.com/@toonlabclips?_r=1&_t=ZP-97oW1rB8mcR" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                    <li><a href="https://www.instagram.com/jawson_o09?igsh=eGJsbHVkdGFoMDY5" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://frame-perdido.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a></li>
+                    <li><a href="https://frame-perdido.github.io/Frame-perdido/privacidad.html" target="_blank" rel="noopener noreferrer">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Frame Perdido</span>
+            <a href="https://tecnocurioso.github.io/Frame-perdido/acerca-de.html" target="_blank" rel="noopener noreferrer">Acerca de</a>
+            <a href="https://tecnocurioso.github.io/Frame-perdido/privacidad.html" target="_blank" rel="noopener noreferrer">Privacidad</a>
+        </div>
+    </footer>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button id="btnVolverArriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS                                                      -->
+    <!-- ============================================================ -->
+   
+    <script src="series-rotas.js"></script>
+    <script src="portadas-fix.js"></script>
+    <script src="live-action.js"></script>
+    <script src="api-bridge-retv1.js"></script>
+    <script src="api-bridge-hen.js"></script>
+    <script src="api-bridge.js"></script>
+    <script src="data-02.js"></script>
+     <script src="data.js"></script>
+    
+    
+    
+       <script>
+        // ============================================================
+        // NIVELES DE RAREZA
+        // ============================================================
+        const NIVELES_RAREZA = {
+            'Común': '📀 Hallazgo',
+            'Poco común': '🔍 Hallazgo raro',
+            'Raro': '💎 Hallazgo excepcional',
+            'Muy raro': '⭐ Joya perdida',
+            'Único': '🏆 Expediente único'
+        };
+
+        // ============================================================
+        // MANEJADOR DE ERRORES DE IMAGEN
+        // ============================================================
+        function handleImageError(img) {
+            img.style.display = 'none';
+            const parent = img.parentElement;
+            if (parent) {
+                parent.style.background = 'linear-gradient(135deg, var(--bg-elevated), var(--bg))';
+                parent.style.display = 'flex';
+                parent.style.alignItems = 'center';
+                parent.style.justifyContent = 'center';
+                parent.style.color = 'var(--text-dim)';
+                parent.style.fontSize = '0.8rem';
+                parent.style.fontFamily = "'Space Mono', monospace";
+                parent.textContent = '🎬 Sin portada';
+            }
+        }
+
+        // ============================================================
+        // FUNCIONES DE UTILIDAD
+        // ============================================================
+        function getObraById(id) {
+            return animes.find(a => a.id === parseInt(id));
+        }
+
+        // ============================================================
+        // COMPARTIR
+        // ============================================================
+        function shareOn(platform) {
+            const url = window.location.href;
+            const title = document.title;
+            const text = encodeURIComponent(`🎞️ ${title}`);
+            const encodedUrl = encodeURIComponent(url);
+            const links = {
+                twitter: `https://twitter.com/intent/tweet?text=${text}&url=${encodedUrl}`,
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+                whatsapp: `https://api.whatsapp.com/send?text=${text}%20${encodedUrl}`,
+                telegram: `https://t.me/share/url?url=${encodedUrl}&text=${text}`
+            };
+            window.open(links[platform], '_blank', 'width=600,height=400');
+        }
+
+        function copyShareUrl() {
+            const input = document.getElementById('shareUrlInput');
+            input.select();
+            navigator.clipboard?.writeText(input.value).then(() => {
+                const original = input.style.borderColor;
+                input.style.borderColor = 'var(--accent)';
+                setTimeout(() => input.style.borderColor = original, 1000);
+            });
+        }
+
+        // ============================================================
+        // BUSCAR DISPONIBILIDAD
+        // ============================================================
+   function buscarDisponibilidad() {
+    const obra = animes.find(a => a.id === currentModalId);
+    if (!obra) return;
+    let url = `watch.html?id=${obra.id}`;
+    if (obra.apiSlug) url += `&api=${encodeURIComponent(obra.apiSlug)}`;
+    if (obra.locoUrl) url += `&loco=${encodeURIComponent(obra.locoUrl)}`;
+    window.location.href = url;
+}
+
+        // ============================================================
+        // VIBES
+        // ============================================================
+        function generarVibesAutomaticos() {
+            const vibesSet = new Set();
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
+            obrasPrincipales.forEach(obra => {
+                if (obra.tags && Array.isArray(obra.tags)) {
+                    obra.tags.forEach(tag => vibesSet.add(tag.toLowerCase().trim()));
+                }
+            });
+            const vibesBase = [
+                'melancólico', 'cyberpunk', 'nocturno', 'violento',
+                'comedia', 'experimental', 'nostálgico', 'musical',
+                'robot', 'terror', 'color', 'silencio',
+                'acción', 'aventura', 'drama', 'romance',
+                'fantasía', 'ciencia-ficción', 'histórico', 'espacial'
+            ];
+            vibesBase.forEach(v => vibesSet.add(v));
+            return Array.from(vibesSet).sort();
+        }
+
+        function buscarPorVibe(vibe) {
+            const vibeBusqueda = vibe.toLowerCase().trim();
+            const sinonimos = {
+                'robot': ['mecha', 'androide', 'cyborg', 'máquina', 'robótico', 'armadura'],
+                'terror': ['horror', 'espacial', 'paranormal', 'sobrenatural', 'claustrofóbico'],
+                'cyberpunk': ['cibernético', 'futurista', 'distópico', 'digital'],
+                'nocturno': ['oscuro', 'sombra', 'noche', 'tenebroso'],
+                'violento': ['gore', 'sangre', 'brutal', 'sádico'],
+                'melancólico': ['triste', 'nostálgico', 'depresivo', 'sombrío'],
+                'acción': ['pelea', 'combate', 'batalla', 'guerra'],
+                'fantasía': ['mágico', 'mitológico', 'épico', 'legendario'],
+                'ciencia-ficción': ['sci-fi', 'futurista', 'espacial', 'tecnológico']
+            };
+            const palabrasBuscar = [vibeBusqueda];
+            if (sinonimos[vibeBusqueda]) {
+                palabrasBuscar.push(...sinonimos[vibeBusqueda]);
+            }
+            const resultados = [];
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
+            obrasPrincipales.forEach(obra => {
+                let coincide = false;
+                if (obra.tags) {
+                    for (const tag of obra.tags) {
+                        const tagLower = tag.toLowerCase();
+                        for (const palabra of palabrasBuscar) {
+                            if (tagLower.includes(palabra) || palabra.includes(tagLower)) {
+                                coincide = true;
+                                break;
+                            }
+                        }
+                        if (coincide) break;
+                    }
+                }
+                if (!coincide && obra.genre) {
+                    for (const gen of obra.genre) {
+                        const genLower = gen.toLowerCase();
+                        for (const palabra of palabrasBuscar) {
+                            if (genLower.includes(palabra) || palabra.includes(genLower)) {
+                                coincide = true;
+                                break;
+                            }
+                        }
+                        if (coincide) break;
+                    }
+                }
+                if (!coincide) {
+                    const textoCompleto = `${obra.title} ${obra.description} ${obra.plot || ''}`.toLowerCase();
+                    for (const palabra of palabrasBuscar) {
+                        if (textoCompleto.includes(palabra)) {
+                            coincide = true;
+                            break;
+                        }
+                    }
+                }
+                if (coincide) resultados.push(obra);
+            });
+            return resultados;
+        }
+
+        function renderizarVibes() {
+            const vibesCloud = document.getElementById('vibesCloud');
+            const vibes = generarVibesAutomaticos();
+            const vibesRelevantes = vibes.filter(v => 
+                !['película', 'ova', 'serie', '80s', '90s'].includes(v) && v.length > 2
+            );
+            const vibesMostrar = vibesRelevantes.slice(0, 24);
+            vibesCloud.innerHTML = vibesMostrar.map(vibe =>
+                `<button class="vibe-btn" data-vibe="${vibe}" onclick="filtrarPorVibe('${vibe}')">
+                    ${vibe.charAt(0).toUpperCase() + vibe.slice(1)}
+                    <span style="font-size:0.55rem;opacity:0.5;margin-left:4px;">
+                        (${buscarPorVibe(vibe).length})
+                    </span>
+                </button>`
+            ).join('');
+        }
+
+        function filtrarPorVibe(vibe) {
+            const searchInput = document.getElementById('searchInput');
+            const resultados = buscarPorVibe(vibe);
+            if (resultados.length > 0) {
+                searchInput.value = vibe;
+                searchInput.dispatchEvent(new Event('input'));
+                document.getElementById('archivo').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert(`No se encontraron obras con el vibe "${vibe}"`);
+            }
+        }
+
+        // ============================================================
+        // TABS PRINCIPALES
+        // ============================================================
+        let currentTab = 'peliculas';
+
+        function cambiarTab(tab) {
+            currentTab = tab;
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+            
+            const nombres = {
+                'peliculas': 'Películas',
+                'ovas': 'OVAs',
+                'series': 'Series TV',
+                'liveaction': 'Live Action'
+            };
+            document.getElementById('tabNameDisplay').textContent = nombres[tab] || 'Películas';
+            
+            currentPage = 1;
+            renderPaginatedCards();
+        }
+
+        function actualizarContadoresTabs() {
+            const obrasAnimadas = animes.filter(a => a.category === "animada");
+            const liveAction = animes.filter(a => a.category === "live-action");
+            const total = animes.length;
+            
+            const peliculas = animes.filter(a => a.type === 'Película').length;
+            const ovas = animes.filter(a => a.type === 'OVA').length;
+            const series = animes.filter(a => a.type === 'Serie' || a.type === 'TV' || a.type === 'Serie TV').length;
+            
+            document.getElementById('countPeliculas').textContent = peliculas;
+            document.getElementById('countOVAs').textContent = ovas;
+            document.getElementById('countSeries').textContent = series;
+            document.getElementById('countLiveAction').textContent = liveAction.length;
+            
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('heroCount').textContent = total;
+            document.getElementById('tabTotalCount').textContent = total;
+        }
+
+        // ============================================================
+        // PAGINACIÓN
+        // ============================================================
+        let currentPage = 1;
+        const itemsPerPageDesktop = 24;
+        const itemsPerPageMobile = 12;
+        let totalFilteredItems = 0;
+        let currentFilteredAnimes = [];
+        let isMobile = window.innerWidth <= 768;
+
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.innerWidth <= 768;
+            if (newIsMobile !== isMobile) {
+                isMobile = newIsMobile;
+                currentPage = 1;
+                renderPaginatedCards();
+            }
+        });
+
+        function getItemsPerPage() {
+            return isMobile ? itemsPerPageMobile : itemsPerPageDesktop;
+        }
+
+     function getFilteredAnimes() {
+    const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+    const activeFilter = document.querySelector('.filter-btn.active');
+    const filter = activeFilter ? activeFilter.dataset.filter : 'all';
+    
+    let filtered = [];
+    
+    if (currentTab === 'liveaction') {
+        filtered = animes.filter(a => a.category === "live-action");
+    } else {
+        let obrasPrincipales = animes.filter(a => a.category === "animada");
+        
+        const tipos = {
+            'peliculas': ['Película'],
+            'ovas': ['OVA'],
+            'series': ['Serie', 'TV', 'Serie TV']
+        };
+        
+        if (tipos[currentTab]) {
+            obrasPrincipales = obrasPrincipales.filter(a => 
+                tipos[currentTab].includes(a.type)
+            );
+        }
+        
+        filtered = obrasPrincipales;
+    }
+    
+    if (searchQuery) {
+        filtered = filtered.filter(obra => {
+            return obra.title.toLowerCase().includes(searchQuery) ||
+                obra.description.toLowerCase().includes(searchQuery) ||
+                obra.genre.some(g => g.toLowerCase().includes(searchQuery)) ||
+                (obra.tags && obra.tags.some(t => t.toLowerCase().includes(searchQuery))) ||
+                obra.studio.toLowerCase().includes(searchQuery) ||
+                obra.director.toLowerCase().includes(searchQuery) ||
+                String(obra.year).includes(searchQuery);
+        });
+    }
+    
+    if (filter !== 'all') {
+        filtered = filtered.filter(obra => {
+            const year = parseInt(obra.year);
+            const genre = obra.genre.join(',').toLowerCase();
+            const tags = obra.tags ? obra.tags.join(',').toLowerCase() : '';
+            
+            if (filter === '80s') return year >= 1980 && year < 1990;
+            if (filter === '90s') return year >= 1990 && year < 2000;
+            if (filter === 'adulto') return obra.adulto === true;
+            if (filter === 'cyberpunk') return genre.includes('cyberpunk') || tags.includes('cyberpunk');
+            if (filter === 'terror') return genre.includes('terror') || genre.includes('horror') || tags.includes('terror');
+            
+            return genre.includes(filter) || tags.includes(filter);
+        });
+    }
+    
+    // Solo bloquea SERIES sin episodios (no películas)
+    filtered = filtered.filter(obra => {
+        const esSerie = ['Serie', 'Serie TV', 'TV'].includes(obra.type);
+        if (esSerie && obra.fromApi && (!obra.totalEpisodios || obra.totalEpisodios === 0)) {
+            return false;
+        }
+        return true;
+    });
+    
+    // Bloquea las rotas
+    if (window.estaRota) {
+        filtered = filtered.filter(obra => !window.estaRota(obra));
+    }
+    
+    return filtered;
+}
+
+        function renderPaginatedCards() {
+            const grid = document.getElementById('animeGrid');
+            const itemsPerPage = getItemsPerPage();
+            
+            currentFilteredAnimes = getFilteredAnimes();
+            totalFilteredItems = currentFilteredAnimes.length;
+            
+            const totalPages = Math.ceil(totalFilteredItems / itemsPerPage);
+            
+            if (currentPage === 1) {
+                grid.innerHTML = '';
+            }
+            
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, totalFilteredItems);
+            const pageItems = currentFilteredAnimes.slice(startIndex, endIndex);
+            
+            document.getElementById('showingStart').textContent = totalFilteredItems > 0 ? startIndex + 1 : 0;
+            document.getElementById('showingEnd').textContent = endIndex;
+            document.getElementById('totalItems').textContent = animes.length;
+            document.getElementById('tabTotalCount').textContent = animes.length;
+            
+            const noResults = document.getElementById('noResults');
+            if (totalFilteredItems === 0) {
+                noResults.classList.add('visible');
+                grid.innerHTML = '';
+                return;
+            } else {
+                noResults.classList.remove('visible');
+            }
+            
+            let firstCard = null;
+            
+            pageItems.forEach((obra, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.id = obra.id;
+                card.dataset.type = obra.type.toLowerCase();
+                card.dataset.year = obra.year;
+                card.dataset.genre = obra.genre.join(',').toLowerCase();
+                card.onclick = function() { openModal(obra.id); };
+                
+                const typeClass = obra.type.toLowerCase().replace(' ', '-');
+                const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
+                const expNumber = String(obra.id + 1).padStart(3, '0');
+                
+                const hentaiBadge = obra.hentai ? `<span class="badge-hentai">🔞 HENTAI</span>` : '';
+                const ecchiBadge = obra.ecchi ? `<span class="badge-ecchi">🔞 ECCHI</span>` : '';
+                
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
+                        <span class="card-year">${obra.year}</span>
+                        <span class="card-exp-number">#${expNumber}</span>
+                        <span class="card-rarity">⚡ ${rarity}</span>
+                        ${hentaiBadge}
+                        ${ecchiBadge}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="card-tag type-${typeClass}" data-type="${typeClass}">${obra.type}</span>
+                            ${obra.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                        </div>
+                        <h3><a href="expediente/${obra.id}.html" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;">${obra.title}</a></h3>
+                        <p>${obra.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="watch.html?id=${obra.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                        <div class="card-vibes">
+                            ${obra.tags ? obra.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+                
+                if (index === 0) firstCard = card;
+            });
+            
+            updatePaginationControls(totalPages);
+            
+            if (currentPage > 1 && firstCard) {
+                setTimeout(() => {
+                    const rect = firstCard.getBoundingClientRect();
+                    const top = rect.top + window.pageYOffset - 80;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }, 150);
+            }
+        }
+
+        function updatePaginationControls(totalPages) {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const numericPagination = document.getElementById('numericPagination');
+            
+            if (isMobile) {
+                loadMoreBtn.style.display = 'block';
+                numericPagination.style.display = 'none';
+                
+                const hasMore = currentPage < totalPages;
+                if (hasMore) {
+                    const loadingMessages = ['REBOBINANDO...', 'DECODIFICANDO...', 'SINTONIZANDO...', 'BUSCANDO EN EL ARCHIVO...'];
+                    const randomMsg = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+                    loadMoreBtn.innerHTML = `🔽 Cargar más obras <span class="loading-message">${randomMsg}</span>`;
+                    loadMoreBtn.disabled = false;
+                } else {
+                    loadMoreBtn.textContent = totalFilteredItems > 0 ? '✅ Todas las obras cargadas' : '📭 No hay obras';
+                    loadMoreBtn.disabled = true;
+                }
+            } else {
+                loadMoreBtn.style.display = 'none';
+                numericPagination.style.display = 'flex';
+                
+                let paginationHTML = '';
+                const maxVisible = 7;
+                let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+                
+                if (endPage - startPage < maxVisible - 1) {
+                    startPage = Math.max(1, endPage - maxVisible + 1);
+                }
+                
+                paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(${currentPage - 1})" ${currentPage <= 1 ? 'disabled' : ''}>◀</button>`;
+                
+                if (startPage > 1) {
+                    paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(1)">1</button>`;
+                    if (startPage > 2) paginationHTML += `<span style="color:var(--text-muted);padding:0 4px;">…</span>`;
+                }
+                
+                for (let i = startPage; i <= endPage; i++) {
+                    paginationHTML += `<button class="btn ${i === currentPage ? 'btn-primary' : 'btn-secondary'}" onclick="goToPage(${i})">${i}</button>`;
+                }
+                
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) paginationHTML += `<span style="color:var(--text-muted);padding:0 4px;">…</span>`;
+                    paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(${totalPages})">${totalPages}</button>`;
+                }
+                
+                paginationHTML += `<button class="btn btn-secondary" onclick="goToPage(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled' : ''}>▶</button>`;
+                
+                numericPagination.innerHTML = paginationHTML;
+            }
+        }
+
+        function goToPage(page) {
+            const totalPages = Math.ceil(getFilteredAnimes().length / getItemsPerPage());
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderPaginatedCards();
+        }
+
+        function loadMore() {
+            const totalPages = Math.ceil(getFilteredAnimes().length / getItemsPerPage());
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPaginatedCards();
+            }
+        }
+
+        // ============================================================
+        // FUNCIONES PRINCIPALES
+        // ============================================================
+        let featuredId = null;
+
+        function renderCards() {
+            currentPage = 1;
+            renderPaginatedCards();
+        }
+
+        function updateStats() {
+            const total = animes.length;
+            const ovas = animes.filter(a => a.type === 'OVA').length;
+            const pelis = animes.filter(a => a.type === 'Película').length;
+            animateCounter('statTotal', total);
+            animateCounter('statOVAs', ovas);
+            animateCounter('statPelis', pelis);
+        }
+
+        function animateCounter(id, target) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            let current = 0;
+            const increment = Math.max(1, target / 30);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) { current = target; clearInterval(timer); }
+                el.textContent = Math.floor(current);
+            }, 30);
+        }
+
+        function setupFeatured() {
+            const obrasPrincipales = animes.filter(a => a.category === "animada" || a.category === "live-action");
+            if (!obrasPrincipales || obrasPrincipales.length === 0) {
+                document.getElementById('featuredTitle').textContent = 'Sin obras';
+                document.getElementById('featuredDesc').textContent = 'Añade obras en data.js';
+                return;
+            }
+            const today = new Date();
+            const dayIndex = today.getDate() % obrasPrincipales.length;
+            const obra = obrasPrincipales[dayIndex];
+            featuredId = obra.id;
+            document.getElementById('featuredImg').src = obra.cover;
+            document.getElementById('featuredImg').onerror = function() { handleImageError(this); };
+            document.getElementById('featuredImg').alt = obra.title;
+            document.getElementById('featuredYear').textContent = obra.year;
+            document.getElementById('featuredExpId').textContent = '#' + String(obra.id + 1).padStart(3, '0');
+            document.getElementById('featuredRarity').textContent = '⚡ ' + (NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo');
+            document.getElementById('featuredTitle').textContent = obra.title;
+            document.getElementById('featuredMeta').innerHTML =
+                `<span>📅 ${obra.year}</span><span>🎬 ${obra.studio}</span><span>👤 ${obra.director}</span>`;
+            document.getElementById('featuredDesc').textContent = obra.description;
+            document.getElementById('featuredTags').innerHTML =
+                `<span class="tag accent">${obra.type}</span>${obra.genre.map(g => `<span class="tag">${g}</span>`).join('')}<span class="tag">${obra.duration}</span>`;
+            document.getElementById('featuredCard').onclick = () => openModal(obra.id);
+        }
+
+        function actualizarHero() {
+            document.getElementById('heroCount').textContent = animes.length;
+            const hoy = new Date();
+            const fecha = hoy.toLocaleDateString('es-ES', { 
+                day: '2-digit', 
+                month: 'long', 
+                year: 'numeric' 
+            });
+            document.getElementById('heroDate').textContent = fecha;
+        }
+
+        // ============================================================
+        // BÚSQUEDA
+        // ============================================================
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchClear = document.getElementById('searchClear');
+            const searchResults = document.getElementById('searchResults');
+            const searchContainer = document.getElementById('searchResultsContainer');
+            const searchGrid = document.getElementById('searchResultsGrid');
+            const archivoSection = document.getElementById('archivo');
+            const featuredSection = document.getElementById('featured');
+
+            function filterCards() {
+                const query = searchInput.value.toLowerCase().trim();
+                searchClear.classList.toggle('visible', query.length > 0);
+                
+                if (query.length === 0) {
+                    searchContainer.style.display = 'none';
+                    archivoSection.style.display = 'block';
+                    featuredSection.style.display = 'block';
+                    searchResults.textContent = '';
+                    document.getElementById('paginationContainer').style.display = 'block';
+                    renderPaginatedCards();
+                    return;
+                }
+                
+                let resultados = animes.filter(obra => {
+                    return obra.title.toLowerCase().includes(query) ||
+                        obra.description.toLowerCase().includes(query) ||
+                        obra.genre.some(g => g.toLowerCase().includes(query)) ||
+                        (obra.tags && obra.tags.some(t => t.toLowerCase().includes(query))) ||
+                        obra.studio.toLowerCase().includes(query) ||
+                        obra.director.toLowerCase().includes(query) ||
+                        String(obra.year).includes(query);
+                });
+                
+                archivoSection.style.display = 'none';
+                featuredSection.style.display = 'none';
+                document.getElementById('paginationContainer').style.display = 'none';
+                
+                searchContainer.style.display = 'block';
+                document.getElementById('searchResultCount').textContent = `${resultados.length} resultado${resultados.length !== 1 ? 's' : ''}`;
+                searchResults.textContent = `${resultados.length} resultado${resultados.length !== 1 ? 's' : ''}`;
+                
+                if (resultados.length === 0) {
+                    searchGrid.innerHTML = `
+                        <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text-muted);">
+                            <p style="font-size:1rem;margin-bottom:4px;">📭 Cinta no encontrada en el archivo</p>
+                            <p style="font-size:0.85rem;">Prueba con otros términos</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                searchGrid.innerHTML = resultados.map(obra => {
+                    const typeClass = obra.type.toLowerCase().replace(' ', '-');
+                    const expNumber = String(obra.id + 1).padStart(3, '0');
+                    const rarity = NIVELES_RAREZA[obra.rarity] || '📀 Hallazgo';
+                    const hentaiBadge = obra.hentai ? `<span class="badge-hentai">🔞 HENTAI</span>` : '';
+                    const ecchiBadge = obra.ecchi ? `<span class="badge-ecchi">🔞 ECCHI</span>` : '';
+                    
+                    return `
+                    <div class="card" data-id="${obra.id}" onclick="openModal(${obra.id})">
+                        <div class="card-image">
+                            <img src="${obra.cover}" alt="${obra.title}" loading="lazy" onerror="handleImageError(this)">
+                            <span class="card-year">${obra.year}</span>
+                            <span class="card-exp-number">#${expNumber}</span>
+                            <span class="card-rarity">⚡ ${rarity}</span>
+                            ${hentaiBadge}
+                            ${ecchiBadge}
+                        </div>
+                        <div class="card-body">
+                            <div class="card-tags">
+                                <span class="card-tag type-${typeClass}" data-type="${typeClass}">${obra.type}</span>
+                                ${obra.genre.slice(0, 1).map(g => `<span class="card-tag">${g}</span>`).join('')}
+                            </div>
+                            <h3>${obra.title}</h3>
+                            <p>${obra.description}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="watch.html?id=${obra.id}" style="color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" title="Reproducir" onclick="event.stopPropagation();">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </a>
+                            <div class="card-vibes">
+                                ${obra.tags ? obra.tags.slice(0, 2).map(t => `<span class="vibe-tag">${t}</span>`).join('') : ''}
+                            </div>
+                        </div>
+                    </div>
+                `}).join('');
+            }
+
+            searchInput.addEventListener('input', filterCards);
+            searchClear.addEventListener('click', function() {
+                searchInput.value = '';
+                filterCards();
+                searchInput.focus();
+            });
+        }
+
+        // ============================================================
+        // FILTROS
+        // ============================================================
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentPage = 1;
+                    renderPaginatedCards();
+                });
+            });
+        }
+
+        // ============================================================
+        // LISTAS
+        // ============================================================
+        function setupListas() {
+            const container = document.getElementById('listasGrid');
+            if (!container) return;
+            const obrasPrincipales = animes.filter(a => a.category === "animada");
+            const tagsCount = {};
+            obrasPrincipales.forEach(obra => {
+                if (obra.tags) {
+                    obra.tags.forEach(tag => {
+                        tagsCount[tag] = (tagsCount[tag] || 0) + 1;
+                    });
+                }
+            });
+            const tagsPopulares = Object.entries(tagsCount)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 6)
+                .map(([tag, count]) => ({
+                    tag: tag,
+                    count: count,
+                    icon: getIconForTag(tag)
+                }));
+            container.innerHTML = tagsPopulares.map(t =>
+                `<div class="lista-card" onclick="filtrarPorVibe('${t.tag}')">
+                    <div class="lista-icon">${t.icon}</div>
+                    <h3>${t.tag.charAt(0).toUpperCase() + t.tag.slice(1)}</h3>
+                    <p>${t.count} obras con esta temática</p>
+                    <div class="lista-count">${t.count} obras</div>
+                </div>`
+            ).join('');
+        }
+
+        function getIconForTag(tag) {
+            const icons = {
+                'robot': '🤖', 'mecha': '🦾', 'cyberpunk': '💻',
+                'terror': '👻', 'drama': '😢', 'acción': '⚔️',
+                'fantasía': '🐉', 'comedia': '😂', 'romance': '❤️',
+                'experimental': '🎨', 'nocturno': '🌙', 'violento': '💀',
+                'melancólico': '😔', 'nostálgico': '📼', 'espacial': '🚀',
+                'aventura': '🗺️', 'histórico': '🏯', 'ciencia-ficción': '🔬'
+            };
+            return icons[tag] || '📁';
+        }
+
+        // ============================================================
+        // SISTEMA DE RECOMENDACIONES AUTOMÁTICAS
+        // ============================================================
+        function obtenerRecomendaciones(obraId, limite = 4) {
+            const obraActual = animes.find(a => a.id === obraId);
+            if (!obraActual) return [];
+            
+            const otrasObras = animes.filter(a => 
+                a.id !== obraId && 
+                a.category === obraActual.category
+            );
+            
+            if (otrasObras.length === 0) return [];
+            
+            const puntajes = otrasObras.map(obra => {
+                let puntaje = 0;
+                
+                if (obraActual.genre && obra.genre) {
+                    const generosCoincidentes = obraActual.genre.filter(g => 
+                        obra.genre.some(og => og.toLowerCase() === g.toLowerCase())
+                    );
+                    puntaje += generosCoincidentes.length * 5;
+                }
+                
+                if (obraActual.tags && obra.tags) {
+                    const tagsCoincidentes = obraActual.tags.filter(t => 
+                        obra.tags.some(ot => ot.toLowerCase() === t.toLowerCase())
+                    );
+                    puntaje += tagsCoincidentes.length * 3;
+                }
+                
+                if (obraActual.year && obra.year) {
+                    const diffYear = Math.abs(obraActual.year - obra.year);
+                    if (diffYear <= 2) puntaje += 2;
+                    else if (diffYear <= 5) puntaje += 1;
+                }
+                
+                if (obraActual.studio && obra.studio && 
+                    obraActual.studio.toLowerCase() === obra.studio.toLowerCase()) {
+                    puntaje += 1;
+                }
+                
+                if (obraActual.director && obra.director && 
+                    obraActual.director.toLowerCase() === obra.director.toLowerCase()) {
+                    puntaje += 1;
+                }
+                
+                if (obraActual.adulto === obra.adulto) {
+                    puntaje += 0.5;
+                }
+                
+                return { obra, puntaje };
+            });
+            
+            const recomendaciones = puntajes
+                .filter(p => p.puntaje > 0)
+                .sort((a, b) => b.puntaje - a.puntaje)
+                .slice(0, limite)
+                .map(p => p.obra);
+            
+            if (recomendaciones.length < limite) {
+                const restantes = otrasObras.filter(o => 
+                    !recomendaciones.some(r => r.id === o.id)
+                );
+                const mezcladas = restantes.sort(() => Math.random() - 0.5);
+                const faltantes = limite - recomendaciones.length;
+                for (let i = 0; i < Math.min(faltantes, mezcladas.length); i++) {
+                    recomendaciones.push(mezcladas[i]);
+                }
+            }
+            
+            return recomendaciones;
+        }
+
+        function renderizarRecomendaciones(obraId) {
+            const container = document.getElementById('relatedGrid');
+            if (!container) return;
+            
+            const recomendaciones = obtenerRecomendaciones(obraId);
+            
+            if (recomendaciones.length === 0) {
+                container.innerHTML = `
+                    <div style="color:var(--text-muted);font-size:0.85rem;grid-column:1/-1;text-align:center;padding:12px;">
+                        📭 No hay recomendaciones disponibles
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = recomendaciones.map(r => {
+                const typeColor = r.type === 'OVA' ? 'var(--cyan)' : 
+                                 r.type === 'Película' ? 'var(--accent)' : 
+                                 r.type === 'Serie' ? 'var(--amber)' : 'var(--text-muted)';
+                const typeBg = r.type === 'OVA' ? 'rgba(5,217,232,0.1)' : 
+                              r.type === 'Película' ? 'rgba(212,163,115,0.1)' : 
+                              r.type === 'Serie' ? 'rgba(245,158,11,0.1)' : 'var(--bg-hover)';
+                const mainGenre = r.genre && r.genre[0] ? r.genre[0] : '';
+                const etiquetaAdulto = r.adulto ? '🔞' : '';
+                
+                return `
+                <div class="related-card" onclick="openModal(${r.id})">
+                    <div class="related-thumb">
+                        <img src="${r.cover}" alt="${r.title}" loading="lazy" onerror="handleImageError(this)">
+                        <span class="related-year">${r.year}</span>
+                        ${r.adulto ? '<span class="related-badge-adulto">🔞</span>' : ''}
+                    </div>
+                    <div class="related-info">
+                        <h5>${r.title} ${etiquetaAdulto}</h5>
+                        <div class="related-meta">
+                            <span class="related-type" style="background:${typeBg};color:${typeColor};border:1px solid ${typeColor}30;font-size:0.5rem;padding:1px 5px;border-radius:3px;font-weight:500;">
+                                ${r.type}
+                            </span>
+                            ${mainGenre ? `<span class="related-genre" style="font-size:0.55rem;color:var(--text-muted);">${mainGenre}</span>` : ''}
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // ============================================================
+        // MODAL
+        // ============================================================
+        let currentModalId = null;
+
+        function openModal(id) {
+            const obra = animes.find(a => a.id === id);
+            if (!obra) return;
+
+            if (currentModalId === id && document.getElementById('modalOverlay').classList.contains('active')) {
+                closeModalDirect();
+                setTimeout(() => openModal(id), 150);
+                return;
+            }
+
+            currentModalId = id;
+
+            document.title = `${obra.title} (${obra.year}) — Anime y cine de culto | Frame Perdido`;
+            
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                url.searchParams.set('expediente', id);
+                window.history.pushState({ expediente: id }, '', url);
+            }
+
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = `${obra.title} (${obra.year}) - ${obra.description.slice(0, 150)}. Anime y cine de culto.`;
+            }
+
+            document.getElementById('modalImage').src = obra.cover;
+            document.getElementById('modalImage').onerror = function() { handleImageError(this); };
+            document.getElementById('modalImage').alt = obra.title;
+            document.getElementById('modalTitle').textContent = obra.title;
+            document.getElementById('modalExpId').textContent = '#' + String(obra.id + 1).padStart(3, '0');
+            document.getElementById('modalMeta').innerHTML =
+                `<span>📅 ${obra.year}</span><span>🎬 ${obra.studio}</span><span>👤 ${obra.director}</span><span>⏱️ ${obra.duration}</span>`;
+            
+            const hentaiTag = obra.hentai ? `<span class="tag tag-hentai">🔞 Hentai</span>` : '';
+            const ecchiTag = obra.ecchi ? `<span class="tag tag-ecchi">🔞 Ecchi</span>` : '';
+            document.getElementById('modalTags').innerHTML = hentaiTag + ecchiTag + obra.genre.map(g => `<span class="tag accent">${g}</span>`).join('');
+            
+            document.getElementById('modalDesc').textContent = obra.description;
+            document.getElementById('modalPlot').textContent = obra.plot || 'Sin información disponible.';
+            document.getElementById('modalAnalysis').textContent = obra.analysis || 'Sin información disponible.';
+            document.getElementById('modalForgotten').textContent = obra.forgotten || 'Sin información disponible.';
+
+            const techList = [
+                `Estudio: ${obra.studio}`,
+                `Director: ${obra.director}`,
+                `Año: ${obra.year}`,
+                `Duración: ${obra.duration}`
+            ];
+            document.getElementById('modalTech').innerHTML = techList.map(t => `<li>${t}</li>`).join('');
+
+            const trailerContainer = document.getElementById('modalTrailerContainer');
+            const trailerFrame = document.getElementById('modalTrailerFrame');
+            if (obra.trailer && obra.trailer.trim() !== '') {
+                trailerContainer.style.display = 'block';
+                let videoUrl = obra.trailer;
+                if (videoUrl.includes('youtube.com/watch?v=')) {
+                    const videoId = videoUrl.split('v=')[1].split('&')[0];
+                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&mute=1`;
+                } else if (videoUrl.includes('youtu.be/')) {
+                    const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+                    videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&mute=1`;
+                } else if (videoUrl.includes('embed/') && !videoUrl.includes('mute=')) {
+                    if (!videoUrl.includes('mute=')) {
+                        videoUrl += (videoUrl.includes('?') ? '&' : '?') + 'mute=1';
+                    }
+                }
+                trailerFrame.src = videoUrl;
+                document.querySelector('.trailer-duration').textContent = obra.trailer_duration ? `⏱️ Duración del trailer: ${obra.trailer_duration}` : '⏱️ Duración del trailer: 1:30';
+            } else {
+                trailerContainer.style.display = 'none';
+                trailerFrame.src = '';
+            }
+
+            // RECOMENDACIONES AUTOMÁTICAS
+            renderizarRecomendaciones(id);
+
+            document.getElementById('shareUrlInput').value = window.location.href;
+
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                const modalContent = document.querySelector('.modal');
+                if (modalContent) {
+                    modalContent.scrollTop = 0;
+                }
+                overlay.scrollTop = 0;
+            }, 50);
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modalOverlay') &&
+                e.target !== document.querySelector('.modal-close')) return;
+            closeModalDirect();
+        }
+
+        function closeModalDirect() {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            const trailerFrame = document.getElementById('modalTrailerFrame');
+            if (trailerFrame) {
+                trailerFrame.src = '';
+            }
+            
+            document.title = 'Frame Perdido — Anime y cine de culto olvidado';
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = 'Rescatando clásicos olvidados del anime, OVAs de los 80s y 90s, películas de culto y live action raros.';
+            }
+            
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                url.searchParams.delete('expediente');
+                window.history.replaceState({}, '', url);
+            }
+            
+            currentModalId = null;
+        }
+
+        function randomObra() {
+            const obrasPrincipales = animes.filter(a => a.category === "animada" || a.category === "live-action");
+            if (!obrasPrincipales || obrasPrincipales.length === 0) return;
+            const randomId = obrasPrincipales[Math.floor(Math.random() * obrasPrincipales.length)].id;
+            openModal(randomId);
+        }
+
+        // ============================================================
+        // TRAILER DEL DÍA
+        // ============================================================
+        function setupTrailerDelDia() {
+            const obrasPrincipales = animes.filter(a => a.category === "animada" || a.category === "live-action");
+            if (!obrasPrincipales.length) return;
+            
+            const today = new Date();
+            const dayIndex = today.getDate() % obrasPrincipales.length;
+            const obra = obrasPrincipales[dayIndex];
+            
+            const section = document.getElementById('trailer-del-dia');
+            const titleEl = document.getElementById('trailerDiaTitle');
+            const metaEl = document.getElementById('trailerDiaMeta');
+            const tagsEl = document.getElementById('trailerDiaTags');
+            const playerEl = document.getElementById('trailerDiaPlayer');
+            
+            if (!obra.trailer || obra.trailer.trim() === '') {
+                section.style.display = 'block';
+                titleEl.textContent = `${obra.title} — ${obra.year}`;
+                metaEl.innerHTML = `🎬 ${obra.studio} · 👤 ${obra.director} · ⏱️ ${obra.duration}`;
+                tagsEl.innerHTML = `
+                    <span class="tag accent">${obra.type}</span>
+                    ${obra.genre.slice(0, 2).map(g => `<span class="tag">${g}</span>`).join('')}
+                `;
+                playerEl.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#000;color:var(--text-muted);font-family:'Space Mono',monospace;font-size:0.8rem;">🎬 Trailer no disponible</div>`;
+                return;
+            }
+            
+            titleEl.textContent = `${obra.title} — ${obra.year}`;
+            metaEl.innerHTML = `🎬 ${obra.studio} · 👤 ${obra.director} · ⏱️ ${obra.duration}`;
+            
+            tagsEl.innerHTML = `
+                <span class="tag accent">${obra.type}</span>
+                ${obra.genre.slice(0, 2).map(g => `<span class="tag">${g}</span>`).join('')}
+            `;
+            
+            let videoUrl = obra.trailer;
+            if (videoUrl.includes('youtube.com/watch?v=')) {
+                const videoId = videoUrl.split('v=')[1].split('&')[0];
+                videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&mute=1`;
+            } else if (videoUrl.includes('youtu.be/')) {
+                const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+                videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&mute=1`;
+            }
+            
+            playerEl.innerHTML = `<iframe src="${videoUrl}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="autoplay; encrypted-media" title="Trailer de ${obra.title}"></iframe>`;
+            
+            section.style.display = 'block';
+        }
+
+        // ============================================================
+        // NAVEGACIÓN Y UTILIDADES
+        // ============================================================
+        function toggleMobileMenu() {
+            document.getElementById('mainNav').classList.toggle('active');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModalDirect();
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('btnVolverArriba');
+            if (window.scrollY > 600) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        function checkUrlForExpediente() {
+            const params = new URLSearchParams(window.location.search);
+            const expedienteId = params.get('expediente');
+            
+            if (expedienteId !== null) {
+                const id = parseInt(expedienteId);
+                const obra = animes.find(a => a.id === id);
+                if (obra) {
+                    setTimeout(() => {
+                        openModal(id);
+                        setTimeout(() => {
+                            const overlay = document.getElementById('modalOverlay');
+                            if (overlay) {
+                                overlay.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }, 100);
+                    }, 500);
+                    return true;
+                }
+            }
+            
+            if (window.history.pushState) {
+                const url = new URL(window.location);
+                if (url.search !== '') {
+                    window.history.replaceState({}, '', '/');
+                }
+            }
+            
+            return false;
+        }
+
+        // ============================================================
+        // INICIALIZACIÓN
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof animes === 'undefined') {
+                console.error('❌ Error: No se encontró la variable "animes".');
+                document.getElementById('animeGrid').innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);">
+                        <p style="font-size:1.1rem;margin-bottom:6px;">⚠️ Error al cargar la base de datos</p>
+                        <p style="font-size:0.85rem;">Asegúrate de que el archivo data.js existe en la misma carpeta que index.html</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            console.log(`✅ Base de datos cargada: ${animes.length} obras`);
+            
+            document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
+            
+            actualizarContadoresTabs();
+            renderCards();
+            updateStats();
+            setupFeatured();
+            setupSearch();
+            setupFilters();
+            renderizarVibes();
+            setupListas();
+            setupTrailerDelDia();
+            actualizarHero();
+            
+            checkUrlForExpediente();
+            
+            document.getElementById('modalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModalDirect();
+                }
+            });
+        });
+    </script>
+
+
+    <!-- DETECTOR DE ADBLOCK -->
+    <script>
+        const isCrawler = () => {
+            const ua = navigator.userAgent.toLowerCase();
+            const bots = [
+                "googlebot", "google-inspectiontool", "adsbot-google",
+                "apis-google", "mediapartners-google", "bingbot",
+                "duckduckbot", "slurp", "baiduspider", "yandexbot",
+                "facebookexternalhit", "twitterbot", "linkedinbot",
+                "applebot", "petalbot"
+            ];
+            return bots.some(bot => ua.includes(bot));
+        };
+
+        const outbrainErrorCheck = async () => {
+            try {
+                await fetch("https://widgets.outbrain.com/outbrain.js");
+                return false;
+            } catch (e) { return true; }
+        };
+
+        const adligatureErrorCheck = async () => {
+            try {
+                await fetch("https://adligature.com/", { mode: "no-cors" });
+                return false;
+            } catch (e) { return true; }
+        };
+
+        const quantserveErrorCheck = async () => {
+            try {
+                await fetch("https://secure.quantserve.com/quant.js", { mode: "no-cors" });
+                return false;
+            } catch (e) { return true; }
+        };
+
+        const adligatureCssErrorCheck = async () => {
+            try {
+                await fetch("https://cdn.adligature.com/work.ink/prod/rules.css", { mode: "no-cors" });
+                return false;
+            } catch (e) { return true; }
+        };
+
+        const srvtrackErrorCheck = async () => {
+            try {
+                await fetch("https://srvtrck.com/assets/css/LineIcons.css", { mode: "no-cors" });
+                return false;
+            } catch (e) { return true; }
+        };
+
+        const yieldkitCheck = async () => {
+            try {
+                await fetch("https://js.srvtrck.com/v1/js?api_key=40710abb89ad9e06874a667b2bc7dee7&site_id=1f10f78243674fcdba586e526cb8ef08", { mode: "no-cors" });
+                return false;
+            } catch (e) { return true; }
+        };
+
+        const setIntervalCheck = () => {
+            return new Promise((resolve) => {
+                const timeout = setTimeout(() => resolve(true), 2000);
+                const interval = setInterval(() => {
+                    const a0b = "a0b";
+                    if (a0b == "a0b") {
+                        clearInterval(interval);
+                        clearTimeout(timeout);
+                        resolve(false);
+                    }
+                }, 100);
+            });
+        };
+
+        const idCheck = async () => {
+            const bannerIds = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead'];
+            const bannerString = bannerIds.map(id => `<div id="${id}">&nbsp;</div>`).join('');
+            const dataContainer = document.createElement("div");
+            dataContainer.innerHTML = bannerString;
+            document.body.append(dataContainer);
+            let adblocker = false;
+            bannerIds.forEach(id => {
+                const elem = document.getElementById(id);
+                if (!elem || elem.offsetHeight == 0) adblocker = true;
+                elem?.remove();
+            });
+            return adblocker;
+        };
+
+        const detectedAdblock = async () => {
+            const resp = await Promise.all([
+                outbrainErrorCheck(), adligatureErrorCheck(),
+                quantserveErrorCheck(), adligatureCssErrorCheck(),
+                srvtrackErrorCheck(), setIntervalCheck(), yieldkitCheck()
+            ]);
+            const isNotUsingAdblocker = resp.every(r => r == false);
+            return !isNotUsingAdblocker;
+        };
+
+        if (!isCrawler()) {
+            detectedAdblock().then(result => {
+                if (result) {
+                    window.location.href = "disable-adblock.html";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
